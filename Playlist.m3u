@@ -71,4 +71,113 @@ https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sports18_3.m3u8
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_sports_1_telugu_hd.m3u8
 #EXTINF:-1 group-title="Sports HD",Star Sports 1 Kannada HD
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_sports_1_kannada_hd.m3u8
-#EXTINF:-1 group-title="Sports HD",
+#EXTINF:-1 group-title="Sports HD",Star Sports Select 1 HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_sports_select_1_hd.m3u8
+#EXTINF:-1 group-title="Sports HD",Star Sports Select 2 HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_sports_select_2_hd.m3u8
+#EXTINF:-1 group-title="Sports HD",Sony Sports Ten 1 HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sony_ten_1_hd.m3u8
+#EXTINF:-1 group-title="Sports HD",Sony Sports Ten 2 HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sony_ten_2_hd.m3u8
+#EXTINF:-1 group-title="Sports HD",Sony Sports Ten 5 HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sony_ten_5_hd.m3u8
+#EXTINF:-1 group-title="Sports HD",Eurosport HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/eurosport_hd.m3u8
+#EXTINF:-1 group-title="Sports HD",DD Sports HD
+https://nicls1-vh.akamaihd.net/i/ddsports_1@40916/index_1_av-p.m3u8
+
+# ==============================
+# SPORTS SD
+# ==============================
+#EXTINF:-1 group-title="Sports SD",Star Sports 3
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_sports_3.m3u8
+#EXTINF:-1 group-title="Sports SD",Star Sports Khel
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sports18_khel.m3u8
+
+# ==============================
+# INFOTAINMENT HD
+# ==============================
+#EXTINF:-1 group-title="Infotainment HD",Discovery HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/discovery_hd.m3u8
+#EXTINF:-1 group-title="Infotainment HD",Animal Planet HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/animal_planet_hd.m3u8
+#EXTINF:-1 group-title="Infotainment HD",TLC HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/tlc_hd.m3u8
+#EXTINF:-1 group-title="Infotainment HD",Nat Geo HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/nat_geo_hd.m3u8
+#EXTINF:-1 group-title="Infotainment HD",History TV18 HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/history_tv18_hd.m3u8
+#EXTINF:-1 group-title="Infotainment HD",Sony BBC Earth HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sony_bbc_earth_hd.m3u8
+
+# ==============================
+# TAMIL NEWS
+# ==============================
+#EXTINF:-1 group-title="Tamil News",Polimer News
+https://d2q8p4pe5spbk6.cloudfront.net/out/v1/7d04261730c44e9992d9d93836376510/index.m3u8
+#EXTINF:-1 group-title="Tamil News",Puthiya Thalaimurai
+https://live-s0-05.hls.pw/puthiyathalaimurai/index.m3u8
+#EXTINF:-1 group-title="Tamil News",News7 Tamil
+https://pub-xr0b.hls.pw/news7/index.m3u8
+#EXTINF:-1 group-title="Tamil News",Thanthi TV
+https://d1f8f01b.ssl.hwcdn.net/thanthitv/index.m3u8
+#EXTINF:-1 group-title="Tamil News",News18 Tamil Nadu
+https://news18-lh.akamaihd.net/i/n18tamil_1@18984/index_1_av-p.m3u8
+#EXTINF:-1 group-title="Tamil News",Kalaignar Seithigal
+https://live-s0-05.hls.pw/kalaignarseithigal/index.m3u8
+#EXTINF:-1 group-title="Tamil News",Jaya Plus
+https://jayaplus-lh.akamaihd.net/i/jayaplus_1@337803/index_1_av-p.m3u8
+#EXTINF:-1 group-title="Tamil News",Captain News
+http://captainnews.live-s.cdn.bitgravity.com/cdn-live-s1/_definst_/captainnews/live/playlist.m3u8
+
+# ==============================
+# ENGLISH & HINDI NEWS
+# ==============================
+#EXTINF:-1 group-title="English & Hindi News",Republic TV
+https://live.republicworld.com/republic_linear_live/english/index_1200.m3u8
+#EXTINF:-1 group-title="English & Hindi News",NDTV 24x7
+https://ndtv24x7-lh.akamaihd.net/i/ndtv24x7_1@24172/index_1_av-p.m3u8
+#EXTINF:-1 group-title="English & Hindi News",India Today
+https://indiatoday-lh.akamaihd.net/i/indiatoday_1@18940/index_1_av-p.m3u8
+#EXTINF:-1 group-title="English & Hindi News",Aaj Tak
+https://aajtak-lh.akamaihd.net/i/aajtak_1@18945/index_1_av-p.m3u8
+#EXTINF:-1 group-title="English & Hindi News",DD News
+https://nicls1-vh.akamaihd.net/i/ddnews_1@40913/index_1_av-p.m3u8
+#EXTINF:-1 group-title="English & Hindi News",CNN-News18
+https://news18-lh.akamaihd.net/i/cnnnews18_1@18982/index_1_av-p.m3u8
+#EXTINF:-1 group-title="English & Hindi News",News18 India
+https://news18-lh.akamaihd.net/i/n18india_1@2179/index_1_av-p.m3u8
+
+# ==============================
+# KIDS
+# ==============================
+#EXTINF:-1 group-title="Kids",Nick HD+
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/nick_hd.m3u8
+#EXTINF:-1 group-title="Kids",Cartoon Network HD+
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/cn_hd.m3u8
+#EXTINF:-1 group-title="Kids",Disney Channel
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/disney_channel.m3u8
+#EXTINF:-1 group-title="Kids",Hungama TV
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/hungama_tv.m3u8
+#EXTINF:-1 group-title="Kids",Pogo
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/pogo.m3u8
+#EXTINF:-1 group-title="Kids",Discovery Kids
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/discovery_kids.m3u8
+#EXTINF:-1 group-title="Kids",Sony YAY!
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sony_yay.m3u8
+
+# ==============================
+# FANCODE
+# ==============================
+#EXTINF:-1 group-title="Fancode",Fancode Live Feeds
+https://raw.githubusercontent.com/byte-capsule/FanCode-Hls-Fetcher/main/Fancode_Live.m3u
+
+# ==============================
+# YOUTUBE
+# ==============================
+#EXTINF:-1 group-title="YouTube",YouTube Live Feed 1
+https://www.youtube.com/watch?v=VIDEO_ID_HERE
+#EXTINF:-1 group-title="YouTube",YouTube Live Feed 2
+https://www.youtube.com/watch?v=VIDEO_ID_HERE
+#EXTINF:-1 group-title="YouTube",News 24x7 Digital
+https://www.youtube.com/watch?v=VIDEO_ID_HERE
