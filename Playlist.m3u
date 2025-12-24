@@ -1,7 +1,7 @@
 #EXTM3U
 
 # ==============================
-# TAMIL HD
+# TAMIL HD (Best Available Public Proxies)
 # ==============================
 #EXTINF:-1 group-title="Tamil HD",Sun TV HD
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sun_tv_hd.m3u8
@@ -23,7 +23,7 @@ https://raw.githubusercontent.com/FunctionError/PiratesTv/main/vijay_super_hd.m3
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/zee_thirai_hd.m3u8
 
 # ==============================
-# TAMIL SD
+# TAMIL SD (Official Stable Sources)
 # ==============================
 #EXTINF:-1 group-title="Tamil SD",Polimer TV
 https://d2q8p4pe5spbk6.cloudfront.net/out/v1/7d04261730c44e9992d9d93836376510/index.m3u8
@@ -45,15 +45,15 @@ https://live-s0-05.hls.pw/megatv/index.m3u8
 https://live-s0-05.hls.pw/vendhartv/index.m3u8
 #EXTINF:-1 group-title="Tamil SD",Raj TV
 https://live-s0-05.hls.pw/rajtv/index.m3u8
-#EXTINF:-1 group-title="Tamil SD",Captain TV
-http://captainnews.live-s.cdn.bitgravity.com/cdn-live-s1/_definst_/captainnews/live/playlist.m3u8
 #EXTINF:-1 group-title="Tamil SD",Murasu TV
 https://live-s0-05.hls.pw/murasutv/index.m3u8
+#EXTINF:-1 group-title="Tamil SD",Captain TV
+http://captainnews.live-s.cdn.bitgravity.com/cdn-live-s1/_definst_/captainnews/live/playlist.m3u8
 #EXTINF:-1 group-title="Tamil SD",Jaya Max
 https://jayatv-lh.akamaihd.net/i/jayamax_1@337804/index_1_av-p.m3u8
 
 # ==============================
-# SPORTS HD
+# SPORTS HD (Public Proxies)
 # ==============================
 #EXTINF:-1 group-title="Sports HD",Star Sports 1 HD
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_sports_1_hd.m3u8
@@ -67,8 +67,6 @@ https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sports18_1_hd.m3u
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_sports_1_tamil_hd.m3u8
 #EXTINF:-1 group-title="Sports HD",Star Sports 2 Tamil HD
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sports18_3.m3u8
-#EXTINF:-1 group-title="Sports HD",Star Sports 1 Telugu HD
-https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_sports_1_telugu_hd.m3u8
 #EXTINF:-1 group-title="Sports HD",Star Sports 1 Kannada HD
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_sports_1_kannada_hd.m3u8
 #EXTINF:-1 group-title="Sports HD",Star Sports Select 1 HD
@@ -111,7 +109,7 @@ https://raw.githubusercontent.com/FunctionError/PiratesTv/main/history_tv18_hd.m
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sony_bbc_earth_hd.m3u8
 
 # ==============================
-# TAMIL NEWS
+# TAMIL NEWS (Official Sources)
 # ==============================
 #EXTINF:-1 group-title="Tamil News",Polimer News
 https://d2q8p4pe5spbk6.cloudfront.net/out/v1/7d04261730c44e9992d9d93836376510/index.m3u8
@@ -145,8 +143,22 @@ https://aajtak-lh.akamaihd.net/i/aajtak_1@18945/index_1_av-p.m3u8
 https://nicls1-vh.akamaihd.net/i/ddnews_1@40913/index_1_av-p.m3u8
 #EXTINF:-1 group-title="English & Hindi News",CNN-News18
 https://news18-lh.akamaihd.net/i/cnnnews18_1@18982/index_1_av-p.m3u8
-#EXTINF:-1 group-title="English & Hindi News",News18 India
-https://news18-lh.akamaihd.net/i/n18india_1@2179/index_1_av-p.m3u8
+
+# ==============================
+# HINDI MOVIES HD
+# ==============================
+#EXTINF:-1 group-title="Hindi Movies HD",Star Gold HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_gold_hd.m3u8
+#EXTINF:-1 group-title="Hindi Movies HD",Star Gold 2 HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_gold_2_hd.m3u8
+#EXTINF:-1 group-title="Hindi Movies HD",Zee Cinema HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/zee_cinema_hd.m3u8
+#EXTINF:-1 group-title="Hindi Movies HD",Sony Max HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sony_max_hd.m3u8
+#EXTINF:-1 group-title="Hindi Movies HD",Colors Cineplex HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/colors_cineplex_hd.m3u8
+#EXTINF:-1 group-title="Hindi Movies HD",&pictures HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/and_pictures_hd.m3u8
 
 # ==============================
 # KIDS
@@ -159,6 +171,8 @@ https://raw.githubusercontent.com/FunctionError/PiratesTv/main/cn_hd.m3u8
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/disney_channel.m3u8
 #EXTINF:-1 group-title="Kids",Hungama TV
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/hungama_tv.m3u8
+#EXTINF:-1 group-title="Kids",Sonic
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sonic.m3u8
 #EXTINF:-1 group-title="Kids",Pogo
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/pogo.m3u8
 #EXTINF:-1 group-title="Kids",Discovery Kids
@@ -167,17 +181,49 @@ https://raw.githubusercontent.com/FunctionError/PiratesTv/main/discovery_kids.m3
 https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sony_yay.m3u8
 
 # ==============================
-# FANCODE
+# OTHERS (HD Only)
 # ==============================
-#EXTINF:-1 group-title="Fancode",Fancode Live Feeds
+#EXTINF:-1 group-title="Others",Star Movies HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_movies_hd.m3u8
+#EXTINF:-1 group-title="Others",Sony Pix HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sony_pix_hd.m3u8
+#EXTINF:-1 group-title="Others",Movies Now HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/movies_now_hd.m3u8
+#EXTINF:-1 group-title="Others",Star Plus HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_plus_hd.m3u8
+#EXTINF:-1 group-title="Others",Colors HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/colors_hd.m3u8
+#EXTINF:-1 group-title="Others",Zee TV HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/zee_tv_hd.m3u8
+#EXTINF:-1 group-title="Others",Sony SET HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/sony_hd.m3u8
+#EXTINF:-1 group-title="Others",Star Maa HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/star_maa_hd.m3u8
+#EXTINF:-1 group-title="Others",Asianet HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/asianet_hd.m3u8
+#EXTINF:-1 group-title="Others",Colors Kannada HD
+https://raw.githubusercontent.com/FunctionError/PiratesTv/main/colors_kannada_hd.m3u8
+
+# ==============================
+# FANCODE (Live Feeds)
+# ==============================
+#EXTINF:-1 group-title="Fancode" tvg-id="Fancode",Fancode Live Playlist
 https://raw.githubusercontent.com/byte-capsule/FanCode-Hls-Fetcher/main/Fancode_Live.m3u
 
 # ==============================
-# YOUTUBE
+# YOUTUBE (Manual)
 # ==============================
-#EXTINF:-1 group-title="YouTube",YouTube Live Feed 1
-https://www.youtube.com/watch?v=VIDEO_ID_HERE
-#EXTINF:-1 group-title="YouTube",YouTube Live Feed 2
-https://www.youtube.com/watch?v=VIDEO_ID_HERE
+#EXTINF:-1 group-title="YouTube",Sun News Live
+https://www.youtube.com/watch?v=CVIWCi5XmN0
+#EXTINF:-1 group-title="YouTube",Polimer News Live
+https://www.youtube.com/watch?v=M94aL_j-s_w
 #EXTINF:-1 group-title="YouTube",News 24x7 Digital
-https://www.youtube.com/watch?v=VIDEO_ID_HERE
+https://www.youtube.com/watch?v=nyd-xznCpJc
+
+# ==============================
+# LIVE EVENTS (Placeholders)
+# ==============================
+#EXTINF:-1 group-title="Live Events",Live Event 1
+http://example.com/live1
+#EXTINF:-1 group-title="Live Events",Live Event 2
+http://example.com/live2
