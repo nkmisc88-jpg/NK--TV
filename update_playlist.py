@@ -16,8 +16,7 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 # LOCAL SERVER
 base_url = "http://192.168.0.146:5350/live" 
 
-# Player Config
-# We use a standard browser UA to trick the player
+# Player Config - Standard Browser Agent
 user_agent_str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 # ==========================================
 
@@ -56,6 +55,7 @@ def fetch_denver_map(url):
             for line in lines:
                 line = line.strip()
                 if line.startswith("#EXTINF"):
+                    # Extract Name (after last comma)
                     current_name = line.split(",")[-1].strip()
                 elif line and not line.startswith("#"):
                     if current_name:
@@ -74,20 +74,17 @@ def process_manual_link(line, link):
     if 'group-title="YouTube"' in line:
         line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
     
-    # 2. Fix YouTube Redirection (The Magic Trick)
-    # We strip the ID and rebuild the link with a fake .m3u8 extension
-    # This tricks TiviMate into treating it as a stream, not an App Intent.
-    if "youtube.com" in link or "youtu.be" in link:
-        # Extract ID
-        vid_id_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
-        if vid_id_match:
-            vid_id = vid_id_match.group(1)
-            # Rebuild with anti-redirect trick
-            link = f"https://www.youtube.com/watch?v={vid_id}&.m3u8|User-Agent={user_agent_str}"
-        else:
-            # Fallback if regex fails (just append UA)
-            if 'http-user-agent' not in line.lower() and '|User-Agent' not in link:
-                 link = f"{link}|User-Agent={user_agent_str}"
+    # 2. Add User-Agent Header (For OTT Navigator)
+    if ("youtube.com" in link or "youtu.be" in link) and 'http-user-agent' not in line.lower():
+        parts = line.rsplit(',', 1)
+        if len(parts) == 2:
+            line = f'{parts[0]} http-user-agent="{user_agent_str}",{parts[1]}'
+
+    # 3. Add User-Agent to URL (For TiviMate)
+    if ("youtube.com" in link or "youtu.be" in link):
+        # Remove any existing pipe first to avoid duplication
+        link = link.split('|')[0]
+        link = f"{link}|User-Agent={user_agent_str}"
             
     return [line, link]
 
