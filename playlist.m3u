@@ -55,8 +55,6 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_TV_HD_BTS/output/index.mpd?__hdnea__
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Super_HD_BTS/output/index.mpd?__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a&xxx=||cookie=__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Thirai_HD.png",Zee Thirai HD
-http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_TV.png",Polimer TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -315,10 +313,10 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Travel_XP_HD_BTS/output/index.mpd?__hdnea
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Nat_Geo_HD.png",Nat Geo HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=053d3a1f8d5e5d759a7cbaa5b9ca7a0d&key=020e466407e9be52f1884697ef9d9ec9
+#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4b006dd7965e5777a7fa33dd636c2e5d&key=179f796bdf11b750bebd469a3aeae1d0
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/National_Geographic_BTS/output/index.mpd?__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a&xxx=||cookie=__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a
+https://jiotvpllive.cdn.jio.com/bpk-tv/National_Geographic_HD_BTS/output/index.mpd?__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a&xxx=||cookie=__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Nat_Geo_Wild_HD.png",Nat Geo Wild HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
