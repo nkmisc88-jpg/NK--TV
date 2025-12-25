@@ -1,0 +1,11 @@
+Title : Sun News Live - Test
+Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png
+Link : https://www.youtube.com/watch?v=CVIWCi5XmN0
+
+Title : Polimer News
+Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png
+Link : https://www.youtube.com/watch?v=M94aL_j-s_w
+
+Title : News 24
+Logo : https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png
+Link : https://www.youtube.com/live/nyd-xznCpJc?si=123456
