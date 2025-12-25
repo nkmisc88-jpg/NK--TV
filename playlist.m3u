@@ -146,7 +146,7 @@ http://192.168.0.146:5350/live/412.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Times_Now.png",Times NOW
 http://192.168.0.146:5350/live/383.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_News.png",Zee News
-http://192.168.0.146:5350/live/504.m3u8
+https://jiotvpllive.cdn.jio.com/bpk-tv/Zee_News_BTS/output/index.mpd?__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a&xxx=||cookie=__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a|User-Agent=Dalvik/2.1.0 (Linux; U; Android 9; Pixel 4 Build/PQ3A.190801.002)
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/ABP_News.png",ABP News India
 http://192.168.0.146:5350/live/177.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/India_TV.png",India TV
@@ -258,7 +258,7 @@ http://192.168.0.146:5350/live/587.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zoom.png",ZOOM
 http://192.168.0.146:5350/live/592.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Asianet_HD.png",Asianet News
-http://192.168.0.146:5350/live/180.m3u8
+https://jiotvpllive.cdn.jio.com/bpk-tv/Asianet_News_BTS/output/index.mpd?__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a&xxx=||cookie=__hdnea__=st=1766625114~exp=1766711514~acl=/*~hmac=eda3dc832cc80a8cd0d3d440dd0de11637b4739e1cf1abf5c132aa9cd11d352a|User-Agent=Dalvik/2.1.0 (Linux; U; Android 9; Pixel 4 Build/PQ3A.190801.002)
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Kannada_HD.png",Colors Kannada HD
 http://192.168.0.146:5350/live/757.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Gemini_TV_HD.png",Gemini TV HD
@@ -279,6 +279,6 @@ https://www.youtube.com/watch?v=M94aL_j-s_w&.m3u8|User-Agent=Mozilla/5.0 (Window
 https://www.youtube.com/watch?v=nyd-xznCpJc&.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 25 December 2025 at 12:21:06 pm
+#DATE:- Thursday, 25 December 2025 at 12:35:06 pm
 #EXTINF:-1 tvg-id="139142" tvg-name="Al Barkat Vs Anjuman English Allana" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/129th-Harris-Shield-Cricket-Tournament-old-match-card_v2_1765970952698.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Al Barkat Vs Anjuman English Allana
 https://in-mc-fdlive.fancode.com/mumbai/139142_english_hls_074be7c0d133243_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
