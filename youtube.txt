@@ -1,11 +1,3 @@
-Title : Sun News Live - Test
-Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png
-Link : https://www.youtube.com/watch?v=CVIWCi5XmN0
-
-Title : Polimer News
-Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png
-Link : https://www.youtube.com/watch?v=M94aL_j-s_w
-
-Title : News 24
-Logo : https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png
-Link : https://www.youtube.com/live/nyd-xznCpJc?si=123456
+Title : Iscon Bengaluru 
+Logo : https://yt3.googleusercontent.com/c53RlDdbi5XR9eUVOuNlT9YWd8LuTu_hsd0uHuGZuUJBDWfQqPMN-0bGuO0nQQiidkeuSbA0Gn0=s160-c-k-c0x00ffffff-no-rj
+Link : https://www.youtube.com/live/d5jZun5E4zA?si=58lI9GToIk14jMLq
