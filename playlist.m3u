@@ -1,15 +1,21 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
 # ==============================
-# YOUTUBE (Internal Player)
+# YOUTUBE (Fixed: Will Auto-Convert to Local or HLS)
 # ==============================
-#EXTINF:-1 group-title="YouTube" tvg-id="Sun News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Sun News Live
-https://www.youtube.com/watch?v=CVIWCi5XmN0
-#EXTINF:-1 group-title="YouTube" tvg-id="Polimer News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Polimer News Live
-https://www.youtube.com/watch?v=M94aL_j-s_w
-#EXTINF:-1 group-title="YouTube" tvg-id="News 24x7" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",News 24x7 Digital
-https://www.youtube.com/watch?v=nyd-xznCpJc
-#EXTINF:-1 group-title="YouTube" tvg-id="Thanthi TV" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Thanthi_TV.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Thanthi TV
+#EXTINF:-1 group-title="YouTube" tvg-id="Sun News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png",Sun News
+http://192.168.0.146:5350/live/676.m3u8
+#EXTINF:-1 group-title="YouTube" tvg-id="Polimer News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png",Polimer News
+http://192.168.0.146:5350/live/636.m3u8
+#EXTINF:-1 group-title="YouTube" tvg-id="Thanthi TV" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Thanthi_TV.png",Thanthi TV
 http://192.168.0.146:5350/live/830.m3u8
+#EXTINF:-1 group-title="YouTube" tvg-id="News 24x7" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png",News 24
+http://192.168.0.146:5350/live/501.m3u8
+#EXTINF:-1 group-title="YouTube" tvg-id="Puthiya Thalaimurai" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthiya_Thalimurai.png",Puthiya Thalaimurai
+https://www.youtube.com/watch?v=83t5Xv23r7k
+#EXTINF:-1 group-title="YouTube" tvg-id="News7 Tamil" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News7_Tamil.png",News7 Tamil
+http://192.168.0.146:5350/live/673.m3u8
+#EXTINF:-1 group-title="YouTube" tvg-id="Kalaignar Seithigal" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Kalaignar_Seithigal.png",Kalaignar Seithigal
+http://192.168.0.146:5350/live/1210.m3u8
 # ==============================
 # TAMIL HD
 # ==============================
@@ -60,8 +66,8 @@ http://192.168.0.146:5350/live/709.m3u8
 http://placeholder
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Isaiaruvi.png",Isaiaruvi
 http://placeholder
-#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthuyugam_TV.png",Puthu Yugam
-http://192.168.0.146:5350/live/824.m3u8
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthuyugam_TV.png",Puthuyugam
+http://placeholder
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Raj_Digital_Plus.png",Raj Digital Plus
 http://192.168.0.146:5350/live/683.m3u8
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Peppers_TV.png",Peppers TV
@@ -104,7 +110,7 @@ http://192.168.0.146:5350/live/892.m3u8
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sports18_1_HD.png",Sports18 1 HD
 http://placeholder
 # ==============================
-# SPORTS SD (If HD missing)
+# SPORTS SD
 # ==============================
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1.png",Star Sports 1
 http://placeholder
@@ -347,8 +353,11 @@ http://192.168.0.146:5350/live/897.m3u8
 http://192.168.0.146:5350/live/901.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Surya_HD.png",Surya HD
 http://192.168.0.146:5350/live/900.m3u8
+# ==============================
+# FANCODE
+# ==============================
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 25 December 2025 at 6:21:06 am
+#DATE:- Thursday, 25 December 2025 at 6:35:06 am
 #EXTINF:-1 tvg-id="136138" tvg-name="Al Nassr Fc Vs Al Zawraa Sc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/136138_5648_ANF_ALZ_FC-Web.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Al Nassr Fc Vs Al Zawraa Sc
 https://in-mc-fdlive.fancode.com/mumbai/136138_english_hls_30dc12587a12429_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
