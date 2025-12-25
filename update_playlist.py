@@ -14,14 +14,33 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# REMOVE LIST
-REMOVE_KEYWORDS = ["sony ten", "sonyten", "sony sports ten", "star sports 1", "star sports 2"]
+# 1. REMOVE LIST
+# Added "zee thirai" to remove it
+REMOVE_KEYWORDS = [
+    "sony ten", "sonyten", "sony sports ten", 
+    "star sports 1", "star sports 2",
+    "zee thirai" 
+]
 
-# GENERAL BACKUP LIST
-FORCE_BACKUP_KEYWORDS = ["star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab", "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix", "&pictures", "sports", "ten"]
+# 2. FORCE BACKUP LIST
+FORCE_BACKUP_KEYWORDS = [
+    "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
+    "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
+    "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
+    "&pictures", "sports", "ten"
+]
 
-# NAME OVERRIDES (Standard)
+# 3. NAME OVERRIDES
 NAME_OVERRIDES = {
+    # --- FIXES YOU REQUESTED ---
+    "zee tamil": "Zee Tamil HD",           # Fix: Forces HD link from backup
+    "nat geo hd": "National Geographic HD",# Fix: Forces HD link (stops SD)
+    
+    # --- PREVIOUS FIXES ---
+    "star sports 2 hindi hd": "Sports18 1 HD",
+    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
+
+    # --- STANDARD MAPPINGS ---
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
     "star sports 1 hindi hd": "Star Sports HD1 Hindi",
@@ -30,7 +49,6 @@ NAME_OVERRIDES = {
     "sony sports ten 3 hd": "sony ten 3",
     "sony sports ten 4 hd": "sony ten 4",
     "sony sports ten 5 hd": "sony ten 5",
-    "nat geo hd": "national geographic",
     "nat geo wild hd": "nat geo wild",
     "discovery hd world": "discovery channel",
     "history tv18 hd": "history",
@@ -65,24 +83,11 @@ def fuzzy_match_logic(target_name, map_keys):
     return None
 
 def find_best_backup_link(original_name, backup_map):
-    # --- MANUAL OVERRIDES (The "Direct Copy" Logic) ---
-    name_lower = original_name.lower()
+    # Manual Fix for Star Sports 2 Hindi HD
+    if "star sports 2 hindi hd" in original_name.lower():
+        for k in backup_map:
+            if "sports18" in k.lower() and "1" in k and "hd" in k.lower(): return backup_map[k]
     
-    # 1. Star Sports 2 Hindi HD -> Fetch "Sports18 1 HD" specifically
-    if "star sports 2 hindi hd" in name_lower:
-        # Scan backup keys for "sports18 1 hd"
-        for k in backup_map:
-            if "sports18" in k.lower() and "1" in k and "hd" in k.lower():
-                return backup_map[k]
-                
-    # 2. Star Sports 2 Tamil HD -> Fetch exact name
-    if "star sports 2 tamil hd" in name_lower:
-        # Scan backup keys for exact match
-        for k in backup_map:
-            if "star sports 2 tamil hd" in k.lower(): # fuzzy strict check
-                return backup_map[k]
-    # --------------------------------------------------
-
     clean_orig = clean_name_key(original_name)
     if clean_orig in backup_map: return backup_map[clean_orig]
     
@@ -114,7 +119,7 @@ def load_local_map(ref_file):
 def fetch_backup_map(url):
     block_map = {}
     try:
-        print("🌍 Fetching FakeAll Source...")
+        print("🌍 Fetching Backup Source...")
         response = requests.get(url, headers={"User-Agent": browser_ua}, timeout=20)
         if response.status_code == 200:
             lines = response.text.splitlines()
@@ -192,11 +197,9 @@ def update_playlist():
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
 
-                # --- 1. DIRECT REMOVE: "Star Sports 1 Kannada HD" ---
-                if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower:
-                    continue # Skip immediately
-
-                # --- 2. GENERAL REMOVE ---
+                # --- REMOVAL LOGIC ---
+                if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower: continue
+                
                 should_remove = False
                 for rm in REMOVE_KEYWORDS:
                     if rm in ch_name_lower:
