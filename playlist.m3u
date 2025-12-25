@@ -232,9 +232,9 @@ http://192.168.0.146:5350/live/900.m3u8
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://yt3.googleusercontent.com/c53RlDdbi5XR9eUVOuNlT9YWd8LuTu_hsd0uHuGZuUJBDWfQqPMN-0bGuO0nQQiidkeuSbA0Gn0=s160-c-k-c0x00ffffff-no-rj" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Iscon Bengaluru
 https://www.youtube.com/live/d5jZun5E4zA?si=pZcISvMCYoL89Vsu
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg",ICC TV Stream 1 [VPN: Australia]
-PASTE_LINK_HERE
+https://prod-sports-north-gm.jiocinema.com/bpk-tv/M1_English_1080p/index.m3u8
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg",ICC TV Stream 2 [VPN: USA]
-PASTE_LINK_HERE
+https://d1e1.kooora365.com/b3/index.m3u8
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Sun News Live
 https://www.youtube.com/watch?v=CVIWCi5XmN0
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Polimer News
