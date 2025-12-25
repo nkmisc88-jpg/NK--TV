@@ -16,7 +16,8 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 # LOCAL SERVER
 base_url = "http://192.168.0.146:5350/live" 
 
-# Player Config - Standard Browser Agent
+# Player Config
+# We use a standard browser UA to trick the player
 user_agent_str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 # ==========================================
 
@@ -67,18 +68,26 @@ def fetch_denver_map(url):
     return link_map
 
 def process_manual_link(line, link):
-    """Handles renaming groups and fixing YouTube links."""
+    """Handles renaming groups and FIXES YouTube redirection."""
     
     # 1. Rename Group
     if 'group-title="YouTube"' in line:
         line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
     
-    # 2. Fix YouTube Redirection (Append User-Agent to URL)
-    if ("youtube.com" in link or "youtu.be" in link):
-        # Remove any existing pipe first to avoid duplication
-        link = link.split('|')[0]
-        # Append User-Agent using Pipe syntax (Works best for TiviMate)
-        link = f"{link}|User-Agent={user_agent_str}"
+    # 2. Fix YouTube Redirection (The Magic Trick)
+    # We strip the ID and rebuild the link with a fake .m3u8 extension
+    # This tricks TiviMate into treating it as a stream, not an App Intent.
+    if "youtube.com" in link or "youtu.be" in link:
+        # Extract ID
+        vid_id_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
+        if vid_id_match:
+            vid_id = vid_id_match.group(1)
+            # Rebuild with anti-redirect trick
+            link = f"https://www.youtube.com/watch?v={vid_id}&.m3u8|User-Agent={user_agent_str}"
+        else:
+            # Fallback if regex fails (just append UA)
+            if 'http-user-agent' not in line.lower() and '|User-Agent' not in link:
+                 link = f"{link}|User-Agent={user_agent_str}"
             
     return [line, link]
 
@@ -115,7 +124,7 @@ def parse_youtube_txt():
     return new_entries
 
 def update_playlist():
-    print("--- STARTING UPDATE ---")
+    print("--- STARTING HYBRID UPDATE ---")
     
     local_map = load_local_map(reference_file)
     denver_map = fetch_denver_map(denver_url)
@@ -144,6 +153,7 @@ def update_playlist():
                     
                     # PRIORITY 2: DENVER BACKUP
                     elif lookup_key in denver_map:
+                        print(f"🔹 Found in Denver: {original_name}")
                         final_lines.append(line)
                         final_lines.append(denver_map[lookup_key])
                         
