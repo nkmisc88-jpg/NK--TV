@@ -1,27 +1,25 @@
 import requests
 import re
-import difflib
 
 # ==========================================
 # CONFIGURATION
 # ==========================================
 template_file = "template.m3u"
-reference_file = "jiotv_playlist.m3u.m3u8" # Your Local JioTV export
+reference_file = "jiotv_playlist.m3u.m3u8" # Your working local playlist
 output_file = "playlist.m3u"
 
 # SOURCES
-local_base_url = "http://192.168.0.146:5350/live"
 jstar_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# DELETE LIST (Channels to strictly REMOVE)
+# DELETE LIST
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2" # SD versions
 ]
 
-# FORCED MAPPING (Template -> JStar Backup)
-# These specific HD channels will come from JStar
+# FORCED MAPPING (Template Name -> JStar Name)
+# These specific HD channels will be pulled from JStar
 BACKUP_MAPPING = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -37,32 +35,42 @@ BACKUP_MAPPING = {
     "zee tamil": "Zee Tamil HD"
 }
 
+# Groups to check in JStar
 FORCE_BACKUP_GROUPS = ["Sports HD", "Infotainment HD"]
+
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 
 # ==========================================
 
 def clean_key(name):
-    """Simplifies string for matching."""
+    """Standardizes string for matching (removes spaces, case, special chars)."""
     return re.sub(r'[^a-z0-9]', '', name.lower())
 
 def load_local_map(ref_file):
-    """Loads ID map from local file."""
-    id_map = {}
+    """Reads the reference file and maps Name -> FULL URL."""
+    url_map = {}
     try:
         with open(ref_file, "r", encoding="utf-8") as f:
-            content = f.read()
-        pattern = r'tvg-id="(\d+)".*?tvg-name="([^"]+)"'
-        matches = re.findall(pattern, content)
-        for ch_id, ch_name in matches:
-            id_map[clean_key(ch_name)] = {"id": ch_id, "name": ch_name}
-        print(f"✅ Local Server: Loaded {len(id_map)} channels.")
-    except:
-        print(f"❌ ERROR: Could not find {ref_file}")
-    return id_map
+            lines = f.readlines()
+        
+        current_name = ""
+        for line in lines:
+            line = line.strip()
+            if line.startswith("#EXTINF"):
+                # Extract name
+                current_name = line.split(",")[-1].strip()
+            elif line.startswith("http") and current_name:
+                # Store the EXACT working URL keyed by cleaned name
+                k = clean_key(current_name)
+                url_map[k] = line
+                current_name = ""
+        print(f"✅ Local Reference: Loaded {len(url_map)} working links.")
+    except FileNotFoundError:
+        print(f"❌ ERROR: Could not find {ref_file}. Make sure it's in the same folder!")
+    return url_map
 
 def fetch_jstar(url):
-    """Fetches JStar backup."""
+    """Fetches JStar backup and maps Name -> URL."""
     map_data = {}
     try:
         resp = requests.get(url, headers={"User-Agent": browser_ua}, timeout=30)
@@ -74,32 +82,19 @@ def fetch_jstar(url):
                     curr = line.split(",")[-1].strip()
                 elif line.startswith("http") and curr:
                     k = clean_key(curr)
+                    # Priority: Prefer HD
                     if k not in map_data or "hd" in curr.lower():
-                        map_data[k] = {"url": line, "name": curr}
+                        map_data[k] = line
                     curr = ""
             print(f"✅ JStar Backup: Loaded {len(map_data)} channels.")
     except:
         print("❌ Error fetching JStar.")
     return map_data
 
-def smart_find_local(target_name, local_map):
-    """Tries to find a channel in local map even if name is slightly different."""
-    target_clean = clean_key(target_name)
-    
-    # 1. Exact Match
-    if target_clean in local_map:
-        return local_map[target_clean]['id']
-    
-    # 2. Fuzzy Contain Match (e.g. "Sun TV" found in "Sun TV HD")
-    for k, v in local_map.items():
-        if target_clean in k or k in target_clean:
-            return v['id']
-            
-    return None
-
 def update_playlist():
-    local_map = load_local_map(reference_file)
-    jstar_map = fetch_jstar(jstar_url)
+    # 1. Load Sources
+    local_urls = load_local_map(reference_file)
+    jstar_urls = fetch_jstar(jstar_url)
     
     final_lines = ["#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\""]
     count = 0
@@ -131,30 +126,29 @@ def update_playlist():
 
             final_url = ""
             
-            # 2. CHECK SOURCE PRIORITY
+            # 2. DECIDE SOURCE
             is_backup_group = any(g in inf_line for g in FORCE_BACKUP_GROUPS)
             
-            # A) Try Backup (JStar)
+            # CASE A: FORCE FROM JSTAR (Sports HD)
             if is_backup_group:
+                # Try specific mapping first
                 target = BACKUP_MAPPING.get(ch_name_clean, ch_name_raw)
                 k = clean_key(target)
-                if k in jstar_map:
-                    final_url = jstar_map[k]['url']
-                # Fallback to Local if JStar fails
-                elif smart_find_local(ch_name_raw, local_map):
-                    tid = smart_find_local(ch_name_raw, local_map)
-                    final_url = f"{local_base_url}/{tid}.m3u8"
+                if k in jstar_urls:
+                    final_url = jstar_urls[k]
+                # Fallback to Local URL if JStar fails
+                elif ch_name_clean in local_urls:
+                    final_url = local_urls[ch_name_clean]
 
-            # B) Try Local (Primary)
+            # CASE B: EVERYTHING ELSE (Sun TV, News, etc.) -> USE LOCAL
             else:
-                tid = smart_find_local(ch_name_raw, local_map)
-                if tid:
-                    final_url = f"{local_base_url}/{tid}.m3u8"
-                # Fallback to JStar if Local fails
-                elif ch_name_clean in jstar_map:
-                    final_url = jstar_map[ch_name_clean]['url']
+                if ch_name_clean in local_urls:
+                    final_url = local_urls[ch_name_clean]
+                # Fallback to JStar if missing locally
+                elif ch_name_clean in jstar_urls:
+                    final_url = jstar_urls[ch_name_clean]
             
-            # 3. FINAL DECISION
+            # 3. WRITE RESULT
             if final_url:
                 final_lines.append(inf_line)
                 final_lines.append(final_url)
@@ -165,17 +159,13 @@ def update_playlist():
                 final_lines.append(stream_url)
                 count += 1
             else:
-                # 4. LAST RESORT: DON'T DELETE! ADD ANYWAY!
-                # We assume it might be in local with same ID as name or user will fix later
-                # This ensures your count stays 151
-                print(f"⚠️ Warning: No source found for {ch_name_raw} (Keeping entry)")
+                # If truly missing, keep it but warn. 
+                # (Ideally this shouldn't happen if Reference File is complete)
+                print(f"⚠️ Link Missing: {ch_name_raw}")
                 final_lines.append(inf_line)
-                # Guess URL: try using channel name as ID
-                guess_id = ch_name_raw.replace(" ", "")
-                final_lines.append(f"{local_base_url}/{guess_id}.m3u8")
-                count += 1
+                final_lines.append(stream_url) # Keep placeholder so user sees it in list
 
-        # 5. ADD FANCODE
+        # 4. ADD FANCODE
         try:
             fc_resp = requests.get(fancode_url, headers={"User-Agent": browser_ua}, timeout=30)
             if fc_resp.status_code == 200:
@@ -188,7 +178,7 @@ def update_playlist():
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_lines))
         print(f"\n🎉 Playlist Generated: {output_file}")
-        print(f"📊 Total Channels: ~{count} + Fancode")
+        print(f"📊 Total Channels: {count} + Fancode")
 
     except Exception as e:
         print(f"Error: {e}")
