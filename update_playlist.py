@@ -14,7 +14,7 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# 1. REMOVAL LIST (General)
+# 1. REMOVAL LIST (General SD channels)
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2" 
@@ -28,16 +28,18 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "sports", "ten"
 ]
 
-# 3. NAME OVERRIDES (Fixing the "Missing" and "Renaming" issues)
+# 3. NAME OVERRIDES (Fixing your specific requests)
 NAME_OVERRIDES = {
-    # --- STAR SPORTS FIXES ---
-    "star sports 2 hindi hd": "Sports18 1 HD",   # FIXED: Maps strict to source name
-    "star sports 2 tamil hd": "Star Sports 2 Tamil HD", # ADDED
+    # Request 1: Rename/Fix Sports18 1 HD
+    "star sports 2 hindi hd": "Sports18 1 HD",
+    
+    # Request 2: Add Star Sports 2 Tamil HD
+    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
+
+    # Standard Mappings
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
     "star sports 1 hindi hd": "Star Sports HD1 Hindi",
-    
-    # --- OTHERS ---
     "sony sports ten 1 hd": "sony ten 1",
     "sony sports ten 2 hd": "sony ten 2",
     "sony sports ten 3 hd": "sony ten 3",
@@ -104,11 +106,8 @@ def fuzzy_match_logic(target_name, map_keys):
 
 def find_best_backup_link(original_name, backup_map):
     clean_orig = clean_name_key(original_name)
-    
-    # 1. Exact Match
     if clean_orig in backup_map: return backup_map[clean_orig]
-        
-    # 2. Mapped Match
+    
     clean_mapped = None
     for k, v in NAME_OVERRIDES.items():
         if clean_name_key(k) == clean_orig:
@@ -117,14 +116,11 @@ def find_best_backup_link(original_name, backup_map):
             
     if clean_mapped:
         if clean_mapped in backup_map: return backup_map[clean_mapped]
-        # Fuzzy match the mapped name
         fuzzy_mapped = fuzzy_match_logic(NAME_OVERRIDES.get(original_name.lower(), clean_mapped), backup_map.keys())
         if fuzzy_mapped: return backup_map[fuzzy_mapped]
     
-    # 3. Fuzzy Match Original
     fuzzy_key = fuzzy_match_logic(original_name, backup_map.keys())
     if fuzzy_key: return backup_map[fuzzy_key]
-        
     return None
 
 def load_local_map(ref_file):
@@ -207,7 +203,7 @@ def parse_youtube_txt():
     return new_entries
 
 def update_playlist():
-    print("--- STARTING PLAYLIST UPDATE ---")
+    print("--- STARTING UPDATE ---")
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
     final_lines = ["#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\""]
@@ -220,42 +216,33 @@ def update_playlist():
             if line.startswith("#EXTINF"):
                 url = ""
                 if i + 1 < len(lines): url = lines[i+1].strip()
-
+                
                 original_name = line.split(",")[-1].strip()
-                ch_name_clean = clean_name_key(original_name)
+                ch_name_lower = original_name.lower()
+                
+                # --- Request 3: Strict Removal of Star Sports 1 Kannada HD ---
+                if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower:
+                    continue # Skip this channel immediately
 
-                # --- REMOVAL LOGIC ---
+                # --- General Removal Logic ---
                 should_remove = False
-                
-                # 1. SPECIFIC REMOVAL: Check for 'kannada' + 'star sports 1' FIRST
-                if "kannada" in ch_name_clean and "starsports1" in ch_name_clean:
-                    should_remove = True
-                
-                # 2. GENERAL REMOVAL: Check others only if not already removed
-                if not should_remove:
-                    for rm in REMOVE_KEYWORDS:
-                        if rm in ch_name_clean:
-                            # Protect HD channels from SD removal keywords
-                            if "starsports" in rm and "hd" in ch_name_clean: continue
-                            should_remove = True
-                            break
-                
+                for rm in REMOVE_KEYWORDS:
+                    if rm in ch_name_lower:
+                        if "star sports 1" in rm or "star sports 2" in rm:
+                            if "hd" in ch_name_lower: continue # Protect Other HD channels
+                        should_remove = True
+                        break
                 if should_remove: continue
-                # -------------------------
 
                 if "http://placeholder" in url:
                     found_block = None
-                    
-                    # Force Backup check
+                    # Prioritize Backup if keyword match
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
-                        if found_block:
-                            stats["backup"] += 1
+                        if found_block: stats["backup"] += 1
                         elif clean_name_key(original_name) in local_map:
                             found_block = [f"{base_url}/{local_map[clean_name_key(original_name)]}.m3u8"]
                             stats["local"] += 1
-                    
-                    # Standard check
                     else:
                         if clean_name_key(original_name) in local_map:
                             found_block = [f"{base_url}/{local_map[clean_name_key(original_name)]}.m3u8"]
@@ -293,7 +280,7 @@ def update_playlist():
     except: pass
 
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
-    print(f"\n🎉 SUMMARY: Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
+    print(f"\n🎉 DONE: Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
 
 if __name__ == "__main__":
     update_playlist()
