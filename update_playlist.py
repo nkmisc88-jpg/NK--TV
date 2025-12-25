@@ -1,5 +1,6 @@
 import requests
 import re
+import json
 
 # ==========================================
 # CONFIGURATION
@@ -32,7 +33,6 @@ FORCE_BACKUP_KEYWORDS = [
 
 # 3. MAPPING (Name Overrides)
 NAME_OVERRIDES = {
-    # Request: Star Sports 2 Hindi HD -> Mapped to Sports18 1 HD (for Local Lookup)
     "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "zee tamil": "Zee Tamil HD",
@@ -79,7 +79,6 @@ def fuzzy_match_logic(target_name, map_keys):
     return None
 
 def find_best_backup_link(original_name, backup_map):
-    # Star Sports 2 Tamil HD specific check
     if "star sports 2 tamil hd" in original_name.lower():
         for k in backup_map:
             if "star sports 2 tamil hd" in k.lower(): return backup_map[k]
@@ -142,23 +141,35 @@ def fetch_backup_map(url):
 
 def should_force_backup(name):
     norm = name.lower()
-    
-    # EXCEPTION: Ensure Star Sports 2 Hindi HD (Sports18 1 HD) uses LOCAL
-    if "star sports 2 hindi hd" in norm: 
-        return False
-        
+    if "star sports 2 hindi hd" in norm: return False
     for k in FORCE_BACKUP_KEYWORDS:
         if k in norm: return True
     return False
 
+# --- NEW: YouTube Fetcher (Fixes Redirects) ---
+def get_youtube_live_link(youtube_url):
+    """Extracts the FRESH live m3u8 link from a YouTube URL."""
+    try:
+        session = requests.Session()
+        session.headers.update({'User-Agent': browser_ua})
+        resp = session.get(youtube_url)
+        if "hlsManifestUrl" in resp.text:
+            url = re.search(r'"hlsManifestUrl":"(.*?)"', resp.text).group(1)
+            return url
+        return youtube_url # Return original if extraction fails
+    except:
+        return youtube_url
+
 def process_manual_link(line, link):
-    if 'group-title="YouTube"' in line:
-        line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
+    # Detect YouTube Link
     if "youtube.com" in link or "youtu.be" in link:
-        link = link.split('|')[0]
-        vid_id = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
-        if vid_id: link = f"https://www.youtube.com/watch?v={vid_id.group(1)}&.m3u8|User-Agent={browser_ua}"
-        else: link = f"{link}|User-Agent={browser_ua}"
+        print(f"   ...Refreshing YouTube Link: {link[:30]}...")
+        # Clean URL
+        clean_link = link.split('|')[0]
+        # Fetch fresh HLS
+        fresh_hls = get_youtube_live_link(clean_link)
+        return [line, f"{fresh_hls}|User-Agent={browser_ua}"]
+        
     return [line, link]
 
 def parse_youtube_txt():
@@ -175,8 +186,13 @@ def parse_youtube_txt():
                     data[k.strip().lower()] = v.strip()
             title = data.get('title', 'Unknown'); logo = data.get('logo', ''); link = data.get('link', '')
             if not link: continue
+            
+            # Use 'Youtube' group to ensure player treats it right
             line = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}'
-            new_entries.extend(process_manual_link(line, link))
+            
+            # Process & Fetch Fresh Link
+            processed_block = process_manual_link(line, link)
+            new_entries.extend(processed_block)
     except: pass
     return new_entries
 
@@ -211,7 +227,7 @@ def update_playlist():
                         should_remove = True; break
                 if should_remove: continue
 
-                # RENAME VISUAL (Optional)
+                # RENAME VISUAL
                 if "star sports 2 hindi hd" in ch_name_lower:
                     line = line.replace("Star Sports 2 Hindi HD", "Sports18 1 HD")
 
@@ -219,11 +235,9 @@ def update_playlist():
                     clean_local_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # Logic: Force Backup OR Standard
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                         if found_block: stats["backup"] += 1
-                        # Check fallback using Mapped Name ("Sports18 1 HD")
                         elif clean_name_key(NAME_OVERRIDES.get(ch_name_lower, "")) in local_map:
                              found_block = [f"{base_url}/{local_map[clean_name_key(NAME_OVERRIDES[ch_name_lower])]}.m3u8"]
                              stats["local"] += 1
@@ -231,13 +245,10 @@ def update_playlist():
                             found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
                             stats["local"] += 1
                     else:
-                        # STANDARD CHECK (Local Priority)
                         mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
-                        
                         if clean_local_key in local_map:
                             found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
                             stats["local"] += 1
-                        # Check mapped name in local (e.g. template has "Star Sports 2", local has "Sports18")
                         elif mapped_key and mapped_key in local_map:
                             found_block = [f"{base_url}/{local_map[mapped_key]}.m3u8"]
                             stats["local"] += 1
@@ -259,7 +270,9 @@ def update_playlist():
                     final_lines.extend(processed)
     except FileNotFoundError: pass
 
+    # Process YouTube File (with Mini-Fetcher)
     final_lines.extend(parse_youtube_txt())
+    
     try:
         r = requests.get(fancode_url)
         if r.status_code == 200:
