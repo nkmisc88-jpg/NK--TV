@@ -14,29 +14,14 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# 1. REMOVAL LIST (General SD channels)
-REMOVE_KEYWORDS = [
-    "sony ten", "sonyten", "sony sports ten", 
-    "star sports 1", "star sports 2" 
-]
+# REMOVE LIST
+REMOVE_KEYWORDS = ["sony ten", "sonyten", "sony sports ten", "star sports 1", "star sports 2"]
 
-# 2. FORCE BACKUP LIST
-FORCE_BACKUP_KEYWORDS = [
-    "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
-    "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
-    "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
-    "&pictures", "sports", "ten"
-]
+# GENERAL BACKUP LIST
+FORCE_BACKUP_KEYWORDS = ["star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab", "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix", "&pictures", "sports", "ten"]
 
-# 3. NAME OVERRIDES (Fixing your specific requests)
+# NAME OVERRIDES (Standard)
 NAME_OVERRIDES = {
-    # Request 1: Rename/Fix Sports18 1 HD
-    "star sports 2 hindi hd": "Sports18 1 HD",
-    
-    # Request 2: Add Star Sports 2 Tamil HD
-    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
-
-    # Standard Mappings
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
     "star sports 1 hindi hd": "Star Sports HD1 Hindi",
@@ -65,55 +50,46 @@ def clean_name_key(name):
     return name.lower().strip()
 
 def get_significant_words(name):
-    name = name.lower()
-    name = name.replace("sports18", "sports 18") 
+    name = name.lower().replace("sports18", "sports 18") 
     name = re.sub(r'\b(hd|sd|tv|channel|network|india|world|english|tamil|hindi|telugu|kannada|movies|cinema)\b', '', name)
     words = re.findall(r'[a-z0-9]+', name)
     return set(words)
 
-def get_forbidden_words(target_name):
-    t = target_name.lower()
-    forbidden = []
-    if "nat" in t and "wild" not in t: forbidden.append("wild")
-    if "discovery" in t:
-        if "kids" not in t: forbidden.append("kids")
-        if "science" not in t: forbidden.append("science")
-        if "turbo" not in t: forbidden.append("turbo")
-    if "sports" in t or "ten" in t:
-        for n in ["1", "2", "3", "4", "5"]:
-            if n in t:
-                forbidden.extend([x for x in ["1", "2", "3", "4", "5"] if x != n])
-                break     
-    return forbidden
-
 def fuzzy_match_logic(target_name, map_keys):
     target_words = get_significant_words(target_name)
     if not target_words: return None
-    bad_words = get_forbidden_words(target_name)
-    
     for key in map_keys:
-        key_lower = key.lower()
-        key_norm = key_lower.replace("sports18", "sports 18")
-        if any(bad in key_lower for bad in bad_words): continue
-        key_words = set(re.findall(r'[a-z0-9]+', key_norm))
-        if "national" in key_words and "geographic" in key_words:
-            key_words.add("nat"); key_words.add("geo")
-        if "&pictures" in key_lower:
-            key_words.add("and"); key_words.add("pictures")
-        if target_words.issubset(key_words):
-            return key
+        key_lower = key.lower().replace("sports18", "sports 18")
+        key_words = set(re.findall(r'[a-z0-9]+', key_lower))
+        if target_words.issubset(key_words): return key
     return None
 
 def find_best_backup_link(original_name, backup_map):
+    # --- MANUAL OVERRIDES (The "Direct Copy" Logic) ---
+    name_lower = original_name.lower()
+    
+    # 1. Star Sports 2 Hindi HD -> Fetch "Sports18 1 HD" specifically
+    if "star sports 2 hindi hd" in name_lower:
+        # Scan backup keys for "sports18 1 hd"
+        for k in backup_map:
+            if "sports18" in k.lower() and "1" in k and "hd" in k.lower():
+                return backup_map[k]
+                
+    # 2. Star Sports 2 Tamil HD -> Fetch exact name
+    if "star sports 2 tamil hd" in name_lower:
+        # Scan backup keys for exact match
+        for k in backup_map:
+            if "star sports 2 tamil hd" in k.lower(): # fuzzy strict check
+                return backup_map[k]
+    # --------------------------------------------------
+
     clean_orig = clean_name_key(original_name)
     if clean_orig in backup_map: return backup_map[clean_orig]
     
     clean_mapped = None
     for k, v in NAME_OVERRIDES.items():
         if clean_name_key(k) == clean_orig:
-            clean_mapped = clean_name_key(v)
-            break
-            
+            clean_mapped = clean_name_key(v); break
     if clean_mapped:
         if clean_mapped in backup_map: return backup_map[clean_mapped]
         fuzzy_mapped = fuzzy_match_logic(NAME_OVERRIDES.get(original_name.lower(), clean_mapped), backup_map.keys())
@@ -130,8 +106,7 @@ def load_local_map(ref_file):
         pattern = r'tvg-id="(\d+)".*?tvg-name="([^"]+)"'
         matches = re.findall(pattern, content)
         for ch_id, ch_name in matches:
-            key = clean_name_key(ch_name)
-            id_map[key] = ch_id
+            id_map[clean_name_key(ch_name)] = ch_id
         print(f"✅ Local JioTV: Found {len(id_map)} channels.")
         return id_map
     except FileNotFoundError: return {}
@@ -143,8 +118,7 @@ def fetch_backup_map(url):
         response = requests.get(url, headers={"User-Agent": browser_ua}, timeout=20)
         if response.status_code == 200:
             lines = response.text.splitlines()
-            current_block = []
-            current_name = ""
+            current_block = []; current_name = ""
             for line in lines:
                 line = line.strip()
                 if not line: continue
@@ -152,8 +126,7 @@ def fetch_backup_map(url):
                     if current_name and current_block:
                         key = clean_name_key(current_name)
                         data = [l for l in current_block if not l.startswith("#EXTINF")]
-                        if data: block_map[key] = data
-                        block_map[current_name] = data 
+                        block_map[key] = data; block_map[current_name] = data 
                     current_name = line.split(",")[-1].strip()
                     current_block = [line]
                 else:
@@ -161,8 +134,7 @@ def fetch_backup_map(url):
             if current_name and current_block:
                 key = clean_name_key(current_name)
                 data = [l for l in current_block if not l.startswith("#EXTINF")]
-                if data: block_map[key] = data
-                block_map[current_name] = data
+                block_map[key] = data; block_map[current_name] = data
             print(f"✅ Backup Playlist: Parsed {len(block_map)} entries.")
     except: pass
     return block_map
@@ -219,49 +191,45 @@ def update_playlist():
                 
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
-                
-                # --- Request 3: Strict Removal of Star Sports 1 Kannada HD ---
-                if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower:
-                    continue # Skip this channel immediately
 
-                # --- General Removal Logic ---
+                # --- 1. DIRECT REMOVE: "Star Sports 1 Kannada HD" ---
+                if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower:
+                    continue # Skip immediately
+
+                # --- 2. GENERAL REMOVE ---
                 should_remove = False
                 for rm in REMOVE_KEYWORDS:
                     if rm in ch_name_lower:
                         if "star sports 1" in rm or "star sports 2" in rm:
-                            if "hd" in ch_name_lower: continue # Protect Other HD channels
-                        should_remove = True
-                        break
+                            if "hd" in ch_name_lower: continue 
+                        should_remove = True; break
                 if should_remove: continue
 
                 if "http://placeholder" in url:
+                    clean_local_key = clean_name_key(original_name)
                     found_block = None
-                    # Prioritize Backup if keyword match
+                    
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                         if found_block: stats["backup"] += 1
-                        elif clean_name_key(original_name) in local_map:
-                            found_block = [f"{base_url}/{local_map[clean_name_key(original_name)]}.m3u8"]
+                        elif clean_local_key in local_map:
+                            found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
                             stats["local"] += 1
                     else:
-                        if clean_name_key(original_name) in local_map:
-                            found_block = [f"{base_url}/{local_map[clean_name_key(original_name)]}.m3u8"]
+                        if clean_local_key in local_map:
+                            found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
                             stats["local"] += 1
                         else:
                             found_block = find_best_backup_link(original_name, backup_map)
                             if found_block: stats["backup"] += 1
 
                     if found_block:
-                        final_lines.append(line)
-                        final_lines.extend(found_block)
+                        final_lines.append(line); final_lines.extend(found_block)
                     else:
-                        print(f"⚠️ MISSING: {original_name} (Keeping entry)")
+                        print(f"⚠️ MISSING: {original_name}")
                         final_lines.append(line)
-                        guess_id = clean_name_key(original_name)
-                        if guess_id in local_map:
-                             final_lines.append(f"{base_url}/{local_map[guess_id]}.m3u8")
-                        else:
-                             final_lines.append(f"{base_url}/000.m3u8")
+                        if clean_local_key in local_map: final_lines.append(f"{base_url}/{local_map[clean_local_key]}.m3u8")
+                        else: final_lines.append(f"{base_url}/000.m3u8")
                         stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
