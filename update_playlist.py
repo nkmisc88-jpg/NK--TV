@@ -10,7 +10,7 @@ output_file = "playlist.m3u"
 # SOURCE 1: JStar (Backup for Star/Zee/Sony)
 jstar_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
-# SOURCE 2: Fancode (Jitendra Source - Working)
+# SOURCE 2: Fancode (Jitendra Source - Confirmed Working)
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
 # 1. DELETE LIST: Strictly remove these
@@ -27,7 +27,7 @@ STRICT_MAPPING = {
     "star sports 1 hindi hd": "Star Sports HD1 Hindi",
     
     # --- REBRANDING FIX (Sports18 -> Star Sports) ---
-    "star sports 2 hindi hd": "Sports18 1 HD",   # Fixes Sports18 1 HD mapping
+    "star sports 2 hindi hd": "Sports18 1 HD",   # Source uses Sports18 1 HD
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "star sports 2 telugu hd": "Star Sports 2 Telugu HD",
     "star sports 2 kannada hd": "Star Sports 2 Kannada HD",
@@ -73,10 +73,8 @@ def fetch_playlist(url):
                 elif line.startswith("http") and current_name:
                     k = clean_key(current_name)
                     
-                    # FIX: Append User-Agent to link to ensure it plays
+                    # FIX: Do NOT modify the URL. Keep it exactly as source.
                     final_link = line
-                    if "|User-Agent=" not in final_link:
-                        final_link = f"{line}|User-Agent={browser_ua}"
 
                     # Priority: Prefer HD links if duplicates exist
                     if k not in playlist_data or ("hd" in current_name.lower() and "hd" not in playlist_data[k]['name'].lower()):
@@ -116,7 +114,6 @@ def update_playlist():
             should_remove = False
             for rm in REMOVE_KEYWORDS:
                 if rm in ch_name_lower:
-                    # Allow Star Sports HD to pass through
                     if "star sports" in rm and "hd" in ch_name_lower:
                         continue 
                     should_remove = True
@@ -133,11 +130,10 @@ def update_playlist():
                     final_lines.append(inf_line)
                     final_lines.append(jstar_map[search_key]['url'])
                 else:
-                    # Fallback: Try strict word match for "Sports18" cases
+                    # Fallback: Fuzzy search for "Sports18"
                     found_fuzzy = False
                     for b_key, b_data in jstar_map.items():
                         if "sports18" in ch_name_lower and "sports18" in b_data['name'].lower():
-                             # If template wants "Sports18 1 HD" (or mapped to it), look for it
                              if clean_key("sports181hd") in b_key:
                                  final_lines.append(inf_line)
                                  final_lines.append(b_data['url'])
