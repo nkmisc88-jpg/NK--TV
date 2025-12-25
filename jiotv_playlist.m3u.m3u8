@@ -21,40 +21,32 @@ FORCE_BACKUP_KEYWORDS = [
     "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix"
 ]
 
-# MANUAL MAPPING (The Fix for Nat Geo & Sony Ten 4)
-# Left side: Name in YOUR Template
-# Right side: Name in the BACKUP Source
+# 1. MANUAL MAPPING (Fixes Name Differences)
 NAME_OVERRIDES = {
-    # INFOTAINMENT FIXES
-    "nat geo hd": "national geographic", # Fixes the "Wild" duplicate issue
+    # Infotainment
+    "nat geo hd": "national geographic", 
     "nat geo wild hd": "nat geo wild",
-    "discovery hd world": "discovery",
-    "discovery hd english": "discovery",
+    "discovery hd world": "discovery channel", # Added 'channel' to be specific
+    "discovery hd english": "discovery channel",
     "animal planet hd world": "animal planet",
     "tlc hd world": "tlc",
     "history tv18 hd": "history",
     "sony bbc earth hd": "bbc earth",
     
-    # SPORTS FIXES
+    # Sports
     "sony ten 4": "sony sports ten 4",
     "sony ten 4 hd": "sony sports ten 4",
     "sony ten 1": "sony sports ten 1",
-    "sony ten 1 hd": "sony sports ten 1",
     "sony ten 2": "sony sports ten 2",
-    "sony ten 2 hd": "sony sports ten 2",
     "sony ten 3": "sony sports ten 3",
-    "sony ten 3 hd": "sony sports ten 3",
     "sony ten 5": "sony sports ten 5",
-    "sony ten 5 hd": "sony sports ten 5",
     
-    # KIDS FIXES
-    "nick hd+": "nick",
+    # Kids
     "cartoon network hd+ english": "cartoon network",
-    "cartoon network tamil": "cartoon network", # Backup usually has multi-audio
-    "discovery kids hindi": "discovery kids",
-    "pogo hindi": "pogo",
+    "cartoon network tamil": "cartoon network",
+    "nick hd+": "nick",
     
-    # MOVIES FIXES
+    # Movies
     "star movies hd": "star movies",
     "sony pix hd": "sony pix",
     "movies now hd": "movies now",
@@ -63,139 +55,10 @@ NAME_OVERRIDES = {
     "romedy now hd": "romedy now",
 }
 
-# Browser UA
-browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
-# ==========================================
-
-def clean_name_key(name):
-    """Normalizes names."""
-    name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
-    name = re.sub(r'[^a-zA-Z0-9]', '', name)
-    return name.lower().strip()
-
-def get_mapped_key(original_name):
-    """Checks overrides first, then cleans."""
-    clean_orig = clean_name_key(original_name)
-    # Check overrides
-    for k, v in NAME_OVERRIDES.items():
-        if clean_name_key(k) == clean_orig:
-            return clean_name_key(v)
-    return clean_orig
-
-def fuzzy_find(target_key, map_keys):
-    """Finds best match."""
-    # 1. Exact/Substring
-    for key in map_keys:
-        if target_key in key or key in target_key:
-            return key
-    return None
-
-def load_local_map(ref_file):
-    """Loads IDs from Local JioTV."""
-    id_map = {}
-    try:
-        with open(ref_file, "r", encoding="utf-8") as f:
-            content = f.read()
-        pattern = r'tvg-id="(\d+)".*?tvg-name="([^"]+)"'
-        matches = re.findall(pattern, content)
-        for ch_id, ch_name in matches:
-            key = clean_name_key(ch_name)
-            id_map[key] = ch_id
-        print(f"✅ Local JioTV: Found {len(id_map)} channels.")
-        return id_map
-    except FileNotFoundError:
-        print(f"❌ ERROR: Local file '{ref_file}' not found.")
-        return {}
-
-def fetch_backup_map(url):
-    """Fetches Backup Playlist and captures FULL BLOCKS."""
-    block_map = {}
-    try:
-        print("🌍 Fetching FakeAll Source...")
-        response = requests.get(url, headers={"User-Agent": browser_ua}, timeout=20)
-        
-        if response.status_code == 200:
-            lines = response.text.splitlines()
-            current_block = []
-            current_name = ""
-            
-            for line in lines:
-                line = line.strip()
-                if not line: continue
-                
-                if line.startswith("#EXTINF"):
-                    if current_name and current_block:
-                        key = clean_name_key(current_name)
-                        data_lines = [l for l in current_block if not l.startswith("#EXTINF")]
-                        if data_lines:
-                            block_map[key] = data_lines
-                    
-                    current_name = line.split(",")[-1].strip()
-                    current_block = [line]
-                else:
-                    if current_block:
-                        current_block.append(line)
-            
-            if current_name and current_block:
-                key = clean_name_key(current_name)
-                data_lines = [l for l in current_block if not l.startswith("#EXTINF")]
-                if data_lines:
-                    block_map[key] = data_lines
-                    
-            print(f"✅ Backup Playlist: Parsed {len(block_map)} channel blocks.")
-        else:
-            print(f"⚠️ Backup Error: {response.status_code}")
-    except Exception as e:
-        print(f"⚠️ Failed to fetch Backup: {e}")
-    return block_map
-
-def should_force_backup(name):
-    """Checks if channel is in the 'Broken' list."""
-    norm_name = name.lower()
-    for keyword in FORCE_BACKUP_KEYWORDS:
-        if keyword in norm_name:
-            return True
-    return False
-
-def process_manual_link(line, link):
-    """Fixes YouTube redirection."""
-    if 'group-title="YouTube"' in line:
-        line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
-    
-    if "youtube.com" in link or "youtu.be" in link:
-        link = link.split('|')[0]
-        vid_id_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
-        if vid_id_match:
-            link = f"https://www.youtube.com/watch?v={vid_id_match.group(1)}&.m3u8|User-Agent={browser_ua}"
-        else:
-            link = f"{link}|User-Agent={browser_ua}"
-            
-    return [line, link]
-
-def parse_youtube_txt():
-    """Parses youtube.txt."""
-    new_entries = []
-    try:
-        with open(youtube_file, "r", encoding="utf-8") as f:
-            content = f.read()
-        blocks = content.split('\n\n')
-        for block in blocks:
-            if not block.strip(): continue
-            data = {}
-            for row in block.splitlines():
-                if ':' in row:
-                    k, v = row.split(':', 1)
-                    data[k.strip().lower()] = v.strip()
-            
-            title = data.get('title', 'Unknown')
-            logo = data.get('logo', '')
-            link = data.get('link', '')
-            vpn_req = data.get('vpn required', 'no').lower()
-            vpn_country = data.get('vpn country', '')
-
-            if not link: continue
-            if vpn_req == 'yes':
-                title = f"{title} [VPN: {vpn_country}]" if vpn_country else f"{title} [VPN Required]"
-
-            line = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}'
-            new_entries.extend(process_manual_link(
+# 2. EXCLUSIONS (The Fix for Nat Geo playing Wild)
+# Format: "target_keyword": ["words", "to", "ignore"]
+EXCLUSIONS = {
+    "nationalgeographic": ["wild"],  # If searching Nat Geo, ignore 'Wild'
+    "discovery": ["kids", "science", "turbo", "jeep"], # Ignore Discovery Kids/Science
+    "cartoonnetwork": ["hd+"], # Prevent HD+ mismatch if needed
+    "sonysportsten1": ["ten2", "ten3", "ten
