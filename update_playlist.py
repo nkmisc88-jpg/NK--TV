@@ -10,37 +10,38 @@ reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
 # SOURCES
-# 1. Local JioTV (Priority for 130+ safe channels)
+# 1. Local JioTV (Priority 1 - Safe Channels)
 base_url = "http://192.168.0.146:5350/live" 
 
-# 2. NEW Backup Source (FakeAll GitHub) - Priority for Star/Zee
+# 2. FakeAll/Backup (Priority 2 - Star/Zee/Asianet)
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
 # 3. Fancode
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# BROKEN CHANNELS LIST (Force these to check New Backup Source first)
+# CHANNELS TO FORCE FROM BACKUP
 FORCE_BACKUP_KEYWORDS = [
-    "star", "zee", "vijay", "asianet", "suvarna", "maa"
+    "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar"
 ]
 
-# HEADERS & AGENTS
-browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
-# The stream links inside usually require this specific Mobile UA to play
-stream_play_ua = "Dalvik/2.1.0 (Linux; U; Android 9; Pixel 4 Build/PQ3A.190801.002)"
+# USER AGENTS
+# Agent A: For YouTube (Tricks TiviMate to play internally)
+ua_browser = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+
+# Agent B: For FakeAll/Jio streams (REQUIRED for playback)
+ua_mobile = "Dalvik/2.1.0 (Linux; U; Android 9; Pixel 4 Build/PQ3A.190801.002)"
 
 # ==========================================
 
 def clean_name_key(name):
-    """Creates a clean key for matching (e.g., 'Star Sports 1 HD' -> 'starsports1hd')."""
+    """Normalizes names (e.g. 'Star Sports 1 HD' -> 'starsports1hd')."""
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
 
 def fuzzy_find(target_key, map_keys):
-    """If exact match fails, try to find a close match."""
+    """Finds a key even if it's slightly different."""
     for key in map_keys:
-        # Check if one contains the other
         if target_key in key or key in target_key:
             return key
     return None
@@ -63,12 +64,12 @@ def load_local_map(ref_file):
         return {}
 
 def fetch_backup_map(url):
-    """Fetches the New FakeAll Playlist."""
+    """Fetches the FakeAll Playlist and prepares links."""
     link_map = {}
     try:
-        print("🌍 Fetching New FakeAll Source...")
-        # Use browser UA to fetch the file from GitHub
-        response = requests.get(url, headers={"User-Agent": browser_ua}, timeout=20)
+        print("🌍 Fetching FakeAll Backup...")
+        # Use Browser UA to fetch the FILE itself (GitHub allows this)
+        response = requests.get(url, headers={"User-Agent": ua_browser}, timeout=20)
         
         if response.status_code == 200:
             lines = response.text.splitlines()
@@ -76,19 +77,25 @@ def fetch_backup_map(url):
             for line in lines:
                 line = line.strip()
                 if line.startswith("#EXTINF"):
-                    # Extract name after last comma
                     current_name = line.split(",")[-1].strip()
                 elif line and not line.startswith("#"):
                     if current_name:
                         key = clean_name_key(current_name)
-                        # Ensure the stream link has the correct User-Agent for playback
-                        if "|User-Agent" not in line:
-                            line = f"{line}|User-Agent={stream_play_ua}"
-                        link_map[key] = line
+                        
+                        # CRITICAL FIX: Ensure Link has Mobile UA attached for playback
+                        # If the link from FakeAll doesn't have it, we append it.
+                        # If it has a pipe | already, we respect it, otherwise add ours.
+                        if "User-Agent" not in line:
+                            clean_link = line.split('|')[0] # Safety cleaning
+                            final_link = f"{clean_link}|User-Agent={ua_mobile}"
+                        else:
+                            final_link = line
+                            
+                        link_map[key] = final_link
                         current_name = ""
-            print(f"✅ Backup Playlist: Found {len(link_map)} channels.")
+            print(f"✅ FakeAll Playlist: Found {len(link_map)} channels.")
         else:
-            print(f"⚠️ Backup Error: {response.status_code}")
+            print(f"⚠️ FakeAll Error: {response.status_code}")
     except Exception as e:
         print(f"⚠️ Failed to fetch Backup: {e}")
     return link_map
@@ -102,23 +109,24 @@ def should_force_backup(name):
     return False
 
 def process_manual_link(line, link):
-    """Fixes YouTube redirection."""
+    """Fixes YouTube redirection (Browser UA)."""
     if 'group-title="YouTube"' in line:
         line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
     
     if "youtube.com" in link or "youtu.be" in link:
-        # Add Header
+        # Add Header for OTT Navigator
         if 'http-user-agent' not in line.lower():
             parts = line.rsplit(',', 1)
             if len(parts) == 2:
-                line = f'{parts[0]} http-user-agent="{browser_ua}",{parts[1]}'
-        # Add URL Param
+                line = f'{parts[0]} http-user-agent="{ua_browser}",{parts[1]}'
+        
+        # Add URL Param for TiviMate
         link = link.split('|')[0]
         vid_id_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_id_match:
-            link = f"https://www.youtube.com/watch?v={vid_id_match.group(1)}&.m3u8|User-Agent={browser_ua}"
+            link = f"https://www.youtube.com/watch?v={vid_id_match.group(1)}&.m3u8|User-Agent={ua_browser}"
         else:
-            link = f"{link}|User-Agent={browser_ua}"
+            link = f"{link}|User-Agent={ua_browser}"
             
     return [line, link]
 
@@ -153,7 +161,7 @@ def parse_youtube_txt():
     return new_entries
 
 def update_playlist():
-    print("--- STARTING UPDATE (NEW SOURCE) ---")
+    print("--- STARTING UPDATE ---")
     
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
@@ -176,12 +184,12 @@ def update_playlist():
                     lookup_key = clean_name_key(original_name)
                     found_link = None
                     
-                    # 1. LOGIC: Is this a "Forced Backup" channel? (Star/Zee/Vijay)
+                    # 1. LOGIC: Broken Channels (Star/Zee) -> Use Backup (FakeAll)
                     if should_force_backup(original_name):
-                        # Try Exact Match
+                        # Try exact match
                         if lookup_key in backup_map:
                             found_link = backup_map[lookup_key]
-                        # Try Fuzzy Match (e.g. 'starsports1' in 'starsports1hd')
+                        # Try Fuzzy match
                         else:
                             fuzzy_key = fuzzy_find(lookup_key, backup_map.keys())
                             if fuzzy_key:
@@ -189,21 +197,22 @@ def update_playlist():
                         
                         if found_link:
                             stats["backup"] += 1
-                        # Fallback to local if absolutely not in backup
+                        # Panic Fallback: If not in FakeAll, try Local
                         elif lookup_key in local_map:
                             found_link = f"{base_url}/{local_map[lookup_key]}.m3u8"
                             stats["local"] += 1
 
-                    # 2. LOGIC: Safe Channel (Sun/News/Kids)
+                    # 2. LOGIC: Safe Channels (Sun/News) -> Use Local
                     else:
                         if lookup_key in local_map:
                             found_link = f"{base_url}/{local_map[lookup_key]}.m3u8"
                             stats["local"] += 1
+                        # Fallback to Backup
                         elif lookup_key in backup_map:
                             found_link = backup_map[lookup_key]
                             stats["backup"] += 1
 
-                    # 3. WRITE RESULT
+                    # 3. WRITE TO FILE
                     if found_link:
                         final_lines.append(line)
                         final_lines.append(found_link)
