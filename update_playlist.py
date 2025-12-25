@@ -14,12 +14,13 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# 1. REMOVE LIST
-# Added "zee thirai" to remove it
+# 1. DELETE LIST (Exact string matching)
+# Any channel name containing these words will be DELETED.
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2",
-    "zee thirai" 
+    "zee thirai",                # REMOVE REQUEST 1
+    "star sports 1 kannada hd"   # REMOVE REQUEST 2
 ]
 
 # 2. FORCE BACKUP LIST
@@ -30,13 +31,11 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "sports", "ten"
 ]
 
-# 3. NAME OVERRIDES
+# 3. MAPPING (Your Name -> Backup Name)
 NAME_OVERRIDES = {
-    # --- FIXES YOU REQUESTED ---
-    "zee tamil": "Zee Tamil HD",           # Fix: Forces HD link from backup
-    "nat geo hd": "National Geographic HD",# Fix: Forces HD link (stops SD)
-    
-    # --- PREVIOUS FIXES ---
+    # --- YOUR REQUESTED FIXES ---
+    "zee tamil": "Zee Tamil HD",             # FIX: Forces correct Tamil HD feed
+    "nat geo hd": "National Geographic HD",  # FIX: Forces HD (Not SD)
     "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
 
@@ -83,11 +82,23 @@ def fuzzy_match_logic(target_name, map_keys):
     return None
 
 def find_best_backup_link(original_name, backup_map):
-    # Manual Fix for Star Sports 2 Hindi HD
-    if "star sports 2 hindi hd" in original_name.lower():
-        for k in backup_map:
-            if "sports18" in k.lower() and "1" in k and "hd" in k.lower(): return backup_map[k]
+    # --- BRUTE FORCE OVERRIDES ---
+    # This ignores fuzzy matching and forces the specific channels you want.
+    low_name = original_name.lower()
     
+    if "zee tamil" in low_name:
+        # Search for strict HD match in backup keys
+        for k in backup_map:
+            if "zee" in k.lower() and "tamil" in k.lower() and "hd" in k.lower():
+                return backup_map[k]
+
+    if "nat geo hd" in low_name:
+        # Search for National Geographic HD
+        for k in backup_map:
+            if "national" in k.lower() and "geographic" in k.lower() and "hd" in k.lower():
+                return backup_map[k]
+
+    # Standard Override Check
     clean_orig = clean_name_key(original_name)
     if clean_orig in backup_map: return backup_map[clean_orig]
     
@@ -197,16 +208,27 @@ def update_playlist():
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
 
-                # --- REMOVAL LOGIC ---
-                if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower: continue
-                
+                # --- STRICT REMOVAL LOGIC ---
                 should_remove = False
-                for rm in REMOVE_KEYWORDS:
-                    if rm in ch_name_lower:
-                        if "star sports 1" in rm or "star sports 2" in rm:
-                            if "hd" in ch_name_lower: continue 
-                        should_remove = True; break
-                if should_remove: continue
+                
+                # Check 1: Explicitly requested removals (Zee Thirai, Star Sports 1 Kannada HD)
+                if "zee thirai" in ch_name_lower: should_remove = True
+                if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower: should_remove = True
+                
+                # Check 2: General Removals (Sony Ten, SD Sports)
+                if not should_remove:
+                    for rm in REMOVE_KEYWORDS:
+                        if rm in ch_name_lower:
+                            # Protect HD channels from "Star Sports 1" removal
+                            if "star sports 1" in rm or "star sports 2" in rm:
+                                if "hd" in ch_name_lower and "kannada" not in ch_name_lower: 
+                                    continue 
+                            should_remove = True; break
+                
+                if should_remove: 
+                    print(f"🗑️ REMOVED: {original_name}")
+                    continue
+                # -----------------------------
 
                 if "http://placeholder" in url:
                     clean_local_key = clean_name_key(original_name)
