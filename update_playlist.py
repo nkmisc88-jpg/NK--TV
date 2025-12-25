@@ -10,9 +10,8 @@ output_file = "playlist.m3u"
 # SOURCE 1: JStar (Backup for Star/Zee/Sony)
 jstar_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
-# SOURCE 2: Fancode (Updated Link)
-# Trying a new source since the old one stopped working
-fancode_url = "https://raw.githubusercontent.com/drm-live/fancode-live-events/main/fancode.m3u"
+# SOURCE 2: Fancode (Jitendra Source - Working)
+fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
 # 1. DELETE LIST: Strictly remove these
 REMOVE_KEYWORDS = [
@@ -20,24 +19,27 @@ REMOVE_KEYWORDS = [
     "star sports 1", "star sports 2" # Remove SD versions
 ]
 
-# 2. EXACT MAPPING (Template Name -> Source Name from your Screenshots)
+# 2. EXACT MAPPING (Template Name -> Source Name)
 STRICT_MAPPING = {
     # --- STAR SPORTS MAIN (Fixing "1 HD" vs "HD1") ---
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
     "star sports 1 hindi hd": "Star Sports HD1 Hindi",
     
-    # --- STAR SPORTS SELECT (Fixing "1 HD" vs "HD1") ---
+    # --- REBRANDING FIX (Sports18 -> Star Sports) ---
+    "star sports 2 hindi hd": "Sports18 1 HD",   # Fixes Sports18 1 HD mapping
+    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
+    "star sports 2 telugu hd": "Star Sports 2 Telugu HD",
+    "star sports 2 kannada hd": "Star Sports 2 Kannada HD",
+
+    # --- STAR SPORTS SELECT ---
     "star sports select 1 hd": "Star Sports Select HD1",
     "star sports select 2 hd": "Star Sports Select HD2",
 
-    # --- REGIONAL (Direct Match based on your screenshots) ---
+    # --- REGIONAL ---
     "star sports 1 tamil hd": "Star Sports 1 Tamil HD",
-    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "star sports 1 telugu hd": "Star Sports 1 Telugu HD",
-    "star sports 2 telugu hd": "Star Sports 2 Telugu HD",
     "star sports 1 kannada hd": "Star Sports 1 Kannada HD",
-    "star sports 2 kannada hd": "Star Sports 2 Kannada HD",
 
     # --- INFOTAINMENT & OTHERS ---
     "discovery hd world": "Discovery HD",
@@ -69,11 +71,16 @@ def fetch_playlist(url):
                 if line.startswith("#EXTINF"):
                     current_name = line.split(",")[-1].strip()
                 elif line.startswith("http") and current_name:
-                    # Save by Clean Key for easier matching
                     k = clean_key(current_name)
+                    
+                    # FIX: Append User-Agent to link to ensure it plays
+                    final_link = line
+                    if "|User-Agent=" not in final_link:
+                        final_link = f"{line}|User-Agent={browser_ua}"
+
                     # Priority: Prefer HD links if duplicates exist
                     if k not in playlist_data or ("hd" in current_name.lower() and "hd" not in playlist_data[k]['name'].lower()):
-                        playlist_data[k] = {"url": line, "name": current_name, "raw": line}
+                        playlist_data[k] = {"url": final_link, "name": current_name, "raw": line}
                     current_name = ""
             print(f"✅ Loaded {len(playlist_data)} channels.")
         else:
@@ -102,70 +109,70 @@ def update_playlist():
             inf_line = lines[0]
             stream_url = lines[1] if len(lines) > 1 else ""
             
-            # Extract Name
             ch_name_raw = inf_line.split(",")[-1].strip()
             ch_name_lower = ch_name_raw.lower()
 
-            # --- 1. REMOVAL LOGIC (Sony Ten / SD) ---
-            # Checks if the name contains any "Sony Ten" variant
+            # --- 1. REMOVAL LOGIC ---
             should_remove = False
             for rm in REMOVE_KEYWORDS:
                 if rm in ch_name_lower:
-                    # Special check: Don't remove HD if we only wanted SD, 
-                    # BUT user said "Sony Ten all channels can be removed", so we remove everything matching.
+                    # Allow Star Sports HD to pass through
                     if "star sports" in rm and "hd" in ch_name_lower:
-                        continue # Don't remove Star Sports HD when cleaning SD
+                        continue 
                     should_remove = True
                     break
-            
-            if should_remove:
-                continue
+            if should_remove: continue
 
             # --- 2. MAPPING LOGIC ---
-            # Check if we have a strict map for this channel
             target_name = STRICT_MAPPING.get(ch_name_lower, ch_name_lower)
             search_key = clean_key(target_name)
             
-            # If current URL is a placeholder or broken, try JStar
+            # If placeholder, search backup
             if "http://placeholder" in stream_url or "youtube" in stream_url:
                 if search_key in jstar_map:
-                    # Found in JStar!
                     final_lines.append(inf_line)
                     final_lines.append(jstar_map[search_key]['url'])
                 else:
-                    # Not found, keep original (or placeholder)
-                    final_lines.append(inf_line)
-                    final_lines.append(stream_url)
-                    print(f"⚠️ Missing in JStar: {ch_name_raw} (Looked for: {target_name})")
+                    # Fallback: Try strict word match for "Sports18" cases
+                    found_fuzzy = False
+                    for b_key, b_data in jstar_map.items():
+                        if "sports18" in ch_name_lower and "sports18" in b_data['name'].lower():
+                             # If template wants "Sports18 1 HD" (or mapped to it), look for it
+                             if clean_key("sports181hd") in b_key:
+                                 final_lines.append(inf_line)
+                                 final_lines.append(b_data['url'])
+                                 found_fuzzy = True
+                                 break
+                    
+                    if not found_fuzzy:
+                        final_lines.append(inf_line)
+                        final_lines.append(stream_url)
+                        print(f"⚠️ Missing: {ch_name_raw}")
             else:
-                # Keep existing valid links
                 final_lines.append(inf_line)
                 final_lines.append(stream_url)
 
-        # --- 3. ADD FANCODE AT THE END ---
+        # --- 3. ADD FANCODE (Jitendra Source) ---
         print("⚽ Adding Fancode...")
         try:
             fc_resp = requests.get(fancode_url, headers={"User-Agent": browser_ua}, timeout=30)
             if fc_resp.status_code == 200:
                 fc_lines = fc_resp.text.splitlines()
-                # Skip the #EXTM3U header from fancode file
                 if fc_lines and "#EXTM3U" in fc_lines[0]:
                     fc_lines = fc_lines[1:]
                 final_lines.append("\n" + "\n".join(fc_lines))
-                print("✅ Fancode added successfully.")
+                print("✅ Fancode added.")
             else:
-                print("❌ Fancode link is down.")
+                print("❌ Fancode link down.")
         except:
-            print("❌ Could not fetch Fancode.")
+            print("❌ Error fetching Fancode.")
 
-        # Write Output
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_lines))
-        
         print(f"Playlist saved to: {output_file}")
 
     except FileNotFoundError:
-        print("❌ Error: template.m3u file not found.")
+        print("❌ Error: template.m3u not found.")
 
 if __name__ == "__main__":
     update_playlist()
