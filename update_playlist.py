@@ -21,7 +21,7 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2",
-    "zee thirai"," Zee Tamil HD",                
+    "zee thirai",                
     "star sports 1 kannada hd"   
 ]
 
@@ -35,7 +35,9 @@ FORCE_BACKUP_KEYWORDS = [
 
 # 3. MAPPING (Name Overrides)
 NAME_OVERRIDES = {
-    # Request:
+    "star sports 2 hindi hd": "Sports18 1 HD",
+    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
+    "zee tamil": "Zee Tamil HD",
     "nat geo hd": "National Geographic HD",
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -147,7 +149,7 @@ def should_force_backup(name):
         if k in norm: return True
     return False
 
-# --- PURE PYTHON YOUTUBE FETCHER ---
+# --- YOUTUBE FETCHER ---
 def get_youtube_live_link(youtube_url):
     try:
         session = requests.Session()
@@ -180,7 +182,8 @@ def process_manual_link(line, link):
         if fresh_hls and ".m3u8" in fresh_hls:
             return [line, f"{fresh_hls}|User-Agent={browser_ua}"]
         else:
-            return []
+            # FALLBACK: Return original link so channel isn't deleted
+            return [line, link]
             
     return [line, link]
 
