@@ -1,6 +1,5 @@
 import requests
 import re
-import json
 
 # ==========================================
 # CONFIGURATION
@@ -146,30 +145,47 @@ def should_force_backup(name):
         if k in norm: return True
     return False
 
-# --- NEW: YouTube Fetcher (Fixes Redirects) ---
+# --- IMPROVED YOUTUBE FETCHER (Repo Logic) ---
 def get_youtube_live_link(youtube_url):
-    """Extracts the FRESH live m3u8 link from a YouTube URL."""
+    """Fetches the .m3u8 link. Returns NONE if failed (avoids redirect error)."""
     try:
         session = requests.Session()
-        session.headers.update({'User-Agent': browser_ua})
-        resp = session.get(youtube_url)
+        # Headers mimicking a browser to avoid 'Consent' page
+        session.headers.update({
+            'User-Agent': browser_ua,
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Referer': 'https://www.youtube.com/',
+        })
+        # Cookies to bypass consent
+        session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
+
+        resp = session.get(youtube_url, timeout=10)
+        
+        # Method 1: regex hlsManifestUrl
         if "hlsManifestUrl" in resp.text:
             url = re.search(r'"hlsManifestUrl":"(.*?)"', resp.text).group(1)
             return url
-        return youtube_url # Return original if extraction fails
-    except:
-        return youtube_url
+            
+        print(f"   ❌ No stream found for {youtube_url}")
+        return None 
+    except Exception as e:
+        print(f"   ❌ Error fetching YouTube: {e}")
+        return None
 
 def process_manual_link(line, link):
     # Detect YouTube Link
     if "youtube.com" in link or "youtu.be" in link:
-        print(f"   ...Refreshing YouTube Link: {link[:30]}...")
-        # Clean URL
         clean_link = link.split('|')[0]
-        # Fetch fresh HLS
-        fresh_hls = get_youtube_live_link(clean_link)
-        return [line, f"{fresh_hls}|User-Agent={browser_ua}"]
+        print(f"   ...Fetching YouTube: {clean_link}")
         
+        fresh_hls = get_youtube_live_link(clean_link)
+        
+        if fresh_hls:
+            return [line, f"{fresh_hls}|User-Agent={browser_ua}"]
+        else:
+            # RETURN NOTHING if failed (so it doesn't add a broken link)
+            return []
+            
     return [line, link]
 
 def parse_youtube_txt():
@@ -187,12 +203,12 @@ def parse_youtube_txt():
             title = data.get('title', 'Unknown'); logo = data.get('logo', ''); link = data.get('link', '')
             if not link: continue
             
-            # Use 'Youtube' group to ensure player treats it right
             line = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}'
             
-            # Process & Fetch Fresh Link
+            # Fetch and append ONLY if valid
             processed_block = process_manual_link(line, link)
             new_entries.extend(processed_block)
+            
     except: pass
     return new_entries
 
@@ -214,7 +230,7 @@ def update_playlist():
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
 
-                # --- 1. REMOVALS ---
+                # --- REMOVALS ---
                 if "zee thirai" in ch_name_lower: continue
                 if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower: continue
 
@@ -270,7 +286,8 @@ def update_playlist():
                     final_lines.extend(processed)
     except FileNotFoundError: pass
 
-    # Process YouTube File (with Mini-Fetcher)
+    # PROCESS YOUTUBE
+    print("🎥 Processing YouTube Channels...")
     final_lines.extend(parse_youtube_txt())
     
     try:
