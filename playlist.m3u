@@ -215,12 +215,8 @@ http://192.168.0.146:5350/live/897.m3u8
 http://192.168.0.146:5350/live/901.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Surya_HD.png",Surya HD
 http://192.168.0.146:5350/live/900.m3u8
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Sun News Live - Test
-https://www.youtube.com/watch?v=CVIWCi5XmN0
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Polimer News
-https://www.youtube.com/watch?v=M94aL_j-s_w
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",News 24
-https://www.youtube.com/live/nyd-xznCpJc?si=123456
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://yt3.googleusercontent.com/c53RlDdbi5XR9eUVOuNlT9YWd8LuTu_hsd0uHuGZuUJBDWfQqPMN-0bGuO0nQQiidkeuSbA0Gn0=s160-c-k-c0x00ffffff-no-rj" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Iscon Bengaluru
+https://www.youtube.com/live/d5jZun5E4zA?si=58lI9GToIk14jMLq
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Thursday, 25 December 2025 at 7:21:05 am
