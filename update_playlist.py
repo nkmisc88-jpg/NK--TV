@@ -9,19 +9,29 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# FALLBACK SOURCE (For missing Star/Zee/Sony channels)
-denver_url = "https://game.denver1769.fun/Jtv/5ojnFp/Playlist.m3u"
+# SOURCES
+# Priority 1: Local JioTV (Fastest)
+# Priority 2: Jstar Backup (For missing Star/Hotstar channels)
+jstar_url = "https://livetv-cb7.pages.dev/hotstar"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# LOCAL SERVER
+# LOCAL SERVER BASE URL
 base_url = "http://192.168.0.146:5350/live" 
 
-# Player Config - Standard Browser Agent
-user_agent_str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+# HEADERS
+# 1. To play YouTube in TiviMate (Browser Agent)
+player_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+
+# 2. To fetch the Jstar Playlist (Mobile Agent)
+jstar_headers = {
+    "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; Pixel 4 Build/PQ3A.190801.002)",
+    "Accept-Encoding": "gzip",
+    "Connection": "Keep-Alive"
+}
 # ==========================================
 
 def clean_name_key(name):
-    """Normalizes names to match 'Star Sports 1 HD' with 'Star Sports 1 HD '."""
+    """Normalizes names: 'Star Sports 1 HD' -> 'starsports1hd'"""
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name) # Remove brackets
     name = re.sub(r'[^a-zA-Z0-9]', '', name)    # Remove special chars
     return name.lower().strip()
@@ -43,28 +53,34 @@ def load_local_map(ref_file):
         print(f"❌ ERROR: Local file '{ref_file}' not found.")
         return {}
 
-def fetch_denver_map(url):
-    """Downloads Denver playlist to fill in missing channels."""
+def fetch_jstar_map(url):
+    """Downloads Jstar playlist to fill in missing channels."""
     link_map = {}
     try:
-        print("🌍 Fetching Denver Backup Playlist...")
-        response = requests.get(url, timeout=20)
+        print("🌍 Fetching Jstar Backup Playlist...")
+        # Use specific headers to bypass blocks
+        response = requests.get(url, headers=jstar_headers, timeout=20)
+        
         if response.status_code == 200:
             lines = response.text.splitlines()
             current_name = ""
             for line in lines:
                 line = line.strip()
                 if line.startswith("#EXTINF"):
-                    # Extract Name (after last comma)
+                    # Extract Name (try tvg-name, or comma split)
+                    # Jstar usually has standard EXTINF: ... ,Channel Name
                     current_name = line.split(",")[-1].strip()
                 elif line and not line.startswith("#"):
                     if current_name:
                         key = clean_name_key(current_name)
                         link_map[key] = line
                         current_name = ""
-            print(f"✅ Denver Playlist: Loaded {len(link_map)} channels.")
+            print(f"✅ Jstar Playlist: Loaded {len(link_map)} channels.")
+        else:
+            print(f"⚠️ Jstar Error: Status {response.status_code}")
+            
     except Exception as e:
-        print(f"⚠️ Failed to fetch Denver: {e}")
+        print(f"⚠️ Failed to fetch Jstar: {e}")
     return link_map
 
 def process_manual_link(line, link):
@@ -74,17 +90,20 @@ def process_manual_link(line, link):
     if 'group-title="YouTube"' in line:
         line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
     
-    # 2. Add User-Agent Header (For OTT Navigator)
-    if ("youtube.com" in link or "youtu.be" in link) and 'http-user-agent' not in line.lower():
-        parts = line.rsplit(',', 1)
-        if len(parts) == 2:
-            line = f'{parts[0]} http-user-agent="{user_agent_str}",{parts[1]}'
-
-    # 3. Add User-Agent to URL (For TiviMate)
-    if ("youtube.com" in link or "youtu.be" in link):
-        # Remove any existing pipe first to avoid duplication
+    # 2. Fix YouTube Redirection (Append User-Agent to URL + Fake Extension)
+    if "youtube.com" in link or "youtu.be" in link:
+        # Remove any existing pipe first
         link = link.split('|')[0]
-        link = f"{link}|User-Agent={user_agent_str}"
+        
+        # Extract ID for clean URL
+        vid_id_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
+        if vid_id_match:
+            vid_id = vid_id_match.group(1)
+            # The Magic Trick: &.m3u8 + User-Agent
+            link = f"https://www.youtube.com/watch?v={vid_id}&.m3u8|User-Agent={player_ua}"
+        else:
+            # Fallback
+            link = f"{link}|User-Agent={player_ua}"
             
     return [line, link]
 
@@ -124,7 +143,7 @@ def update_playlist():
     print("--- STARTING HYBRID UPDATE ---")
     
     local_map = load_local_map(reference_file)
-    denver_map = fetch_denver_map(denver_url)
+    jstar_map = fetch_jstar_map(jstar_url)
     
     final_lines = ["#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\""]
     
@@ -143,16 +162,16 @@ def update_playlist():
                     original_name = line.split(",")[-1].strip()
                     lookup_key = clean_name_key(original_name)
                     
-                    # PRIORITY 1: LOCAL
+                    # PRIORITY 1: LOCAL JIO
                     if lookup_key in local_map:
                         final_lines.append(line)
                         final_lines.append(f"{base_url}/{local_map[lookup_key]}.m3u8")
                     
-                    # PRIORITY 2: DENVER BACKUP
-                    elif lookup_key in denver_map:
-                        print(f"🔹 Found in Denver: {original_name}")
+                    # PRIORITY 2: JSTAR BACKUP
+                    elif lookup_key in jstar_map:
+                        print(f"🔹 Found in Jstar: {original_name}")
                         final_lines.append(line)
-                        final_lines.append(denver_map[lookup_key])
+                        final_lines.append(jstar_map[lookup_key])
                         
                     else:
                         print(f"❌ MISSING: {original_name}")
