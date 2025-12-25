@@ -1,34 +1,3 @@
-Title : Iscon Bengaluru 
-Logo : https://yt3.googleusercontent.com/c53RlDdbi5XR9eUVOuNlT9YWd8LuTu_hsd0uHuGZuUJBDWfQqPMN-0bGuO0nQQiidkeuSbA0Gn0=s160-c-k-c0x00ffffff-no-rj
-Link : https://www.youtube.com/live/d5jZun5E4zA?si=pZcISvMCYoL89Vsu
-VPN Required : No
-
-Title : ICC TV Stream 1
-Logo : https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg
-Link : https://prod-sports-north-gm.jiocinema.com/bpk-tv/M1_English_1080p/index.m3u8
-VPN Required : Yes
-VPN Country : Australia
-
-Title : ICC TV Stream 2
-Logo : https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg
-Link : https://d1e1.kooora365.com/b3/index.m3u8
-VPN Required : Yes
-VPN Country : USA
-
-Title : Sun News Live
-Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png
-Link : https://www.youtube.com/watch?v=CVIWCi5XmN0
-VPN Required : No
-
-Title : Polimer News
-Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png
-Link : https://www.youtube.com/watch?v=M94aL_j-s_w
-
-Title : News 24
-Logo : https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png
-Link : https://www.youtube.com/live/nyd-xznCpJc
-VPN Required : No
-
 Title : ICC TV Stream 1
 Logo : https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg
 Link : PASTE_LINK_HERE
@@ -54,4 +23,3 @@ Title : News 24
 Logo : https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png
 Link : https://www.youtube.com/live/nyd-xznCpJc
 VPN Required : No
-
