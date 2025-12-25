@@ -29,7 +29,7 @@ http://192.168.0.146:5350/live/707.m3u8
 http://192.168.0.146:5350/live/420.m3u8
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Adithya_TV.png",Adithya TV
 http://192.168.0.146:5350/live/709.m3u8
-#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthuyugam_TV.png",Puthu Yugam
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthuyugam_TV.png",Puthuyugam
 http://192.168.0.146:5350/live/824.m3u8
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Raj_Digital_Plus.png",Raj Digital Plus
 http://192.168.0.146:5350/live/683.m3u8
@@ -37,6 +37,10 @@ http://192.168.0.146:5350/live/683.m3u8
 http://192.168.0.146:5350/live/796.m3u8
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Madha_TV.png",Madha TV
 http://192.168.0.146:5350/live/1655.m3u8
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Win_TV.png",Win TV
+http://192.168.0.146:5350/live/970.m3u8
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Moon_TV.png",Moon TV
+http://192.168.0.146:5350/live/1518.m3u8
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png",Sony Ten 1 HD
 http://192.168.0.146:5350/live/162.m3u8
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png",Sony Ten 2 HD
@@ -275,6 +279,6 @@ https://www.youtube.com/watch?v=M94aL_j-s_w&.m3u8|User-Agent=Mozilla/5.0 (Window
 https://www.youtube.com/watch?v=nyd-xznCpJc&.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 25 December 2025 at 12:07:05 pm
+#DATE:- Thursday, 25 December 2025 at 12:21:06 pm
 #EXTINF:-1 tvg-id="139142" tvg-name="Al Barkat Vs Anjuman English Allana" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/129th-Harris-Shield-Cricket-Tournament-old-match-card_v2_1765970952698.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Al Barkat Vs Anjuman English Allana
 https://in-mc-fdlive.fancode.com/mumbai/139142_english_hls_074be7c0d133243_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
