@@ -54,11 +54,9 @@ NAME_OVERRIDES = {
     "sony pix hd": "sony pix",
 }
 
-# Standard Browser User Agent
+# Browser Headers (Mimics a real Chrome User)
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-# ==========================================
-# CORE FUNCTIONS
 # ==========================================
 
 def clean_name_key(name):
@@ -150,12 +148,12 @@ def should_force_backup(name):
     return False
 
 # ==========================================
-# NEW YOUTUBE & MEDIA PROCESSOR
+# REPO-STYLE YOUTUBE SCRAPER
 # ==========================================
 
 def get_direct_youtube_link(youtube_url):
     """
-    Attempts to bypass YouTube consent page and extract HLS Manifest.
+    Extracts the direct .m3u8 link using logic from standard YT-M3U repos.
     """
     try:
         session = requests.Session()
@@ -164,43 +162,47 @@ def get_direct_youtube_link(youtube_url):
             'Accept-Language': 'en-US,en;q=0.9',
             'Referer': 'https://www.youtube.com/',
         })
-        # Important: Cookie to bypass 'Before you continue'
+        # Common cookie used to bypass 'Before you continue'
         session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
 
         resp = session.get(youtube_url, timeout=10)
+        text = resp.text
+
+        # Regex 1: Standard JSON Manifest (Most reliable)
+        match = re.search(r'"hlsManifestUrl":"(.*?)"', text)
+        if match:
+            return match.group(1)
         
-        # Look for the m3u8 manifest in the page source
-        if "hlsManifestUrl" in resp.text:
-            url = re.search(r'"hlsManifestUrl":"(.*?)"', resp.text).group(1)
-            return url
-            
+        # Regex 2: Raw m3u8 link (Fallback)
+        # Some live streams expose the URL differently
+        match_raw = re.search(r'(https:\/\/[^\s]+\.m3u8)', text)
+        if match_raw:
+            return match_raw.group(1)
+
+        print(f"   ❌ Could not extract HLS from {youtube_url}")
         return None
-    except:
+    except Exception as e:
+        print(f"   ❌ Error fetching YouTube: {e}")
         return None
 
 def parse_youtube_txt():
     """
     Reads youtube.txt and converts it to M3U format.
-    Handles YouTube extraction + standard media links.
     """
     new_entries = []
     try:
         with open(youtube_file, "r", encoding="utf-8") as f: content = f.read()
         
-        # Split by double newlines to separate blocks
         blocks = content.split('\n\n')
-        
         for block in blocks:
             if not block.strip(): continue
             
-            # Parse key-value pairs
             data = {}
             for row in block.splitlines():
                 if ':' in row:
                     key, val = row.split(':', 1)
                     data[key.strip().lower()] = val.strip()
             
-            # Extract fields
             title = data.get('title', 'Unknown Channel')
             logo = data.get('logo', '')
             link = data.get('link', '')
@@ -208,28 +210,31 @@ def parse_youtube_txt():
             
             if not link: continue
 
-            # Add VPN tag to title if needed
-            if vpn_req == "yes":
-                title = f"{title} [VPN]"
+            # Display VPN tag if required
+            display_title = title
+            if "yes" in vpn_req:
+                display_title = f"{title} [VPN]"
 
             final_link = link
             
-            # Logic: Is this YouTube or Direct Media?
+            # Identify and Process YouTube Links
             if "youtube.com" in link or "youtu.be" in link:
-                print(f"   ...Processing YouTube: {title}")
-                extracted = get_direct_youtube_link(link)
+                print(f"   ...Scraping YouTube: {title}")
+                
+                # Clean URL (remove pipes/agents if manually added)
+                clean_link = link.split('|')[0].strip()
+                
+                extracted = get_direct_youtube_link(clean_link)
+                
                 if extracted:
                     final_link = f"{extracted}|User-Agent={browser_ua}"
                 else:
-                    # Fallback: Use original link (Player might handle it)
-                    print(f"      -> Live stream not found. Keeping original.")
+                    # Fallback: Use original link but ensure clean format
+                    print(f"      -> Extraction failed. Keeping original.")
                     final_link = link
-            else:
-                # It's an m3u8 / mp4 / other link
-                final_link = link
 
-            # Construct M3U Entry
-            entry = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
+            # Build M3U Entry
+            entry = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{display_title}\n{final_link}'
             new_entries.append(entry)
             
     except Exception as e:
@@ -238,7 +243,7 @@ def parse_youtube_txt():
     return new_entries
 
 # ==========================================
-# MAIN UPDATE LOGIC
+# MAIN LOOP
 # ==========================================
 
 def update_playlist():
@@ -246,7 +251,7 @@ def update_playlist():
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
     
-    # 1. GENERATE TIMESTAMP (Forces GitHub Update)
+    # TIMESTAMP (Forces GitHub Update)
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     final_lines = [
         "#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\"",
@@ -255,6 +260,7 @@ def update_playlist():
     
     stats = {"local": 0, "backup": 0, "missing": 0}
 
+    # 1. PROCESS TEMPLATE
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         for i, line in enumerate(lines):
@@ -266,7 +272,7 @@ def update_playlist():
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
 
-                # --- REMOVALS ---
+                # REMOVALS
                 if "zee thirai" in ch_name_lower: continue
                 if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower: continue
 
@@ -279,7 +285,7 @@ def update_playlist():
                         should_remove = True; break
                 if should_remove: continue
 
-                # RENAME VISUAL
+                # RENAME
                 if "star sports 2 hindi hd" in ch_name_lower:
                     line = line.replace("Star Sports 2 Hindi HD", "Sports18 1 HD")
 
@@ -318,19 +324,19 @@ def update_playlist():
                         stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
-                    # Pass through manual links found in template
+                    # Pass manual links
                     final_lines.append(line)
                     final_lines.append(url)
     except FileNotFoundError: pass
 
-    # --- PROCESS YOUTUBE.TXT ---
+    # 2. PROCESS YOUTUBE.TXT
     print("🎥 Processing youtube.txt...")
     youtube_entries = parse_youtube_txt()
     if youtube_entries:
-        final_lines.append("") # Spacer
+        final_lines.append("")
         final_lines.extend(youtube_entries)
     
-    # --- FANCODE ---
+    # 3. FANCODE
     try:
         r = requests.get(fancode_url)
         if r.status_code == 200:
@@ -340,7 +346,7 @@ def update_playlist():
             print("✅ Fancode merged.")
     except: pass
 
-    # SAVE
+    # WRITE FILE
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"\n🎉 DONE: Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
 
