@@ -51,7 +51,7 @@ http://placeholder
 http://placeholder
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Isaiaruvi.png",Isaiaruvi
 http://placeholder
-#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthuyugam_TV.png",Puthuyugam
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthuyugam_TV.png",Puthu Yugam
 http://placeholder
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Raj_Digital_Plus.png",Raj Digital Plus
 http://placeholder
@@ -66,6 +66,10 @@ http://placeholder
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/MKTV.png",MKTV
 http://placeholder
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sahana_TV.png",Sahana TV
+http://placeholder
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Win_TV.png",Win TV
+http://placeholder
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Moon_TV.png",Moon TV
 http://placeholder
 
 # ==============================
@@ -95,6 +99,12 @@ http://placeholder
 http://placeholder
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sports18_1_HD.png",Sports18 1 HD
 http://placeholder
+#EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil_HD.png",Star Sports 1 Tamil HD
+http://placeholder
+#EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Telugu_HD.png",Star Sports 1 Telugu HD
+http://placeholder
+#EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Kannada_HD.png",Star Sports 1 Kannada HD
+http://placeholder
 
 # ==============================
 # SPORTS SD
@@ -111,7 +121,7 @@ http://placeholder
 http://placeholder
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1.png",Sony Ten 1
 http://placeholder
-#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2.png",Sony Ten 2
+#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2.png",Ten 2
 http://placeholder
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_5.png",Sony Ten 5
 http://placeholder
@@ -123,11 +133,11 @@ http://placeholder
 # ==============================
 # INFOTAINMENT HD
 # ==============================
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_HD_World.png",Discovery HD English
+#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_HD_World.png",Discovery HD
 http://placeholder
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Animal_Planet_HD.png",Animal Planet HD English
+#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Animal_Planet_HD.png",Animal Planet HD
 http://placeholder
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/TLC_HD_World.png",TLC HD English
+#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/TLC_HD_World.png",TLC HD
 http://placeholder
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/History_TV18_HD.png",History TV18 HD
 http://placeholder
@@ -147,7 +157,7 @@ http://placeholder
 # ==============================
 # INFOTAINMENT SD
 # ==============================
-#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_Science.png",Discovery Science English
+#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_Science.png",Discovery Science
 http://placeholder
 #EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_Turbo.png",Discovery Turbo
 http://placeholder
