@@ -14,15 +14,13 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# 1. REMOVAL LIST
-# Added "star sports 1 kannada hd" here to remove it as requested
+# 1. REMOVAL LIST (Strictly delete these)
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
-    "star sports 1", "star sports 2", 
-    "star sports 1 kannada hd" 
+    "star sports 1", "star sports 2" 
 ]
 
-# 2. FORCE BACKUP
+# 2. CHANNELS TO FORCE FROM BACKUP
 FORCE_BACKUP_KEYWORDS = [
     "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
@@ -32,14 +30,16 @@ FORCE_BACKUP_KEYWORDS = [
 
 # 3. NAME OVERRIDES
 NAME_OVERRIDES = {
-    # --- STAR SPORTS FIXES ---
-    "star sports 2 hindi hd": "Sports18 1 HD",   # FIXED: Now strictly maps to Sports18 1 HD
-    "star sports 2 tamil hd": "Star Sports 2 Tamil HD", # ADDED: New Channel
+    # Fix: Map your "Star Sports 2 Hindi HD" to the source's "Sports18 1 HD"
+    "star sports 2 hindi hd": "Sports18 1 HD",
+    
+    # Fix: Map your "Star Sports 2 Tamil HD" to source name
+    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
+    
+    # Standard Mappings
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
     "star sports 1 hindi hd": "Star Sports HD1 Hindi",
-    
-    # --- OTHERS ---
     "sony sports ten 1 hd": "sony ten 1",
     "sony sports ten 2 hd": "sony ten 2",
     "sony sports ten 3 hd": "sony ten 3",
@@ -56,6 +56,7 @@ NAME_OVERRIDES = {
 }
 
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+
 # ==========================================
 
 def clean_name_key(name):
@@ -105,16 +106,26 @@ def fuzzy_match_logic(target_name, map_keys):
 
 def find_best_backup_link(original_name, backup_map):
     clean_orig = clean_name_key(original_name)
+    
+    # Special Fix for Sports18 renaming
+    if "star sports 2 hindi hd" in original_name.lower():
+        # Force look for Sports18 1 HD
+        target = clean_name_key("Sports18 1 HD")
+        if target in backup_map: return backup_map[target]
+
     if clean_orig in backup_map: return backup_map[clean_orig]
+    
     clean_mapped = None
     for k, v in NAME_OVERRIDES.items():
         if clean_name_key(k) == clean_orig:
             clean_mapped = clean_name_key(v)
             break
+            
     if clean_mapped:
         if clean_mapped in backup_map: return backup_map[clean_mapped]
         fuzzy_mapped = fuzzy_match_logic(NAME_OVERRIDES.get(original_name.lower(), clean_mapped), backup_map.keys())
         if fuzzy_mapped: return backup_map[fuzzy_mapped]
+    
     fuzzy_key = fuzzy_match_logic(original_name, backup_map.keys())
     if fuzzy_key: return backup_map[fuzzy_key]
     return None
@@ -214,30 +225,41 @@ def update_playlist():
                 if i + 1 < len(lines): url = lines[i+1].strip()
                 
                 original_name = line.split(",")[-1].strip()
-                ch_name_clean = clean_name_key(original_name)
+                ch_name_lower = original_name.lower()
                 
-                # --- REMOVAL LOGIC ---
-                should_remove = False
-                for rm in REMOVE_KEYWORDS:
-                    if rm in ch_name_clean:
-                        if "star sports 1" == rm or "star sports 2" == rm:
-                            if "hd" in ch_name_clean: continue
-                        should_remove = True
-                        break
-                if should_remove: continue
-                # ---------------------
+                # --- FIXED REMOVAL LOGIC ---
+                should_skip = False
+                
+                # 1. PRIORITY REMOVAL: Check for specific Kannada channel FIRST
+                if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower:
+                    should_skip = True
+                
+                # 2. GENERAL REMOVAL: Check others only if not already skipped
+                if not should_skip:
+                    for rm in REMOVE_KEYWORDS:
+                        if rm in ch_name_lower:
+                            # Protect HD channels from generic SD removal keywords
+                            if "star sports 1" == rm or "star sports 2" == rm:
+                                if "hd" in ch_name_lower: continue
+                            should_skip = True
+                            break
+                
+                if should_skip: continue
+                # ---------------------------
 
                 if "http://placeholder" in url:
+                    clean_local_key = clean_name_key(original_name)
                     found_block = None
+                    
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                         if found_block: stats["backup"] += 1
-                        elif clean_name_key(original_name) in local_map:
-                            found_block = [f"{base_url}/{local_map[clean_name_key(original_name)]}.m3u8"]
+                        elif clean_local_key in local_map:
+                            found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
                             stats["local"] += 1
                     else:
-                        if clean_name_key(original_name) in local_map:
-                            found_block = [f"{base_url}/{local_map[clean_name_key(original_name)]}.m3u8"]
+                        if clean_local_key in local_map:
+                            found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
                             stats["local"] += 1
                         else:
                             found_block = find_best_backup_link(original_name, backup_map)
