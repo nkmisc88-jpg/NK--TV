@@ -14,7 +14,15 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# FORCE BACKUP LIST (General)
+# 1. REMOVE LIST (Added your requests here)
+REMOVE_KEYWORDS = [
+    "sony ten", "sonyten", "sony sports ten", 
+    "star sports 1", "star sports 2",
+    "zee thirai",                # Removed
+    "star sports 1 kannada hd"   # Removed
+]
+
+# 2. FORCE BACKUP LIST
 FORCE_BACKUP_KEYWORDS = [
     "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
@@ -22,15 +30,79 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "sports", "ten"
 ]
 
+# 3. NAME OVERRIDES (Added your requests here)
+NAME_OVERRIDES = {
+    # Request: Star Sports 2 Hindi HD -> Links to Sports18 1 HD
+    "star sports 2 hindi hd": "Sports18 1 HD",
+    
+    # Request: Star Sports 2 Tamil HD -> Exact Match
+    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
+
+    # Fixes
+    "zee tamil": "Zee Tamil HD",
+    "nat geo hd": "National Geographic HD",
+    "star sports 1 hd": "Star Sports HD1",
+    "star sports 2 hd": "Star Sports HD2",
+    "star sports 1 hindi hd": "Star Sports HD1 Hindi",
+    "sony sports ten 1 hd": "sony ten 1",
+    "sony sports ten 2 hd": "sony ten 2",
+    "sony sports ten 3 hd": "sony ten 3",
+    "sony sports ten 4 hd": "sony ten 4",
+    "sony sports ten 5 hd": "sony ten 5",
+    "nat geo wild hd": "nat geo wild",
+    "discovery hd world": "discovery channel",
+    "history tv18 hd": "history",
+    "cartoon network hd+ english": "cartoon network",
+    "nick hd+": "nick",
+    "star movies hd": "star movies",
+    "sony pix hd": "sony pix",
+}
+
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 
 # ==========================================
 
-def clean_key(name):
-    """Simplifies string: 'Sports18 1 HD' -> 'sports181hd'"""
+def clean_name_key(name):
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
+
+def get_significant_words(name):
+    name = name.lower().replace("sports18", "sports 18") 
+    name = re.sub(r'\b(hd|sd|tv|channel|network|india|world|english|tamil|hindi|telugu|kannada|movies|cinema)\b', '', name)
+    words = re.findall(r'[a-z0-9]+', name)
+    return set(words)
+
+def fuzzy_match_logic(target_name, map_keys):
+    target_words = get_significant_words(target_name)
+    if not target_words: return None
+    for key in map_keys:
+        key_lower = key.lower().replace("sports18", "sports 18")
+        key_words = set(re.findall(r'[a-z0-9]+', key_lower))
+        if target_words.issubset(key_words): return key
+    return None
+
+def find_best_backup_link(original_name, backup_map):
+    # Manual Fix for Hindi HD mapping logic
+    if "star sports 2 hindi hd" in original_name.lower():
+        for k in backup_map:
+            if "sports18" in k.lower() and "1" in k and "hd" in k.lower(): return backup_map[k]
+
+    clean_orig = clean_name_key(original_name)
+    if clean_orig in backup_map: return backup_map[clean_orig]
+    
+    clean_mapped = None
+    for k, v in NAME_OVERRIDES.items():
+        if clean_name_key(k) == clean_orig:
+            clean_mapped = clean_name_key(v); break
+    if clean_mapped:
+        if clean_mapped in backup_map: return backup_map[clean_mapped]
+        fuzzy_mapped = fuzzy_match_logic(NAME_OVERRIDES.get(original_name.lower(), clean_mapped), backup_map.keys())
+        if fuzzy_mapped: return backup_map[fuzzy_mapped]
+    
+    fuzzy_key = fuzzy_match_logic(original_name, backup_map.keys())
+    if fuzzy_key: return backup_map[fuzzy_key]
+    return None
 
 def load_local_map(ref_file):
     id_map = {}
@@ -39,12 +111,10 @@ def load_local_map(ref_file):
         pattern = r'tvg-id="(\d+)".*?tvg-name="([^"]+)"'
         matches = re.findall(pattern, content)
         for ch_id, ch_name in matches:
-            id_map[clean_key(ch_name)] = ch_id
-        print(f"✅ Local JioTV: Loaded {len(id_map)} channels.")
+            id_map[clean_name_key(ch_name)] = ch_id
+        print(f"✅ Local JioTV: Found {len(id_map)} channels.")
         return id_map
-    except FileNotFoundError: 
-        print("❌ Local source file not found!")
-        return {}
+    except FileNotFoundError: return {}
 
 def fetch_backup_map(url):
     block_map = {}
@@ -59,20 +129,26 @@ def fetch_backup_map(url):
                 if not line: continue
                 if line.startswith("#EXTINF"):
                     if current_name and current_block:
-                        key = clean_key(current_name)
+                        key = clean_name_key(current_name)
                         data = [l for l in current_block if not l.startswith("#EXTINF")]
-                        block_map[key] = data 
+                        block_map[key] = data; block_map[current_name] = data 
                     current_name = line.split(",")[-1].strip()
                     current_block = [line]
                 else:
                     if current_block: current_block.append(line)
             if current_name and current_block:
-                key = clean_key(current_name)
+                key = clean_name_key(current_name)
                 data = [l for l in current_block if not l.startswith("#EXTINF")]
-                block_map[key] = data
-            print(f"✅ Backup Playlist: Loaded {len(block_map)} entries.")
+                block_map[key] = data; block_map[current_name] = data
+            print(f"✅ Backup Playlist: Parsed {len(block_map)} entries.")
     except: pass
     return block_map
+
+def should_force_backup(name):
+    norm = name.lower()
+    for k in FORCE_BACKUP_KEYWORDS:
+        if k in norm: return True
+    return False
 
 def process_manual_link(line, link):
     if 'group-title="YouTube"' in line:
@@ -104,10 +180,9 @@ def parse_youtube_txt():
     return new_entries
 
 def update_playlist():
-    print("\n--- STARTING PROCESSING ---")
+    print("--- STARTING UPDATE ---")
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
-    
     final_lines = ["#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\""]
     stats = {"local": 0, "backup": 0, "missing": 0}
 
@@ -120,126 +195,53 @@ def update_playlist():
                 if i + 1 < len(lines): url = lines[i+1].strip()
                 
                 original_name = line.split(",")[-1].strip()
-                name_lower = original_name.lower()
-                clean_orig = clean_key(original_name)
+                ch_name_lower = original_name.lower()
 
-                # =========================================
-                # 1. HARD REMOVALS (Debug Prints Added)
-                # =========================================
-                
-                # A. Zee Thirai
-                if "zee thirai" in name_lower:
-                    print(f"🗑️ DELETING: {original_name}")
-                    continue
-                
-                # B. Star Sports 1 Kannada HD
-                if "kannada" in name_lower and "star sports 1" in name_lower:
-                    print(f"🗑️ DELETING: {original_name}")
-                    continue
-                
-                # C. Generic Removals (Sony Ten / SD Sports)
-                should_skip = False
-                for rm in ["sony ten", "sonyten", "sony sports ten", "star sports 1", "star sports 2"]:
-                    if rm in name_lower:
-                        # Protect HD channels (except Kannada which is already handled above)
-                        if ("star sports 1" in rm or "star sports 2" in rm) and "hd" in name_lower:
-                            continue
-                        should_skip = True; break
-                
-                if should_skip:
-                    # print(f"🗑️ DELETING SD/Sony: {original_name}")
-                    continue
+                # --- REMOVAL LOGIC ---
+                should_remove = False
+                for rm in REMOVE_KEYWORDS:
+                    if rm in ch_name_lower:
+                        if "star sports 1" in rm or "star sports 2" in rm:
+                            if "hd" in ch_name_lower and "kannada" not in ch_name_lower: 
+                                continue 
+                        should_remove = True; break
+                if should_remove: continue
 
-                # =========================================
-                # 2. RENAMING & SOURCE LOGIC
-                # =========================================
-
-                # CASE: Sports18 1 HD (formerly Star Sports 2 Hindi HD)
-                if "star sports 2 hindi hd" in name_lower:
-                    print(f"🔄 RENAMING: {original_name} -> Sports18 1 HD")
+                # RENAME VISUAL (Optional)
+                if "star sports 2 hindi hd" in ch_name_lower:
                     line = line.replace("Star Sports 2 Hindi HD", "Sports18 1 HD")
-                    
-                    # FORCE LOCAL SOURCE for Sports18 1 HD
-                    target_key = clean_key("Sports18 1 HD")
-                    if target_key in local_map:
-                        final_lines.append(line)
-                        final_lines.append(f"{base_url}/{local_map[target_key]}.m3u8")
-                        stats["local"] += 1
-                        print("   -> Found in LOCAL source.")
-                    else:
-                        print("   ⚠️ Not found in Local, trying backup...")
-                        # Fallback to backup if local missing
-                        if target_key in backup_map:
-                            final_lines.append(line); final_lines.extend(backup_map[target_key])
-                            stats["backup"] += 1
-                    continue # Done with this channel
 
-                # CASE: Star Sports 2 Tamil HD
-                if "star sports 2 tamil hd" in name_lower:
-                    print(f"🔍 PROCESSING: {original_name}")
-                    target_key = clean_key("Star Sports 2 Tamil HD")
-                    
-                    # Try LOCAL first (as requested)
-                    if target_key in local_map:
-                        final_lines.append(line)
-                        final_lines.append(f"{base_url}/{local_map[target_key]}.m3u8")
-                        stats["local"] += 1
-                        print("   -> Found in LOCAL source.")
-                    
-                    # Try BACKUP second
-                    elif target_key in backup_map:
-                        final_lines.append(line); final_lines.extend(backup_map[target_key])
-                        stats["backup"] += 1
-                        print("   -> Found in BACKUP source.")
-                    
-                    else:
-                        print("   ❌ Missing in both sources.")
-                        stats["missing"] += 1
-                    continue # Done with this channel
-
-                # =========================================
-                # 3. STANDARD LOGIC (Everything Else)
-                # =========================================
-                
                 if "http://placeholder" in url:
+                    clean_local_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # Should we check Backup First?
-                    force_backup = False
-                    for k in FORCE_BACKUP_KEYWORDS:
-                        if k in name_lower: force_backup = True; break
-                    
-                    # Name Fixes for Backup Search
-                    search_key = clean_orig
-                    if "nat geo hd" in name_lower: search_key = clean_key("National Geographic HD")
-                    if "zee tamil" in name_lower: search_key = clean_key("Zee Tamil HD")
-
-                    # SEARCH LOGIC
-                    if force_backup:
-                        if search_key in backup_map:
-                            found_block = backup_map[search_key]; stats["backup"] += 1
-                        elif clean_orig in local_map:
-                            found_block = [f"{base_url}/{local_map[clean_orig]}.m3u8"]; stats["local"] += 1
+                    if should_force_backup(original_name):
+                        found_block = find_best_backup_link(original_name, backup_map)
+                        if found_block: stats["backup"] += 1
+                        elif clean_local_key in local_map:
+                            found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
+                            stats["local"] += 1
                     else:
-                        if clean_orig in local_map:
-                            found_block = [f"{base_url}/{local_map[clean_orig]}.m3u8"]; stats["local"] += 1
-                        elif search_key in backup_map:
-                            found_block = backup_map[search_key]; stats["backup"] += 1
-                    
+                        if clean_local_key in local_map:
+                            found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
+                            stats["local"] += 1
+                        else:
+                            found_block = find_best_backup_link(original_name, backup_map)
+                            if found_block: stats["backup"] += 1
+
                     if found_block:
                         final_lines.append(line); final_lines.extend(found_block)
                     else:
                         print(f"⚠️ MISSING: {original_name}")
                         final_lines.append(line)
-                        if clean_orig in local_map: final_lines.append(f"{base_url}/{local_map[clean_orig]}.m3u8")
+                        if clean_local_key in local_map: final_lines.append(f"{base_url}/{local_map[clean_local_key]}.m3u8")
                         else: final_lines.append(f"{base_url}/000.m3u8")
                         stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
                     processed = process_manual_link(line, url)
                     final_lines.extend(processed)
-
-    except FileNotFoundError: print("❌ Template file not found!")
+    except FileNotFoundError: pass
 
     final_lines.extend(parse_youtube_txt())
     try:
@@ -252,8 +254,7 @@ def update_playlist():
     except: pass
 
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
-    print(f"\n🎉 DONE! Saved to {output_file}")
-    print(f"📊 Stats: Local={stats['local']} | Backup={stats['backup']} | Missing={stats['missing']}")
+    print(f"\n🎉 DONE: Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
 
 if __name__ == "__main__":
     update_playlist()
