@@ -10,14 +10,23 @@ reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
 # SOURCES
-# 1. Local Server (Priority 1)
+# 1. Local Server (Default for working channels)
 base_url = "http://192.168.0.146:5350/live" 
 
-# 2. FakeAll/Jstar Backup (Priority 2 - Fills missing channels)
+# 2. FakeAll/Backup (For the 40+ broken channels)
 backup_url = "https://livetv-cb7.pages.dev/hotstar"
 
 # 3. Fancode
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
+
+# KEYWORDS TO FORCE BACKUP (Use FakeAll for these even if Local exists)
+FORCE_BACKUP_KEYWORDS = [
+    "star",     # Star Sports, Star Plus, Star Gold, etc.
+    "zee",      # Zee Tamil, Zee TV, Zee Cinema, etc.
+    "vijay",    # Star Vijay, Vijay Super
+    "asianet",  # Asianet News/Movies
+    "suvarna"   # Star Suvarna
+]
 
 # HEADERS & AGENTS
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
@@ -53,10 +62,10 @@ def load_local_map(ref_file):
         return {}
 
 def fetch_backup_map(url):
-    """Fetches the FakeAll Playlist for missing channels."""
+    """Fetches the FakeAll Playlist."""
     link_map = {}
     try:
-        print("🌍 Fetching FakeAll/Backup Playlist...")
+        print("🌍 Fetching FakeAll Playlist...")
         response = requests.get(url, headers=backup_headers, timeout=20)
         
         if response.status_code == 200:
@@ -65,23 +74,30 @@ def fetch_backup_map(url):
             for line in lines:
                 line = line.strip()
                 if line.startswith("#EXTINF"):
-                    # Extract name after last comma
                     current_name = line.split(",")[-1].strip()
                 elif line and not line.startswith("#"):
                     if current_name:
                         key = clean_name_key(current_name)
-                        # Ensure the backup link has the Mobile User-Agent
+                        # Ensure Mobile UA is attached for playback
                         if "|User-Agent" not in line:
                             line = f"{line}|User-Agent={mobile_ua}"
                         link_map[key] = line
                         current_name = ""
-            print(f"✅ Backup Playlist: Found {len(link_map)} channels.")
+            print(f"✅ FakeAll Playlist: Found {len(link_map)} channels.")
         else:
-            print(f"⚠️ Backup Error: HTTP {response.status_code}")
+            print(f"⚠️ FakeAll Error: HTTP {response.status_code}")
             
     except Exception as e:
-        print(f"⚠️ Failed to fetch Backup: {e}")
+        print(f"⚠️ Failed to fetch FakeAll: {e}")
     return link_map
+
+def should_force_backup(name):
+    """Checks if the channel belongs to the 'Broken' list (Star/Zee)."""
+    norm_name = name.lower()
+    for keyword in FORCE_BACKUP_KEYWORDS:
+        if keyword in norm_name:
+            return True
+    return False
 
 def process_manual_link(line, link):
     """Handles YouTube redirection and group renaming."""
@@ -133,14 +149,16 @@ def parse_youtube_txt():
     return new_entries
 
 def update_playlist():
-    print("--- STARTING UPDATE ---")
+    print("--- STARTING SMART HYBRID UPDATE ---")
     
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
     
     final_lines = ["#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\""]
     
-    # 1. ITERATE THROUGH MASTER TEMPLATE
+    stats = {"local": 0, "backup": 0, "missing": 0}
+
+    # 1. PROCESS THE MASTER TEMPLATE
     try:
         with open(template_file, "r", encoding="utf-8") as f:
             lines = f.readlines()
@@ -155,25 +173,44 @@ def update_playlist():
                     original_name = line.split(",")[-1].strip()
                     lookup_key = clean_name_key(original_name)
                     
-                    # PRIORITY 1: LOCAL JIO
-                    if lookup_key in local_map:
-                        final_lines.append(line)
-                        final_lines.append(f"{base_url}/{local_map[lookup_key]}.m3u8")
-                    
-                    # PRIORITY 2: FAKEALL/BACKUP (Fills the missing channels)
-                    elif lookup_key in backup_map:
-                        print(f"🔹 Backup Used for: {original_name}")
-                        final_lines.append(line) 
-                        final_lines.append(backup_map[lookup_key]) 
-                        
+                    # CHECK: Is this a "Broken" channel? (Star, Zee, etc.)
+                    if should_force_backup(original_name):
+                        # Force check FakeAll FIRST
+                        if lookup_key in backup_map:
+                            final_lines.append(line)
+                            final_lines.append(backup_map[lookup_key])
+                            stats["backup"] += 1
+                            # print(f"🔹 Forced Backup: {original_name}")
+                        else:
+                            # If not in backup, try local as last resort
+                            if lookup_key in local_map:
+                                final_lines.append(line)
+                                final_lines.append(f"{base_url}/{local_map[lookup_key]}.m3u8")
+                                stats["local"] += 1
+                            else:
+                                print(f"❌ MISSING (Forced): {original_name}")
+                                stats["missing"] += 1
+
+                    # ELSE: It is a "Safe" channel (Sun, KTV, News)
                     else:
-                        print(f"❌ CHANNEL MISSING: {original_name}")
+                        if lookup_key in local_map:
+                            final_lines.append(line)
+                            final_lines.append(f"{base_url}/{local_map[lookup_key]}.m3u8")
+                            stats["local"] += 1
+                        elif lookup_key in backup_map:
+                             # Fallback if local is genuinely missing
+                            final_lines.append(line)
+                            final_lines.append(backup_map[lookup_key])
+                            stats["backup"] += 1
+                        else:
+                            print(f"❌ MISSING (Safe): {original_name}")
+                            stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
                     processed = process_manual_link(line, url)
                     final_lines.extend(processed)
     except FileNotFoundError:
-        print("Template file missing!")
+        print("Template missing!")
 
     # 2. ADD YOUTUBE
     final_lines.extend(parse_youtube_txt())
@@ -191,7 +228,11 @@ def update_playlist():
 
     with open(output_file, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
-    print("🎉 Update Complete.")
+    
+    print("\n🎉 UPDATE SUMMARY:")
+    print(f"   - Local JioTV (Safe Channels): {stats['local']}")
+    print(f"   - FakeAll (Forced Star/Zee + Backups): {stats['backup']}")
+    print(f"   - Missing: {stats['missing']}")
 
 if __name__ == "__main__":
     update_playlist()
