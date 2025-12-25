@@ -1,5 +1,7 @@
 import requests
 import re
+import json
+import time
 
 # ==========================================
 # CONFIGURATION
@@ -18,7 +20,7 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2",
-    "zee thirai",                
+    "zee thirai", " Zee Tamil HD"                
     "star sports 1 kannada hd"   
 ]
 
@@ -32,7 +34,6 @@ FORCE_BACKUP_KEYWORDS = [
 
 # 3. MAPPING (Name Overrides)
 NAME_OVERRIDES = {
-    "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "zee tamil": "Zee Tamil HD",
     "nat geo hd": "National Geographic HD",
@@ -53,7 +54,8 @@ NAME_OVERRIDES = {
     "sony pix hd": "sony pix",
 }
 
-browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+# Standard Browser User Agent
+browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # ==========================================
 
@@ -145,28 +147,31 @@ def should_force_backup(name):
         if k in norm: return True
     return False
 
-# --- IMPROVED YOUTUBE FETCHER (Repo Logic) ---
+# --- PURE PYTHON YOUTUBE FETCHER ---
 def get_youtube_live_link(youtube_url):
-    """Fetches the .m3u8 link. Returns NONE if failed (avoids redirect error)."""
+    """
+    Extracts the direct .m3u8 link from a YouTube Live URL.
+    Returns None if offline or extraction fails.
+    """
     try:
         session = requests.Session()
-        # Headers mimicking a browser to avoid 'Consent' page
+        # Headers specifically designed to bypass Consent Page
         session.headers.update({
             'User-Agent': browser_ua,
             'Accept-Language': 'en-US,en;q=0.9',
             'Referer': 'https://www.youtube.com/',
         })
-        # Cookies to bypass consent
+        # Hardcoded Consent Cookie
         session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
 
         resp = session.get(youtube_url, timeout=10)
         
-        # Method 1: regex hlsManifestUrl
+        # Search for the HLS Manifest URL in the raw HTML
         if "hlsManifestUrl" in resp.text:
             url = re.search(r'"hlsManifestUrl":"(.*?)"', resp.text).group(1)
             return url
             
-        print(f"   ❌ No stream found for {youtube_url}")
+        print(f"   ❌ No live stream found for {youtube_url}")
         return None 
     except Exception as e:
         print(f"   ❌ Error fetching YouTube: {e}")
@@ -176,14 +181,15 @@ def process_manual_link(line, link):
     # Detect YouTube Link
     if "youtube.com" in link or "youtu.be" in link:
         clean_link = link.split('|')[0]
-        print(f"   ...Fetching YouTube: {clean_link}")
+        print(f"   ...Checking YouTube: {clean_link}")
         
         fresh_hls = get_youtube_live_link(clean_link)
         
-        if fresh_hls:
+        if fresh_hls and ".m3u8" in fresh_hls:
+            # Found a valid stream!
             return [line, f"{fresh_hls}|User-Agent={browser_ua}"]
         else:
-            # RETURN NOTHING if failed (so it doesn't add a broken link)
+            # FAILED: Do NOT return the broken link. Skip this channel.
             return []
             
     return [line, link]
@@ -230,7 +236,7 @@ def update_playlist():
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
 
-                # --- REMOVALS ---
+                # --- 1. REMOVALS ---
                 if "zee thirai" in ch_name_lower: continue
                 if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower: continue
 
