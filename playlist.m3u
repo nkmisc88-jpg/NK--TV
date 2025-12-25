@@ -25,12 +25,18 @@ http://192.168.0.146:5350/live/707.m3u8
 http://192.168.0.146:5350/live/420.m3u8
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Adithya_TV.png",Adithya TV
 http://192.168.0.146:5350/live/709.m3u8
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthuyugam_TV.png",Puthu Yugam
+http://192.168.0.146:5350/live/824.m3u8
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Raj_Digital_Plus.png",Raj Digital Plus
 http://192.168.0.146:5350/live/683.m3u8
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Peppers_TV.png",Peppers TV
 http://192.168.0.146:5350/live/796.m3u8
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Madha_TV.png",Madha TV
 http://192.168.0.146:5350/live/1655.m3u8
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Win_TV.png",Win TV
+http://192.168.0.146:5350/live/970.m3u8
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Moon_TV.png",Moon TV
+http://192.168.0.146:5350/live/1518.m3u8
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png",Sony Ten 1 HD
 http://192.168.0.146:5350/live/162.m3u8
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png",Sony Ten 2 HD
@@ -45,16 +51,12 @@ http://192.168.0.146:5350/live/889.m3u8
 http://192.168.0.146:5350/live/204.m3u8
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1.png",Sony Ten 1
 http://192.168.0.146:5350/live/514.m3u8
+#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2.png",Ten 2
+http://192.168.0.146:5350/live/523.m3u8
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_5.png",Sony Ten 5
 http://192.168.0.146:5350/live/525.m3u8
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Eurosport.png",Eurosport
 http://192.168.0.146:5350/live/1294.m3u8
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_HD_World.png",Discovery HD English
-http://192.168.0.146:5350/live/463.m3u8
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Animal_Planet_HD.png",Animal Planet HD English
-http://192.168.0.146:5350/live/286.m3u8
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/TLC_HD_World.png",TLC HD English
-http://192.168.0.146:5350/live/479.m3u8
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/History_TV18_HD.png",History TV18 HD
 http://192.168.0.146:5350/live/146.m3u8
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/TravelXP_HD.png",Travelxp HD
@@ -63,8 +65,6 @@ http://192.168.0.146:5350/live/164.m3u8
 http://192.168.0.146:5350/live/1219.m3u8
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/History_TV18_HD_Tamil.png",History TV18 HD Tamil
 http://192.168.0.146:5350/live/579.m3u8
-#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_Science.png",Discovery Science English
-http://192.168.0.146:5350/live/568.m3u8
 #EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_Turbo.png",Discovery Turbo
 http://192.168.0.146:5350/live/541.m3u8
 #EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_Tamil.png",D Tamil
@@ -219,6 +219,6 @@ http://192.168.0.146:5350/live/900.m3u8
 https://www.youtube.com/live/d5jZun5E4zA?si=pZcISvMCYoL89Vsu
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 25 December 2025 at 7:21:05 am
+#DATE:- Thursday, 25 December 2025 at 8:00:07 am
 #EXTINF:-1 tvg-id="136138" tvg-name="Al Nassr Fc Vs Al Zawraa Sc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/136138_5648_ANF_ALZ_FC-Web.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Al Nassr Fc Vs Al Zawraa Sc
 https://in-mc-fdlive.fancode.com/mumbai/136138_english_hls_30dc12587a12429_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
