@@ -14,12 +14,19 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# CHANNELS TO FORCE FROM BACKUP (Broken locally)
+# FORCE BACKUP LIST (Includes Infotainment & Kids now)
 FORCE_BACKUP_KEYWORDS = [
-    "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "discovery", "nat geo", "sony"
+    # Networks
+    "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
+    # Infotainment (The missing ones)
+    "discovery", "nat geo", "history", "tlc", "animal planet", "travelxp", "bbc earth",
+    # Kids
+    "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery kids", "chutti", "kochu", "kushi",
+    # Movies/English
+    "movies now", "mnx", "romedy", "mn+", "pix"
 ]
 
-# Browser UA (Only for YouTube)
+# Browser UA
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 # ==========================================
 
@@ -29,11 +36,32 @@ def clean_name_key(name):
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
 
-def fuzzy_find(target_key, map_keys):
-    """Finds best match."""
+def smart_match(target_name, map_keys):
+    """
+    Advanced matching:
+    1. Clean Key Match (exact)
+    2. Substring Match (one inside the other)
+    3. Word Match (all important words must exist)
+    """
+    target_clean = clean_name_key(target_name)
+    
+    # 1. Exact/Substring Check
     for key in map_keys:
-        if target_key in key or key in target_key:
+        if target_clean == key or target_clean in key or key in target_clean:
             return key
+            
+    # 2. Word-based Check (Fixes 'Nat Geo Wild HD' matching 'Nat Geo Wild')
+    # Filter out common noise words like 'hd', 'tv', 'channel'
+    ignored_words = {'hd', 'sd', 'tv', 'channel', 'network', 'live', 'in'}
+    target_words = [w for w in re.split(r'\W+', target_name.lower()) if w and w not in ignored_words]
+    
+    if not target_words: return None
+
+    for key in map_keys:
+        # Check if ALL core words from target exist in the backup key
+        if all(word in key for word in target_words):
+            return key
+            
     return None
 
 def load_local_map(ref_file):
@@ -54,7 +82,7 @@ def load_local_map(ref_file):
         return {}
 
 def fetch_backup_map(url):
-    """Fetches Backup Playlist and captures FULL BLOCKS (Headers+Links)."""
+    """Fetches Backup Playlist and captures FULL BLOCKS."""
     block_map = {}
     try:
         print("🌍 Fetching FakeAll Source...")
@@ -69,27 +97,20 @@ def fetch_backup_map(url):
                 line = line.strip()
                 if not line: continue
                 
-                # Start of a new channel entry
                 if line.startswith("#EXTINF"):
-                    # If we were building a block, save the previous one first
                     if current_name and current_block:
                         key = clean_name_key(current_name)
-                        # Store everything EXCEPT the #EXTINF line itself (we use our own)
-                        # We only want the URL and any #KODIPROP/#EXTVLCOPT lines
                         data_lines = [l for l in current_block if not l.startswith("#EXTINF")]
                         if data_lines:
                             block_map[key] = data_lines
                     
-                    # Start new block
                     current_name = line.split(",")[-1].strip()
                     current_block = [line]
-                
-                # Metadata lines (Kodiprop, headers) OR URL lines
                 else:
                     if current_block:
                         current_block.append(line)
             
-            # Save the very last block
+            # Save last block
             if current_name and current_block:
                 key = clean_name_key(current_name)
                 data_lines = [l for l in current_block if not l.startswith("#EXTINF")]
@@ -104,7 +125,7 @@ def fetch_backup_map(url):
     return block_map
 
 def should_force_backup(name):
-    """Checks if channel is broken locally."""
+    """Checks if channel is in the 'Broken' list."""
     norm_name = name.lower()
     for keyword in FORCE_BACKUP_KEYWORDS:
         if keyword in norm_name:
@@ -157,7 +178,7 @@ def parse_youtube_txt():
     return new_entries
 
 def update_playlist():
-    print("--- STARTING FULL BLOCK UPDATE ---")
+    print("--- STARTING SMART UPDATE ---")
     
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
@@ -180,36 +201,32 @@ def update_playlist():
                     lookup_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # 1. LOGIC: Force Backup for Star/Zee/Vijay
+                    # 1. FORCE BACKUP (Now includes Nat Geo, Discovery, etc.)
                     if should_force_backup(original_name):
-                        if lookup_key in backup_map:
-                            found_block = backup_map[lookup_key]
-                        else:
-                            # Fuzzy Find
-                            fuzzy_key = fuzzy_find(lookup_key, backup_map.keys())
-                            if fuzzy_key:
-                                found_block = backup_map[fuzzy_key]
+                        # Use Smart Match to find "Nat Geo Wild" for "Nat Geo Wild HD"
+                        match_key = smart_match(original_name, backup_map.keys())
                         
-                        if found_block:
+                        if match_key:
+                            found_block = backup_map[match_key]
                             stats["backup"] += 1
-                        # Fallback to local
                         elif lookup_key in local_map:
                             found_block = [f"{base_url}/{local_map[lookup_key]}.m3u8"]
                             stats["local"] += 1
 
-                    # 2. LOGIC: Safe Channels (Sun/News)
+                    # 2. SAFE CHANNELS
                     else:
                         if lookup_key in local_map:
                             found_block = [f"{base_url}/{local_map[lookup_key]}.m3u8"]
                             stats["local"] += 1
-                        elif lookup_key in backup_map:
-                            found_block = backup_map[lookup_key]
-                            stats["backup"] += 1
+                        else:
+                            match_key = smart_match(original_name, backup_map.keys())
+                            if match_key:
+                                found_block = backup_map[match_key]
+                                stats["backup"] += 1
 
-                    # 3. WRITE TO FILE
                     if found_block:
-                        final_lines.append(line) # Our nice EXTINF
-                        final_lines.extend(found_block) # Their URL + Headers + Cookies
+                        final_lines.append(line)
+                        final_lines.extend(found_block)
                     else:
                         print(f"❌ MISSING: {original_name}")
                         stats["missing"] += 1
