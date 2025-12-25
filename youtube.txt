@@ -5,13 +5,13 @@ VPN Required : No
 
 Title : ICC TV Stream 1
 Logo : https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg
-Link : PASTE_LINK_HERE
+Link : https://prod-sports-north-gm.jiocinema.com/bpk-tv/M1_English_1080p/index.m3u8
 VPN Required : Yes
 VPN Country : Australia
 
 Title : ICC TV Stream 2
 Logo : https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg
-Link : PASTE_LINK_HERE
+Link : https://d1e1.kooora365.com/b3/index.m3u8
 VPN Required : Yes
 VPN Country : USA
 
