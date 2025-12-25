@@ -1,6 +1,6 @@
 Title : ICC TV Stream 1
 Logo : https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg
-Link : http://cors.tundracast.com:2000/https://tgn.bozztv.com/eshgtv-dvrfl05/gin-ariana/index.m3u8
+Link : https://www.youtube.com/watch?v=9Auq9mYxFEE
 VPN Required : Yes
 VPN Country : Australia
 
@@ -16,7 +16,9 @@ VPN Required : No
 
 Title : Polimer News
 Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png
-Link : https://www.youtube.com/watch?v=M94aL_j-s_w
+Link : https://www.youtube.com/watch?v=dp8PhLsUcFE
+VPN Required : Yes 
+VPN Country : USA
 
 Title : News 24
 Logo : https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png
