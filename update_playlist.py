@@ -5,29 +5,29 @@ import re
 # CONFIGURATION
 # ==========================================
 template_file = "template.m3u"
-# This file MUST exist in the same folder (your local JioTV Go export)
+# This file MUST be in the same folder (Your local JioTV export)
 reference_file = "jiotv_playlist.m3u.m3u8" 
 output_file = "playlist.m3u"
 
-# SOURCES
-# 1. Local Server (Primary for most channels)
+# 1. LOCAL SOURCE (Your perfectly working server)
 local_base_url = "http://192.168.0.146:5350/live"
 
-# 2. Remote Source (For Sports HD only)
+# 2. REMOTE BACKUP (JStar)
 jstar_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
-# 3. Fancode (Jitendra)
+# 3. FANCODE (Jitendra)
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# DELETE LIST: Remove these completely
+# DELETE LIST
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2" # SD versions
 ]
 
 # STRICT MAPPING (Template Name -> JStar Name)
-# Only needed for channels we force from JStar
+# This connects your "New Names" to the "Old Names" in JStar
 BACKUP_MAPPING = {
+    # Sports Rebranding Fixes
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
     "star sports 1 hindi hd": "Star Sports HD1 Hindi",
@@ -37,13 +37,16 @@ BACKUP_MAPPING = {
     "star sports 2 kannada hd": "Star Sports 2 Kannada HD",
     "star sports select 1 hd": "Star Sports Select HD1",
     "star sports select 2 hd": "Star Sports Select HD2",
+    
+    # Regional/Infotainment
+    "zee tamil": "Zee Tamil HD",
     "discovery hd world": "Discovery HD",
-    "animal planet hd world": "Animal Planet HD",
-    "tlc hd world": "TLC HD",
     "nat geo hd": "National Geographic HD",
+    "animal planet hd world": "Animal Planet HD",
+    "tlc hd world": "TLC HD"
 }
 
-# GROUPS TO FORCE FROM BACKUP (JStar)
+# GROUPS TO PRIORITIZE FROM JSTAR
 FORCE_BACKUP_GROUPS = ["Sports HD", "Infotainment HD"]
 
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
@@ -54,24 +57,23 @@ def clean_key(name):
     return re.sub(r'[^a-z0-9]', '', name.lower())
 
 def load_local_map(ref_file):
-    """Loads IDs from your local JioTV Go file."""
+    """Loads channel IDs from your local file."""
     id_map = {}
     try:
         with open(ref_file, "r", encoding="utf-8") as f:
             content = f.read()
-        # Regex to find tvg-id="123" and tvg-name="Channel Name"
         pattern = r'tvg-id="(\d+)".*?tvg-name="([^"]+)"'
         matches = re.findall(pattern, content)
         for ch_id, ch_name in matches:
             k = clean_key(ch_name)
             id_map[k] = ch_id
-        print(f"✅ Local JioTV: Loaded {len(id_map)} channels.")
+        print(f"✅ Local Server Map: Loaded {len(id_map)} channels.")
     except FileNotFoundError:
-        print(f"❌ ERROR: Local file '{ref_file}' not found. Make sure it is in the folder!")
+        print(f"❌ ERROR: '{ref_file}' not found. Local channels will fail!")
     return id_map
 
 def fetch_jstar(url):
-    """Fetches remote backup map."""
+    """Fetches JStar playlist."""
     map_data = {}
     try:
         resp = requests.get(url, headers={"User-Agent": browser_ua}, timeout=30)
@@ -84,7 +86,7 @@ def fetch_jstar(url):
                     curr_name = line.split(",")[-1].strip()
                 elif line.startswith("http") and curr_name:
                     k = clean_key(curr_name)
-                    # Priority logic
+                    # Priority: Prefer HD if duplicate
                     if k not in map_data or ("hd" in curr_name.lower() and "hd" not in map_data[k]['name'].lower()):
                         map_data[k] = {"url": line, "name": curr_name}
                     curr_name = ""
@@ -94,7 +96,7 @@ def fetch_jstar(url):
     return map_data
 
 def update_playlist():
-    # 1. Load Sources
+    # 1. Load Data
     local_map = load_local_map(reference_file)
     jstar_map = fetch_jstar(jstar_url)
     
@@ -119,7 +121,7 @@ def update_playlist():
             group_match = re.search(r'group-title="([^"]+)"', inf_line)
             group_name = group_match.group(1) if group_match else ""
 
-            # --- REMOVE LOGIC ---
+            # --- 1. REMOVE LOGIC ---
             should_remove = False
             for rm in REMOVE_KEYWORDS:
                 if rm in ch_name_lower:
@@ -128,44 +130,46 @@ def update_playlist():
                     break
             if should_remove: continue
 
-            # --- DECIDE SOURCE ---
+            # --- 2. FIND LINK LOGIC ---
             final_url = ""
             
-            # Condition A: Force Backup (Sports HD / Infotainment HD)
-            if any(g in group_name for g in FORCE_BACKUP_GROUPS):
-                # Try Mapping First
+            # Check 1: Should we force backup? (Sports HD)
+            force_backup = any(g in group_name for g in FORCE_BACKUP_GROUPS)
+            
+            if force_backup:
+                # TRY JSTAR FIRST
                 target = BACKUP_MAPPING.get(ch_name_lower, ch_name_lower)
                 k = clean_key(target)
-                
                 if k in jstar_map:
                     final_url = jstar_map[k]['url']
-                # Fallback to local if missing in backup
+                # FAILSAFE: If not in JStar, TRY LOCAL
                 elif clean_key(ch_name_raw) in local_map:
                     tid = local_map[clean_key(ch_name_raw)]
                     final_url = f"{local_base_url}/{tid}.m3u8"
             
-            # Condition B: Standard Channel (Sun TV, News, etc.) -> Use Local
             else:
+                # STANDARD CHANNEL: TRY LOCAL FIRST
                 k_local = clean_key(ch_name_raw)
                 if k_local in local_map:
                     tid = local_map[k_local]
                     final_url = f"{local_base_url}/{tid}.m3u8"
-                # Fallback to Backup if missing locally
+                # FAILSAFE: If not in Local, TRY JSTAR
                 elif k_local in jstar_map:
                     final_url = jstar_map[k_local]['url']
 
-            # --- WRITE RESULT ---
+            # --- 3. WRITE TO FILE ---
             if final_url:
                 final_lines.append(inf_line)
                 final_lines.append(final_url)
             elif "http" in stream_url and "placeholder" not in stream_url:
-                # Keep existing valid hardcoded links (YouTube etc)
+                # Keep valid existing links (e.g. custom YouTube links if any)
                 final_lines.append(inf_line)
                 final_lines.append(stream_url)
             else:
-                print(f"⚠️ Missing everywhere: {ch_name_raw}")
+                # Channel exists in template but found NO source
+                print(f"⚠️ Channel Missing (No Link Found): {ch_name_raw}")
 
-        # --- ADD FANCODE ---
+        # --- 4. ADD FANCODE ---
         try:
             fc_resp = requests.get(fancode_url, headers={"User-Agent": browser_ua}, timeout=30)
             if fc_resp.status_code == 200:
@@ -177,7 +181,7 @@ def update_playlist():
 
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("\n".join(final_lines))
-        print(f"Playlist saved: {output_file}")
+        print(f"🎉 Playlist generated: {output_file}")
 
     except Exception as e:
         print(f"Error: {e}")
