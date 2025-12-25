@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-25 23:37:42
+# Updated on: 2025-12-25 23:41:43
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -901,7 +901,7 @@ https://www.youtube.com/watch?v=9Auq9mYxFEE
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg",ICC TV Stream 2
 http://cors.tundracast.com:2000/https://tgn.bozztv.com/eshgtv-dvrfl05/gin-ariana/index.m3u8
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png",Sun News Live
-https://www.youtube.com/watch?v=CVIWCi5XmN0
+https://www.youtube.com/live/9M02G5c6x6w?si=ClU2Ul7cQDxxRHfM
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png",Polimer News [VPN]
 https://www.youtube.com/watch?v=dp8PhLsUcFE
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png",News 24
