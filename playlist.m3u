@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-25 23:04:00
+# Updated on: 2025-12-25 23:10:20
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -899,6 +899,12 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 PASTE_LINK_HERE
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg",ICC TV Stream 2
 PASTE_LINK_HERE
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png",Sun News Live
+https://www.youtube.com/watch?v=CVIWCi5XmN0
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png",Polimer News
+https://www.youtube.com/watch?v=M94aL_j-s_w
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png",News 24
+https://www.youtube.com/live/nyd-xznCpJc
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Friday, 26 December 2025 at 12:28:05 am
