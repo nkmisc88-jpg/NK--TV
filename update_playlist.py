@@ -10,18 +10,11 @@ reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
 # SOURCES
-# 1. Local JioTV (For 130+ Safe Channels)
 base_url = "http://192.168.0.146:5350/live" 
-
-# 2. FakeAll/Backup (For Star/Zee/Vijay)
-# We will copy links from here EXACTLY as they are.
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
-
-# 3. Fancode
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# FORCE BACKUP LIST
-# Channels with these names will ALWAYS attempt to grab the backup link first.
+# CHANNELS TO FORCE FROM BACKUP (Broken locally)
 FORCE_BACKUP_KEYWORDS = [
     "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "discovery", "nat geo", "sony"
 ]
@@ -31,14 +24,13 @@ browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 # ==========================================
 
 def clean_name_key(name):
-    """Normalizes names (e.g. 'Star Sports 1 HD' -> 'starsports1hd')."""
+    """Normalizes names."""
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
 
 def fuzzy_find(target_key, map_keys):
-    """Finds the best match in the backup list."""
-    # 1. Check if target is inside a map key
+    """Finds best match."""
     for key in map_keys:
         if target_key in key or key in target_key:
             return key
@@ -62,37 +54,57 @@ def load_local_map(ref_file):
         return {}
 
 def fetch_backup_map(url):
-    """Fetches the FakeAll Playlist and stores RAW links."""
-    link_map = {}
+    """Fetches Backup Playlist and captures FULL BLOCKS (Headers+Links)."""
+    block_map = {}
     try:
         print("🌍 Fetching FakeAll Source...")
-        # We use a browser UA just to get the file from GitHub
         response = requests.get(url, headers={"User-Agent": browser_ua}, timeout=20)
         
         if response.status_code == 200:
             lines = response.text.splitlines()
+            current_block = []
             current_name = ""
+            
             for line in lines:
                 line = line.strip()
+                if not line: continue
+                
+                # Start of a new channel entry
                 if line.startswith("#EXTINF"):
-                    # Extract name
-                    current_name = line.split(",")[-1].strip()
-                elif line and not line.startswith("#"):
-                    if current_name:
+                    # If we were building a block, save the previous one first
+                    if current_name and current_block:
                         key = clean_name_key(current_name)
-                        # CRITICAL FIX: Store the link EXACTLY as is.
-                        # Do NOT add User-Agent if it's already there.
-                        link_map[key] = line
-                        current_name = ""
-            print(f"✅ Backup Playlist: Found {len(link_map)} channels.")
+                        # Store everything EXCEPT the #EXTINF line itself (we use our own)
+                        # We only want the URL and any #KODIPROP/#EXTVLCOPT lines
+                        data_lines = [l for l in current_block if not l.startswith("#EXTINF")]
+                        if data_lines:
+                            block_map[key] = data_lines
+                    
+                    # Start new block
+                    current_name = line.split(",")[-1].strip()
+                    current_block = [line]
+                
+                # Metadata lines (Kodiprop, headers) OR URL lines
+                else:
+                    if current_block:
+                        current_block.append(line)
+            
+            # Save the very last block
+            if current_name and current_block:
+                key = clean_name_key(current_name)
+                data_lines = [l for l in current_block if not l.startswith("#EXTINF")]
+                if data_lines:
+                    block_map[key] = data_lines
+                    
+            print(f"✅ Backup Playlist: Parsed {len(block_map)} channel blocks.")
         else:
             print(f"⚠️ Backup Error: {response.status_code}")
     except Exception as e:
         print(f"⚠️ Failed to fetch Backup: {e}")
-    return link_map
+    return block_map
 
 def should_force_backup(name):
-    """Checks if channel is in the 'Broken' list."""
+    """Checks if channel is broken locally."""
     norm_name = name.lower()
     for keyword in FORCE_BACKUP_KEYWORDS:
         if keyword in norm_name:
@@ -100,7 +112,7 @@ def should_force_backup(name):
     return False
 
 def process_manual_link(line, link):
-    """Fixes YouTube redirection only."""
+    """Fixes YouTube redirection."""
     if 'group-title="YouTube"' in line:
         line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
     
@@ -145,7 +157,7 @@ def parse_youtube_txt():
     return new_entries
 
 def update_playlist():
-    print("--- STARTING DIRECT COPY UPDATE ---")
+    print("--- STARTING FULL BLOCK UPDATE ---")
     
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
@@ -166,39 +178,66 @@ def update_playlist():
                 if "http://placeholder" in url:
                     original_name = line.split(",")[-1].strip()
                     lookup_key = clean_name_key(original_name)
-                    found_link = None
+                    found_block = None
                     
-                    # 1. LOGIC: Force Backup for Star/Zee/Vijay/Sony
+                    # 1. LOGIC: Force Backup for Star/Zee/Vijay
                     if should_force_backup(original_name):
-                        # Try exact match
                         if lookup_key in backup_map:
-                            found_link = backup_map[lookup_key]
-                        # Try Fuzzy match
+                            found_block = backup_map[lookup_key]
                         else:
+                            # Fuzzy Find
                             fuzzy_key = fuzzy_find(lookup_key, backup_map.keys())
                             if fuzzy_key:
-                                found_link = backup_map[fuzzy_key]
+                                found_block = backup_map[fuzzy_key]
                         
-                        if found_link:
+                        if found_block:
                             stats["backup"] += 1
                         # Fallback to local
                         elif lookup_key in local_map:
-                            found_link = f"{base_url}/{local_map[lookup_key]}.m3u8"
+                            found_block = [f"{base_url}/{local_map[lookup_key]}.m3u8"]
                             stats["local"] += 1
 
                     # 2. LOGIC: Safe Channels (Sun/News)
                     else:
                         if lookup_key in local_map:
-                            found_link = f"{base_url}/{local_map[lookup_key]}.m3u8"
+                            found_block = [f"{base_url}/{local_map[lookup_key]}.m3u8"]
                             stats["local"] += 1
                         elif lookup_key in backup_map:
-                            found_link = backup_map[lookup_key]
+                            found_block = backup_map[lookup_key]
                             stats["backup"] += 1
 
                     # 3. WRITE TO FILE
-                    if found_link:
-                        final_lines.append(line)
-                        final_lines.append(found_link)
+                    if found_block:
+                        final_lines.append(line) # Our nice EXTINF
+                        final_lines.extend(found_block) # Their URL + Headers + Cookies
                     else:
                         print(f"❌ MISSING: {original_name}")
-                        stats["
+                        stats["missing"] += 1
+
+                elif url and not url.startswith("#"):
+                    processed = process_manual_link(line, url)
+                    final_lines.extend(processed)
+    except FileNotFoundError:
+        print("Template file missing!")
+
+    final_lines.extend(parse_youtube_txt())
+
+    try:
+        r = requests.get(fancode_url)
+        if r.status_code == 200:
+            flines = r.text.splitlines()
+            if flines and flines[0].startswith("#EXTM3U"): flines = flines[1:]
+            final_lines.append("\n" + "\n".join(flines))
+            print("✅ Fancode merged.")
+    except: pass
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write("\n".join(final_lines))
+    
+    print("\n🎉 SUMMARY:")
+    print(f"   - Local: {stats['local']}")
+    print(f"   - Backup (Full Blocks): {stats['backup']}")
+    print(f"   - Missing: {stats['missing']}")
+
+if __name__ == "__main__":
+    update_playlist()
