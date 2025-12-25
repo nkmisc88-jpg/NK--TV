@@ -5,183 +5,314 @@ import re
 # CONFIGURATION
 # ==========================================
 template_file = "template.m3u"
-reference_file = "jiotv_playlist.m3u.m3u8" # Your working local playlist
+youtube_file = "youtube.txt"
+reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
 # SOURCES
-jstar_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
+base_url = "http://192.168.0.146:5350/live" 
+# Backup Source (FakeAll/Jstar)
+backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# DELETE LIST
+# 1. REMOVAL LIST (Strictly delete these)
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2" # SD versions
 ]
 
-# FORCED MAPPING (Template Name -> JStar Name)
-# These specific HD channels will be pulled from JStar
-BACKUP_MAPPING = {
+# 2. CHANNELS TO FORCE FROM BACKUP
+FORCE_BACKUP_KEYWORDS = [
+    "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
+    "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
+    "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
+    "&pictures", "sports", "ten"
+]
+
+# 3. NAME OVERRIDES (Left: YOUR Template Name | Right: BACKUP Source Name)
+# Updated based on your screenshots to fix "Missing" channels
+NAME_OVERRIDES = {
+    # --- STAR SPORTS FIXES (HD1 format) ---
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
     "star sports 1 hindi hd": "Star Sports HD1 Hindi",
-    "star sports 2 hindi hd": "Sports18 1 HD",
-    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
+    
+    # --- REBRANDING FIXES (JioStar 2025) ---
+    "star sports 2 hindi hd": "Sports18 1 HD",      # Fixes playback
+    "star sports 2 tamil hd": "Star Sports 2 Tamil HD", 
     "star sports 2 telugu hd": "Star Sports 2 Telugu HD",
     "star sports 2 kannada hd": "Star Sports 2 Kannada HD",
+    
+    # --- STAR SPORTS SELECT ---
     "star sports select 1 hd": "Star Sports Select HD1",
     "star sports select 2 hd": "Star Sports Select HD2",
-    "discovery hd world": "Discovery HD",
+    
+    # --- INFOTAINMENT & OTHERS ---
     "nat geo hd": "National Geographic HD",
+    "nat geo wild hd": "Nat Geo Wild HD",
+    "discovery hd world": "Discovery HD",
+    "history tv18 hd": "History TV18 HD",
+    "cartoon network hd+ english": "Cartoon Network HD+",
+    "nick hd+": "Nick HD+",
+    "star movies hd": "Star Movies HD",
+    "sony pix hd": "Sony Pix HD",
     "zee tamil": "Zee Tamil HD"
 }
 
-# Groups to check in JStar
-FORCE_BACKUP_GROUPS = ["Sports HD", "Infotainment HD"]
-
+# Browser UA
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
-
 # ==========================================
 
-def clean_key(name):
-    """Standardizes string for matching (removes spaces, case, special chars)."""
-    return re.sub(r'[^a-z0-9]', '', name.lower())
+def clean_name_key(name):
+    """Normalizes names."""
+    name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
+    name = re.sub(r'[^a-zA-Z0-9]', '', name)
+    return name.lower().strip()
+
+def get_significant_words(name):
+    """Extracts core words for fuzzy matching."""
+    name = name.lower()
+    name = name.replace("sports18", "sports 18") 
+    name = re.sub(r'\b(hd|sd|tv|channel|network|india|world|english|tamil|hindi|telugu|kannada|movies|cinema)\b', '', name)
+    words = re.findall(r'[a-z0-9]+', name)
+    return set(words)
+
+def get_forbidden_words(target_name):
+    """Context-aware blacklist."""
+    t = target_name.lower()
+    forbidden = []
+    
+    if "nat" in t and "wild" not in t: forbidden.append("wild")
+    if "discovery" in t:
+        if "kids" not in t: forbidden.append("kids")
+        if "science" not in t: forbidden.append("science")
+        if "turbo" not in t: forbidden.append("turbo")
+    
+    if "sports" in t or "ten" in t:
+        for n in ["1", "2", "3", "4", "5"]:
+            if n in t:
+                forbidden.extend([x for x in ["1", "2", "3", "4", "5"] if x != n])
+                break     
+    return forbidden
+
+def fuzzy_match_logic(target_name, map_keys):
+    target_words = get_significant_words(target_name)
+    if not target_words: return None
+    bad_words = get_forbidden_words(target_name)
+    
+    for key in map_keys:
+        key_lower = key.lower()
+        key_norm = key_lower.replace("sports18", "sports 18")
+        if any(bad in key_lower for bad in bad_words): continue
+        key_words = set(re.findall(r'[a-z0-9]+', key_norm))
+        
+        if "national" in key_words and "geographic" in key_words:
+            key_words.add("nat"); key_words.add("geo")
+        if "&pictures" in key_lower:
+            key_words.add("and"); key_words.add("pictures")
+
+        if target_words.issubset(key_words):
+            return key
+    return None
+
+def find_best_backup_link(original_name, backup_map):
+    clean_orig = clean_name_key(original_name)
+    
+    # 1. Exact Match
+    if clean_orig in backup_map: return backup_map[clean_orig]
+        
+    # 2. Mapped Match (Overrides)
+    clean_mapped = None
+    for k, v in NAME_OVERRIDES.items():
+        if clean_name_key(k) == clean_orig:
+            clean_mapped = clean_name_key(v)
+            break
+            
+    if clean_mapped:
+        if clean_mapped in backup_map: return backup_map[clean_mapped]
+        # Fuzzy match the mapped name
+        fuzzy_mapped = fuzzy_match_logic(NAME_OVERRIDES.get(original_name.lower(), clean_mapped), backup_map.keys())
+        if fuzzy_mapped: return backup_map[fuzzy_mapped]
+    
+    # 3. Fuzzy Match (Original Name)
+    fuzzy_key = fuzzy_match_logic(original_name, backup_map.keys())
+    if fuzzy_key: return backup_map[fuzzy_key]
+        
+    return None
 
 def load_local_map(ref_file):
-    """Reads the reference file and maps Name -> FULL URL."""
-    url_map = {}
+    id_map = {}
     try:
         with open(ref_file, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-        
-        current_name = ""
-        for line in lines:
-            line = line.strip()
-            if line.startswith("#EXTINF"):
-                # Extract name
-                current_name = line.split(",")[-1].strip()
-            elif line.startswith("http") and current_name:
-                # Store the EXACT working URL keyed by cleaned name
-                k = clean_key(current_name)
-                url_map[k] = line
-                current_name = ""
-        print(f"✅ Local Reference: Loaded {len(url_map)} working links.")
+            content = f.read()
+        pattern = r'tvg-id="(\d+)".*?tvg-name="([^"]+)"'
+        matches = re.findall(pattern, content)
+        for ch_id, ch_name in matches:
+            key = clean_name_key(ch_name)
+            id_map[key] = ch_id
+        print(f"✅ Local JioTV: Found {len(id_map)} channels.")
+        return id_map
     except FileNotFoundError:
-        print(f"❌ ERROR: Could not find {ref_file}. Make sure it's in the same folder!")
-    return url_map
+        return {}
 
-def fetch_jstar(url):
-    """Fetches JStar backup and maps Name -> URL."""
-    map_data = {}
+def fetch_backup_map(url):
+    block_map = {}
     try:
-        resp = requests.get(url, headers={"User-Agent": browser_ua}, timeout=30)
-        if resp.status_code == 200:
-            lines = resp.text.splitlines()
-            curr = ""
+        print("🌍 Fetching FakeAll Source...")
+        response = requests.get(url, headers={"User-Agent": browser_ua}, timeout=20)
+        if response.status_code == 200:
+            lines = response.text.splitlines()
+            current_block = []
+            current_name = ""
             for line in lines:
+                line = line.strip()
+                if not line: continue
                 if line.startswith("#EXTINF"):
-                    curr = line.split(",")[-1].strip()
-                elif line.startswith("http") and curr:
-                    k = clean_key(curr)
-                    # Priority: Prefer HD
-                    if k not in map_data or "hd" in curr.lower():
-                        map_data[k] = line
-                    curr = ""
-            print(f"✅ JStar Backup: Loaded {len(map_data)} channels.")
-    except:
-        print("❌ Error fetching JStar.")
-    return map_data
+                    if current_name and current_block:
+                        key = clean_name_key(current_name)
+                        data = [l for l in current_block if not l.startswith("#EXTINF")]
+                        if data: block_map[key] = data
+                        block_map[current_name] = data 
+                    current_name = line.split(",")[-1].strip()
+                    current_block = [line]
+                else:
+                    if current_block: current_block.append(line)
+            if current_name and current_block:
+                key = clean_name_key(current_name)
+                data = [l for l in current_block if not l.startswith("#EXTINF")]
+                if data: block_map[key] = data
+                block_map[current_name] = data
+            print(f"✅ Backup Playlist: Parsed {len(block_map)} entries.")
+    except: pass
+    return block_map
+
+def should_force_backup(name):
+    norm = name.lower()
+    for k in FORCE_BACKUP_KEYWORDS:
+        if k in norm: return True
+    return False
+
+def process_manual_link(line, link):
+    if 'group-title="YouTube"' in line:
+        line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
+    if "youtube.com" in link or "youtu.be" in link:
+        link = link.split('|')[0]
+        vid_id = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
+        if vid_id: link = f"https://www.youtube.com/watch?v={vid_id.group(1)}&.m3u8|User-Agent={browser_ua}"
+        else: link = f"{link}|User-Agent={browser_ua}"
+    return [line, link]
+
+def parse_youtube_txt():
+    new_entries = []
+    try:
+        with open(youtube_file, "r", encoding="utf-8") as f:
+            content = f.read()
+        blocks = content.split('\n\n')
+        for block in blocks:
+            if not block.strip(): continue
+            data = {}
+            for row in block.splitlines():
+                if ':' in row:
+                    k, v = row.split(':', 1)
+                    data[k.strip().lower()] = v.strip()
+            title = data.get('title', 'Unknown')
+            logo = data.get('logo', '')
+            link = data.get('link', '')
+            vpn_req = data.get('vpn required', 'no').lower()
+            vpn_country = data.get('vpn country', '')
+            if not link: continue
+            if vpn_req == 'yes':
+                title = f"{title} [VPN: {vpn_country}]" if vpn_country else f"{title} [VPN Required]"
+            line = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}'
+            new_entries.extend(process_manual_link(line, link))
+    except: pass
+    return new_entries
 
 def update_playlist():
-    # 1. Load Sources
-    local_urls = load_local_map(reference_file)
-    jstar_urls = fetch_jstar(jstar_url)
-    
+    print("--- STARTING PLAYLIST UPDATE ---")
+    local_map = load_local_map(reference_file)
+    backup_map = fetch_backup_map(backup_url)
     final_lines = ["#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\""]
-    count = 0
-    
+    stats = {"local": 0, "backup": 0, "missing": 0}
+
     try:
-        with open(template_file, "r", encoding="utf-8") as f:
-            template_content = f.read()
-        
-        entries = re.split(r'(?=#EXTINF)', template_content)
-        
-        for entry in entries:
-            if not entry.strip() or not entry.startswith("#EXTINF"): continue
-            
-            lines = entry.strip().splitlines()
-            inf_line = lines[0]
-            stream_url = lines[1] if len(lines) > 1 else ""
-            
-            ch_name_raw = inf_line.split(",")[-1].strip()
-            ch_name_clean = clean_key(ch_name_raw)
-            
-            # 1. CHECK REMOVALS
-            should_remove = False
-            for rm in REMOVE_KEYWORDS:
-                if rm in ch_name_clean:
-                    if "starsports" in rm and "hd" in ch_name_clean: continue
-                    should_remove = True
-                    break
-            if should_remove: continue
+        with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
+        for i, line in enumerate(lines):
+            line = line.strip()
+            if line.startswith("#EXTINF"):
+                url = ""
+                if i + 1 < len(lines): url = lines[i+1].strip()
 
-            final_url = ""
-            
-            # 2. DECIDE SOURCE
-            is_backup_group = any(g in inf_line for g in FORCE_BACKUP_GROUPS)
-            
-            # CASE A: FORCE FROM JSTAR (Sports HD)
-            if is_backup_group:
-                # Try specific mapping first
-                target = BACKUP_MAPPING.get(ch_name_clean, ch_name_raw)
-                k = clean_key(target)
-                if k in jstar_urls:
-                    final_url = jstar_urls[k]
-                # Fallback to Local URL if JStar fails
-                elif ch_name_clean in local_urls:
-                    final_url = local_urls[ch_name_clean]
+                original_name = line.split(",")[-1].strip()
+                ch_name_clean = clean_name_key(original_name)
 
-            # CASE B: EVERYTHING ELSE (Sun TV, News, etc.) -> USE LOCAL
-            else:
-                if ch_name_clean in local_urls:
-                    final_url = local_urls[ch_name_clean]
-                # Fallback to JStar if missing locally
-                elif ch_name_clean in jstar_urls:
-                    final_url = jstar_urls[ch_name_clean]
-            
-            # 3. WRITE RESULT
-            if final_url:
-                final_lines.append(inf_line)
-                final_lines.append(final_url)
-                count += 1
-            elif "http" in stream_url and "placeholder" not in stream_url:
-                # Keep original hardcoded links (YouTube etc)
-                final_lines.append(inf_line)
-                final_lines.append(stream_url)
-                count += 1
-            else:
-                # If truly missing, keep it but warn. 
-                # (Ideally this shouldn't happen if Reference File is complete)
-                print(f"⚠️ Link Missing: {ch_name_raw}")
-                final_lines.append(inf_line)
-                final_lines.append(stream_url) # Keep placeholder so user sees it in list
+                # --- 1. REMOVAL LOGIC ---
+                should_remove = False
+                for rm in REMOVE_KEYWORDS:
+                    if rm in ch_name_clean:
+                        # Protect HD channels from SD removal keywords
+                        if "starsports" in rm and "hd" in ch_name_clean: continue
+                        should_remove = True
+                        break
+                if should_remove: continue
+                # -------------------------
 
-        # 4. ADD FANCODE
-        try:
-            fc_resp = requests.get(fancode_url, headers={"User-Agent": browser_ua}, timeout=30)
-            if fc_resp.status_code == 200:
-                fc = fc_resp.text.splitlines()
-                if fc and "#EXTM3U" in fc[0]: fc = fc[1:]
-                final_lines.append("\n" + "\n".join(fc))
-                print("✅ Fancode added.")
-        except: pass
+                if "http://placeholder" in url:
+                    found_block = None
+                    
+                    # Force Backup check
+                    if should_force_backup(original_name):
+                        found_block = find_best_backup_link(original_name, backup_map)
+                        if found_block:
+                            stats["backup"] += 1
+                        elif clean_name_key(original_name) in local_map:
+                            # Fallback to local if backup missing
+                            found_block = [f"{base_url}/{local_map[clean_name_key(original_name)]}.m3u8"]
+                            stats["local"] += 1
+                    
+                    # Standard check
+                    else:
+                        if clean_name_key(original_name) in local_map:
+                            found_block = [f"{base_url}/{local_map[clean_name_key(original_name)]}.m3u8"]
+                            stats["local"] += 1
+                        else:
+                            found_block = find_best_backup_link(original_name, backup_map)
+                            if found_block: stats["backup"] += 1
 
-        with open(output_file, "w", encoding="utf-8") as f:
-            f.write("\n".join(final_lines))
-        print(f"\n🎉 Playlist Generated: {output_file}")
-        print(f"📊 Total Channels: {count} + Fancode")
+                    if found_block:
+                        final_lines.append(line)
+                        final_lines.extend(found_block)
+                    else:
+                        # FALLBACK: Keep entry even if missing (Points to Local Guess)
+                        # This fixes the "Channel Count" dropping issue
+                        print(f"⚠️ MISSING: {original_name} (Keeping entry)")
+                        final_lines.append(line)
+                        # Guess ID from name
+                        guess_id = clean_name_key(original_name)
+                        if guess_id in local_map:
+                             final_lines.append(f"{base_url}/{local_map[guess_id]}.m3u8")
+                        else:
+                             # Last resort: just leave placeholder or guess URL
+                             final_lines.append(f"{base_url}/000.m3u8")
+                        stats["missing"] += 1
 
-    except Exception as e:
-        print(f"Error: {e}")
+                elif url and not url.startswith("#"):
+                    processed = process_manual_link(line, url)
+                    final_lines.extend(processed)
+    except FileNotFoundError: pass
+
+    final_lines.extend(parse_youtube_txt())
+    try:
+        r = requests.get(fancode_url)
+        if r.status_code == 200:
+            flines = r.text.splitlines()
+            if flines and flines[0].startswith("#EXTM3U"): flines = flines[1:]
+            final_lines.append("\n" + "\n".join(flines))
+            print("✅ Fancode merged.")
+    except: pass
+
+    with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
+    print(f"\n🎉 SUMMARY: Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
 
 if __name__ == "__main__":
     update_playlist()
