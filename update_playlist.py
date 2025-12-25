@@ -32,6 +32,7 @@ FORCE_BACKUP_KEYWORDS = [
 
 # 3. MAPPING (Name Overrides)
 NAME_OVERRIDES = {
+    # Request: Star Sports 2 Hindi HD -> Mapped to Sports18 1 HD (for Local Lookup)
     "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "zee tamil": "Zee Tamil HD",
