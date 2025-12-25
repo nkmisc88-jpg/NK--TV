@@ -1,16 +1,22 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
 
 # ==============================
-# YOUTUBE (Internal Player)
+# YOUTUBE (Fixed: Will Auto-Convert to Local or HLS)
 # ==============================
-#EXTINF:-1 group-title="YouTube" tvg-id="Sun News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Sun News Live
+#EXTINF:-1 group-title="YouTube" tvg-id="Sun News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png",Sun News
 https://www.youtube.com/watch?v=CVIWCi5XmN0
-#EXTINF:-1 group-title="YouTube" tvg-id="Polimer News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Polimer News Live
+#EXTINF:-1 group-title="YouTube" tvg-id="Polimer News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png",Polimer News
 https://www.youtube.com/watch?v=M94aL_j-s_w
-#EXTINF:-1 group-title="YouTube" tvg-id="News 24x7" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",News 24x7 Digital
-https://www.youtube.com/watch?v=nyd-xznCpJc
-#EXTINF:-1 group-title="YouTube" tvg-id="Thanthi TV" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Thanthi_TV.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Thanthi TV
+#EXTINF:-1 group-title="YouTube" tvg-id="Thanthi TV" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Thanthi_TV.png",Thanthi TV
 https://www.youtube.com/watch?v=Ra7aTq7g43s
+#EXTINF:-1 group-title="YouTube" tvg-id="News 24x7" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png",News 24
+https://www.youtube.com/watch?v=nyd-xznCpJc
+#EXTINF:-1 group-title="YouTube" tvg-id="Puthiya Thalaimurai" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthiya_Thalimurai.png",Puthiya Thalaimurai
+https://www.youtube.com/watch?v=83t5Xv23r7k
+#EXTINF:-1 group-title="YouTube" tvg-id="News7 Tamil" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News7_Tamil.png",News7 Tamil
+https://www.youtube.com/watch?v=cm5_VlE6ZJc
+#EXTINF:-1 group-title="YouTube" tvg-id="Kalaignar Seithigal" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Kalaignar_Seithigal.png",Kalaignar Seithigal
+https://www.youtube.com/watch?v=0RhX0YJgX3U
 
 # ==============================
 # TAMIL HD
@@ -63,7 +69,7 @@ http://placeholder
 http://placeholder
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Isaiaruvi.png",Isaiaruvi
 http://placeholder
-#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthuyugam_TV.png",Puthu Yugam
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthuyugam_TV.png",Puthuyugam
 http://placeholder
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Raj_Digital_Plus.png",Raj Digital Plus
 http://placeholder
@@ -109,7 +115,7 @@ http://placeholder
 http://placeholder
 
 # ==============================
-# SPORTS SD (If HD missing)
+# SPORTS SD
 # ==============================
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1.png",Star Sports 1
 http://placeholder
@@ -359,3 +365,7 @@ http://placeholder
 http://placeholder
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Surya_HD.png",Surya HD
 http://placeholder
+
+# ==============================
+# FANCODE
+# ==============================
