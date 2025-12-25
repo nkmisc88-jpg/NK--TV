@@ -9,23 +9,21 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# FALLBACK SOURCE (Used only if channel is missing locally)
+# FALLBACK SOURCE (For missing Star/Zee/Sony channels)
 denver_url = "https://game.denver1769.fun/Jtv/5ojnFp/Playlist.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
 # LOCAL SERVER
 base_url = "http://192.168.0.146:5350/live" 
 
-# Player Config
-direct_ua = 'http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)"'
+# Player Config - Standard Browser Agent
+user_agent_str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 # ==========================================
 
 def clean_name_key(name):
-    """Normalizes names to ensure 'Star Sports 1 HD' matches 'Star Sports 1 HD '."""
-    # Remove things in brackets/parentheses
-    name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
-    # Remove special chars, keep only letters/numbers
-    name = re.sub(r'[^a-zA-Z0-9]', '', name)
+    """Normalizes names to match 'Star Sports 1 HD' with 'Star Sports 1 HD '."""
+    name = re.sub(r'\[.*?\]|\(.*?\)', '', name) # Remove brackets
+    name = re.sub(r'[^a-zA-Z0-9]', '', name)    # Remove special chars
     return name.lower().strip()
 
 def load_local_map(ref_file):
@@ -57,7 +55,6 @@ def fetch_denver_map(url):
             for line in lines:
                 line = line.strip()
                 if line.startswith("#EXTINF"):
-                    # Extract Name (after last comma)
                     current_name = line.split(",")[-1].strip()
                 elif line and not line.startswith("#"):
                     if current_name:
@@ -70,14 +67,19 @@ def fetch_denver_map(url):
     return link_map
 
 def process_manual_link(line, link):
-    """Renames groups and adds User-Agent for YouTube."""
+    """Handles renaming groups and fixing YouTube links."""
+    
+    # 1. Rename Group
     if 'group-title="YouTube"' in line:
         line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
     
-    if ("youtube.com" in link or "youtu.be" in link) and 'http-user-agent' not in line.lower():
-        parts = line.rsplit(',', 1)
-        if len(parts) == 2:
-            line = f'{parts[0]} {direct_ua},{parts[1]}'
+    # 2. Fix YouTube Redirection (Append User-Agent to URL)
+    if ("youtube.com" in link or "youtu.be" in link):
+        # Remove any existing pipe first to avoid duplication
+        link = link.split('|')[0]
+        # Append User-Agent using Pipe syntax (Works best for TiviMate)
+        link = f"{link}|User-Agent={user_agent_str}"
+            
     return [line, link]
 
 def parse_youtube_txt():
@@ -113,7 +115,7 @@ def parse_youtube_txt():
     return new_entries
 
 def update_playlist():
-    print("--- STARTING HYBRID UPDATE ---")
+    print("--- STARTING UPDATE ---")
     
     local_map = load_local_map(reference_file)
     denver_map = fetch_denver_map(denver_url)
@@ -140,14 +142,13 @@ def update_playlist():
                         final_lines.append(line)
                         final_lines.append(f"{base_url}/{local_map[lookup_key]}.m3u8")
                     
-                    # PRIORITY 2: DENVER BACKUP (For Star/Zee etc)
+                    # PRIORITY 2: DENVER BACKUP
                     elif lookup_key in denver_map:
-                        print(f"🔹 Found in Denver: {original_name}")
                         final_lines.append(line)
                         final_lines.append(denver_map[lookup_key])
                         
                     else:
-                        print(f"❌ COMPLETELY MISSING: {original_name}")
+                        print(f"❌ MISSING: {original_name}")
 
                 elif url and not url.startswith("#"):
                     processed = process_manual_link(line, url)
