@@ -8,14 +8,26 @@ template_file = "template.m3u"
 youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
+
+# SOURCES
+denver_url = "https://game.denver1769.fun/Jtv/5ojnFp/Playlist.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 base_url = "http://192.168.0.146:5350/live" 
 
-# Standard User-Agent for playing YouTube directly (No Redirect)
+# CONFIG
 direct_ua = 'http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)"'
 # ==========================================
 
-def load_reference_ids(ref_file):
+def clean_name_key(name):
+    """Normalizes names (lowercase, remove spaces/special chars) for better matching."""
+    # Remove everything inside brackets like [HD] or (Live)
+    name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
+    # Remove special chars and extra spaces
+    name = re.sub(r'[^a-zA-Z0-9]', '', name)
+    return name.lower().strip()
+
+def load_local_map(ref_file):
+    """Loads Local JioTV Go channels."""
     id_map = {}
     try:
         with open(ref_file, "r", encoding="utf-8") as f:
@@ -23,22 +35,48 @@ def load_reference_ids(ref_file):
         pattern = r'tvg-id="(\d+)".*?tvg-name="([^"]+)"'
         matches = re.findall(pattern, content)
         for ch_id, ch_name in matches:
-            clean_name = ch_name.strip().lower()
-            id_map[clean_name] = ch_id
-        print(f"✅ Reference Loaded: {len(id_map)} channels.")
+            key = clean_name_key(ch_name)
+            id_map[key] = ch_id
+        print(f"✅ Local JioTV: Loaded {len(id_map)} channels.")
         return id_map
     except FileNotFoundError:
-        print(f"❌ CRITICAL ERROR: '{ref_file}' not found.")
+        print(f"❌ ERROR: Local reference file '{ref_file}' not found.")
         return {}
 
-def process_manual_link(line, link, vpn_req=False):
-    """Handles Group Renaming and User-Agents."""
-    
-    # 1. Rename Group to "Youtube and live events"
+def fetch_denver_map(url):
+    """Fetches and parses the Denver Playlist for missing channels."""
+    url_map = {}
+    try:
+        print(f"🌍 Fetching Denver Playlist...")
+        response = requests.get(url, timeout=15)
+        response.raise_for_status()
+        
+        lines = response.text.splitlines()
+        current_name = ""
+        
+        for line in lines:
+            line = line.strip()
+            if line.startswith("#EXTINF"):
+                # Extract name after the last comma
+                current_name = line.split(",")[-1].strip()
+            elif line and not line.startswith("#"):
+                if current_name:
+                    key = clean_name_key(current_name)
+                    url_map[key] = line
+                    current_name = "" # Reset
+                    
+        print(f"✅ Denver Playlist: Loaded {len(url_map)} channels.")
+        return url_map
+    except Exception as e:
+        print(f"⚠️ Denver fetch failed: {e}")
+        return {}
+
+def process_manual_link(line, link):
+    """Handles renaming groups and adding User-Agent for YouTube."""
     if 'group-title="YouTube"' in line:
         line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
     
-    # 2. Add User-Agent for YouTube Links to stop redirect
+    # Add User-Agent for YouTube
     if ("youtube.com" in link or "youtu.be" in link) and 'http-user-agent' not in line.lower():
         parts = line.rsplit(',', 1)
         if len(parts) == 2:
@@ -54,7 +92,6 @@ def parse_youtube_txt():
             content = f.read()
         
         blocks = content.split('\n\n')
-        
         for block in blocks:
             if not block.strip(): continue
             
@@ -64,7 +101,7 @@ def parse_youtube_txt():
                     key, val = row.split(':', 1)
                     data[key.strip().lower()] = val.strip()
             
-            title = data.get('title', 'Unknown Channel')
+            title = data.get('title', 'Unknown')
             logo = data.get('logo', '')
             link = data.get('link', '')
             vpn_req = data.get('vpn required', 'no').lower()
@@ -72,76 +109,92 @@ def parse_youtube_txt():
 
             if not link: continue
 
-            # LOGIC: Handle VPN Labeling
-            is_vpn_needed = False
             if vpn_req == 'yes':
-                is_vpn_needed = True
-                if vpn_country:
-                    title = f"{title} [VPN: {vpn_country}]"
-                else:
-                    title = f"{title} [VPN Required]"
+                title = f"{title} [VPN: {vpn_country}]" if vpn_country else f"{title} [VPN Required]"
 
             line = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}'
+            new_entries.extend(process_manual_link(line, link))
             
-            processed_entry = process_manual_link(line, link, is_vpn_needed)
-            new_entries.extend(processed_entry)
-            
-        print(f"✅ youtube.txt: Parsed {len(new_entries)//2} links.")
         return new_entries
     except FileNotFoundError:
-        print("⚠️ youtube.txt not found.")
         return []
 
 def update_playlist():
-    print("--- STARTING UPDATE ---")
+    print("--- STARTING HYBRID UPDATE ---")
     
-    channel_map = load_reference_ids(reference_file)
+    # 1. Load Sources
+    local_map = load_local_map(reference_file)
+    denver_map = fetch_denver_map(denver_url)
+    
     final_lines = ["#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\""]
+    matched_local = 0
+    matched_denver = 0
+    missing_count = 0
 
-    # 1. Process Template (JioTV + Manual)
+    # 2. Process Template
     try:
         with open(template_file, "r", encoding="utf-8") as f:
             lines = f.readlines()
             
         for i, line in enumerate(lines):
             line = line.strip()
+            
             if line.startswith("#EXTINF"):
                 url = ""
                 if i + 1 < len(lines): url = lines[i+1].strip()
 
+                # Logic for Channels
                 if "http://placeholder" in url:
-                    name = line.split(",")[-1].strip().lower()
-                    if channel_map and name in channel_map:
+                    original_name = line.split(",")[-1].strip()
+                    lookup_key = clean_name_key(original_name)
+                    
+                    # PRIORITY 1: Local JioTV
+                    if lookup_key in local_map:
                         final_lines.append(line)
-                        final_lines.append(f"{base_url}/{channel_map[name]}.m3u8")
+                        final_lines.append(f"{base_url}/{local_map[lookup_key]}.m3u8")
+                        matched_local += 1
+                        
+                    # PRIORITY 2: Denver Fallback
+                    elif lookup_key in denver_map:
+                        final_lines.append(line) # Keep our logo/group
+                        final_lines.append(denver_map[lookup_key]) # Use their link
+                        matched_denver += 1
+                        print(f"🔹 Fallback used for: {original_name}")
+                        
                     else:
-                        # Optional: Print missing to help debug
-                        # print(f"⚠️ Missing ID for: {name}") 
-                        pass
+                        print(f"❌ MISSING: {original_name}")
+                        missing_count += 1
+
+                # Logic for Manual Links (YouTube/Direct)
                 elif url and not url.startswith("#"):
                     processed = process_manual_link(line, url)
                     final_lines.extend(processed)
+                    
     except FileNotFoundError:
         print(f"❌ ERROR: {template_file} not found!")
 
-    # 2. Process youtube.txt
+    # 3. Add Youtube.txt
     txt_links = parse_youtube_txt()
     if txt_links: final_lines.extend(txt_links)
 
-    # 3. Add Fancode
+    # 4. Add Fancode
     try:
         response = requests.get(fancode_url)
         if response.status_code == 200:
             f_lines = response.text.splitlines()
             if f_lines and f_lines[0].startswith("#EXTM3U"): f_lines = f_lines[1:]
             final_lines.append("\n" + "\n".join(f_lines))
-            print("✅ Fancode merged.")
     except:
-        print("⚠️ Fancode failed.")
+        pass
 
+    # 5. Save
     with open(output_file, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
-    print(f"🎉 Playlist Updated!")
+    
+    print(f"\n🎉 DONE! Stats:")
+    print(f"   - Local JioTV Matches: {matched_local}")
+    print(f"   - Denver Fallback Matches: {matched_denver}")
+    print(f"   - Still Missing: {missing_count}")
 
 if __name__ == "__main__":
     update_playlist()
