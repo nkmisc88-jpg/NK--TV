@@ -14,12 +14,12 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# 1. REMOVE LIST (Added your requests here)
+# 1. REMOVE LIST
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2",
-    "zee thirai",                # Removed
-    "star sports 1 kannada hd"   # Removed
+    "zee thirai",                
+    "star sports 1 kannada hd"   
 ]
 
 # 2. FORCE BACKUP LIST
@@ -30,15 +30,10 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "sports", "ten"
 ]
 
-# 3. NAME OVERRIDES (Added your requests here)
+# 3. MAPPING (Name Overrides)
 NAME_OVERRIDES = {
-    # Request: Star Sports 2 Hindi HD -> Links to Sports18 1 HD
     "star sports 2 hindi hd": "Sports18 1 HD",
-    
-    # Request: Star Sports 2 Tamil HD -> Exact Match
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
-
-    # Fixes
     "zee tamil": "Zee Tamil HD",
     "nat geo hd": "National Geographic HD",
     "star sports 1 hd": "Star Sports HD1",
@@ -83,10 +78,10 @@ def fuzzy_match_logic(target_name, map_keys):
     return None
 
 def find_best_backup_link(original_name, backup_map):
-    # Manual Fix for Hindi HD mapping logic
-    if "star sports 2 hindi hd" in original_name.lower():
+    # Star Sports 2 Tamil HD specific check
+    if "star sports 2 tamil hd" in original_name.lower():
         for k in backup_map:
-            if "sports18" in k.lower() and "1" in k and "hd" in k.lower(): return backup_map[k]
+            if "star sports 2 tamil hd" in k.lower(): return backup_map[k]
 
     clean_orig = clean_name_key(original_name)
     if clean_orig in backup_map: return backup_map[clean_orig]
@@ -146,6 +141,11 @@ def fetch_backup_map(url):
 
 def should_force_backup(name):
     norm = name.lower()
+    
+    # EXCEPTION: Ensure Star Sports 2 Hindi HD (Sports18 1 HD) uses LOCAL
+    if "star sports 2 hindi hd" in norm: 
+        return False
+        
     for k in FORCE_BACKUP_KEYWORDS:
         if k in norm: return True
     return False
@@ -197,7 +197,10 @@ def update_playlist():
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
 
-                # --- REMOVAL LOGIC ---
+                # --- 1. REMOVALS ---
+                if "zee thirai" in ch_name_lower: continue
+                if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower: continue
+
                 should_remove = False
                 for rm in REMOVE_KEYWORDS:
                     if rm in ch_name_lower:
@@ -215,15 +218,27 @@ def update_playlist():
                     clean_local_key = clean_name_key(original_name)
                     found_block = None
                     
+                    # Logic: Force Backup OR Standard
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                         if found_block: stats["backup"] += 1
+                        # Check fallback using Mapped Name ("Sports18 1 HD")
+                        elif clean_name_key(NAME_OVERRIDES.get(ch_name_lower, "")) in local_map:
+                             found_block = [f"{base_url}/{local_map[clean_name_key(NAME_OVERRIDES[ch_name_lower])]}.m3u8"]
+                             stats["local"] += 1
                         elif clean_local_key in local_map:
                             found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
                             stats["local"] += 1
                     else:
+                        # STANDARD CHECK (Local Priority)
+                        mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
+                        
                         if clean_local_key in local_map:
                             found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
+                            stats["local"] += 1
+                        # Check mapped name in local (e.g. template has "Star Sports 2", local has "Sports18")
+                        elif mapped_key and mapped_key in local_map:
+                            found_block = [f"{base_url}/{local_map[mapped_key]}.m3u8"]
                             stats["local"] += 1
                         else:
                             found_block = find_best_backup_link(original_name, backup_map)
