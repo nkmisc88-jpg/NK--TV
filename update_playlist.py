@@ -2,6 +2,7 @@ import requests
 import re
 import json
 import time
+import datetime  # Added for timestamp
 
 # ==========================================
 # CONFIGURATION
@@ -34,6 +35,7 @@ FORCE_BACKUP_KEYWORDS = [
 
 # 3. MAPPING (Name Overrides)
 NAME_OVERRIDES = {
+    "star sports 2 hindi hd": "Star Sports 2 Hindi HD"
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "zee tamil": "Zee Tamil HD",
     "nat geo hd": "National Geographic HD",
@@ -149,24 +151,17 @@ def should_force_backup(name):
 
 # --- PURE PYTHON YOUTUBE FETCHER ---
 def get_youtube_live_link(youtube_url):
-    """
-    Extracts the direct .m3u8 link from a YouTube Live URL.
-    Returns None if offline or extraction fails.
-    """
     try:
         session = requests.Session()
-        # Headers specifically designed to bypass Consent Page
         session.headers.update({
             'User-Agent': browser_ua,
             'Accept-Language': 'en-US,en;q=0.9',
             'Referer': 'https://www.youtube.com/',
         })
-        # Hardcoded Consent Cookie
         session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
 
         resp = session.get(youtube_url, timeout=10)
         
-        # Search for the HLS Manifest URL in the raw HTML
         if "hlsManifestUrl" in resp.text:
             url = re.search(r'"hlsManifestUrl":"(.*?)"', resp.text).group(1)
             return url
@@ -178,7 +173,6 @@ def get_youtube_live_link(youtube_url):
         return None
 
 def process_manual_link(line, link):
-    # Detect YouTube Link
     if "youtube.com" in link or "youtu.be" in link:
         clean_link = link.split('|')[0]
         print(f"   ...Checking YouTube: {clean_link}")
@@ -186,10 +180,8 @@ def process_manual_link(line, link):
         fresh_hls = get_youtube_live_link(clean_link)
         
         if fresh_hls and ".m3u8" in fresh_hls:
-            # Found a valid stream!
             return [line, f"{fresh_hls}|User-Agent={browser_ua}"]
         else:
-            # FAILED: Do NOT return the broken link. Skip this channel.
             return []
             
     return [line, link]
@@ -210,8 +202,6 @@ def parse_youtube_txt():
             if not link: continue
             
             line = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}'
-            
-            # Fetch and append ONLY if valid
             processed_block = process_manual_link(line, link)
             new_entries.extend(processed_block)
             
@@ -222,7 +212,15 @@ def update_playlist():
     print("--- STARTING UPDATE ---")
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
-    final_lines = ["#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\""]
+    
+    # 1. GENERATE TIMESTAMP
+    # This ensures the file content changes every single run.
+    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    final_lines = [
+        "#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\"",
+        f"# Updated on: {current_time}"
+    ]
+    
     stats = {"local": 0, "backup": 0, "missing": 0}
 
     try:
