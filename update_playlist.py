@@ -2,7 +2,7 @@ import requests
 import re
 import json
 import time
-import datetime  # Added for timestamp
+import datetime
 
 # ==========================================
 # CONFIGURATION
@@ -21,7 +21,7 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2",
-    "zee thirai", " Zee Tamil HD"                
+    "zee thirai"," Zee Tamil HD",                
     "star sports 1 kannada hd"   
 ]
 
@@ -35,9 +35,7 @@ FORCE_BACKUP_KEYWORDS = [
 
 # 3. MAPPING (Name Overrides)
 NAME_OVERRIDES = {
-    "star sports 2 hindi hd": "Star Sports 2 Hindi HD"
-    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
-    "zee tamil": "Zee Tamil HD",
+    # Request:
     "nat geo hd": "National Geographic HD",
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -214,7 +212,6 @@ def update_playlist():
     backup_map = fetch_backup_map(backup_url)
     
     # 1. GENERATE TIMESTAMP
-    # This ensures the file content changes every single run.
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     final_lines = [
         "#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\"",
