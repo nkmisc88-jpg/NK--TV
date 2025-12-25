@@ -13,27 +13,26 @@ output_file = "playlist.m3u"
 # 1. Local Server (Priority 1)
 base_url = "http://192.168.0.146:5350/live" 
 
-# 2. Backup Source (Priority 2 - Jstar/Hotstar)
+# 2. FakeAll/Jstar Backup (Priority 2 - Fills missing channels)
 backup_url = "https://livetv-cb7.pages.dev/hotstar"
 
-# 3. Fancode Source
+# 3. Fancode
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
 # HEADERS & AGENTS
-# Browser UA (For YouTube Anti-Redirect)
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+mobile_ua = "Dalvik/2.1.0 (Linux; U; Android 9; Pixel 4 Build/PQ3A.190801.002)"
 
-# Mobile UA (Required for Jstar Backup to work)
 backup_headers = {
-    "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; Pixel 4 Build/PQ3A.190801.002)",
+    "User-Agent": mobile_ua,
     "Accept-Encoding": "gzip"
 }
 # ==========================================
 
 def clean_name_key(name):
-    """Normalizes names for matching (e.g. 'Star Sports 1 HD' == 'starsports1hd')."""
-    name = re.sub(r'\[.*?\]|\(.*?\)', '', name) # Remove stuff in brackets
-    name = re.sub(r'[^a-zA-Z0-9]', '', name)    # Remove special chars
+    """Normalizes names (e.g. 'Star Sports 1 HD' == 'starsports1hd')."""
+    name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
+    name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
 
 def load_local_map(ref_file):
@@ -54,10 +53,10 @@ def load_local_map(ref_file):
         return {}
 
 def fetch_backup_map(url):
-    """Fetches the Backup Playlist (Jstar) for missing channels."""
+    """Fetches the FakeAll Playlist for missing channels."""
     link_map = {}
     try:
-        print("🌍 Fetching Backup Playlist...")
+        print("🌍 Fetching FakeAll/Backup Playlist...")
         response = requests.get(url, headers=backup_headers, timeout=20)
         
         if response.status_code == 200:
@@ -66,14 +65,14 @@ def fetch_backup_map(url):
             for line in lines:
                 line = line.strip()
                 if line.startswith("#EXTINF"):
-                    # Extract name (standard M3U format)
+                    # Extract name after last comma
                     current_name = line.split(",")[-1].strip()
                 elif line and not line.startswith("#"):
                     if current_name:
                         key = clean_name_key(current_name)
-                        # Append User-Agent if missing, to ensure it plays
+                        # Ensure the backup link has the Mobile User-Agent
                         if "|User-Agent" not in line:
-                            line = f"{line}|User-Agent={backup_headers['User-Agent']}"
+                            line = f"{line}|User-Agent={mobile_ua}"
                         link_map[key] = line
                         current_name = ""
             print(f"✅ Backup Playlist: Found {len(link_map)} channels.")
@@ -86,18 +85,15 @@ def fetch_backup_map(url):
 
 def process_manual_link(line, link):
     """Handles YouTube redirection and group renaming."""
-    
-    # 1. Rename Group
     if 'group-title="YouTube"' in line:
         line = line.replace('group-title="YouTube"', 'group-title="Youtube and live events"')
     
-    # 2. Fix YouTube Redirection (The &.m3u8 Trick)
+    # Fix YouTube Redirection
     if "youtube.com" in link or "youtu.be" in link:
-        link = link.split('|')[0] # Remove existing pipes
+        link = link.split('|')[0]
         vid_id_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_id_match:
             vid_id = vid_id_match.group(1)
-            # Add fake extension + Browser UA
             link = f"https://www.youtube.com/watch?v={vid_id}&.m3u8|User-Agent={browser_ua}"
         else:
             link = f"{link}|User-Agent={browser_ua}"
@@ -137,16 +133,13 @@ def parse_youtube_txt():
     return new_entries
 
 def update_playlist():
-    print("--- STARTING MASTER UPDATE ---")
+    print("--- STARTING UPDATE ---")
     
-    # Load Sources
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
     
     final_lines = ["#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\""]
     
-    stats = {"local": 0, "backup": 0, "missing": 0}
-
     # 1. ITERATE THROUGH MASTER TEMPLATE
     try:
         with open(template_file, "r", encoding="utf-8") as f:
@@ -158,7 +151,6 @@ def update_playlist():
                 url = ""
                 if i + 1 < len(lines): url = lines[i+1].strip()
 
-                # LOGIC FOR CHANNELS (Marked as placeholder)
                 if "http://placeholder" in url:
                     original_name = line.split(",")[-1].strip()
                     lookup_key = clean_name_key(original_name)
@@ -167,27 +159,23 @@ def update_playlist():
                     if lookup_key in local_map:
                         final_lines.append(line)
                         final_lines.append(f"{base_url}/{local_map[lookup_key]}.m3u8")
-                        stats["local"] += 1
                     
-                    # PRIORITY 2: BACKUP SOURCE
+                    # PRIORITY 2: FAKEALL/BACKUP (Fills the missing channels)
                     elif lookup_key in backup_map:
                         print(f"🔹 Backup Used for: {original_name}")
-                        final_lines.append(line) # Use OUR metadata
-                        final_lines.append(backup_map[lookup_key]) # Use THEIR link
-                        stats["backup"] += 1
+                        final_lines.append(line) 
+                        final_lines.append(backup_map[lookup_key]) 
                         
                     else:
                         print(f"❌ CHANNEL MISSING: {original_name}")
-                        stats["missing"] += 1
 
-                # LOGIC FOR EXISTING MANUAL LINKS
                 elif url and not url.startswith("#"):
                     processed = process_manual_link(line, url)
                     final_lines.extend(processed)
     except FileNotFoundError:
         print("Template file missing!")
 
-    # 2. ADD YOUTUBE / LIVE EVENTS
+    # 2. ADD YOUTUBE
     final_lines.extend(parse_youtube_txt())
 
     # 3. ADD FANCODE
@@ -199,16 +187,11 @@ def update_playlist():
             final_lines.append("\n" + "\n".join(flines))
             print("✅ Fancode merged.")
     except:
-        print("⚠️ Fancode failed.")
+        pass
 
-    # SAVE
     with open(output_file, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
-    
-    print("\n🎉 UPDATE SUMMARY:")
-    print(f"   - Sourced from Local JioTV: {stats['local']}")
-    print(f"   - Sourced from Backup: {stats['backup']}")
-    print(f"   - Still Missing: {stats['missing']}")
+    print("🎉 Update Complete.")
 
 if __name__ == "__main__":
     update_playlist()
