@@ -217,8 +217,18 @@ http://192.168.0.146:5350/live/901.m3u8
 http://192.168.0.146:5350/live/900.m3u8
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://yt3.googleusercontent.com/c53RlDdbi5XR9eUVOuNlT9YWd8LuTu_hsd0uHuGZuUJBDWfQqPMN-0bGuO0nQQiidkeuSbA0Gn0=s160-c-k-c0x00ffffff-no-rj" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Iscon Bengaluru
 https://www.youtube.com/live/d5jZun5E4zA?si=pZcISvMCYoL89Vsu
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg",ICC TV Stream 1 [VPN: Australia]
+PASTE_LINK_HERE
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg",ICC TV Stream 2 [VPN: USA]
+PASTE_LINK_HERE
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Sun News Live
+https://www.youtube.com/watch?v=CVIWCi5XmN0
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",Polimer News
+https://www.youtube.com/watch?v=M94aL_j-s_w
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",News 24
+https://www.youtube.com/live/nyd-xznCpJc
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 25 December 2025 at 8:07:05 am
+#DATE:- Thursday, 25 December 2025 at 8:14:06 am
 #EXTINF:-1 tvg-id="136138" tvg-name="Al Nassr Fc Vs Al Zawraa Sc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/136138_5648_ANF_ALZ_FC-Web.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Al Nassr Fc Vs Al Zawraa Sc
 https://in-mc-fdlive.fancode.com/mumbai/136138_english_hls_30dc12587a12429_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
