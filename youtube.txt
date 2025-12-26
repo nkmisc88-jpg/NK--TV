@@ -35,8 +35,7 @@ VPN Required : No
 
 Title : Sun News Live
 Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXAN7YJhGNe5NiogVnTG8oqH2mYA9ix2STEbhDhOTlUa8hz5CnPHcbP5i6&s=10
-Link : https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=
-9M02G5c6x6w
+Link : https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=9M02G5c6x6w
 
 Title : Sky Sports 1 NZ
 Logo : https://i.ibb.co/TqkBV40v/SSNZ1.png
@@ -50,10 +49,10 @@ VPN Required: No
 
 Title : Polimer News 
 Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq550WHkvWg9hp7bPJOD_3lRn7dSquZn3yLbV3r51F9g&s=10
-Link : https://youtu.be/iiu2kGPD_Zg?si=XH1ud8Xq6lTLOlt7
-VPN Required: No
+Link : https://www.youtube.com/live/Ei6NUWLQCQM?si=zRpu8xZam04h50XF
+VPN Required: 
 
 Title : ILT20 
 Logo : https://www.ilt20.ae/static-assets/waf-images/a1/c4/48/1-1/kXEXg4wHwn.jpg?v=30.13&w=1024
 Link : https://m.youtube.com/watch?v=utE3wPktKjg&pp=uAQw
-VPN Required: Yes 
+VPN Required:
