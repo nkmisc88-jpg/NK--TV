@@ -35,7 +35,8 @@ VPN Required : No
 
 Title : Sun News Live
 Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXAN7YJhGNe5NiogVnTG8oqH2mYA9ix2STEbhDhOTlUa8hz5CnPHcbP5i6&s=10
-Link : https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=VI8mYXgAygFmV1WJ
+Link : https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=
+9M02G5c6x6w
 
 Title : Sky Sports 1 NZ
 Logo : https://i.ibb.co/TqkBV40v/SSNZ1.png
