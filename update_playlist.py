@@ -3,7 +3,6 @@ import re
 import datetime
 import os
 import random
-import json
 import time
 
 # ==========================================
@@ -14,12 +13,12 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# SOURCES
+# EXTERNAL SOURCES
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# REMOVAL LIST
+# REMOVAL & OVERRIDE SETTINGS
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2",
@@ -27,7 +26,6 @@ REMOVE_KEYWORDS = [
     "star sports 1 kannada hd"   
 ]
 
-# FORCE BACKUP LIST
 FORCE_BACKUP_KEYWORDS = [
     "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
@@ -35,7 +33,6 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "sports", "ten"
 ]
 
-# NAME OVERRIDES
 NAME_OVERRIDES = {
     "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
@@ -59,20 +56,48 @@ NAME_OVERRIDES = {
 }
 
 # ==========================================
-# PUBLIC API LIST (The Fix for Redirects)
+# TRIBALIZE/REPO-STYLE YOUTUBE SCRAPER
 # ==========================================
-# These servers act as proxies to get the direct link without "Signing In"
-PIPED_APIS = [
-    "https://pipedapi.kavin.rocks",
-    "https://api.piped.otter.sh",
-    "https://pipedapi.moomoo.me",
-    "https://api.piped.privacy.com.de",
-    "https://pipedapi.smnz.de",
-    "https://api.piped.adminforge.de"
-]
+# This function adopts the logic from the shared repo to fix redirects.
+
+def get_direct_youtube_link(youtube_url):
+    """
+    Fetches the direct .m3u8 link using the same method as the 'Tribalize' repo.
+    Uses Consent Cookies and Regex to bypass the 'Sign In' page.
+    """
+    try:
+        session = requests.Session()
+        # Headers mimicking a real browser (Critical for success)
+        session.headers.update({
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Referer': 'https://www.youtube.com/',
+        })
+        # The 'Secret Sauce': Consent Cookie to bypass redirect
+        session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
+
+        print(f"   ...Fetching: {youtube_url}")
+        resp = session.get(youtube_url, timeout=15)
+        text = resp.text
+
+        # 1. Look for hlsManifestUrl (Standard Live Stream)
+        match = re.search(r'"hlsManifestUrl":"(.*?)"', text)
+        if match:
+            return match.group(1)
+        
+        # 2. Look for raw m3u8 (Alternative format)
+        match_raw = re.search(r'(https:\/\/[^\s]+\.m3u8)', text)
+        if match_raw:
+            return match_raw.group(1)
+
+        print(f"      ❌ Stream not found (Offline or Geo-blocked).")
+        return None
+    except Exception as e:
+        print(f"      ❌ Error fetching YouTube: {e}")
+        return None
 
 # ==========================================
-# HELPER FUNCTIONS
+# HELPER FUNCTIONS (Existing Logic)
 # ==========================================
 
 def clean_name_key(name):
@@ -164,35 +189,9 @@ def should_force_backup(name):
         if k in norm: return True
     return False
 
-# ==========================================
-# ROBUST API FETCHER (NO REDIRECTS)
-# ==========================================
-
-def get_stream_from_api(video_id):
-    """
-    Cycles through public APIs to find a working HLS stream.
-    This bypasses YouTube's 'Sign In' page completely.
-    """
-    random.shuffle(PIPED_APIS) # Shuffle to distribute load
-    
-    for api_base in PIPED_APIS:
-        try:
-            url = f"{api_base}/streams/{video_id}"
-            resp = requests.get(url, timeout=5)
-            if resp.status_code == 200:
-                data = resp.json()
-                if "hls" in data and data["hls"]:
-                    print(f"      ✅ Stream found via {api_base}")
-                    return data["hls"]
-        except:
-            continue
-            
-    print("      ❌ All APIs failed.")
-    return None
-
 def parse_youtube_txt():
     """
-    Parses youtube.txt line-by-line and fetches API links.
+    Parses youtube.txt line-by-line (Your format) but fetches using the Repo logic.
     """
     new_entries = []
     
@@ -233,29 +232,24 @@ def process_youtube_entry(data):
     link = data.get('link', '')
     vpn_req = data.get('vpn required', 'no').lower()
 
-    if "yes" in vpn_req: 
-        title = f"{title} [VPN]"
+    if "yes" in vpn_req: title = f"{title} [VPN]"
 
     final_link = link
     
-    # Process YouTube
+    # Process YouTube Link
     if "youtube.com" in link or "youtu.be" in link:
-        print(f"   ...API Fetching: {title}")
+        # Extract CLEAN URL (Remove pipes if any)
+        clean_link = link.split('|')[0].strip()
         
-        # Extract Video ID
-        vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
-        if vid_match:
-            vid_id = vid_match.group(1)
-            
-            # 1. Try APIs
-            api_link = get_stream_from_api(vid_id)
-            
-            if api_link:
-                final_link = api_link
-            else:
-                # 2. Fallback: Clean standard link
-                # OTT Navigator often handles "clean" links better than "redirected" ones
-                final_link = f"https://www.youtube.com/watch?v={vid_id}"
+        # Use the TRIBALIZE Repo Logic
+        direct_url = get_direct_youtube_link(clean_link)
+        
+        if direct_url:
+            # Important: Keep the User-Agent for the player
+            final_link = f"{direct_url}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        else:
+            # Fallback (Don't delete)
+            final_link = link 
 
     return f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
 
@@ -264,9 +258,9 @@ def process_youtube_entry(data):
 # ==========================================
 
 def update_playlist():
-    print("--- STARTING UPDATE ---")
+    print("--- STARTING UPDATE (Repo Logic) ---")
     
-    # 1. GENERATE HEADER & TIMESTAMP
+    # 1. HEADER & TIMESTAMP
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     final_lines = [
         "#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\"",
@@ -287,11 +281,13 @@ def update_playlist():
             url = ""
             if i + 1 < len(lines): url = lines[i+1].strip()
 
-            # --- NUCLEAR CLEANING: PURGE OLD YOUTUBE ---
+            # --- NUCLEAR FILTER: PURGE OLD YOUTUBE ---
             if line.startswith("#EXTINF"):
-                if 'group-title="Youtube and live events"' in line: continue
-            if "youtube.com" in line or "youtu.be" in line: continue
-            # -------------------------------------------
+                if 'group-title="Youtube and live events"' in line:
+                    continue # DROP IT
+            if "youtube.com" in line or "youtu.be" in line:
+                continue # DROP IT
+            # ----------------------------------------
 
             if line.startswith("#EXTINF"):
                 original_name = line.split(",")[-1].strip()
@@ -350,13 +346,13 @@ def update_playlist():
                         stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
-                    # Pass through manual links (Exclude YouTube)
+                    # Pass through ONLY non-YouTube manual links
                     if "youtube.com" not in url and "youtu.be" not in url:
                         final_lines.append(line)
                         final_lines.append(url)
     except FileNotFoundError: pass
 
-    # 3. APPEND FRESH YOUTUBE
+    # 3. APPEND FRESH YOUTUBE (Repo Logic)
     print("🎥 Appending Youtube & Live Events...")
     youtube_entries = parse_youtube_txt()
     if youtube_entries:
