@@ -2,8 +2,6 @@ import requests
 import re
 import datetime
 import os
-import random
-import time
 
 # ==========================================
 # CONFIGURATION
@@ -56,82 +54,69 @@ NAME_OVERRIDES = {
 }
 
 # ==========================================
-# TRIBALIZE REPO SCRAPER LOGIC
-# ==========================================
-
-def get_direct_youtube_link(youtube_url):
-    """
-    Tribalize/Repo Logic: Uses Consent Cookies to extract hlsManifestUrl
-    """
-    try:
-        session = requests.Session()
-        session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept-Language': 'en-US,en;q=0.9',
-            'Referer': 'https://www.youtube.com/',
-        })
-        session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
-
-        print(f"   ...Fetching: {youtube_url}")
-        resp = session.get(youtube_url, timeout=15)
-        text = resp.text
-
-        match = re.search(r'"hlsManifestUrl":"(.*?)"', text)
-        if match: return match.group(1)
-        
-        match_raw = re.search(r'(https:\/\/[^\s]+\.m3u8)', text)
-        if match_raw: return match_raw.group(1)
-
-        return None
-    except: return None
-
-# ==========================================
-# NEW PARSER (PIPE FORMAT ||)
+# SIMPLE BLOCK PARSER (ORIGINAL FORMAT)
 # ==========================================
 
 def parse_youtube_txt():
     """
-    Parses 'Name || ID || Category || URL' format
+    Parses the standard block format:
+    Title : Name
+    Logo : URL
+    Link : URL
     """
     new_entries = []
-    if not os.path.exists(youtube_file): return []
+    
+    if not os.path.exists(youtube_file):
+        print(f"❌ Error: {youtube_file} NOT FOUND.")
+        return []
 
     print(f"📂 Reading {youtube_file}...")
+    
     with open(youtube_file, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
+    current_entry = {}
+    
     for line in lines:
         line = line.strip()
-        if not line: continue
-        
-        # --- PARSER: Handles || format ---
-        if "||" in line:
-            parts = [p.strip() for p in line.split("||")]
-            if len(parts) < 2: continue
-            
-            # Format: Name || ID || Category || URL
-            title = parts[0]
-            link = parts[-1] # URL is always last
-            
-            final_link = link
-            
-            # Scrape if YouTube
-            if "youtube.com" in link or "youtu.be" in link:
-                clean_link = link.split('|')[0].strip()
-                direct_url = get_direct_youtube_link(clean_link)
-                if direct_url:
-                    final_link = f"{direct_url}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-                else:
-                    final_link = link # Fallback
+        if not line: 
+            # Empty line marks end of a block -> Save it
+            if 'link' in current_entry:
+                new_entries.append(process_entry(current_entry))
+            current_entry = {} # Reset
+            continue
 
-            entry = f'#EXTINF:-1 group-title="Youtube and live events" tvg-id="{parts[1] if len(parts)>1 else ""}" tvg-logo="",{title}\n{final_link}'
-            new_entries.append(entry)
+        if ':' in line:
+            parts = line.split(':', 1)
+            key = parts[0].strip().lower()
+            val = parts[1].strip()
+            current_entry[key] = val
+    
+    # Catch the last entry if file doesn't end with empty line
+    if 'link' in current_entry:
+        new_entries.append(process_entry(current_entry))
 
-    print(f"✅ Youtube: Parsed {len(new_entries)} entries.")
+    print(f"✅ Live Events: Parsed {len(new_entries)} entries.")
     return new_entries
 
+def process_entry(data):
+    title = data.get('title', 'Unknown Event')
+    logo = data.get('logo', '')
+    link = data.get('link', '')
+    vpn_req = data.get('vpn required', 'no').lower()
+
+    # Add [VPN] tag if requested
+    if "yes" in vpn_req: 
+        title = f"{title} [VPN]"
+
+    # DIRECT LINK - NO SCRAPING
+    # This simply takes whatever you put in "Link :" and puts it in the playlist.
+    final_link = link
+
+    return f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
+
 # ==========================================
-# HELPER FUNCTIONS
+# HELPER FUNCTIONS (UNCHANGED)
 # ==========================================
 
 def clean_name_key(name):
@@ -212,6 +197,7 @@ def fetch_backup_map(url):
                 key = clean_name_key(current_name)
                 data = [l for l in current_block if not l.startswith("#EXTINF")]
                 block_map[key] = data; block_map[current_name] = data
+            print(f"✅ Backup Playlist: Parsed {len(block_map)} entries.")
     except: pass
     return block_map
 
@@ -227,7 +213,7 @@ def should_force_backup(name):
 # ==========================================
 
 def update_playlist():
-    print("--- STARTING UPDATE (Pipe Format) ---")
+    print("--- STARTING UPDATE ---")
     
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     final_lines = [
@@ -239,7 +225,7 @@ def update_playlist():
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # PROCESS MAIN TEMPLATE
+    # 1. PROCESS MAIN TEMPLATE
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         for i, line in enumerate(lines):
@@ -249,9 +235,9 @@ def update_playlist():
             url = ""
             if i + 1 < len(lines): url = lines[i+1].strip()
 
-            # Ignore Old YouTube from Template
+            # Clean Old "Youtube and live events" entries from template
             if line.startswith("#EXTINF") and 'group-title="Youtube and live events"' in line: continue
-            if "youtube.com" in line or "youtu.be" in line: continue
+            # Note: We rely on group-title to filter old manual entries now.
 
             if line.startswith("#EXTINF"):
                 original_name = line.split(",")[-1].strip()
@@ -300,25 +286,27 @@ def update_playlist():
                     if found_block:
                         final_lines.append(line); final_lines.extend(found_block)
                     else:
+                        print(f"⚠️ MISSING: {original_name}")
                         final_lines.append(line)
                         if clean_local_key in local_map: final_lines.append(f"{base_url}/{local_map[clean_local_key]}.m3u8")
                         else: final_lines.append(f"{base_url}/000.m3u8")
                         stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
-                    if "youtube.com" not in url and "youtu.be" not in url:
-                        final_lines.append(line)
-                        final_lines.append(url)
+                    # Pass through manual links (excluding ones we filtered above)
+                    if 'group-title="Youtube and live events"' not in line:
+                         final_lines.append(line)
+                         final_lines.append(url)
     except FileNotFoundError: pass
 
-    # APPEND YOUTUBE (PIPE FORMAT)
-    print("🎥 Appending Youtube & Live Events...")
-    youtube_entries = parse_youtube_txt()
-    if youtube_entries:
+    # 2. APPEND LIVE EVENTS (FROM TEXT FILE)
+    print("🎥 Appending Live Events...")
+    live_entries = parse_youtube_txt()
+    if live_entries:
         final_lines.append("") 
-        final_lines.extend(youtube_entries)
+        final_lines.extend(live_entries)
 
-    # APPEND FANCODE
+    # 3. APPEND FANCODE
     try:
         r = requests.get(fancode_url)
         if r.status_code == 200:
