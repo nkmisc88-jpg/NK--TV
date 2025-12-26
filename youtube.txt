@@ -49,5 +49,11 @@ Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/
 VPN Required: No
 
 Title : Polimer News 
-Logo : 
+Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq550WHkvWg9hp7bPJOD_3lRn7dSquZn3yLbV3r51F9g&s=10
 Link : https://youtu.be/iiu2kGPD_Zg?si=XH1ud8Xq6lTLOlt7
+VPN Required: No
+
+Title : ILT20 
+Logo : https://www.ilt20.ae/static-assets/waf-images/a1/c4/48/1-1/kXEXg4wHwn.jpg?v=30.13&w=1024
+Link : https://m.youtube.com/watch?v=utE3wPktKjg&pp=uAQw
+VPN Required: Yes 
