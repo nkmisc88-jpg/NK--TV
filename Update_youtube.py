@@ -6,7 +6,7 @@ import datetime
 # CONFIGURATION
 # ==========================================
 input_file = "youtube.txt"
-output_file = "youtube_playlist.m3u"
+output_file = "youtube_playlist.m3u"  # This will contain ONLY Youtube & Live Events
 
 # Browser Headers (Critical for bypassing YouTube "Sign In" page)
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -57,7 +57,7 @@ def get_direct_youtube_link(youtube_url):
 def generate_youtube_playlist():
     print("--- STARTING YOUTUBE PLAYLIST GENERATION ---")
     
-    # 1. Initialize Playlist with Header & Timestamp
+    # 1. Initialize Playlist with Header & Timestamp (FORCES UPDATE)
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     playlist_lines = [
         "#EXTM3U",
@@ -115,7 +115,7 @@ def generate_youtube_playlist():
             else:
                 pass # Use 'link' as is
 
-            # 4. Write Entry
+            # 4. Write Entry with Group Name
             entry = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
             playlist_lines.append(entry)
             count += 1
