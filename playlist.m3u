@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-26 15:45:51
+# Updated on: 2025-12-26 15:50:54
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -904,7 +904,7 @@ https://a1xs.vip/700006
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/CK1F69ht/Fox507.png",Fox 507
 https://a1xs.vip/700007
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png",Sun News Live
-https://www.youtube.com/watch?v=9M02G5c6x6w
+https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/TqkBV40v/SSNZ1.png",Sky Sports 1 NZ
 https://a1xs.vip/700031
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSQKX5q0qi2g6QyEpYCdEAz6ur-un5BedPIhzney_8qg&s=10",Willow TV
