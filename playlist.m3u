@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-26 17:20:39
+# Updated on: 2025-12-26 17:23:06
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -889,24 +889,8 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1766711535~exp=1766797935~acl=/*~hmac=8d566b43a85ec08390144c97afae2ffb7858d0cf9b31370476e6d83fa7f0cad3"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1766711535~exp=1766797935~acl=/*~hmac=8d566b43a85ec08390144c97afae2ffb7858d0cf9b31370476e6d83fa7f0cad3&xxx=||cookie=__hdnea__=st=1766711535~exp=1766797935~acl=/*~hmac=8d566b43a85ec08390144c97afae2ffb7858d0cf9b31370476e6d83fa7f0cad3
 
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/hvxssSM/Fox-Cricket-501.png",Fox 501
-https://a1xs.vip/700001
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/XZpHFsBh/Fox502HD.png",Fox 502
-https://a1xs.vip/700002
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/Z60SQPG9/Fox-503.png",Fox 503
-https://a1xs.vip/700003
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/RpxSzY1R/Fox-Footy504.png",Fox 504
-https://a1xs.vip/700004
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/Y65j4s1/Fox505.png",Fox 505
-https://a1xs.vip/700005
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/Y65j4s1/Fox505.png",Fox 506
-https://a1xs.vip/700006
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/CK1F69ht/Fox507.png",Fox 507
-https://a1xs.vip/700007
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/TqkBV40v/SSNZ1.png",Sky Sports 1 NZ
-https://a1xs.vip/700031
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSQKX5q0qi2g6QyEpYCdEAz6ur-un5BedPIhzney_8qg&s=10",Willow TV
-
+#EXTINF:-1 group-title="Youtube and live events" tvg-id="Sun News" tvg-logo="",Sun News Live
+https://www.youtube.com/live/9M02G5c6x6w?si=yfom8VNforLwBD8j
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Friday, 26 December 2025 at 10:49:16 pm
