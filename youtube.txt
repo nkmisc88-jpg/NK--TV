@@ -1,9 +1,9 @@
 
 
-Title : ICC TV Stream 2
-Logo : https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg
-Link : http://cors.tundracast.com:2000/https://tgn.bozztv.com/eshgtv-dvrfl05/gin-ariana/index.m3u8
-VPN Required : Yes
+Title : Fox 501
+Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHrMa7HwO9Ke3z6Nx5Rllnl-ZBALoV_Ur_TV8DfBQUp6yqg-a8U9S1uwo&s=10
+Link : https://dj-tm-srvr1.vercel.app/title/FOX_501-HD(1080p50)@DJ-TM.m3u8?data=s7X18zNxTnIvKo1KqwxJTE1PDE3xNw73cApx0g8uT_PySazyC_UpqPTxDq2KLKgsjcixjHAvi6p0KrbwdcrMCzQpdfKI8igMctcudjRw168MDHMKyQ_P88hLy9AuMXAvrarUDvIL9Asq8UsKyE8vCAQA|Telegram=@links_macha_official&Creator=@DJ-TM
+VPN Required : No
 
 Title : Sun News Live
 Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png
