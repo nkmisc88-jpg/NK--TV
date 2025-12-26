@@ -32,7 +32,7 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "sports", "ten"
 ]
 
-# NAME OVERRIDES (Syntax Checked)
+# NAME OVERRIDES
 NAME_OVERRIDES = {
     "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
@@ -52,7 +52,7 @@ NAME_OVERRIDES = {
     "cartoon network hd+ english": "cartoon network",
     "nick hd+": "nick",
     "star movies hd": "star movies",
-    "sony pix hd": "sony pix"  # Ensure comma if adding more lines below
+    "sony pix hd": "sony pix"
 }
 
 # BROWSER HEADERS
@@ -151,7 +151,7 @@ def should_force_backup(name):
     return False
 
 # ==========================================
-# YOUTUBE PARSER & SCRAPER
+# YOUTUBE SCRAPER
 # ==========================================
 
 def get_direct_youtube_link(youtube_url):
@@ -177,28 +177,20 @@ def get_direct_youtube_link(youtube_url):
     except: return None
 
 def parse_youtube_txt():
-    """
-    Robust Line-by-Line Parser
-    """
     new_entries = []
+    if not os.path.exists(youtube_file): return []
     
-    if not os.path.exists(youtube_file):
-        print(f"❌ Error: {youtube_file} NOT FOUND.")
-        return []
-
     print(f"📂 Reading {youtube_file}...")
-    
     with open(youtube_file, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
     current_entry = {}
-    
     for line in lines:
         line = line.strip()
         if not line: 
             if 'link' in current_entry:
                 new_entries.append(process_youtube_entry(current_entry))
-            current_entry = {} # Reset
+            current_entry = {} 
             continue
 
         if ':' in line:
@@ -207,11 +199,9 @@ def parse_youtube_txt():
             val = parts[1].strip()
             current_entry[key] = val
     
-    # Catch last entry
     if 'link' in current_entry:
         new_entries.append(process_youtube_entry(current_entry))
 
-    print(f"✅ Youtube: Parsed {len(new_entries)} valid entries.")
     return new_entries
 
 def process_youtube_entry(data):
@@ -223,8 +213,6 @@ def process_youtube_entry(data):
     if "yes" in vpn_req: title = f"{title} [VPN]"
 
     final_link = link
-    
-    # Scrape YouTube links
     if "youtube.com" in link or "youtu.be" in link:
         clean_link = link.split('|')[0].strip()
         print(f"   ...Scraping: {title}")
@@ -232,7 +220,7 @@ def process_youtube_entry(data):
         if direct_url:
             final_link = f"{direct_url}|User-Agent={browser_ua}"
         else:
-            final_link = link # Fallback
+            final_link = link 
 
     return f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
 
@@ -243,18 +231,17 @@ def process_youtube_entry(data):
 def update_playlist():
     print("--- STARTING MASTER UPDATE ---")
     
-    # 1. HEADER & TIMESTAMP
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     final_lines = [
         "#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\"",
         f"# Updated on: {current_time}"
     ]
     
-    # 2. PROCESS MAIN TEMPLATE
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
 
+    # 1. PROCESS TEMPLATE (JioTV / Backup)
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         for i, line in enumerate(lines):
@@ -265,6 +252,13 @@ def update_playlist():
                 
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
+
+                # --- NEW FILTER: IGNORE OLD YOUTUBE FROM TEMPLATE ---
+                if 'group-title="Youtube and live events"' in line.lower():
+                    continue # Skip old Youtube entries
+                if "youtube.com" in url or "youtu.be" in url:
+                    continue # Skip raw YouTube links from template
+                # ----------------------------------------------------
 
                 # Removals
                 if "zee thirai" in ch_name_lower: continue
@@ -319,17 +313,19 @@ def update_playlist():
                         stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
+                    # Pass through manual links found in template
                     final_lines.append(line)
                     final_lines.append(url)
     except FileNotFoundError: pass
 
-    # 3. APPEND YOUTUBE
+    # 2. APPEND NEW YOUTUBE SECTION (From youtube.txt only)
+    print("🎥 Appending Youtube & Live Events...")
     youtube_entries = parse_youtube_txt()
     if youtube_entries:
         final_lines.append("") 
         final_lines.extend(youtube_entries)
 
-    # 4. APPEND FANCODE
+    # 3. APPEND FANCODE
     try:
         r = requests.get(fancode_url)
         if r.status_code == 200:
@@ -339,7 +335,7 @@ def update_playlist():
             print("✅ Fancode merged.")
     except: pass
 
-    # 5. SAVE
+    # 4. SAVE
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"\n🎉 DONE: Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
 
