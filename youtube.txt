@@ -24,7 +24,7 @@ Link : https://a1xs.vip/700005
 VPN Required : No
 
 Title : Fox 506
-Logo : https://i.ibb.co/Y65j4s1/Fox505.png
+Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwbPhZzf-yPaXqxbi4mHKkjAwSH74hrmDg&s
 Link : https://a1xs.vip/700006
 VPN Required : No
 
@@ -37,13 +37,12 @@ Title : Sun News Live
 Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXAN7YJhGNe5NiogVnTG8oqH2mYA9ix2STEbhDhOTlUa8hz5CnPHcbP5i6&s=10
 Link : https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=VI8mYXgAygFmV1WJ
 
-JioSphere. Not Just Another Browser. Download Now :
-https://jiosphere.com/deeplink/index.html?id=home
-
 Title : Sky Sports 1 NZ
 Logo : https://i.ibb.co/TqkBV40v/SSNZ1.png
 Link : https://a1xs.vip/700031
 VPN Required : No
 
-https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
+Title: Willow
+Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSQKX5q0qi2g6QyEpYCdEAz6ur-un5BedPIhzney_8qg&s=10
+Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
 VPN Required: No
