@@ -35,7 +35,7 @@ VPN Required : No
 
 Title : Sun News Live
 Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png
-Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
+Link : https://www.youtube.com/live/9M02G5c6x6w?si=yfom8VNforLwBD8j
 VPN Required : No
 
 Title : Sky Sports 1 NZ
