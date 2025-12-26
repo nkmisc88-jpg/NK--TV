@@ -2,6 +2,7 @@ import requests
 import re
 import datetime
 import os
+import json
 
 # ==========================================
 # CONFIGURATION
@@ -54,15 +55,38 @@ NAME_OVERRIDES = {
 }
 
 # ==========================================
-# SIMPLE BLOCK PARSER (ORIGINAL FORMAT)
+# PARSER & CONVERTER (With Proxy Support)
 # ==========================================
+
+def get_piped_proxy_link(video_id):
+    """
+    Fetches a stream URL via Piped API (Acts as a Proxy/VPN).
+    """
+    # List of public instances (Europe/US based)
+    instances = [
+        "https://pipedapi.kavin.rocks",
+        "https://api.piped.otter.sh",
+        "https://pipedapi.moomoo.me"
+    ]
+    
+    for api in instances:
+        try:
+            print(f"      ...Trying proxy: {api}")
+            resp = requests.get(f"{api}/streams/{video_id}", timeout=5)
+            if resp.status_code == 200:
+                data = resp.json()
+                if "hls" in data and data["hls"]:
+                    return data["hls"]
+        except:
+            continue
+    return None
 
 def parse_youtube_txt():
     """
-    Parses the standard block format:
-    Title : Name
-    Logo : URL
-    Link : URL
+    Reads youtube.txt.
+    - Default: Jitendra Worker (Live)
+    - Worker : No -> Direct YouTube Link
+    - Worker : Proxy -> Uses Piped API (Bypass Geo-Block)
     """
     new_entries = []
     
@@ -80,10 +104,9 @@ def parse_youtube_txt():
     for line in lines:
         line = line.strip()
         if not line: 
-            # Empty line marks end of a block -> Save it
             if 'link' in current_entry:
                 new_entries.append(process_entry(current_entry))
-            current_entry = {} # Reset
+            current_entry = {} 
             continue
 
         if ':' in line:
@@ -92,7 +115,6 @@ def parse_youtube_txt():
             val = parts[1].strip()
             current_entry[key] = val
     
-    # Catch the last entry if file doesn't end with empty line
     if 'link' in current_entry:
         new_entries.append(process_entry(current_entry))
 
@@ -104,20 +126,45 @@ def process_entry(data):
     logo = data.get('logo', '')
     link = data.get('link', '')
     vpn_req = data.get('vpn required', 'no').lower()
+    worker_req = data.get('worker', 'yes').lower() 
 
-    # Add [VPN] tag if requested
     if "yes" in vpn_req: 
         title = f"{title} [VPN]"
 
-    # DIRECT LINK - NO SCRAPING
-    # This simply takes whatever you put in "Link :" and puts it in the playlist.
     final_link = link
+
+    if "youtube.com" in link or "youtu.be" in link:
+        vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
+        
+        if vid_match:
+            vid_id = vid_match.group(1)
+            
+            if "proxy" in worker_req:
+                # OPTION C: PROXY MODE (Free VPN)
+                print(f"   🌍 Proxying: {title}")
+                proxy_link = get_piped_proxy_link(vid_id)
+                if proxy_link:
+                    final_link = proxy_link
+                else:
+                    print("      ❌ Proxy failed. Fallback to worker.")
+                    final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
+
+            elif "no" in worker_req:
+                # OPTION A: Clean Native Link
+                final_link = f"https://www.youtube.com/watch?v={vid_id}"
+                print(f"   ▶️  Direct Link: {title}")
+            else:
+                # OPTION B: Jitendra Worker (Default)
+                final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
+                print(f"   ✨ Worker Link: {title}")
 
     return f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
 
 # ==========================================
 # HELPER FUNCTIONS (UNCHANGED)
 # ==========================================
+# ... (Same helper functions as before) ...
+# I will include them to ensure the script is complete.
 
 def clean_name_key(name):
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
@@ -235,9 +282,7 @@ def update_playlist():
             url = ""
             if i + 1 < len(lines): url = lines[i+1].strip()
 
-            # Clean Old "Youtube and live events" entries from template
             if line.startswith("#EXTINF") and 'group-title="Youtube and live events"' in line: continue
-            # Note: We rely on group-title to filter old manual entries now.
 
             if line.startswith("#EXTINF"):
                 original_name = line.split(",")[-1].strip()
@@ -286,20 +331,18 @@ def update_playlist():
                     if found_block:
                         final_lines.append(line); final_lines.extend(found_block)
                     else:
-                        print(f"⚠️ MISSING: {original_name}")
                         final_lines.append(line)
                         if clean_local_key in local_map: final_lines.append(f"{base_url}/{local_map[clean_local_key]}.m3u8")
                         else: final_lines.append(f"{base_url}/000.m3u8")
                         stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
-                    # Pass through manual links (excluding ones we filtered above)
                     if 'group-title="Youtube and live events"' not in line:
                          final_lines.append(line)
                          final_lines.append(url)
     except FileNotFoundError: pass
 
-    # 2. APPEND LIVE EVENTS (FROM TEXT FILE)
+    # 2. APPEND LIVE EVENTS
     print("🎥 Appending Live Events...")
     live_entries = parse_youtube_txt()
     if live_entries:
