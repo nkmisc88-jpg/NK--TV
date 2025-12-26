@@ -54,7 +54,7 @@ NAME_OVERRIDES = {
 }
 
 # ==========================================
-# PARSER & CONVERTER (USES YOUR WORKER)
+# PARSER & CONVERTER (Uses Jitendra Worker)
 # ==========================================
 
 def parse_youtube_txt():
@@ -106,14 +106,13 @@ def process_entry(data):
 
     final_link = link
 
-    # --- THE MAGIC FIX ---
-    # Detect YouTube link and convert to Worker Format
+    # --- WORKER CONVERSION LOGIC ---
     if "youtube.com" in link or "youtu.be" in link:
-        # Regex to extract the Video ID (Works for standard, shorts, live, etc.)
+        # Extract Video ID using Regex
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
             vid_id = vid_match.group(1)
-            # Use the working proxy you found
+            # Use the Jitendra Worker Link
             final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
             print(f"   ✨ Converted {title} -> Worker Link")
 
