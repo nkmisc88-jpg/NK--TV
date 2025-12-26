@@ -1,11 +1,13 @@
 import requests
 import re
 import datetime
+import os
 
 # ==========================================
 # CONFIGURATION
 # ==========================================
 template_file = "template.m3u"
+youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
@@ -14,7 +16,7 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# 1. REMOVE LIST
+# REMOVE LIST
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "star sports 1", "star sports 2",
@@ -22,7 +24,7 @@ REMOVE_KEYWORDS = [
     "star sports 1 kannada hd"   
 ]
 
-# 2. FORCE BACKUP LIST
+# FORCE BACKUP LIST
 FORCE_BACKUP_KEYWORDS = [
     "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
@@ -30,9 +32,8 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "sports", "ten"
 ]
 
-# 3. MAPPING (Name Overrides)
+# NAME OVERRIDES
 NAME_OVERRIDES = {
-    # Request: Star Sports 2 Hindi HD -> Mapped to Sports18 1 HD
     "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "zee tamil": "Zee Tamil HD",
@@ -54,8 +55,11 @@ NAME_OVERRIDES = {
     "sony pix hd": "sony pix",
 }
 
+# BROWSER HEADERS (For YouTube)
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
+# ==========================================
+# HELPER FUNCTIONS
 # ==========================================
 
 def clean_name_key(name):
@@ -147,15 +151,84 @@ def should_force_backup(name):
     return False
 
 # ==========================================
-# MAIN UPDATE LOGIC
+# YOUTUBE SCRAPER LOGIC
+# ==========================================
+
+def get_direct_youtube_link(youtube_url):
+    try:
+        session = requests.Session()
+        session.headers.update({
+            'User-Agent': browser_ua,
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Referer': 'https://www.youtube.com/',
+        })
+        session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
+
+        resp = session.get(youtube_url, timeout=15)
+        text = resp.text
+
+        match = re.search(r'"hlsManifestUrl":"(.*?)"', text)
+        if match: return match.group(1)
+        
+        match_raw = re.search(r'(https:\/\/[^\s]+\.m3u8)', text)
+        if match_raw: return match_raw.group(1)
+
+        return None
+    except: return None
+
+def parse_youtube_txt():
+    new_entries = []
+    try:
+        if not os.path.exists(youtube_file): return []
+        
+        with open(youtube_file, "r", encoding="utf-8") as f: content = f.read()
+        blocks = content.split('\n\n')
+        
+        for block in blocks:
+            if not block.strip(): continue
+            data = {}
+            for row in block.splitlines():
+                if ':' in row:
+                    key, val = row.split(':', 1)
+                    data[key.strip().lower()] = val.strip()
+            
+            title = data.get('title', 'Unknown Event')
+            logo = data.get('logo', '')
+            link = data.get('link', '')
+            vpn_req = data.get('vpn required', 'no').lower()
+            
+            if not link: continue
+
+            if "yes" in vpn_req: title = f"{title} [VPN]"
+
+            final_link = link
+            
+            # Scrape YouTube links
+            if "youtube.com" in link or "youtu.be" in link:
+                print(f"   ...Processing YouTube: {title}")
+                clean_link = link.split('|')[0].strip()
+                direct_url = get_direct_youtube_link(clean_link)
+                if direct_url:
+                    final_link = f"{direct_url}|User-Agent={browser_ua}"
+                else:
+                    final_link = link # Fallback
+
+            entry = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
+            new_entries.append(entry)
+    except Exception as e:
+        print(f"Error parsing youtube.txt: {e}")
+    return new_entries
+
+# ==========================================
+# MAIN EXECUTION
 # ==========================================
 
 def update_playlist():
-    print("--- STARTING UPDATE ---")
+    print("--- STARTING MASTER UPDATE ---")
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
     
-    # TIMESTAMP (Forces GitHub Update)
+    # 1. HEADER & TIMESTAMP
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     final_lines = [
         "#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\"",
@@ -164,7 +237,7 @@ def update_playlist():
     
     stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # PROCESS TEMPLATE
+    # 2. PROCESS MAIN TEMPLATE (JioTV / Backup)
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         for i, line in enumerate(lines):
@@ -176,7 +249,7 @@ def update_playlist():
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
 
-                # REMOVALS
+                # Removals
                 if "zee thirai" in ch_name_lower: continue
                 if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower: continue
 
@@ -189,10 +262,11 @@ def update_playlist():
                         should_remove = True; break
                 if should_remove: continue
 
-                # RENAME
+                # Rename
                 if "star sports 2 hindi hd" in ch_name_lower:
                     line = line.replace("Star Sports 2 Hindi HD", "Sports18 1 HD")
 
+                # Logic
                 if "http://placeholder" in url:
                     clean_local_key = clean_name_key(original_name)
                     found_block = None
@@ -228,12 +302,19 @@ def update_playlist():
                         stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
-                    # Pass manual links (no processing)
+                    # Pass through manual links found in template
                     final_lines.append(line)
                     final_lines.append(url)
     except FileNotFoundError: pass
 
-    # FANCODE
+    # 3. APPEND YOUTUBE & LIVE EVENTS
+    print("🎥 Appending Youtube & Live Events...")
+    youtube_entries = parse_youtube_txt()
+    if youtube_entries:
+        final_lines.append("") # Spacer
+        final_lines.extend(youtube_entries)
+
+    # 4. APPEND FANCODE
     try:
         r = requests.get(fancode_url)
         if r.status_code == 200:
@@ -243,7 +324,7 @@ def update_playlist():
             print("✅ Fancode merged.")
     except: pass
 
-    # WRITE FILE
+    # 5. SAVE FINAL FILE
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"\n🎉 DONE: Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
 
