@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-26 00:16:48
+# Updated on: 2025-12-26 00:19:34
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -906,6 +906,8 @@ https://www.youtube.com/live/9M02G5c6x6w?si=ClU2Ul7cQDxxRHfM
 https://www.youtube.com/watch?v=dp8PhLsUcFE
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png",News 24
 https://www.youtube.com/live/nyd-xznCpJc
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="",Test
+https://ip270508153.ahcdn.com/key=lya41GlrKO0e8IjImQxGgA,s=,end=1766721600,limit=3/data=203.192.244.142-mv/state=aU3Uy8D0/referer=force,.xhcdn.com,.xhamster44.desi/reftag=0290966061/ssd3/21/4/357032054/017/596/338/240p.h264.mp4
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Friday, 26 December 2025 at 12:28:05 am
