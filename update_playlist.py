@@ -32,7 +32,7 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "sports", "ten"
 ]
 
-# NAME OVERRIDES
+# NAME OVERRIDES (Syntax Checked)
 NAME_OVERRIDES = {
     "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
@@ -52,10 +52,10 @@ NAME_OVERRIDES = {
     "cartoon network hd+ english": "cartoon network",
     "nick hd+": "nick",
     "star movies hd": "star movies",
-    "sony pix hd": "sony pix",
+    "sony pix hd": "sony pix"  # Ensure comma if adding more lines below
 }
 
-# BROWSER HEADERS (For YouTube)
+# BROWSER HEADERS
 browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # ==========================================
@@ -151,7 +151,7 @@ def should_force_backup(name):
     return False
 
 # ==========================================
-# YOUTUBE SCRAPER LOGIC
+# YOUTUBE PARSER & SCRAPER
 # ==========================================
 
 def get_direct_youtube_link(youtube_url):
@@ -177,47 +177,64 @@ def get_direct_youtube_link(youtube_url):
     except: return None
 
 def parse_youtube_txt():
+    """
+    Robust Line-by-Line Parser
+    """
     new_entries = []
-    try:
-        if not os.path.exists(youtube_file): return []
-        
-        with open(youtube_file, "r", encoding="utf-8") as f: content = f.read()
-        blocks = content.split('\n\n')
-        
-        for block in blocks:
-            if not block.strip(): continue
-            data = {}
-            for row in block.splitlines():
-                if ':' in row:
-                    key, val = row.split(':', 1)
-                    data[key.strip().lower()] = val.strip()
-            
-            title = data.get('title', 'Unknown Event')
-            logo = data.get('logo', '')
-            link = data.get('link', '')
-            vpn_req = data.get('vpn required', 'no').lower()
-            
-            if not link: continue
+    
+    if not os.path.exists(youtube_file):
+        print(f"❌ Error: {youtube_file} NOT FOUND.")
+        return []
 
-            if "yes" in vpn_req: title = f"{title} [VPN]"
+    print(f"📂 Reading {youtube_file}...")
+    
+    with open(youtube_file, "r", encoding="utf-8") as f:
+        lines = f.readlines()
 
-            final_link = link
-            
-            # Scrape YouTube links
-            if "youtube.com" in link or "youtu.be" in link:
-                print(f"   ...Processing YouTube: {title}")
-                clean_link = link.split('|')[0].strip()
-                direct_url = get_direct_youtube_link(clean_link)
-                if direct_url:
-                    final_link = f"{direct_url}|User-Agent={browser_ua}"
-                else:
-                    final_link = link # Fallback
+    current_entry = {}
+    
+    for line in lines:
+        line = line.strip()
+        if not line: 
+            if 'link' in current_entry:
+                new_entries.append(process_youtube_entry(current_entry))
+            current_entry = {} # Reset
+            continue
 
-            entry = f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
-            new_entries.append(entry)
-    except Exception as e:
-        print(f"Error parsing youtube.txt: {e}")
+        if ':' in line:
+            parts = line.split(':', 1)
+            key = parts[0].strip().lower()
+            val = parts[1].strip()
+            current_entry[key] = val
+    
+    # Catch last entry
+    if 'link' in current_entry:
+        new_entries.append(process_youtube_entry(current_entry))
+
+    print(f"✅ Youtube: Parsed {len(new_entries)} valid entries.")
     return new_entries
+
+def process_youtube_entry(data):
+    title = data.get('title', 'Unknown Event')
+    logo = data.get('logo', '')
+    link = data.get('link', '')
+    vpn_req = data.get('vpn required', 'no').lower()
+
+    if "yes" in vpn_req: title = f"{title} [VPN]"
+
+    final_link = link
+    
+    # Scrape YouTube links
+    if "youtube.com" in link or "youtu.be" in link:
+        clean_link = link.split('|')[0].strip()
+        print(f"   ...Scraping: {title}")
+        direct_url = get_direct_youtube_link(clean_link)
+        if direct_url:
+            final_link = f"{direct_url}|User-Agent={browser_ua}"
+        else:
+            final_link = link # Fallback
+
+    return f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
 
 # ==========================================
 # MAIN EXECUTION
@@ -225,8 +242,6 @@ def parse_youtube_txt():
 
 def update_playlist():
     print("--- STARTING MASTER UPDATE ---")
-    local_map = load_local_map(reference_file)
-    backup_map = fetch_backup_map(backup_url)
     
     # 1. HEADER & TIMESTAMP
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -235,9 +250,11 @@ def update_playlist():
         f"# Updated on: {current_time}"
     ]
     
+    # 2. PROCESS MAIN TEMPLATE
+    local_map = load_local_map(reference_file)
+    backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # 2. PROCESS MAIN TEMPLATE (JioTV / Backup)
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         for i, line in enumerate(lines):
@@ -302,16 +319,14 @@ def update_playlist():
                         stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
-                    # Pass through manual links found in template
                     final_lines.append(line)
                     final_lines.append(url)
     except FileNotFoundError: pass
 
-    # 3. APPEND YOUTUBE & LIVE EVENTS
-    print("🎥 Appending Youtube & Live Events...")
+    # 3. APPEND YOUTUBE
     youtube_entries = parse_youtube_txt()
     if youtube_entries:
-        final_lines.append("") # Spacer
+        final_lines.append("") 
         final_lines.extend(youtube_entries)
 
     # 4. APPEND FANCODE
@@ -324,7 +339,7 @@ def update_playlist():
             print("✅ Fancode merged.")
     except: pass
 
-    # 5. SAVE FINAL FILE
+    # 5. SAVE
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"\n🎉 DONE: Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
 
