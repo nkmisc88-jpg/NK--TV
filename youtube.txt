@@ -6,7 +6,9 @@ VPN Country : Australia
 
 Title : ICC TV Stream 2
 Logo : https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg
-Link : http://cors.tundracast.com:2000/https://tgn.bozztv.com/eshgtv-dvrfl05/gin-ariana/index.m3u8
+Link : Link : http://cors.tundracast.com:2000/https://tgn.bozztv.com/eshgtv-dvrfl05/gin-ariana/index.m3u8
+VPN Required : No
+
 VPN Required : No
 
 Title : Sun News Live
