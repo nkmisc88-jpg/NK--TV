@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-26 18:05:05
+# Updated on: 2025-12-26 18:19:12
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -903,11 +903,13 @@ https://a1xs.vip/700005
 https://a1xs.vip/700006
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/CK1F69ht/Fox507.png",Fox 507
 https://a1xs.vip/700007
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXAN7YJhGNe5NiogVnTG8oqH2mYA9ix2STEbhDhOTlUa8hz5CnPHcbP5i6&s=10",Sun News Live
+https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=VI8mYXgAygFmV1WJ
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/TqkBV40v/SSNZ1.png",Sky Sports 1 NZ
 https://a1xs.vip/700031
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 26 December 2025 at 11:28:05 pm
+#DATE:- Friday, 26 December 2025 at 11:49:05 pm
 #EXTINF:-1 tvg-id="138650" tvg-name="Sharjah Warriorz Vs Desert Vipers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138650_5786_SWR_DV_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Sharjah Warriorz Vs Desert Vipers
 https://in-mc-fdlive.fancode.com/mumbai/138650_english_hls_c89917539b71833_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="139149" tvg-name="Majees Titans Vs Yalla Shabab Giants" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Majees Titans Vs Yalla Shabab Giants
