@@ -47,3 +47,7 @@ Title: Willow
 Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSQKX5q0qi2g6QyEpYCdEAz6ur-un5BedPIhzney_8qg&s=10
 Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
 VPN Required: No
+
+Title : Polimer News 
+Logo : 
+Link : https://youtu.be/iiu2kGPD_Zg?si=XH1ud8Xq6lTLOlt7
