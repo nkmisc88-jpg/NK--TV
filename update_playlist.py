@@ -2,6 +2,7 @@ import requests
 import re
 import datetime
 import os
+import json
 
 # ==========================================
 # CONFIGURATION
@@ -54,9 +55,6 @@ NAME_OVERRIDES = {
     "star movies hd": "star movies",
     "sony pix hd": "sony pix"
 }
-
-# BROWSER HEADERS
-browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # ==========================================
 # HELPER FUNCTIONS
@@ -119,7 +117,9 @@ def fetch_backup_map(url):
     block_map = {}
     try:
         print("🌍 Fetching Backup Source...")
-        response = requests.get(url, headers={"User-Agent": browser_ua}, timeout=20)
+        # Use Standard Browser UA for Backup Fetching
+        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        response = requests.get(url, headers={"User-Agent": ua}, timeout=20)
         if response.status_code == 200:
             lines = response.text.splitlines()
             current_block = []; current_name = ""
@@ -151,46 +151,74 @@ def should_force_backup(name):
     return False
 
 # ==========================================
-# YOUTUBE SCRAPER
+# ADVANCED YOUTUBE SCRAPER (Redirect Fix)
 # ==========================================
 
 def get_direct_youtube_link(youtube_url):
+    """
+    Tries multiple client types to bypass 'Sign In' redirects.
+    """
+    
+    # 1. IOS CLIENT (High Success Rate for HLS)
     try:
         session = requests.Session()
         session.headers.update({
-            'User-Agent': browser_ua,
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1',
             'Accept-Language': 'en-US,en;q=0.9',
             'Referer': 'https://www.youtube.com/',
         })
+        # Cookies to bypass consent
         session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
 
-        resp = session.get(youtube_url, timeout=15)
+        resp = session.get(youtube_url, timeout=10)
         text = resp.text
 
         match = re.search(r'"hlsManifestUrl":"(.*?)"', text)
         if match: return match.group(1)
         
+        # Check for m3u8 in raw text
         match_raw = re.search(r'(https:\/\/[^\s]+\.m3u8)', text)
         if match_raw: return match_raw.group(1)
 
-        return None
-    except: return None
+    except: pass
+
+    # 2. ANDROID CLIENT (Backup Method)
+    try:
+        session = requests.Session()
+        session.headers.update({
+            'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36',
+        })
+        resp = session.get(youtube_url, timeout=10)
+        text = resp.text
+        match = re.search(r'"hlsManifestUrl":"(.*?)"', text)
+        if match: return match.group(1)
+    except: pass
+
+    return None
 
 def parse_youtube_txt():
+    """
+    Robust Line-by-Line Parser
+    """
     new_entries = []
-    if not os.path.exists(youtube_file): return []
     
+    if not os.path.exists(youtube_file):
+        print(f"❌ Error: {youtube_file} NOT FOUND.")
+        return []
+
     print(f"📂 Reading {youtube_file}...")
+    
     with open(youtube_file, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
     current_entry = {}
+    
     for line in lines:
         line = line.strip()
         if not line: 
             if 'link' in current_entry:
                 new_entries.append(process_youtube_entry(current_entry))
-            current_entry = {} 
+            current_entry = {} # Reset
             continue
 
         if ':' in line:
@@ -202,6 +230,7 @@ def parse_youtube_txt():
     if 'link' in current_entry:
         new_entries.append(process_youtube_entry(current_entry))
 
+    print(f"✅ Youtube: Parsed {len(new_entries)} valid entries.")
     return new_entries
 
 def process_youtube_entry(data):
@@ -213,14 +242,17 @@ def process_youtube_entry(data):
     if "yes" in vpn_req: title = f"{title} [VPN]"
 
     final_link = link
+    
+    # Scrape YouTube links
     if "youtube.com" in link or "youtu.be" in link:
         clean_link = link.split('|')[0].strip()
         print(f"   ...Scraping: {title}")
         direct_url = get_direct_youtube_link(clean_link)
         if direct_url:
-            final_link = f"{direct_url}|User-Agent={browser_ua}"
+            # Found Direct Stream - Use specific UA
+            final_link = f"{direct_url}|User-Agent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)"
         else:
-            final_link = link 
+            final_link = link # Fallback
 
     return f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
 
@@ -231,6 +263,7 @@ def process_youtube_entry(data):
 def update_playlist():
     print("--- STARTING MASTER UPDATE ---")
     
+    # 1. HEADER & TIMESTAMP
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     final_lines = [
         "#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\"",
@@ -241,7 +274,7 @@ def update_playlist():
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # 1. PROCESS TEMPLATE (JioTV / Backup)
+    # 2. PROCESS MAIN TEMPLATE (JioTV / Backup)
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         for i, line in enumerate(lines):
@@ -318,14 +351,14 @@ def update_playlist():
                     final_lines.append(url)
     except FileNotFoundError: pass
 
-    # 2. APPEND NEW YOUTUBE SECTION (From youtube.txt only)
+    # 3. APPEND NEW YOUTUBE SECTION
     print("🎥 Appending Youtube & Live Events...")
     youtube_entries = parse_youtube_txt()
     if youtube_entries:
         final_lines.append("") 
         final_lines.extend(youtube_entries)
 
-    # 3. APPEND FANCODE
+    # 4. APPEND FANCODE
     try:
         r = requests.get(fancode_url)
         if r.status_code == 200:
@@ -335,7 +368,7 @@ def update_playlist():
             print("✅ Fancode merged.")
     except: pass
 
-    # 4. SAVE
+    # 5. SAVE
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"\n🎉 DONE: Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
 
