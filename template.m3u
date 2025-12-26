@@ -11,15 +11,11 @@ http://placeholder
 http://placeholder
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Vijay_HD.png",Star Vijay HD
 http://placeholder
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png",Zee Tamil HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1756779623~acl=%2f*~data=hdntl~hmac=f642633cd3fe82e8
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Tamil_HD.png",Colors Tamil HD
 http://placeholder
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jaya_TV_HD.png",Jaya TV HD
 http://placeholder
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Super_HD.png",Vijay Super HD
-http://placeholder
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Thirai_HD.png",Zee Thirai HD
 http://placeholder
 
 # ==============================
