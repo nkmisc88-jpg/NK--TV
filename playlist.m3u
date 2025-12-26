@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-26 14:02:27
+# Updated on: 2025-12-26 14:19:05
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -896,22 +896,34 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1766711535~exp=1766797935~acl=/*~hmac=8d566b43a85ec08390144c97afae2ffb7858d0cf9b31370476e6d83fa7f0cad3"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1766711535~exp=1766797935~acl=/*~hmac=8d566b43a85ec08390144c97afae2ffb7858d0cf9b31370476e6d83fa7f0cad3&xxx=||cookie=__hdnea__=st=1766711535~exp=1766797935~acl=/*~hmac=8d566b43a85ec08390144c97afae2ffb7858d0cf9b31370476e6d83fa7f0cad3
 
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHrMa7HwO9Ke3z6Nx5Rllnl-ZBALoV_Ur_TV8DfBQUp6yqg-a8U9S1uwo&s=10",Fox 501
-https://dj-tm-srvr1.vercel.app/title/FOX_501-HD(1080p50)@DJ-TM.m3u8?data=s7X18zNxTnIvKo1KqwxJTE1PDE3xNw73cApx0g8uT_PySazyC_UpqPTxDq2KLKgsjcixjHAvi6p0KrbwdcrMCzQpdfKI8igMctcudjRw168MDHMKyQ_P88hLy9AuMXAvrarUDvIL9Asq8UsKyE8vCAQA
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/hvxssSM/Fox-Cricket-501.png",Fox 501
+https://a1xs.vip/700001
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/XZpHFsBh/Fox502HD.png",Fox 502
+https://a1xs.vip/700002
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/Z60SQPG9/Fox-503.png",Fox 503
+https://a1xs.vip/700003
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/RpxSzY1R/Fox-Footy504.png",Fox 504
+https://a1xs.vip/700004
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/Y65j4s1/Fox505.png",Fox 505
+https://a1xs.vip/700005
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/Y65j4s1/Fox505.png",Fox 506
+https://a1xs.vip/700006
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/CK1F69ht/Fox507.png",Fox 507
+https://a1xs.vip/700007
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png",Sun News Live
 https://www.youtube.com/watch?v=9M02G5c6x6w
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png",Sky NZ [VPN]
-https://a1xs.vip/700008
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/TqkBV40v/SSNZ1.png",Sky Sports 1 NZ
+https://a1xs.vip/700031
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 26 December 2025 at 7:28:10 pm
+#DATE:- Friday, 26 December 2025 at 7:49:05 pm
 #EXTINF:-1 tvg-id="138917" tvg-name="Chattogram Royals Vs Noakhali Express" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138917_5808_NOE_CCH_fc-web_1766733054113.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Chattogram Royals Vs Noakhali Express
 https://in-mc-fdlive.fancode.com/mumbai/138917_english_hls_2ab30a2fb843502_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 tvg-id="138650" tvg-name="Sharjah Warriorz Vs Desert Vipers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138650_5786_SWR_DV_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Sharjah Warriorz Vs Desert Vipers
+https://in-mc-fdlive.fancode.com/mumbai/138650_english_hls_c89917539b71833_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="139148" tvg-name="Royal Oman Stallions Vs Renaissance Challengers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Royal Oman Stallions Vs Renaissance Challengers
 https://in-mc-fdlive.fancode.com/mumbai/139148_english_hls_3ffc4d404a36990_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="136986" tvg-name="Birmingham City F.c. Vs Derby County Football Club" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/136986_5489_BIR_DER_fc-web.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Birmingham City F.c. Vs Derby County Football Club
 https://in-mc-fdlive.fancode.com/mumbai/136986_english_hls_34325b42ba61879_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="138351" tvg-name="Angola Vs Zimbabwe" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138351_5774_AGL_ZIM_fc-web_1766386873996.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Angola Vs Zimbabwe
 https://in-mc-fdlive.fancode.com/mumbai/138351_english_hls_da0f8713b314303_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 tvg-id="138650" tvg-name="Sharjah Warriorz Vs Desert Vipers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138650_5786_SWR_DV_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Sharjah Warriorz Vs Desert Vipers
-https://in-mc-fdlive.fancode.com/mumbai/138650_english_hls_c89917539b71833_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
