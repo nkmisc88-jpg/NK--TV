@@ -16,7 +16,3 @@ Link : https://www.youtube.com/watch?v=dp8PhLsUcFE
 VPN Required : Yes 
 VPN Country : USA
 
-Title : News 24
-Logo : https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png
-Link : https://www.youtube.com/live/nyd-xznCpJc
-VPN Required : No
