@@ -1,13 +1,9 @@
-Title : ICC TV Stream 1
-Logo : https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg
-Link : https://www.youtube.com/watch?v=9Auq9mYxFEE
-VPN Required : Yes
-VPN Country : Australia
+
 
 Title : ICC TV Stream 2
 Logo : https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg
 Link : http://cors.tundracast.com:2000/https://tgn.bozztv.com/eshgtv-dvrfl05/gin-ariana/index.m3u8
-VPN Required : No
+VPN Required : Yes
 
 Title : Sun News Live
 Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png
@@ -24,8 +20,3 @@ Title : News 24
 Logo : https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png
 Link : https://www.youtube.com/live/nyd-xznCpJc
 VPN Required : No
-
-Title: Test
-Logo : https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png
-Link : https://ip270508153.ahcdn.com/key=lya41GlrKO0e8IjImQxGgA,s=,end=1766721600,limit=3/data=203.192.244.142-mv/state=aU3Uy8D0/referer=force,.xhcdn.com,.xhamster44.desi/reftag=0290966061/ssd3/21/4/357032054/017/596/338/240p.h264.mp4
-VPN. Required: No
