@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-26 08:53:38
+# Updated on: 2025-12-26 09:36:30
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -896,15 +896,15 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1766711535~exp=1766797935~acl=/*~hmac=8d566b43a85ec08390144c97afae2ffb7858d0cf9b31370476e6d83fa7f0cad3"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1766711535~exp=1766797935~acl=/*~hmac=8d566b43a85ec08390144c97afae2ffb7858d0cf9b31370476e6d83fa7f0cad3&xxx=||cookie=__hdnea__=st=1766711535~exp=1766797935~acl=/*~hmac=8d566b43a85ec08390144c97afae2ffb7858d0cf9b31370476e6d83fa7f0cad3
 
-#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg",ICC TV Stream 2 [VPN]
-http://cors.tundracast.com:2000/https://tgn.bozztv.com/eshgtv-dvrfl05/gin-ariana/index.m3u8
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHrMa7HwO9Ke3z6Nx5Rllnl-ZBALoV_Ur_TV8DfBQUp6yqg-a8U9S1uwo&s=10",Fox 501
+https://dj-tm-srvr1.vercel.app/title/FOX_501-HD(1080p50)@DJ-TM.m3u8?data=s7X18zNxTnIvKo1KqwxJTE1PDE3xNw73cApx0g8uT_PySazyC_UpqPTxDq2KLKgsjcixjHAvi6p0KrbwdcrMCzQpdfKI8igMctcudjRw168MDHMKyQ_P88hLy9AuMXAvrarUDvIL9Asq8UsKyE8vCAQA|Telegram=@links_macha_official&Creator=@DJ-TM
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png",Sun News Live
 https://www.youtube.com/watch?v=9M02G5c6x6w
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png",Sky NZ
 https://a1xs.vip/700008
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 26 December 2025 at 2:21:05 pm
+#DATE:- Friday, 26 December 2025 at 3:00:05 pm
 #EXTINF:-1 tvg-id="138916" tvg-name="Sylhet Titans Vs Rajshahi Warriors" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138916_5808_SYL_DBR_fc-web_1766733054236.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Sylhet Titans Vs Rajshahi Warriors
 https://in-mc-fdlive.fancode.com/mumbai/138916_english_hls_03f63abe0162196_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="139147" tvg-name="Muscat Thunders Vs Ias Invincibles" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Muscat Thunders Vs Ias Invincibles
