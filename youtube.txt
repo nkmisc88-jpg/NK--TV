@@ -1,8 +1,36 @@
-
-
 Title : Fox 501
-Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHrMa7HwO9Ke3z6Nx5Rllnl-ZBALoV_Ur_TV8DfBQUp6yqg-a8U9S1uwo&s=10
-Link : https://dj-tm-srvr1.vercel.app/title/FOX_501-HD(1080p50)@DJ-TM.m3u8?data=s7X18zNxTnIvKo1KqwxJTE1PDE3xNw73cApx0g8uT_PySazyC_UpqPTxDq2KLKgsjcixjHAvi6p0KrbwdcrMCzQpdfKI8igMctcudjRw168MDHMKyQ_P88hLy9AuMXAvrarUDvIL9Asq8UsKyE8vCAQA
+Logo : https://i.ibb.co/hvxssSM/Fox-Cricket-501.png
+Link : https://a1xs.vip/700001
+VPN Required : No
+
+Title : Fox 502
+Logo : https://i.ibb.co/XZpHFsBh/Fox502HD.png
+Link : https://a1xs.vip/700002
+VPN Required : No
+
+Title : Fox 503
+Logo : https://i.ibb.co/Z60SQPG9/Fox-503.png
+Link : https://a1xs.vip/700003
+VPN Required : No
+
+Title : Fox 504
+Logo : https://i.ibb.co/RpxSzY1R/Fox-Footy504.png
+Link : https://a1xs.vip/700004
+VPN Required : No
+
+Title : Fox 505
+Logo : https://i.ibb.co/Y65j4s1/Fox505.png
+Link : https://a1xs.vip/700005
+VPN Required : No
+
+Title : Fox 506
+Logo : https://i.ibb.co/Y65j4s1/Fox505.png
+Link : https://a1xs.vip/700006
+VPN Required : No
+
+Title : Fox 507
+Logo : https://i.ibb.co/CK1F69ht/Fox507.png
+Link : https://a1xs.vip/700007
 VPN Required : No
 
 Title : Sun News Live
@@ -10,8 +38,7 @@ Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png
 Link : https://www.youtube.com/live/9M02G5c6x6w?si=ClU2Ul7cQDxxRHfM
 VPN Required : No
 
-Title : Sky NZ
-Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png
-Link : https://a1xs.vip/700008
-VPN Required : Yes
-
+Title : Sky Sports 1 NZ
+Logo : https://i.ibb.co/TqkBV40v/SSNZ1.png
+Link : https://a1xs.vip/700031
+VPN Required : No
