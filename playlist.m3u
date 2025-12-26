@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-26 04:08:19
+# Updated on: 2025-12-26 04:20:23
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -899,11 +899,9 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/16/ICC_logo_2016.svg",ICC TV Stream 2 [VPN]
 http://cors.tundracast.com:2000/https://tgn.bozztv.com/eshgtv-dvrfl05/gin-ariana/index.m3u8
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png",Sun News Live
-https://www.youtube.com/live/9M02G5c6x6w?si=ClU2Ul7cQDxxRHfM
+https://www.youtube.com/watch?v=9M02G5c6x6w
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png",Polimer News [VPN]
 https://www.youtube.com/watch?v=dp8PhLsUcFE
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 26 December 2025 at 9:35:07 am
-#EXTINF:-1 tvg-id="138731" tvg-name="Auckland Aces Vs Northern Districts" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138731_5800_ND_AA_fc-web_1766641250922.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Auckland Aces Vs Northern Districts
-https://in-mc-fdlive.fancode.com/mumbai/138731_english_hls_beffea4d422387_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Friday, 26 December 2025 at 9:42:05 am
