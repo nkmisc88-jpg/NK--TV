@@ -55,3 +55,5 @@ VPN Required:
 Title : ILT20 
 Logo : https://www.ilt20.ae/static-assets/waf-images/a1/c4/48/1-1/kXEXg4wHwn.jpg?v=30.13&w=1024
 Link : https://m.youtube.com/watch?v=utE3wPktKjg&pp=uAQw
+Worker : Proxy
+VPN Required: No
