@@ -10,9 +10,8 @@ Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png
 Link : https://www.youtube.com/live/9M02G5c6x6w?si=ClU2Ul7cQDxxRHfM
 VPN Required : No
 
-Title : Polimer News
+Title : Sky NZ
 Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png
-Link : https://www.youtube.com/watch?v=dp8PhLsUcFE
-VPN Required : Yes 
-VPN Country : USA
+Link : https://a1xs.vip/700008
+VPN Required : No
 
