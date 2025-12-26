@@ -26,3 +26,7 @@ Title : News 24
 Logo : https://jiotvimages.cdn.jio.com/dare_images/images/News_24.png
 Link : https://www.youtube.com/live/nyd-xznCpJc
 VPN Required : No
+
+Title: Test
+Logo : 
+Link : https://ip270508153.ahcdn.com/key=lya41GlrKO0e8IjImQxGgA,s=,end=1766721600,limit=3/data=203.192.244.142-mv/state=aU3Uy8D0/referer=force,.xhcdn.com,.xhamster44.desi/reftag=0290966061/ssd3/21/4/357032054/017/596/338/240p.h264.mp4
