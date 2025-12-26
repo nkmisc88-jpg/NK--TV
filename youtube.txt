@@ -33,10 +33,7 @@ Logo : https://i.ibb.co/CK1F69ht/Fox507.png
 Link : https://a1xs.vip/700007
 VPN Required : No
 
-Title : Sun News Live
-Logo : https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png
-Link : https://www.youtube.com/live/9M02G5c6x6w?si=yfom8VNforLwBD8j
-VPN Required : No
+Sun News Live ||Sun News ||News || https://www.youtube.com/live/9M02G5c6x6w?si=yfom8VNforLwBD8j
 
 Title : Sky Sports 1 NZ
 Logo : https://i.ibb.co/TqkBV40v/SSNZ1.png
