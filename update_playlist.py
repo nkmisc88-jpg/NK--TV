@@ -26,7 +26,6 @@ REMOVE_KEYWORDS = [
     "star sports 1 kannada hd"   
 ]
 
-# FORCE BACKUP LIST
 FORCE_BACKUP_KEYWORDS = [
     "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
@@ -103,36 +102,30 @@ def parse_youtube_txt():
 
     for line in lines:
         line = line.strip()
-        if not line or "||" not in line: continue
-
-        # Split by ||
-        parts = [p.strip() for p in line.split("||")]
+        if not line: continue
         
-        # Format: Name || ID || Category || URL
-        # We need at least Name and URL (Index 0 and last index)
-        if len(parts) < 2: continue
+        # --- PARSER: Handles || format ---
+        if "||" in line:
+            parts = [p.strip() for p in line.split("||")]
+            if len(parts) < 2: continue
+            
+            # Format: Name || ID || Category || URL
+            title = parts[0]
+            link = parts[-1] # URL is always last
+            
+            final_link = link
+            
+            # Scrape if YouTube
+            if "youtube.com" in link or "youtu.be" in link:
+                clean_link = link.split('|')[0].strip()
+                direct_url = get_direct_youtube_link(clean_link)
+                if direct_url:
+                    final_link = f"{direct_url}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                else:
+                    final_link = link # Fallback
 
-        title = parts[0]
-        link = parts[-1] # URL is always last
-        
-        # Optional: Check for [VPN] tag in title manually if user added it
-        
-        final_link = link
-
-        # Scrape if YouTube
-        if "youtube.com" in link or "youtu.be" in link:
-            clean_link = link.split('|')[0].strip()
-            direct_url = get_direct_youtube_link(clean_link)
-            if direct_url:
-                final_link = f"{direct_url}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-            else:
-                final_link = link
-
-        # Create Entry
-        # Using default logo since this format doesn't specify one usually, 
-        # or you can use the ID as logo if you have local files.
-        entry = f'#EXTINF:-1 group-title="Youtube and live events" tvg-id="{parts[1] if len(parts)>1 else ""}" tvg-logo="",{title}\n{final_link}'
-        new_entries.append(entry)
+            entry = f'#EXTINF:-1 group-title="Youtube and live events" tvg-id="{parts[1] if len(parts)>1 else ""}" tvg-logo="",{title}\n{final_link}'
+            new_entries.append(entry)
 
     print(f"✅ Youtube: Parsed {len(new_entries)} entries.")
     return new_entries
@@ -197,6 +190,7 @@ def load_local_map(ref_file):
 def fetch_backup_map(url):
     block_map = {}
     try:
+        print("🌍 Fetching Backup Source...")
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         response = requests.get(url, headers={"User-Agent": ua}, timeout=15)
         if response.status_code == 200:
