@@ -54,15 +54,13 @@ NAME_OVERRIDES = {
 }
 
 # ==========================================
-# SIMPLE BLOCK PARSER (ORIGINAL FORMAT)
+# PARSER & CONVERTER (USES YOUR WORKER)
 # ==========================================
 
 def parse_youtube_txt():
     """
-    Parses the standard block format:
-    Title : Name
-    Logo : URL
-    Link : URL
+    Reads youtube.txt (Block Format).
+    Converts YouTube links to: https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=ID
     """
     new_entries = []
     
@@ -80,10 +78,9 @@ def parse_youtube_txt():
     for line in lines:
         line = line.strip()
         if not line: 
-            # Empty line marks end of a block -> Save it
             if 'link' in current_entry:
                 new_entries.append(process_entry(current_entry))
-            current_entry = {} # Reset
+            current_entry = {} 
             continue
 
         if ':' in line:
@@ -92,7 +89,6 @@ def parse_youtube_txt():
             val = parts[1].strip()
             current_entry[key] = val
     
-    # Catch the last entry if file doesn't end with empty line
     if 'link' in current_entry:
         new_entries.append(process_entry(current_entry))
 
@@ -105,13 +101,21 @@ def process_entry(data):
     link = data.get('link', '')
     vpn_req = data.get('vpn required', 'no').lower()
 
-    # Add [VPN] tag if requested
     if "yes" in vpn_req: 
         title = f"{title} [VPN]"
 
-    # DIRECT LINK - NO SCRAPING
-    # This simply takes whatever you put in "Link :" and puts it in the playlist.
     final_link = link
+
+    # --- THE MAGIC FIX ---
+    # Detect YouTube link and convert to Worker Format
+    if "youtube.com" in link or "youtu.be" in link:
+        # Regex to extract the Video ID (Works for standard, shorts, live, etc.)
+        vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
+        if vid_match:
+            vid_id = vid_match.group(1)
+            # Use the working proxy you found
+            final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
+            print(f"   ✨ Converted {title} -> Worker Link")
 
     return f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
 
@@ -235,9 +239,8 @@ def update_playlist():
             url = ""
             if i + 1 < len(lines): url = lines[i+1].strip()
 
-            # Clean Old "Youtube and live events" entries from template
+            # Ignore old youtube entries in template
             if line.startswith("#EXTINF") and 'group-title="Youtube and live events"' in line: continue
-            # Note: We rely on group-title to filter old manual entries now.
 
             if line.startswith("#EXTINF"):
                 original_name = line.split(",")[-1].strip()
@@ -286,20 +289,18 @@ def update_playlist():
                     if found_block:
                         final_lines.append(line); final_lines.extend(found_block)
                     else:
-                        print(f"⚠️ MISSING: {original_name}")
                         final_lines.append(line)
                         if clean_local_key in local_map: final_lines.append(f"{base_url}/{local_map[clean_local_key]}.m3u8")
                         else: final_lines.append(f"{base_url}/000.m3u8")
                         stats["missing"] += 1
 
                 elif url and not url.startswith("#"):
-                    # Pass through manual links (excluding ones we filtered above)
                     if 'group-title="Youtube and live events"' not in line:
                          final_lines.append(line)
                          final_lines.append(url)
     except FileNotFoundError: pass
 
-    # 2. APPEND LIVE EVENTS (FROM TEXT FILE)
+    # 2. APPEND LIVE EVENTS (With ID Conversion)
     print("🎥 Appending Live Events...")
     live_entries = parse_youtube_txt()
     if live_entries:
