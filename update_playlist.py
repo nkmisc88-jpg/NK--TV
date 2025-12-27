@@ -12,7 +12,7 @@ reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
 # EXTERNAL SOURCES
-base_url = "http://192.168.1.14:5350/live" 
+base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
