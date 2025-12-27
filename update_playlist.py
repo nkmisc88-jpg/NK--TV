@@ -16,7 +16,7 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# REMOVAL LIST
+# CLEANUP
 REMOVE_KEYWORDS = ["sony ten", "sonyten", "star sports 1", "star sports 2", "zee thirai"]
 NAME_OVERRIDES = {"star sports 2 hindi hd": "Sports18 1 HD"} 
 
@@ -31,7 +31,6 @@ def clean_name_key(name):
 def find_best_backup_link(original_name, backup_map):
     clean_orig = clean_name_key(original_name)
     if clean_orig in backup_map: return backup_map[clean_orig]
-    
     clean_mapped = None
     for k, v in NAME_OVERRIDES.items():
         if clean_name_key(k) == clean_orig: clean_mapped = clean_name_key(v); break
@@ -73,7 +72,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. TEMPORARY CHANNELS PARSER
+# 2. TEMPORARY CHANNELS PARSER (IMPROVED)
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -100,11 +99,16 @@ def process_entry(data):
     logo = data.get('logo', '')
     link = data.get('link', '')
     
+    # IMPROVED LOGIC: Handle both /live/ and ?si= garbage
     if "youtube.com" in link or "youtu.be" in link:
+        # Regex looks for the ID (11 chars) after v=, /live/, /shorts/, or youtu.be/
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
-            link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
-            print(f"   ✨ Converted: {title}")
+            vid_id = vid_match.group(1)
+            link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
+            print(f"   ✨ Converted: {title} (ID: {vid_id})")
+        else:
+            print(f"   ⚠️ Could not extract ID for {title}, keeping original.")
     
     return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
 
@@ -131,20 +135,17 @@ def update_playlist():
             
             # 1. Handle Metadata Line (#EXTINF)
             if line.startswith("#EXTINF"):
-                # AGGRESSIVE CHECK: Look for ANY variation of these words
                 lower_line = line.lower()
+                # Clean old ghost channels
                 if 'group-title="youtube' in lower_line or 'group-title="temporary' in lower_line:
-                    print(f"   🗑️  Removing Ghost Channel: {line.split(',')[-1]}")
-                    skip_next_url = True  # DELETE THIS
+                    skip_next_url = True  
                     continue              
                 
-                # Valid Channel Found -> Reset Flag
                 skip_next_url = False
                 
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
 
-                # Filter unwanted channels
                 should_remove = False
                 for rm in REMOVE_KEYWORDS:
                     if rm in ch_name_lower: should_remove = True; break
@@ -152,32 +153,24 @@ def update_playlist():
                     skip_next_url = True
                     continue
 
-                # Placeholder logic
                 if i + 1 < len(lines) and "http://placeholder" in lines[i+1]:
                     clean_key = clean_name_key(original_name)
                     found_block = find_best_backup_link(original_name, backup_map)
                     if found_block: 
-                         final_lines.append(line)
-                         final_lines.extend(found_block)
+                         final_lines.append(line); final_lines.extend(found_block)
                          skip_next_url = True 
                     elif clean_key in local_map:
-                         final_lines.append(line)
-                         final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
+                         final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
                          skip_next_url = True
                     else:
-                         final_lines.append(line)
-                         final_lines.append(f"{base_url}/000.m3u8") 
+                         final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8") 
                          skip_next_url = True
                 else:
                     final_lines.append(line)
 
-            # 2. Handle URL Line
             elif not line.startswith("#"):
-                if skip_next_url:
-                    skip_next_url = False # Skip this URL (It belongs to the deleted channel)
-                    continue
-                else:
-                    final_lines.append(line)
+                if skip_next_url: skip_next_url = False
+                else: final_lines.append(line)
 
     except FileNotFoundError: pass
 
