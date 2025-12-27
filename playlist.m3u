@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-27 19:56:01
+# Updated on: 2025-12-27 20:15:11
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -875,17 +875,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Puthiya thalaimurai
 https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=sDmozTF-pBg
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
-https://dj-tm-srvr1.vercel.app/title/FOX_501-HD(1080p50)@DJ-TM.m3u8?data=s7X18zNxTnIvKo1KqwxJTE1PDE3xNw73cApx0g8uT_PySazyC_UpqPTxDq2KLKgsjcixjHAvi6p0KrbwdcrMCzQpdfKI8igMctcudjRw168MDHMKyQ_P88hLy9AuMXAvrarUDvIL9Asq8UsKyE8vCAQA|Telegram=@links_macha_official&Creator=@DJ-TM
+https://vt-ip.vodep39240327.workers.dev/1972.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow by Cricbuzz
-https://dj-tm-srvr1.vercel.app/title/WILLOW_CA-HD(720p60)@DJ-TM.m3u8?data=BcHLDkQwFADQD7K4yAxricekqF6k2GpcJalIvOfrnQOV-VxxSD_edoO_NUXs2lqKFGcv4H8gxFxcunKyOtejcr9Jgw8B828xp2dtYIInWcytsp60kgduXSuJWWWIHHfei2hc8QU|Telegram=@links_macha_official&Creator=@DJ-TM
+https://vt-ip.vodep39240327.workers.dev/1973.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 505
 http://51.89.148.37:8080/catena-9-15390503-streamer-_fox_sports_505_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 502
 http://51.89.148.37:8080/catena-9-94-streamer-fox_sports_502_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Zee Tamil
+https://vt-ip.vodep39240327.workers.dev/802.m3u8
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 28 December 2025 at 1:21:10 am
+#DATE:- Sunday, 28 December 2025 at 1:42:05 am
 #EXTINF:-1 tvg-id="138352" tvg-name="Nigeria Vs Tunisia" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138352_5774_NGA_TUN_fc-web_1766386874011.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Nigeria Vs Tunisia
 https://in-mc-fdlive.fancode.com/mumbai/138352_english_hls_b0f09f3efa27039_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
