@@ -2,7 +2,6 @@ import requests
 import re
 import datetime
 import os
-import json
 
 # ==========================================
 # CONFIGURATION
@@ -55,60 +54,14 @@ NAME_OVERRIDES = {
 }
 
 # ==========================================
-# SMART LIVE SCRAPER (The Magic Logic)
+# STABLE PARSER (Manual Links Only)
 # ==========================================
-
-def get_live_video_id(url):
-    """
-    Finds the CURRENT Live Video ID from a Channel URL.
-    1. Tries direct scraping (Fast).
-    2. If that fails (Geo-block), tries Piped API (Proxy).
-    """
-    # Strategy 1: Direct Scrape (Works for Indian Channels)
-    try:
-        session = requests.Session()
-        session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36'}
-        
-        # If user gave a channel/live link, we fetch that page
-        if "/live" in url:
-            print(f"      ...Scanning Channel for Live ID: {url}")
-            response = session.get(url, headers=headers, allow_redirects=True)
-            
-            # Check for redirect to a specific video
-            if "watch?v=" in response.url:
-                vid_id = response.url.split("v=")[1].split("&")[0]
-                return vid_id
-            
-            # If no redirect, look in HTML
-            match = re.search(r'"videoId":"(.*?)"', response.text)
-            if match: return match.group(1)
-
-    except: pass
-    
-    # Strategy 2: Piped API (The "VPN Logic" for Blocked Channels)
-    try:
-        print("      ...Direct scan failed. Trying Piped Proxy...")
-        # Extract handle or channel ID
-        if "@" in url:
-            handle = url.split("@")[1].split("/")[0]
-            api_url = f"https://pipedapi.kavin.rocks/user/{handle}"
-        else:
-            return None # Cannot proceed without handle
-
-        resp = requests.get(api_url, timeout=10).json()
-        # Look for a live stream in the channel data
-        if resp.get('livestream'):
-            return resp['livestream']['id']
-    except: pass
-
-    return None
 
 def parse_youtube_txt():
     """
-    Parses youtube.txt.
-    - Handles Channel Links (@channel/live) -> Auto-Updates ID
-    - Handles Geo-Blocking via Proxy Mode
+    Reads youtube.txt.
+    1. If 'Worker : No' -> Keeps direct YouTube link (For VODs/Offline).
+    2. Default -> Converts to Jitendra Worker (For Live Channels like Sun News).
     """
     new_entries = []
     
@@ -148,40 +101,28 @@ def process_entry(data):
     logo = data.get('logo', '')
     link = data.get('link', '')
     vpn_req = data.get('vpn required', 'no').lower()
-    mode = data.get('worker', 'auto').lower()
+    # Check if user wants to bypass the worker (for VODs)
+    worker_req = data.get('worker', 'yes').lower()
 
     if "yes" in vpn_req: title = f"{title} [VPN]"
     final_link = link
 
-    # --- AUTO-UPDATE LOGIC ---
+    # --- STABLE LOGIC (No Auto-Update) ---
     if "youtube.com" in link or "youtu.be" in link:
-        video_id = None
+        # We simply extract the ID from the link YOU provided.
+        vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         
-        # 1. If it's a Channel Live Link, FIND the ID first
-        if "/live" in link or "channel/" in link or "@" in link:
-             video_id = get_live_video_id(link)
-             if video_id:
-                 print(f"   ✅ Found Live ID: {video_id} for {title}")
-             else:
-                 print(f"   ⚠️ No Live Stream found for {title}")
-                 return "" # Skip offline channels
-        
-        # 2. If it's already a specific video link
-        elif "v=" in link or "youtu.be" in link:
-            match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
-            if match: video_id = match.group(1)
-
-        if video_id:
-            # --- GENERATE LINK BASED ON MODE ---
-            if "proxy" in mode:
-                # Geo-Blocked? Use Piped Stream directly (Built-in VPN)
-                final_link = f"https://pipedapi.kavin.rocks/streams/{video_id}"
-            elif "no" in mode:
-                # Direct Link
-                final_link = f"https://www.youtube.com/watch?v={video_id}"
+        if vid_match:
+            vid_id = vid_match.group(1)
+            
+            if "no" in worker_req:
+                # User specifically said "Worker : No" (e.g. for VODs)
+                final_link = f"https://www.youtube.com/watch?v={vid_id}"
+                print(f"   ▶️  Direct Link: {title}")
             else:
-                # Default: Jitendra Worker (Best for Stable Live)
-                final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={video_id}"
+                # Default: Use Jitendra (Fixes Sun News/Polimer)
+                final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
+                print(f"   ✨ Worker Link: {title}")
 
     return f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
 
@@ -305,7 +246,6 @@ def update_playlist():
             url = ""
             if i + 1 < len(lines): url = lines[i+1].strip()
 
-            # Ignore old youtube entries in template
             if line.startswith("#EXTINF") and 'group-title="Youtube and live events"' in line: continue
 
             if line.startswith("#EXTINF"):
@@ -366,7 +306,7 @@ def update_playlist():
                          final_lines.append(url)
     except FileNotFoundError: pass
 
-    # 2. APPEND LIVE EVENTS (With ID Conversion)
+    # 2. APPEND LIVE EVENTS
     print("🎥 Appending Live Events...")
     live_entries = parse_youtube_txt()
     if live_entries:
