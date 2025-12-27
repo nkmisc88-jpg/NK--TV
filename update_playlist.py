@@ -44,10 +44,8 @@ def clean_name_key(name):
 
 def should_force_backup(name):
     norm = name.lower()
-    # --- CRITICAL FIX: Force these to use LOCAL (JioTV) instead of Backup ---
+    # Force Star Sports 2 Tamil HD to use LOCAL (Your JioTV) first
     if "star sports 2 tamil hd" in norm: return False
-    if "star sports 2 hindi hd" in norm: return False
-    # ------------------------------------------------------------------------
     for k in FORCE_BACKUP_KEYWORDS:
         if k in norm: return True
     return False
@@ -97,7 +95,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. TEMPORARY CHANNELS PARSER
+# 2. TEMPORARY CHANNELS PARSER (Original Simple Version)
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -122,6 +120,7 @@ def process_entry(data):
     logo = data.get('logo', '')
     link = data.get('link', '')
     
+    # Converts YouTube links to Jitendra Worker
     if "youtube.com" in link or "youtu.be" in link:
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
@@ -151,7 +150,7 @@ def update_playlist():
             
             if line.startswith("#EXTINF"):
                 lower_line = line.lower()
-                # Clean old ghost channels
+                # Remove Ghost Channels
                 if 'group-title="youtube' in lower_line or 'group-title="temporary' in lower_line:
                     skip_next_url = True; continue              
                 
@@ -165,29 +164,21 @@ def update_playlist():
                 if should_remove: 
                     skip_next_url = True; continue
 
-                # Logic to decide: Backup vs Local
+                # Logic: Backup vs Local
                 if i + 1 < len(lines) and "http://placeholder" in lines[i+1]:
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # 1. Check if we should FORCE BACKUP
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
-                    # 2. If no backup found (or not forced), TRY LOCAL
                     if not found_block:
-                         # Check overriding map first
-                         mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
+                         # Try Local First (This fixes Star Sports 2 Tamil)
                          if clean_key in local_map:
-                             final_lines.append(line)
-                             final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
-                             skip_next_url = True
-                         elif mapped_key and mapped_key in local_map:
-                             final_lines.append(line)
-                             final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
+                             final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
                              skip_next_url = True
                          else:
-                             # Last resort: Try backup if we skipped it earlier
+                             # Last resort: Try backup
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
@@ -197,7 +188,6 @@ def update_playlist():
                                  final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
                                  skip_next_url = True
                     else:
-                        # We found a forced backup
                         final_lines.append(line); final_lines.extend(found_block)
                         skip_next_url = True
                 else:
