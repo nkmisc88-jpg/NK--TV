@@ -1,27 +1,17 @@
-name: Update Playlist
+name: Update Playlist Every 15 Mins
 
 on:
-  # 1. Runs every 15 minutes automatically
   schedule:
-    - cron: '*/15 * * * *'
-  
-  # 2. Runs IMMEDIATELY when you edit these specific files
+    - cron: '*/15 * * * *'  # Runs every 15 minutes
   push:
-    paths:
-      - 'youtube.txt'
-      - 'template.m3u'
-      - 'update_playlist.py'
-
-  # 3. Allows you to click the button manually if needed
-  workflow_dispatch:
-
-permissions:
-  contents: write
+    branches:
+      - main                # Runs whenever you modify youtube.txt
+  workflow_dispatch:        # Allows manual run button
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -32,16 +22,17 @@ jobs:
           python-version: '3.9'
 
       - name: Install Dependencies
-        run: pip install requests
+        run: |
+          pip install requests
 
       - name: Run Update Script
-        run: python update_playlist.py
-
-      - name: Commit and Push
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          python update_playlist.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
           git add playlist.m3u
-          # The "|| echo" part prevents errors if there are no new changes
-          git commit -m "Auto-update playlist" || echo "No changes to commit"
+          git commit -m "Auto-update playlist" || exit 0
           git push
