@@ -10,7 +10,7 @@ Title : Willow by Cricbuzz
 Logo : 
 Link : https://dj-tm-srvr1.vercel.app/title/WILLOW_CA-HD(720p60)@DJ-TM.m3u8?data=BcHLDkQwFADQD7K4yAxricekqF6k2GpcJalIvOfrnQOV-VxxSD_edoO_NUXs2lqKFGcv4H8gxFxcunKyOtejcr9Jgw8B828xp2dtYIInWcytsp60kgduXSuJWWWIHHfei2hc8QU|Telegram=@links_macha_official&Creator=@DJ-TM
 
-Title : Fox 505 - Jiotv.be
+Title : Fox 505
 Logo : 
 Link :
-http://spr1.packetcdn.me:2800/8be1228d2852985dbbb5bf3e21d661054767b06c8a3e0d40356b6d9464/tracks-v1a1/mono.m3u8?token=02146ffd12a328b951c95abb0134b01a26487c855272ea4b8b2926735257b13658455db64100649fb0704d8c2009e0b98e783170f6c759e7b447f540525e91da100fbe1456-e6be5d746e9c22ce61bcdfa107fbfe1d
+http://51.89.148.37:8080/catena-9-15390503-streamer-_fox_sports_505_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b
