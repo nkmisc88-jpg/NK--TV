@@ -55,38 +55,60 @@ NAME_OVERRIDES = {
 }
 
 # ==========================================
-# PARSER & CONVERTER (With Proxy Support)
+# SMART LIVE SCRAPER (The Magic Logic)
 # ==========================================
 
-def get_piped_proxy_link(video_id):
+def get_live_video_id(url):
     """
-    Fetches a stream URL via Piped API (Acts as a Proxy/VPN).
+    Finds the CURRENT Live Video ID from a Channel URL.
+    1. Tries direct scraping (Fast).
+    2. If that fails (Geo-block), tries Piped API (Proxy).
     """
-    # List of public instances (Europe/US based)
-    instances = [
-        "https://pipedapi.kavin.rocks",
-        "https://api.piped.otter.sh",
-        "https://pipedapi.moomoo.me"
-    ]
+    # Strategy 1: Direct Scrape (Works for Indian Channels)
+    try:
+        session = requests.Session()
+        session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36'}
+        
+        # If user gave a channel/live link, we fetch that page
+        if "/live" in url:
+            print(f"      ...Scanning Channel for Live ID: {url}")
+            response = session.get(url, headers=headers, allow_redirects=True)
+            
+            # Check for redirect to a specific video
+            if "watch?v=" in response.url:
+                vid_id = response.url.split("v=")[1].split("&")[0]
+                return vid_id
+            
+            # If no redirect, look in HTML
+            match = re.search(r'"videoId":"(.*?)"', response.text)
+            if match: return match.group(1)
+
+    except: pass
     
-    for api in instances:
-        try:
-            print(f"      ...Trying proxy: {api}")
-            resp = requests.get(f"{api}/streams/{video_id}", timeout=5)
-            if resp.status_code == 200:
-                data = resp.json()
-                if "hls" in data and data["hls"]:
-                    return data["hls"]
-        except:
-            continue
+    # Strategy 2: Piped API (The "VPN Logic" for Blocked Channels)
+    try:
+        print("      ...Direct scan failed. Trying Piped Proxy...")
+        # Extract handle or channel ID
+        if "@" in url:
+            handle = url.split("@")[1].split("/")[0]
+            api_url = f"https://pipedapi.kavin.rocks/user/{handle}"
+        else:
+            return None # Cannot proceed without handle
+
+        resp = requests.get(api_url, timeout=10).json()
+        # Look for a live stream in the channel data
+        if resp.get('livestream'):
+            return resp['livestream']['id']
+    except: pass
+
     return None
 
 def parse_youtube_txt():
     """
-    Reads youtube.txt.
-    - Default: Jitendra Worker (Live)
-    - Worker : No -> Direct YouTube Link
-    - Worker : Proxy -> Uses Piped API (Bypass Geo-Block)
+    Parses youtube.txt.
+    - Handles Channel Links (@channel/live) -> Auto-Updates ID
+    - Handles Geo-Blocking via Proxy Mode
     """
     new_entries = []
     
@@ -126,45 +148,46 @@ def process_entry(data):
     logo = data.get('logo', '')
     link = data.get('link', '')
     vpn_req = data.get('vpn required', 'no').lower()
-    worker_req = data.get('worker', 'yes').lower() 
+    mode = data.get('worker', 'auto').lower()
 
-    if "yes" in vpn_req: 
-        title = f"{title} [VPN]"
-
+    if "yes" in vpn_req: title = f"{title} [VPN]"
     final_link = link
 
+    # --- AUTO-UPDATE LOGIC ---
     if "youtube.com" in link or "youtu.be" in link:
-        vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
+        video_id = None
         
-        if vid_match:
-            vid_id = vid_match.group(1)
-            
-            if "proxy" in worker_req:
-                # OPTION C: PROXY MODE (Free VPN)
-                print(f"   🌍 Proxying: {title}")
-                proxy_link = get_piped_proxy_link(vid_id)
-                if proxy_link:
-                    final_link = proxy_link
-                else:
-                    print("      ❌ Proxy failed. Fallback to worker.")
-                    final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
+        # 1. If it's a Channel Live Link, FIND the ID first
+        if "/live" in link or "channel/" in link or "@" in link:
+             video_id = get_live_video_id(link)
+             if video_id:
+                 print(f"   ✅ Found Live ID: {video_id} for {title}")
+             else:
+                 print(f"   ⚠️ No Live Stream found for {title}")
+                 return "" # Skip offline channels
+        
+        # 2. If it's already a specific video link
+        elif "v=" in link or "youtu.be" in link:
+            match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
+            if match: video_id = match.group(1)
 
-            elif "no" in worker_req:
-                # OPTION A: Clean Native Link
-                final_link = f"https://www.youtube.com/watch?v={vid_id}"
-                print(f"   ▶️  Direct Link: {title}")
+        if video_id:
+            # --- GENERATE LINK BASED ON MODE ---
+            if "proxy" in mode:
+                # Geo-Blocked? Use Piped Stream directly (Built-in VPN)
+                final_link = f"https://pipedapi.kavin.rocks/streams/{video_id}"
+            elif "no" in mode:
+                # Direct Link
+                final_link = f"https://www.youtube.com/watch?v={video_id}"
             else:
-                # OPTION B: Jitendra Worker (Default)
-                final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
-                print(f"   ✨ Worker Link: {title}")
+                # Default: Jitendra Worker (Best for Stable Live)
+                final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={video_id}"
 
     return f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
 
 # ==========================================
 # HELPER FUNCTIONS (UNCHANGED)
 # ==========================================
-# ... (Same helper functions as before) ...
-# I will include them to ensure the script is complete.
 
 def clean_name_key(name):
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
@@ -282,6 +305,7 @@ def update_playlist():
             url = ""
             if i + 1 < len(lines): url = lines[i+1].strip()
 
+            # Ignore old youtube entries in template
             if line.startswith("#EXTINF") and 'group-title="Youtube and live events"' in line: continue
 
             if line.startswith("#EXTINF"):
@@ -342,7 +366,7 @@ def update_playlist():
                          final_lines.append(url)
     except FileNotFoundError: pass
 
-    # 2. APPEND LIVE EVENTS
+    # 2. APPEND LIVE EVENTS (With ID Conversion)
     print("🎥 Appending Live Events...")
     live_entries = parse_youtube_txt()
     if live_entries:
