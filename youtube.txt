@@ -13,6 +13,42 @@ Logo : https://i.ibb.co/Z60SQPG9/Fox-503.png
 Link : https://a1xs.vip/700003
 VPN Required : No
 
+Title : Sun News Live
+Logo : https://example.com/sun.png
+Link : https://www.youtube.com/@SunNewsTamil/live
+Worker : Auto
+
+Title : ILT20 (Geo Blocked)
+Logo : https://example.com/ilt20.png
+Link : https://www.youtube.com/@ILT20Official/live
+Worker : Proxy
+
+Title : Cricket Australia (Big Bash)
+Logo : https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Cricket_Australia.svg/1200px-Cricket_Australia.svg.png
+Link : https://www.youtube.com/@CricketAustralia/live
+Worker : Proxy
+
+Title : Willow Cricket USA (Blocked in India)
+Logo : https://upload.wikimedia.org/wikipedia/commons/7/76/Willow_TV_logo.jpg
+Link : https://www.youtube.com/@willow/live
+Worker : Proxy
+
+Title : TalkSPORT UK (Live Commentary)
+Logo : https://yt3.googleusercontent.com/ytc/AIdro_k4E8gD0mD8sF_jD8gD8gD8gD8gD8gD8g=s900-c-k-c0x00ffffff-no-rj
+Link : https://www.youtube.com/@talkSPORT/live
+Worker : Proxy
+
+Title : ABC News Australia (Live)
+Logo : https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/ABC_News_Logo.svg/1200px-ABC_News_Logo.svg.png
+Link : https://www.youtube.com/@ABCNews/live
+Worker : Proxy
+
+Title : Sky News UK (Live)
+Logo : https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Sky_News_logo_2017.svg/1200px-Sky_News_logo_2017.svg.png
+Link : https://www.youtube.com/@SkyNews/live
+Worker : Proxy
+
+
 Title : Fox 504
 Logo : https://i.ibb.co/RpxSzY1R/Fox-Footy504.png
 Link : https://a1xs.vip/700004
