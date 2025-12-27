@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-27 05:45:06
+# Updated on: 2025-12-27 05:51:41
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -889,42 +889,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
 
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.ibb.co/hvxssSM/Fox-Cricket-501.png",Fox 501
-https://a1xs.vip/700001
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.ibb.co/XZpHFsBh/Fox502HD.png",Fox 502
-https://a1xs.vip/700002
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.ibb.co/Z60SQPG9/Fox-503.png",Fox 503
-https://a1xs.vip/700003
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://example.com/sun.png",Sun News Live
-https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=eprc2JzWekU
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://example.com/ilt20.png",ILT20 (Geo Blocked)
-https://www.youtube.com/@ILT20Official/live
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Cricket_Australia.svg/1200px-Cricket_Australia.svg.png",Cricket Australia (Big Bash)
-https://www.youtube.com/@CricketAustralia/live
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/76/Willow_TV_logo.jpg",Willow Cricket USA (Blocked in India)
-https://www.youtube.com/@willow/live
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_k4E8gD0mD8sF_jD8gD8gD8gD8gD8gD8g=s900-c-k-c0x00ffffff-no-rj",TalkSPORT UK (Live Commentary)
-https://www.youtube.com/@talkSPORT/live
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/ABC_News_Logo.svg/1200px-ABC_News_Logo.svg.png",ABC News Australia (Live)
-https://www.youtube.com/@ABCNews/live
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Sky_News_logo_2017.svg/1200px-Sky_News_logo_2017.svg.png",Sky News UK (Live)
-https://www.youtube.com/@SkyNews/live
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.ibb.co/RpxSzY1R/Fox-Footy504.png",Fox 504
-https://a1xs.vip/700004
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.ibb.co/Y65j4s1/Fox505.png",Fox 505
-https://a1xs.vip/700005
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkwbPhZzf-yPaXqxbi4mHKkjAwSH74hrmDg&s",Fox 506
-https://a1xs.vip/700006
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.ibb.co/CK1F69ht/Fox507.png",Fox 507
-https://a1xs.vip/700007
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXAN7YJhGNe5NiogVnTG8oqH2mYA9ix2STEbhDhOTlUa8hz5CnPHcbP5i6&s=10",Sun News Live
-https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=9M02G5c6x6w
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.ibb.co/TqkBV40v/SSNZ1.png",Sky Sports 1 NZ
-https://a1xs.vip/700031
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSQKX5q0qi2g6QyEpYCdEAz6ur-un5BedPIhzney_8qg&s=10",Willow
-https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
-
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 27 December 2025 at 11:07:06 am
+#DATE:- Saturday, 27 December 2025 at 11:21:05 am
 #EXTINF:-1 tvg-id="138732" tvg-name="Central Stags Vs Wellington Firebirds" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138732_5800_CS_WF_fc-web_1766641251660.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Central Stags Vs Wellington Firebirds
 https://in-mc-fdlive.fancode.com/mumbai/138732_english_hls_3c31ef320258457_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
