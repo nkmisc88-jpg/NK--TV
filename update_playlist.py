@@ -16,12 +16,10 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# REMOVAL LIST (Star Sports is ALLOWED here)
-REMOVE_KEYWORDS = [
-    "sony ten", "sonyten", "sony sports ten", 
-    "zee thirai"
-]
+# REMOVAL LIST (Kept minimal to avoid deleting good channels)
+REMOVE_KEYWORDS = ["zee thirai"]
 
+# FORCE BACKUP LIST
 FORCE_BACKUP_KEYWORDS = [
     "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
@@ -44,8 +42,10 @@ def clean_name_key(name):
 
 def should_force_backup(name):
     norm = name.lower()
-    # Force Star Sports 2 Tamil HD to use LOCAL (Your JioTV) first
+    # --- CRITICAL FIX: FORCE LOCAL FOR THESE CHANNELS ---
     if "star sports 2 tamil hd" in norm: return False
+    if "star sports 2 hindi hd" in norm: return False
+    # ----------------------------------------------------
     for k in FORCE_BACKUP_KEYWORDS:
         if k in norm: return True
     return False
@@ -73,7 +73,6 @@ def load_local_map(ref_file):
 def fetch_backup_map(url):
     block_map = {}
     try:
-        print("🌍 Fetching Backup Source...")
         r = requests.get(url, timeout=15)
         if r.status_code == 200:
             lines = r.text.splitlines()
@@ -95,7 +94,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. TEMPORARY CHANNELS PARSER (Original Simple Version)
+# 2. TEMPORARY CHANNELS PARSER
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -120,7 +119,7 @@ def process_entry(data):
     logo = data.get('logo', '')
     link = data.get('link', '')
     
-    # Converts YouTube links to Jitendra Worker
+    # Robust YouTube Matcher
     if "youtube.com" in link or "youtu.be" in link:
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
@@ -164,27 +163,27 @@ def update_playlist():
                 if should_remove: 
                     skip_next_url = True; continue
 
-                # Logic: Backup vs Local
+                # Logic: Local Priority for overridden channels
                 if i + 1 < len(lines) and "http://placeholder" in lines[i+1]:
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
+                    # 1. Force Backup? (SKIP THIS for Star Sports Tamil)
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
+                    # 2. Try Local if no backup found or not forced
                     if not found_block:
-                         # Try Local First (This fixes Star Sports 2 Tamil)
                          if clean_key in local_map:
                              final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
                              skip_next_url = True
                          else:
-                             # Last resort: Try backup
+                             # Fallback to backup
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
                                  skip_next_url = True
                              else:
-                                 # Nothing found
                                  final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
                                  skip_next_url = True
                     else:
