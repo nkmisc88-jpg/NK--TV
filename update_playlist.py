@@ -16,14 +16,23 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# --- FIX: REMOVED "STAR SPORTS" FROM THIS LIST SO THEY APPEAR AGAIN ---
+# REMOVAL LIST (Star Sports is ALLOWED here)
 REMOVE_KEYWORDS = [
     "sony ten", "sonyten", "sony sports ten", 
     "zee thirai"
 ]
-# ---------------------------------------------------------------------
 
-NAME_OVERRIDES = {"star sports 2 hindi hd": "Sports18 1 HD"} 
+FORCE_BACKUP_KEYWORDS = [
+    "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
+    "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
+    "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
+    "&pictures", "sports", "ten"
+]
+
+NAME_OVERRIDES = {
+    "star sports 2 hindi hd": "Sports18 1 HD",
+    "star sports 2 tamil hd": "Star Sports 2 Tamil HD"
+}
 
 # ==========================================
 # 1. HELPER FUNCTIONS
@@ -33,9 +42,20 @@ def clean_name_key(name):
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
 
+def should_force_backup(name):
+    norm = name.lower()
+    # --- CRITICAL FIX: Force these to use LOCAL (JioTV) instead of Backup ---
+    if "star sports 2 tamil hd" in norm: return False
+    if "star sports 2 hindi hd" in norm: return False
+    # ------------------------------------------------------------------------
+    for k in FORCE_BACKUP_KEYWORDS:
+        if k in norm: return True
+    return False
+
 def find_best_backup_link(original_name, backup_map):
     clean_orig = clean_name_key(original_name)
     if clean_orig in backup_map: return backup_map[clean_orig]
+    
     clean_mapped = None
     for k, v in NAME_OVERRIDES.items():
         if clean_name_key(k) == clean_orig: clean_mapped = clean_name_key(v); break
@@ -82,8 +102,6 @@ def fetch_backup_map(url):
 def parse_youtube_txt():
     new_entries = []
     if not os.path.exists(youtube_file): return []
-
-    print(f"📂 Reading {youtube_file}...")
     with open(youtube_file, "r", encoding="utf-8") as f: lines = f.readlines()
 
     current_entry = {}
@@ -104,15 +122,11 @@ def process_entry(data):
     logo = data.get('logo', '')
     link = data.get('link', '')
     
-    # IMPROVED LOGIC: Handle both /live/ and ?si= garbage
     if "youtube.com" in link or "youtu.be" in link:
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
-            vid_id = vid_match.group(1)
-            link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
-            print(f"   ✨ Converted: {title} (ID: {vid_id})")
-        else:
-            print(f"   ⚠️ Could not extract ID for {title}, keeping original.")
+            link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
+            print(f"   ✨ Converted: {title}")
     
     return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
 
@@ -127,26 +141,21 @@ def update_playlist():
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
 
-    # --- STEP A: PROCESS MAIN TEMPLATE ---
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
-        
         skip_next_url = False 
         
         for i, line in enumerate(lines):
             line = line.strip()
             if not line: continue
             
-            # 1. Handle Metadata Line (#EXTINF)
             if line.startswith("#EXTINF"):
                 lower_line = line.lower()
                 # Clean old ghost channels
                 if 'group-title="youtube' in lower_line or 'group-title="temporary' in lower_line:
-                    skip_next_url = True  
-                    continue              
+                    skip_next_url = True; continue              
                 
                 skip_next_url = False
-                
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
 
@@ -154,21 +163,43 @@ def update_playlist():
                 for rm in REMOVE_KEYWORDS:
                     if rm in ch_name_lower: should_remove = True; break
                 if should_remove: 
-                    skip_next_url = True
-                    continue
+                    skip_next_url = True; continue
 
+                # Logic to decide: Backup vs Local
                 if i + 1 < len(lines) and "http://placeholder" in lines[i+1]:
                     clean_key = clean_name_key(original_name)
-                    found_block = find_best_backup_link(original_name, backup_map)
-                    if found_block: 
-                         final_lines.append(line); final_lines.extend(found_block)
-                         skip_next_url = True 
-                    elif clean_key in local_map:
-                         final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
-                         skip_next_url = True
+                    found_block = None
+                    
+                    # 1. Check if we should FORCE BACKUP
+                    if should_force_backup(original_name):
+                        found_block = find_best_backup_link(original_name, backup_map)
+                    
+                    # 2. If no backup found (or not forced), TRY LOCAL
+                    if not found_block:
+                         # Check overriding map first
+                         mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
+                         if clean_key in local_map:
+                             final_lines.append(line)
+                             final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
+                             skip_next_url = True
+                         elif mapped_key and mapped_key in local_map:
+                             final_lines.append(line)
+                             final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
+                             skip_next_url = True
+                         else:
+                             # Last resort: Try backup if we skipped it earlier
+                             found_block = find_best_backup_link(original_name, backup_map)
+                             if found_block:
+                                 final_lines.append(line); final_lines.extend(found_block)
+                                 skip_next_url = True
+                             else:
+                                 # Nothing found
+                                 final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
+                                 skip_next_url = True
                     else:
-                         final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8") 
-                         skip_next_url = True
+                        # We found a forced backup
+                        final_lines.append(line); final_lines.extend(found_block)
+                        skip_next_url = True
                 else:
                     final_lines.append(line)
 
@@ -178,11 +209,9 @@ def update_playlist():
 
     except FileNotFoundError: pass
 
-    # --- STEP B: APPEND TEMPORARY CHANNELS ---
     print("🎥 Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
 
-    # --- STEP C: APPEND FANCODE ---
     try:
         r = requests.get(fancode_url)
         if r.status_code == 200:
