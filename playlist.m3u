@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-27 09:05:37
+# Updated on: 2025-12-27 09:13:25
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -175,6 +175,27 @@ http://192.168.0.146:5350/live/000.m3u8
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_Select_2_HD.png",Star Sports Select 2 HD
 http://192.168.0.146:5350/live/000.m3u8
+#EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png",Sony Ten 1 HD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=523acf1f55485476817958a62a3f2ed9&key=52b3cea435ed25d445f9eae4883c7001
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
+https://jiotvpllive.cdn.jio.com/bpk-tv/Ten_HD_BTS/output/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
+#EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png",Sony Ten 2 HD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=7771cca923225ce08887cbae764e72c6&key=67d80b71f02d2cd1e4e0ee7b9b752841
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
+https://jiotvpllive.cdn.jio.com/bpk-tv/Ten2_HD_BTS/output/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
+#EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_5_HD.png",Sony Ten 5 HD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=233d5f64b5b1547dae38f5a8b0b85efa&key=3b000618435f702db7d9910d8265584a
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
+https://jiotvpllive.cdn.jio.com/bpk-tv/Six_HD_BTS/output/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Eurosport_HD.png",Eurosport HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -189,6 +210,8 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Dsports_HD_BTS/output/index.mpd?__hdnea__
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jio_Sports_BTS/output/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
+#EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_3_HD.png",Sony Ten 3 HD Hindi
+http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sports18_1_HD.png",Sports18 1 HD
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil_HD.png",Star Sports 1 Tamil HD
@@ -237,10 +260,22 @@ http://192.168.0.146:5350/live/000.m3u8
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/DD_Sports_BTS/output/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
+#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1.png",Sony Ten 1
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
+https://jiotvpllive.cdn.jio.com/bpk-tv/Ten_1_MOB/WDVLive/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2.png",Ten 2
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Ten_2_MOB/WDVLive/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
+#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_5.png",Sony Ten 5
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
+https://jiotvpllive.cdn.jio.com/bpk-tv/Sony_Six_SD_MOB/WDVLive/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
+#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_3.png",Sony Ten 3 Hindi
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
+https://jiotvpllive.cdn.jio.com/bpk-tv/Ten_3_MOB/WDVLive/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Eurosport.png",Eurosport
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -845,7 +880,7 @@ https://dj-tm-srvr1.vercel.app/title/FOX_501-HD(1080p50)@DJ-TM.m3u8?data=s7X18zN
 https://dj-tm-srvr1.vercel.app/title/WILLOW_CA-HD(720p60)@DJ-TM.m3u8?data=BcHLDkQwFADQD7K4yAxricekqF6k2GpcJalIvOfrnQOV-VxxSD_edoO_NUXs2lqKFGcv4H8gxFxcunKyOtejcr9Jgw8B828xp2dtYIInWcytsp60kgduXSuJWWWIHHfei2hc8QU|Telegram=@links_macha_official&Creator=@DJ-TM
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 27 December 2025 at 2:35:05 pm
+#DATE:- Saturday, 27 December 2025 at 2:42:07 pm
 #EXTINF:-1 tvg-id="138918" tvg-name="Rajshahi Warriors Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138918_5808_DC_DBR_fc-web_1766733054099.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Rajshahi Warriors Vs Dhaka Capitals
 https://in-mc-fdlive.fancode.com/mumbai/138918_english_hls_8b03cfa0b543431_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="139150" tvg-name="Ias Invincibles Vs Royal Oman Stallions" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Ias Invincibles Vs Royal Oman Stallions
