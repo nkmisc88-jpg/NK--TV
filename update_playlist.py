@@ -2,6 +2,7 @@ import requests
 import re
 import datetime
 import os
+import json
 
 # ==========================================
 # CONFIGURATION
@@ -54,13 +55,60 @@ NAME_OVERRIDES = {
 }
 
 # ==========================================
-# PARSER & CONVERTER (Uses Jitendra Worker)
+# SMART LIVE SCRAPER (The Magic Logic)
 # ==========================================
+
+def get_live_video_id(url):
+    """
+    Finds the CURRENT Live Video ID from a Channel URL.
+    1. Tries direct scraping (Fast).
+    2. If that fails (Geo-block), tries Piped API (Proxy).
+    """
+    # Strategy 1: Direct Scrape (Works for Indian Channels)
+    try:
+        session = requests.Session()
+        session.cookies.set('CONSENT', 'YES+cb', domain='.youtube.com')
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36'}
+        
+        # If user gave a channel/live link, we fetch that page
+        if "/live" in url:
+            print(f"      ...Scanning Channel for Live ID: {url}")
+            response = session.get(url, headers=headers, allow_redirects=True)
+            
+            # Check for redirect to a specific video
+            if "watch?v=" in response.url:
+                vid_id = response.url.split("v=")[1].split("&")[0]
+                return vid_id
+            
+            # If no redirect, look in HTML
+            match = re.search(r'"videoId":"(.*?)"', response.text)
+            if match: return match.group(1)
+
+    except: pass
+    
+    # Strategy 2: Piped API (The "VPN Logic" for Blocked Channels)
+    try:
+        print("      ...Direct scan failed. Trying Piped Proxy...")
+        # Extract handle or channel ID
+        if "@" in url:
+            handle = url.split("@")[1].split("/")[0]
+            api_url = f"https://pipedapi.kavin.rocks/user/{handle}"
+        else:
+            return None # Cannot proceed without handle
+
+        resp = requests.get(api_url, timeout=10).json()
+        # Look for a live stream in the channel data
+        if resp.get('livestream'):
+            return resp['livestream']['id']
+    except: pass
+
+    return None
 
 def parse_youtube_txt():
     """
-    Reads youtube.txt (Block Format).
-    Converts YouTube links to: https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=ID
+    Parses youtube.txt.
+    - Handles Channel Links (@channel/live) -> Auto-Updates ID
+    - Handles Geo-Blocking via Proxy Mode
     """
     new_entries = []
     
@@ -100,21 +148,40 @@ def process_entry(data):
     logo = data.get('logo', '')
     link = data.get('link', '')
     vpn_req = data.get('vpn required', 'no').lower()
+    mode = data.get('worker', 'auto').lower()
 
-    if "yes" in vpn_req: 
-        title = f"{title} [VPN]"
-
+    if "yes" in vpn_req: title = f"{title} [VPN]"
     final_link = link
 
-    # --- WORKER CONVERSION LOGIC ---
+    # --- AUTO-UPDATE LOGIC ---
     if "youtube.com" in link or "youtu.be" in link:
-        # Extract Video ID using Regex
-        vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
-        if vid_match:
-            vid_id = vid_match.group(1)
-            # Use the Jitendra Worker Link
-            final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
-            print(f"   ✨ Converted {title} -> Worker Link")
+        video_id = None
+        
+        # 1. If it's a Channel Live Link, FIND the ID first
+        if "/live" in link or "channel/" in link or "@" in link:
+             video_id = get_live_video_id(link)
+             if video_id:
+                 print(f"   ✅ Found Live ID: {video_id} for {title}")
+             else:
+                 print(f"   ⚠️ No Live Stream found for {title}")
+                 return "" # Skip offline channels
+        
+        # 2. If it's already a specific video link
+        elif "v=" in link or "youtu.be" in link:
+            match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
+            if match: video_id = match.group(1)
+
+        if video_id:
+            # --- GENERATE LINK BASED ON MODE ---
+            if "proxy" in mode:
+                # Geo-Blocked? Use Piped Stream directly (Built-in VPN)
+                final_link = f"https://pipedapi.kavin.rocks/streams/{video_id}"
+            elif "no" in mode:
+                # Direct Link
+                final_link = f"https://www.youtube.com/watch?v={video_id}"
+            else:
+                # Default: Jitendra Worker (Best for Stable Live)
+                final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={video_id}"
 
     return f'#EXTINF:-1 group-title="Youtube and live events" tvg-logo="{logo}",{title}\n{final_link}'
 
