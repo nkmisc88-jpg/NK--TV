@@ -15,8 +15,7 @@ VPN Required : No
 
 Title : Sun News Live
 Logo : https://example.com/sun.png
-Link : https://www.youtube.com/@SunNewsTamil/live
-Worker : Auto
+Link : https://www.youtube.com/live/eprc2JzWekU?si=ku5SLT0XPrB-OnZi
 
 Title : ILT20 (Geo Blocked)
 Logo : https://example.com/ilt20.png
@@ -83,40 +82,4 @@ Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSQKX5q0qi2g6QyEpYC
 Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
 VPN Required: No
 
-Title : Polimer News 
-Logo : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq550WHkvWg9hp7bPJOD_3lRn7dSquZn3yLbV3r51F9g&s=10
-Link : https://www.youtube.com/live/Ei6NUWLQCQM?si=zRpu8xZam04h50XF
-VPN Required: 
-
-Title : ILT20 
-Logo : https://www.ilt20.ae/static-assets/waf-images/a1/c4/48/1-1/kXEXg4wHwn.jpg?v=30.13&w=1024
-Link : https://m.youtube.com/watch?v=utE3wPktKjg&pp=uAQw
-Worker : Proxy
-VPN Required: No
-
-Title : Willow Cricket [Proxy Test]
-Logo : https://upload.wikimedia.org/wikipedia/commons/7/76/Willow_TV_logo.jpg
-Link : https://www.youtube.com/@willow/live
-Worker : Proxy
-VPN Required : No
-
-
-Title : Cricket Australia Live [Proxy Test]
-Logo : https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Cricket_Australia.svg/1200px-Cricket_Australia.svg.png
-Link : https://www.youtube.com/@CricketAustralia/live
-Worker : Proxy
-VPN Required : No
-
-
-Title : NBC News Now (US)
-Logo : https://yt3.googleusercontent.com/ytc/APkrFKam5XfX2c5N2m5z1o5F5c5h1d5c5h1d5c5h1d5c=s176-c-k-c0x00ffffff-no-rj
-Link : https://www.youtube.com/watch?v=4ipX6cZqL_s
-Worker : Proxy
-VPN Required : No
-
-Title : ILT20 Highlights [Proxy Test]
-Logo : https://i.imgur.com/PZ7q9Qp.png
-Link : https://m.youtube.com/watch?v=utE3wPktKjg
-Worker : Proxy
-VPN Required : No
 
