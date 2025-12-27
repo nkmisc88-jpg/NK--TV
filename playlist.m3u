@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-27 03:49:18
+# Updated on: 2025-12-27 03:49:54
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -896,18 +896,19 @@ https://a1xs.vip/700002
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/Z60SQPG9/Fox-503.png",Fox 503
 https://a1xs.vip/700003
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://example.com/sun.png",Sun News Live
-https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=ynXV2g1EV1k
+https://www.youtube.com/@SunNewsTamil/live
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://example.com/ilt20.png",ILT20 (Geo Blocked)
-https://pipedapi.kavin.rocks/streams/0cw6NbaVTfM
-
+https://www.youtube.com/@ILT20Official/live
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Cricket_Australia.svg/1200px-Cricket_Australia.svg.png",Cricket Australia (Big Bash)
+https://www.youtube.com/@CricketAustralia/live
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/76/Willow_TV_logo.jpg",Willow Cricket USA (Blocked in India)
-https://pipedapi.kavin.rocks/streams/QJBnM_aKDhk
+https://www.youtube.com/@willow/live
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_k4E8gD0mD8sF_jD8gD8gD8gD8gD8gD8g=s900-c-k-c0x00ffffff-no-rj",TalkSPORT UK (Live Commentary)
-https://pipedapi.kavin.rocks/streams/DQTvvTWeMXA
+https://www.youtube.com/@talkSPORT/live
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/ABC_News_Logo.svg/1200px-ABC_News_Logo.svg.png",ABC News Australia (Live)
-https://pipedapi.kavin.rocks/streams/oZS7oTemT_E
+https://www.youtube.com/@ABCNews/live
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Sky_News_logo_2017.svg/1200px-Sky_News_logo_2017.svg.png",Sky News UK (Live)
-https://pipedapi.kavin.rocks/streams/ynXV2g1EV1k
+https://www.youtube.com/@SkyNews/live
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/RpxSzY1R/Fox-Footy504.png",Fox 504
 https://a1xs.vip/700004
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.ibb.co/Y65j4s1/Fox505.png",Fox 505
@@ -923,16 +924,17 @@ https://a1xs.vip/700031
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSQKX5q0qi2g6QyEpYCdEAz6ur-un5BedPIhzney_8qg&s=10",Willow
 https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq550WHkvWg9hp7bPJOD_3lRn7dSquZn3yLbV3r51F9g&s=10",Polimer News
-https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=Q6yRijXXleA
+https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=Ei6NUWLQCQM
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://www.ilt20.ae/static-assets/waf-images/a1/c4/48/1-1/kXEXg4wHwn.jpg?v=30.13&w=1024",ILT20
-https://pipedapi.kavin.rocks/streams/utE3wPktKjg
+https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=utE3wPktKjg
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/76/Willow_TV_logo.jpg",Willow Cricket [Proxy Test]
-https://pipedapi.kavin.rocks/streams/QJBnM_aKDhk
-
+https://www.youtube.com/@willow/live
+#EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Cricket_Australia.svg/1200px-Cricket_Australia.svg.png",Cricket Australia Live [Proxy Test]
+https://www.youtube.com/@CricketAustralia/live
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://yt3.googleusercontent.com/ytc/APkrFKam5XfX2c5N2m5z1o5F5c5h1d5c5h1d5c5h1d5c=s176-c-k-c0x00ffffff-no-rj",NBC News Now (US)
-https://pipedapi.kavin.rocks/streams/4ipX6cZqL_s
+https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=4ipX6cZqL_s
 #EXTINF:-1 group-title="Youtube and live events" tvg-logo="https://i.imgur.com/PZ7q9Qp.png",ILT20 Highlights [Proxy Test]
-https://pipedapi.kavin.rocks/streams/utE3wPktKjg
+https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=utE3wPktKjg
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Saturday, 27 December 2025 at 9:14:06 am
