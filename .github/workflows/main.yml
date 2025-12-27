@@ -1,6 +1,5 @@
 name: Update Playlist
 
-# Explicitly request write permission
 permissions:
   contents: write
 
@@ -19,8 +18,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-        with:
-          persist-credentials: false # We will provide the token manually below
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -41,7 +38,16 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
+          
+          # Stage the new playlist
           git add playlist.m3u
+          
+          # Commit it (save locally)
           git commit -m "Auto-update playlist" || exit 0
-          # This command forces the push using your secret token
+          
+          # --- FIX: Pull latest changes (like your youtube.txt edits) ---
+          git pull origin main --rebase
+          # -------------------------------------------------------------
+
+          # Now Push
           git push "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:main
