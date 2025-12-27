@@ -16,8 +16,13 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# CLEANUP
-REMOVE_KEYWORDS = ["sony ten", "sonyten", "star sports 1", "star sports 2", "zee thirai"]
+# --- FIX: REMOVED "STAR SPORTS" FROM THIS LIST SO THEY APPEAR AGAIN ---
+REMOVE_KEYWORDS = [
+    "sony ten", "sonyten", "sony sports ten", 
+    "zee thirai"
+]
+# ---------------------------------------------------------------------
+
 NAME_OVERRIDES = {"star sports 2 hindi hd": "Sports18 1 HD"} 
 
 # ==========================================
@@ -72,7 +77,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. TEMPORARY CHANNELS PARSER (IMPROVED)
+# 2. TEMPORARY CHANNELS PARSER
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -101,7 +106,6 @@ def process_entry(data):
     
     # IMPROVED LOGIC: Handle both /live/ and ?si= garbage
     if "youtube.com" in link or "youtu.be" in link:
-        # Regex looks for the ID (11 chars) after v=, /live/, /shorts/, or youtu.be/
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
             vid_id = vid_match.group(1)
@@ -123,7 +127,7 @@ def update_playlist():
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
 
-    # --- STEP A: PROCESS MAIN TEMPLATE (AGGRESSIVE CLEANING) ---
+    # --- STEP A: PROCESS MAIN TEMPLATE ---
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         
