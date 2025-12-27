@@ -17,12 +17,7 @@ backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
 # REMOVAL LIST
-REMOVE_KEYWORDS = [
-    "sony ten", "sonyten", "sony sports ten", 
-    "star sports 1", "star sports 2",
-    "zee thirai",                
-    "star sports 1 kannada hd"   
-]
+REMOVE_KEYWORDS = ["zee thirai"]
 
 FORCE_BACKUP_KEYWORDS = [
     "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
@@ -33,69 +28,34 @@ FORCE_BACKUP_KEYWORDS = [
 
 NAME_OVERRIDES = {
     "star sports 2 hindi hd": "Sports18 1 HD",
-    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
-    "zee tamil": "Zee Tamil HD",
-    "nat geo hd": "National Geographic HD",
-    "star sports 1 hd": "Star Sports HD1",
-    "star sports 2 hd": "Star Sports HD2",
-    "star sports 1 hindi hd": "Star Sports HD1 Hindi",
-    "sony sports ten 1 hd": "sony ten 1",
-    "sony sports ten 2 hd": "sony ten 2",
-    "sony sports ten 3 hd": "sony ten 3",
-    "sony sports ten 4 hd": "sony ten 4",
-    "sony sports ten 5 hd": "sony ten 5",
-    "nat geo wild hd": "nat geo wild",
-    "discovery hd world": "discovery channel",
-    "history tv18 hd": "history",
-    "cartoon network hd+ english": "cartoon network",
-    "nick hd+": "nick",
-    "star movies hd": "star movies",
-    "sony pix hd": "sony pix"
+    "star sports 2 tamil hd": "Star Sports 2 Tamil HD"
 }
 
 # ==========================================
-# 1. HELPER FUNCTIONS (RESTORED)
+# 1. HELPER FUNCTIONS
 # ==========================================
-
 def clean_name_key(name):
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
 
-def get_significant_words(name):
-    name = name.lower().replace("sports18", "sports 18") 
-    name = re.sub(r'\b(hd|sd|tv|channel|network|india|world|english|tamil|hindi|telugu|kannada|movies|cinema)\b', '', name)
-    words = re.findall(r'[a-z0-9]+', name)
-    return set(words)
-
-def fuzzy_match_logic(target_name, map_keys):
-    target_words = get_significant_words(target_name)
-    if not target_words: return None
-    for key in map_keys:
-        key_lower = key.lower().replace("sports18", "sports 18")
-        key_words = set(re.findall(r'[a-z0-9]+', key_lower))
-        if target_words.issubset(key_words): return key
-    return None
+def should_force_backup(name):
+    norm = name.lower()
+    if "star sports 2 tamil hd" in norm: return False
+    if "star sports 2 hindi hd" in norm: return False
+    for k in FORCE_BACKUP_KEYWORDS:
+        if k in norm: return True
+    return False
 
 def find_best_backup_link(original_name, backup_map):
-    if "star sports 2 tamil hd" in original_name.lower():
-        for k in backup_map:
-            if "star sports 2 tamil hd" in k.lower(): return backup_map[k]
-
+    if "star sports 2 tamil hd" in original_name.lower(): return None
     clean_orig = clean_name_key(original_name)
     if clean_orig in backup_map: return backup_map[clean_orig]
     
     clean_mapped = None
     for k, v in NAME_OVERRIDES.items():
-        if clean_name_key(k) == clean_orig:
-            clean_mapped = clean_name_key(v); break
-    if clean_mapped:
-        if clean_mapped in backup_map: return backup_map[clean_mapped]
-        fuzzy_mapped = fuzzy_match_logic(NAME_OVERRIDES.get(original_name.lower(), clean_mapped), backup_map.keys())
-        if fuzzy_mapped: return backup_map[fuzzy_mapped]
-    
-    fuzzy_key = fuzzy_match_logic(original_name, backup_map.keys())
-    if fuzzy_key: return backup_map[fuzzy_key]
+        if clean_name_key(k) == clean_orig: clean_mapped = clean_name_key(v); break
+    if clean_mapped and clean_mapped in backup_map: return backup_map[clean_mapped]
     return None
 
 def load_local_map(ref_file):
@@ -104,20 +64,16 @@ def load_local_map(ref_file):
         with open(ref_file, "r", encoding="utf-8") as f: content = f.read()
         pattern = r'tvg-id="(\d+)".*?tvg-name="([^"]+)"'
         matches = re.findall(pattern, content)
-        for ch_id, ch_name in matches:
-            id_map[clean_name_key(ch_name)] = ch_id
-        print(f"✅ Local JioTV: Found {len(id_map)} channels.")
-        return id_map
-    except FileNotFoundError: return {}
+        for ch_id, ch_name in matches: id_map[clean_name_key(ch_name)] = ch_id
+    except: pass
+    return id_map
 
 def fetch_backup_map(url):
     block_map = {}
     try:
-        print("🌍 Fetching Backup Source...")
-        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        response = requests.get(url, headers={"User-Agent": ua}, timeout=15)
-        if response.status_code == 200:
-            lines = response.text.splitlines()
+        r = requests.get(url, timeout=15)
+        if r.status_code == 200:
+            lines = r.text.splitlines()
             current_block = []; current_name = ""
             for line in lines:
                 line = line.strip()
@@ -126,68 +82,45 @@ def fetch_backup_map(url):
                     if current_name and current_block:
                         key = clean_name_key(current_name)
                         data = [l for l in current_block if not l.startswith("#EXTINF")]
-                        block_map[key] = data; block_map[current_name] = data 
+                        block_map[key] = data 
                     current_name = line.split(",")[-1].strip()
                     current_block = [line]
                 else:
                     if current_block: current_block.append(line)
-            if current_name and current_block:
-                key = clean_name_key(current_name)
-                data = [l for l in current_block if not l.startswith("#EXTINF")]
-                block_map[key] = data; block_map[current_name] = data
-            print(f"✅ Backup Playlist: Parsed {len(block_map)} entries.")
+            if current_name: block_map[clean_name_key(current_name)] = [l for l in current_block if not l.startswith("#EXTINF")]
     except: pass
     return block_map
 
-def should_force_backup(name):
-    norm = name.lower()
-    if "star sports 2 hindi hd" in norm: return False
-    for k in FORCE_BACKUP_KEYWORDS:
-        if k in norm: return True
-    return False
-
 # ==========================================
-# 2. TEMPORARY CHANNELS PARSER (NEW LOGIC)
+# 2. SMART PARSER (Fixes Missing Channels)
 # ==========================================
-
 def parse_youtube_txt():
-    """
-    Reads youtube.txt.
-    - YouTube -> Jitendra Worker.
-    - Media Link -> Keeps as is.
-    - Section -> "Temporary Channels"
-    """
     new_entries = []
-    
-    if not os.path.exists(youtube_file):
-        print(f"❌ Error: {youtube_file} NOT FOUND.")
-        return []
-
-    print(f"📂 Reading {youtube_file}...")
-    
-    with open(youtube_file, "r", encoding="utf-8") as f:
-        lines = f.readlines()
+    if not os.path.exists(youtube_file): return []
+    with open(youtube_file, "r", encoding="utf-8") as f: lines = f.readlines()
 
     current_entry = {}
     
     for line in lines:
         line = line.strip()
-        if not line: 
+        if not line: continue # Skip empty lines
+
+        # DETECT NEW ENTRY: If line starts with "Title :", save previous and start new
+        if line.lower().startswith("title") and ":" in line:
             if 'link' in current_entry:
                 new_entries.append(process_entry(current_entry))
-            current_entry = {} 
-            continue
-
+            current_entry = {} # Reset
+        
         if ':' in line:
             parts = line.split(':', 1)
             key = parts[0].strip().lower()
             val = parts[1].strip()
             current_entry[key] = val
     
+    # Save the last entry
     if 'link' in current_entry:
         new_entries.append(process_entry(current_entry))
 
-    print(f"✅ Temporary Channels: Parsed {len(new_entries)} entries.")
     return new_entries
 
 def process_entry(data):
@@ -195,133 +128,96 @@ def process_entry(data):
     logo = data.get('logo', '')
     link = data.get('link', '')
     
-    # 1. Check if it is YouTube
+    # YouTube Logic
     if "youtube.com" in link or "youtu.be" in link:
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
-            vid_id = vid_match.group(1)
-            final_link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_id}"
-            print(f"   ✨ YouTube Converted: {title}")
-        else:
-            final_link = link
+            link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
+            print(f"   ✨ Converted: {title}")
     else:
-        # 2. Not YouTube? Keep it EXACTLY as it is.
-        final_link = link
         print(f"   ▶️  Media Link: {title}")
-
-    return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{final_link}'
+    
+    return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
 
 # ==========================================
-# 3. MAIN EXECUTION (COMBINED LOGIC)
+# 3. MAIN EXECUTION
 # ==========================================
-
 def update_playlist():
     print("--- STARTING UPDATE ---")
-    
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    final_lines = [
-        "#EXTM3U x-tvg-url=\"http://192.168.0.146:5350/epg.xml.gz\"",
-        f"# Updated on: {current_time}"
-    ]
+    final_lines = ["#EXTM3U", f"# Updated on: {current_time}"]
     
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
-    stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # STEP A: PROCESS MAIN TEMPLATE (JioTV & Backups)
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
+        skip_next_url = False 
+        
         for i, line in enumerate(lines):
             line = line.strip()
+            if not line: continue
             
-            # Look ahead for URL
-            url = ""
-            if i + 1 < len(lines): url = lines[i+1].strip()
-
-            # REMOVE OLD SECTIONS FROM TEMPLATE
-            if line.startswith("#EXTINF") and ('group-title="Youtube' in line or 'group-title="Temporary' in line): continue
-
             if line.startswith("#EXTINF"):
+                lower_line = line.lower()
+                if 'group-title="youtube' in lower_line or 'group-title="temporary' in lower_line:
+                    skip_next_url = True; continue              
+                
+                skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
 
-                # --- FILTERING LOGIC ---
-                if "zee thirai" in ch_name_lower: continue
-                if "kannada" in ch_name_lower and "star sports 1" in ch_name_lower: continue
-
                 should_remove = False
                 for rm in REMOVE_KEYWORDS:
-                    if rm in ch_name_lower:
-                        if "star sports 1" in rm or "star sports 2" in rm:
-                            if "hd" in ch_name_lower and "kannada" not in ch_name_lower: 
-                                continue 
-                        should_remove = True; break
-                if should_remove: continue
+                    if rm in ch_name_lower: should_remove = True; break
+                if should_remove: 
+                    skip_next_url = True; continue
 
-                if "star sports 2 hindi hd" in ch_name_lower:
-                    line = line.replace("Star Sports 2 Hindi HD", "Sports18 1 HD")
-
-                # --- PLACEHOLDER REPLACEMENT LOGIC ---
-                if "http://placeholder" in url:
-                    clean_local_key = clean_name_key(original_name)
+                if i + 1 < len(lines) and "http://placeholder" in lines[i+1]:
+                    clean_key = clean_name_key(original_name)
                     found_block = None
                     
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
-                        if found_block: stats["backup"] += 1
-                        elif clean_name_key(NAME_OVERRIDES.get(ch_name_lower, "")) in local_map:
-                             found_block = [f"{base_url}/{local_map[clean_name_key(NAME_OVERRIDES[ch_name_lower])]}.m3u8"]
-                             stats["local"] += 1
-                        elif clean_local_key in local_map:
-                            found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
-                            stats["local"] += 1
+                    
+                    if not found_block:
+                         if clean_key in local_map:
+                             final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
+                             skip_next_url = True
+                         else:
+                             found_block = find_best_backup_link(original_name, backup_map)
+                             if found_block:
+                                 final_lines.append(line); final_lines.extend(found_block)
+                                 skip_next_url = True
+                             else:
+                                 final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
+                                 skip_next_url = True
                     else:
-                        mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
-                        if clean_local_key in local_map:
-                            found_block = [f"{base_url}/{local_map[clean_local_key]}.m3u8"]
-                            stats["local"] += 1
-                        elif mapped_key and mapped_key in local_map:
-                            found_block = [f"{base_url}/{local_map[mapped_key]}.m3u8"]
-                            stats["local"] += 1
-                        else:
-                            found_block = find_best_backup_link(original_name, backup_map)
-                            if found_block: stats["backup"] += 1
-
-                    if found_block:
                         final_lines.append(line); final_lines.extend(found_block)
-                    else:
-                        # Keep fallback
-                        final_lines.append(line)
-                        if clean_local_key in local_map: final_lines.append(f"{base_url}/{local_map[clean_local_key]}.m3u8")
-                        else: final_lines.append(f"{base_url}/000.m3u8")
-                        stats["missing"] += 1
+                        skip_next_url = True
+                else:
+                    final_lines.append(line)
 
-                elif url and not url.startswith("#"):
-                    # Pass through manual/other links in template
-                    if 'group-title="Youtube' not in line and 'group-title="Temporary' not in line:
-                         final_lines.append(line)
-                         final_lines.append(url)
+            elif not line.startswith("#"):
+                if skip_next_url: skip_next_url = False
+                else: final_lines.append(line)
+
     except FileNotFoundError: pass
 
-    # STEP B: APPEND TEMPORARY CHANNELS (From Text File)
     print("🎥 Appending Temporary Channels...")
-    temp_entries = parse_youtube_txt()
-    if temp_entries:
-        final_lines.append("") 
-        final_lines.extend(temp_entries)
+    final_lines.extend(parse_youtube_txt())
 
-    # STEP C: APPEND FANCODE
     try:
         r = requests.get(fancode_url)
         if r.status_code == 200:
             flines = r.text.splitlines()
-            if flines and flines[0].startswith("#EXTM3U"): flines = flines[1:]
+            if flines and "#EXTM3U" in flines[0]: flines = flines[1:]
             final_lines.append("\n" + "\n".join(flines))
             print("✅ Fancode merged.")
     except: pass
 
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
-    print(f"\n🎉 DONE: Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
+    print("🎉 DONE. Playlist Saved.")
 
 if __name__ == "__main__":
     update_playlist()
