@@ -77,3 +77,10 @@ Logo : https://yt3.googleusercontent.com/ytc/APkrFKam5XfX2c5N2m5z1o5F5c5h1d5c5h1
 Link : https://www.youtube.com/watch?v=4ipX6cZqL_s
 Worker : Proxy
 VPN Required : No
+
+Title : ILT20 Highlights [Proxy Test]
+Logo : https://i.imgur.com/PZ7q9Qp.png
+Link : https://m.youtube.com/watch?v=utE3wPktKjg
+Worker : Proxy
+VPN Required : No
+
