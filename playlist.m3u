@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-27 06:19:32
+# Updated on: 2025-12-27 06:25:02
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -802,7 +802,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7&xxx=||cookie=__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Puthiya thalaimurai
-https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=ijIbQ81XyA0
+https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=sDmozTF-pBg
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Saturday, 27 December 2025 at 11:49:10 am
