@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-# Updated on: 2025-12-27 10:52:02
+# Updated on: 2025-12-27 11:03:53
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -895,12 +895,12 @@ https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=sDmozTF-pBg
 https://dj-tm-srvr1.vercel.app/title/FOX_501-HD(1080p50)@DJ-TM.m3u8?data=s7X18zNxTnIvKo1KqwxJTE1PDE3xNw73cApx0g8uT_PySazyC_UpqPTxDq2KLKgsjcixjHAvi6p0KrbwdcrMCzQpdfKI8igMctcudjRw168MDHMKyQ_P88hLy9AuMXAvrarUDvIL9Asq8UsKyE8vCAQA|Telegram=@links_macha_official&Creator=@DJ-TM
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow by Cricbuzz
 https://dj-tm-srvr1.vercel.app/title/WILLOW_CA-HD(720p60)@DJ-TM.m3u8?data=BcHLDkQwFADQD7K4yAxricekqF6k2GpcJalIvOfrnQOV-VxxSD_edoO_NUXs2lqKFGcv4H8gxFxcunKyOtejcr9Jgw8B828xp2dtYIInWcytsp60kgduXSuJWWWIHHfei2hc8QU|Telegram=@links_macha_official&Creator=@DJ-TM
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 505
+http://51.89.148.37:8080/catena-9-15390503-streamer-_fox_sports_505_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 27 December 2025 at 4:21:06 pm
+#DATE:- Saturday, 27 December 2025 at 4:28:05 pm
 #EXTINF:-1 tvg-id="139150" tvg-name="Ias Invincibles Vs Royal Oman Stallions" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Ias Invincibles Vs Royal Oman Stallions
 https://in-mc-fdlive.fancode.com/mumbai/139150_english_hls_c275afd61318273_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="138809" tvg-name="Adelaide United Vs Western Sydney Wanderers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138809_5802_ADL_SYW_fc-web.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Adelaide United Vs Western Sydney Wanderers
 https://in-mc-fdlive.fancode.com/mumbai/138809_english_hls_fe3f1087d972537_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 tvg-id="138918" tvg-name="Rajshahi Warriors Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138918_5808_DC_DBR_fc-web_1766733054099.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Rajshahi Warriors Vs Dhaka Capitals
-https://in-mc-fdlive.fancode.com/mumbai/138918_english_hls_8b03cfa0b543431_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
