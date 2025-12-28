@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-28 22:51:59
+# Updated on: 2025-12-28 23:34:11
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -863,6 +863,6 @@ https://vt-ip.vodep39240327.workers.dev/802.m3u8
 https://jtvp.8088y.workers.dev/bpk-tv/bpk-tv/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 29 December 2025 at 3:44:05 am
-#EXTINF:-1 tvg-id="139163" tvg-name="New York Vs Atlanta" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png" tvg-language="ENGLISH" group-title="Golf",ENG | New York Vs Atlanta
-https://in-mc-fdlive.fancode.com/mumbai/139163_english_hls_96cb51060916107_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Monday, 29 December 2025 at 5:04:06 am
+#EXTINF:-1 tvg-id="138766" tvg-name="Wellington Blaze Vs Auckland Hearts" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138766_5801_WB-W_AH-W_fc-web_1766596522064.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Wellington Blaze Vs Auckland Hearts
+https://in-mc-fdlive.fancode.com/mumbai/138766_english_hls_c48307625820922_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
