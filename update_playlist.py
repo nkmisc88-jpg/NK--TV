@@ -16,13 +16,28 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
+# REMOVAL LIST
+REMOVE_KEYWORDS = ["zee thirai"]
 
 FORCE_BACKUP_KEYWORDS = [
-    "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
+    "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
     "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
-    "&pictures", "sports", "ten"
-] ==========================================
+    "&pictures", "ten"
+    # REMOVED "star" and "sports" so they use Local JioTV
+]
+
+NAME_OVERRIDES = {
+    "star sports 2 hindi hd": "Sports18 1 HD",
+    "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
+    "star sports 1 hd": "Star Sports HD1",
+    "star sports 2 hd": "Star Sports HD2",
+    "star sports 1 hindi hd": "Star Sports HD1 Hindi",
+    "star sports select 1 hd": "Star Sports Select HD1",
+    "star sports select 2 hd": "Star Sports Select HD2",
+}
+
+# ==========================================
 # 1. HELPER FUNCTIONS
 # ==========================================
 def clean_name_key(name):
@@ -32,14 +47,17 @@ def clean_name_key(name):
 
 def should_force_backup(name):
     norm = name.lower()
-    if "star sports 2 tamil hd" in norm: return False
-    if "star sports 2 hindi hd" in norm: return False
+    # FIX: Always try LOCAL first for Star Sports
+    if "star sports" in norm: return False
+    
     for k in FORCE_BACKUP_KEYWORDS:
         if k in norm: return True
     return False
 
 def find_best_backup_link(original_name, backup_map):
-    if "star sports 2 tamil hd" in original_name.lower(): return None
+    # Skip backup logic for Star Sports (try local first)
+    if "star sports" in original_name.lower(): return None
+
     clean_orig = clean_name_key(original_name)
     if clean_orig in backup_map: return backup_map[clean_orig]
     
@@ -83,7 +101,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. SMART PARSER (Fixes Missing Channels)
+# 2. SMART PARSER
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -94,13 +112,12 @@ def parse_youtube_txt():
     
     for line in lines:
         line = line.strip()
-        if not line: continue # Skip empty lines
+        if not line: continue 
 
-        # DETECT NEW ENTRY: If line starts with "Title :", save previous and start new
         if line.lower().startswith("title") and ":" in line:
             if 'link' in current_entry:
                 new_entries.append(process_entry(current_entry))
-            current_entry = {} # Reset
+            current_entry = {} 
         
         if ':' in line:
             parts = line.split(':', 1)
@@ -108,7 +125,6 @@ def parse_youtube_txt():
             val = parts[1].strip()
             current_entry[key] = val
     
-    # Save the last entry
     if 'link' in current_entry:
         new_entries.append(process_entry(current_entry))
 
@@ -119,7 +135,6 @@ def process_entry(data):
     logo = data.get('logo', '')
     link = data.get('link', '')
     
-    # YouTube Logic
     if "youtube.com" in link or "youtu.be" in link:
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
@@ -140,6 +155,7 @@ def update_playlist():
     
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
+    stats = {"local": 0, "backup": 0, "missing": 0}
 
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
@@ -168,24 +184,40 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
+                    # 1. Check Forced Backup
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
+                    # 2. Try Local if not forced or not found in backup
                     if not found_block:
+                         # Check overrides
+                         mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
+                         
                          if clean_key in local_map:
-                             final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
+                             final_lines.append(line)
+                             final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
                              skip_next_url = True
+                             stats["local"] += 1
+                         elif mapped_key and mapped_key in local_map:
+                             final_lines.append(line)
+                             final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
+                             skip_next_url = True
+                             stats["local"] += 1
                          else:
+                             # Last resort: Backup
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
                                  skip_next_url = True
+                                 stats["backup"] += 1
                              else:
                                  final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
                                  skip_next_url = True
+                                 stats["missing"] += 1
                     else:
                         final_lines.append(line); final_lines.extend(found_block)
                         skip_next_url = True
+                        stats["backup"] += 1
                 else:
                     final_lines.append(line)
 
@@ -208,7 +240,7 @@ def update_playlist():
     except: pass
 
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
-    print("🎉 DONE. Playlist Saved.")
+    print(f"🎉 DONE. Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
 
 if __name__ == "__main__":
     update_playlist()
