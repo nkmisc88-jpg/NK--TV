@@ -95,25 +95,11 @@ http://placeholder
 # ==============================
 # SPORTS SD
 # ==============================
-#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1.png",Star Sports 1
-http://placeholder
-#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2.png",Star Sports 2
-http://placeholder
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_3.png",Star Sports 3
 http://placeholder
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_First.png",Star Sports First
 http://placeholder
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/DD_Sports.png",DD Sports
-http://placeholder
-#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1.png",Sony Ten 1
-http://placeholder
-#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2.png",Ten 2
-http://placeholder
-#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_5.png",Sony Ten 5
-http://placeholder
-#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_3.png",Sony Ten 3 Hindi
-http://placeholder
-#EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Eurosport.png",Eurosport
 http://placeholder
 
 # ==============================
