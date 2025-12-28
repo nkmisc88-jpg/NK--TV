@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-28 02:32:03
+# Updated on: 2025-12-28 02:39:16
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -873,7 +873,7 @@ https://jiotvbpkmob.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd
 #EXTHTTP:{"cookie":"__hdnea__=st=1766452320~exp=1766538720~acl=/*~hmac=211a4383b9ea46d1f8358782adfbf87cf3c3155d810208ccb5b7fb1b760baab7"}
 https://jiotvbpkmob.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Puthiya thalaimurai
-https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=sDmozTF-pBg?si
+https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=RUzgphgBRzI?si
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow by Cricbuzz
@@ -887,7 +887,7 @@ http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Zee Tamil
 https://vt-ip.vodep39240327.workers.dev/802.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Sony Sports 1
-https://jtvp.8088y.workers.dev/bpk-tv/bpk-tv/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd|Referer=https://m3u.8088y.fun/
+https://jtvp.8088y.workers.dev/bpk-tv/bpk-tv/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Sunday, 28 December 2025 at 8:00:05 am
