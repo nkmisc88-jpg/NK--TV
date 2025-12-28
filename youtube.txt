@@ -1,6 +1,6 @@
 Title : Puthiya thalaimurai 
 Logo : 
-Link : https://www.youtube.com/watch?v=sDmozTF-pBg?si
+Link :  https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=sDmozTF-pBg?si
 
 Title: Fox 501 
 Logo : 
@@ -25,3 +25,11 @@ Link : http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v
 Title : Zee Tamil 
 Logo : 
 Link : https://vt-ip.vodep39240327.workers.dev/802.m3u8
+
+Title : Sony Sports 1
+Logo : 
+Link : https://vt-ip.vodep39240327.workers.dev/2010.m3u8
+
+Titel : Star Sports 2 Tamil HD 
+logo : 
+Link : https://jtvp.8088y.workers.dev/bpk-tv/bpk-tv/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd|Referer=https://m3u.8088y.fun/
