@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-28 13:38:25
+# Updated on: 2025-12-28 13:53:55
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -890,6 +890,6 @@ https://vt-ip.vodep39240327.workers.dev/802.m3u8
 https://jtvp.8088y.workers.dev/bpk-tv/bpk-tv/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 28 December 2025 at 7:07:07 pm
+#DATE:- Sunday, 28 December 2025 at 7:21:07 pm
 #EXTINF:-1 tvg-id="138366" tvg-name="Gabon Vs Mozambique" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138366_5774_GAB_MOZ_fc-web_1766386874303.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Gabon Vs Mozambique
 https://in-mc-fdlive.fancode.com/mumbai/138366_english_hls_cda1f3b8d598224_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
