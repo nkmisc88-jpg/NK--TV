@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-28 17:31:54
+# Updated on: 2025-12-28 17:36:38
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -228,8 +228,8 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_1_Tamil_HD_BTS/output/index.m
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1766884816~exp=1766971216~acl=/*~hmac=27d804b9e82b62ebd7627ed84ff0ba49b8149ecd86cb970a8b79f2fd6d14a716"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_1_Telugu_HD_BTS/output/index.mpd?__hdnea__=st=1766884816~exp=1766971216~acl=/*~hmac=27d804b9e82b62ebd7627ed84ff0ba49b8149ecd86cb970a8b79f2fd6d14a716&xxx=||cookie=__hdnea__=st=1766884816~exp=1766971216~acl=/*~hmac=27d804b9e82b62ebd7627ed84ff0ba49b8149ecd86cb970a8b79f2fd6d14a716
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Kannada_HD.png",Star Sports 1 Kannada HD
-http://192.168.0.146:5350/live/000.m3u8
+#EXTINF:-1 tvg-id="3273" group-title="Sports" tvg-logo="https://img.media.jio.com/tvpimages/50/43/302120_1753202207980_l_high.jpg",Star Sports 2 Tamil HD
+https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd?__hdnea__=st=1766797813~exp=1766884213~acl=/*~hmac=c2af57656f575db0a6c6a6a40a0cf3a1e7826e0749189b8934c593f80160e1a7
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1.png",Star Sports 1
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -890,7 +890,7 @@ https://vt-ip.vodep39240327.workers.dev/802.m3u8
 https://jtvp.8088y.workers.dev/bpk-tv/bpk-tv/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 28 December 2025 at 10:59:06 pm
+#DATE:- Sunday, 28 December 2025 at 11:04:05 pm
 #EXTINF:-1 tvg-id="138652" tvg-name="Abu Dhabi Knight Riders Vs Gulf Giants" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138652_5786_GG_ADKR_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Abu Dhabi Knight Riders Vs Gulf Giants
 https://in-mc-fdlive.fancode.com/mumbai/138652_english_hls_184b19809a71672_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="139153" tvg-name="Yalla Shabab Giants Vs Muscat Thunders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Yalla Shabab Giants Vs Muscat Thunders
