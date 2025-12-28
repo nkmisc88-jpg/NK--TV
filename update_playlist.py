@@ -16,22 +16,13 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# REMOVAL LIST
-REMOVE_KEYWORDS = ["zee thirai"]
 
 FORCE_BACKUP_KEYWORDS = [
     "star", "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
     "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
     "&pictures", "sports", "ten"
-]
-
-NAME_OVERRIDES = {
-    "star sports 2 hindi hd": "Sports18 1 HD",
-    "star sports 2 tamil hd": "Star Sports 2 Tamil HD"
-}
-
-# ==========================================
+] ==========================================
 # 1. HELPER FUNCTIONS
 # ==========================================
 def clean_name_key(name):
