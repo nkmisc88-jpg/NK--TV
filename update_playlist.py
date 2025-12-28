@@ -16,25 +16,30 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# REMOVAL LIST
+# REMOVAL LIST (Keep minimal)
 REMOVE_KEYWORDS = ["zee thirai"]
 
+# FORCE BACKUP LIST
+# Added "star", "sports", "nat geo" here so they ALWAYS use the Backup (Fakeall)
 FORCE_BACKUP_KEYWORDS = [
+    "star", "sports", "nat geo", "fox", "willow",
     "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
-    "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", "nat geo", 
+    "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
     "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
     "&pictures", "ten"
-    # REMOVED "star" and "sports" so they use Local JioTV
 ]
 
 NAME_OVERRIDES = {
     "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
-    "star sports 1 hd": "Star Sports HD1",
-    "star sports 2 hd": "Star Sports HD2",
-    "star sports 1 hindi hd": "Star Sports HD1 Hindi",
-    "star sports select 1 hd": "Star Sports Select HD1",
-    "star sports select 2 hd": "Star Sports Select HD2",
+    "star sports 1 hd": "Star Sports 1 HD",
+    "star sports 2 hd": "Star Sports 2 HD",
+    "star sports 1 hindi hd": "Star Sports 1 Hindi HD",
+    "nat geo hd": "National Geographic HD",
+    "nat geo wild hd": "Nat Geo Wild HD",
+    "sony sports ten 1 hd": "Sony Sports Ten 1 HD",
+    "sony sports ten 2 hd": "Sony Sports Ten 2 HD",
+    "sony sports ten 5 hd": "Sony Sports Ten 5 HD",
 }
 
 # ==========================================
@@ -47,24 +52,23 @@ def clean_name_key(name):
 
 def should_force_backup(name):
     norm = name.lower()
-    # FIX: Always try LOCAL first for Star Sports
-    if "star sports" in norm: return False
-    
     for k in FORCE_BACKUP_KEYWORDS:
         if k in norm: return True
     return False
 
 def find_best_backup_link(original_name, backup_map):
-    # Skip backup logic for Star Sports (try local first)
-    if "star sports" in original_name.lower(): return None
-
     clean_orig = clean_name_key(original_name)
+    
+    # 1. Direct Match
     if clean_orig in backup_map: return backup_map[clean_orig]
     
+    # 2. Override Match
     clean_mapped = None
     for k, v in NAME_OVERRIDES.items():
-        if clean_name_key(k) == clean_orig: clean_mapped = clean_name_key(v); break
+        if clean_name_key(k) == clean_orig: 
+            clean_mapped = clean_name_key(v); break
     if clean_mapped and clean_mapped in backup_map: return backup_map[clean_mapped]
+    
     return None
 
 def load_local_map(ref_file):
@@ -101,7 +105,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. SMART PARSER
+# 2. SMART PARSER (Fixes Missing Channels)
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -184,15 +188,18 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # 1. Check Forced Backup
+                    # 1. Check Forced Backup (Now includes STAR/NAT GEO)
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
-                    # 2. Try Local if not forced or not found in backup
-                    if not found_block:
-                         # Check overrides
+                    # 2. If no backup found, Fallback to Local
+                    if found_block:
+                         final_lines.append(line); final_lines.extend(found_block)
+                         skip_next_url = True
+                         stats["backup"] += 1
+                    else:
+                         # Check Local
                          mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
-                         
                          if clean_key in local_map:
                              final_lines.append(line)
                              final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
@@ -204,7 +211,7 @@ def update_playlist():
                              skip_next_url = True
                              stats["local"] += 1
                          else:
-                             # Last resort: Backup
+                             # Last resort: Try Backup again if not forced earlier
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
@@ -214,10 +221,6 @@ def update_playlist():
                                  final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
                                  skip_next_url = True
                                  stats["missing"] += 1
-                    else:
-                        final_lines.append(line); final_lines.extend(found_block)
-                        skip_next_url = True
-                        stats["backup"] += 1
                 else:
                     final_lines.append(line)
 
