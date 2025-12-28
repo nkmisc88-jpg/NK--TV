@@ -19,27 +19,24 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 # REMOVAL LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
-# FORCE BACKUP LIST (Aggressive Mode for Star/Sports)
+# FORCE BACKUP LIST
+# Removed "star", "sports", "nat geo" -> They will now use your SMOOTH Local Server
 FORCE_BACKUP_KEYWORDS = [
-    "star", "sports", "nat geo", "fox", "willow",
     "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
     "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
     "&pictures", "ten"
 ]
 
-# --- CRITICAL FIX: MAPPING NAMES TO BACKUP NAMES ---
+# MAPPING: Connects your Template Names to your Local/Backup Names
 NAME_OVERRIDES = {
-    # Format: "Your Template Name" : "Backup File Name"
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
     "star sports 1 hindi hd": "Star Sports HD1 Hindi",
     "star sports select 1 hd": "Star Sports Select HD1",
     "star sports select 2 hd": "Star Sports Select HD2",
-    
     "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
-    
     "nat geo hd": "National Geographic HD",
     "nat geo wild hd": "Nat Geo Wild HD",
     "sony sports ten 1 hd": "Sony Sports Ten 1 HD",
@@ -63,17 +60,12 @@ def should_force_backup(name):
 
 def find_best_backup_link(original_name, backup_map):
     clean_orig = clean_name_key(original_name)
-    
-    # 1. Direct Match
     if clean_orig in backup_map: return backup_map[clean_orig]
     
-    # 2. Override Match (This fixes the HD channels)
     clean_mapped = None
     for k, v in NAME_OVERRIDES.items():
-        if clean_name_key(k) == clean_orig: 
-            clean_mapped = clean_name_key(v); break
+        if clean_name_key(k) == clean_orig: clean_mapped = clean_name_key(v); break
     if clean_mapped and clean_mapped in backup_map: return backup_map[clean_mapped]
-    
     return None
 
 def load_local_map(ref_file):
@@ -110,7 +102,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. SMART PARSER (Fixes Missing Channels)
+# 2. SMART PARSER
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -118,32 +110,22 @@ def parse_youtube_txt():
     with open(youtube_file, "r", encoding="utf-8") as f: lines = f.readlines()
 
     current_entry = {}
-    
     for line in lines:
         line = line.strip()
         if not line: continue 
-
         if line.lower().startswith("title") and ":" in line:
-            if 'link' in current_entry:
-                new_entries.append(process_entry(current_entry))
+            if 'link' in current_entry: new_entries.append(process_entry(current_entry))
             current_entry = {} 
-        
         if ':' in line:
             parts = line.split(':', 1)
-            key = parts[0].strip().lower()
-            val = parts[1].strip()
-            current_entry[key] = val
-    
-    if 'link' in current_entry:
-        new_entries.append(process_entry(current_entry))
-
+            current_entry[parts[0].strip().lower()] = parts[1].strip()
+    if 'link' in current_entry: new_entries.append(process_entry(current_entry))
     return new_entries
 
 def process_entry(data):
     title = data.get('title', 'Unknown Channel')
     logo = data.get('logo', '')
     link = data.get('link', '')
-    
     if "youtube.com" in link or "youtu.be" in link:
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
@@ -151,7 +133,6 @@ def process_entry(data):
             print(f"   ✨ Converted: {title}")
     else:
         print(f"   ▶️  Media Link: {title}")
-    
     return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
 
 # ==========================================
@@ -169,7 +150,6 @@ def update_playlist():
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
-        
         for i, line in enumerate(lines):
             line = line.strip()
             if not line: continue
@@ -193,18 +173,18 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # 1. Check Forced Backup (Includes STAR/NAT GEO)
+                    # 1. FORCE BACKUP (Only for Zee/Sony/etc)
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
-                    # 2. If found, add it
                     if found_block:
                          final_lines.append(line); final_lines.extend(found_block)
                          skip_next_url = True
                          stats["backup"] += 1
                     else:
-                         # 3. Fallback to Local (Only if backup failed)
+                         # 2. TRY LOCAL (Preferred for Star Sports/Nat Geo)
                          mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
+                         
                          if clean_key in local_map:
                              final_lines.append(line)
                              final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
@@ -216,7 +196,7 @@ def update_playlist():
                              skip_next_url = True
                              stats["local"] += 1
                          else:
-                             # Last resort: Try Backup again
+                             # 3. LAST RESORT: Try Backup if Local failed
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
