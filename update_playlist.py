@@ -16,11 +16,10 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# REMOVAL LIST (Keep minimal)
+# REMOVAL LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
-# FORCE BACKUP LIST
-# Added "star", "sports", "nat geo" here so they ALWAYS use the Backup (Fakeall)
+# FORCE BACKUP LIST (Aggressive Mode for Star/Sports)
 FORCE_BACKUP_KEYWORDS = [
     "star", "sports", "nat geo", "fox", "willow",
     "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
@@ -29,12 +28,18 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "ten"
 ]
 
+# --- CRITICAL FIX: MAPPING NAMES TO BACKUP NAMES ---
 NAME_OVERRIDES = {
+    # Format: "Your Template Name" : "Backup File Name"
+    "star sports 1 hd": "Star Sports HD1",
+    "star sports 2 hd": "Star Sports HD2",
+    "star sports 1 hindi hd": "Star Sports HD1 Hindi",
+    "star sports select 1 hd": "Star Sports Select HD1",
+    "star sports select 2 hd": "Star Sports Select HD2",
+    
     "star sports 2 hindi hd": "Sports18 1 HD",
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
-    "star sports 1 hd": "Star Sports 1 HD",
-    "star sports 2 hd": "Star Sports 2 HD",
-    "star sports 1 hindi hd": "Star Sports 1 Hindi HD",
+    
     "nat geo hd": "National Geographic HD",
     "nat geo wild hd": "Nat Geo Wild HD",
     "sony sports ten 1 hd": "Sony Sports Ten 1 HD",
@@ -62,7 +67,7 @@ def find_best_backup_link(original_name, backup_map):
     # 1. Direct Match
     if clean_orig in backup_map: return backup_map[clean_orig]
     
-    # 2. Override Match
+    # 2. Override Match (This fixes the HD channels)
     clean_mapped = None
     for k, v in NAME_OVERRIDES.items():
         if clean_name_key(k) == clean_orig: 
@@ -188,17 +193,17 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # 1. Check Forced Backup (Now includes STAR/NAT GEO)
+                    # 1. Check Forced Backup (Includes STAR/NAT GEO)
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
-                    # 2. If no backup found, Fallback to Local
+                    # 2. If found, add it
                     if found_block:
                          final_lines.append(line); final_lines.extend(found_block)
                          skip_next_url = True
                          stats["backup"] += 1
                     else:
-                         # Check Local
+                         # 3. Fallback to Local (Only if backup failed)
                          mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
                          if clean_key in local_map:
                              final_lines.append(line)
@@ -211,7 +216,7 @@ def update_playlist():
                              skip_next_url = True
                              stats["local"] += 1
                          else:
-                             # Last resort: Try Backup again if not forced earlier
+                             # Last resort: Try Backup again
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
