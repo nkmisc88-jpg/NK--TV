@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-28 21:32:12
+# Updated on: 2025-12-28 21:47:46
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -863,7 +863,7 @@ https://vt-ip.vodep39240327.workers.dev/802.m3u8
 https://jtvp.8088y.workers.dev/bpk-tv/bpk-tv/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 29 December 2025 at 2:59:06 am
+#DATE:- Monday, 29 December 2025 at 3:14:07 am
 #EXTINF:-1 tvg-id="138365" tvg-name="Ivory Coast Vs Cameroon" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138365_5774_IVC_CMR_fc-web_1766386874740.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Ivory Coast Vs Cameroon
 https://in-mc-fdlive.fancode.com/mumbai/138365_english_hls_6a81e90d8c90298_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="139163" tvg-name="New York Vs Atlanta" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png" tvg-language="ENGLISH" group-title="Golf",ENG | New York Vs Atlanta
