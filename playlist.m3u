@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-29 15:55:05
+# Updated on: 2025-12-29 16:06:42
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -854,12 +854,12 @@ http://51.89.148.37:8080/catena-9-15390503-streamer-_fox_sports_505_fhd/tracks-v
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 502
 http://51.89.148.37:8080/catena-9-94-streamer-fox_sports_502_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
-http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b
+http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Cricket
+http://xott.live:8080/3316789067/64678846/167581
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 29 December 2025 at 9:24:14 pm
-#EXTINF:-1 tvg-id="138921" tvg-name="Noakhali Express Vs Rajshahi Warriors" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138921_5808_DBR_NOE_fc-web_1766733054270.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Noakhali Express Vs Rajshahi Warriors
-https://in-mc-fdlive.fancode.com/mumbai/138921_english_hls_d69a6a330972121_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Monday, 29 December 2025 at 9:29:05 pm
 #EXTINF:-1 tvg-id="139155" tvg-name="Ias Invincibles Vs Renaissance Challengers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Ias Invincibles Vs Renaissance Challengers
 https://in-mc-fdlive.fancode.com/mumbai/139155_english_hls_2c904ed39f11454_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="138370" tvg-name="Zimbabwe Vs South Africa" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138370_5774_ZIM_SA_fc-web_1766386874746.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Zimbabwe Vs South Africa
