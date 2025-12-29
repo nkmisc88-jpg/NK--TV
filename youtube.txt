@@ -16,4 +16,8 @@ Link : http://51.89.148.37:8080/catena-9-94-streamer-fox_sports_502_fhd/tracks-v
 
 Title : Fox 501
 Logo : 
-Link : http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b
+Link : http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617
+
+Title : Cricket 
+Logo : 
+Link : http://xott.live:8080/3316789067/64678846/167581
