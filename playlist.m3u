@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-30 16:54:17
+# Updated on: 2025-12-30 17:41:23
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -859,10 +859,12 @@ http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3
 https://aps31.playlist.live-video.net/v1/playlist/CroFT3AaXcjjXmAXNJj-0LSojCmhW0oy2FAQ6UsRvz9HTpUCfsvljw01kz3FTZgCuBg14pQAlUqBKGY4YFuuEI0kfGFDM4z-DIlaU9nDOmj97zTm6mewTno0z7pCxyXGiNwiORKrldP9Yc0kvd9Rpq1Lc6nlTl_GaAd0vNSTOhk6DmhBubK0Rt07_zMRQderwX-oTzUWyo_bX7ysVXOrJhBSH-w5JPq3LlDqsahoEl4AExQ5ZWrmqVM4S2azamLVzE2ADzAD1hh9zmR-TX5A6GGLrrMuavf5e-ErbRfVCdBShod-mQWiMhYsHn3_OgkRFHUaU2qDFyAyylZaDkcylC_dMIIvOyHiFCMjJh1SZVb0wXvZfbUwfIdok88jVrS-6joDacUwIYGSuJEKtEeDTXjg0N4VGFWud3kJfYMqSgPXqcPkTsHPrzxBOxJI_UfXz0F5GS1qmcEuiVvkbG97GU3XoGKE6EUZG2SHwUGBp58BgG6_EPuUFeYvr7Pe2rKWv4lE4zA-C6x7ZiG8HTGpdFc1NRDxoa-ZNRsTfQgoHti67gik-NaSU3K9SeyUWvZFniB5yMmd8bxKgnwLlVhuXG5Em1BZcOTEwzC7gD9c3O4zXfQN7ioIR2KMOD3lO6oeK9ohCpdNiIp9AVCiWYNaOu7SnbE7x4gwrOAW5vQ-VqcleYJi0uJ0-wYYNRY76AZDY03VM1st377rpHPnaHMVXoU62Ygq961gT2-1CCZ_5AUQPfLloLEu4SMT0KsumKAS0BBfQhecmFhOFMgOvmugVHJST98RTVGGA7VM1l2S9FicQl3VuGCbP7uutGrGBc8JofemQ4aRhK7b5rLT-7_f8doO8OVAv33zCxqDUyY5ftdmZO3831BnR0sX9r_Qz4u7IeBWdTo4Ll7KoAhNDx-ikJ6p7yXFkHn2yz4P-G8aDIcbkmYrOea9gYF7riABKgl1cy13ZXN0LTIwiA4.m3u8
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 30 December 2025 at 10:24:06 pm
+#DATE:- Tuesday, 30 December 2025 at 11:09:04 pm
 #EXTINF:-1 tvg-id="138653" tvg-name="Desert Vipers Vs Mi Emirates" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138646_5786_DV_MIE_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Desert Vipers Vs Mi Emirates
 https://in-mc-fdlive.fancode.com/mumbai/138653_english_hls_ef8f33f54e54252_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="138372" tvg-name="Tanzania Vs Tunisia" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138372_5774_TNZ_TUN_fc-web_1766386874006.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Tanzania Vs Tunisia
 https://in-mc-fdlive.fancode.com/mumbai/138372_english_hls_6e2a872ef321275_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-id="138371" tvg-name="Uganda Vs Nigeria" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138371_5774_UGN_NGA_fc-web_1766386874290.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Uganda Vs Nigeria
 https://in-mc-fdlive.fancode.com/mumbai/138371_english_hls_7109021f372890_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 tvg-id="138443" tvg-name="Al Ettifaq Vs Al Nassr Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138443_5655_ETT_ANF_fc-web.png" tvg-language="ENGLISH" group-title="Football",ENG | Al Ettifaq Vs Al Nassr Fc
+https://in-mc-fdlive.fancode.com/mumbai/138443_english_hls_f36949a12359053_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
