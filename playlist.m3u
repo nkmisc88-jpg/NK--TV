@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-30 15:41:46
+# Updated on: 2025-12-30 15:55:28
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -859,6 +859,10 @@ http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3
 http://xott.live:8080/3316789067/64678846/167581
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 30 December 2025 at 9:09:08 pm
+#DATE:- Tuesday, 30 December 2025 at 9:24:11 pm
 #EXTINF:-1 tvg-id="138653" tvg-name="Desert Vipers Vs Mi Emirates" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138646_5786_DV_MIE_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Desert Vipers Vs Mi Emirates
 https://in-mc-fdlive.fancode.com/mumbai/138653_english_hls_ef8f33f54e54252_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 tvg-id="138372" tvg-name="Tanzania Vs Tunisia" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138372_5774_TNZ_TUN_fc-web_1766386874006.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Tanzania Vs Tunisia
+https://in-mc-fdlive.fancode.com/mumbai/138372_english_hls_6e2a872ef321275_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 tvg-id="138371" tvg-name="Uganda Vs Nigeria" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138371_5774_UGN_NGA_fc-web_1766386874290.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Uganda Vs Nigeria
+https://in-mc-fdlive.fancode.com/mumbai/138371_english_hls_7109021f372890_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
