@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2025-12-31 17:48:50
+# Updated on: 2025-12-31 18:55:02
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -859,12 +859,10 @@ http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3
 https://aps32.playlist.live-video.net/v1/playlist/CrkFPA0wAtrho7iChuzsoGMxOZpA0BqV550E3bIlOIHkCgVRYjJ_u8aW92tRxpiS_jGJbKTX5hBF_fReryfJnRw6O394aghxr5mPv-CTTcx7IIFoG71pPhPE1E_SZHypAl47lIqxbmVcaSNeA-TtO6sDF0OTjWtIqRVSvUba0g8b6LGJyc6fZvGbUdPOGXiSsBJYvcVLo0zwt5PnYq9dLdzi46izUwMKYyh4udau9K7zizlgWAAfDi7BZYc7zn3KnmN1v1ItD-tiLANRJWTQwrJSotH4ZgYbGq52Dd7twoT7IIjyY7W4g1t19ybUcIeHWHTBKyXSbGmE6JBPe7GAlJcqeDBbP9n4khrBDQTMwZwRuKIPkBXLjB9pqkZaYgeJrjDfgiZ8xqi-ofZnyxnE36XTWCL-EqHSyF4OlVo_zKVdV29ic0fQskLrbZ7VbKr4DkJ4sCghUtaIuv7TWYzSVKjCnQbqecAQPQ8r1rS5A-EV1_QvGXF5iJwi3mClk9XYeYVT-Ynnq41sXoz04M-A9sUtGH95T_p_FphjKfEDTsG7e4ZgC-gkRvdgo_zB_R_Alk7UenuHJ0olW1yMrMg1U_T3-Zx78_CVS6NSsQQ0PCcBHe0NQ2Cn2WgE7L-idRBO8Lu4E3fShNxhx608Om8CxJe6XfAxKh69SQdBWmJGI8Ho0PAxDrm3XUh4oeZfzIrlJu_W_ZB6KJvV8s_h2vvNnZiQll_Fx08-Zdyao0248EDzuT8zOgOCzn0aGfZYlTuL02pOhSIX9tNOUC5Bz9EyIFkKVvmmxQJRnXLH5WiyOD4nCtOBkj7hBs14w_9OA_hNbF7RNQQuQKR2wOHzVLwKL6CYAk0rwABdBFEoQTgsY9HkYDYH60EBZ0b3I0pRoXqL4t1TL01dBC8BbH42Oosz7fnu_qGFk0YQSegTKhoMVZNLwN_nPZfyphaDIAEqCXVzLXdlc3QtMjCJDg.m3u8
 
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 31 December 2025 at 11:14:06 pm
-#EXTINF:-1 tvg-id="139156" tvg-name="Majees Titans Vs Muscat Thunders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Majees Titans Vs Muscat Thunders
-https://in-mc-fdlive.fancode.com/mumbai/139156_english_hls_222af67bd75522_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 tvg-id="138376" tvg-name="Sudan Vs Burkina Faso" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138376_5774_SUD_BRK_fc-web_1766386874335.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Sudan Vs Burkina Faso
-https://in-mc-fdlive.fancode.com/mumbai/138376_english_hls_da3124b58c57709_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 tvg-id="138375" tvg-name="Equatorial Guinea Vs Algeria" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138375_5774_EGU_ALG_fc-web_1766386873987.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Equatorial Guinea Vs Algeria
-https://in-mc-fdlive.fancode.com/mumbai/138375_english_hls_678fdf519e82913_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Thursday, 1 January 2026 at 12:24:15 am
 #EXTINF:-1 tvg-id="138445" tvg-name="Al Kholood Club Vs Al Hilal Sfc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138445_5655_ALK_AHS_fc-web.png" tvg-language="ENGLISH" group-title="Football",ENG | Al Kholood Club Vs Al Hilal Sfc
 https://in-mc-fdlive.fancode.com/mumbai/138445_english_hls_ac2915d30129876_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 tvg-id="138378" tvg-name="Mozambique Vs Cameroon" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138378_5774_MOZ_CMR_fc-web_1766386873980.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Mozambique Vs Cameroon
+https://in-mc-fdlive.fancode.com/mumbai/138378_english_hls_da3911fe1c84040_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 tvg-id="138377" tvg-name="Gabon Vs Ivory Coast" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138377_5774_GAB_IVC_fc-web_1766386874349.jpg" tvg-language="ENGLISH" group-title="Football",ENG | Gabon Vs Ivory Coast
+https://in-mc-fdlive.fancode.com/mumbai/138377_english_hls_81919481cc3364_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
