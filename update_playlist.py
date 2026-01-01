@@ -11,7 +11,7 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# LOCAL SERVER
+# LOCAL SERVER (Star Sports & Nat Geo live here)
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
@@ -23,7 +23,7 @@ zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/m
 # NEW POCKET TV SOURCE
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# EPG HEADER (Time Shift Fixed)
+# EPG HEADER (Fixed Time Shift)
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
 
 # POCKET TV MAPPING (Keyword -> Group)
@@ -41,6 +41,7 @@ POCKET_MAP = {
 REMOVE_KEYWORDS = ["zee thirai"]
 
 # FORCE BACKUP LIST
+# CRITICAL: Do NOT put "star" or "sports" here. They must use Local Server.
 FORCE_BACKUP_KEYWORDS = [
     "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
@@ -110,7 +111,9 @@ def enrich_metadata(line, channel_name):
 
 def should_force_backup(name):
     norm = name.lower()
+    # Star Sports / Nat Geo MUST use Local, so return False
     if "star sports" in norm or "nat geo" in norm: return False
+    
     for k in FORCE_BACKUP_KEYWORDS:
         if k in norm: return True
     return False
@@ -264,7 +267,7 @@ def update_playlist():
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # 1. PROCESS TEMPLATE
+    # 1. PROCESS TEMPLATE (Safe Mode)
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
@@ -273,11 +276,11 @@ def update_playlist():
             if not line: continue
             
             if line.startswith("#EXTINF"):
-                lower_line = line.lower()
+                lower = line.lower()
                 # Clean old groups
-                if 'group-title="live events' in lower_line or 'group-title="temporary' in lower_line or 'group-title="sports hd' in lower_line:
-                    skip_next_url = True; continue              
-                
+                if 'group-title="live events' in lower or 'group-title="temporary' in lower or 'group-title="sports hd' in lower or 'group-title="tamil hd' in lower:
+                    skip_next_url = True; continue
+
                 skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
@@ -294,6 +297,7 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
+                    # PRIORITY: Force Local for Star/Nat Geo
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
@@ -302,6 +306,8 @@ def update_playlist():
                          skip_next_url = True; stats["backup"] += 1
                     else:
                          mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
+                         
+                         # Try Local First
                          if clean_key in local_map:
                              final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
                              skip_next_url = True; stats["local"] += 1
@@ -309,6 +315,7 @@ def update_playlist():
                              final_lines.append(line); final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
                              skip_next_url = True; stats["local"] += 1
                          else:
+                             # Last Resort: Backup
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
@@ -318,11 +325,9 @@ def update_playlist():
                                  skip_next_url = True; stats["missing"] += 1
                 else:
                     final_lines.append(line)
-
             elif not line.startswith("#"):
                 if skip_next_url: skip_next_url = False
                 else: final_lines.append(line)
-
     except FileNotFoundError: pass
 
     # 2. APPEND EXTERNAL CONTENT
@@ -331,8 +336,7 @@ def update_playlist():
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 3. APPEND POCKET TV (Sorted)
-    print("🎥 Appending Pocket TV Favorites...")
+    # 3. APPEND POCKET TV (Sorted into Sports/Tamil)
     final_lines.extend(fetch_pocket_sorted())
 
     # 4. APPEND MANUAL
