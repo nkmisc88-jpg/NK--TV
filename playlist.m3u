@@ -1,5 +1,5 @@
-#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz"
-# Updated on: 2026-01-01 13:46:41
+#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"
+# Updated on: 2026-01-01 14:13:59
 #EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -165,76 +165,6 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Win_TV_BTS/output/index.mpd?__hdnea__=st=
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Moon_Tv_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_HD.png",Star Sports 1 HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=965dc2ddb1d85138ad787999a7f30ca5&key=859695076e67fe961836b564db6d689c
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD1_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_HD.png",Star Sports 2 HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=9457eb90129456fa8ea95e10ba4ac51e&key=e620a970cea474c491ac78ae71a4d764
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD2_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Hindi_HD.png",Star Sports 1 Hindi HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=400131994b445d8c8817202248760fda&key=2d56cb6f07a75b9aff165d534ae2bfc4
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD1_Hindi_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_Hindi_HD.png",Star Sports 2 Hindi HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=bd1ea6a1c1fb5dcdb709434e0826bbc0&key=f57f22cba32739ce7beb1fab3f3d060b
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Sports18_1_HD_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_Select_1_HD.png",Star Sports Select 1 HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=c2c048e439d65316beeda6ef64d5d0f8&key=e2fdc132cbdee65501b845ce414fce39
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_Select_HD_1_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_Select_2_HD.png",Star Sports Select 2 HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=6017d0514d425fa38f6e80ba6dcc852f&key=0018944b00adf2078f62386f30c68b74
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_Select_HD_2_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Eurosport_HD.png",Eurosport HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=14fc31f9d832509c9f7cdd77e622e30b&key=a884515f4e1dd77f07aa100ccec13388
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Dsports_HD_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jio_Sports_HD.png",Jio Sports HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=a1b6b30dc43157eca6b4b23967278579&key=9410ae136ef55c73b21f9bc30630c2f7
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Jio_Sports_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil_HD.png",Star Sports 1 Tamil HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=2272c0bc6b2e5cb090b1f55996e0026c&key=943923934de1d5536ab01c67fca8b337
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_1_Tamil_HD_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_Tamil_HD.png",Star Sports 2 Tamil HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=dc44fe6251825774b90d58dcfa7d94e0&key=63e3ae853f483a86752b5b9e6d61eb20
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
 #EXTINF:-1 tvg-shift="-5.5" group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_3.png",Star Sports 3
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,23 +776,117 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 1 January 2026 at 7:14:06 pm
+#DATE:- Thursday, 1 January 2026 at 7:39:07 pm
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="138925" tvg-name="Rajshahi Warriors Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138925_5808_RAN_DBR_fc-web_1766733054891.jpg" tvg-language="ENGLISH" ,ENG | Rajshahi Warriors Vs Rangpur Riders
 https://in-mc-fdlive.fancode.com/mumbai/138925_english_hls_94185bf7d073249_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="138654" tvg-name="Dubai Capitals Vs Abu Dhabi Knight Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138629_5786_DC_ADKR_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Dubai Capitals Vs Abu Dhabi Knight Riders
+https://in-mc-fdlive.fancode.com/mumbai/138654_english_hls_0ecfc48b3251304_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="139157" tvg-name="Yalla Shabab Giants Vs Royal Oman Stallions" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Yalla Shabab Giants Vs Royal Oman Stallions
 https://in-mc-fdlive.fancode.com/mumbai/139157_english_hls_18a39603bb77153_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="136992" tvg-name="Blackburn Rovers F.c. Vs Wrexham A.f.c." tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/136992_5489_BLK_WRX_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Blackburn Rovers F.c. Vs Wrexham A.f.c.
 https://in-mc-fdlive.fancode.com/mumbai/136992_english_hls_47ab463c8357606_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 01-01-2026 19:04
+#DATE:- 01-01-2026 19:24
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="1090498499" tvg-name="Best Of Sports 2025 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012676/1766556929935301_2025SportsBlockbusters_24x7_landscape_thumb.jpg" tvg-language="English" ,ENG | Best Of Sports 2025 - 24x7
-https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767314042~acl=/*~id=5c4dcd8b9d969ab602ebd350e9275d02-1767270840662~hmac=a3f651dd4555da4c7f482290c40a3fed6b321c58d1a6985690b0bef72c984c88|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; V2439; Build/AP3A.240905.015.A2_V000L1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=bb3c177b02112bab6b9d299ccf34210e-1767274448290
+https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767314042~acl=/*~id=5c4dcd8b9d969ab602ebd350e9275d02-1767270840662~hmac=a3f651dd4555da4c7f482290c40a3fed6b321c58d1a6985690b0bef72c984c88|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; SM-F916B; Build/TP1A.220624.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=36572e46a6c774091e13fc9bf7c95dcb-1767275648055
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 1 January 2026 at 7:04:05 pm
+#DATE:- Thursday, 1 January 2026 at 7:34:07 pm
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080listad66b384c6b64aea873d9ad53d624d0df72d80e5f1f341ae881c11ed317842cc.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767353645~acl=%2f*~data=hdntl~hmac=7d22c32f2037922d39073eb1acb55761029534d16a4bc287a693f964da7ae5f7|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080listad66b384c6b64aea873d9ad53d624d0df72d80e5f1f341ae881c11ed317842cc.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767353647~acl=%2f*~data=hdntl~hmac=b17f15ae763819a980ffbb8a39f461aeaa53cb6203317b7b5bfbda88ec75a050|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="0-1-6z5853049" tvg-name="DP World ILT20" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5853049/list/1920x1080list5d13c39f9b1a4e2db551b70ce5bb89b85ed1a6ad57e241bc8f0cc0302dc49b8a.jpg" tvg-language="hindi" ,HIN | DC Vs ADKR - Eliminator
+https://falconstream.zee5.com/cmaf/live/2109037/ELIMINATOR/master.m3u8?hdntl=exp=1767361747~acl=%2f*~data=hdntl~hmac=7a78bd10f58a060f6135450bd745c17675541c826fc8b3efecbe88b434cc4266|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD" tvg-id="608"  tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
+https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=b5a2c6d13b9748de9ceebc0a8adc8af3:e806fec1bf1c8a844216118c94bad020
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD" tvg-id="0-9-zeetamil"  tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
+#EXTHTTP:{"Referer":"https://www.zee5.com/"}
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767336722~acl=%2f*~id=9f143aea-5347-43f2-adcf-48fc8ab69887~data=hdntl~hmac=e31b80f403c05faab9a1710a2280f975befa906daca0bb54a232425c13c75174
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD" tvg-id="0-9-224"  tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
+#EXTHTTP:{"Referer":"https://www.zee5.com/"}
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767336722~acl=%2f*~id=9f143aea-5347-43f2-adcf-48fc8ab69887~data=hdntl~hmac=e31b80f403c05faab9a1710a2280f975befa906daca0bb54a232425c13c75174
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD" tvg-id="3269"  tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-73570-l91cvyrk-v1/imageContent-73570-l91cvyrk-m2.png",Vijay Takkar
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ecdf4d18807e55bf814c3f40656a33c3&key=0031af1bf42234195cda0eb88fd6003b
+#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
+https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Takkar_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD" tvg-id="0-9-360"  tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-360/channel_list/360x2031c866f9b15d44e38b077973e3ab37e89",Zee Tamil HD APAC
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
+#EXTHTTP:{"Referer":"https://www.zee5.com/"}
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1767336722~acl=%2f*~id=9f143aea-5347-43f2-adcf-48fc8ab69887~data=hdntl~hmac=e31b80f403c05faab9a1710a2280f975befa906daca0bb54a232425c13c75174
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Ten_HD.png" ,SONY TEN 1 HD
+https://sl.vodep39240327.workers.dev/channel/SONY TEN 1 HD.m3u8
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Ten2_HD.png" ,SONY TEN 2 HD
+https://sl.vodep39240327.workers.dev/channel/SONY TEN 2 HD.m3u8
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen4_SD_Logo_CLR.png" ,SONY TEN 4 Tamil
+https://sl.vodep39240327.workers.dev/channel/SONY TEN 4.m3u8
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-logo="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen5_HD_Logo_CLR.png" ,SONY TEN 5 HD
+https://sl.vodep39240327.workers.dev/channel/SONY TEN 5 HD.m3u8
+#EXTINF: -1 tvg-id="AstroCricket" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png" , Astro Cricket
+https://live.catvod.com/live.php?id=Acricket
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=9872e439f21f4a299cab249c6554daa3:0cdfcfe0d0f1fbe100554ce3ef4c4665
+#EXTINF: -1 tvg-id="SkySpCricket.HD.uk" tvg-chno="" tvg-logo="https://tataprime.files.wordpress.com/2024/05/20240513_0718037281702601479724023.png" , Sky Sports Cricket
+http://178.33.239.54:8080/503/index.m3u8
+#EXTINF: -1  tvg-name="Rasi Movies"  tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1518425091386983341611136.png",Rasi Movies
+https://rasinetworks.in/live/rasimovieshd/index.mpd
+#EXTINF: -1  tvg-name="Rasi Hollywood"  tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942518224615220455317164.png",Rasi Hollywood
+https://rasinetworks.in/live/rasihollywoodhd/index.mpd
+============================================= MUSIC =================================================
+#EXTINF: -1   tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png", Rasi Music
+https://rasinetworks.in/live/rasimusichd/index.mpd
+#EXTINF: -1 tvg-id="ZeeTamil.in" tvg-chno="197" tvg-logo="https://yt3.googleusercontent.com/GJVGgzRXxK1FDoUpC8ztBHPu81PMnhc8inodKtEckH-rykiYLzg93HUQIoTIirwORynozMkR=s900-c-k-c0x00ffffff-no-rj" , Zee Tamil News
+https://dpkvdnzbeen1l.cloudfront.net/index_4.m3u8
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-id="AstroVinmeen" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroVinmeen_2024.png" group-logo="" ,Astro Vinmeen
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 11; Philips Google TV TA7 Build/RTM5.220609.199; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36
+https://live.catvod.com/live.php?id=Rusi
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key={"keys":[ { "kty":"oct", "k":"CE52Vhu6nU866VOs3Tez7Q", "kid":"kYrevhCphI1WfcbLWtzlEA" } ], "type":"temporary" }
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 14; TMRV075G Build/UKQ1.230924.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/132.0.6834.163 Mobile Safari/537.36
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD"  tvg-id="AstroVaanavil" tvg-chno="201" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroVaanavil_2024.png",Astro Vaanavil
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=72499c6ad44cc37d95a9075420911110:b5416326114a13e90662a4fbaf3c532b
+https://converse.nathcreqtives.com/astro/2309/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-ID="AstroVellithirai"  tvg-logo="https://linear-poster.astro.com.my/prod/logo/Astro_Vellithirai_v1.png",Astro Vellithirai
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=9c44af8b594b6157f55d3c31bd679c10:c128bbe41e94d15a7f8cc2f6253a54b2
+https://converse.nathcreqtives.com/astro/5073/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD" tvg-id="ZeeTamilHD" tvg-chno="223"  tvg-logo="https://linear-poster.astro.com.my/prod/logo/ZeeTamil_v1.png",Zee Tamil
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=0d4e3e7dac2d58b93bf819a72fe8d510:667a33f4d5bb3587f2d5209886839eac
+https://converse.nathcreqtives.com/astro/2311/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-id="ShowcaseMovies" ch-number="413"  tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroShowcase_2024.png",Astro Showcase
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=b8090c8361cc5cc5c1aac0ec2710de10:ca0d18538845bae2cb4f4a168036f174
+https://converse.nathcreqtives.com/astro/5054/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-id="AstroCricket" tvg-chno="824" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroCricket_2024.png" , Astro Cricket
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=03c2e0af2f8159f9f0ce9b5dbc865f10:cd84ed136b0cc71f8ab8cd4d4f6a2e4c
+https://converse.nathcreqtives.com/astro/2504/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports HD" tvg-ID="AstroSportsPlus"  tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroSportsPlus_2024.png",Astro Sports Plus
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=81352bc47ec1177b321ee65ac1be7f10:c8b886142005d7e5067c8717777eaac4
+https://converse.nathcreqtives.com/astro/5171/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD"  tvg-name="Rasi TV"  tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1437564760907591116562534.png",Rasi TV HD
+https://rasinetworks.in/live/rasitvhd/index.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD"  tvg-name="Rasi Comedy"  tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942127817851833380019717.png",Rasi Comedy
+https://rasinetworks.in/live/rasicomedyhd/index.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD"  tvg-name="Rasi Classic"  tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasiclassic.png",Rasi Classic
+https://rasinetworks.in/live/rasiclassichd/index.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD"  tvg-name="Rasi Cinemax"  tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasicinemax.png",Rasi Cinemax
+https://rasinetworks.in/live/rasicinemaxhd/index.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD"  tvg-name="Rasi Cinema"  tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasicinema.png",Rasi Cinema
+https://rasinetworks.in/live/rasicinemahd/index.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD"  tvg-name="Rasi Lifestyle"  tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasilifestyle.png",Rasi Lifestyle
+https://rasinetworks.in/live/rasilifestylehd/index.mpd
 #EXTINF:-1 tvg-shift="-5.5" group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8
 #EXTINF:-1 tvg-shift="-5.5" group-title="Temporary Channels" tvg-logo="",Willow Sports
