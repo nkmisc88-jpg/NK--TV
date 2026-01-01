@@ -16,16 +16,30 @@ output_file = "playlist.m3u"
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
+pocket_url = "https://raw.githubusercontent.com/nkmisc88-jpg/M3U-Extractor-/main/playlists/1_Pocket-TV.m3u"
 
-# NEW BACKUP SOURCES
+# RELIABLE BACKUPS (Sony/Zee)
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
-sony_json = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.json"  # <--- NEW JSON SOURCE
+sony_json = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.json"
+
+# EPG SOURCES (Local + Public Backup)
+EPG_URL = "http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz"
+
+# CHANNELS TO STEAL FROM POCKET TV
+POCKET_WANTED = [
+    "astro cricket", 
+    "sony ten 1", "sony ten 2", "sony ten 3", "sony ten 4", "sony ten 5",
+    "sky sports cricket", 
+    "zee tamil", "zee thirai", 
+    "vijay takkar", 
+    "rasi movies", "rasi hollywood"
+]
 
 # REMOVAL LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
-# FORCE BACKUP LIST (Sony/Zee/Colors use Backup)
+# FORCE BACKUP LIST
 FORCE_BACKUP_KEYWORDS = [
     "zee", "sony", "sab", "set", "pix", "max", "wah", "pal",
     "vijay", "asianet", "suvarna", "maa", "hotstar", 
@@ -44,9 +58,22 @@ NAME_OVERRIDES = {
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "nat geo hd": "National Geographic HD",
     "nat geo wild hd": "Nat Geo Wild HD",
-    "sony sports ten 1 hd": "Sony Sports Ten 1 HD",
-    "sony sports ten 2 hd": "Sony Sports Ten 2 HD",
-    "sony sports ten 5 hd": "Sony Sports Ten 5 HD",
+}
+
+# LOGO LIBRARY
+LOGO_MAP = {
+    "star sports 1 hd": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_HD.png",
+    "star sports 2 hd": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_HD.png",
+    "star sports 1 hindi hd": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Hindi_HD.png",
+    "star sports 2 tamil hd": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_Tamil_HD.png",
+    "sony sports ten 1 hd": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png",
+    "sony sports ten 2 hd": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png",
+    "sony sports ten 5 hd": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Six_HD.png",
+    "astro cricket": "https://i.imgur.com/7Xj4G6d.png",
+    "sky sports cricket": "https://i.imgur.com/Frw9n3r.png",
+    "vijay takkar": "https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Takkar.png",
+    "zee tamil": "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png",
+    "zee thirai": "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Thirai_HD.png",
 }
 
 # ==========================================
@@ -56,6 +83,15 @@ def clean_name_key(name):
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
+
+def get_best_logo(channel_name, existing_logo=""):
+    if existing_logo and "http" in existing_logo: return existing_logo
+    clean_key = clean_name_key(channel_name)
+    for k, v in LOGO_MAP.items():
+        if clean_name_key(k) == clean_key: return v
+    for k, v in LOGO_MAP.items():
+        if k in channel_name.lower(): return v
+    return ""
 
 def should_force_backup(name):
     norm = name.lower()
@@ -67,7 +103,6 @@ def should_force_backup(name):
 def find_best_backup_link(original_name, backup_map):
     clean_orig = clean_name_key(original_name)
     if clean_orig in backup_map: return backup_map[clean_orig]
-    
     clean_mapped = None
     for k, v in NAME_OVERRIDES.items():
         if clean_name_key(k) == clean_orig: clean_mapped = clean_name_key(v); break
@@ -109,7 +144,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. PARSERS (YouTube & JSON)
+# 2. PARSERS (YouTube & Pocket TV)
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -136,10 +171,49 @@ def process_entry(data):
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
             link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
-            print(f"   ✨ Converted: {title}")
+    if not logo: logo = get_best_logo(title)
     return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
 
-# --- NEW: PARSE SONY JSON FOR LIVE MATCHES ---
+def fetch_pocket_playlist():
+    entries = []
+    print(f"🌍 Fetching Pocket TV Playlist...")
+    try:
+        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
+        if r.status_code == 200:
+            lines = r.text.splitlines()
+            current_block = []; keep_block = False
+            for line in lines:
+                line = line.strip()
+                if not line: continue
+                if line.startswith("#EXTINF"):
+                    if keep_block and len(current_block) >= 2: entries.extend(current_block)
+                    current_block = [line]; keep_block = False
+                    line_lower = line.lower()
+                    for keyword in POCKET_WANTED:
+                        if keyword in line_lower:
+                            keep_block = True
+                            meta = current_block[0]
+                            name = meta.split(",")[-1].strip()
+                            logo_match = re.search(r'tvg-logo="([^"]+)"', meta)
+                            logo = logo_match.group(1) if logo_match else ""
+                            if not logo: 
+                                logo = get_best_logo(name)
+                                if 'tvg-logo=""' in meta: meta = meta.replace('tvg-logo=""', f'tvg-logo="{logo}"')
+                                elif 'tvg-logo' not in meta: meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{logo}"')
+                            meta = re.sub(r'group-title="[^"]*"', '', meta)
+                            current_block[0] = meta.replace("#EXTINF:-1", '#EXTINF:-1 group-title="Pocket TV Favorites"')
+                            break
+                else:
+                    if current_block: current_block.append(line)
+            if keep_block and len(current_block) >= 2: entries.extend(current_block)
+            print(f"✅ Extracted {len(entries)//2} channels from Pocket TV.")
+    except Exception as e: print(f"❌ Error reading Pocket TV: {e}")
+    return entries
+
+# ==========================================
+# 3. EXTERNAL FETCHERS (JSON & M3U)
+# ==========================================
 def fetch_sony_live_matches():
     entries = []
     try:
@@ -151,33 +225,18 @@ def fetch_sony_live_matches():
             matches = data.get("data", [])
             for match in matches:
                 try:
-                    # Extract Info
                     title = match['video_info']['title']
-                    episode = match['video_info'].get('episodeTitle', '')
-                    if episode: title = f"{title} - {episode}"
-                    
                     logo = match['image_cdn']['thumbnail']
-                    
-                    # Extract Link (Try JITENDRAUNATTI first)
                     link = ""
                     audio_links = match.get("MULTIPLE_AUDIO_LINKS", [])
                     if audio_links:
-                        # Usually inside the first audio option -> DATA -> JITENDRAUNATTI -> Playback_videoURL
                         first_audio = audio_links[0].get("DATA", {})
-                        if "JITENDRAUNATTI" in first_audio:
-                            link = first_audio["JITENDRAUNATTI"].get("Playback_videoURL", "")
-                    
-                    if link:
-                        entries.append(f'#EXTINF:-1 group-title="Sony Live Events" tvg-logo="{logo}",{title}\n{link}')
+                        if "JITENDRAUNATTI" in first_audio: link = first_audio["JITENDRAUNATTI"].get("Playback_videoURL", "")
+                    if link: entries.append(f'#EXTINF:-1 group-title="Sony Live Events" tvg-logo="{logo}",{title}\n{link}')
                 except: continue
-            print(f"✅ Sony JSON: Found {len(entries)} live matches.")
-    except Exception as e:
-        print(f"❌ Failed to fetch Sony JSON: {e}")
+    except: pass
     return entries
 
-# ==========================================
-# 3. EXTERNAL M3U FETCHER
-# ==========================================
 def fetch_and_group_m3u(url, group_name):
     entries = []
     try:
@@ -190,12 +249,14 @@ def fetch_and_group_m3u(url, group_name):
                 line = line.strip()
                 if not line or line.startswith("#EXTM3U"): continue
                 if line.startswith("#EXTINF"):
+                    name = line.split(",")[-1].strip()
+                    logo = get_best_logo(name)
+                    if 'tvg-logo=""' in line: line = line.replace('tvg-logo=""', f'tvg-logo="{logo}"')
+                    elif 'tvg-logo' not in line and logo: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{logo}"')
                     line = re.sub(r'group-title="[^"]*"', '', line)
                     line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
                 entries.append(line)
-            print(f"✅ {group_name} merged ({len(entries)//2} channels).")
-    except Exception as e:
-        print(f"❌ Failed to fetch {group_name}: {e}")
+    except: pass
     return entries
 
 # ==========================================
@@ -204,7 +265,8 @@ def fetch_and_group_m3u(url, group_name):
 def update_playlist():
     print("--- STARTING UPDATE ---")
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    final_lines = ["#EXTM3U", f"# Updated on: {current_time}"]
+    # FIX: Added x-tvg-url for EPG support
+    final_lines = [f'#EXTM3U x-tvg-url="{EPG_URL}"', f"# Updated on: {current_time}"]
     
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
@@ -216,76 +278,63 @@ def update_playlist():
         for i, line in enumerate(lines):
             line = line.strip()
             if not line: continue
-            
             if line.startswith("#EXTINF"):
                 lower_line = line.lower()
-                if 'group-title="youtube' in lower_line or 'group-title="temporary' in lower_line or 'group-title="sony live events' in lower_line:
+                if 'group-title="youtube' in lower_line or 'group-title="temporary' in lower_line or 'group-title="pocket' in lower_line:
                     skip_next_url = True; continue              
-                
                 skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
+                
+                logo = get_best_logo(original_name)
+                if 'tvg-logo=""' in line: line = line.replace('tvg-logo=""', f'tvg-logo="{logo}"')
+                elif 'tvg-logo' not in line and logo: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{logo}"')
 
                 should_remove = False
                 for rm in REMOVE_KEYWORDS:
                     if rm in ch_name_lower: should_remove = True; break
-                if should_remove: 
-                    skip_next_url = True; continue
+                if should_remove: skip_next_url = True; continue
 
                 if i + 1 < len(lines) and "http://placeholder" in lines[i+1]:
                     clean_key = clean_name_key(original_name)
                     found_block = None
-                    
-                    if should_force_backup(original_name):
-                        found_block = find_best_backup_link(original_name, backup_map)
-                    
+                    if should_force_backup(original_name): found_block = find_best_backup_link(original_name, backup_map)
                     if found_block:
                          final_lines.append(line); final_lines.extend(found_block)
-                         skip_next_url = True
-                         stats["backup"] += 1
+                         skip_next_url = True; stats["backup"] += 1
                     else:
                          mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
                          if clean_key in local_map:
                              final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
-                             skip_next_url = True
-                             stats["local"] += 1
+                             skip_next_url = True; stats["local"] += 1
                          elif mapped_key and mapped_key in local_map:
                              final_lines.append(line); final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
-                             skip_next_url = True
-                             stats["local"] += 1
+                             skip_next_url = True; stats["local"] += 1
                          else:
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
-                                 skip_next_url = True
-                                 stats["backup"] += 1
+                                 skip_next_url = True; stats["backup"] += 1
                              else:
                                  final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
-                                 skip_next_url = True
-                                 stats["missing"] += 1
-                else:
-                    final_lines.append(line)
-
+                                 skip_next_url = True; stats["missing"] += 1
+                else: final_lines.append(line)
             elif not line.startswith("#"):
                 if skip_next_url: skip_next_url = False
                 else: final_lines.append(line)
 
     except FileNotFoundError: pass
 
-    # --- APPEND LIVE EVENTS (Top Priority) ---
     print("🎥 Appending Sony Live Matches...")
     final_lines.extend(fetch_sony_live_matches())
-
-    # --- APPEND SECTIONS ---
+    print("🎥 Appending Pocket TV Favorites...")
+    final_lines.extend(fetch_pocket_playlist())
     print("🎥 Appending Fancode...")
     final_lines.extend(fetch_and_group_m3u(fancode_url, "Fancode"))
-
     print("🎥 Appending Sony Backup...")
     final_lines.extend(fetch_and_group_m3u(sony_m3u, "Sony Backup"))
-
     print("🎥 Appending Zee Backup...")
     final_lines.extend(fetch_and_group_m3u(zee_m3u, "Zee Backup"))
-
     print("🎥 Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
 
