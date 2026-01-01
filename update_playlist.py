@@ -2,6 +2,7 @@ import requests
 import re
 import datetime
 import os
+import json
 
 # ==========================================
 # CONFIGURATION
@@ -20,6 +21,7 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 # RELIABLE BACKUPS (Sony/Zee)
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
+sony_json = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.json"
 
 # EPG SOURCE
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"'
@@ -127,7 +129,6 @@ def enrich_metadata(line, channel_name):
             
     if meta:
         # 1. FORCE REPLACE LOGO (Regex)
-        # This deletes any existing tvg-logo="..." and adds the correct one
         if 'tvg-logo=' in line:
             line = re.sub(r'tvg-logo="[^"]*"', f'tvg-logo="{meta["logo"]}"', line)
         else:
@@ -193,7 +194,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. PARSERS
+# 2. PARSERS (YouTube & Pocket TV)
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -262,7 +263,7 @@ def parse_pocket_playlist():
     return entries
 
 # ==========================================
-# 3. EXTERNAL FETCHERS
+# 3. EXTERNAL FETCHERS (JSON & M3U)
 # ==========================================
 def fetch_sony_live_matches():
     entries = []
@@ -322,7 +323,7 @@ def update_playlist():
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # 1. PROCESS TEMPLATE
+    # 1. PROCESS TEMPLATE (Smart Hybrid)
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
@@ -390,14 +391,15 @@ def update_playlist():
     print("🎥 Appending Pocket TV Favorites...")
     final_lines.extend(parse_pocket_playlist())
 
+    # --- [CHANGED] Grouping all backups into "Live Events" ---
     print("🎥 Appending Fancode...")
-    final_lines.extend(fetch_and_group_m3u(fancode_url, "Fancode"))
+    final_lines.extend(fetch_and_group_m3u(fancode_url, "Live Events"))
     
     print("🎥 Appending Sony Backup...")
-    final_lines.extend(fetch_and_group_m3u(sony_m3u, "Sony Backup"))
+    final_lines.extend(fetch_and_group_m3u(sony_m3u, "Live Events"))
     
     print("🎥 Appending Zee Backup...")
-    final_lines.extend(fetch_and_group_m3u(zee_m3u, "Zee Backup"))
+    final_lines.extend(fetch_and_group_m3u(zee_m3u, "Live Events"))
 
     print("🎥 Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
