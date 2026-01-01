@@ -20,19 +20,19 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# POCKET TV SOURCE
+# POCKET TV SOURCE (Trying explicit raw link)
 pocket_url = "https://raw.githubusercontent.com/nkmisc88-jpg/M3U-Extractor-/main/playlists/1_Pocket-TV.m3u"
 
 # EPG HEADER
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"'
 
-# POCKET TV WISH LIST (Lower case for matching)
+# POCKET TV WISH LIST
 POCKET_WANTED = [
-    "astro cricket", "sony ten", "sky sports cricket", 
+    "astro", "sony ten", "sky sports", 
     "zee tamil", "zee thirai", "vijay takkar", "rasi"
 ]
 
-# REMOVAL LIST
+# REMOVE LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
 # FORCE BACKUP LIST
@@ -194,56 +194,63 @@ def fetch_and_group(url, group_name):
     except Exception as e: print(f"❌ Error fetching: {e}")
     return entries
 
-# --- IMPROVED POCKET TV FETCHER ---
+# --- [FIXED] FORCE VISIBLE POCKET TV FETCHER ---
 def fetch_pocket_favorites():
     entries = []
-    print(f"🌍 Fetching Pocket TV (Trying to force match)...")
+    print(f"🌍 Fetching Pocket TV...")
+    status_msg = "Unknown Error"
+    count = 0
+    
     try:
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
         
         if r.status_code == 200:
             lines = r.text.splitlines()
-            count = 0
+            print(f"   ↪ Downloaded {len(lines)} lines from source.")
             
-            # Simple 2-line buffer logic to handle any weird spacing
             for i in range(len(lines)):
                 line = lines[i].strip()
-                if line.startswith("#EXTINF"):
-                    # Extract Name
+                # Looser check: Just look for #EXTINF
+                if "#EXTINF" in line:
                     name_match = line.split(",")[-1].strip()
                     if not name_match: continue
                     
-                    name_lower = name_match.lower()
-                    
-                    # Check if it matches our wish list
+                    # Fuzzy Match
                     is_wanted = False
                     for keyword in POCKET_WANTED:
-                        if keyword in name_lower:
-                            is_wanted = True
-                            break
+                        if keyword.lower() in name_match.lower():
+                            is_wanted = True; break
                     
                     if is_wanted:
-                        # Find the link (it should be the next non-empty line)
+                        # Find link in next few lines
                         link = ""
-                        for j in range(i + 1, min(i + 5, len(lines))):
-                            if lines[j].strip() and not lines[j].startswith("#"):
-                                link = lines[j].strip()
+                        for j in range(i + 1, min(i + 10, len(lines))):
+                            potential_link = lines[j].strip()
+                            if potential_link and not potential_link.startswith("#"):
+                                link = potential_link
                                 break
                         
                         if link:
-                            # Construct Clean Entry
+                            # Force the group format directly
                             meta = f'#EXTINF:-1 group-title="Pocket TV",{name_match}'
                             meta = enrich_metadata(meta, name_match)
                             entries.append(meta)
                             entries.append(link)
                             count += 1
             
-            print(f"✅ Found {count} matching channels for Pocket TV.")
+            status_msg = f"✅ Found {count} Channels"
         else:
-            print(f"❌ Pocket TV Download Failed: Status {r.status_code}")
+            status_msg = f"❌ HTTP Error {r.status_code}"
             
-    except Exception as e: print(f"❌ Error Pocket TV: {e}")
+    except Exception as e: 
+        status_msg = f"❌ Script Error: {str(e)}"
+        
+    print(f"   ↪ {status_msg}")
+    
+    # FORCE ADD A STATUS CHANNEL SO THE GROUP APPEARS
+    entries.insert(0, f'#EXTINF:-1 group-title="Pocket TV" tvg-logo="https://i.imgur.com/7Xj4G6d.png",ℹ️ Status: {status_msg}\nhttp://0.0.0.0')
+        
     return entries
 
 # ==========================================
@@ -319,13 +326,13 @@ def update_playlist():
 
     except FileNotFoundError: pass
 
-    # 2. APPEND EXTERNAL CONTENT (Live Events)
+    # 2. APPEND EXTERNAL CONTENT
     print("🎥 Appending Live Events...")
     final_lines.extend(fetch_and_group(fancode_url, "Live Events"))
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 3. APPEND POCKET TV (New Group)
+    # 3. APPEND POCKET TV
     print("🎥 Appending Pocket TV Favorites...")
     final_lines.extend(fetch_pocket_favorites())
 
