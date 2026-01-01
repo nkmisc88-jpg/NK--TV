@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"
-# Updated on: 2026-01-01 09:12:57
+# Updated on: 2026-01-01 09:13:41
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/KTV_HD.png",KTV HD
@@ -94,8 +94,6 @@ http://192.168.0.146:5350/live/000.m3u8
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/History_TV18_HD.png",History TV18 HD
 http://192.168.0.146:5350/live/000.m3u8
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_BBC_Earth_HD.png",Sony BBC Earth HD
-http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/TravelXP_HD.png",Travelxp HD
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Nat_Geo_HD.png",Nat Geo HD
@@ -160,8 +158,6 @@ http://192.168.0.146:5350/live/000.m3u8
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Times_Now.png",Times NOW
 http://192.168.0.146:5350/live/000.m3u8
-#EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_News.png",Zee News
-http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/ABP_News.png",ABP News India
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/India_TV.png",India TV
@@ -212,8 +208,6 @@ http://192.168.0.146:5350/live/000.m3u8
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_Kids.png",Discovery Kids Hindi
 http://192.168.0.146:5350/live/000.m3u8
-#EXTINF:-1 group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Yay.png",Sony Yay Hindi
-http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Chutti_TV.png",Chutti TV
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Kushi_TV.png",Kushi TV
@@ -238,10 +232,6 @@ http://192.168.0.146:5350/live/000.m3u8
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Gold_HD.png",Star Gold HD
 http://192.168.0.146:5350/live/000.m3u8
-#EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Cinema_HD.png",Zee Cinema HD
-http://192.168.0.146:5350/live/000.m3u8
-#EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Max_HD.png",Sony Max HD
-http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Cineplex_HD.png",Colors Cineplex
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Gold_Select_HD.png",Star Gold Select HD
@@ -249,8 +239,6 @@ http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/And_Pictures_HD.png",&pictures HD
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Movies_HD.png",Star Movies HD
-http://192.168.0.146:5350/live/000.m3u8
-#EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Pix_HD.png",Sony Pix HD
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Movies_Now_HD.png",Movies Now HD
 http://192.168.0.146:5350/live/000.m3u8
@@ -264,11 +252,7 @@ http://192.168.0.146:5350/live/000.m3u8
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_HD.png",Colors HD
 http://192.168.0.146:5350/live/000.m3u8
-#EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_TV_HD.png",Zee TV HD
-http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_HD.png",SET HD
-http://192.168.0.146:5350/live/000.m3u8
-#EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_SAB_HD.png",Sony SAB HD
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/MTV_HD.png",MTV HD
 http://192.168.0.146:5350/live/000.m3u8
@@ -281,8 +265,6 @@ http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Asianet_HD.png",Asianet News
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Kannada_HD.png",Colors Kannada HD
-http://192.168.0.146:5350/live/000.m3u8
-#EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Telugu_HD.png",Zee Telugu HD
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Gemini_TV_HD.png",Gemini TV HD
 http://192.168.0.146:5350/live/000.m3u8
