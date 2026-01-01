@@ -15,14 +15,13 @@ output_file = "playlist.m3u"
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
-# EXTERNAL SOURCES (Fancode + Sony + Zee)
+# EXTERNAL SOURCES
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# EPG HEADER (Fixed Time Shift)
-# We add tvg-shift="-5.5" to fix the "Noon showing as 5:30 PM" issue
-EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
+# EPG HEADER (Global fallback)
+EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz"'
 
 # REMOVE LIST
 REMOVE_KEYWORDS = ["zee thirai"]
@@ -35,7 +34,6 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "ten"
 ]
 
-# NAME MAPPING
 NAME_OVERRIDES = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -75,6 +73,12 @@ def clean_name_key(name):
 
 def enrich_metadata(line, channel_name):
     clean_name = clean_name_key(channel_name)
+    
+    # 1. FORCE TIME SHIFT (The Fix)
+    if 'tvg-shift' not in line:
+        line = line.replace("#EXTINF:-1", '#EXTINF:-1 tvg-shift="-5.5"')
+    
+    # 2. Apply Logos & ID
     meta = None
     for k, v in CHANNEL_META.items():
         if k in clean_name: 
@@ -206,14 +210,14 @@ def update_playlist():
             
             if line.startswith("#EXTINF"):
                 lower_line = line.lower()
-                # Clean old groups
-                if 'group-title="live events' in lower_line or 'group-title="temporary' in lower_line or 'group-title="pocket' in lower_line:
+                if 'group-title="live events' in lower_line or 'group-title="temporary' in lower_line:
                     skip_next_url = True; continue              
                 
                 skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
                 
+                # Apply EPG Time Shift & Metadata
                 line = enrich_metadata(line, original_name)
 
                 should_remove = False
@@ -257,7 +261,7 @@ def update_playlist():
 
     except FileNotFoundError: pass
 
-    # 2. APPEND EXTERNAL CONTENT (Live Events)
+    # 2. APPEND EXTERNAL CONTENT
     print("🎥 Appending Live Events...")
     final_lines.extend(fetch_and_group(fancode_url, "Live Events"))
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
