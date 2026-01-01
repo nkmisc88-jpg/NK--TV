@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"
-# Updated on: 02-01-2026 01:20 AM IST
+# Updated on: 02-01-2026 02:12 AM IST
 #EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Status: ❌ MISSING (Upload jiotv_playlist.m3u.m3u8!)
 http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Missing: Star Sports 1 HD
@@ -37,7 +37,7 @@ https://livestream.sunnxt.com/61477b4c8d8d45d5a49e044cc1dffc60/KTVHDB_IN_index.m
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/496.png",Star Vijay HD
 https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer=https://m3u.8088y.fun/
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767336722~acl=%2f*~id=9f143aea-5347-43f2-adcf-48fc8ab69887~data=hdntl~hmac=e31b80f403c05faab9a1710a2280f975befa906daca0bb54a232425c13c75174
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767379922~acl=%2f*~id=a2e7cc93-13ce-4ae2-a099-cb61d16308f4~data=hdntl~hmac=3b5b3966f38f132690b6538f492e089c57ca2e50135f3450d0e7e418a5eb7807
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/674.png",Colors Tamil HD
 https://keys.vodep39240327.workers.dev/?id=429.mpd
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Missing: Jaya TV HD
@@ -47,7 +47,7 @@ https://edge2-moblive.yuppcdn.net:443/drm1/smil:kalaignartvdrm.smil/chunklist_b9
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Missing: Polimer TV
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767336722~acl=%2f*~id=9f143aea-5347-43f2-adcf-48fc8ab69887~data=hdntl~hmac=e31b80f403c05faab9a1710a2280f975befa906daca0bb54a232425c13c75174
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767379922~acl=%2f*~id=a2e7cc93-13ce-4ae2-a099-cb61d16308f4~data=hdntl~hmac=3b5b3966f38f132690b6538f492e089c57ca2e50135f3450d0e7e418a5eb7807
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Missing: Vijay Takkar
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroVaanavil_2024.png",Astro Vaanavil
