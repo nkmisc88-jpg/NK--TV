@@ -9,7 +9,7 @@ import json
 # ==========================================
 template_file = "template.m3u"
 youtube_file = "youtube.txt"
-pocket_file = "pocket.m3u"  # <--- SAVE YOUR POCKET TV FILE AS THIS NAME
+pocket_file = "pocket.m3u"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
@@ -23,16 +23,17 @@ sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 sony_json = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.json"
 
-# CHANNELS TO EXTRACT FROM POCKET TV
+# --- [NEW] EPG SOURCE ---
+EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"'
+
+# POCKET TV WISH LIST
 POCKET_WANTED = [
     "astro cricket", "sony ten", "sky sports cricket",  # Sports
     "zee tamil", "zee thirai", "vijay takkar", "rasi"   # Tamil
 ]
 
-# REMOVAL LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
-# FORCE BACKUP LIST (Use Ext Backup for Sony/Zee)
 FORCE_BACKUP_KEYWORDS = [
     "zee", "sony", "sab", "set", "pix", "max", "wah", "pal",
     "vijay", "asianet", "suvarna", "maa", "hotstar", 
@@ -41,7 +42,6 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "ten"
 ]
 
-# NAME MAPPING (For Local JioTV)
 NAME_OVERRIDES = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -54,6 +54,23 @@ NAME_OVERRIDES = {
     "nat geo wild hd": "Nat Geo Wild HD",
 }
 
+# --- [NEW] LOGO & ID LIBRARY ---
+CHANNEL_META = {
+    "sony sports ten 1": {"id": "Sony Ten 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png"},
+    "sony sports ten 2": {"id": "Sony Ten 2 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png"},
+    "sony sports ten 3": {"id": "Sony Ten 3 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_3_HD.png"},
+    "sony sports ten 4": {"id": "Sony Ten 4 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_4_HD.png"},
+    "sony sports ten 5": {"id": "Sony Six HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Six_HD.png"},
+    "zee tamil": {"id": "Zee Tamil HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png"},
+    "zee thirai": {"id": "Zee Thirai HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Thirai_HD.png"},
+    "astro cricket": {"id": "Astro Cricket", "logo": "https://i.imgur.com/7Xj4G6d.png"},
+    "sky sports cricket": {"id": "Sky Sports Cricket", "logo": "https://i.imgur.com/Frw9n3r.png"},
+    "vijay takkar": {"id": "Vijay Takkar", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Takkar.png"},
+    "star sports 1 hd": {"id": "Star Sports 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_HD.png"},
+    "star sports 2 hd": {"id": "Star Sports 2 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_HD.png"},
+    "star sports 1 hindi": {"id": "Star Sports 1 Hindi HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Hindi_HD.png"},
+}
+
 # ==========================================
 # 1. HELPER FUNCTIONS
 # ==========================================
@@ -61,6 +78,27 @@ def clean_name_key(name):
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
+
+# --- [NEW] SMART METADATA ENRICHER ---
+def enrich_metadata(line, channel_name):
+    """Injects Logo and EPG ID if missing, based on channel name"""
+    clean_name = clean_name_key(channel_name)
+    meta = None
+    
+    # Find matching metadata
+    for k, v in CHANNEL_META.items():
+        if k in clean_name: 
+            meta = v; break
+            
+    if meta:
+        # Inject Logo
+        if 'tvg-logo=""' in line: line = line.replace('tvg-logo=""', f'tvg-logo="{meta["logo"]}"')
+        elif 'tvg-logo' not in line: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{meta["logo"]}"')
+        # Inject EPG ID
+        if 'tvg-id=""' in line: line = line.replace('tvg-id=""', f'tvg-id="{meta["id"]}"')
+        elif 'tvg-id' not in line: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-id="{meta["id"]}"')
+             
+    return line
 
 def should_force_backup(name):
     norm = name.lower()
@@ -141,7 +179,11 @@ def process_entry(data):
         vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
         if vid_match:
             link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
-    return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
+            
+    line = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}'
+    # Apply Meta fix
+    line = enrich_metadata(line, title)
+    return f'{line}\n{link}'
 
 def parse_pocket_playlist():
     entries = []
@@ -152,44 +194,31 @@ def parse_pocket_playlist():
     print(f"📂 Reading {pocket_file}...")
     try:
         with open(pocket_file, "r", encoding="utf-8") as f: lines = f.readlines()
-        
-        current_block = []
-        keep_block = False
-        
+        current_block = []; keep_block = False
         for line in lines:
             line = line.strip()
             if not line: continue
             
             if line.startswith("#EXTINF"):
-                # Save previous block if it was valid
-                if keep_block and len(current_block) >= 2:
-                    entries.extend(current_block)
-                
-                # Start new block
-                current_block = [line]
-                keep_block = False
-                
-                # Check if this channel is in our WANTED list
+                if keep_block and len(current_block) >= 2: entries.extend(current_block)
+                current_block = [line]; keep_block = False
                 line_lower = line.lower()
                 for keyword in POCKET_WANTED:
                     if keyword in line_lower:
                         keep_block = True
-                        # Force Group Name for organization
-                        current_block[0] = re.sub(r'group-title="[^"]*"', '', current_block[0])
-                        current_block[0] = current_block[0].replace("#EXTINF:-1", '#EXTINF:-1 group-title="Pocket TV Favorites"')
+                        meta = current_block[0]
+                        name = meta.split(",")[-1].strip()
+                        meta = re.sub(r'group-title="[^"]*"', '', meta)
+                        meta = meta.replace("#EXTINF:-1", '#EXTINF:-1 group-title="Pocket TV Favorites"')
+                        # Apply Meta fix
+                        meta = enrich_metadata(meta, name)
+                        current_block[0] = meta
                         break
             else:
-                if current_block:
-                    current_block.append(line)
-        
-        # Save last block
-        if keep_block and len(current_block) >= 2:
-            entries.extend(current_block)
-            
+                if current_block: current_block.append(line)
+        if keep_block and len(current_block) >= 2: entries.extend(current_block)
         print(f"✅ Extracted {len(entries)//2} channels from Pocket TV.")
-    except Exception as e:
-        print(f"❌ Error reading Pocket TV: {e}")
-    
+    except Exception as e: print(f"❌ Error reading Pocket TV: {e}")
     return entries
 
 # ==========================================
@@ -232,6 +261,9 @@ def fetch_and_group_m3u(url, group_name):
                 line = line.strip()
                 if not line or line.startswith("#EXTM3U"): continue
                 if line.startswith("#EXTINF"):
+                    # Fix Meta & Group
+                    name = line.split(",")[-1].strip()
+                    line = enrich_metadata(line, name)
                     line = re.sub(r'group-title="[^"]*"', '', line)
                     line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
                 entries.append(line)
@@ -244,13 +276,15 @@ def fetch_and_group_m3u(url, group_name):
 def update_playlist():
     print("--- STARTING UPDATE ---")
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    final_lines = ["#EXTM3U", f"# Updated on: {current_time}"]
+    
+    # --- [NEW] ADDED EPG HEADER ---
+    final_lines = [EPG_HEADER, f"# Updated on: {current_time}"]
     
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # 1. PROCESS TEMPLATE (Smart Hybrid)
+    # 1. PROCESS TEMPLATE
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
@@ -266,6 +300,9 @@ def update_playlist():
                 skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
+                
+                # --- [NEW] APPLY SMART META ---
+                line = enrich_metadata(line, original_name)
 
                 should_remove = False
                 for rm in REMOVE_KEYWORDS:
@@ -277,7 +314,6 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # FORCE BACKUP (Sony/Zee)
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
@@ -285,7 +321,6 @@ def update_playlist():
                          final_lines.append(line); final_lines.extend(found_block)
                          skip_next_url = True; stats["backup"] += 1
                     else:
-                         # TRY LOCAL (Star/Sports)
                          mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
                          if clean_key in local_map:
                              final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
