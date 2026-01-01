@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"
-# Updated on: 2026-01-01 16:12:51
+# Updated on: 2026-01-01 16:53:08
 #EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,9 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 1 January 2026 at 9:39:06 pm
-#EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="138925" tvg-name="Rajshahi Warriors Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138925_5808_RAN_DBR_fc-web_1766733054891.jpg" tvg-language="ENGLISH" ,ENG | Rajshahi Warriors Vs Rangpur Riders
-https://in-mc-fdlive.fancode.com/mumbai/138925_english_hls_94185bf7d073249_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Thursday, 1 January 2026 at 10:14:05 pm
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="138654" tvg-name="Abu Dhabi Knight Riders Vs Dubai Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138629_5786_DC_ADKR_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Abu Dhabi Knight Riders Vs Dubai Capitals
 https://in-mc-fdlive.fancode.com/mumbai/138654_english_hls_0ecfc48b3251304_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="139158" tvg-name="Ias Invincibles Vs Renaissance Challengers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Ias Invincibles Vs Renaissance Challengers
@@ -857,20 +855,18 @@ https://in-mc-fdlive.fancode.com/mumbai/139158_english_hls_30b544bb9436907_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/136994_english_hls_888c12be8e43192_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="135967" tvg-name="Wycombe Wanderers Vs Cardiff City" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810).png" tvg-language="ENGLISH" ,ENG | Wycombe Wanderers Vs Cardiff City
 https://in-mc-fdlive.fancode.com/mumbai/135967_english_hls_84efa0182874587_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 01-01-2026 21:24
+#EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="138925" tvg-name="Rajshahi Warriors Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138925_5808_RAN_DBR_fc-web_1766733054891.jpg" tvg-language="ENGLISH" ,ENG | Rajshahi Warriors Vs Rangpur Riders
+https://in-mc-fdlive.fancode.com/mumbai/138925_english_hls_94185bf7d073249_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 01-01-2026 22:04
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="1090491950" tvg-name="Kaun Banega Crorepati" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012833/1767166294878593_kbc25_finale_week_wed_spl_31dec_simulcast_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | E104. Kaun Banega Crorepati - Season 17
-https://sonymtmnew.akamaized.net/hls/live/2043696/DAI26ME-KBC/master.m3u8?hdnea=exp=1767314042~acl=/*~id=5c4dcd8b9d969ab602ebd350e9275d02-1767270840662~hmac=a3f651dd4555da4c7f482290c40a3fed6b321c58d1a6985690b0bef72c984c88|User-Agent=com.sonyliv/6.22.4 (Android 16; en_GB; POCO F1; Build/BP2A.250605.031.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=305e723dd9d761bd8ac67fe3c2682940-1767282848853
+https://sonymtmnew.akamaized.net/hls/live/2043696/DAI26ME-KBC/master.m3u8?hdnea=exp=1767314042~acl=/*~id=5c4dcd8b9d969ab602ebd350e9275d02-1767270840662~hmac=a3f651dd4555da4c7f482290c40a3fed6b321c58d1a6985690b0bef72c984c88|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; RMX3081; Build/SKQ1.210216.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=b6c89ef34eb51e384b158ed8f6c447d5-1767285250731
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="1090498499" tvg-name="Best Of Sports 2025 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012676/1766556929935301_2025SportsBlockbusters_24x7_landscape_thumb.jpg" tvg-language="English" ,ENG | Best Of Sports 2025 - 24x7
-https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767314042~acl=/*~id=5c4dcd8b9d969ab602ebd350e9275d02-1767270840662~hmac=a3f651dd4555da4c7f482290c40a3fed6b321c58d1a6985690b0bef72c984c88|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; SM-A307GN; Build/RP1A.200720.012)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=305e723dd9d761bd8ac67fe3c2682940-1767282848853
+https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767314042~acl=/*~id=5c4dcd8b9d969ab602ebd350e9275d02-1767270840662~hmac=a3f651dd4555da4c7f482290c40a3fed6b321c58d1a6985690b0bef72c984c88|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; SM-N976N; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=b6c89ef34eb51e384b158ed8f6c447d5-1767285250731
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 1 January 2026 at 9:19:12 pm
+#DATE:- Thursday, 1 January 2026 at 10:19:07 pm
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="0-1-6z5853049" tvg-name="DP World ILT20" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5853049/list/1920x1080list5d13c39f9b1a4e2db551b70ce5bb89b85ed1a6ad57e241bc8f0cc0302dc49b8a.jpg" tvg-language="hindi" ,HIN | DC Vs ADKR - Eliminator
 https://falconstream.zee5.com/cmaf/live/2109037/ELIMINATOR/master.m3u8?hdntl=exp=1767361747~acl=%2f*~data=hdntl~hmac=7a78bd10f58a060f6135450bd745c17675541c826fc8b3efecbe88b434cc4266|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
-#EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080listad66b384c6b64aea873d9ad53d624d0df72d80e5f1f341ae881c11ed317842cc.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
-https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767368945~acl=%2f*~data=hdntl~hmac=2c213c58205acf50481524e1614ea3820ce6a17af7152adbf013a2b827ff2ebf|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
-#EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080listad66b384c6b64aea873d9ad53d624d0df72d80e5f1f341ae881c11ed317842cc.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
-https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767368947~acl=%2f*~data=hdntl~hmac=18d80dd80832297a0e3cc88681631db1db352194dd27cfcf1c9878790b213a93|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
 https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
 #EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/496.png",Star Vijay HD
