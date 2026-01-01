@@ -20,8 +20,22 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# EPG HEADER (Global fallback)
-EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz"'
+# NEW POCKET TV SOURCE
+pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
+
+# EPG HEADER (Time Shift Fixed)
+EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
+
+# POCKET TV MAPPING (Keyword -> Group)
+POCKET_MAP = {
+    "astro": "Sports HD",
+    "sony ten": "Sports HD",
+    "sky sports": "Sports HD",
+    "zee tamil": "Tamil HD",
+    "zee thirai": "Tamil HD",
+    "vijay takkar": "Tamil HD",
+    "rasi": "Tamil HD"
+}
 
 # REMOVE LIST
 REMOVE_KEYWORDS = ["zee thirai"]
@@ -74,7 +88,7 @@ def clean_name_key(name):
 def enrich_metadata(line, channel_name):
     clean_name = clean_name_key(channel_name)
     
-    # 1. FORCE TIME SHIFT (The Fix)
+    # 1. FORCE TIME SHIFT
     if 'tvg-shift' not in line:
         line = line.replace("#EXTINF:-1", '#EXTINF:-1 tvg-shift="-5.5"')
     
@@ -188,6 +202,56 @@ def fetch_and_group(url, group_name):
     except Exception as e: print(f"❌ Error fetching: {e}")
     return entries
 
+# --- [NEW] FETCH AND SORT POCKET TV ---
+def fetch_pocket_sorted():
+    entries = []
+    print(f"🌍 Fetching Pocket TV (Sorting to Sports/Tamil)...")
+    try:
+        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
+        
+        if r.status_code == 200:
+            lines = r.text.splitlines()
+            current_block = []; keep_block = False; target_group = ""
+            
+            for line in lines:
+                line = line.strip()
+                if not line: continue
+                
+                # Check line content
+                if "#EXTINF" in line:
+                    if keep_block and len(current_block) >= 1: entries.extend(current_block)
+                    current_block = [line]; keep_block = False
+                    
+                    name = line.split(",")[-1].strip()
+                    name_lower = name.lower()
+                    
+                    # MATCHING LOGIC
+                    matched = False
+                    for key, group in POCKET_MAP.items():
+                        if key in name_lower:
+                            target_group = group
+                            matched = True
+                            break
+                    
+                    if matched:
+                        keep_block = True
+                        # Apply Group
+                        meta = current_block[0]
+                        meta = re.sub(r'group-title="[^"]*"', '', meta)
+                        meta = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{target_group}"', meta)
+                        meta = enrich_metadata(meta, name)
+                        current_block[0] = meta
+                else:
+                    if current_block: current_block.append(line)
+            
+            # Flush last block
+            if keep_block and len(current_block) >= 1: entries.extend(current_block)
+            print(f"✅ Extracted favorites from Pocket TV.")
+            
+    except Exception as e: print(f"❌ Error Pocket TV: {e}")
+    return entries
+
 # ==========================================
 # 3. MAIN EXECUTION
 # ==========================================
@@ -210,14 +274,14 @@ def update_playlist():
             
             if line.startswith("#EXTINF"):
                 lower_line = line.lower()
-                if 'group-title="live events' in lower_line or 'group-title="temporary' in lower_line:
+                # Clean old groups
+                if 'group-title="live events' in lower_line or 'group-title="temporary' in lower_line or 'group-title="sports hd' in lower_line:
                     skip_next_url = True; continue              
                 
                 skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
                 
-                # Apply EPG Time Shift & Metadata
                 line = enrich_metadata(line, original_name)
 
                 should_remove = False
@@ -267,7 +331,11 @@ def update_playlist():
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 3. APPEND MANUAL
+    # 3. APPEND POCKET TV (Sorted)
+    print("🎥 Appending Pocket TV Favorites...")
+    final_lines.extend(fetch_pocket_sorted())
+
+    # 4. APPEND MANUAL
     print("🎥 Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
 
