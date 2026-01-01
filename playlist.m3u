@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"
-# Updated on: 2026-01-01 13:03:37
+# Updated on: 2026-01-01 13:17:49
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -845,6 +845,24 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#DATE:- Thursday, 1 January 2026 at 6:44:07 pm
+#EXTINF:-1 group-title="Live Events" tvg-id="138925" tvg-name="Rajshahi Warriors Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138925_5808_RAN_DBR_fc-web_1766733054891.jpg" tvg-language="ENGLISH" ,ENG | Rajshahi Warriors Vs Rangpur Riders
+https://in-mc-fdlive.fancode.com/mumbai/138925_english_hls_94185bf7d073249_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139157" tvg-name="Yalla Shabab Giants Vs Royal Oman Stallions" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Yalla Shabab Giants Vs Royal Oman Stallions
+https://in-mc-fdlive.fancode.com/mumbai/139157_english_hls_18a39603bb77153_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="136992" tvg-name="Blackburn Rovers F.c. Vs Wrexham A.f.c." tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/136992_5489_BLK_WRX_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Blackburn Rovers F.c. Vs Wrexham A.f.c.
+https://in-mc-fdlive.fancode.com/mumbai/136992_english_hls_47ab463c8357606_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 01-01-2026 18:44
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498499" tvg-name="Best Of Sports 2025 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012676/1766556929935301_2025SportsBlockbusters_24x7_landscape_thumb.jpg" tvg-language="English" ,ENG | Best Of Sports 2025 - 24x7
+https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767314042~acl=/*~id=5c4dcd8b9d969ab602ebd350e9275d02-1767270840662~hmac=a3f651dd4555da4c7f482290c40a3fed6b321c58d1a6985690b0bef72c984c88|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; SM-A3460; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e2c0fc7615eaff877ed045e5d35abc8d-1767273250024
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#DATE:- Thursday, 1 January 2026 at 6:34:06 pm
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080listad66b384c6b64aea873d9ad53d624d0df72d80e5f1f341ae881c11ed317842cc.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
+https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767353645~acl=%2f*~data=hdntl~hmac=7d22c32f2037922d39073eb1acb55761029534d16a4bc287a693f964da7ae5f7|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080listad66b384c6b64aea873d9ad53d624d0df72d80e5f1f341ae881c11ed317842cc.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
+https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767353647~acl=%2f*~data=hdntl~hmac=b17f15ae763819a980ffbb8a39f461aeaa53cb6203317b7b5bfbda88ec75a050|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow Sports
@@ -857,21 +875,3 @@ http://51.89.148.37:8080/catena-9-94-streamer-fox_sports_502_fhd/tracks-v1a1a2a3
 http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow Sports 2
 https://aps32.playlist.live-video.net/v1/playlist/CrkFPA0wAtrho7iChuzsoGMxOZpA0BqV550E3bIlOIHkCgVRYjJ_u8aW92tRxpiS_jGJbKTX5hBF_fReryfJnRw6O394aghxr5mPv-CTTcx7IIFoG71pPhPE1E_SZHypAl47lIqxbmVcaSNeA-TtO6sDF0OTjWtIqRVSvUba0g8b6LGJyc6fZvGbUdPOGXiSsBJYvcVLo0zwt5PnYq9dLdzi46izUwMKYyh4udau9K7zizlgWAAfDi7BZYc7zn3KnmN1v1ItD-tiLANRJWTQwrJSotH4ZgYbGq52Dd7twoT7IIjyY7W4g1t19ybUcIeHWHTBKyXSbGmE6JBPe7GAlJcqeDBbP9n4khrBDQTMwZwRuKIPkBXLjB9pqkZaYgeJrjDfgiZ8xqi-ofZnyxnE36XTWCL-EqHSyF4OlVo_zKVdV29ic0fQskLrbZ7VbKr4DkJ4sCghUtaIuv7TWYzSVKjCnQbqecAQPQ8r1rS5A-EV1_QvGXF5iJwi3mClk9XYeYVT-Ynnq41sXoz04M-A9sUtGH95T_p_FphjKfEDTsG7e4ZgC-gkRvdgo_zB_R_Alk7UenuHJ0olW1yMrMg1U_T3-Zx78_CVS6NSsQQ0PCcBHe0NQ2Cn2WgE7L-idRBO8Lu4E3fShNxhx608Om8CxJe6XfAxKh69SQdBWmJGI8Ho0PAxDrm3XUh4oeZfzIrlJu_W_ZB6KJvV8s_h2vvNnZiQll_Fx08-Zdyao0248EDzuT8zOgOCzn0aGfZYlTuL02pOhSIX9tNOUC5Bz9EyIFkKVvmmxQJRnXLH5WiyOD4nCtOBkj7hBs14w_9OA_hNbF7RNQQuQKR2wOHzVLwKL6CYAk0rwABdBFEoQTgsY9HkYDYH60EBZ0b3I0pRoXqL4t1TL01dBC8BbH42Oosz7fnu_qGFk0YQSegTKhoMVZNLwN_nPZfyphaDIAEqCXVzLXdlc3QtMjCJDg.m3u8
-#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 1 January 2026 at 6:29:06 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="138925" tvg-name="Rajshahi Warriors Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138925_5808_RAN_DBR_fc-web_1766733054891.jpg" tvg-language="ENGLISH" ,ENG | Rajshahi Warriors Vs Rangpur Riders
-https://in-mc-fdlive.fancode.com/mumbai/138925_english_hls_94185bf7d073249_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139157" tvg-name="Yalla Shabab Giants Vs Royal Oman Stallions" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Yalla Shabab Giants Vs Royal Oman Stallions
-https://in-mc-fdlive.fancode.com/mumbai/139157_english_hls_18a39603bb77153_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="136992" tvg-name="Blackburn Rovers F.c. Vs Wrexham A.f.c." tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/136992_5489_BLK_WRX_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Blackburn Rovers F.c. Vs Wrexham A.f.c.
-https://in-mc-fdlive.fancode.com/mumbai/136992_english_hls_47ab463c8357606_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 01-01-2026 18:24
-#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498499" tvg-name="Best Of Sports 2025 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012676/1766556929935301_2025SportsBlockbusters_24x7_landscape_thumb.jpg" tvg-language="English" ,ENG | Best Of Sports 2025 - 24x7
-https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767314042~acl=/*~id=5c4dcd8b9d969ab602ebd350e9275d02-1767270840662~hmac=a3f651dd4555da4c7f482290c40a3fed6b321c58d1a6985690b0bef72c984c88|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; M2006C3MG; Build/RP1A.200720.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=cdb8af2a7e5521385d0b817ff9491b6e-1767272048354
-#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 1 January 2026 at 6:19:07 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080listad66b384c6b64aea873d9ad53d624d0df72d80e5f1f341ae881c11ed317842cc.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
-https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767353645~acl=%2f*~data=hdntl~hmac=7d22c32f2037922d39073eb1acb55761029534d16a4bc287a693f964da7ae5f7|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
-#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080listad66b384c6b64aea873d9ad53d624d0df72d80e5f1f341ae881c11ed317842cc.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
-https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767353647~acl=%2f*~data=hdntl~hmac=b17f15ae763819a980ffbb8a39f461aeaa53cb6203317b7b5bfbda88ec75a050|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
