@@ -11,7 +11,7 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# LOCAL SERVER (Strict Priority)
+# LOCAL SERVER (Star Sports / Nat Geo)
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
@@ -20,10 +20,10 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# POCKET TV SOURCE (Arunjunan20)
+# POCKET TV SOURCE (New Link)
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# EPG HEADER
+# EPG HEADER (Fixed Time Shift)
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
 
 # REMOVE LIST
@@ -37,7 +37,7 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "ten"
 ]
 
-# NAME MAPPING
+# MAPPING
 NAME_OVERRIDES = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -50,7 +50,7 @@ NAME_OVERRIDES = {
     "nat geo wild hd": "Nat Geo Wild HD",
 }
 
-# LOGO LIBRARY (Fallback only - Source logos take priority now)
+# LOGO LIBRARY
 CHANNEL_META = {
     "sony sports ten 1": {"id": "Sony Ten 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png"},
     "sony sports ten 2": {"id": "Sony Ten 2 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png"},
@@ -76,32 +76,26 @@ def clean_name_key(name):
     return name.lower().strip()
 
 def enrich_metadata(line, channel_name):
-    """Adds EPG ID and Time Shift. Only adds Logo if missing."""
     clean_name = clean_name_key(channel_name)
     
     # 1. FORCE TIME SHIFT
     if 'tvg-shift' not in line:
         line = line.replace("#EXTINF:-1", '#EXTINF:-1 tvg-shift="-5.5"')
     
-    # 2. Get Metadata
+    # 2. Apply Logos & ID
     meta = None
     for k, v in CHANNEL_META.items():
         if k in clean_name: 
             meta = v; break
-            
     if meta:
-        # ONLY Inject Logo if the line doesn't already have one
-        if 'tvg-logo' not in line:
-            line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{meta["logo"]}"')
-        elif 'tvg-logo=""' in line:
-            line = line.replace('tvg-logo=""', f'tvg-logo="{meta["logo"]}"')
-            
-        # Always fix ID if possible
+        if 'tvg-logo=' in line:
+            line = re.sub(r'tvg-logo="[^"]*"', f'tvg-logo="{meta["logo"]}"', line)
+        else:
+            line = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 tvg-logo="{meta["logo"]}"', line)
         if 'tvg-id=' in line:
              line = re.sub(r'tvg-id="[^"]*"', f'tvg-id="{meta["id"]}"', line)
         else:
-             line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-id="{meta["id"]}"')
-             
+             line = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 tvg-id="{meta["id"]}"', line)
     return line
 
 def should_force_backup(name):
@@ -198,10 +192,10 @@ def fetch_and_group(url, group_name):
     except Exception as e: print(f"❌ Error fetching: {e}")
     return entries
 
-# --- [FIXED] POCKET TV FETCHER (PRESERVES SOURCE LOGOS) ---
+# --- [NEW] CLEAN POCKET TV BUILDER ---
 def fetch_pocket_extras():
     entries = []
-    print(f"🌍 Fetching Pocket TV (Preserving Logos)...")
+    print(f"🌍 Fetching Pocket TV Extras (Clean Build)...")
     try:
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
@@ -212,27 +206,23 @@ def fetch_pocket_extras():
                 line = lines[i].strip()
                 
                 if "#EXTINF" in line:
-                    # 1. Extract Name
+                    # 1. Extract Name & Logo
                     name = line.split(",")[-1].strip()
                     name_lower = name.lower()
                     
-                    # 2. Extract Logo (CRITICAL STEP)
+                    # Extract Logo if present
                     logo = ""
                     logo_match = re.search(r'tvg-logo="([^"]*)"', line)
-                    if logo_match: 
-                        logo = logo_match.group(1)
+                    if logo_match: logo = logo_match.group(1)
                     
-                    # 3. Determine Group
+                    # 2. Determine Group (Strict Matching)
                     target_group = None
-                    # Sports HD: Astro, Ten, Sky
                     if any(x in name_lower for x in ["astro", "sony ten", "sky sports", "cricket"]):
-                        target_group = "Sports HD"
-                    # Tamil HD: Zee, Vijay, Rasi, Astro Ent
-                    elif any(x in name_lower for x in ["zee tamil", "zee thirai", "vijay", "rasi", "sun", "kalaignar", "polimer", "astro"]):
-                        # Note: 'astro' here catches Thangathirai because 'astro cricket' was caught above
-                        target_group = "Tamil HD"
+                        target_group = "Sports Extra"
+                    elif any(x in name_lower for x in ["tamil", "thirai", "vijay", "rasi", "sun", "polimer", "news18 tamil"]):
+                        target_group = "Tamil Extra"
                     
-                    # 4. Rebuild Line
+                    # 3. Rebuild Line if Matched
                     if target_group:
                         # Find link
                         link = ""
@@ -242,17 +232,13 @@ def fetch_pocket_extras():
                                 link = potential; break
                         
                         if link:
-                            # Construct new line using SOURCE LOGO
-                            # We manually build it to ensure the source logo sticks
+                            # CONSTRUCT NEW LINE (Removes garbage groups)
                             meta = f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{logo}",{name}'
-                            
-                            # Add EPG/Time Shift, but DON'T overwrite the logo we just extracted
-                            meta = enrich_metadata(meta, name)
-                            
+                            meta = enrich_metadata(meta, name) # Apply EPG fix
                             entries.append(meta)
                             entries.append(link)
                             
-            print(f"✅ Extracted Extras with Logos.")
+            print(f"✅ Extracted Extras.")
             
     except Exception as e: print(f"❌ Error Pocket TV: {e}")
     return entries
@@ -269,7 +255,7 @@ def update_playlist():
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # 1. PROCESS TEMPLATE (Safe Mode)
+    # 1. PROCESS TEMPLATE
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
@@ -334,7 +320,7 @@ def update_playlist():
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 3. APPEND EXTRAS (Clean Build with Logos)
+    # 3. APPEND EXTRAS (Clean Build)
     final_lines.extend(fetch_pocket_extras())
 
     # 4. APPEND MANUAL
