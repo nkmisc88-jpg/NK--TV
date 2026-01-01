@@ -11,7 +11,7 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# LOCAL SERVER (Priority)
+# LOCAL SERVER
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
@@ -20,20 +20,22 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# POCKET TV SOURCE (The correct one)
+# POCKET TV SOURCE
 pocket_url = "https://raw.githubusercontent.com/nkmisc88-jpg/M3U-Extractor-/main/playlists/1_Pocket-TV.m3u"
 
 # EPG HEADER
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"'
 
-# POCKET TV WISH LIST
+# POCKET TV WISH LIST (Lower case for matching)
 POCKET_WANTED = [
     "astro cricket", "sony ten", "sky sports cricket", 
     "zee tamil", "zee thirai", "vijay takkar", "rasi"
 ]
 
+# REMOVAL LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
+# FORCE BACKUP LIST
 FORCE_BACKUP_KEYWORDS = [
     "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
@@ -100,6 +102,7 @@ def enrich_metadata(line, channel_name):
 
 def should_force_backup(name):
     norm = name.lower()
+    if "star sports" in norm or "nat geo" in norm: return False
     for k in FORCE_BACKUP_KEYWORDS:
         if k in norm: return True
     return False
@@ -147,7 +150,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. FETCHERS
+# 2. PARSERS & FETCHERS
 # ==========================================
 def parse_youtube_txt():
     entries = []
@@ -191,38 +194,55 @@ def fetch_and_group(url, group_name):
     except Exception as e: print(f"❌ Error fetching: {e}")
     return entries
 
+# --- IMPROVED POCKET TV FETCHER ---
 def fetch_pocket_favorites():
     entries = []
-    print(f"🌍 Fetching Pocket TV...")
+    print(f"🌍 Fetching Pocket TV (Trying to force match)...")
     try:
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
+        
         if r.status_code == 200:
             lines = r.text.splitlines()
-            current_block = []; keep_block = False
-            for line in lines:
-                line = line.strip()
-                if not line: continue
+            count = 0
+            
+            # Simple 2-line buffer logic to handle any weird spacing
+            for i in range(len(lines)):
+                line = lines[i].strip()
                 if line.startswith("#EXTINF"):
-                    if keep_block and len(current_block) >= 2: entries.extend(current_block)
-                    current_block = [line]; keep_block = False
-                    line_lower = line.lower()
+                    # Extract Name
+                    name_match = line.split(",")[-1].strip()
+                    if not name_match: continue
+                    
+                    name_lower = name_match.lower()
+                    
+                    # Check if it matches our wish list
+                    is_wanted = False
                     for keyword in POCKET_WANTED:
-                        if keyword in line_lower:
-                            keep_block = True
-                            meta = current_block[0]
-                            # Force Group: Pocket TV
-                            meta = re.sub(r'group-title="[^"]*"', '', meta)
-                            meta = re.sub(r'(#EXTINF:[-0-9]+)', '\\1 group-title="Pocket TV"', meta)
-                            # Fix Meta
-                            name = meta.split(",")[-1].strip()
-                            meta = enrich_metadata(meta, name)
-                            current_block[0] = meta
+                        if keyword in name_lower:
+                            is_wanted = True
                             break
-                else:
-                    if current_block: current_block.append(line)
-            if keep_block and len(current_block) >= 2: entries.extend(current_block)
-            print(f"✅ Extracted favorites from Pocket TV.")
+                    
+                    if is_wanted:
+                        # Find the link (it should be the next non-empty line)
+                        link = ""
+                        for j in range(i + 1, min(i + 5, len(lines))):
+                            if lines[j].strip() and not lines[j].startswith("#"):
+                                link = lines[j].strip()
+                                break
+                        
+                        if link:
+                            # Construct Clean Entry
+                            meta = f'#EXTINF:-1 group-title="Pocket TV",{name_match}'
+                            meta = enrich_metadata(meta, name_match)
+                            entries.append(meta)
+                            entries.append(link)
+                            count += 1
+            
+            print(f"✅ Found {count} matching channels for Pocket TV.")
+        else:
+            print(f"❌ Pocket TV Download Failed: Status {r.status_code}")
+            
     except Exception as e: print(f"❌ Error Pocket TV: {e}")
     return entries
 
@@ -247,9 +267,9 @@ def update_playlist():
             if not line: continue
             
             if line.startswith("#EXTINF"):
-                lower = line.lower()
+                lower_line = line.lower()
                 # Clean old groups
-                if 'group-title="live events' in lower or 'group-title="temporary' in lower or 'group-title="pocket' in lower:
+                if 'group-title="live events' in lower_line or 'group-title="temporary' in lower_line or 'group-title="pocket' in lower_line:
                     skip_next_url = True; continue              
                 
                 skip_next_url = False
@@ -292,23 +312,26 @@ def update_playlist():
                                  skip_next_url = True; stats["missing"] += 1
                 else:
                     final_lines.append(line)
+
             elif not line.startswith("#"):
                 if skip_next_url: skip_next_url = False
                 else: final_lines.append(line)
+
     except FileNotFoundError: pass
 
-    print("🎥 Appending Temporary Channels...")
-    final_lines.extend(parse_youtube_txt())
-
-    # --- 2. Live Events (Fancode + Sony + Zee) ---
+    # 2. APPEND EXTERNAL CONTENT (Live Events)
     print("🎥 Appending Live Events...")
     final_lines.extend(fetch_and_group(fancode_url, "Live Events"))
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # --- 3. Pocket TV (Requested Channels -> "Pocket TV" Group) ---
+    # 3. APPEND POCKET TV (New Group)
     print("🎥 Appending Pocket TV Favorites...")
     final_lines.extend(fetch_pocket_favorites())
+
+    # 4. APPEND MANUAL
+    print("🎥 Appending Temporary Channels...")
+    final_lines.extend(parse_youtube_txt())
 
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"🎉 DONE. Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
