@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"
-# Updated on: 2026-01-01 14:28:19
+# Updated on: 2026-01-01 14:36:49
 #EXTINF:-1 tvg-shift="-5.5" group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 1 January 2026 at 7:49:05 pm
+#DATE:- Thursday, 1 January 2026 at 8:04:05 pm
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="138925" tvg-name="Rajshahi Warriors Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138925_5808_RAN_DBR_fc-web_1766733054891.jpg" tvg-language="ENGLISH" ,ENG | Rajshahi Warriors Vs Rangpur Riders
 https://in-mc-fdlive.fancode.com/mumbai/138925_english_hls_94185bf7d073249_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="138654" tvg-name="Abu Dhabi Knight Riders Vs Dubai Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138629_5786_DC_ADKR_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Abu Dhabi Knight Riders Vs Dubai Capitals
@@ -855,10 +855,10 @@ https://in-mc-fdlive.fancode.com/mumbai/138654_english_hls_0ecfc48b3251304_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139157_english_hls_18a39603bb77153_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="136992" tvg-name="Blackburn Rovers F.c. Vs Wrexham A.f.c." tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/136992_5489_BLK_WRX_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Blackburn Rovers F.c. Vs Wrexham A.f.c.
 https://in-mc-fdlive.fancode.com/mumbai/136992_english_hls_47ab463c8357606_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 01-01-2026 19:44
+#DATE:- 01-01-2026 20:04
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="1090498499" tvg-name="Best Of Sports 2025 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012676/1766556929935301_2025SportsBlockbusters_24x7_landscape_thumb.jpg" tvg-language="English" ,ENG | Best Of Sports 2025 - 24x7
-https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767314042~acl=/*~id=5c4dcd8b9d969ab602ebd350e9275d02-1767270840662~hmac=a3f651dd4555da4c7f482290c40a3fed6b321c58d1a6985690b0bef72c984c88|User-Agent=com.sonyliv/6.22.4 (Android 8; en_GB; vivo 1823; Build/O11019)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=04f7c184cb10c2fb1244e88f2316c67c-1767276848833
+https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767314042~acl=/*~id=5c4dcd8b9d969ab602ebd350e9275d02-1767270840662~hmac=a3f651dd4555da4c7f482290c40a3fed6b321c58d1a6985690b0bef72c984c88|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; V2244; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=04f7c184cb10c2fb1244e88f2316c67c-1767276848833
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Thursday, 1 January 2026 at 7:49:06 pm
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080listad66b384c6b64aea873d9ad53d624d0df72d80e5f1f341ae881c11ed317842cc.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
@@ -867,373 +867,273 @@ https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1
 https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767353647~acl=%2f*~data=hdntl~hmac=b17f15ae763819a980ffbb8a39f461aeaa53cb6203317b7b5bfbda88ec75a050|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 tvg-shift="-5.5" group-title="Live Events" tvg-id="0-1-6z5853049" tvg-name="DP World ILT20" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5853049/list/1920x1080list5d13c39f9b1a4e2db551b70ce5bb89b85ed1a6ad57e241bc8f0cc0302dc49b8a.jpg" tvg-language="hindi" ,HIN | DC Vs ADKR - Eliminator
 https://falconstream.zee5.com/cmaf/live/2109037/ELIMINATOR/master.m3u8?hdntl=exp=1767361747~acl=%2f*~data=hdntl~hmac=7a78bd10f58a060f6135450bd745c17675541c826fc8b3efecbe88b434cc4266|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
-#EXTINF: -1 tvg-id="ts496" tvg-name="Star Vijay HD" tvg-logo="https://tatalogo.pages.dev/496.png" , Star Vijay HD
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
+https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/496.png",Star Vijay HD
 https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer=https://m3u.8088y.fun/
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="674" tvg-logo="https://tatalogo.pages.dev/674.png" ,Colors Tamil HD
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://jkey.playlivtvlinks.workers.dev/?id=429
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/674.png",Colors Tamil HD
 https://keys.vodep39240327.workers.dev/?id=429.mpd
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="608"  tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=b5a2c6d13b9748de9ceebc0a8adc8af3:e806fec1bf1c8a844216118c94bad020
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="368"  tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/357_144.png",Star Vijay HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=849d6b062b645abea937ec7f2b6b1686&key=1f65503420b88d11a16d4a4eacd95f0f
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="429"  tvg-logo="https://tatalogo.pages.dev/674.png",Colors Tamil HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=94d31d976768554b892f7037db09e0c9&key=08c5154b6cdcb6e0fc99d9d4e6298cb3
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsTamilHD_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="0-9-zeetamil"  tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
-#EXTHTTP:{"Referer":"https://www.zee5.com/"}
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11954-j9lu45o8-v1/imageContent-11954-j9lu45o8-m1.png",Sun Music HD
+https://livestream.sunnxt.com/d434796d90fa4dc9b7ecfacedbe683f1/SunMusicHDB_IN_index.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767336722~acl=%2f*~id=9f143aea-5347-43f2-adcf-48fc8ab69887~data=hdntl~hmac=e31b80f403c05faab9a1710a2280f975befa906daca0bb54a232425c13c75174
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="569"  tvg-logo="https://tatalogo.pages.dev/99.png",D Tamil
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b6fbfa48ce125c8c8f46004da232e956&key=fb3181695d57614995f6025d41a1dbe2
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_Channel_Tamil_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="0-9-224"  tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
-#EXTHTTP:{"Referer":"https://www.zee5.com/"}
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767336722~acl=%2f*~id=9f143aea-5347-43f2-adcf-48fc8ab69887~data=hdntl~hmac=e31b80f403c05faab9a1710a2280f975befa906daca0bb54a232425c13c75174
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="3266"  tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11197-j9i4fbbs-v2/imageContent-11197-j9i4fbbs-m4.png",Vijay Super HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4058ba890768578093e4d30bc957b85c&key=42d335cfebf7292487522ac572d706a8
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Super_HD_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="3269"  tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-73570-l91cvyrk-v1/imageContent-73570-l91cvyrk-m2.png",Vijay Takkar
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ecdf4d18807e55bf814c3f40656a33c3&key=0031af1bf42234195cda0eb88fd6003b
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Takkar_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="0-9-360"  tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-360/channel_list/360x2031c866f9b15d44e38b077973e3ab37e89",Zee Tamil HD APAC
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
-#EXTHTTP:{"Referer":"https://www.zee5.com/"}
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-360/channel_list/360x2031c866f9b15d44e38b077973e3ab37e89",Zee Tamil HD APAC
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1767336722~acl=%2f*~id=9f143aea-5347-43f2-adcf-48fc8ab69887~data=hdntl~hmac=e31b80f403c05faab9a1710a2280f975befa906daca0bb54a232425c13c75174
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="673"  tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/news7tamil-black.png",News7 Tamil
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ec09137d33685441840a6a203fb997f1&key=1f4fa4c7d54765cc7cc68b6f139aaae8
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/News7_Tamil_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="3045"  tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/TAMILJNM_Thumbnail-v6/TAMILJNM_Thumbnail.png",Tamil Janam
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4de4a5c05118507d8e7e81390addc2a7&key=f80ec85f9713e4e28616d77179d414ce
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Janam_Tamil_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="3277"  tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SS1TAMHD_Thumbnail-v1/SS1TAMHD_Thumbnail.png",Star Sports 1 Tamil HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=2272c0bc6b2e5cb090b1f55996e0026c&key=943923934de1d5536ab01c67fca8b337
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_1_Tamil_HD_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="3273"  tvg-logo="https://img.media.jio.com/tvpimages/50/43/302120_1753202207980_l_high.jpg",Star Sports 2 Tamil HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=dc44fe6251825774b90d58dcfa7d94e0&key=63e3ae853f483a86752b5b9e6d61eb20
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="290"  tvg-logo="https://tatalogo.pages.dev/127.png",Sonic Tamil
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=a62d4ca4ef095564bede0fe525956634&key=5e34a5126bfe29c18947046513f18cce
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/sonic_Tamil_MOB/WDVLive/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="1081"  tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-34164-jok06xoo-v1/imageContent-34164-jok06xoo-m1.png",CN HD+ Tamil
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=83997e19da7f5b15a53c150730a91f31&key=605f420d088427d95b55275eb174b734
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/CN_HD_Tamil_MOB/WDVLive/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="3430"  tvg-logo="https://tatalogo.pages.dev/219.png",Discovery Tamil
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=f91eebcabe535ca79d870938b931282a&key=9b1820ed98bde518f9150fa4170e75e8
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/DiscoveryTam_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="814"  tvg-logo="https://tatalogo.pages.dev/444.png",Travelxp Tamil
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=422041867ef8519f80db68590dcec30c&key=7a8dac15a397d0d6286046eb0392d581
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2"}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Travel_XP_Tamil_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="334" tvg-logo="https://i.ibb.co/rQNDBCy/dd.png" , DD Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HDR10
+https://livestream10.sunnxt.com/DolbyVision/SunTV_HDR/SunTV_HDR_Endpoints/SunTV-HDR10-IN-index.m3u8
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/rQNDBCy/dd.png",DD Tamil
 https://d2lk5u59tns74c.cloudfront.net/out/v1/abf46b14847e45499f4a47f3a9afe93d/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="ts490" tvg-logo="https://i.imgur.com/YQK9ewf.png" ,Aastha Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.imgur.com/YQK9ewf.png",Aastha Tamil
 https://aasthaott.akamaized.net/110923/smil:aasthatamil.smil/playlist.m3u8
-#EXTINF: -1 tvg-id="ts663" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-31376-jlxbt6kg-v2/imageContent-31376-jlxbt6kg-m2.png" , Tata Play Tamil Cinema
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-31376-jlxbt6kg-v2/imageContent-31376-jlxbt6kg-m2.png",Tata Play Tamil Cinema
 http://cox69847.cdngold.me:80/play/live.php?mac=00:1a:79:78:8B:D8&stream=440710&extension=ts
-#EXTINF: -1  tvg-logo="https://i.ibb.co/wNmB354M/Picsart-25-09-04-12-47-02-235.png", Star Vijay UK
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/wNmB354M/Picsart-25-09-04-12-47-02-235.png",Star Vijay UK
 https://peaky.techcoder40.workers.dev/776.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="Star Sports 1 Tamil.in" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-249-j5fyl7tk-v1/imageContent-249-j5fyl7tk-m1.png" , Star Sports 1 Tamil
-#EXTVLCOPT:http-user-agent=Dalvik/2.1.0 (Linux; U; Android 11; Pixel 4 Build/RD2A.211001.002)
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-249-j5fyl7tk-v1/imageContent-249-j5fyl7tk-m1.png",Star Sports 1 Tamil
 https://tv.vaanam24.com/live.m3u8?c=STARSPORTSTAMILHD
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="ts1187" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/Star%20Sports%202%20Tamil_Thumbnail_a2144bc4-8953-4ca9-980b-86499353c0da.png" , Star Sports 2 Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/Star%20Sports%202%20Tamil_Thumbnail_a2144bc4-8953-4ca9-980b-86499353c0da.png",Star Sports 2 Tamil
 https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/379753.ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Ten_HD.png" ,SONY TEN 1 HD
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Ten_HD.png",SONY TEN 1 HD
 https://sl.vodep39240327.workers.dev/channel/SONY TEN 1 HD.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Ten2_HD.png" ,SONY TEN 2 HD
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Ten2_HD.png",SONY TEN 2 HD
 https://sl.vodep39240327.workers.dev/channel/SONY TEN 2 HD.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen4_SD_Logo_CLR.png" ,SONY TEN 4 Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen4_SD_Logo_CLR.png",SONY TEN 4 Tamil
 https://sl.vodep39240327.workers.dev/channel/SONY TEN 4.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen5_HD_Logo_CLR.png" ,SONY TEN 5 HD
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen5_HD_Logo_CLR.png",SONY TEN 5 HD
 https://sl.vodep39240327.workers.dev/channel/SONY TEN 5 HD.m3u8
-#EXTINF: -1 tvg-id="AstroCricket" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png" , Astro Cricket
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png",Astro Cricket
 https://live.catvod.com/live.php?id=Acricket
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=9872e439f21f4a299cab249c6554daa3:0cdfcfe0d0f1fbe100554ce3ef4c4665
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-id="Ten Cricket" tvg-logo="https://img-cdn.publive.online/fit-in/640x430/filters:format(webp)/afaqs/media/post_attachments/84882a51b6c9326e4499dedbb089ca95bd82663084027217207edb964a9a89ad.jpg" ,Ten Cricket
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://img-cdn.publive.online/fit-in/640x430/filters:format(webp)/afaqs/media/post_attachments/84882a51b6c9326e4499dedbb089ca95bd82663084027217207edb964a9a89ad.jpg",Ten Cricket
 https://edge4-moblive.yuppcdn.net/drm2/smil:tencricketdrm1.smil/manifest.mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=9872e439f21f4a299cab249c6554daa3:0cdfcfe0d0f1fbe100554ce3ef4c4665
-#EXTINF: -1 tvg-id="Willow.Cricket.HD.us2" tvg-chno="67" tvg-logo="https://i.postimg.cc/RFNMQVQM/j-Na-Ow-Lv-R-400x400-photoaidcom-cropped.png" , Willow Cricket
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://i.postimg.cc/RFNMQVQM/j-Na-Ow-Lv-R-400x400-photoaidcom-cropped.png",Willow Cricket
 https://fl1.moveonjoy.com/WILLOW_CRICKET/index.m3u8
-#EXTINF: -1 tvg-id="SkySpCricket.HD.uk" tvg-chno="" tvg-logo="https://tataprime.files.wordpress.com/2024/05/20240513_0718037281702601479724023.png" , Sky Sports Cricket
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/05/20240513_0718037281702601479724023.png",Sky Sports Cricket
 http://178.33.239.54:8080/503/index.m3u8
-#EXTINF: -1  tvg-name="Rasi Movies"  tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1518425091386983341611136.png",Rasi Movies
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1518425091386983341611136.png",Rasi Movies
 https://rasinetworks.in/live/rasimovieshd/index.mpd
-#EXTINF: -1  tvg-name="Rasi Hollywood"  tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942518224615220455317164.png",Rasi Hollywood
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942518224615220455317164.png",Rasi Hollywood
 https://rasinetworks.in/live/rasihollywoodhd/index.mpd
-============================================= MUSIC =================================================
-#EXTINF: -1   tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png", Rasi Music
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png",Rasi Music
 https://rasinetworks.in/live/rasimusichd/index.mpd
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="58" tvg-chno="193" tvg-logo="https://tatalogo.pages.dev/58.png" , News18 Tamil Nadu
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.postimg.cc/k5KdQRFN/image-Content-11734-j9kw60rc-m1.webp",Sun News
+https://livestream3.sunnxt.com/491c99fb6d0c49e88e6349170d890a2f/SunNewsB_IN_index.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/58.png",News18 Tamil Nadu
 https://nw18live.cdn.jio.com/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="ts968" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-69018-kzo65wi0-v1/imageContent-69018-kzo65wi0-m2.png" ,News Tamil 24x7
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-69018-kzo65wi0-v1/imageContent-69018-kzo65wi0-m2.png",News Tamil 24x7
 https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/news-tamil-24x7/index.m3u8
-#EXTINF: -1 tvg-id="ZeeTamil.in" tvg-chno="197" tvg-logo="https://yt3.googleusercontent.com/GJVGgzRXxK1FDoUpC8ztBHPu81PMnhc8inodKtEckH-rykiYLzg93HUQIoTIirwORynozMkR=s900-c-k-c0x00ffffff-no-rj" , Zee Tamil News
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://yt3.googleusercontent.com/GJVGgzRXxK1FDoUpC8ztBHPu81PMnhc8inodKtEckH-rykiYLzg93HUQIoTIirwORynozMkR=s900-c-k-c0x00ffffff-no-rj",Zee Tamil News
 https://dpkvdnzbeen1l.cloudfront.net/index_4.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/news7tamil-black.png"group-logo="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/YuppTV_logo.svg/2560px-YuppTV_logo.svg.png"  , News7 Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/polimer-news-black.png",Polimer News
+https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/news7tamil-black.png",News7 Tamil
 https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/news7_nim_https/240122/news7/playlist.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-id="AstroVinmeen" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroVinmeen_2024.png" group-logo="" ,Astro Vinmeen
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 11; Philips Google TV TA7 Build/RTM5.220609.199; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://sund-images.sunnxt.com/194391/640x360_SunLife_194391_d407948a-b7a2-4a1f-8409-56f7261cefa1.jpg",Sun Life
+https://livestream.sunnxt.com/6b79451f54284b3fb680fd717ee008dc/SunLifeB_IN_index.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/hxJvBqhy/Picsart-25-02-10-10-56-32-849.png",SUN TV HD AU
+https://livestream2.sunnxt.com/9287b977a5694d3c98c12b79622da462/SunTVHDB_AU_index.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroVinmeen_2024.png",Astro Vinmeen
 https://live.catvod.com/live.php?id=Rusi
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key={"keys":[ { "kty":"oct", "k":"CE52Vhu6nU866VOs3Tez7Q", "kid":"kYrevhCphI1WfcbLWtzlEA" } ], "type":"temporary" }
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 14; TMRV075G Build/UKQ1.230924.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/132.0.6834.163 Mobile Safari/537.36
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="AstroThangathirai" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroThangathirai_2024.png" group-logo="" ,Thangathirai
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroThangathirai_2024.png",Thangathirai
 https://linearjitp-playback.astro.com.my/dash-wv/linear/2109/default_ott.mpd
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra"  tvg-id="AstroVaanavil" tvg-chno="201" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroVaanavil_2024.png",Astro Vaanavil
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=72499c6ad44cc37d95a9075420911110:b5416326114a13e90662a4fbaf3c532b
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroVaanavil_2024.png",Astro Vaanavil
 https://converse.nathcreqtives.com/astro/2309/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-ID="AstroVellithirai"  tvg-logo="https://linear-poster.astro.com.my/prod/logo/Astro_Vellithirai_v1.png",Astro Vellithirai
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=9c44af8b594b6157f55d3c31bd679c10:c128bbe41e94d15a7f8cc2f6253a54b2
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Astro_Vellithirai_v1.png",Astro Vellithirai
 https://converse.nathcreqtives.com/astro/5073/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="StarVijay" tvg-chno="221"  tvg-logo="http://linear-poster.astro.com.my/prod/logo/Star_Vijay_v1.png",Star Vijay
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=af35608a7d4b13d1158c2ef6d6c1a010:d01c81050dfab309c6be7e60d03c2d82
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Sun_TV_v1.png",SunTV
+https://converse.nathcreqtives.com/astro/2310/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="http://linear-poster.astro.com.my/prod/logo/Star_Vijay_v1.png",Star Vijay
 https://converse.nathcreqtives.com/astro/2707/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="ZeeTamilHD" tvg-chno="223"  tvg-logo="https://linear-poster.astro.com.my/prod/logo/ZeeTamil_v1.png",Zee Tamil
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=0d4e3e7dac2d58b93bf819a72fe8d510:667a33f4d5bb3587f2d5209886839eac
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/ZeeTamil_v1.png",Zee Tamil
 https://converse.nathcreqtives.com/astro/2311/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="ColorsTamilHD" tvg-chno="222"  tvg-logo="http://linear-poster.astro.com.my/prod/logo/Colors-Tamil_v1.png",Colors Tamil
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=e46354fb39c28e5956bc946ac2a05010:511905bf191474b412b4ec117515a79c
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="http://linear-poster.astro.com.my/prod/logo/Colors-Tamil_v1.png",Colors Tamil
 https://converse.nathcreqtives.com/astro/2101/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-id="ShowcaseMovies" ch-number="413"  tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroShowcase_2024.png",Astro Showcase
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=b8090c8361cc5cc5c1aac0ec2710de10:ca0d18538845bae2cb4f4a168036f174
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Sun_Music_v1.png",Sun Music
+https://converse.nathcreqtives.com/astro/5011/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Sun-Life.png",Sun Life
+https://converse.nathcreqtives.com/astro/5089/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroShowcase_2024.png",Astro Showcase
 https://converse.nathcreqtives.com/astro/5054/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-id="AstroCricket" tvg-chno="824" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroCricket_2024.png" , Astro Cricket
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=03c2e0af2f8159f9f0ce9b5dbc865f10:cd84ed136b0cc71f8ab8cd4d4f6a2e4c
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroCricket_2024.png",Astro Cricket
 https://converse.nathcreqtives.com/astro/2504/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-ID="AstroSportsPlus"  tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroSportsPlus_2024.png",Astro Sports Plus
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=81352bc47ec1177b321ee65ac1be7f10:c8b886142005d7e5067c8717777eaac4
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroSportsPlus_2024.png",Astro Sports Plus
 https://converse.nathcreqtives.com/astro/5171/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
-#EXTINF: -1 tvg-chno="98" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240411_1507147472317502579290438.png" , Star Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240411_1507147472317502579290438.png",Star Tamil
 https://edge2-moblive.yuppcdn.net/trans1sd/smil:strtml19.smil/playlist.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://ethnicchannels.com/images/channeldetail/ten-cricket/ten-ckt-logo.png" group-logo="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/YuppTV_logo.svg/2560px-YuppTV_logo.svg.png"  , Ten Cricket
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://ethnicchannels.com/images/channeldetail/ten-cricket/ten-ckt-logo.png",Ten Cricket
 https://edge3-moblive.yuppcdn.net/drm/smil:tencricketdrm.smil/manifest.mpd
-#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-id="290" tvg-chno="264" tvg-name="cricket-gold" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/yuppfast/content/common/channel/logos/cricket-gold.png" , Cricket Gold
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-user-agent=YuppTV/7.18.1 (Linux;Android 16) ExoPlayerLib/2.19.1
+#EXTINF:-1 tvg-shift="-5.5" group-title="Sports Extra" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/yuppfast/content/common/channel/logos/cricket-gold.png",Cricket Gold
 https://streams2.sofast.tv/ptnr-yupptv/title-cricketgold/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/b2048bb8-1686-4432-aa50-647245383e0c/manifest.m3u8
-#EXTINF: -1 tvg-id="TamilVisionTV.ca" tvg-chno="190" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240314_0058524590904308248228180.png" , Tamil Vision TV
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240314_0058524590904308248228180.png",Tamil Vision TV
 https://live.cmr24.fm/TVI/HD/playlist.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="IBC Tamil"  tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240313_0840532653502816512774106.png",IBC Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240313_0840532653502816512774106.png",IBC Tamil
 https://webcast.emn.onl/IBC/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="" tvg-logo="" ,Tamil NTT
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil NTT
 https://5a1178b42cc03.streamlock.net/TamilNTT/TamilNTT/playlist.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="STS TV"  tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/06/20240623_0223381687529081320062542.png",STS Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/06/20240623_0223381687529081320062542.png",STS Tamil
 https://stream.vstartv.org:3031/stream/play.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="GTA Tamil"  tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240314_0357246360065588137514740.png",GTA Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240314_0357246360065588137514740.png",GTA Tamil
 http://144.217.77.42:8888//gta_tamil//index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Rasi TV"  tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1437564760907591116562534.png",Rasi TV HD
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1437564760907591116562534.png",Rasi TV HD
 https://rasinetworks.in/live/rasitvhd/index.mpd
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Rasi Comedy"  tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942127817851833380019717.png",Rasi Comedy
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942127817851833380019717.png",Rasi Comedy
 https://rasinetworks.in/live/rasicomedyhd/index.mpd
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Rasi Classic"  tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasiclassic.png",Rasi Classic
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasiclassic.png",Rasi Classic
 https://rasinetworks.in/live/rasiclassichd/index.mpd
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Rasi Cinemax"  tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasicinemax.png",Rasi Cinemax
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasicinemax.png",Rasi Cinemax
 https://rasinetworks.in/live/rasicinemaxhd/index.mpd
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Rasi Cinema"  tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasicinema.png",Rasi Cinema
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasicinema.png",Rasi Cinema
 https://rasinetworks.in/live/rasicinemahd/index.mpd
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Rasi Lifestyle"  tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasilifestyle.png",Rasi Lifestyle
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasilifestyle.png",Rasi Lifestyle
 https://rasinetworks.in/live/rasilifestylehd/index.mpd
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="" ,RJ TAMIL
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",RJ TAMIL
 https://ipcloud.live/rjtamiltv/rjtamil/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="" , Britain Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Britain Tamil
 https://stream.onecloudlive.in/britaintamil/britaintamil/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="" , ME24 Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",ME24 Tamil
 https://stream.onecloudlive.in/orange/ME24TAMIL/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="" tvg-name="" tvg-language="Local Channels" tvg-logo="" tvg-country="IN" tvg-url="" ,Success TAMIL
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Success TAMIL
 https://stream.onecloudlive.in/successtv/successtvhd/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-name="Tamil Star"  tvg-logo="https://i.ibb.co/twdvpzDn/1000146947.jpg",Tamil Star
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/twdvpzDn/1000146947.jpg",Tamil Star
 http://acv.7starcloud.com:1935/tamilstar/tv/playlist.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-name="Ezhil TV"  tvg-logo="https://i.ibb.co/qF5JfbMh/1000145932.jpg",Ezhil Tv Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/qF5JfbMh/1000145932.jpg",Ezhil Tv Tamil
 http://ezhiltv.stream.onecloudlive.in/ezhiltv/ezhilhd/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="http://tnm3u.live/icon/tamil/local/tamiloli.png" , Tamil Oli
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="http://tnm3u.live/icon/tamil/local/tamiloli.png",Tamil Oli
 https://view.rcserver.in/tmp_hls7/tamilolitv/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="" , Tamil Tv Entertainment
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil Tv Entertainment
 https://stream.sscloud7.in/live/tamiltv/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="TamilnesanTV" ,Tamilnesan TV
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamilnesan TV
 https://view.rcserver.in/tmp_hls14/tntv/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="SentamilTV" ,Sentamil TV
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Sentamil TV
 https://view.rcserver.in/tmp_hls15/senthamiltv/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="ThiraiTV" ,Thirai TV
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Thirai TV
 https://view.apserver.in/tmp_hls2/thiraitv/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-id="ThiraiIsai" ,Thirai Isai
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Thirai Isai
 https://view.apserver.in/tmp_hls1/thiraitvplus/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Rasi TV"  tvg-logo="https://content.jdmagicbox.com/comp/srivilliputtur/n6/9999p4563.4563.221008173401.j7n6/catalogue/-20hwojw4xr.jpg",Tamilmagan TV HD
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://content.jdmagicbox.com/comp/srivilliputtur/n6/9999p4563.4563.221008173401.j7n6/catalogue/-20hwojw4xr.jpg",Tamilmagan TV HD
 http://120.138.14.16:8080/hls/tamilmagantv/index.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="" ,Tamil Aaram TV
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil Aaram TV
 https://thamilaaramtv24-hls.secdn.net/thamilaaramtv24-channel/play/ThamilaaramTV.smil/playlist.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 1
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://m.media-amazon.com/images/S/pv-target-images/e011deb22c4bb5b3959f8e438e3703857c40d891965ff06cd5108cee888de3fc._SL170_FMpng_.png",Sundance TV
+https://otte.live.fly.ww.aiv-cdn.net/PDX/clients/dash/enc/a2x5qulu66/out/v1/b7749a4e6d41479ca533f4d7c01d7675/cenc.mpd
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 1
 http://cors.tundracast.com:2000/http://45.148.145.57/IN_D2HJAYAMOVIE/index.m3u8
-http://cox69847.cdngold.me:80/play/live.php?mac=00:1a:79:78:8B:D8&stream=1629243&extension=ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 2
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 2
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734186&extension=ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 3
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 3
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734174&extension=ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 4
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 4
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734175&extension=ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 5
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 5
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734160&extension=ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 6
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 6
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734172&extension=ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 7
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 7
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734169&extension=ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 8
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 8
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734163&extension=ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 9
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 9
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734159&extension=ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 10
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 10
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734185&extension=ts
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us"  tvg-logo="https://i.ibb.co/KFHXF5F/images.jpg",Tamil Cinema HD 11
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us"  tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 1
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/KFHXF5F/images.jpg",Tamil Cinema HD 11
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481200
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us"  tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 2
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 1
+https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481200
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 2
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481199
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us"  tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 3
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 3
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481201
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us"  tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 4
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 4
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481314
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra"  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us"  tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 5
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 5
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481315
-========================================= FM RADIO ====================================================
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,AIR Tamilnadu
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",AIR Tamilnadu
 http://air.pc.cdn.bitgravity.com/air/live/pbaudio025/playlist.m3u8
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil 89.4 FM
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil 89.4 FM
 https://centova.aarenworld.com/proxy/894tamilfm/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,IBC tamil radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",IBC tamil radio
 http://fm.ibctamil.com:6176/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,SLBC Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",SLBC Tamil
 http://220.247.227.6:8000/Tnsstream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil Comedy Radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil Comedy Radio
 http://live.tamilkuyilradio.com:8035/tamilcomedyradio
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamilkuyil FM
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamilkuyil FM
 http://live.tamilkuyilradio.com:8095/tamilkuyil
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,CMR Tamil HD Canadian
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",CMR Tamil HD Canadian
 https://live.cmr24.net/CMR/TamilHD-HQ/icecast.audio
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,US Tamil FM
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",US Tamil FM
 https://streaming.radio.co/s0cfc93915/listen
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Vijay FM
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Vijay FM
 https://vijayfm-prabak78.radioca.st/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Swiss Tamil Radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Swiss Tamil Radio
 https://usa19.fastcast4u.com/swiss
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,TTR Tamil Thai Radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",TTR Tamil Thai Radio
 http://radio.massstream.net/8010/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,TTR Toronto Tamil Radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",TTR Toronto Tamil Radio
 https://torontotamilradio-prabak78.radioca.st/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil Cholai
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil Cholai
 https://radio.perthtamiltalkies.com.au/radio/8010/tamilcholai
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,ETR Europe Tamil radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",ETR Europe Tamil radio
 https://bud.streampanel.net:6257/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,CTR Tamil Radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",CTR Tamil Radio
 http://198.27.66.225:8498/stream.mp3
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil Radio Germany
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil Radio Germany
 https://servidor18-4.brlogic.com:7740/live
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,TamilRagam
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",TamilRagam
 https://cast4.my-control-panel.com/proxy/neville?mp=/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Durham Tamil Radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Durham Tamil Radio
 http://ec3.yesstreaming.net:1290/;
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,German Tamil FM
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",German Tamil FM
 https://gtr-unicast2u.radioca.st/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Isai Tamil FM
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Isai Tamil FM
 https://spserver.sscast2u.in/isaitamilfm/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Vagai Tamil FM
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Vagai Tamil FM
 https://vtfm2020-vtfm.radioca.st/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Punnagai Radio Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Punnagai Radio Tamil
 http://onair.punnagairadio.com/8146/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil Akaram FM
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil Akaram FM
 https://listen.openstream.co/7007/audio
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tube Tamil Fm
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tube Tamil Fm
 http://s2.voscast.com:12084/.mp3
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil INI FM
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil INI FM
 http://s9.voscast.com:8708/;
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Abc Tamil Radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Abc Tamil Radio
 https://eu8.fastcast4u.com/proxy/ailevdcu?mp=/1
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil Australian FM
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil Australian FM
 http://s7.viastreaming.net:7920/;stream.mp3
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,American Tamil Radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",American Tamil Radio
 https://cp11.serverse.com/proxy/hgsmgluv/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,SS Tamil Radio
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",SS Tamil Radio
 https://spserver.sscast2u.in/sstamilradio/stream
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Vijay Hits
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Vijay Hits
 https://stream.zeno.fm/2pn99a71w0hvv
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Vijayakanth Fm
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Vijayakanth Fm
 https://stream.zeno.fm/gm5nenyaa48uv
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil 70s Hits
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil 70s Hits
 https://stream.zeno.fm/694a2ab4138uv
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil 80s Hits
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil 80s Hits
 https://stream.zeno.fm/apzh64fgdq8uv
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil 90s Hits 1
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil 90s Hits 1
 https://stream.zeno.fm/wmg76d4zc48uv
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil 90s Hits 2
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil 90s Hits 2
 https://stream.zeno.fm/ss2u9f27a48uv
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,80s Air Tamil
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",80s Air Tamil
 https://stream.zeno.fm/48w230kx8vzuv.aac
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,90's Air Tamil Melodies
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",90's Air Tamil Melodies
 https://stream.zeno.fm/06ar0cnafwzuv.aac
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil 2k Hits HD
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil 2k Hits HD
 https://stream.zeno.fm/v0bu4uc1c48uv
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil Sad Songs
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil Sad Songs
 https://stream.zeno.fm/31nb5vhtzv8uv
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil Dance Hits
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil Dance Hits
 https://stream.zeno.fm/cx0ghe71w0hvv
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil Romantic HD
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil Romantic HD
 https://stream.zeno.fm/1q8cphc4138uv
-#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" ,Tamil MRT Fm
+#EXTINF:-1 tvg-shift="-5.5" group-title="Tamil Extra" tvg-logo="",Tamil MRT Fm
 https://stream.zeno.fm/rycfemw8pxhvv
 #EXTINF:-1 tvg-shift="-5.5" group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8
