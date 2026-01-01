@@ -11,26 +11,25 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# LOCAL SERVER (Star Sports logic restored)
+# LOCAL SERVER (Star Sports / Nat Geo)
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
-# LIVE EVENT SOURCES
+# EXTERNAL SOURCES
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# POCKET TV SOURCE (For Extras)
+# POCKET TV SOURCE (New Link)
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# EPG HEADER (Time Shift Fixed)
+# EPG HEADER (Fixed Time Shift)
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
 
-# REMOVAL LIST
+# REMOVE LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
-# FORCE BACKUP LIST (Restored to working state)
-# Note: "star" and "sports" are NOT here, so they will use Local Server.
+# FORCE BACKUP LIST
 FORCE_BACKUP_KEYWORDS = [
     "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
@@ -193,48 +192,52 @@ def fetch_and_group(url, group_name):
     except Exception as e: print(f"❌ Error fetching: {e}")
     return entries
 
-# --- [NEW] FETCH EXTRAS (Sports Extra / Tamil Extra) ---
+# --- [NEW] CLEAN POCKET TV BUILDER ---
 def fetch_pocket_extras():
     entries = []
-    print(f"🌍 Fetching Pocket TV Extras...")
+    print(f"🌍 Fetching Pocket TV Extras (Clean Build)...")
     try:
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
         
         if r.status_code == 200:
             lines = r.text.splitlines()
-            current_block = []; keep_block = False; target_group = ""
-            
-            for line in lines:
-                line = line.strip()
-                if not line: continue
+            for i in range(len(lines)):
+                line = lines[i].strip()
                 
                 if "#EXTINF" in line:
-                    if keep_block and len(current_block) >= 1: entries.extend(current_block)
-                    current_block = [line]; keep_block = False
-                    
+                    # 1. Extract Name & Logo
                     name = line.split(",")[-1].strip()
                     name_lower = name.lower()
                     
-                    # GROUPING LOGIC
+                    # Extract Logo if present
+                    logo = ""
+                    logo_match = re.search(r'tvg-logo="([^"]*)"', line)
+                    if logo_match: logo = logo_match.group(1)
+                    
+                    # 2. Determine Group (Strict Matching)
+                    target_group = None
                     if any(x in name_lower for x in ["astro", "sony ten", "sky sports", "cricket"]):
                         target_group = "Sports Extra"
-                        keep_block = True
-                    elif any(x in name_lower for x in ["tamil", "thirai", "vijay", "rasi"]):
+                    elif any(x in name_lower for x in ["tamil", "thirai", "vijay", "rasi", "sun", "polimer", "news18 tamil"]):
                         target_group = "Tamil Extra"
-                        keep_block = True
                     
-                    if keep_block:
-                        # Apply Group
-                        meta = current_block[0]
-                        meta = re.sub(r'group-title="[^"]*"', '', meta)
-                        meta = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{target_group}"', meta)
-                        meta = enrich_metadata(meta, name)
-                        current_block[0] = meta
-                else:
-                    if current_block: current_block.append(line)
-            
-            if keep_block and len(current_block) >= 1: entries.extend(current_block)
+                    # 3. Rebuild Line if Matched
+                    if target_group:
+                        # Find link
+                        link = ""
+                        for j in range(i + 1, min(i + 5, len(lines))):
+                            potential = lines[j].strip()
+                            if potential and not potential.startswith("#"):
+                                link = potential; break
+                        
+                        if link:
+                            # CONSTRUCT NEW LINE (Removes garbage groups)
+                            meta = f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{logo}",{name}'
+                            meta = enrich_metadata(meta, name) # Apply EPG fix
+                            entries.append(meta)
+                            entries.append(link)
+                            
             print(f"✅ Extracted Extras.")
             
     except Exception as e: print(f"❌ Error Pocket TV: {e}")
@@ -252,7 +255,7 @@ def update_playlist():
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # 1. PROCESS TEMPLATE (The logic that GUARANTEES Star Sports works)
+    # 1. PROCESS TEMPLATE
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
@@ -262,6 +265,7 @@ def update_playlist():
             
             if line.startswith("#EXTINF"):
                 lower_line = line.lower()
+                # Clean old groups
                 if 'group-title="live events' in lower_line or 'group-title="temporary' in lower_line:
                     skip_next_url = True; continue              
                 
@@ -281,7 +285,6 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # 1. FORCE BACKUP (For Zee/Sony only)
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
@@ -289,7 +292,6 @@ def update_playlist():
                          final_lines.append(line); final_lines.extend(found_block)
                          skip_next_url = True; stats["backup"] += 1
                     else:
-                         # 2. TRY LOCAL (Star Sports / Nat Geo)
                          mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
                          if clean_key in local_map:
                              final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
@@ -298,7 +300,6 @@ def update_playlist():
                              final_lines.append(line); final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
                              skip_next_url = True; stats["local"] += 1
                          else:
-                             # 3. Last Resort
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
@@ -313,14 +314,13 @@ def update_playlist():
                 else: final_lines.append(line)
     except FileNotFoundError: pass
 
-    # 2. APPEND EXTERNAL CONTENT (Live Events)
+    # 2. APPEND EXTERNAL CONTENT
     print("🎥 Appending Live Events...")
     final_lines.extend(fetch_and_group(fancode_url, "Live Events"))
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 3. APPEND EXTRAS (Sports Extra / Tamil Extra)
-    # This comes from the new link you provided
+    # 3. APPEND EXTRAS (Clean Build)
     final_lines.extend(fetch_pocket_extras())
 
     # 4. APPEND MANUAL
