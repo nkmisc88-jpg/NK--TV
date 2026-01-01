@@ -14,9 +14,9 @@ output_file = "playlist.m3u"
 # EXTERNAL SOURCES
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
-
-# LIVE EVENT SOURCES (FanCode + Sony + Zee)
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
+
+# NEW LIVE EVENT SOURCES
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
@@ -24,7 +24,6 @@ zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/m
 REMOVE_KEYWORDS = ["zee thirai"]
 
 # FORCE BACKUP LIST
-# Removed "star", "sports", "nat geo" -> They will now use your SMOOTH Local Server
 FORCE_BACKUP_KEYWORDS = [
     "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
@@ -32,7 +31,7 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "ten"
 ]
 
-# MAPPING: Connects your Template Names to your Local/Backup Names
+# MAPPING
 NAME_OVERRIDES = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -139,14 +138,11 @@ def process_entry(data):
         print(f"   ▶️  Media Link: {title}")
     return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
 
-# ==========================================
-# 3. NEW HELPER: FETCH AND GROUP
-# ==========================================
+# --- NEW HELPER: FETCH AND GROUP ---
 def fetch_and_group(url, group_name):
     entries = []
     print(f"🌍 Fetching into '{group_name}'...")
     try:
-        # User-Agent ensures we get the list properly
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(url, headers={"User-Agent": ua}, timeout=15)
         if r.status_code == 200:
@@ -168,7 +164,7 @@ def fetch_and_group(url, group_name):
     return entries
 
 # ==========================================
-# 4. MAIN EXECUTION
+# 3. MAIN EXECUTION
 # ==========================================
 def update_playlist():
     print("--- STARTING UPDATE ---")
@@ -250,8 +246,8 @@ def update_playlist():
     print("🎥 Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
 
-    # --- GROUPING CHANGE HERE ---
-    # Merging Fancode, Sony, and Zee into "Live Events"
+    # --- CHANGED: Grouping everything into "Live Events" ---
+    print("🎥 Appending Live Events (Fancode, Sony, Zee)...")
     final_lines.extend(fetch_and_group(fancode_url, "Live Events"))
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
