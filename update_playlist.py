@@ -11,7 +11,7 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# LOCAL SERVER (Star Sports / Nat Geo)
+# LOCAL SERVER (Strict Priority)
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
@@ -20,16 +20,16 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# POCKET TV SOURCE (New Link)
+# POCKET TV SOURCE (Arunjunan20)
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# EPG HEADER (Fixed Time Shift)
+# EPG HEADER
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
 
 # REMOVE LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
-# FORCE BACKUP LIST
+# FORCE BACKUP LIST (For Sony/Zee main channels)
 FORCE_BACKUP_KEYWORDS = [
     "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
@@ -37,7 +37,7 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "ten"
 ]
 
-# MAPPING
+# NAME MAPPING
 NAME_OVERRIDES = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -50,7 +50,7 @@ NAME_OVERRIDES = {
     "nat geo wild hd": "Nat Geo Wild HD",
 }
 
-# LOGO LIBRARY
+# LOGO LIBRARY (Fallback)
 CHANNEL_META = {
     "sony sports ten 1": {"id": "Sony Ten 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png"},
     "sony sports ten 2": {"id": "Sony Ten 2 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png"},
@@ -62,9 +62,6 @@ CHANNEL_META = {
     "astro cricket": {"id": "Astro Cricket", "logo": "https://i.imgur.com/7Xj4G6d.png"},
     "sky sports cricket": {"id": "Sky Sports Cricket", "logo": "https://i.imgur.com/Frw9n3r.png"},
     "vijay takkar": {"id": "Vijay Takkar", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Takkar.png"},
-    "star sports 1 hd": {"id": "Star Sports 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_HD.png"},
-    "star sports 2 hd": {"id": "Star Sports 2 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_HD.png"},
-    "star sports 1 hindi": {"id": "Star Sports 1 Hindi HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Hindi_HD.png"},
 }
 
 # ==========================================
@@ -82,20 +79,23 @@ def enrich_metadata(line, channel_name):
     if 'tvg-shift' not in line:
         line = line.replace("#EXTINF:-1", '#EXTINF:-1 tvg-shift="-5.5"')
     
-    # 2. Apply Logos & ID
+    # 2. Add Meta (Only if missing)
     meta = None
     for k, v in CHANNEL_META.items():
         if k in clean_name: 
             meta = v; break
+            
     if meta:
-        if 'tvg-logo=' in line:
-            line = re.sub(r'tvg-logo="[^"]*"', f'tvg-logo="{meta["logo"]}"', line)
-        else:
-            line = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 tvg-logo="{meta["logo"]}"', line)
+        if 'tvg-logo' not in line:
+            line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{meta["logo"]}"')
+        elif 'tvg-logo=""' in line:
+            line = line.replace('tvg-logo=""', f'tvg-logo="{meta["logo"]}"')
+            
         if 'tvg-id=' in line:
              line = re.sub(r'tvg-id="[^"]*"', f'tvg-id="{meta["id"]}"', line)
         else:
-             line = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 tvg-id="{meta["id"]}"', line)
+             line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-id="{meta["id"]}"')
+             
     return line
 
 def should_force_backup(name):
@@ -192,37 +192,44 @@ def fetch_and_group(url, group_name):
     except Exception as e: print(f"❌ Error fetching: {e}")
     return entries
 
-# --- [NEW] CLEAN POCKET TV BUILDER ---
+# --- [UPDATED] STRICT POCKET TV FILTER ---
 def fetch_pocket_extras():
     entries = []
-    print(f"🌍 Fetching Pocket TV Extras (Clean Build)...")
+    print(f"🌍 Fetching & Filtering Pocket TV...")
     try:
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
         
+        # STRICT LISTS
+        SPORTS_WANTED = ["astro cricket", "sony ten", "sky sports"]
+        TAMIL_WANTED = [
+            "zee tamil", "zee thirai", "vijay takkar", "rasi",
+            "astro thangathirai", "astro vellithirai", "astro vaanavil", "astro vinmeen"
+        ]
+        
         if r.status_code == 200:
             lines = r.text.splitlines()
+            count = 0
             for i in range(len(lines)):
                 line = lines[i].strip()
                 
                 if "#EXTINF" in line:
-                    # 1. Extract Name & Logo
                     name = line.split(",")[-1].strip()
                     name_lower = name.lower()
                     
-                    # Extract Logo if present
+                    # Grab Source Logo
                     logo = ""
                     logo_match = re.search(r'tvg-logo="([^"]*)"', line)
                     if logo_match: logo = logo_match.group(1)
                     
-                    # 2. Determine Group (Strict Matching)
                     target_group = None
-                    if any(x in name_lower for x in ["astro", "sony ten", "sky sports", "cricket"]):
+                    
+                    # CHECK STRICT MATCHES
+                    if any(x in name_lower for x in SPORTS_WANTED):
                         target_group = "Sports Extra"
-                    elif any(x in name_lower for x in ["tamil", "thirai", "vijay", "rasi", "sun", "polimer", "news18 tamil"]):
+                    elif any(x in name_lower for x in TAMIL_WANTED):
                         target_group = "Tamil Extra"
                     
-                    # 3. Rebuild Line if Matched
                     if target_group:
                         # Find link
                         link = ""
@@ -232,13 +239,14 @@ def fetch_pocket_extras():
                                 link = potential; break
                         
                         if link:
-                            # CONSTRUCT NEW LINE (Removes garbage groups)
+                            # Rebuild Clean Line
                             meta = f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{logo}",{name}'
-                            meta = enrich_metadata(meta, name) # Apply EPG fix
+                            meta = enrich_metadata(meta, name)
                             entries.append(meta)
                             entries.append(link)
+                            count += 1
                             
-            print(f"✅ Extracted Extras.")
+            print(f"✅ Extracted {count} Requested Channels.")
             
     except Exception as e: print(f"❌ Error Pocket TV: {e}")
     return entries
@@ -320,7 +328,7 @@ def update_playlist():
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 3. APPEND EXTRAS (Clean Build)
+    # 3. APPEND EXTRAS (Strictly Filtered)
     final_lines.extend(fetch_pocket_extras())
 
     # 4. APPEND MANUAL
