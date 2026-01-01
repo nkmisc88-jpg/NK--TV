@@ -1,13 +1,29 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"
-# Updated on: 02-01-2026 12:36 AM IST
-#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: 02-01-2026 12:36 AM
+# Updated on: 02-01-2026 12:42 AM IST
+#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Status: ❌ MISSING (Upload jiotv_playlist.m3u.m3u8!)
+http://0.0.0.0
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Missing: Star Sports 1 HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/V2.0/new/Star_Sports_2.png",Star Sports 2 HD
 https://edge4-moblive.yuppcdn.net/drm1/smil:starsports2drm.smil/manifest.mpd
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Missing: Star Sports 1 Hindi HD
+http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
 https://keys.vodep39240327.workers.dev/?id=300.mpd
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png",Star Sports Select 2 HD
 https://keys.vodep39240327.workers.dev/?id=301.mpd
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Missing: Sports18 1 HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Missing: Sony Sports Ten 1 HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Missing: Sony Sports Ten 2 HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Missing: Sony Sports Ten 3 HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Missing: Sony Sports Ten 4 HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Missing: Sony Sports Ten 5 HD
+http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroCricket_2024.png",Astro Cricket
 https://converse.nathcreqtives.com/astro/2504/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://tataprime.files.wordpress.com/2024/05/20240513_0718037281702601479724023.png",Sky Sports Cricket
@@ -24,18 +40,50 @@ https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767336722~acl=%2f*~id=9f143aea-5347-43f2-adcf-48fc8ab69887~data=hdntl~hmac=e31b80f403c05faab9a1710a2280f975befa906daca0bb54a232425c13c75174
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/674.png",Colors Tamil HD
 https://keys.vodep39240327.workers.dev/?id=429.mpd
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Missing: Jaya TV HD
+http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-819-j5m8fsfs-v1/imageContent-819-j5m8fsfs-m1.png",Kalaignar TV
 https://edge2-moblive.yuppcdn.net:443/drm1/smil:kalaignartvdrm.smil/chunklist_b996000.m3u8
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Missing: Polimer TV
+http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767336722~acl=%2f*~id=9f143aea-5347-43f2-adcf-48fc8ab69887~data=hdntl~hmac=e31b80f403c05faab9a1710a2280f975befa906daca0bb54a232425c13c75174
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Missing: Vijay Takkar
+http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroVaanavil_2024.png",Astro Vaanavil
 https://converse.nathcreqtives.com/astro/2309/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Missing: Astro Vinmeen HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Missing: Astro Thangathirai
+http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Astro_Vellithirai_v1.png",Astro Vellithirai
 https://converse.nathcreqtives.com/astro/5073/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Missing: Rasi Palan
+http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1518425091386983341611136.png",Rasi Movies
 https://rasinetworks.in/live/rasimovieshd/index.mpd
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png",Rasi Music
 https://rasinetworks.in/live/rasimusichd/index.mpd
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Missing: Discovery HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Missing: Animal Planet HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Missing: Nat Geo HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Missing: Nat Geo Wild HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Missing: Sony BBC Earth HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Missing: History TV18 HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Missing: TLC HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Missing: TravelXP HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Missing: Star Movies HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Missing: Sony Pix HD
+http://0.0.0.0
 #EXTINF:-1 group-title="Movies" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/wthfwe.jpeg",Movies Now HD
 https://times-ott-live.akamaized.net/moviesnow_wv_drm/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/leazcc.jpeg",MN+ HD
@@ -44,18 +92,74 @@ https://times-ott-live.akamaized.net/mnplus_wv_drm/index.mpd
 https://times-ott-live.akamaized.net/mnxhd_wv_drm/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://tatalogo.pages.dev/174.png",Romedy Now
 https://times-ott-live.akamaized.net/romedynow_wv_drm/index.mpd
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Missing: Star Gold HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Missing: Sony Max HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Missing: Zee Cinema HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Missing: And Pictures HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Missing: Star Plus HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Missing: Sony SET HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Missing: Sony SAB HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Missing: Zee TV HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Missing: Colors HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Missing: Star Bharat HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Malayalam" tvg-logo="",⚠️ Missing: Asianet HD
+http://0.0.0.0
 #EXTINF:-1 group-title="Malayalam" tvg-logo="https://i.ibb.co/F4Jttj3S/Picsart-25-02-10-14-19-03-064.png",Surya TV HD
 https://livestream15.sunnxt.com/d719fad367614ee5baad747822767ad8/SuryaTVHDB_IN_index.mpd
+#EXTINF:-1 group-title="Malayalam" tvg-logo="",⚠️ Missing: Mazhavil Manorama HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Telugu" tvg-logo="",⚠️ Missing: Star Maa HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Telugu" tvg-logo="",⚠️ Missing: Zee Telugu HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Telugu" tvg-logo="",⚠️ Missing: Gemini TV HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Missing: Colors Kannada HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Missing: Star Suvarna HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Missing: Zee Kannada HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Missing: Udaya TV HD
+http://0.0.0.0
+#EXTINF:-1 group-title="Kids" tvg-logo="https://images.pluto.tv/channels/5ca673e0d0bd6c2689c94ce3/colorLogoPNG.png",Nick
+https://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/5ca673e0d0bd6c2689c94ce3/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=09cf7eb2-9859-11f0-8591-e7660be312cd&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=0ef14fa1-ee11-4081-8f56-c2e7c41b3c6a&userId=&serverSideAds=true
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Missing: Sonic
+http://0.0.0.0
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Missing: Hungama
+http://0.0.0.0
 #EXTINF:-1 group-title="Kids" tvg-logo="https://geo.edge.pontiscloud.com:9002/images/50/CH_LOGO/160/160/0/0/77798092074367.png? worldtv2",Disney Channel
 https://nog-live1-ott.izzigo.tv/2/out/u/dash/DISNEYCHANNELHD/default.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://poster.starhubgo.com/Linear_channels2/316_1920x1080_HTV.png",Cartoon Network
 https://a190aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/ampfzrmpam/out/v1/e08f3866c80040f2bc494cb48ebc7bce/cenc.mpd
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Missing: Pogo
+http://0.0.0.0
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Missing: Sony Yay
+http://0.0.0.0
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Missing: Discovery Kids
+http://0.0.0.0
+#EXTINF:-1 group-title="Music" tvg-logo="",MTV HD
+https://stream.iplive.xyz/mmtvtc/mmtvhd/index.m3u8
+#EXTINF:-1 group-title="Music" tvg-logo="",⚠️ Missing: VH1
+http://0.0.0.0
 #EXTINF:-1 group-title="Music" tvg-logo="https://tatalogo.pages.dev/139.png",9XM
 https://d14c63magvk61v.cloudfront.net/strm/channels/9xm/master.m3u8
 #EXTINF:-1 group-title="Music" tvg-logo="https://tatalogo.pages.dev/96.png",Zoom
 https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/zoom-tv/master.m3u8
 #EXTINF:-1 group-title="Music" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11954-j9lu45o8-v1/imageContent-11954-j9lu45o8-m1.png",Sun Music HD
 https://livestream.sunnxt.com/d434796d90fa4dc9b7ecfacedbe683f1/SunMusicHDB_IN_index.mpd
+#EXTINF:-1 group-title="Music" tvg-logo="",⚠️ Missing: Gemini Music HD
+http://0.0.0.0
 #EXTINF:-1 group-title="News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/times-now-in.png",Times Now
 https://d3pvf6sv7wsu07.cloudfront.net/master.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://8upload.com/image/67da280876f6c/38-ndtv.png",NDTV 24x7
@@ -64,12 +168,16 @@ https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8
 https://feeds.intoday.in/hltapps/api/master.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/INBD1300009QZ_20240131T032448SQUARE.png_20240131032449.png",CNN News18
 https://amg01448-samsungin-cnnnewsnw18-samsungin-ad-gv.amagi.tv/playlist/amg01448-samsungin-cnnnewsnw18-samsungin/playlist.m3u8?ads.did=%7BPSID%7D&ads.dnt=%7BTARGETOPT%7D&ads.app_domain=%7BAPP_DOMAIN%7D&ads.app_name=%7BAPP_NAME%7D&ads.coppa=0
+#EXTINF:-1 group-title="News" tvg-logo="",⚠️ Missing: BBC World News
+http://0.0.0.0
 #EXTINF:-1 group-title="News" tvg-logo="https://i.postimg.cc/k5KdQRFN/image-Content-11734-j9kw60rc-m1.webp",Sun News
 https://livestream3.sunnxt.com/491c99fb6d0c49e88e6349170d890a2f/SunNewsB_IN_index.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/polimer-news-black.png",Polimer News
 https://jiotvpllive.cdn.jio.com/bpk-tv/Polimer_News_BTS/output/index.mpd?__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05&xxx=||cookie=__hdnea__=st=1767230412~exp=1767316812~acl=/*~hmac=d6e763745a3b05b57d84286a513e0ee9f243356b722162215f9b5f88ed9fbc05
 #EXTINF:-1 group-title="News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/puthiyathalaimurai-black.png",Puthiya Thalaimurai
 https://segment.yuppcdn.net/240122/puthiya/playlist.m3u8
+#EXTINF:-1 group-title="News" tvg-logo="",Thanthi TV
+http://stream2.oppocast.com/than_stream
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg",ENG | Ias Invincibles Vs Renaissance Challengers
 https://in-mc-fdlive.fancode.com/mumbai/139158_english_hls_30b544bb9436907_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/136993_5489_SHF_LEI_fc-web.jpg",ENG | Sheffield United F.c. Vs Leicester City F.c.
