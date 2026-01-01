@@ -26,8 +26,8 @@ EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://av
 
 # POCKET TV WISH LIST
 POCKET_WANTED = [
-    "astro cricket", "sony ten", "sky sports cricket",  # Sports
-    "zee tamil", "zee thirai", "vijay takkar", "rasi"   # Tamil
+    "astro cricket", "sony ten", "sky sports cricket", 
+    "zee tamil", "zee thirai", "vijay takkar", "rasi"
 ]
 
 REMOVE_KEYWORDS = ["zee thirai"]
@@ -52,8 +52,7 @@ NAME_OVERRIDES = {
     "nat geo wild hd": "Nat Geo Wild HD",
 }
 
-# --- [NEW] MEGA LOGO & ID LIBRARY ---
-# I added every channel from your screenshots here.
+# --- MEGA LOGO & ID LIBRARY ---
 CHANNEL_META = {
     # SONY
     "sony sports ten 1": {"id": "Sony Ten 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png"},
@@ -117,7 +116,7 @@ def clean_name_key(name):
     return name.lower().strip()
 
 def enrich_metadata(line, channel_name):
-    """Injects Logo and EPG ID if missing, based on channel name"""
+    """Aggressively replaces Logo and EPG ID based on channel name"""
     clean_name = clean_name_key(channel_name)
     meta = None
     
@@ -127,12 +126,18 @@ def enrich_metadata(line, channel_name):
             meta = v; break
             
     if meta:
-        # Inject Logo
-        if 'tvg-logo=""' in line: line = line.replace('tvg-logo=""', f'tvg-logo="{meta["logo"]}"')
-        elif 'tvg-logo' not in line: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{meta["logo"]}"')
-        # Inject EPG ID
-        if 'tvg-id=""' in line: line = line.replace('tvg-id=""', f'tvg-id="{meta["id"]}"')
-        elif 'tvg-id' not in line: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-id="{meta["id"]}"')
+        # 1. FORCE REPLACE LOGO (Regex)
+        # This deletes any existing tvg-logo="..." and adds the correct one
+        if 'tvg-logo=' in line:
+            line = re.sub(r'tvg-logo="[^"]*"', f'tvg-logo="{meta["logo"]}"', line)
+        else:
+            line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{meta["logo"]}"')
+            
+        # 2. FORCE REPLACE EPG ID
+        if 'tvg-id=' in line:
+             line = re.sub(r'tvg-id="[^"]*"', f'tvg-id="{meta["id"]}"', line)
+        else:
+             line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-id="{meta["id"]}"')
              
     return line
 
@@ -217,6 +222,7 @@ def process_entry(data):
             link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
             
     line = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}'
+    # Apply Meta fix
     line = enrich_metadata(line, title)
     return f'{line}\n{link}'
 
@@ -295,6 +301,7 @@ def fetch_and_group_m3u(url, group_name):
                 line = line.strip()
                 if not line or line.startswith("#EXTM3U"): continue
                 if line.startswith("#EXTINF"):
+                    # Fix Meta & Group
                     name = line.split(",")[-1].strip()
                     line = enrich_metadata(line, name)
                     line = re.sub(r'group-title="[^"]*"', '', line)
@@ -332,6 +339,7 @@ def update_playlist():
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
                 
+                # --- APPLY SMART META ---
                 line = enrich_metadata(line, original_name)
 
                 should_remove = False
