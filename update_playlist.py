@@ -11,37 +11,26 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# LOCAL SERVER (Star Sports & Nat Geo live here)
+# LOCAL SERVER (Star Sports logic restored)
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
-# EXTERNAL SOURCES
+# LIVE EVENT SOURCES
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# NEW POCKET TV SOURCE
+# POCKET TV SOURCE (For Extras)
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# EPG HEADER (Fixed Time Shift)
+# EPG HEADER (Time Shift Fixed)
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
 
-# POCKET TV MAPPING (Keyword -> Group)
-POCKET_MAP = {
-    "astro": "Sports HD",
-    "sony ten": "Sports HD",
-    "sky sports": "Sports HD",
-    "zee tamil": "Tamil HD",
-    "zee thirai": "Tamil HD",
-    "vijay takkar": "Tamil HD",
-    "rasi": "Tamil HD"
-}
-
-# REMOVE LIST
+# REMOVAL LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
-# FORCE BACKUP LIST
-# CRITICAL: Do NOT put "star" or "sports" here. They must use Local Server.
+# FORCE BACKUP LIST (Restored to working state)
+# Note: "star" and "sports" are NOT here, so they will use Local Server.
 FORCE_BACKUP_KEYWORDS = [
     "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
@@ -49,6 +38,7 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "ten"
 ]
 
+# MAPPING
 NAME_OVERRIDES = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -111,9 +101,7 @@ def enrich_metadata(line, channel_name):
 
 def should_force_backup(name):
     norm = name.lower()
-    # Star Sports / Nat Geo MUST use Local, so return False
     if "star sports" in norm or "nat geo" in norm: return False
-    
     for k in FORCE_BACKUP_KEYWORDS:
         if k in norm: return True
     return False
@@ -205,10 +193,10 @@ def fetch_and_group(url, group_name):
     except Exception as e: print(f"❌ Error fetching: {e}")
     return entries
 
-# --- [NEW] FETCH AND SORT POCKET TV ---
-def fetch_pocket_sorted():
+# --- [NEW] FETCH EXTRAS (Sports Extra / Tamil Extra) ---
+def fetch_pocket_extras():
     entries = []
-    print(f"🌍 Fetching Pocket TV (Sorting to Sports/Tamil)...")
+    print(f"🌍 Fetching Pocket TV Extras...")
     try:
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
@@ -221,7 +209,6 @@ def fetch_pocket_sorted():
                 line = line.strip()
                 if not line: continue
                 
-                # Check line content
                 if "#EXTINF" in line:
                     if keep_block and len(current_block) >= 1: entries.extend(current_block)
                     current_block = [line]; keep_block = False
@@ -229,16 +216,15 @@ def fetch_pocket_sorted():
                     name = line.split(",")[-1].strip()
                     name_lower = name.lower()
                     
-                    # MATCHING LOGIC
-                    matched = False
-                    for key, group in POCKET_MAP.items():
-                        if key in name_lower:
-                            target_group = group
-                            matched = True
-                            break
-                    
-                    if matched:
+                    # GROUPING LOGIC
+                    if any(x in name_lower for x in ["astro", "sony ten", "sky sports", "cricket"]):
+                        target_group = "Sports Extra"
                         keep_block = True
+                    elif any(x in name_lower for x in ["tamil", "thirai", "vijay", "rasi"]):
+                        target_group = "Tamil Extra"
+                        keep_block = True
+                    
+                    if keep_block:
                         # Apply Group
                         meta = current_block[0]
                         meta = re.sub(r'group-title="[^"]*"', '', meta)
@@ -248,9 +234,8 @@ def fetch_pocket_sorted():
                 else:
                     if current_block: current_block.append(line)
             
-            # Flush last block
             if keep_block and len(current_block) >= 1: entries.extend(current_block)
-            print(f"✅ Extracted favorites from Pocket TV.")
+            print(f"✅ Extracted Extras.")
             
     except Exception as e: print(f"❌ Error Pocket TV: {e}")
     return entries
@@ -267,7 +252,7 @@ def update_playlist():
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # 1. PROCESS TEMPLATE (Safe Mode)
+    # 1. PROCESS TEMPLATE (The logic that GUARANTEES Star Sports works)
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
@@ -276,11 +261,10 @@ def update_playlist():
             if not line: continue
             
             if line.startswith("#EXTINF"):
-                lower = line.lower()
-                # Clean old groups
-                if 'group-title="live events' in lower or 'group-title="temporary' in lower or 'group-title="sports hd' in lower or 'group-title="tamil hd' in lower:
-                    skip_next_url = True; continue
-
+                lower_line = line.lower()
+                if 'group-title="live events' in lower_line or 'group-title="temporary' in lower_line:
+                    skip_next_url = True; continue              
+                
                 skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
@@ -297,7 +281,7 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # PRIORITY: Force Local for Star/Nat Geo
+                    # 1. FORCE BACKUP (For Zee/Sony only)
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
@@ -305,9 +289,8 @@ def update_playlist():
                          final_lines.append(line); final_lines.extend(found_block)
                          skip_next_url = True; stats["backup"] += 1
                     else:
+                         # 2. TRY LOCAL (Star Sports / Nat Geo)
                          mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
-                         
-                         # Try Local First
                          if clean_key in local_map:
                              final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
                              skip_next_url = True; stats["local"] += 1
@@ -315,7 +298,7 @@ def update_playlist():
                              final_lines.append(line); final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
                              skip_next_url = True; stats["local"] += 1
                          else:
-                             # Last Resort: Backup
+                             # 3. Last Resort
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
@@ -330,14 +313,15 @@ def update_playlist():
                 else: final_lines.append(line)
     except FileNotFoundError: pass
 
-    # 2. APPEND EXTERNAL CONTENT
+    # 2. APPEND EXTERNAL CONTENT (Live Events)
     print("🎥 Appending Live Events...")
     final_lines.extend(fetch_and_group(fancode_url, "Live Events"))
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 3. APPEND POCKET TV (Sorted into Sports/Tamil)
-    final_lines.extend(fetch_pocket_sorted())
+    # 3. APPEND EXTRAS (Sports Extra / Tamil Extra)
+    # This comes from the new link you provided
+    final_lines.extend(fetch_pocket_extras())
 
     # 4. APPEND MANUAL
     print("🎥 Appending Temporary Channels...")
