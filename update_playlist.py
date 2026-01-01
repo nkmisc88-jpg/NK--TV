@@ -11,33 +11,24 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# SOURCES
+# LOCAL SERVER (Star Sports / Nat Geo)
 base_url = "http://192.168.0.146:5350/live" 
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
-pocket_url = "https://raw.githubusercontent.com/nkmisc88-jpg/M3U-Extractor-/main/playlists/1_Pocket-TV.m3u"
 
-# WORKING BACKUPS (Sony/Zee)
+# WORKING BACKUPS (Sony/Zee) - Will be added to "Temporary Channels"
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# EPG SOURCE (JioTV Local + Public Backup)
+# EPG SOURCE
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"'
 
-# REMOVE LIST
+# REMOVAL LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
-# CHANNELS TO KEEP FROM POCKET TV
-POCKET_WANTED = [
-    "astro cricket", 
-    "sky sports cricket", 
-    "vijay takkar", 
-    "rasi movies", "rasi hollywood"
-]
+# FORCE BACKUP LIST (Empty - Trust Local for Star, Ext for others)
+FORCE_BACKUP_KEYWORDS = []
 
-# -------------------------------------------
-# DATA MAPPING (Logos & EPG IDs)
-# -------------------------------------------
-# This ensures EPG and Logos appear even if the source is missing them
+# METADATA LIBRARY (Ensures Logos & EPG appear)
 CHANNEL_META = {
     "sony sports ten 1": {"id": "Sony Ten 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png"},
     "sony sports ten 2": {"id": "Sony Ten 2 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png"},
@@ -54,8 +45,8 @@ CHANNEL_META = {
     "star sports 1 hindi": {"id": "Star Sports 1 Hindi HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Hindi_HD.png"},
 }
 
-# NAME MAP FOR LOCAL JIOTV
-LOCAL_NAME_MAP = {
+# LOCAL MAPPING
+NAME_OVERRIDES = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
     "star sports 1 hindi hd": "Star Sports HD1 Hindi",
@@ -76,28 +67,22 @@ def clean_name_key(name):
     return name.lower().strip()
 
 def enrich_metadata(line, channel_name):
-    """Injects Logo and EPG ID into the #EXTINF line"""
+    """Injects Logo and EPG ID if missing"""
     clean_name = clean_name_key(channel_name)
-    
-    # Find matching metadata
     meta = None
+    
+    # 1. Exact/Partial Match in Meta Library
     for k, v in CHANNEL_META.items():
-        if k in clean_name:  # Partial match (e.g. "sony ten 1" matches "Sony Sports Ten 1 HD")
-            meta = v
-            break
+        if k in clean_name: 
+            meta = v; break
             
     if meta:
-        # Inject Logo if missing or empty
-        if 'tvg-logo=""' in line:
-            line = line.replace('tvg-logo=""', f'tvg-logo="{meta["logo"]}"')
-        elif 'tvg-logo' not in line:
-            line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{meta["logo"]}"')
-            
+        # Inject Logo
+        if 'tvg-logo=""' in line: line = line.replace('tvg-logo=""', f'tvg-logo="{meta["logo"]}"')
+        elif 'tvg-logo' not in line: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{meta["logo"]}"')
         # Inject EPG ID
-        if 'tvg-id=""' in line:
-             line = line.replace('tvg-id=""', f'tvg-id="{meta["id"]}"')
-        elif 'tvg-id' not in line:
-             line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-id="{meta["id"]}"')
+        if 'tvg-id=""' in line: line = line.replace('tvg-id=""', f'tvg-id="{meta["id"]}"')
+        elif 'tvg-id' not in line: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-id="{meta["id"]}"')
              
     return line
 
@@ -112,7 +97,7 @@ def load_local_map(ref_file):
     return id_map
 
 # ==========================================
-# 2. EXTERNAL M3U FETCHER (Sony/Zee)
+# 2. EXTERNAL FETCHERS
 # ==========================================
 def fetch_and_group_m3u(url, group_name):
     entries = []
@@ -120,7 +105,6 @@ def fetch_and_group_m3u(url, group_name):
     try:
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(url, headers={"User-Agent": ua}, timeout=15)
-        
         if r.status_code == 200:
             lines = r.text.splitlines()
             for line in lines:
@@ -128,67 +112,19 @@ def fetch_and_group_m3u(url, group_name):
                 if not line or line.startswith("#EXTM3U"): continue
                 
                 if line.startswith("#EXTINF"):
-                    # 1. Update Group Name
+                    # Rename Group
                     line = re.sub(r'group-title="[^"]*"', '', line)
                     line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
                     
-                    # 2. Fix Logo & EPG
+                    # Fix Metadata
                     name = line.split(",")[-1].strip()
                     line = enrich_metadata(line, name)
                     
                 entries.append(line)
             print(f"✅ {group_name} merged.")
-        else:
-            print(f"❌ Failed to fetch {group_name}: {r.status_code}")
-    except Exception as e:
-        print(f"❌ Error fetching {group_name}: {e}")
+    except: pass
     return entries
 
-# ==========================================
-# 3. POCKET TV FILTER
-# ==========================================
-def fetch_pocket_playlist(group_name):
-    entries = []
-    print(f"🌍 Fetching Pocket TV...")
-    try:
-        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
-        if r.status_code == 200:
-            lines = r.text.splitlines()
-            current_block = []; keep_block = False
-            
-            for line in lines:
-                line = line.strip()
-                if not line: continue
-                
-                if line.startswith("#EXTINF"):
-                    if keep_block and len(current_block) >= 2: entries.extend(current_block)
-                    current_block = [line]; keep_block = False
-                    
-                    line_lower = line.lower()
-                    for keyword in POCKET_WANTED:
-                        if keyword in line_lower:
-                            keep_block = True
-                            # Fix Group, Logo & EPG
-                            meta = current_block[0]
-                            name = meta.split(",")[-1].strip()
-                            
-                            meta = re.sub(r'group-title="[^"]*"', '', meta)
-                            meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
-                            meta = enrich_metadata(meta, name)
-                            current_block[0] = meta
-                            break
-                else:
-                    if current_block: current_block.append(line)
-            
-            if keep_block and len(current_block) >= 2: entries.extend(current_block)
-            print(f"✅ Extracted favorites from Pocket TV.")
-    except Exception as e: print(f"❌ Error Pocket TV: {e}")
-    return entries
-
-# ==========================================
-# 4. YOUTUBE.TXT PARSER
-# ==========================================
 def parse_youtube_txt():
     new_entries = []
     if not os.path.exists(youtube_file): return []
@@ -217,15 +153,12 @@ def process_entry(data):
         if vid_match:
             link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
 
-    # Generate Line
     line = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}'
-    # Apply Meta fix
     line = enrich_metadata(line, title)
-    
     return f'{line}\n{link}'
 
 # ==========================================
-# 5. MAIN EXECUTION
+# 3. MAIN EXECUTION
 # ==========================================
 def update_playlist():
     print("--- STARTING UPDATE ---")
@@ -233,8 +166,9 @@ def update_playlist():
     final_lines = [EPG_HEADER, f"# Updated on: {current_time}"]
     
     local_map = load_local_map(reference_file)
+    stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # 1. PROCESS LOCAL TEMPLATE (Star Sports / Nat Geo)
+    # 1. PROCESS LOCAL TEMPLATE (Star/Nat Geo)
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
@@ -244,14 +178,14 @@ def update_playlist():
             
             if line.startswith("#EXTINF"):
                 lower_line = line.lower()
-                if 'group-title="youtube' in lower_line or 'group-title="temporary' in lower_line or 'group-title="pocket' in lower_line:
+                # Clean old groups
+                if 'group-title="youtube' in lower_line or 'group-title="temporary' in lower_line:
                     skip_next_url = True; continue              
                 
                 skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
                 
-                # Apply Logos/EPG to Template
                 line = enrich_metadata(line, original_name)
 
                 should_remove = False
@@ -261,48 +195,37 @@ def update_playlist():
 
                 if i + 1 < len(lines) and "http://placeholder" in lines[i+1]:
                     clean_key = clean_name_key(original_name)
-                    
-                    # ALWAYS USE LOCAL FOR TEMPLATE ITEMS (Star/Nat Geo)
-                    mapped_key = clean_name_key(LOCAL_NAME_MAP.get(ch_name_lower, ""))
+                    mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
                     
                     if clean_key in local_map:
                          final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
-                         skip_next_url = True
+                         skip_next_url = True; stats["local"] += 1
                     elif mapped_key and mapped_key in local_map:
                          final_lines.append(line); final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
-                         skip_next_url = True
+                         skip_next_url = True; stats["local"] += 1
                     else:
-                         # Missing locally? Just keep placeholder or remove
                          final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
-                         skip_next_url = True
+                         skip_next_url = True; stats["missing"] += 1
                 else:
                     final_lines.append(line)
-
             elif not line.startswith("#"):
                 if skip_next_url: skip_next_url = False
                 else: final_lines.append(line)
-
     except FileNotFoundError: pass
 
-    # 2. APPEND EXTERNAL GROUPS
-    
-    # Sony Backup -> "Temporary Channels"
+    # 2. APPEND EXTERNAL CHANNELS
+    # Sony & Zee -> "Temporary Channels"
     final_lines.extend(fetch_and_group_m3u(sony_m3u, "Temporary Channels"))
-    
-    # Zee Backup -> "Temporary Channels"
     final_lines.extend(fetch_and_group_m3u(zee_m3u, "Temporary Channels"))
-
-    # Pocket TV -> "Temporary Channels"
-    final_lines.extend(fetch_pocket_playlist("Temporary Channels"))
-
-    # YouTube.txt -> "Temporary Channels"
+    
+    # Manual Text -> "Temporary Channels"
     final_lines.extend(parse_youtube_txt())
     
-    # Fancode (Keep Separate)
+    # Fancode (Separate)
     final_lines.extend(fetch_and_group_m3u(fancode_url, "Fancode"))
 
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
-    print(f"🎉 DONE. Playlist Saved.")
+    print(f"🎉 DONE. Local: {stats['local']} | Missing: {stats['missing']}")
 
 if __name__ == "__main__":
     update_playlist()
