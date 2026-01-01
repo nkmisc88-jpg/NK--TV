@@ -2,7 +2,6 @@ import requests
 import re
 import datetime
 import os
-import json
 
 # ==========================================
 # CONFIGURATION
@@ -21,9 +20,8 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 # RELIABLE BACKUPS (Sony/Zee)
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
-sony_json = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.json"
 
-# --- [NEW] EPG SOURCE ---
+# EPG SOURCE
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"'
 
 # POCKET TV WISH LIST
@@ -54,21 +52,60 @@ NAME_OVERRIDES = {
     "nat geo wild hd": "Nat Geo Wild HD",
 }
 
-# --- [NEW] LOGO & ID LIBRARY ---
+# --- [NEW] MEGA LOGO & ID LIBRARY ---
+# I added every channel from your screenshots here.
 CHANNEL_META = {
+    # SONY
     "sony sports ten 1": {"id": "Sony Ten 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png"},
     "sony sports ten 2": {"id": "Sony Ten 2 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png"},
     "sony sports ten 3": {"id": "Sony Ten 3 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_3_HD.png"},
     "sony sports ten 4": {"id": "Sony Ten 4 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_4_HD.png"},
     "sony sports ten 5": {"id": "Sony Six HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Six_HD.png"},
+    "sony sab": {"id": "Sony SAB HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_SAB_HD.png"},
+    "sony pix": {"id": "Sony Pix HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Pix_HD.png"},
+    "sony bbc earth": {"id": "Sony BBC Earth HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_BBC_Earth_HD.png"},
+    "set hd": {"id": "Sony SET HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_SET_HD.png"},
+    
+    # ZEE
     "zee tamil": {"id": "Zee Tamil HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png"},
     "zee thirai": {"id": "Zee Thirai HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Thirai_HD.png"},
-    "astro cricket": {"id": "Astro Cricket", "logo": "https://i.imgur.com/7Xj4G6d.png"},
-    "sky sports cricket": {"id": "Sky Sports Cricket", "logo": "https://i.imgur.com/Frw9n3r.png"},
-    "vijay takkar": {"id": "Vijay Takkar", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Takkar.png"},
+    "zee tv": {"id": "Zee TV HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_TV_HD.png"},
+    "zee telugu": {"id": "Zee Telugu HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Telugu_HD.png"},
+    
+    # STAR / DISNEY
+    "star movies": {"id": "Star Movies HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Movies_HD.png"},
+    "star plus": {"id": "Star Plus HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Plus_HD.png"},
     "star sports 1 hd": {"id": "Star Sports 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_HD.png"},
     "star sports 2 hd": {"id": "Star Sports 2 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_HD.png"},
     "star sports 1 hindi": {"id": "Star Sports 1 Hindi HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Hindi_HD.png"},
+    "star sports 1 tamil": {"id": "Star Sports 1 Tamil HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil_HD.png"},
+    "star sports 2 tamil": {"id": "Star Sports 2 Tamil HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_Tamil_HD.png"},
+    
+    # INFOTAINMENT
+    "discovery hd": {"id": "Discovery HD World", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_HD_World.png"},
+    "animal planet hd": {"id": "Animal Planet HD World", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Animal_Planet_HD_World.png"},
+    "tlc hd": {"id": "TLC HD World", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/TLC_HD_World.png"},
+    "nat geo hd": {"id": "Nat Geo HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Nat_Geo_HD.png"},
+    "nat geo wild": {"id": "Nat Geo Wild HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Nat_Geo_Wild_HD.png"},
+    "history tv18": {"id": "History TV18 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/History_TV18_HD.png"},
+    
+    # OTHERS
+    "astro cricket": {"id": "Astro Cricket", "logo": "https://i.imgur.com/7Xj4G6d.png"},
+    "sky sports cricket": {"id": "Sky Sports Cricket", "logo": "https://i.imgur.com/Frw9n3r.png"},
+    "vijay takkar": {"id": "Vijay Takkar", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Takkar.png"},
+    "colors hd": {"id": "Colors HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Colors_HD.png"},
+    "colors kannada": {"id": "Colors Kannada HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Kannada_HD.png"},
+    "gemini tv": {"id": "Gemini TV HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Gemini_TV_HD.png"},
+    "udaya hd": {"id": "Udaya HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Udaya_HD.png"},
+    "surya hd": {"id": "Surya HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Surya_HD.png"},
+    "asianet news": {"id": "Asianet News", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Asianet_News.png"},
+    "mtv hd": {"id": "MTV HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/MTV_HD_Plus.png"},
+    "9xm": {"id": "9XM", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/9XM.png"},
+    "zoom": {"id": "Zoom", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Zoom.png"},
+    "movies now": {"id": "Movies Now HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Movies_Now_HD.png"},
+    "mn+": {"id": "MN+ HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/MN_Plus_HD.png"},
+    "mnx": {"id": "MNX HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/MNX_HD.png"},
+    "romedy now": {"id": "Romedy Now", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Romedy_Now.png"},
 }
 
 # ==========================================
@@ -79,7 +116,6 @@ def clean_name_key(name):
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
 
-# --- [NEW] SMART METADATA ENRICHER ---
 def enrich_metadata(line, channel_name):
     """Injects Logo and EPG ID if missing, based on channel name"""
     clean_name = clean_name_key(channel_name)
@@ -152,7 +188,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. PARSERS (YouTube & Pocket TV)
+# 2. PARSERS
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -181,7 +217,6 @@ def process_entry(data):
             link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
             
     line = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}'
-    # Apply Meta fix
     line = enrich_metadata(line, title)
     return f'{line}\n{link}'
 
@@ -210,7 +245,6 @@ def parse_pocket_playlist():
                         name = meta.split(",")[-1].strip()
                         meta = re.sub(r'group-title="[^"]*"', '', meta)
                         meta = meta.replace("#EXTINF:-1", '#EXTINF:-1 group-title="Pocket TV Favorites"')
-                        # Apply Meta fix
                         meta = enrich_metadata(meta, name)
                         current_block[0] = meta
                         break
@@ -222,7 +256,7 @@ def parse_pocket_playlist():
     return entries
 
 # ==========================================
-# 3. EXTERNAL FETCHERS (JSON & M3U)
+# 3. EXTERNAL FETCHERS
 # ==========================================
 def fetch_sony_live_matches():
     entries = []
@@ -261,7 +295,6 @@ def fetch_and_group_m3u(url, group_name):
                 line = line.strip()
                 if not line or line.startswith("#EXTM3U"): continue
                 if line.startswith("#EXTINF"):
-                    # Fix Meta & Group
                     name = line.split(",")[-1].strip()
                     line = enrich_metadata(line, name)
                     line = re.sub(r'group-title="[^"]*"', '', line)
@@ -276,8 +309,6 @@ def fetch_and_group_m3u(url, group_name):
 def update_playlist():
     print("--- STARTING UPDATE ---")
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
-    # --- [NEW] ADDED EPG HEADER ---
     final_lines = [EPG_HEADER, f"# Updated on: {current_time}"]
     
     local_map = load_local_map(reference_file)
@@ -301,7 +332,6 @@ def update_playlist():
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
                 
-                # --- [NEW] APPLY SMART META ---
                 line = enrich_metadata(line, original_name)
 
                 should_remove = False
