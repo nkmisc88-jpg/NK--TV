@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz"
-# Updated on: 2026-01-01 03:20:56
+# Updated on: 2026-01-01 04:16:00
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -850,15 +850,17 @@ https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8
 #EXTINF:-1 group-title="Sony Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012742/1766776394511152_SuperSmash2526_womens_Canterbury_Magicians_vs_Central_Hinds_26dec_landscape_thumb.jpg",Super Smash 2025/26 Women's
 https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 1 January 2026 at 8:49:05 am
+#DATE:- Thursday, 1 January 2026 at 9:44:05 am
 #EXTINF:-1 group-title="Fancode" tvg-id="138769" tvg-name="Canterbury Magicians Vs Central Hinds" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138769_5801_CM-W_CH-W_fc-web_1766596522075.jpg" tvg-language="ENGLISH" ,ENG | Canterbury Magicians Vs Central Hinds
 https://in-mc-fdlive.fancode.com/mumbai/138769_english_hls_80874a62fd3333_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 01-01-2026 08:44
+#EXTINF:-1 group-title="Fancode" tvg-id="138813" tvg-name="Auckland Vs Newcastle Jets" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138813_5802_AFC_NJ_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Auckland Vs Newcastle Jets
+https://in-mc-fdlive.fancode.com/mumbai/138813_english_hls_76303c626a1474_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 01-01-2026 09:44
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Sony Backup" tvg-id="1090498499" tvg-name="Best Of Sports 2025 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012676/1766556929935301_2025SportsBlockbusters_24x7_landscape_thumb.jpg" tvg-language="English" ,ENG | Best Of Sports 2025 - 24x7
-https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767270842~acl=/*~id=d1ed62e081443e9f97e79280de4e28fc-1767227640627~hmac=30391ba555e11327e21f79d3ced9b9e2f200d7a01047189dc94337c03b0cb599|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; V2222; Build/AP3A.240905.015.A2_CS)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=27dcfe07ec39004bc499c19837d2f6d5-1767237248401
+https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767270842~acl=/*~id=d1ed62e081443e9f97e79280de4e28fc-1767227640627~hmac=30391ba555e11327e21f79d3ced9b9e2f200d7a01047189dc94337c03b0cb599|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; AND10; Build/NHG47K)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e7c0834de7b291d55b4b15a234fa79b4-1767240849225
 #EXTINF:-1 group-title="Sony Backup" tvg-id="1090498560" tvg-name="Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012742/1766776394511152_SuperSmash2526_womens_Canterbury_Magicians_vs_Central_Hinds_26dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Canterbury Magicians vs Central Hinds - 1 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767270842~acl=/*~id=d1ed62e081443e9f97e79280de4e28fc-1767227640627~hmac=30391ba555e11327e21f79d3ced9b9e2f200d7a01047189dc94337c03b0cb599|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; VUUV; Build/NHG47K)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=27dcfe07ec39004bc499c19837d2f6d5-1767237248401
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767270842~acl=/*~id=d1ed62e081443e9f97e79280de4e28fc-1767227640627~hmac=30391ba555e11327e21f79d3ced9b9e2f200d7a01047189dc94337c03b0cb599|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; SM-J610F; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e7c0834de7b291d55b4b15a234fa79b4-1767240849225
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 31/12/2025, 22:34:03
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
