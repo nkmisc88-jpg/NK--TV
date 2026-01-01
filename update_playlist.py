@@ -9,7 +9,7 @@ import os
 # FILES
 template_file = "template.m3u"
 youtube_file = "youtube.txt"
-reference_file = "jiotv_playlist.m3u.m3u8" # Your Local Map
+reference_file = "jiotv_playlist.m3u.m3u8" # MUST BE IN REPO
 output_file = "playlist.m3u"
 
 # SOURCES
@@ -29,6 +29,11 @@ URL_ZEE_LIVE = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 
 # HEADER
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
+
+# REQUEST HEADERS (Fixes "Not Working" issues by looking like a browser)
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+}
 
 # ==========================================
 # 2. DATA STRUCTURES & HELPERS
@@ -50,12 +55,12 @@ def parse_m3u_to_dict(url, source_name):
     data = {}
     print(f"📥 Fetching {source_name}...")
     try:
-        r = requests.get(url, timeout=15)
+        r = requests.get(url, headers=HEADERS, timeout=15)
         if r.status_code == 200:
             lines = r.text.splitlines()
             for i in range(len(lines)):
                 line = lines[i].strip()
-                if line.startswith("#EXTINF"):
+                if "#EXTINF" in line:
                     # Extract Name
                     name = line.split(",")[-1].strip()
                     key = clean_name(name)
@@ -91,7 +96,9 @@ def load_local_map():
                     key = clean_name(name)
                     data[key] = {'link': f"{LOCAL_BASE}/{ch_id}.m3u8", 'logo': ""}
             print(f"   ✅ Loaded {len(data)} channels from Local Map")
-        except: print("   ⚠️ Local map file not found or unreadable.")
+        except: print("   ⚠️ Local map file unreadable.")
+    else:
+        print(f"   ⚠️ FILE MISSING: {reference_file} (This causes missing channels!)")
     return data
 
 # ==========================================
@@ -101,33 +108,33 @@ def find_best_stream(channel_name):
     key = clean_name(channel_name)
     link = None
     logo = None
+    source_used = "None"
     
     # 1. Grab Logo from Arun (High Quality) if available
     if key in DB_ARUN and DB_ARUN[key]['logo']:
         logo = DB_ARUN[key]['logo']
 
-    # 2. Determine Link Source
     lower_name = channel_name.lower()
     
-    # --- RULE 1: STAR / SPORTS (Use Fakeall) ---
+    # --- RULE 1: STAR / SPORTS (Prioritize Fakeall) ---
     if "star" in lower_name and "sports" in lower_name:
-        if key in DB_FAKEALL: link = DB_FAKEALL[key]['link']
-        elif key in DB_LOCAL: link = DB_LOCAL[key]['link']
-        elif key in DB_ARUN:  link = DB_ARUN[key]['link']
+        if key in DB_FAKEALL:   link = DB_FAKEALL[key]['link']; source_used = "Fakeall"
+        elif key in DB_LOCAL:   link = DB_LOCAL[key]['link']; source_used = "Local"
+        elif key in DB_ARUN:    link = DB_ARUN[key]['link']; source_used = "Arunjunan"
 
-    # --- RULE 2: ZEE / SONY / ASTRO (Use Arunjunan) ---
-    elif any(x in lower_name for x in ["zee", "sony", "astro"]):
-        if key in DB_ARUN:    link = DB_ARUN[key]['link']
-        elif key in DB_FAKEALL: link = DB_FAKEALL[key]['link']
-        elif key in DB_LOCAL:   link = DB_LOCAL[key]['link']
+    # --- RULE 2: ZEE / SONY / ASTRO (Prioritize Arunjunan) ---
+    elif any(x in lower_name for x in ["zee", "sony", "astro", "ten", "set "]):
+        if key in DB_ARUN:      link = DB_ARUN[key]['link']; source_used = "Arunjunan"
+        elif key in DB_FAKEALL: link = DB_FAKEALL[key]['link']; source_used = "Fakeall"
+        elif key in DB_LOCAL:   link = DB_LOCAL[key]['link']; source_used = "Local"
 
-    # --- RULE 3: DEFAULT (Use Local JioTVGo) ---
+    # --- RULE 3: DEFAULT (Prioritize Local) ---
     else:
-        if key in DB_LOCAL:     link = DB_LOCAL[key]['link']
-        elif key in DB_FAKEALL: link = DB_FAKEALL[key]['link']
-        elif key in DB_ARUN:    link = DB_ARUN[key]['link']
+        if key in DB_LOCAL:     link = DB_LOCAL[key]['link']; source_used = "Local"
+        elif key in DB_FAKEALL: link = DB_FAKEALL[key]['link']; source_used = "Fakeall"
+        elif key in DB_ARUN:    link = DB_ARUN[key]['link']; source_used = "Arunjunan"
 
-    return link, logo
+    return link, logo, source_used
 
 # ==========================================
 # 4. MAIN BUILDER
@@ -149,11 +156,12 @@ def main():
     
     final_lines.append(f"# Updated on: {time_str} IST")
     
-    # ADD VISUAL TIMESTAMP CHANNEL (So you see it in the player)
-    final_lines.append(f'#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: {time_str}')
+    # STATUS CHANNEL (Visible Debugging)
+    local_status = "✅ Found" if len(DB_LOCAL) > 0 else "❌ MISSING (Upload jiotv_playlist.m3u.m3u8!)"
+    final_lines.append(f'#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Status: {local_status}')
     final_lines.append("http://0.0.0.0")
 
-    # 2. PROCESS TEMPLATE (The Master List)
+    # 2. PROCESS TEMPLATE
     print("\n🔨 Processing Master Template...")
     if os.path.exists(template_file):
         with open(template_file, "r", encoding="utf-8") as f:
@@ -169,28 +177,40 @@ def main():
                 group = group_match.group(1) if group_match else "General"
                 
                 # Routing Magic
-                link, logo = find_best_stream(name)
+                link, logo, src = find_best_stream(name)
                 
+                # RECOVERY: Try Fuzzy Match if Exact Match failed
+                if not link:
+                     key = clean_name(name)
+                     # Try to find any key in DB that contains our key
+                     for db_key, val in DB_ARUN.items():
+                         if key in db_key:
+                             link = val['link']; logo = val['logo']; src = "Arun (Fuzzy)"; break
+                
+                # LOGO HANDLING
+                if not logo:
+                    tmpl_logo = re.search(r'tvg-logo="([^"]*)"', line)
+                    if tmpl_logo: logo = tmpl_logo.group(1)
+                logo_str = f'tvg-logo="{logo}"' if logo else 'tvg-logo=""'
+
+                # OUTPUT
                 if link:
-                    # Use found logo if available, otherwise check if template had one
-                    if not logo:
-                        tmpl_logo = re.search(r'tvg-logo="([^"]*)"', line)
-                        if tmpl_logo: logo = tmpl_logo.group(1)
-                    
-                    logo_str = f'tvg-logo="{logo}"' if logo else 'tvg-logo=""'
-                    
-                    # Rebuild Line
+                    # Success
                     new_line = f'#EXTINF:-1 group-title="{group}" {logo_str},{name}'
                     final_lines.append(new_line)
                     final_lines.append(link)
                 else:
-                    print(f"   ⚠️ No source found for: {name}")
+                    # FAILURE: Add Placeholder so you know it's missing
+                    print(f"   ⚠️ Missing: {name}")
+                    new_line = f'#EXTINF:-1 group-title="{group}" {logo_str},⚠️ Missing: {name}'
+                    final_lines.append(new_line)
+                    final_lines.append("http://0.0.0.0")
+
     else:
         print("   ❌ Template file not found!")
 
-    # 3. ADD LIVE EVENTS (Fancode / Sony / Zee)
+    # 3. ADD LIVE EVENTS
     print("\n🎥 Processing Live Events...")
-    
     def add_live_source(url, prefix):
         data = parse_m3u_to_dict(url, prefix)
         for key, val in data.items():
@@ -206,7 +226,6 @@ def main():
     if os.path.exists(youtube_file):
         with open(youtube_file, "r", encoding="utf-8") as f:
             yt_lines = f.readlines()
-        
         current_yt = {}
         for line in yt_lines:
             line = line.strip()
@@ -219,7 +238,6 @@ def main():
             if ':' in line:
                 parts = line.split(':', 1)
                 current_yt[parts[0].strip().lower()] = parts[1].strip()
-        # Add last one
         if 'link' in current_yt:
             final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_yt.get("logo","")}",{current_yt["title"]}')
             final_lines.append(current_yt['link'])
