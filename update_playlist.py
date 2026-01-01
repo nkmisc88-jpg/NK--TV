@@ -2,6 +2,7 @@ import requests
 import re
 import datetime
 import os
+import json
 
 # ==========================================
 # CONFIGURATION
@@ -16,22 +17,23 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# NEW BACKUP SOURCES (Added as separate groups)
-sony_url = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
-zee_url = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
+# NEW BACKUP SOURCES
+sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
+zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
+sony_json = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.json"  # <--- NEW JSON SOURCE
 
 # REMOVAL LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
-# FORCE BACKUP LIST (Removed "star", "sports", "nat geo" so they use your Local Server)
+# FORCE BACKUP LIST (Sony/Zee/Colors use Backup)
 FORCE_BACKUP_KEYWORDS = [
-    "vijay", "asianet", "suvarna", "maa", "hotstar", "set", "sab",
+    "zee", "sony", "sab", "set", "pix", "max", "wah", "pal",
+    "vijay", "asianet", "suvarna", "maa", "hotstar", 
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
-    "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
+    "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+",
     "&pictures", "ten"
 ]
 
-# NAME MAPPING (Ensures Local Links work for these)
 NAME_OVERRIDES = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -57,6 +59,7 @@ def clean_name_key(name):
 
 def should_force_backup(name):
     norm = name.lower()
+    if "star sports" in norm or "nat geo" in norm: return False
     for k in FORCE_BACKUP_KEYWORDS:
         if k in norm: return True
     return False
@@ -84,7 +87,8 @@ def load_local_map(ref_file):
 def fetch_backup_map(url):
     block_map = {}
     try:
-        r = requests.get(url, timeout=15)
+        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        r = requests.get(url, headers={"User-Agent": ua}, timeout=15)
         if r.status_code == 200:
             lines = r.text.splitlines()
             current_block = []; current_name = ""
@@ -105,7 +109,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. SMART PARSER (YouTube)
+# 2. PARSERS (YouTube & JSON)
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -135,27 +139,59 @@ def process_entry(data):
             print(f"   ✨ Converted: {title}")
     return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
 
+# --- NEW: PARSE SONY JSON FOR LIVE MATCHES ---
+def fetch_sony_live_matches():
+    entries = []
+    try:
+        print("🌍 Fetching Sony Live Matches (JSON)...")
+        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        r = requests.get(sony_json, headers={"User-Agent": ua}, timeout=15)
+        if r.status_code == 200:
+            data = r.json()
+            matches = data.get("data", [])
+            for match in matches:
+                try:
+                    # Extract Info
+                    title = match['video_info']['title']
+                    episode = match['video_info'].get('episodeTitle', '')
+                    if episode: title = f"{title} - {episode}"
+                    
+                    logo = match['image_cdn']['thumbnail']
+                    
+                    # Extract Link (Try JITENDRAUNATTI first)
+                    link = ""
+                    audio_links = match.get("MULTIPLE_AUDIO_LINKS", [])
+                    if audio_links:
+                        # Usually inside the first audio option -> DATA -> JITENDRAUNATTI -> Playback_videoURL
+                        first_audio = audio_links[0].get("DATA", {})
+                        if "JITENDRAUNATTI" in first_audio:
+                            link = first_audio["JITENDRAUNATTI"].get("Playback_videoURL", "")
+                    
+                    if link:
+                        entries.append(f'#EXTINF:-1 group-title="Sony Live Events" tvg-logo="{logo}",{title}\n{link}')
+                except: continue
+            print(f"✅ Sony JSON: Found {len(entries)} live matches.")
+    except Exception as e:
+        print(f"❌ Failed to fetch Sony JSON: {e}")
+    return entries
+
 # ==========================================
-# 3. NEW FEATURE: FETCH & GROUP EXTERNAL M3U
+# 3. EXTERNAL M3U FETCHER
 # ==========================================
 def fetch_and_group_m3u(url, group_name):
     entries = []
     try:
         print(f"🌍 Fetching {group_name}...")
-        r = requests.get(url, timeout=15)
+        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        r = requests.get(url, headers={"User-Agent": ua}, timeout=15)
         if r.status_code == 200:
             lines = r.text.splitlines()
             for line in lines:
                 line = line.strip()
                 if not line or line.startswith("#EXTM3U"): continue
-                
-                # Force Group Name Change
                 if line.startswith("#EXTINF"):
-                    # Remove existing group-title if present
                     line = re.sub(r'group-title="[^"]*"', '', line)
-                    # Insert new group name
                     line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
-                
                 entries.append(line)
             print(f"✅ {group_name} merged ({len(entries)//2} channels).")
     except Exception as e:
@@ -183,7 +219,7 @@ def update_playlist():
             
             if line.startswith("#EXTINF"):
                 lower_line = line.lower()
-                if 'group-title="youtube' in lower_line or 'group-title="temporary' in lower_line:
+                if 'group-title="youtube' in lower_line or 'group-title="temporary' in lower_line or 'group-title="sony live events' in lower_line:
                     skip_next_url = True; continue              
                 
                 skip_next_url = False
@@ -210,13 +246,11 @@ def update_playlist():
                     else:
                          mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
                          if clean_key in local_map:
-                             final_lines.append(line)
-                             final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
+                             final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
                              skip_next_url = True
                              stats["local"] += 1
                          elif mapped_key and mapped_key in local_map:
-                             final_lines.append(line)
-                             final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
+                             final_lines.append(line); final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
                              skip_next_url = True
                              stats["local"] += 1
                          else:
@@ -238,15 +272,19 @@ def update_playlist():
 
     except FileNotFoundError: pass
 
+    # --- APPEND LIVE EVENTS (Top Priority) ---
+    print("🎥 Appending Sony Live Matches...")
+    final_lines.extend(fetch_sony_live_matches())
+
     # --- APPEND SECTIONS ---
     print("🎥 Appending Fancode...")
     final_lines.extend(fetch_and_group_m3u(fancode_url, "Fancode"))
 
     print("🎥 Appending Sony Backup...")
-    final_lines.extend(fetch_and_group_m3u(sony_url, "Sony Backup"))
+    final_lines.extend(fetch_and_group_m3u(sony_m3u, "Sony Backup"))
 
     print("🎥 Appending Zee Backup...")
-    final_lines.extend(fetch_and_group_m3u(zee_url, "Zee Backup"))
+    final_lines.extend(fetch_and_group_m3u(zee_m3u, "Zee Backup"))
 
     print("🎥 Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
