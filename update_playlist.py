@@ -11,18 +11,31 @@ youtube_file = "youtube.txt"
 reference_file = "jiotv_playlist.m3u.m3u8"
 output_file = "playlist.m3u"
 
-# LOCAL SERVER (Star Sports / Nat Geo)
+# LOCAL SERVER (Priority for Star Sports / Nat Geo)
 base_url = "http://192.168.0.146:5350/live" 
+backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
-# EXTERNAL BACKUPS (Sony/Zee/Fancode)
+# EXTERNAL SOURCES (Will be grouped into "Live Events")
+fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
-fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
 # EPG HEADER
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"'
 
-# LOGO LIBRARY (Kept since it's already there)
+# REMOVE LIST
+REMOVE_KEYWORDS = ["zee thirai"]
+
+# FORCE BACKUP LIST (For channels inside Template that are broken locally)
+FORCE_BACKUP_KEYWORDS = [
+    "zee", "sony", "sab", "set", "pix", "max", "wah", "pal",
+    "vijay", "asianet", "suvarna", "maa", "hotstar", 
+    "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
+    "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+",
+    "&pictures", "ten"
+]
+
+# LOGO LIBRARY
 CHANNEL_META = {
     "sony sports ten 1": {"id": "Sony Ten 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png"},
     "sony sports ten 2": {"id": "Sony Ten 2 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png"},
@@ -65,18 +78,28 @@ def enrich_metadata(line, channel_name):
     for k, v in CHANNEL_META.items():
         if k in clean_name: 
             meta = v; break
-            
     if meta:
-        if 'tvg-logo=' in line:
-            line = re.sub(r'tvg-logo="[^"]*"', f'tvg-logo="{meta["logo"]}"', line)
-        else:
-            line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{meta["logo"]}"')
-            
-        if 'tvg-id=' in line:
-             line = re.sub(r'tvg-id="[^"]*"', f'tvg-id="{meta["id"]}"', line)
-        else:
-             line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-id="{meta["id"]}"')
+        if 'tvg-logo=' in line: line = re.sub(r'tvg-logo="[^"]*"', f'tvg-logo="{meta["logo"]}"', line)
+        else: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{meta["logo"]}"')
+        if 'tvg-id=' in line: line = re.sub(r'tvg-id="[^"]*"', f'tvg-id="{meta["id"]}"', line)
+        else: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-id="{meta["id"]}"')
     return line
+
+def should_force_backup(name):
+    norm = name.lower()
+    if "star sports" in norm or "nat geo" in norm: return False
+    for k in FORCE_BACKUP_KEYWORDS:
+        if k in norm: return True
+    return False
+
+def find_best_backup_link(original_name, backup_map):
+    clean_orig = clean_name_key(original_name)
+    if clean_orig in backup_map: return backup_map[clean_orig]
+    clean_mapped = None
+    for k, v in NAME_OVERRIDES.items():
+        if clean_name_key(k) == clean_orig: clean_mapped = clean_name_key(v); break
+    if clean_mapped and clean_mapped in backup_map: return backup_map[clean_mapped]
+    return None
 
 def load_local_map(ref_file):
     id_map = {}
@@ -88,8 +111,32 @@ def load_local_map(ref_file):
     except: pass
     return id_map
 
+def fetch_backup_map(url):
+    block_map = {}
+    try:
+        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        r = requests.get(url, headers={"User-Agent": ua}, timeout=15)
+        if r.status_code == 200:
+            lines = r.text.splitlines()
+            current_block = []; current_name = ""
+            for line in lines:
+                line = line.strip()
+                if not line: continue
+                if line.startswith("#EXTINF"):
+                    if current_name and current_block:
+                        key = clean_name_key(current_name)
+                        data = [l for l in current_block if not l.startswith("#EXTINF")]
+                        block_map[key] = data 
+                    current_name = line.split(",")[-1].strip()
+                    current_block = [line]
+                else:
+                    if current_block: current_block.append(line)
+            if current_name: block_map[clean_name_key(current_name)] = [l for l in current_block if not l.startswith("#EXTINF")]
+    except: pass
+    return block_map
+
 # ==========================================
-# 2. FETCHERS
+# 2. EXTERNAL FETCHERS
 # ==========================================
 def fetch_and_group_m3u(url, group_name):
     entries = []
@@ -102,12 +149,10 @@ def fetch_and_group_m3u(url, group_name):
             for line in lines:
                 line = line.strip()
                 if not line or line.startswith("#EXTM3U"): continue
-                
                 if line.startswith("#EXTINF"):
-                    # FORCE THE GROUP NAME
+                    # Force Group Name
                     line = re.sub(r'group-title="[^"]*"', '', line)
                     line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
-                    
                     # Fix Meta
                     name = line.split(",")[-1].strip()
                     line = enrich_metadata(line, name)
@@ -151,68 +196,88 @@ def update_playlist():
     final_lines = [EPG_HEADER, f"# Updated on: {current_time}"]
     
     local_map = load_local_map(reference_file)
-    stats = {"local": 0, "skipped": 0}
+    backup_map = fetch_backup_map(backup_url)
+    stats = {"local": 0, "backup": 0, "missing": 0}
 
-    # 1. PROCESS TEMPLATE (Safe Mode - Just Map, Don't Delete)
+    # 1. PROCESS TEMPLATE (The logic that worked)
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
-        
         for i, line in enumerate(lines):
             line = line.strip()
             if not line: continue
             
             if line.startswith("#EXTINF"):
-                # Clean up old temporary groups from the template
-                lower = line.lower()
-                if 'group-title="live events' in lower or 'group-title="temporary' in lower or 'group-title="pocket' in lower:
-                    skip_next_url = True; continue
-
+                lower_line = line.lower()
+                # Clean old groups
+                if 'group-title="live events' in lower_line or 'group-title="temporary' in lower_line:
+                    skip_next_url = True; continue              
+                
                 skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
                 
-                # Apply Logos/EPG
                 line = enrich_metadata(line, original_name)
+
+                should_remove = False
+                for rm in REMOVE_KEYWORDS:
+                    if rm in ch_name_lower: should_remove = True; break
+                if should_remove: 
+                    skip_next_url = True; continue
 
                 if i + 1 < len(lines) and "http://placeholder" in lines[i+1]:
                     clean_key = clean_name_key(original_name)
-                    mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
+                    found_block = None
                     
-                    # Try to map to LOCAL JioTV
-                    if clean_key in local_map:
-                         final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
-                         skip_next_url = True; stats["local"] += 1
-                    elif mapped_key and mapped_key in local_map:
-                         final_lines.append(line); final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
-                         skip_next_url = True; stats["local"] += 1
+                    # FORCE BACKUP (For Sony/Zee inside Template)
+                    if should_force_backup(original_name):
+                        found_block = find_best_backup_link(original_name, backup_map)
+                    
+                    if found_block:
+                         final_lines.append(line); final_lines.extend(found_block)
+                         skip_next_url = True; stats["backup"] += 1
                     else:
-                         # Keep placeholder if local missing
-                         final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
-                         skip_next_url = True
+                         # TRY LOCAL (Star/Sports)
+                         mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
+                         if clean_key in local_map:
+                             final_lines.append(line); final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
+                             skip_next_url = True; stats["local"] += 1
+                         elif mapped_key and mapped_key in local_map:
+                             final_lines.append(line); final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
+                             skip_next_url = True; stats["local"] += 1
+                         else:
+                             found_block = find_best_backup_link(original_name, backup_map)
+                             if found_block:
+                                 final_lines.append(line); final_lines.extend(found_block)
+                                 skip_next_url = True; stats["backup"] += 1
+                             else:
+                                 final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
+                                 skip_next_url = True; stats["missing"] += 1
                 else:
                     final_lines.append(line)
+
             elif not line.startswith("#"):
                 if skip_next_url: skip_next_url = False
                 else: final_lines.append(line)
+
     except FileNotFoundError: pass
 
-    # 2. APPEND EXTERNAL GROUPS (All merged into "Live Events")
-    print("🎥 Appending Fancode -> Live Events")
+    # 2. APPEND EXTERNAL CONTENT (Merged to "Live Events")
+    print("🎥 Appending Fancode...")
     final_lines.extend(fetch_and_group_m3u(fancode_url, "Live Events"))
     
-    print("🎥 Appending Sony Backup -> Live Events")
+    print("🎥 Appending Sony Backup...")
     final_lines.extend(fetch_and_group_m3u(sony_m3u, "Live Events"))
     
-    print("🎥 Appending Zee Backup -> Live Events")
+    print("🎥 Appending Zee Backup...")
     final_lines.extend(fetch_and_group_m3u(zee_m3u, "Live Events"))
 
-    # 3. APPEND MANUAL TEXT (Kept separate for easy finding)
-    print("🎥 Appending Manual Channels...")
+    # 3. APPEND MANUAL CONTENT
+    print("🎥 Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
 
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
-    print(f"🎉 DONE. Local: {stats['local']} | External: Merged to 'Live Events'")
+    print(f"🎉 DONE. Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
 
 if __name__ == "__main__":
     update_playlist()
