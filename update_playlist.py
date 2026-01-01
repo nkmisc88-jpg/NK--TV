@@ -15,22 +15,14 @@ output_file = "playlist.m3u"
 base_url = "http://192.168.0.146:5350/live" 
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
-# EXTERNAL SOURCES
+# EXTERNAL SOURCES (Fancode + Sony + Zee)
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# POCKET TV SOURCE (Trying explicit raw link)
-pocket_url = "https://raw.githubusercontent.com/nkmisc88-jpg/M3U-Extractor-/main/playlists/1_Pocket-TV.m3u"
-
-# EPG HEADER
-EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"'
-
-# POCKET TV WISH LIST
-POCKET_WANTED = [
-    "astro", "sony ten", "sky sports", 
-    "zee tamil", "zee thirai", "vijay takkar", "rasi"
-]
+# EPG HEADER (Fixed Time Shift)
+# We add tvg-shift="-5.5" to fix the "Noon showing as 5:30 PM" issue
+EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
 
 # REMOVE LIST
 REMOVE_KEYWORDS = ["zee thirai"]
@@ -43,6 +35,7 @@ FORCE_BACKUP_KEYWORDS = [
     "&pictures", "ten"
 ]
 
+# NAME MAPPING
 NAME_OVERRIDES = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -53,12 +46,9 @@ NAME_OVERRIDES = {
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "nat geo hd": "National Geographic HD",
     "nat geo wild hd": "Nat Geo Wild HD",
-    "sony sports ten 1 hd": "Sony Sports Ten 1 HD",
-    "sony sports ten 2 hd": "Sony Sports Ten 2 HD",
-    "sony sports ten 5 hd": "Sony Sports Ten 5 HD",
 }
 
-# MEGA LOGO LIBRARY
+# LOGO LIBRARY
 CHANNEL_META = {
     "sony sports ten 1": {"id": "Sony Ten 1 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_1_HD.png"},
     "sony sports ten 2": {"id": "Sony Ten 2 HD", "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Ten_2_HD.png"},
@@ -150,7 +140,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. PARSERS & FETCHERS
+# 2. FETCHERS
 # ==========================================
 def parse_youtube_txt():
     entries = []
@@ -192,65 +182,6 @@ def fetch_and_group(url, group_name):
                 entries.append(line)
             print(f"✅ Merged {len(entries)//2} channels into {group_name}.")
     except Exception as e: print(f"❌ Error fetching: {e}")
-    return entries
-
-# --- [FIXED] FORCE VISIBLE POCKET TV FETCHER ---
-def fetch_pocket_favorites():
-    entries = []
-    print(f"🌍 Fetching Pocket TV...")
-    status_msg = "Unknown Error"
-    count = 0
-    
-    try:
-        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
-        
-        if r.status_code == 200:
-            lines = r.text.splitlines()
-            print(f"   ↪ Downloaded {len(lines)} lines from source.")
-            
-            for i in range(len(lines)):
-                line = lines[i].strip()
-                # Looser check: Just look for #EXTINF
-                if "#EXTINF" in line:
-                    name_match = line.split(",")[-1].strip()
-                    if not name_match: continue
-                    
-                    # Fuzzy Match
-                    is_wanted = False
-                    for keyword in POCKET_WANTED:
-                        if keyword.lower() in name_match.lower():
-                            is_wanted = True; break
-                    
-                    if is_wanted:
-                        # Find link in next few lines
-                        link = ""
-                        for j in range(i + 1, min(i + 10, len(lines))):
-                            potential_link = lines[j].strip()
-                            if potential_link and not potential_link.startswith("#"):
-                                link = potential_link
-                                break
-                        
-                        if link:
-                            # Force the group format directly
-                            meta = f'#EXTINF:-1 group-title="Pocket TV",{name_match}'
-                            meta = enrich_metadata(meta, name_match)
-                            entries.append(meta)
-                            entries.append(link)
-                            count += 1
-            
-            status_msg = f"✅ Found {count} Channels"
-        else:
-            status_msg = f"❌ HTTP Error {r.status_code}"
-            
-    except Exception as e: 
-        status_msg = f"❌ Script Error: {str(e)}"
-        
-    print(f"   ↪ {status_msg}")
-    
-    # FORCE ADD A STATUS CHANNEL SO THE GROUP APPEARS
-    entries.insert(0, f'#EXTINF:-1 group-title="Pocket TV" tvg-logo="https://i.imgur.com/7Xj4G6d.png",ℹ️ Status: {status_msg}\nhttp://0.0.0.0')
-        
     return entries
 
 # ==========================================
@@ -326,17 +257,13 @@ def update_playlist():
 
     except FileNotFoundError: pass
 
-    # 2. APPEND EXTERNAL CONTENT
+    # 2. APPEND EXTERNAL CONTENT (Live Events)
     print("🎥 Appending Live Events...")
     final_lines.extend(fetch_and_group(fancode_url, "Live Events"))
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 3. APPEND POCKET TV
-    print("🎥 Appending Pocket TV Favorites...")
-    final_lines.extend(fetch_pocket_favorites())
-
-    # 4. APPEND MANUAL
+    # 3. APPEND MANUAL
     print("🎥 Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
 
