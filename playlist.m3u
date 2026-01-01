@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz,https://www.tsepg.cf/epg.xml.gz"
-# Updated on: 2026-01-01 09:43:21
+# Updated on: 2026-01-01 09:55:18
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/KTV_HD.png",KTV HD
@@ -272,12 +272,12 @@ http://192.168.0.146:5350/live/000.m3u8
 http://192.168.0.146:5350/live/000.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Surya_HD.png",Surya HD
 http://192.168.0.146:5350/live/000.m3u8
-#DATE:- 01-01-2026 15:04
+#DATE:- 01-01-2026 15:24
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Temporary Channels" tvg-id="1090498499" tvg-name="Best Of Sports 2025 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012676/1766556929935301_2025SportsBlockbusters_24x7_landscape_thumb.jpg" tvg-language="English" ,ENG | Best Of Sports 2025 - 24x7
-https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767292442~acl=/*~id=eab6518dff36007a6eea2158bc123196-1767249240635~hmac=35ebfa624b526c799bccc95a505926f74f8a2f9c0b6ab7515ccb124db979c160|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; M2101K7AI; Build/RKQ1.201022.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=8add7ba774a28e87f558be2acaffbf9b-1767260047902
+https://sonymtmnew.akamaized.net/hls/live/2005445/DAI06ME-BOS/master.m3u8?hdnea=exp=1767292442~acl=/*~id=eab6518dff36007a6eea2158bc123196-1767249240635~hmac=35ebfa624b526c799bccc95a505926f74f8a2f9c0b6ab7515ccb124db979c160|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; CPH2333; Build/TP1A.220905.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=43685ef706ee954438575658dc947b3d-1767261248346
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 1 January 2026 at 3:04:06 pm
+#DATE:- Thursday, 1 January 2026 at 3:19:05 pm
 #EXTINF:-1 group-title="Temporary Channels" tvg-id="0-1-6z5873749" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873749/list/1920x1080lista90b69a931c140f29785101e68f595e6448788901f984ae18f7453614f258f78.jpg" tvg-language="bengali" ,BEN | Sundarban Bengal Auto Fc Vs Fc Medinipur
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1767338345~acl=%2f*~data=hdntl~hmac=b6cb5418d477c7f28152d7f1fd348c38884b58d3cd1f19aded2887677335f5f9|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Temporary Channels" tvg-id="0-1-6z5873749" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873749/list/1920x1080lista90b69a931c140f29785101e68f595e6448788901f984ae18f7453614f258f78.jpg" tvg-language="english" ,ENG | Sundarban Bengal Auto Fc Vs Fc Medinipur
@@ -295,7 +295,7 @@ http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow Sports 2
 https://aps32.playlist.live-video.net/v1/playlist/CrkFPA0wAtrho7iChuzsoGMxOZpA0BqV550E3bIlOIHkCgVRYjJ_u8aW92tRxpiS_jGJbKTX5hBF_fReryfJnRw6O394aghxr5mPv-CTTcx7IIFoG71pPhPE1E_SZHypAl47lIqxbmVcaSNeA-TtO6sDF0OTjWtIqRVSvUba0g8b6LGJyc6fZvGbUdPOGXiSsBJYvcVLo0zwt5PnYq9dLdzi46izUwMKYyh4udau9K7zizlgWAAfDi7BZYc7zn3KnmN1v1ItD-tiLANRJWTQwrJSotH4ZgYbGq52Dd7twoT7IIjyY7W4g1t19ybUcIeHWHTBKyXSbGmE6JBPe7GAlJcqeDBbP9n4khrBDQTMwZwRuKIPkBXLjB9pqkZaYgeJrjDfgiZ8xqi-ofZnyxnE36XTWCL-EqHSyF4OlVo_zKVdV29ic0fQskLrbZ7VbKr4DkJ4sCghUtaIuv7TWYzSVKjCnQbqecAQPQ8r1rS5A-EV1_QvGXF5iJwi3mClk9XYeYVT-Ynnq41sXoz04M-A9sUtGH95T_p_FphjKfEDTsG7e4ZgC-gkRvdgo_zB_R_Alk7UenuHJ0olW1yMrMg1U_T3-Zx78_CVS6NSsQQ0PCcBHe0NQ2Cn2WgE7L-idRBO8Lu4E3fShNxhx608Om8CxJe6XfAxKh69SQdBWmJGI8Ho0PAxDrm3XUh4oeZfzIrlJu_W_ZB6KJvV8s_h2vvNnZiQll_Fx08-Zdyao0248EDzuT8zOgOCzn0aGfZYlTuL02pOhSIX9tNOUC5Bz9EyIFkKVvmmxQJRnXLH5WiyOD4nCtOBkj7hBs14w_9OA_hNbF7RNQQuQKR2wOHzVLwKL6CYAk0rwABdBFEoQTgsY9HkYDYH60EBZ0b3I0pRoXqL4t1TL01dBC8BbH42Oosz7fnu_qGFk0YQSegTKhoMVZNLwN_nPZfyphaDIAEqCXVzLXdlc3QtMjCJDg.m3u8
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 1 January 2026 at 3:09:06 pm
+#DATE:- Thursday, 1 January 2026 at 3:24:06 pm
 #EXTINF:-1 group-title="Fancode" tvg-id="138924" tvg-name="Sylhet Titans Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138924_5808_SYL_DC_fc-web_1766733054268.jpg" tvg-language="ENGLISH" ,ENG | Sylhet Titans Vs Dhaka Capitals
 https://in-mc-fdlive.fancode.com/mumbai/138924_english_hls_6196cf49e75704_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Fancode" tvg-id="138814" tvg-name="Western Sydney Wanderers Vs Macarthur" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138814_5802_SYW_MAC_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Western Sydney Wanderers Vs Macarthur
