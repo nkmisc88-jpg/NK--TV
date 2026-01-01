@@ -20,7 +20,7 @@ fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# POCKET TV SOURCE (New Link)
+# POCKET TV SOURCE
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
 # EPG HEADER (Fixed Time Shift)
@@ -192,10 +192,10 @@ def fetch_and_group(url, group_name):
     except Exception as e: print(f"❌ Error fetching: {e}")
     return entries
 
-# --- [NEW] CLEAN POCKET TV BUILDER ---
+# --- [UPDATED] POCKET TV FETCHER ---
 def fetch_pocket_extras():
     entries = []
-    print(f"🌍 Fetching Pocket TV Extras (Clean Build)...")
+    print(f"🌍 Fetching Pocket TV Extras (Sorting Rasi/Astro to Tamil HD)...")
     try:
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
@@ -206,7 +206,6 @@ def fetch_pocket_extras():
                 line = lines[i].strip()
                 
                 if "#EXTINF" in line:
-                    # 1. Extract Name & Logo
                     name = line.split(",")[-1].strip()
                     name_lower = name.lower()
                     
@@ -215,16 +214,21 @@ def fetch_pocket_extras():
                     logo_match = re.search(r'tvg-logo="([^"]*)"', line)
                     if logo_match: logo = logo_match.group(1)
                     
-                    # 2. Determine Group (Strict Matching)
                     target_group = None
-                    if any(x in name_lower for x in ["astro", "sony ten", "sky sports", "cricket"]):
-                        target_group = "Sports Extra"
-                    elif any(x in name_lower for x in ["tamil", "thirai", "vijay", "rasi", "sun", "polimer", "news18 tamil"]):
-                        target_group = "Tamil Extra"
                     
-                    # 3. Rebuild Line if Matched
+                    # 1. SPORTS HD (Astro Cricket, Sony Ten, Sky)
+                    if "astro cricket" in name_lower:
+                        target_group = "Sports HD"
+                    elif any(x in name_lower for x in ["sony ten", "sky sports", "cricket"]):
+                        target_group = "Sports HD"
+                        
+                    # 2. TAMIL HD (Rasi, Zee, Astro Entertainment)
+                    elif any(x in name_lower for x in ["rasi", "zee tamil", "zee thirai", "astro", "vijay", "sun", "kalaignar", "polimer"]):
+                        # Note: 'astro' here catches Thangathirai/Vinmeen because 'astro cricket' was already caught above
+                        target_group = "Tamil HD"
+                    
+                    # 3. Rebuild Line
                     if target_group:
-                        # Find link
                         link = ""
                         for j in range(i + 1, min(i + 5, len(lines))):
                             potential = lines[j].strip()
@@ -232,9 +236,8 @@ def fetch_pocket_extras():
                                 link = potential; break
                         
                         if link:
-                            # CONSTRUCT NEW LINE (Removes garbage groups)
                             meta = f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{logo}",{name}'
-                            meta = enrich_metadata(meta, name) # Apply EPG fix
+                            meta = enrich_metadata(meta, name)
                             entries.append(meta)
                             entries.append(link)
                             
@@ -265,7 +268,6 @@ def update_playlist():
             
             if line.startswith("#EXTINF"):
                 lower_line = line.lower()
-                # Clean old groups
                 if 'group-title="live events' in lower_line or 'group-title="temporary' in lower_line:
                     skip_next_url = True; continue              
                 
