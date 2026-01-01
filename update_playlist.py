@@ -16,19 +16,22 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
+# NEW BACKUP SOURCES (Added as separate groups)
+sony_url = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
+zee_url = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
+
 # REMOVAL LIST
 REMOVE_KEYWORDS = ["zee thirai"]
 
-# FORCE BACKUP LIST
-# Removed "star", "sports", "nat geo" -> They will now use your SMOOTH Local Server
+# FORCE BACKUP LIST (Removed "star", "sports", "nat geo" so they use your Local Server)
 FORCE_BACKUP_KEYWORDS = [
-    "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
+    "vijay", "asianet", "suvarna", "maa", "hotstar", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
     "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
     "&pictures", "ten"
 ]
 
-# MAPPING: Connects your Template Names to your Local/Backup Names
+# NAME MAPPING (Ensures Local Links work for these)
 NAME_OVERRIDES = {
     "star sports 1 hd": "Star Sports HD1",
     "star sports 2 hd": "Star Sports HD2",
@@ -102,13 +105,12 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. SMART PARSER
+# 2. SMART PARSER (YouTube)
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
     if not os.path.exists(youtube_file): return []
     with open(youtube_file, "r", encoding="utf-8") as f: lines = f.readlines()
-
     current_entry = {}
     for line in lines:
         line = line.strip()
@@ -131,12 +133,37 @@ def process_entry(data):
         if vid_match:
             link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
             print(f"   ✨ Converted: {title}")
-    else:
-        print(f"   ▶️  Media Link: {title}")
     return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
 
 # ==========================================
-# 3. MAIN EXECUTION
+# 3. NEW FEATURE: FETCH & GROUP EXTERNAL M3U
+# ==========================================
+def fetch_and_group_m3u(url, group_name):
+    entries = []
+    try:
+        print(f"🌍 Fetching {group_name}...")
+        r = requests.get(url, timeout=15)
+        if r.status_code == 200:
+            lines = r.text.splitlines()
+            for line in lines:
+                line = line.strip()
+                if not line or line.startswith("#EXTM3U"): continue
+                
+                # Force Group Name Change
+                if line.startswith("#EXTINF"):
+                    # Remove existing group-title if present
+                    line = re.sub(r'group-title="[^"]*"', '', line)
+                    # Insert new group name
+                    line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
+                
+                entries.append(line)
+            print(f"✅ {group_name} merged ({len(entries)//2} channels).")
+    except Exception as e:
+        print(f"❌ Failed to fetch {group_name}: {e}")
+    return entries
+
+# ==========================================
+# 4. MAIN EXECUTION
 # ==========================================
 def update_playlist():
     print("--- STARTING UPDATE ---")
@@ -173,7 +200,6 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # 1. FORCE BACKUP (Only for Zee/Sony/etc)
                     if should_force_backup(original_name):
                         found_block = find_best_backup_link(original_name, backup_map)
                     
@@ -182,9 +208,7 @@ def update_playlist():
                          skip_next_url = True
                          stats["backup"] += 1
                     else:
-                         # 2. TRY LOCAL (Preferred for Star Sports/Nat Geo)
                          mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
-                         
                          if clean_key in local_map:
                              final_lines.append(line)
                              final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
@@ -196,7 +220,6 @@ def update_playlist():
                              skip_next_url = True
                              stats["local"] += 1
                          else:
-                             # 3. LAST RESORT: Try Backup if Local failed
                              found_block = find_best_backup_link(original_name, backup_map)
                              if found_block:
                                  final_lines.append(line); final_lines.extend(found_block)
@@ -215,17 +238,18 @@ def update_playlist():
 
     except FileNotFoundError: pass
 
+    # --- APPEND SECTIONS ---
+    print("🎥 Appending Fancode...")
+    final_lines.extend(fetch_and_group_m3u(fancode_url, "Fancode"))
+
+    print("🎥 Appending Sony Backup...")
+    final_lines.extend(fetch_and_group_m3u(sony_url, "Sony Backup"))
+
+    print("🎥 Appending Zee Backup...")
+    final_lines.extend(fetch_and_group_m3u(zee_url, "Zee Backup"))
+
     print("🎥 Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
-
-    try:
-        r = requests.get(fancode_url)
-        if r.status_code == 200:
-            flines = r.text.splitlines()
-            if flines and "#EXTM3U" in flines[0]: flines = flines[1:]
-            final_lines.append("\n" + "\n".join(flines))
-            print("✅ Fancode merged.")
-    except: pass
 
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"🎉 DONE. Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
