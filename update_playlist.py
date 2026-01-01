@@ -13,8 +13,13 @@ reference_file = "jiotv_playlist.m3u.m3u8" # Your Local Map
 output_file = "playlist.m3u"
 
 # SOURCES
+# Priority 1: Local Server (JioTVGo)
 LOCAL_BASE = "http://192.168.0.146:5350/live"
+
+# Priority 2: Fakeall (For Star/Sports)
 URL_FAKEALL = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
+
+# Priority 3: Arunjunan (For Zee, Sony, and ASTRO)
 URL_ARUN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
 # LIVE EVENT SOURCES
@@ -28,7 +33,6 @@ EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://av
 # ==========================================
 # 2. DATA STRUCTURES & HELPERS
 # ==========================================
-# We will load all sources into memory first for fast lookups
 DB_FAKEALL = {}
 DB_ARUN = {}
 DB_LOCAL = {}
@@ -97,10 +101,6 @@ def load_local_map():
 def find_best_stream(channel_name):
     """
     Decides the best source based on the channel name.
-    Priority:
-    - Star: Fakeall -> Local
-    - Zee/Sony: Arun -> Fakeall -> Local
-    - Others: Local -> Fakeall -> Arun
     """
     key = clean_name(channel_name)
     link = None
@@ -113,19 +113,19 @@ def find_best_stream(channel_name):
     # 2. Determine Link Source
     lower_name = channel_name.lower()
     
-    # --- STRATEGY: STAR / SPORTS ---
-    if "star" in lower_name:
+    # --- RULE 1: STAR / SPORTS (Use Fakeall) ---
+    if "star" in lower_name and "sports" in lower_name:
         if key in DB_FAKEALL: link = DB_FAKEALL[key]['link']
         elif key in DB_LOCAL: link = DB_LOCAL[key]['link']
         elif key in DB_ARUN:  link = DB_ARUN[key]['link']
 
-    # --- STRATEGY: ZEE / SONY ---
-    elif "zee" in lower_name or "sony" in lower_name:
+    # --- RULE 2: ZEE / SONY / ASTRO (Use Arunjunan) ---
+    elif any(x in lower_name for x in ["zee", "sony", "astro"]):
         if key in DB_ARUN:    link = DB_ARUN[key]['link']
         elif key in DB_FAKEALL: link = DB_FAKEALL[key]['link']
         elif key in DB_LOCAL:   link = DB_LOCAL[key]['link']
 
-    # --- STRATEGY: DEFAULT (JioTVGo First) ---
+    # --- RULE 3: DEFAULT (Use Local JioTVGo) ---
     else:
         if key in DB_LOCAL:     link = DB_LOCAL[key]['link']
         elif key in DB_FAKEALL: link = DB_FAKEALL[key]['link']
@@ -155,73 +155,4 @@ def main():
             lines = f.readlines()
             
         for i in range(len(lines)):
-            line = lines[i].strip()
-            
-            if line.startswith("#EXTINF"):
-                # Extract Info
-                name = line.split(",")[-1].strip()
-                group_match = re.search(r'group-title="([^"]*)"', line)
-                group = group_match.group(1) if group_match else "General"
-                
-                # Routing Magic
-                link, logo = find_best_stream(name)
-                
-                if link:
-                    # Construct New Line
-                    # Use found logo if available, otherwise keep existing or empty
-                    logo_str = f'tvg-logo="{logo}"' if logo else 'tvg-logo=""'
-                    
-                    # If template had specific attributes (like channel-id), we try to preserve them, 
-                    # but for simplicity, we rebuild a clean standard line here.
-                    new_line = f'#EXTINF:-1 group-title="{group}" {logo_str},{name}'
-                    final_lines.append(new_line)
-                    final_lines.append(link)
-                else:
-                    print(f"   ⚠️ No source found for: {name}")
-    else:
-        print("   ❌ Template file not found!")
-
-    # 3. ADD LIVE EVENTS (Fancode / Sony / Zee)
-    print("\n🎥 processing Live Events...")
-    
-    def add_live_source(url, prefix):
-        data = parse_m3u_to_dict(url, prefix)
-        for key, val in data.items():
-            # Force Group "Live Events"
-            final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{val["logo"]}",{val["raw_name"]}')
-            final_lines.append(val['link'])
-
-    add_live_source(URL_FANCODE, "Fancode")
-    add_live_source(URL_SONY_LIVE, "Sony Live")
-    add_live_source(URL_ZEE_LIVE, "Zee Live")
-
-    # 4. ADD TEMPORARY CHANNELS
-    print("\n🎥 Processing Temporary Channels...")
-    if os.path.exists(youtube_file):
-        with open(youtube_file, "r", encoding="utf-8") as f:
-            yt_lines = f.readlines()
-        
-        current_yt = {}
-        for line in yt_lines:
-            line = line.strip()
-            if not line: continue
-            if line.lower().startswith("title") and ":" in line:
-                if 'link' in current_yt:
-                    final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_yt.get("logo","")}",{current_yt["title"]}')
-                    final_lines.append(current_yt['link'])
-                current_yt = {}
-            if ':' in line:
-                parts = line.split(':', 1)
-                current_yt[parts[0].strip().lower()] = parts[1].strip()
-        # Add last one
-        if 'link' in current_yt:
-            final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_yt.get("logo","")}",{current_yt["title"]}')
-            final_lines.append(current_yt['link'])
-
-    # 5. SAVE
-    with open(output_file, "w", encoding="utf-8") as f:
-        f.write("\n".join(final_lines))
-    print(f"\n🎉 Playlist Generated: {len(final_lines)//2} channels saved to {output_file}")
-
-if __name__ == "__main__":
-    main()
+            line = lines[i].
