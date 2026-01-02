@@ -28,7 +28,7 @@ REMOVE_KEYWORDS = ["zee thirai", "zee tamil"]
 
 # FORCE BACKUP LIST
 FORCE_BACKUP_KEYWORDS = [
-    "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
+    "vijay", "asianet", "suvarna", "maa", "hotstar", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
     "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
     "&pictures", "ten"
