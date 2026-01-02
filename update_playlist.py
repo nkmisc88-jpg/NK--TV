@@ -145,8 +145,8 @@ def fetch_and_group(url, group_name):
     return entries
 
 # --- MODIFIED FUNCTION: POCKET TV (ARUNJUNAN) EXTRACTION ---
-# Now adds ALL Sports and ALL Tamil channels automatically
-def fetch_pocket_extras(existing_channels):
+# NO DEDUPLICATION - Adds EVERYTHING it finds
+def fetch_pocket_extras():
     entries = []
     print(f"🌍 Fetching & Filtering Pocket TV...")
     try:
@@ -165,12 +165,7 @@ def fetch_pocket_extras(existing_channels):
                 if "#EXTINF" in line:
                     name = line.split(",")[-1].strip()
                     name_lower = name.lower()
-                    clean_key = clean_name_key(name)
                     
-                    # Skip if we already added this channel from Template/Local (Prevents Duplicates)
-                    if clean_key in existing_channels:
-                        continue
-                        
                     target_group = None
                     
                     # 1. DETECT GROUPS FROM SOURCE
@@ -212,7 +207,6 @@ def fetch_pocket_extras(existing_channels):
                             entries.append(meta)
                             entries.append(link)
                             count += 1
-                            existing_channels.add(clean_key) # Mark as added
                             
             print(f"✅ Extracted {count} Requested Channels.")
             
@@ -231,9 +225,6 @@ def update_playlist():
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
     
-    # TRACK ADDED CHANNELS TO PREVENT DUPLICATES
-    added_channels = set()
-
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
@@ -250,9 +241,6 @@ def update_playlist():
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
                 
-                # MARK AS ADDED
-                added_channels.add(clean_name_key(original_name))
-
                 should_remove = False
                 for rm in REMOVE_KEYWORDS:
                     if rm in ch_name_lower: should_remove = True; break
@@ -300,8 +288,9 @@ def update_playlist():
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 2. POCKET TV EXTRAS (All Sports + All Tamil - Duplicates)
-    final_lines.extend(fetch_pocket_extras(added_channels))
+    # 2. POCKET TV EXTRAS (ALL Sports + ALL Tamil)
+    # Deduplication logic removed
+    final_lines.extend(fetch_pocket_extras())
 
     # 3. MANUAL / YOUTUBE
     print("🎥 Appending Temporary Channels...")
