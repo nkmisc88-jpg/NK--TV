@@ -15,8 +15,9 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# MASTER LIST (Reverted to "Zee Tamil HD" to force HD selection)
+# MASTER LIST (Mapped to your EXACT requested groups)
 MASTER_CHANNELS = [
+    # --- SPORTS HD ---
     ("Sports HD", "Star Sports 1 HD"), ("Sports HD", "Star Sports 2 HD"),
     ("Sports HD", "Star Sports 1 Hindi HD"), ("Sports HD", "Star Sports Select 1 HD"),
     ("Sports HD", "Star Sports Select 2 HD"), ("Sports HD", "Sony Sports Ten 1 HD"),
@@ -25,25 +26,56 @@ MASTER_CHANNELS = [
     ("Sports HD", "Sports18 1 HD"), ("Sports HD", "Eurosport HD"),
     ("Sports HD", "Astro Cricket"), ("Sports HD", "Willow Cricket"),
     ("Sports HD", "Sky Sports Cricket"),
+
+    # --- TAMIL HD ---
     ("Tamil HD", "Sun TV HD"), ("Tamil HD", "KTV HD"),
     ("Tamil HD", "Star Vijay HD"), ("Tamil HD", "Zee Tamil HD"),
     ("Tamil HD", "Colors Tamil HD"), ("Tamil HD", "Jaya TV HD"),
     ("Tamil HD", "Zee Thirai HD"), ("Tamil HD", "Vijay Takkar"),
     ("Tamil HD", "Astro Vaanavil"), ("Tamil HD", "Astro Vinmeen HD"),
     ("Tamil HD", "Astro Thangathirai"), ("Tamil HD", "Astro Vellithirai"),
-    ("Tamil HD", "Rasi Palan"), ("Tamil HD", "Rasi Movies"),
-    ("Infotainment", "Discovery HD"), ("Infotainment", "Animal Planet HD"),
-    ("Infotainment", "Nat Geo HD"), ("Infotainment", "Nat Geo Wild HD"),
-    ("Infotainment", "Sony BBC Earth HD"), ("Infotainment", "History TV18 HD"),
-    ("Infotainment", "TLC HD"), ("Infotainment", "TravelXP HD"),
-    ("Movies", "Star Movies HD"), ("Movies", "Sony Pix HD"),
-    ("Movies", "Movies Now HD"), ("Movies", "MN+ HD"),
-    ("Movies", "MNX HD"), ("Movies", "Star Gold HD"),
-    ("Movies", "Sony Max HD"), ("Movies", "Zee Cinema HD"),
-    ("Movies", "&Pictures HD"),
-    ("Entertainment", "Star Plus HD"), ("Entertainment", "Sony SET HD"),
-    ("Entertainment", "Sony SAB HD"), ("Entertainment", "Zee TV HD"),
-    ("Entertainment", "Colors HD"), ("Entertainment", "Star Bharat HD")
+
+    # --- TAMIL SD (If any specific preferences, otherwise Extras will catch them) ---
+    ("Tamil SD", "Sun TV"), ("Tamil SD", "KTV"), ("Tamil SD", "Star Vijay"),
+    ("Tamil SD", "Zee Tamil"), ("Tamil SD", "Rasi Palan"), ("Tamil SD", "Rasi Movies"),
+
+    # --- INFOTAINMENT HD ---
+    ("Infotainment HD", "Discovery HD"), ("Infotainment HD", "Animal Planet HD"),
+    ("Infotainment HD", "Nat Geo HD"), ("Infotainment HD", "Nat Geo Wild HD"),
+    ("Infotainment HD", "Sony BBC Earth HD"), ("Infotainment HD", "History TV18 HD"),
+    ("Infotainment HD", "TLC HD"), ("Infotainment HD", "TravelXP HD"),
+
+    # --- ENGLISH MOVIES HD ---
+    ("English Movies HD", "Star Movies HD"), ("English Movies HD", "Sony Pix HD"),
+    ("English Movies HD", "Movies Now HD"), ("English Movies HD", "MN+ HD"),
+    ("English Movies HD", "MNX HD"), 
+
+    # --- HINDI MOVIES HD ---
+    ("Hindi Movies HD", "Star Gold HD"), ("Hindi Movies HD", "Sony Max HD"),
+    ("Hindi Movies HD", "Zee Cinema HD"), ("Hindi Movies HD", "&Pictures HD"),
+
+    # --- TAMIL NEWS ---
+    ("Tamil News", "Sun News"), ("Tamil News", "Polimer News"),
+    ("Tamil News", "Puthiya Thalaimurai"), ("Tamil News", "Thanthi TV"),
+    ("Tamil News", "Kalaignar Seithigal"), ("Tamil News", "News18 Tamil Nadu"),
+
+    # --- ENGLISH AND HINDI NEWS ---
+    ("English and Hindi News", "Times Now"), ("English and Hindi News", "NDTV 24x7"),
+    ("English and Hindi News", "India Today"), ("English and Hindi News", "CNN News18"),
+    ("English and Hindi News", "Republic TV"), ("English and Hindi News", "Aaj Tak"),
+
+    # --- OTHERS (Entertainment/Regional) ---
+    ("Others", "Star Plus HD"), ("Others", "Sony SET HD"),
+    ("Others", "Sony SAB HD"), ("Others", "Zee TV HD"),
+    ("Others", "Colors HD"), ("Others", "Star Bharat HD"),
+    ("Others", "Asianet HD"), ("Others", "Surya TV HD"),
+    ("Others", "Star Maa HD"), ("Others", "Zee Telugu HD"),
+    ("Others", "Colors Kannada HD"), ("Others", "Zee Kannada HD"),
+    
+    # --- KIDS (Putting in Others or maybe SD?) ---
+    ("Others", "Nick"), ("Others", "Sonic"), ("Others", "Hungama"),
+    ("Others", "Disney Channel"), ("Others", "Cartoon Network"),
+    ("Others", "Pogo"), ("Others", "Sony Yay"), ("Others", "Discovery Kids")
 ]
 
 # ==========================================
@@ -68,6 +100,7 @@ def get_source_blocks():
                 line = line.strip()
                 if not line: continue
                 
+                # Capture everything (Keys + Headers + Info)
                 if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT") or line.startswith("#EXTINF"):
                     current_block.append(line)
                 elif not line.startswith("#"):
@@ -79,10 +112,11 @@ def get_source_blocks():
                         raw_name = name_line.split(",")[-1].strip()
                         simple = simplified_name(raw_name)
                         
+                        # Extract original group for sorting
                         grp_match = re.search(r'group-title="([^"]*)"', name_line)
                         grp = grp_match.group(1).lower() if grp_match else ""
                         
-                        # CHECK FOR KEYS
+                        # Check for License Keys (DRM)
                         has_keys = any(l.startswith("#KODIPROP") or l.startswith("#EXTVLCOPT") for l in current_block)
 
                         blocks.append({
@@ -97,6 +131,44 @@ def get_source_blocks():
         print(f"   ❌ Failed to load source: {e}")
     return blocks
 
+def determine_group(name, src_group):
+    """Categorizes unknown channels into your 13 requested groups."""
+    name = name.lower()
+    src_group = src_group.lower()
+    
+    # 1. TAMIL
+    if "tamil" in name or "tamil" in src_group:
+        if "news" in name: return "Tamil News"
+        if "hd" in name: return "Tamil HD"
+        return "Tamil SD"
+
+    # 2. SPORTS
+    if "sport" in name or "cricket" in name or "sport" in src_group:
+        if "hd" in name: return "Sports HD"
+        return "Sports SD"
+
+    # 3. NEWS (Non-Tamil)
+    if "news" in name or "news" in src_group:
+        return "English and Hindi News"
+
+    # 4. INFOTAINMENT
+    # Common keywords
+    info_keys = ["discovery", "nat geo", "animal planet", "history", "tlc", "travelxp", "bbc earth"]
+    if any(k in name for k in info_keys) or "documentary" in src_group or "knowledge" in src_group:
+        if "hd" in name: return "Infotainment HD"
+        return "Infotainment SD"
+
+    # 5. MOVIES
+    if "movie" in name or "cinema" in name or "film" in name or "pix" in name or "mn" in name or "gold" in name:
+        if "hd" in name:
+            # Guess Language
+            if "star" in name or "zee" in name or "set" in name or "color" in name:
+                return "Hindi Movies HD" # Good guess for Indian networks
+            return "English Movies HD"   # Default for others
+
+    # 6. Fallback
+    return "Others"
+
 def main():
     source_blocks = get_source_blocks()
     
@@ -105,37 +177,35 @@ def main():
 
     added_ids = set()
 
-    # 1. MASTER LIST (Priority with Smart Selection)
+    # -------------------------------------------
+    # 1. MASTER LIST (Priority Channels)
+    # -------------------------------------------
     print("\n1️⃣  Processing Master List...")
     for target_group, target_name in MASTER_CHANNELS:
         target_simple = simplified_name(target_name)
         
-        # FIND ALL POTENTIAL MATCHES
+        # Find Matches
         candidates = []
         for b in source_blocks:
-            # Exact or Fuzzy Match
             if b['simple'] == target_simple or target_simple in b['simple']:
                 candidates.append(b)
         
-        # SMART SELECTION: Pick the best candidate
+        # Smart Select (Prefer Keys/HD)
         best_match = None
         if candidates:
-            # 1. Prefer candidate with License Keys (DRM) - Usually the working HD stream
+            # Prefer keys
             for c in candidates:
-                if c['has_keys']:
-                    best_match = c
-                    break
-            
-            # 2. If no keys found, fallback to the first match
-            if not best_match:
-                best_match = candidates[0]
+                if c['has_keys']: best_match = c; break
+            if not best_match: best_match = candidates[0]
 
         if best_match:
-            # Modify Group Title
+            # Rewrite Group Title
             new_lines = []
             for l in best_match['lines']:
                 if l.startswith("#EXTINF"):
-                    l = re.sub(r'group-title="[^"]*"', f'group-title="{target_group}"', l)
+                    # Remove old group, add new one
+                    l = re.sub(r'group-title="[^"]*"', '', l) 
+                    l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{target_group}"')
                 new_lines.append(l)
             
             final_lines.extend(new_lines)
@@ -143,30 +213,24 @@ def main():
         else:
             print(f"   ⚠️ Channel Not Found: {target_name}")
 
-    # 2. ADD ALL REMAINING CHANNELS
-    print("\n2️⃣  Adding All Remaining Channels...")
-    SPORTS_KEYS = ["sport", "cricket", "f1", "racing", "football", "ten", "sony", "astro"]
-    TAMIL_KEYS = ["tamil", "sun", "vijay", "zee", "kalaignar", "polimer", "news18 tamil", "thanthi", "puthiya", "jaya"]
+    # -------------------------------------------
+    # 2. ADD ALL REMAINING (Auto-Sorted)
+    # -------------------------------------------
+    print("\n2️⃣  Categorizing Remaining Channels...")
     
     count = 0
     for b in source_blocks:
         if b['simple'] in added_ids: continue
         
-        name = b['name'].lower()
-        grp = b['group']
+        # Determine Group
+        final_group = determine_group(b['name'], b['group'])
         
-        final_group = "General Extras"
-        if any(x in name for x in SPORTS_KEYS) or "sport" in grp: final_group = "Sports Extra"
-        elif any(x in name for x in TAMIL_KEYS) or "tamil" in grp: final_group = "Tamil Extra"
-        
-        # Modify Group
+        # Rewrite Group Title
         new_lines = []
         for l in b['lines']:
             if l.startswith("#EXTINF"):
-                if 'group-title="' in l:
-                    l = re.sub(r'group-title="[^"]*"', f'group-title="{final_group}"', l)
-                else:
-                    l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{final_group}"')
+                l = re.sub(r'group-title="[^"]*"', '', l)
+                l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{final_group}"')
             new_lines.append(l)
             
         final_lines.extend(new_lines)
@@ -175,8 +239,11 @@ def main():
         
     print(f"   ✅ Added {count} extra channels.")
 
+    # -------------------------------------------
     # 3. LIVE & TEMP
-    print("\n3️⃣  Adding Live/Temp...")
+    # -------------------------------------------
+    print("\n3️⃣  Adding Live Events & Temp...")
+    
     def add_ext(url, g):
         try:
             r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
@@ -187,14 +254,14 @@ def main():
                 final_lines.append(l)
         except: pass
 
-    add_ext(FANCODE_URL, "Live Events")
-    add_ext(SONY_LIVE_URL, "Live Events")
-    add_ext(ZEE_LIVE_URL, "Live Events")
+    add_ext(FANCODE_URL, "Live events")
+    add_ext(SONY_LIVE_URL, "Live events")
+    add_ext(ZEE_LIVE_URL, "Live events")
 
     if os.path.exists(YOUTUBE_FILE):
         with open(YOUTUBE_FILE, "r") as f:
             for l in f:
-                if "title" in l.lower(): final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="",{l.split(":",1)[1].strip()}')
+                if "title" in l.lower(): final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",{l.split(":",1)[1].strip()}')
                 elif l.startswith("http"): final_lines.append(l.strip())
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
