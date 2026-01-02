@@ -4,282 +4,221 @@ import datetime
 import os
 
 # ==========================================
-# 1. CONFIGURATION
+# 1. SETUP & VARIABLES
 # ==========================================
-# FILES
 template_file = "template.m3u"
 youtube_file = "youtube.txt"
-reference_file = "jiotv_playlist.m3u.m3u8" # Local Map
+reference_file = "jiotv_playlist.m3u.m3u8" # Local ID Map
 output_file = "playlist.m3u"
 
-# SOURCES
-# 1. Local (JioTVGo) - Priority for Regional/News
-LOCAL_BASE = "http://192.168.0.146:5350/live"
-
-# 2. Arunjunan (Pocket TV) - Priority for Star/Sony/Zee
+# Source URLs
+URL_LOCAL_BASE = "http://192.168.0.146:5350/live"
 URL_ARUN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
-
-# 3. Fakeall - Backup
 URL_FAKEALL = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
-# LIVE EVENTS
+# Live Event URLs
 URL_FANCODE = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 URL_SONY_LIVE = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 URL_ZEE_LIVE = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# HEADER
-EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
-
-# HEADERS
-HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+# Headers (Browser Simulation)
+HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"}
 
 # ==========================================
-# 2. SMART PARSING ENGINE
+# 2. HELPER FUNCTIONS
 # ==========================================
-def clean_name(name):
-    """Normalize name: 'Star Sports 1 HD' -> 'starsports1hd'"""
+def clean_key(name):
+    """Converts 'Star Sports 1 HD' -> 'starsports1hd' for matching."""
     if not name: return ""
-    # Remove common junk
-    name = re.sub(r'\(.*?\)|\[.*?\]', '', name) 
-    return re.sub(r'[^a-z0-9]', '', name.lower())
+    # Remove brackets, symbols, spaces, and convert to lower
+    clean = re.sub(r'\(.*?\)|\[.*?\]', '', name)
+    return re.sub(r'[^a-z0-9]', '', clean.lower())
 
-def extract_info(line):
-    """Safely extracts Name and Logo from a raw M3U line"""
-    name = line.split(",")[-1].strip()
-    if not name:
-        match = re.search(r'tvg-name="([^"]*)"', line)
-        if match: name = match.group(1)
-    
-    logo = ""
-    match = re.search(r'tvg-logo="([^"]*)"', line)
-    if match: logo = match.group(1)
-    
-    # Extract ID (Generic regex to catch digits or alphanumeric IDs)
-    ch_id = ""
-    match = re.search(r'tvg-id="([^"]+)"', line)
-    if match: ch_id = match.group(1)
-    
-    return name, logo, ch_id
+def parse_m3u(source_type, location):
+    """
+    Reads an M3U file (URL or Local) and returns a dictionary.
+    Format: { 'starsports1hd': {'link': '...', 'logo': '...'} }
+    """
+    db = {}
+    content = ""
+    print(f"Loading {source_type}...")
 
-def load_source(url, source_name, is_local=False, local_file=None):
-    """Loads a source into a dictionary: { 'clean_name': {'link': ..., 'logo': ...} }"""
-    dataset = {}
-    print(f"📥 Loading {source_name}...")
-    lines = []
-    
     try:
-        if is_local:
-            if os.path.exists(local_file):
-                with open(local_file, "r", encoding="utf-8") as f: lines = f.readlines()
+        if source_type == "LOCAL_MAP":
+            if os.path.exists(location):
+                with open(location, "r", encoding="utf-8") as f:
+                    content = f.read()
             else:
-                print(f"   ⚠️ Local File Missing: {local_file}")
+                print(f"   ⚠️ Local file missing: {location}")
                 return {}
         else:
-            r = requests.get(url, headers=HEADERS, timeout=15)
-            if r.status_code == 200: lines = r.text.splitlines()
-            else: return {}
+            # Remote URL
+            r = requests.get(location, headers=HEADERS, timeout=15)
+            if r.status_code == 200:
+                content = r.text
+            else:
+                print(f"   ❌ Failed to fetch {source_type}: {r.status_code}")
+                return {}
 
-        for i in range(len(lines)):
-            line = lines[i].strip()
-            if "#EXTINF" in line:
-                name, logo, ch_id = extract_info(line)
-                key = clean_name(name)
-                
-                link = ""
-                if is_local and ch_id:
-                    link = f"{LOCAL_BASE}/{ch_id}.m3u8"
-                else:
-                    # Look ahead for link
-                    for j in range(i+1, min(i+5, len(lines))):
-                        pot = lines[j].strip()
-                        if pot and not pot.startswith("#"):
-                            link = pot; break
-                
-                if key and link:
-                    dataset[key] = {'link': link, 'logo': logo, 'name': name}
-                    
-        print(f"   ✅ {source_name}: Loaded {len(dataset)} channels.")
-    except Exception as e: print(f"   ❌ Error {source_name}: {e}")
-    
-    return dataset
-
-# ==========================================
-# 3. PRIORITY LOGIC (FUZZY MATCH ENABLED)
-# ==========================================
-DB_LOCAL = {}
-DB_ARUN = {}
-DB_FAKEALL = {}
-
-def smart_lookup(target_key, database):
-    """
-    Tries Exact Match first. 
-    If failing, tries Fuzzy Match (is target inside key? OR is key inside target?)
-    """
-    # 1. Exact Match
-    if target_key in database:
-        return database[target_key]
-    
-    # 2. Fuzzy Match (Expensive but necessary for 'Star Sports 1 HD' vs 'Star Sports 1 HD (Backup)')
-    for db_key, data in database.items():
-        if target_key in db_key or db_key in target_key:
-            # Length check to avoid bad matches (e.g. 'Sony' matching 'Sony Ten')
-            if abs(len(target_key) - len(db_key)) < 5: 
-                return data
-    return None
-
-def get_best_link(channel_name):
-    key = clean_name(channel_name)
-    link = None
-    logo = None
-    
-    # 1. LOGO STRATEGY
-    arun_data = smart_lookup(key, DB_ARUN)
-    fake_data = smart_lookup(key, DB_FAKEALL)
-    
-    if arun_data and arun_data['logo']: logo = arun_data['logo']
-    elif fake_data and fake_data['logo']: logo = fake_data['logo']
-        
-    lower_name = channel_name.lower()
-    
-    # --- STRATEGY A: STAR / SONY / ZEE (Priority: Arun -> Fakeall -> Local) ---
-    if any(x in lower_name for x in ["star", "sony", "zee", "set "]):
-        # Try Arun
-        if arun_data: link = arun_data['link']
-        # Try Fakeall
-        elif fake_data: link = fake_data['link']
-        # Try Local
-        else:
-            local_data = smart_lookup(key, DB_LOCAL)
-            if local_data: link = local_data['link']
-        
-    # --- STRATEGY B: EVERYTHING ELSE (Priority: Local -> Arun -> Fakeall) ---
-    else:
-        local_data = smart_lookup(key, DB_LOCAL)
-        if local_data: 
-            link = local_data['link']
-        elif arun_data:
-            link = arun_data['link']
-        elif fake_data:
-            link = fake_data['link']
-        
-    return link, logo
-
-def get_extras_filtered():
-    """Adds only the requested 'Extra' channels from Arunjunan"""
-    extras = []
-    print("\n🔍 Scanning for Extras...")
-    
-    SPORTS_WANTED = ["astro cricket", "sony ten", "sky sports"]
-    TAMIL_WANTED = [
-        "zee tamil", "zee thirai", "vijay takkar", "rasi",
-        "astro thangathirai", "astro vellithirai", "astro vaanavil", "astro vinmeen"
-    ]
-    
-    for key, val in DB_ARUN.items():
-        name_lower = val['name'].lower()
-        target_group = None
-        
-        if any(x in name_lower for x in SPORTS_WANTED):
-            target_group = "Sports Extra"
-        elif any(x in name_lower for x in TAMIL_WANTED):
-            target_group = "Tamil Extra"
-            
-        if target_group:
-            extras.append(f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{val["logo"]}",{val["name"]}')
-            extras.append(val['link'])
-            
-    print(f"   ✅ Found {len(extras)//2} Extras.")
-    return extras
-
-# ==========================================
-# 4. MAIN EXECUTION
-# ==========================================
-def main():
-    global DB_LOCAL, DB_ARUN, DB_FAKEALL
-    
-    # 1. LOAD SOURCES
-    DB_LOCAL = load_source(None, "Local (JioTVGo)", True, reference_file)
-    DB_ARUN = load_source(URL_ARUN, "Arunjunan (Pocket TV)")
-    DB_FAKEALL = load_source(URL_FAKEALL, "Fakeall")
-    
-    final_lines = [EPG_HEADER]
-    
-    # Time & Status
-    utc_now = datetime.datetime.utcnow()
-    ist_now = utc_now + datetime.timedelta(hours=5, minutes=30)
-    time_str = ist_now.strftime("%d-%m-%Y %I:%M %p")
-    final_lines.append(f"# Updated on: {time_str} IST")
-    
-    status_msg = "✅ Local Ready" if len(DB_LOCAL) > 0 else "❌ Local Map MISSING"
-    final_lines.append(f'#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 {status_msg}')
-    final_lines.append("http://0.0.0.0")
-
-    # 2. PROCESS TEMPLATE
-    print("\n🔨 Building Playlist from Template...")
-    if os.path.exists(template_file):
-        with open(template_file, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-            
-        for i in range(len(lines)):
-            line = lines[i].strip()
-            
-            if line.startswith("#EXTINF"):
-                name, tmpl_logo, _ = extract_info(line)
-                group_match = re.search(r'group-title="([^"]*)"', line)
-                group = group_match.group(1) if group_match else "General"
-                
-                # GET LINK (Using Smart Fuzzy Logic)
-                link, source_logo = get_best_link(name)
-                
-                # FINAL LOGO
-                final_logo = source_logo if source_logo else tmpl_logo
-                logo_str = f'tvg-logo="{final_logo}"'
-                
-                if link:
-                    final_lines.append(f'#EXTINF:-1 group-title="{group}" {logo_str},{name}')
-                    final_lines.append(link)
-                else:
-                    print(f"   ⚠️ Missing: {name}")
-                    final_lines.append(f'#EXTINF:-1 group-title="{group}" {logo_str},⚠️ Offline: {name}')
-                    final_lines.append("http://0.0.0.0")
-    else:
-        print("   ❌ Template file missing!")
-
-    # 3. ADD EXTRAS
-    final_lines.extend(get_extras_filtered())
-
-    # 4. ADD LIVE EVENTS
-    print("\n🎥 Adding Live Events...")
-    def add_live(url):
-        data = load_source(url, "Live")
-        for key, val in data.items():
-            final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{val["logo"]}",{val["name"]}')
-            final_lines.append(val['link'])
-            
-    add_live(URL_FANCODE)
-    add_live(URL_SONY_LIVE)
-    add_live(URL_ZEE_LIVE)
-
-    # 5. ADD MANUAL
-    print("\n🎥 Adding Manual Links...")
-    if os.path.exists(youtube_file):
-        with open(youtube_file, "r", encoding="utf-8") as f: yt_lines = f.readlines()
-        current = {}
-        for line in yt_lines:
+        lines = content.splitlines()
+        for i, line in enumerate(lines):
             line = line.strip()
-            if line.lower().startswith("title") and ":" in line:
-                if 'link' in current:
-                    final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current.get("logo","")}",{current["title"]}')
-                    final_lines.append(current['link'])
-                current = {}
-            if ':' in line: parts = line.split(':', 1); current[parts[0].strip().lower()] = parts[1].strip()
-        if 'link' in current:
-            final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current.get("logo","")}",{current["title"]}')
-            final_lines.append(current['link'])
+            if line.startswith("#EXTINF"):
+                # 1. Extract Name
+                name = line.split(",")[-1].strip()
+                # 2. Extract Logo
+                logo_match = re.search(r'tvg-logo="([^"]*)"', line)
+                logo = logo_match.group(1) if logo_match else ""
+                # 3. Extract ID (Specific to Local Map)
+                id_match = re.search(r'tvg-id="(\d+)"', line)
+                ch_id = id_match.group(1) if id_match else None
+                
+                # 4. Determine Link
+                link = ""
+                if source_type == "LOCAL_MAP" and ch_id:
+                    link = f"{URL_LOCAL_BASE}/{ch_id}.m3u8"
+                elif source_type != "LOCAL_MAP":
+                    # For remote lists, link is usually on the next line
+                    if i + 1 < len(lines):
+                        next_line = lines[i+1].strip()
+                        if next_line and not next_line.startswith("#"):
+                            link = next_line
 
-    # 6. SAVE
-    with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
-    print(f"\n🎉 Done. Saved {len(final_lines)//2} channels to {output_file}")
+                # 5. Save to DB
+                if link and name:
+                    key = clean_key(name)
+                    # Store original name too for display if needed
+                    db[key] = {'link': link, 'logo': logo, 'name': name}
 
-if __name__ == "__main__":
-    main()
+        print(f"   ✅ {source_type}: {len(db)} channels loaded.")
+        return db
+
+    except Exception as e:
+        print(f"   ❌ Critical Error loading {source_type}: {e}")
+        return {}
+
+# ==========================================
+# 3. MAIN SCRIPT
+# ==========================================
+
+# --- Step A: Load All Sources ---
+DB_LOCAL = parse_m3u("LOCAL_MAP", reference_file)
+DB_ARUN = parse_m3u("ARUN_POCKET", URL_ARUN)
+DB_FAKEALL = parse_m3u("FAKEALL", URL_FAKEALL)
+
+final_lines = []
+final_lines.append('#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"')
+
+# Add Update Time
+ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
+final_lines.append(f'#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: {ist_now.strftime("%d-%m-%Y %H:%M")}')
+final_lines.append("http://0.0.0.0")
+
+# --- Step B: Process Template (Main Channels) ---
+print("\nProcessing Template...")
+if os.path.exists(template_file):
+    with open(template_file, "r", encoding="utf-8") as f:
+        template_lines = f.readlines()
+
+    for line in template_lines:
+        line = line.strip()
+        if line.startswith("#EXTINF"):
+            # Extract info from template
+            name = line.split(",")[-1].strip()
+            group_match = re.search(r'group-title="([^"]*)"', line)
+            group = group_match.group(1) if group_match else "General"
+            
+            key = clean_key(name)
+            link = None
+            logo = None
+
+            # --- PRIORITY LOGIC ---
+            # Group 1: Star, Sony, Zee (Arun > Fakeall > Local)
+            if any(k in key for k in ["star", "sony", "zee", "set"]):
+                if key in DB_ARUN:
+                    link = DB_ARUN[key]['link']
+                    logo = DB_ARUN[key]['logo']
+                elif key in DB_FAKEALL:
+                    link = DB_FAKEALL[key]['link']
+                    logo = DB_FAKEALL[key]['logo']
+                elif key in DB_LOCAL:
+                    link = DB_LOCAL[key]['link']
+            
+            # Group 2: All Others (Local > Arun > Fakeall)
+            else:
+                if key in DB_LOCAL:
+                    link = DB_LOCAL[key]['link']
+                elif key in DB_ARUN:
+                    link = DB_ARUN[key]['link']
+                    logo = DB_ARUN[key]['logo']
+                elif key in DB_FAKEALL:
+                    link = DB_FAKEALL[key]['link']
+                    logo = DB_FAKEALL[key]['logo']
+
+            # --- WRITE TO PLAYLIST ---
+            # If no logo found in source, use template logic (simplified here to reuse source logo if exists)
+            logo_str = f'tvg-logo="{logo}"' if logo else 'tvg-logo=""'
+            
+            if link:
+                final_lines.append(f'#EXTINF:-1 group-title="{group}" {logo_str},{name}')
+                final_lines.append(link)
+            else:
+                print(f"   ⚠️ Missing: {name}")
+                final_lines.append(f'#EXTINF:-1 group-title="{group}" {logo_str},⚠️ Offline: {name}')
+                final_lines.append("http://0.0.0.0")
+
+else:
+    print("❌ Template file not found!")
+
+# --- Step C: Extras (Astro / Rasi) ---
+print("\nAdding Extras...")
+wanted_keywords = ["astro", "rasi", "vijay takkar", "zee thirai"]
+for key, data in DB_ARUN.items():
+    # Check if any wanted keyword is in the channel name
+    if any(w in key for w in wanted_keywords):
+        # Determine Group
+        grp = "Tamil Extra"
+        if "cricket" in key or "sports" in key:
+            grp = "Sports Extra"
+            
+        final_lines.append(f'#EXTINF:-1 group-title="{grp}" tvg-logo="{data["logo"]}",{data["name"]}')
+        final_lines.append(data['link'])
+
+# --- Step D: Live Events ---
+print("\nAdding Live Events...")
+def add_live(url):
+    db = parse_m3u("LIVE", url)
+    for key, data in db.items():
+        final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{data["logo"]}",{data["name"]}')
+        final_lines.append(data['link'])
+
+add_live(URL_FANCODE)
+add_live(URL_SONY_LIVE)
+add_live(URL_ZEE_LIVE)
+
+# --- Step E: Manual (Youtube) ---
+print("\nAdding Manual/Youtube...")
+if os.path.exists(youtube_file):
+    with open(youtube_file, "r") as f:
+        yt_lines = f.readlines()
+    
+    current_title = ""
+    current_logo = ""
+    for line in yt_lines:
+        line = line.strip()
+        if line.lower().startswith("title:"):
+            current_title = line.split(":", 1)[1].strip()
+        elif line.lower().startswith("logo:"):
+            current_logo = line.split(":", 1)[1].strip()
+        elif line.lower().startswith("link:") or line.startswith("http"):
+            link = line.split(":", 1)[1].strip() if "link:" in line.lower() else line
+            if current_title:
+                final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
+                final_lines.append(link)
+                current_title = "" # Reset
+
+# --- Step F: Save ---
+with open(output_file, "w", encoding="utf-8") as f:
+    f.write("\n".join(final_lines))
+
+print(f"\n✅ DONE! Saved to {output_file}")
