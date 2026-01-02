@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-02 16:45:41
+# Updated on: 2026-01-02 16:51:10
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,17 +846,17 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 2 January 2026 at 10:14:05 pm
+#DATE:- Friday, 2 January 2026 at 10:21:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138655" tvg-name="Abu Dhabi Knight Riders Vs Mi Emirates" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138633_5786_MIE_ADKR_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Abu Dhabi Knight Riders Vs Mi Emirates
 https://in-mc-fdlive.fancode.com/mumbai/138655_english_hls_f3a36ee85a97188_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="138927" tvg-name="Sylhet Titans Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138927_5808_SYL_RAN_fc-web_1766733054374.jpg" tvg-language="ENGLISH" ,ENG | Sylhet Titans Vs Rangpur Riders
-https://in-mc-fdlive.fancode.com/mumbai/138927_english_hls_2ad2b01ca384942_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139161" tvg-name="Ias Invincibles Vs Royal Oman Stallions" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Ias Invincibles Vs Royal Oman Stallions
 https://in-mc-fdlive.fancode.com/mumbai/139161_english_hls_863599e16528674_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 02-01-2026 22:00
+#EXTINF:-1 group-title="Live Events" tvg-id="138927" tvg-name="Sylhet Titans Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138927_5808_SYL_RAN_fc-web_1766733054374.jpg" tvg-language="ENGLISH" ,ENG | Sylhet Titans Vs Rangpur Riders
+https://in-mc-fdlive.fancode.com/mumbai/138927_english_hls_2ad2b01ca384942_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 02-01-2026 22:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090491950" tvg-name="Kaun Banega Crorepati" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012876/1767351403666101_KBC_S17_finale_2jan_simulcast_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | E105. Kaun Banega Crorepati - Season 17
-https://sonymtmnew.akamaized.net/hls/live/2043696/DAI26ME-KBC/master.m3u8?hdnea=exp=1767400201~acl=/*~id=392adf95e84d2852bb1d91aecb493e6c-1767357000125~hmac=e6bc9f3feba98cb4d63ab2ef56aedef7df493fabf0471d53569b8b4563496ef5|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; LinkBox; Build/NHG47K)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=0e3715b2813e05885e60272326cfd77a-1767371408808
+https://sonymtmnew.akamaized.net/hls/live/2043696/DAI26ME-KBC/master.m3u8?hdnea=exp=1767400201~acl=/*~id=392adf95e84d2852bb1d91aecb493e6c-1767357000125~hmac=e6bc9f3feba98cb4d63ab2ef56aedef7df493fabf0471d53569b8b4563496ef5|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; SM-A125U; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=23887af03215181faadef07b74319cba-1767372607856
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Friday, 2 January 2026 at 10:00:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5853069" tvg-name="DP World ILT20" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5853069/list/1920x1080list78ff8a9b94a846abafe1bdca062d5251d24e8ac04cd4480594e6f6b73b56a2ec.jpg" tvg-language="hindi" ,HIN | MIE Vs ADKAR - Qualifier 2
