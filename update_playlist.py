@@ -23,7 +23,7 @@ zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/m
 # POCKET TV SOURCE (Arunjunan20)
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# REMOVAL LIST (Cleaned up)
+# REMOVAL LIST
 REMOVE_KEYWORDS = ["zee thirai", "zee tamil"]
 
 # MAPPING
@@ -144,20 +144,17 @@ def fetch_and_group(url, group_name):
         print(f"❌ Error fetching: {e}")
     return entries
 
-# --- NEW FUNCTION: POCKET TV (ARUNJUNAN) EXTRACTION ---
-def fetch_pocket_extras():
+# --- MODIFIED FUNCTION: POCKET TV (ARUNJUNAN) EXTRACTION ---
+# Now adds ALL Sports and ALL Tamil channels automatically
+def fetch_pocket_extras(existing_channels):
     entries = []
     print(f"🌍 Fetching & Filtering Pocket TV...")
     try:
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
         
-        # KEYWORDS (Cleaned, no spaces)
-        # Only strict list for Tamil now. Sports is ALL sports.
-        TAMIL_WANTED = [
-            "zeetamil", "zeethirai", "vijaytakkar", "rasi",
-            "astrothangathirai", "astrovellithirai", "astrovaanavil", "astrovinmeen"
-        ]
+        # SPECIFIC REQUESTS (Keywords if grouping fails)
+        SPECIFIC_WANTED = ["rasi", "astro", "vijay takkar"]
         
         if r.status_code == 200:
             lines = r.text.splitlines()
@@ -167,19 +164,30 @@ def fetch_pocket_extras():
                 
                 if "#EXTINF" in line:
                     name = line.split(",")[-1].strip()
-                    # CLEAN NAME: "Astro Cricket HD" -> "astrocrickethd"
-                    name_clean = re.sub(r'[^a-zA-Z0-9]', '', name.lower())
+                    name_lower = name.lower()
+                    clean_key = clean_name_key(name)
                     
+                    # Skip if we already added this channel from Template/Local (Prevents Duplicates)
+                    if clean_key in existing_channels:
+                        continue
+                        
                     target_group = None
                     
-                    # 1. DETECT SPORTS GROUP IN SOURCE
-                    # If the source line says group-title="Sports", we grab it.
+                    # 1. DETECT GROUPS FROM SOURCE
+                    # Sports
                     if 'group-title="Sports"' in line or 'group-title="Sports HD"' in line:
                         target_group = "Sports Extra"
-                    
-                    # 2. CHECK TAMIL EXTRAS
-                    elif any(x in name_clean for x in TAMIL_WANTED):
+                    # Tamil
+                    elif 'group-title="Tamil"' in line or 'group-title="Tamil HD"' in line:
                         target_group = "Tamil Extra"
+                    
+                    # 2. CHECK KEYWORDS (For channels not correctly grouped in source)
+                    elif any(x in name_lower for x in SPECIFIC_WANTED):
+                         # Assign group based on content
+                         if "cricket" in name_lower or "sport" in name_lower:
+                             target_group = "Sports Extra"
+                         else:
+                             target_group = "Tamil Extra"
                     
                     if target_group:
                         # Grab logo
@@ -204,6 +212,7 @@ def fetch_pocket_extras():
                             entries.append(meta)
                             entries.append(link)
                             count += 1
+                            existing_channels.add(clean_key) # Mark as added
                             
             print(f"✅ Extracted {count} Requested Channels.")
             
@@ -221,6 +230,9 @@ def update_playlist():
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
+    
+    # TRACK ADDED CHANNELS TO PREVENT DUPLICATES
+    added_channels = set()
 
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
@@ -237,6 +249,9 @@ def update_playlist():
                 skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
+                
+                # MARK AS ADDED
+                added_channels.add(clean_name_key(original_name))
 
                 should_remove = False
                 for rm in REMOVE_KEYWORDS:
@@ -246,8 +261,9 @@ def update_playlist():
 
                 if i + 1 < len(lines) and "http://placeholder" in lines[i+1]:
                     clean_key = clean_name_key(original_name)
+                    found_block = None
                     
-                    # 1. TRY LOCAL (Preferred for everything now except deleted Zee/Sony)
+                    # 1. TRY LOCAL (Preferred)
                     mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
                     if clean_key in local_map:
                          final_lines.append(line)
@@ -284,8 +300,8 @@ def update_playlist():
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 2. POCKET TV EXTRAS (All Sports + Selected Tamil)
-    final_lines.extend(fetch_pocket_extras())
+    # 2. POCKET TV EXTRAS (All Sports + All Tamil - Duplicates)
+    final_lines.extend(fetch_pocket_extras(added_channels))
 
     # 3. MANUAL / YOUTUBE
     print("🎥 Appending Temporary Channels...")
