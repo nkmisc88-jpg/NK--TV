@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: 02-01-2026 17:17
+#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: 02-01-2026 19:15
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
 https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
@@ -311,15 +311,13 @@ https://rasinetworks.in/live/rasicinemaxhd/index.mpd
 https://rasinetworks.in/live/rasicinemahd/index.mpd
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasilifestyle.png",Rasi Lifestyle
 https://rasinetworks.in/live/rasilifestylehd/index.mpd
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138927_5808_SYL_RAN_fc-web_1766733054374.jpg",ENG | Sylhet Titans Vs Rangpur Riders
+https://in-mc-fdlive.fancode.com/mumbai/138927_english_hls_2ad2b01ca384942_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg",ENG | Majees Titans Vs Renaissance Challengers
 https://in-mc-fdlive.fancode.com/mumbai/139160_english_hls_72995e4f2798476_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012824/1767159010787170_UC26_greece_vs_japan_31dec_landscape_thumb.jpg",ENG |  Greece vs Japan - 2 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767378717~acl=/*~id=173f437efe6dbc3a1be07bbcaeb28719-1767335516556~hmac=c0e6592dce32b25636224d40d9e6fb7bead731386eba500ed97d07ad5a2b8da4|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; SM-F956B; Build/UP1A.231005.007)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c179337c1959993682314efe649acbc1-1767353409043
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/std_lrh-800300010.m3u8?hdnea=exp=1767400201~acl=/*~id=392adf95e84d2852bb1d91aecb493e6c-1767357000125~hmac=e6bc9f3feba98cb4d63ab2ef56aedef7df493fabf0471d53569b8b4563496ef5|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; Projector; Build/TQ2A.230405.003.E1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=71cb3eb378b00cecd1230e7061040477-1767360608554
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080lista3cabc8888fe42029f0c0819d1f7e72efc6578f357c441909a3aa151110490a4.jpg",HIN | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767439805~acl=%2f*~data=hdntl~hmac=3ca202140be388f486f85caf0b2dd06c82d3984e0c4e65f0ddd5fc475bb2d8e2|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080lista3cabc8888fe42029f0c0819d1f7e72efc6578f357c441909a3aa151110490a4.jpg",ENG | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767439807~acl=%2f*~data=hdntl~hmac=689a012fa6331b69624c4f85ee35fcc015f0cf1dfbae464097a30edc67512695|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
-#EXTINF:-1 group-title="Live Events" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873767/list/1920x1080listbecfc83ddc004e64b3c6ea69bb6fd431abacdcbf9a9045909766c31aee6a7cbb.jpg",BEN | Kopa Tigers Birbhum Vs Burdwan Blasters
-https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M02/master.m3u8?hdntl=exp=1767436204~acl=%2f*~data=hdntl~hmac=ed05607cc8f321bdc2dab18354eb2451846a2f5585e454a8d84c2b2302402d96|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
-#EXTINF:-1 group-title="Live Events" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873767/list/1920x1080listbecfc83ddc004e64b3c6ea69bb6fd431abacdcbf9a9045909766c31aee6a7cbb.jpg",ENG | Kopa Tigers Birbhum Vs Burdwan Blasters
-https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M02/master.m3u8?hdntl=exp=1767436207~acl=%2f*~data=hdntl~hmac=c95055500e9d946c3cb7ee39f7d266efe5353712df50b3b61c813b87e5b36469|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
