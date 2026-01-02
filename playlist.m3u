@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"
-# Updated on: 02-01-2026 07:12 AM IST
+# Updated on: 02-01-2026 08:22 AM IST
 #EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 ✅ Local Ready
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
@@ -131,7 +131,7 @@ https://yuppmedtaorire.akamaized.net/v1/master/a0d007312bfd99c47f76b77ae26b1ccda
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/58.png",News18 Tamil nadu
 https://nw18live.cdn.jio.com/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Kalaignar_Seithigal_.png",Kalaignar Seithigal
-https://jiotvpllive.cdn.jio.com/bpk-tv/Kalaignar_Seithigal__BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/Kalaignar_Seithigal__BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jaya_Plus.png",⚠️ Offline: Jaya Plus
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Captain_News.png",⚠️ Offline: Captain News
@@ -153,9 +153,9 @@ https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/india-today-in.png",India Today
 https://feeds.intoday.in/hltapps/api/master.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Aaj_Tak.png",Aaj Tak
-https://jiotvpllive.cdn.jio.com/bpk-tv/Aaj_Tak_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/Aaj_Tak_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_News.png",DD News
-https://jiotvpllive.cdn.jio.com/bpk-tv/DD_News_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/DD_News_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/INBD1300009QZ_20240131T032448SQUARE.png_20240131032449.png",CNN NEWS18
 https://amg01448-samsungin-cnnnewsnw18-samsungin-ad-gv.amagi.tv/playlist/amg01448-samsungin-cnnnewsnw18-samsungin/playlist.m3u8?ads.did=%7BPSID%7D&ads.dnt=%7BTARGETOPT%7D&ads.app_domain=%7BAPP_DOMAIN%7D&ads.app_name=%7BAPP_NAME%7D&ads.coppa=0
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/india/wion-in.png",Wion
@@ -163,25 +163,25 @@ https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/times-now-in.png",Times NOW
 https://d3pvf6sv7wsu07.cloudfront.net/master.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Zee_News.png",Zee News
-https://jiotvpllive.cdn.jio.com/bpk-tv/Zee_News_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/Zee_News_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/ABP_News_India.png",ABP News India
-https://jiotvpllive.cdn.jio.com/bpk-tv/ABP_News_India_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/ABP_News_India_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/India_TV.png",India TV
-https://jiotvpllive.cdn.jio.com/bpk-tv/India_TV_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/India_TV_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/IBN_7.png",News 18 India
-https://jiotvpllive.cdn.jio.com/bpk-tv/IBN_7_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/IBN_7_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Republic_Bharat.png",Republic Bharat
-https://jiotvpllive.cdn.jio.com/bpk-tv/Republic_Bharat_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/Republic_Bharat_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/TV9_Bharatvarsh.png",TV9 Bharatvarsh
-https://jiotvpllive.cdn.jio.com/bpk-tv/TV9_Bharatvarsh_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/TV9_Bharatvarsh_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/News_24.png",News 24
-https://jiotvpllive.cdn.jio.com/bpk-tv/News_24_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/News_24_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/NDTV_India.png",NDTV India
-https://jiotvpllive.cdn.jio.com/bpk-tv/NDTV_India_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/NDTV_India_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Good_News_Today.png",⚠️ Offline: Good News Today
 http://0.0.0.0
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/News_Nation.png",News Nation
-https://jiotvpllive.cdn.jio.com/bpk-tv/News_Nation_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/News_Nation_BTS/output/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/DD_India.png",⚠️ Offline: DD India
 http://0.0.0.0
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sansad_TV.png",⚠️ Offline: Sansad TV
@@ -245,7 +245,7 @@ http://0.0.0.0
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://i.ibb.co/1Yn0JC0g/Whats-App-Image-2025-03-31-at-17-44-53-04d463b2.jpg",Sony Max HD
 https://live.maxtn.in/maxhd/maxhd/index.m3u8
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Colors_Cineplex.png",Colors Cineplex
-https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Cineplex_MOB/WDVLive/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Cineplex_MOB/WDVLive/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Gold_Select_HD.png",⚠️ Offline: Star Gold Select HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/And_Pictures_HD.png",⚠️ Offline: &pictures HD
@@ -338,12 +338,10 @@ https://rasinetworks.in/live/rasicinemaxhd/index.mpd
 https://rasinetworks.in/live/rasicinemahd/index.mpd
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasilifestyle.png",Rasi Lifestyle
 https://rasinetworks.in/live/rasilifestylehd/index.mpd
-#EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138770_5801_AH-W_WB-W_fc-web_1766596522148.jpg",ENG | Wellington Blaze Vs Auckland Hearts
-https://in-mc-fdlive.fancode.com/mumbai/138770_english_hls_ce7d2fed291474_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012824/1767158901179170_UC26_spain_vs_argentina_31dec_landscape_thumb.jpg",ENG | Spain vs Argentina - 2 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; V2434; Build/AP3A.240905.015.A2_CSNN_V000L1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=5d34b26a7bb9c7b205168fa3f886cb71-1767317650422
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; moto g84 5G; Build/T3TCS33.18-61-1-1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c623e66fdc1375e2edec21789c28934d-1767321247780
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012742/1766776883972152_SuperSmash2526_womens_Auckland_Hearts_vs_Wellington_Blaze_26dec_landscape_thumb.jpg",ENG | Auckland Hearts vs Wellington Blaze - 2 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; M2007J3SC; Build/AQ3A.240627.003)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=5d34b26a7bb9c7b205168fa3f886cb71-1767317650422
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; TX6s; Build/QP1A.191105.004)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c623e66fdc1375e2edec21789c28934d-1767321247780
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow Sports
