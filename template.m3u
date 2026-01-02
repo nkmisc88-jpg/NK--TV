@@ -1,7 +1,7 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
 
 # ==============================
-# SPORTS HD (Star + Sony + Astro + Sky)
+# SPORTS (Local + Fakeall)
 # ==============================
 #EXTINF:-1 group-title="Sports HD",Star Sports 1 HD
 http://placeholder
@@ -25,15 +25,9 @@ http://placeholder
 http://placeholder
 #EXTINF:-1 group-title="Sports HD",Sony Sports Ten 5 HD
 http://placeholder
-#EXTINF:-1 group-title="Sports HD",Astro Cricket
-http://placeholder
-#EXTINF:-1 group-title="Sports HD",Sky Sports Cricket
-http://placeholder
-#EXTINF:-1 group-title="Sports HD",Willow Cricket
-http://placeholder
 
 # ==============================
-# TAMIL HD (Main + Astro + Zee + Rasi)
+# TAMIL (Local + Backups)
 # ==============================
 #EXTINF:-1 group-title="Tamil HD",Sun TV HD
 http://placeholder
@@ -55,23 +49,9 @@ http://placeholder
 http://placeholder
 #EXTINF:-1 group-title="Tamil HD",Vijay Takkar
 http://placeholder
-#EXTINF:-1 group-title="Tamil HD",Astro Vaanavil
-http://placeholder
-#EXTINF:-1 group-title="Tamil HD",Astro Vinmeen HD
-http://placeholder
-#EXTINF:-1 group-title="Tamil HD",Astro Thangathirai
-http://placeholder
-#EXTINF:-1 group-title="Tamil HD",Astro Vellithirai
-http://placeholder
-#EXTINF:-1 group-title="Tamil HD",Rasi Palan
-http://placeholder
-#EXTINF:-1 group-title="Tamil HD",Rasi Movies
-http://placeholder
-#EXTINF:-1 group-title="Tamil HD",Rasi Music
-http://placeholder
 
 # ==============================
-# INFOTAINMENT HD
+# INFOTAINMENT (Local)
 # ==============================
 #EXTINF:-1 group-title="Infotainment",Discovery HD
 http://placeholder
@@ -91,7 +71,7 @@ http://placeholder
 http://placeholder
 
 # ==============================
-# MOVIES HD (English/Hindi)
+# MOVIES (English/Hindi)
 # ==============================
 #EXTINF:-1 group-title="Movies",Star Movies HD
 http://placeholder
@@ -115,7 +95,7 @@ http://placeholder
 http://placeholder
 
 # ==============================
-# ENTERTAINMENT HD (Hindi)
+# ENTERTAINMENT (Hindi)
 # ==============================
 #EXTINF:-1 group-title="Entertainment",Star Plus HD
 http://placeholder
@@ -131,7 +111,7 @@ http://placeholder
 http://placeholder
 
 # ==============================
-# REGIONAL HD (Malayalam/Telugu/Kannada)
+# REGIONAL (Malayalam/Telugu/Kannada)
 # ==============================
 #EXTINF:-1 group-title="Malayalam",Asianet HD
 http://placeholder
