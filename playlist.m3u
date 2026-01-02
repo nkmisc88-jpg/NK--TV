@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"
-# Updated on: 02-01-2026 07:07 AM IST
+# Updated on: 02-01-2026 07:12 AM IST
 #EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 ✅ Local Ready
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
@@ -12,8 +12,8 @@ https://livestream.sunnxt.com/d434796d90fa4dc9b7ecfacedbe683f1/SunMusicHDB_IN_in
 https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer=https://m3u.8088y.fun/
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/674.png",Colors Tamil HD
 https://keys.vodep39240327.workers.dev/?id=429.mpd
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jaya_TV_HD.png",⚠️ Offline: Jaya TV HD
-http://0.0.0.0
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://mobond.yuppcdn.net/peotvgo/320/280/content/common/channel/logos/ppkeyw.png",Jaya TV HD
+https://edge3-moblive.yuppcdn.net/drm/smil:jayamagatvdrm.smil/playlist.m3u8
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Super_HD.png",⚠️ Offline: Vijay Super HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_TV.png",⚠️ Offline: Polimer TV
@@ -30,8 +30,8 @@ http://iptvmedia.live:8080/F18115/068f009e/193209
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://tatalogo.pages.dev/439.png",Raj TV
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/2839e3d1e0f84a2e821c1708d5fdfdf0/index.m3u8
-#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Murasu_TV.png",⚠️ Offline: Murasu TV
-http://0.0.0.0
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/murasu-white.png",Murasu TV
+https://segment.yuppcdn.net/050522/murasu/playlist.m3u8
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Captain_TV.png",⚠️ Offline: Captain TV
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jaya_Max.png",⚠️ Offline: Jaya Max
@@ -52,10 +52,10 @@ https://cdn-2.pishow.tv/live/1383/master.m3u8
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Tamilan_TV.png",⚠️ Offline: Tamilan TV
 http://0.0.0.0
-#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Chithiram_TV.png",⚠️ Offline: Chithiram TV
-http://0.0.0.0
-#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/MKTV.png",⚠️ Offline: MKTV
-http://0.0.0.0
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/CHIT_Thumbnail-v1/CHIT_Thumbnail.png",Chithiram TV
+https://cdn-6.pishow.tv/live/1243/master.m3u8
+#EXTINF:-1 group-title="Tamil SD" tvg-logo="https://linear-poster.astro.com.my/prod/logo/KTV.png",MKTV
+https://converse.nathcreqtives.com/astro/5088/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sahana_TV.png",⚠️ Offline: Sahana TV
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://i.ibb.co/09X3DwC/1000156347-removebg-preview.jpg",Win TV
@@ -78,10 +78,10 @@ https://keys.vodep39240327.workers.dev/?id=301.mpd
 http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jio_Sports_HD.png",⚠️ Offline: Jio Sports HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil_HD.png",⚠️ Offline: Star Sports 1 Tamil HD
-http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_Tamil_HD.png",⚠️ Offline: Star Sports 2 Tamil HD
-http://0.0.0.0
+#EXTINF:-1 group-title="Sports HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-249-j5fyl7tk-v1/imageContent-249-j5fyl7tk-m1.png",Star Sports 1 Tamil HD
+https://tv.vaanam24.com/live.m3u8?c=STARSPORTSTAMILHD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/Star%20Sports%202%20Tamil_Thumbnail_a2144bc4-8953-4ca9-980b-86499353c0da.png",Star Sports 2 Tamil HD
+https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/379753.ts
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_3.png",⚠️ Offline: Star Sports 3
 http://0.0.0.0
 #EXTINF:-1 group-title="Sports SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_First.png",⚠️ Offline: Star Sports First
@@ -112,7 +112,7 @@ http://0.0.0.0
 http://0.0.0.0
 #EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/6eCv1iuk.png",Discovery Turbo
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoveryturbo2/default/manifest.mpd
-#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_Tamil.png",D Tamil
+#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://i.ibb.co/rQNDBCy/dd.png",D Tamil
 https://d2lk5u59tns74c.cloudfront.net/out/v1/abf46b14847e45499f4a47f3a9afe93d/index.m3u8
 #EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-384-j5jpj9hc-v1/imageContent-384-j5jpj9hc-m1.png",Food Food
 http://iptvmedia.live:8080/F18115/068f009e/1362
@@ -228,12 +228,12 @@ http://0.0.0.0
 http://0.0.0.0
 #EXTINF:-1 group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Cartoon_Network_Tamil.png",⚠️ Offline: Cartoon Network Tamil
 http://0.0.0.0
-#EXTINF:-1 group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Kochu_TV.png",⚠️ Offline: Kochu TV
-http://0.0.0.0
+#EXTINF:-1 group-title="Kids" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240316_0904062411139227642657182.png",Kochu TV
+http://notvstream.in/utv/utv.m3u8
 #EXTINF:-1 group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Nick_Junior.png",⚠️ Offline: Nick Junior
 http://0.0.0.0
-#EXTINF:-1 group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Nickelodeon_Jr.png",⚠️ Offline: Nickelodeon Jr.
-http://0.0.0.0
+#EXTINF:-1 group-title="Kids" tvg-logo="https://images.pluto.tv/channels/5ca673e0d0bd6c2689c94ce3/colorLogoPNG.png",Nickelodeon Jr.
+https://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/5ca673e0d0bd6c2689c94ce3/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=09cf7eb2-9859-11f0-8591-e7660be312cd&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=0ef14fa1-ee11-4081-8f56-c2e7c41b3c6a&userId=&serverSideAds=true
 #EXTINF:-1 group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Nick_Hindi.png",⚠️ Offline: Nick Hindi
 http://0.0.0.0
 #EXTINF:-1 group-title="Kids" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sonic_Hindi.png",⚠️ Offline: Sonic Hindi
@@ -242,16 +242,16 @@ http://0.0.0.0
 http://0.0.0.0
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Cinema_HD.png",⚠️ Offline: Zee Cinema HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Max_HD.png",⚠️ Offline: Sony Max HD
-http://0.0.0.0
+#EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://i.ibb.co/1Yn0JC0g/Whats-App-Image-2025-03-31-at-17-44-53-04d463b2.jpg",Sony Max HD
+https://live.maxtn.in/maxhd/maxhd/index.m3u8
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Colors_Cineplex.png",Colors Cineplex
 https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Cineplex_MOB/WDVLive/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Gold_Select_HD.png",⚠️ Offline: Star Gold Select HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Hindi Movies HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/And_Pictures_HD.png",⚠️ Offline: &pictures HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Movies_HD.png",⚠️ Offline: Star Movies HD
-http://0.0.0.0
+#EXTINF:-1 group-title="Others" tvg-logo="https://images.seeklogo.com/logo-png/52/2/star-movies-logo-png_seeklogo-523979.png",Star Movies HD
+https://webtvstream.bhtelecom.ba/star_movies.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Pix_HD.png",⚠️ Offline: Sony Pix HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Others" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/wthfwe.jpeg",Movies Now HD
@@ -290,7 +290,7 @@ http://0.0.0.0
 http://0.0.0.0
 #EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Udaya_HD.png",⚠️ Offline: Udaya HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Surya_HD.png",Surya HD
+#EXTINF:-1 group-title="Others" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240305_0902541690314621833418150.png",Surya HD
 https://stream.sscloud7.in/live/suryatv/playlist.m3u8
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767379922~acl=%2f*~id=a2e7cc93-13ce-4ae2-a099-cb61d16308f4~data=hdntl~hmac=3b5b3966f38f132690b6538f492e089c57ca2e50135f3450d0e7e418a5eb7807
