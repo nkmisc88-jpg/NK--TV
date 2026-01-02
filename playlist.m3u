@@ -1,10 +1,10 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: 02-01-2026 20:14
+#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: 02-01-2026 20:22
 http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Star Sports 1 HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/V2.0/new/Star_Sports_2.png",Star Sports 2 HD
-https://edge4-moblive.yuppcdn.net/drm1/smil:starsports2drm.smil/manifest.mpd
+https://edge4-moblive.yuppcdn.net/drm1/smil:starsports2drm.smil/manifest.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Star Sports 1 Hindi HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Star Sports Select 1 HD
@@ -26,15 +26,15 @@ http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Eurosport HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png",Astro Cricket
-https://live.catvod.com/live.php?id=Acricket
+https://live.catvod.com/live.php?id=Acricket|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://tataprime.files.wordpress.com/2024/05/20240513_0718037281702601479724023.png",Sky Sports Cricket
-http://178.33.239.54:8080/503/index.m3u8
+http://178.33.239.54:8080/503/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://i.postimg.cc/RFNMQVQM/j-Na-Ow-Lv-R-400x400-photoaidcom-cropped.png",Willow Cricket
-https://fl1.moveonjoy.com/WILLOW_CRICKET/index.m3u8
+https://fl1.moveonjoy.com/WILLOW_CRICKET/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
-https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
+https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/380.png",KTV HD
-https://livestream.sunnxt.com/61477b4c8d8d45d5a49e044cc1dffc60/KTVHDB_IN_index.mpd
+https://livestream.sunnxt.com/61477b4c8d8d45d5a49e044cc1dffc60/KTVHDB_IN_index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/496.png",Star Vijay HD
 https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer=https://m3u.8088y.fun/
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Offline: Zee Tamil HD
@@ -58,9 +58,9 @@ http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Offline: Rasi Palan
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1518425091386983341611136.png",Rasi Movies
-https://rasinetworks.in/live/rasimovieshd/index.mpd
+https://rasinetworks.in/live/rasimovieshd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png",Rasi Music
-https://rasinetworks.in/live/rasimusichd/index.mpd
+https://rasinetworks.in/live/rasimusichd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Offline: Discovery HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Offline: Animal Planet HD
@@ -109,8 +109,8 @@ http://0.0.0.0
 http://0.0.0.0
 #EXTINF:-1 group-title="Malayalam" tvg-logo="",⚠️ Offline: Asianet HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Malayalam" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240305_0902541690314621833418150.png",Surya TV HD
-https://stream.sscloud7.in/live/suryatv/playlist.m3u8
+#EXTINF:-1 group-title="Malayalam" tvg-logo="",⚠️ Offline: Surya TV HD
+http://0.0.0.0
 #EXTINF:-1 group-title="Malayalam" tvg-logo="",⚠️ Offline: Mazhavil Manorama HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Telugu" tvg-logo="",⚠️ Offline: Star Maa HD
@@ -127,14 +127,14 @@ http://0.0.0.0
 http://0.0.0.0
 #EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Offline: Udaya TV HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Nick
-http://0.0.0.0
+#EXTINF:-1 group-title="Kids" tvg-logo="https://supair.dishanywhere.com/supair-images/channels/thumbnail/32155.png",Nick
+http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Sonic
 http://0.0.0.0
 #EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Hungama
 http://0.0.0.0
 #EXTINF:-1 group-title="Kids" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/DISNHD_Thumbnail-v1/DISNHD_Thumbnail.png",Disney Channel
-https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/19741.ts
+https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/19741.ts|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Cartoon Network
 http://0.0.0.0
 #EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Pogo
@@ -144,47 +144,45 @@ http://0.0.0.0
 #EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Discovery Kids
 http://0.0.0.0
 #EXTINF:-1 group-title="News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/times-now-in.png",Times Now
-https://d3pvf6sv7wsu07.cloudfront.net/master.m3u8
+https://d3pvf6sv7wsu07.cloudfront.net/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="News" tvg-logo="https://8upload.com/image/67da280876f6c/38-ndtv.png",NDTV 24x7
-https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8
+https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/india-today-in.png",India Today
-https://feeds.intoday.in/hltapps/api/master.m3u8
+https://feeds.intoday.in/hltapps/api/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="News" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/INBD1300009QZ_20240131T032448SQUARE.png_20240131032449.png",CNN News18
-https://amg01448-samsungin-cnnnewsnw18-samsungin-ad-gv.amagi.tv/playlist/amg01448-samsungin-cnnnewsnw18-samsungin/playlist.m3u8?ads.did=%7BPSID%7D&ads.dnt=%7BTARGETOPT%7D&ads.app_domain=%7BAPP_DOMAIN%7D&ads.app_name=%7BAPP_NAME%7D&ads.coppa=0
+https://amg01448-samsungin-cnnnewsnw18-samsungin-ad-gv.amagi.tv/playlist/amg01448-samsungin-cnnnewsnw18-samsungin/playlist.m3u8?ads.did=%7BPSID%7D&ads.dnt=%7BTARGETOPT%7D&ads.app_domain=%7BAPP_DOMAIN%7D&ads.app_name=%7BAPP_NAME%7D&ads.coppa=0|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="News" tvg-logo="https://i.postimg.cc/k5KdQRFN/image-Content-11734-j9kw60rc-m1.webp",Sun News
-https://livestream3.sunnxt.com/491c99fb6d0c49e88e6349170d890a2f/SunNewsB_IN_index.mpd
+https://livestream3.sunnxt.com/491c99fb6d0c49e88e6349170d890a2f/SunNewsB_IN_index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/polimer-news-black.png",Polimer News
-https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8
+https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/puthiyathalaimurai-black.png",Puthiya Thalaimurai
-https://segment.yuppcdn.net/240122/puthiya/playlist.m3u8
+https://segment.yuppcdn.net/240122/puthiya/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="News" tvg-logo="",Thanthi TV
-http://stream2.oppocast.com/than_stream
+http://stream2.oppocast.com/than_stream|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png",Astro Cricket
-https://live.catvod.com/live.php?id=Acricket
+https://live.catvod.com/live.php?id=Acricket|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1518425091386983341611136.png",Rasi Movies
-https://rasinetworks.in/live/rasimovieshd/index.mpd
+https://rasinetworks.in/live/rasimovieshd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942518224615220455317164.png",Rasi Hollywood
-https://rasinetworks.in/live/rasihollywoodhd/index.mpd
+https://rasinetworks.in/live/rasihollywoodhd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png",Rasi Music
-https://rasinetworks.in/live/rasimusichd/index.mpd
+https://rasinetworks.in/live/rasimusichd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1437564760907591116562534.png",Rasi TV HD
-https://rasinetworks.in/live/rasitvhd/index.mpd
+https://rasinetworks.in/live/rasitvhd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942127817851833380019717.png",Rasi Comedy
-https://rasinetworks.in/live/rasicomedyhd/index.mpd
+https://rasinetworks.in/live/rasicomedyhd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasiclassic.png",Rasi Classic
-https://rasinetworks.in/live/rasiclassichd/index.mpd
+https://rasinetworks.in/live/rasiclassichd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasicinemax.png",Rasi Cinemax
-https://rasinetworks.in/live/rasicinemaxhd/index.mpd
+https://rasinetworks.in/live/rasicinemaxhd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasicinema.png",Rasi Cinema
-https://rasinetworks.in/live/rasicinemahd/index.mpd
+https://rasinetworks.in/live/rasicinemahd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasilifestyle.png",Rasi Lifestyle
-https://rasinetworks.in/live/rasilifestylehd/index.mpd
+https://rasinetworks.in/live/rasilifestylehd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138927_5808_SYL_RAN_fc-web_1766733054374.jpg",ENG | Sylhet Titans Vs Rangpur Riders
 https://in-mc-fdlive.fancode.com/mumbai/138927_english_hls_2ad2b01ca384942_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138633_5786_MIE_ADKR_FC-Web.jpg",ENG | Abu Dhabi Knight Riders Vs Mi Emirates
 https://in-mc-fdlive.fancode.com/mumbai/138655_english_hls_f3a36ee85a97188_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012824/1767159010787170_UC26_greece_vs_japan_31dec_landscape_thumb.jpg",ENG |  Greece vs Japan - 2 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/std_lrh-800300010.m3u8?hdnea=exp=1767400201~acl=/*~id=392adf95e84d2852bb1d91aecb493e6c-1767357000125~hmac=e6bc9f3feba98cb4d63ab2ef56aedef7df493fabf0471d53569b8b4563496ef5|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; Haier MatrixTV BE; Build/RTM7.230903.140)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d0213db0124fbb4921a37452a558f03f-1767364211224
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5853069/list/1920x1080list78ff8a9b94a846abafe1bdca062d5251d24e8ac04cd4480594e6f6b73b56a2ec.jpg",HIN | MIE Vs ADKAR - Qualifier 2
 https://falconstream.zee5.com/cmaf/live/2109037/QUALIFIER_2/master.m3u8?hdntl=exp=1767448809~acl=%2f*~data=hdntl~hmac=e1baa2086f5f228426b8d6ea97b55b746a76b12d23186d084ce2327edbad3d7a|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list2ddd78c1d02b41e997a062a3d38caa55a59e5f48cc9f46c9ba77539307242882.jpg",HIN | Uttar Pradesh Kabaddi League Season 2
