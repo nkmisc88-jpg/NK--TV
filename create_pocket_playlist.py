@@ -18,8 +18,7 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 # HEADERS (Standard for Jio playback)
 USER_AGENT = "plaYtv/7.0.8 (Linux;Android 9) ExoPlayerLib/2.11.7"
 
-# MASTER LIST
-# Note: Changed "Zee Tamil HD" -> "Zee Tamil" to match broader source names
+# MASTER LIST (Priority Order)
 MASTER_CHANNELS = [
     ("Sports HD", "Star Sports 1 HD"), ("Sports HD", "Star Sports 2 HD"),
     ("Sports HD", "Star Sports 1 Hindi HD"), ("Sports HD", "Star Sports Select 1 HD"),
@@ -30,9 +29,9 @@ MASTER_CHANNELS = [
     ("Sports HD", "Astro Cricket"), ("Sports HD", "Willow Cricket"),
     ("Sports HD", "Sky Sports Cricket"),
     ("Tamil HD", "Sun TV HD"), ("Tamil HD", "KTV HD"),
-    ("Tamil HD", "Star Vijay HD"), ("Tamil HD", "Zee Tamil"),
+    ("Tamil HD", "Star Vijay HD"), ("Tamil HD", "Zee Tamil HD"),
     ("Tamil HD", "Colors Tamil HD"), ("Tamil HD", "Jaya TV HD"),
-    ("Tamil HD", "Zee Thirai"), ("Tamil HD", "Vijay Takkar"),
+    ("Tamil HD", "Zee Thirai HD"), ("Tamil HD", "Vijay Takkar"),
     ("Tamil HD", "Astro Vaanavil"), ("Tamil HD", "Astro Vinmeen HD"),
     ("Tamil HD", "Astro Thangathirai"), ("Tamil HD", "Astro Vellithirai"),
     ("Tamil HD", "Rasi Palan"), ("Tamil HD", "Rasi Movies"),
@@ -107,10 +106,11 @@ def get_source_channels():
                             'link': link,
                             'logo': logo,
                             'props': current_props,
-                            'group_src': line # Store original line for group checking later
+                            'group_src': line # Store original line for group checking
                         })
                     
                     current_props = []
+            print(f"   ✅ Source loaded: {len(channels)} total channels.")
                     
     except Exception as e:
         print(f"   ❌ Failed to load source: {e}")
@@ -119,25 +119,35 @@ def get_source_channels():
 def main():
     source_channels = get_source_channels()
     
-    # Init Playlist (No Update Info line)
+    # Init Playlist
     final_lines = ["#EXTM3U"]
     final_lines.append("http://0.0.0.0")
 
     added_ids = set()
 
-    # 1. MASTER LIST
+    # 1. MASTER LIST (Priority)
     print("\n1️⃣  Processing Master List...")
     for target_group, target_name in MASTER_CHANNELS:
         target_simple = simplified_name(target_name)
         match = None
         
-        # Priority: Exact Match -> Fuzzy Match
+        # Priority 1: Exact Match
         for ch in source_channels:
             if ch['simple'] == target_simple:
                 match = ch; break
+        
+        # Priority 2: Fuzzy (Target inside Source)
+        # e.g. "Zee Tamil" inside "Zee Tamil HD"
         if not match:
             for ch in source_channels:
                 if target_simple in ch['simple']:
+                    match = ch; break
+        
+        # Priority 3: Fuzzy Reverse (Source inside Target)
+        # e.g. Source "Zee Tamil" inside Target "Zee Tamil HD"
+        if not match:
+             for ch in source_channels:
+                if ch['simple'] in target_simple:
                     match = ch; break
 
         if match:
@@ -148,33 +158,38 @@ def main():
             final_lines.append(match['link'])
             added_ids.add(match['simple'])
         else:
-            # DO NOT ADD TO PLAYLIST if missing
-            print(f"   ⚠️ Skipping Missing Channel: {target_name}")
+            # Silent skip if missing, no "Offline" spam
+            print(f"   ⚠️ Missing Priority: {target_name}")
 
-    # 2. EXTRAS (Sports + Tamil)
-    print("\n2️⃣  Adding Extras...")
+    # 2. ADD ALL REMAINING CHANNELS (No Strict Filtering)
+    print("\n2️⃣  Adding All Remaining Channels...")
+    
     SPORTS_KEYS = ["sport", "cricket", "f1", "racing", "football", "ten", "sony", "astro"]
     TAMIL_KEYS = ["tamil", "sun", "vijay", "zee", "kalaignar", "polimer", "news18 tamil", "thanthi", "puthiya", "jaya"]
     
+    count = 0
     for ch in source_channels:
         if ch['simple'] in added_ids: continue
         
         name = ch['name'].lower()
-        # Parse Group from original line for better accuracy
-        grp_match = re.search(r'group-title="([^"]*)"', ch['group_src'])
-        grp = grp_match.group(1).lower() if grp_match else ""
-
-        final_group = None
-        if "sport" in grp: final_group = "Sports Extra"
-        elif "tamil" in grp: final_group = "Tamil Extra"
-        elif any(x in name for x in SPORTS_KEYS) and "sport" in name: final_group = "Sports Extra"
-        elif any(x in name for x in TAMIL_KEYS) and "tamil" in name: final_group = "Tamil Extra"
-
-        if final_group:
-            if ch['props']: final_lines.extend(ch['props'])
-            final_lines.append(f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{ch["logo"]}",{ch["name"]}')
-            final_lines.append(ch['link'])
-            added_ids.add(ch['simple'])
+        
+        # Detect Group
+        final_group = "General Extras" # Default Group for everything else
+        
+        if any(x in name for x in SPORTS_KEYS): 
+            final_group = "Sports Extra"
+        elif any(x in name for x in TAMIL_KEYS): 
+            final_group = "Tamil Extra"
+        
+        # Add the channel (Ensure we copy license keys)
+        if ch['props']: final_lines.extend(ch['props'])
+        
+        final_lines.append(f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{ch["logo"]}",{ch["name"]}')
+        final_lines.append(ch['link'])
+        added_ids.add(ch['simple'])
+        count += 1
+        
+    print(f"   ✅ Added {count} extra channels.")
 
     # 3. LIVE & TEMP
     print("\n3️⃣  Adding Live/Temp...")
