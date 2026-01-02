@@ -9,14 +9,14 @@ import os
 # FILES
 template_file = "template.m3u"
 youtube_file = "youtube.txt"
-reference_file = "jiotv_playlist.m3u.m3u8" # MUST be in your repo for Local to work
+reference_file = "jiotv_playlist.m3u.m3u8" # Local Map
 output_file = "playlist.m3u"
 
 # SOURCES
-# 1. Local (JioTVGo) - Best for Regional/News
+# 1. Local (JioTVGo) - Priority for Regional/News
 LOCAL_BASE = "http://192.168.0.146:5350/live"
 
-# 2. Arunjunan (Pocket TV) - Best for Star/Sony/Zee/Astro
+# 2. Arunjunan (Pocket TV) - Priority for Star/Sony/Zee
 URL_ARUN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
 # 3. Fakeall - Backup
@@ -30,33 +30,33 @@ URL_ZEE_LIVE = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 # HEADER
 EPG_HEADER = '#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"'
 
-# HEADERS (Crucial for getting working links)
+# HEADERS
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
 
 # ==========================================
-# 2. PARSING ENGINE
+# 2. SMART PARSING ENGINE
 # ==========================================
 def clean_name(name):
     """Normalize name: 'Star Sports 1 HD' -> 'starsports1hd'"""
     if not name: return ""
+    # Remove common junk
+    name = re.sub(r'\(.*?\)|\[.*?\]', '', name) 
     return re.sub(r'[^a-z0-9]', '', name.lower())
 
 def extract_info(line):
     """Safely extracts Name and Logo from a raw M3U line"""
-    # Name
     name = line.split(",")[-1].strip()
     if not name:
         match = re.search(r'tvg-name="([^"]*)"', line)
         if match: name = match.group(1)
     
-    # Logo
     logo = ""
     match = re.search(r'tvg-logo="([^"]*)"', line)
     if match: logo = match.group(1)
     
-    # ID (For Local)
+    # Extract ID (Generic regex to catch digits or alphanumeric IDs)
     ch_id = ""
-    match = re.search(r'tvg-id="(\d+)"', line)
+    match = re.search(r'tvg-id="([^"]+)"', line)
     if match: ch_id = match.group(1)
     
     return name, logo, ch_id
@@ -96,7 +96,6 @@ def load_source(url, source_name, is_local=False, local_file=None):
                             link = pot; break
                 
                 if key and link:
-                    # Store priority data
                     dataset[key] = {'link': link, 'logo': logo, 'name': name}
                     
         print(f"   ✅ {source_name}: Loaded {len(dataset)} channels.")
@@ -105,36 +104,63 @@ def load_source(url, source_name, is_local=False, local_file=None):
     return dataset
 
 # ==========================================
-# 3. PRIORITY LOGIC
+# 3. PRIORITY LOGIC (FUZZY MATCH ENABLED)
 # ==========================================
 DB_LOCAL = {}
 DB_ARUN = {}
 DB_FAKEALL = {}
+
+def smart_lookup(target_key, database):
+    """
+    Tries Exact Match first. 
+    If failing, tries Fuzzy Match (is target inside key? OR is key inside target?)
+    """
+    # 1. Exact Match
+    if target_key in database:
+        return database[target_key]
+    
+    # 2. Fuzzy Match (Expensive but necessary for 'Star Sports 1 HD' vs 'Star Sports 1 HD (Backup)')
+    for db_key, data in database.items():
+        if target_key in db_key or db_key in target_key:
+            # Length check to avoid bad matches (e.g. 'Sony' matching 'Sony Ten')
+            if abs(len(target_key) - len(db_key)) < 5: 
+                return data
+    return None
 
 def get_best_link(channel_name):
     key = clean_name(channel_name)
     link = None
     logo = None
     
-    # 1. LOGO STRATEGY: Always prefer Arunjunan's high-quality logos if available
-    if key in DB_ARUN and DB_ARUN[key]['logo']:
-        logo = DB_ARUN[key]['logo']
-    elif key in DB_FAKEALL and DB_FAKEALL[key]['logo']:
-        logo = DB_FAKEALL[key]['logo']
+    # 1. LOGO STRATEGY
+    arun_data = smart_lookup(key, DB_ARUN)
+    fake_data = smart_lookup(key, DB_FAKEALL)
+    
+    if arun_data and arun_data['logo']: logo = arun_data['logo']
+    elif fake_data and fake_data['logo']: logo = fake_data['logo']
         
     lower_name = channel_name.lower()
     
     # --- STRATEGY A: STAR / SONY / ZEE (Priority: Arun -> Fakeall -> Local) ---
     if any(x in lower_name for x in ["star", "sony", "zee", "set "]):
-        if key in DB_ARUN:      link = DB_ARUN[key]['link']
-        elif key in DB_FAKEALL: link = DB_FAKEALL[key]['link']
-        elif key in DB_LOCAL:   link = DB_LOCAL[key]['link']
+        # Try Arun
+        if arun_data: link = arun_data['link']
+        # Try Fakeall
+        elif fake_data: link = fake_data['link']
+        # Try Local
+        else:
+            local_data = smart_lookup(key, DB_LOCAL)
+            if local_data: link = local_data['link']
         
     # --- STRATEGY B: EVERYTHING ELSE (Priority: Local -> Arun -> Fakeall) ---
     else:
-        if key in DB_LOCAL:     link = DB_LOCAL[key]['link']
-        elif key in DB_ARUN:    link = DB_ARUN[key]['link']
-        elif key in DB_FAKEALL: link = DB_FAKEALL[key]['link']
+        local_data = smart_lookup(key, DB_LOCAL)
+        if local_data: 
+            link = local_data['link']
+        elif arun_data:
+            link = arun_data['link']
+        elif fake_data:
+            link = fake_data['link']
         
     return link, logo
 
@@ -143,7 +169,6 @@ def get_extras_filtered():
     extras = []
     print("\n🔍 Scanning for Extras...")
     
-    # Strict Filters
     SPORTS_WANTED = ["astro cricket", "sony ten", "sky sports"]
     TAMIL_WANTED = [
         "zee tamil", "zee thirai", "vijay takkar", "rasi",
@@ -203,10 +228,10 @@ def main():
                 group_match = re.search(r'group-title="([^"]*)"', line)
                 group = group_match.group(1) if group_match else "General"
                 
-                # GET LINK
+                # GET LINK (Using Smart Fuzzy Logic)
                 link, source_logo = get_best_link(name)
                 
-                # FINAL LOGO (Source > Template)
+                # FINAL LOGO
                 final_logo = source_logo if source_logo else tmpl_logo
                 logo_str = f'tvg-logo="{final_logo}"'
                 
@@ -214,24 +239,13 @@ def main():
                     final_lines.append(f'#EXTINF:-1 group-title="{group}" {logo_str},{name}')
                     final_lines.append(link)
                 else:
-                    # Try Fuzzy Recovery
-                    found_fuzzy = False
-                    key = clean_name(name)
-                    # Scan ArunDB for fuzzy match
-                    for db_key, val in DB_ARUN.items():
-                        if key in db_key:
-                            final_lines.append(f'#EXTINF:-1 group-title="{group}" {logo_str},{name}')
-                            final_lines.append(val['link'])
-                            found_fuzzy = True; break
-                    
-                    if not found_fuzzy:
-                        print(f"   ⚠️ Missing: {name}")
-                        final_lines.append(f'#EXTINF:-1 group-title="{group}" {logo_str},⚠️ Offline: {name}')
-                        final_lines.append("http://0.0.0.0")
+                    print(f"   ⚠️ Missing: {name}")
+                    final_lines.append(f'#EXTINF:-1 group-title="{group}" {logo_str},⚠️ Offline: {name}')
+                    final_lines.append("http://0.0.0.0")
     else:
         print("   ❌ Template file missing!")
 
-    # 3. ADD EXTRAS (Strictly Filtered)
+    # 3. ADD EXTRAS
     final_lines.extend(get_extras_filtered())
 
     # 4. ADD LIVE EVENTS
@@ -264,8 +278,7 @@ def main():
             final_lines.append(current['link'])
 
     # 6. SAVE
-    with open(output_file, "w", encoding="utf-8") as f:
-        f.write("\n".join(final_lines))
+    with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"\n🎉 Done. Saved {len(final_lines)//2} channels to {output_file}")
 
 if __name__ == "__main__":
