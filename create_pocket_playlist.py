@@ -15,11 +15,11 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# BROWSER HEADER (Required for playback)
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+# --- PLAYBACK HEADERS (The Fix) ---
+# These are the specific headers required to make the streams play.
+PLAY_HEADERS = 'User-Agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" Referer="https://jiotv.com/"'
 
-# 1. YOUR MASTER LIST (Priority Channels)
-# We will look for these EXACT channels first.
+# MASTER LIST
 MASTER_CHANNELS = [
     ("Sports HD", "Star Sports 1 HD"), ("Sports HD", "Star Sports 2 HD"),
     ("Sports HD", "Star Sports 1 Hindi HD"), ("Sports HD", "Star Sports Select 1 HD"),
@@ -61,51 +61,48 @@ MASTER_CHANNELS = [
 # ==========================================
 
 def simplified_name(name):
-    """
-    Aggressive cleaner.
-    'Star Sports 1 HD (Backup)' -> 'starsports1hd'
-    'Zee Tamil' -> 'zeetamil'
-    """
     if not name: return ""
-    # Remove everything in brackets
     name = re.sub(r'[\(\[\{].*?[\)\]\}]', '', name.lower())
-    # Remove all symbols and spaces
     return re.sub(r'[^a-z0-9]', '', name)
 
 def get_source_channels():
-    """Downloads the source playlist and returns a searchable list."""
     print("📥 Downloading Source Playlist...")
     channels = []
     try:
-        r = requests.get(POCKET_URL, headers={"User-Agent": USER_AGENT}, timeout=20)
+        # Use a generic User Agent for downloading the list itself
+        dl_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        r = requests.get(POCKET_URL, headers={"User-Agent": dl_ua}, timeout=20)
+        
         if r.status_code == 200:
             lines = r.text.splitlines()
             for i in range(len(lines)):
                 line = lines[i].strip()
                 if line.startswith("#EXTINF"):
-                    # Parse Name
+                    # Name
                     raw_name = line.split(",")[-1].strip()
                     simple = simplified_name(raw_name)
                     
-                    # Parse Logo
+                    # Logo
                     logo = ""
                     m_logo = re.search(r'tvg-logo="([^"]*)"', line)
                     if m_logo: logo = m_logo.group(1)
                     
-                    # Parse Group
+                    # Group
                     group = ""
                     m_grp = re.search(r'group-title="([^"]*)"', line)
                     if m_grp: group = m_grp.group(1)
                     
-                    # Parse Link
+                    # Link
                     link = ""
                     if i + 1 < len(lines):
                         pot_link = lines[i+1].strip()
                         if pot_link and not pot_link.startswith("#"):
                             link = pot_link
-                            # FIX: Force User-Agent on ALL links
+                            
+                            # --- CRITICAL PLAYBACK FIX ---
+                            # Only append headers if they aren't already there
                             if "http" in link and "|" not in link:
-                                link += f"|User-Agent={USER_AGENT}"
+                                link += f"|{PLAY_HEADERS}"
                     
                     if link and simple:
                         channels.append({
@@ -115,40 +112,32 @@ def get_source_channels():
                             'logo': logo,
                             'group': group
                         })
-        print(f"   ✅ Source loaded: {len(channels)} channels found.")
+        print(f"   ✅ Source loaded: {len(channels)} channels.")
     except Exception as e:
         print(f"   ❌ Failed to load source: {e}")
     return channels
 
 def main():
-    # 1. Get Source Data
     source_channels = get_source_channels()
     
-    # Init Playlist
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U"]
     final_lines.append(f'#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: {ist_now.strftime("%d-%m-%Y %H:%M")}')
     final_lines.append("http://0.0.0.0")
 
-    # Track added channels to prevent duplicates
     added_ids = set()
 
-    # ---------------------------------------------------------
-    # PART 1: ADD MASTER LIST (The specific channels you want)
-    # ---------------------------------------------------------
+    # 1. MASTER LIST
     print("\n1️⃣  Processing Master List...")
     for target_group, target_name in MASTER_CHANNELS:
         target_simple = simplified_name(target_name)
-        
-        # Search in source
         match = None
         
-        # Try 1: Exact Match (zeetamilhd == zeetamilhd)
+        # Exact match
         for ch in source_channels:
             if ch['simple'] == target_simple:
                 match = ch; break
-        
-        # Try 2: Containment Match (zeetamil in zeetamilhd)
+        # Fuzzy match
         if not match:
             for ch in source_channels:
                 if target_simple in ch['simple']:
@@ -160,88 +149,57 @@ def main():
             added_ids.add(match['simple'])
         else:
             print(f"   ⚠️ Missing: {target_name}")
-            # Add offline placeholder so you know it's missing
             final_lines.append(f'#EXTINF:-1 group-title="{target_group}" tvg-logo="",⚠️ Offline: {target_name}')
             final_lines.append("http://0.0.0.0")
 
-    # ---------------------------------------------------------
-    # PART 2: ADD EXTRAS (All Sports & All Tamil)
-    # ---------------------------------------------------------
-    print("\n2️⃣  Adding Extras (Sports + Tamil)...")
+    # 2. EXTRAS (Sports + Tamil)
+    print("\n2️⃣  Adding Extras...")
     
-    # Keywords to identifying content regardless of group name
-    SPORTS_KEYWORDS = ["sport", "cricket", "f1", "racing", "football", "ten", "sony", "astro"]
-    TAMIL_KEYWORDS = ["tamil", "sun", "vijay", "zee", "kalaignar", "polimer", "news18 tamil", "thanthi", "puthiya", "jaya"]
-    
-    count_extras = 0
+    SPORTS_KEYS = ["sport", "cricket", "f1", "racing", "football", "ten", "sony", "astro"]
+    TAMIL_KEYS = ["tamil", "sun", "vijay", "zee", "kalaignar", "polimer", "news18 tamil", "thanthi", "puthiya", "jaya"]
     
     for ch in source_channels:
-        # Skip if already added
         if ch['simple'] in added_ids: continue
         
         grp = ch['group'].lower()
         name = ch['name'].lower()
         final_group = None
 
-        # CHECK 1: Is it in a Sports Group?
-        if "sport" in grp:
-            final_group = "Sports Extra"
-        
-        # CHECK 2: Is it in a Tamil Group?
-        elif "tamil" in grp:
-            final_group = "Tamil Extra"
-            
-        # CHECK 3: Does the name look like Sports? (Fallback)
-        elif any(x in name for x in SPORTS_KEYWORDS) and "sport" in name:
-             final_group = "Sports Extra"
-             
-        # CHECK 4: Does the name look like Tamil? (Fallback)
-        elif any(x in name for x in TAMIL_KEYWORDS) and "tamil" in name:
-             final_group = "Tamil Extra"
+        if "sport" in grp: final_group = "Sports Extra"
+        elif "tamil" in grp: final_group = "Tamil Extra"
+        elif any(x in name for x in SPORTS_KEYS) and "sport" in name: final_group = "Sports Extra"
+        elif any(x in name for x in TAMIL_KEYS) and "tamil" in name: final_group = "Tamil Extra"
 
-        # Add if matched
         if final_group:
             final_lines.append(f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{ch["logo"]}",{ch["name"]}')
             final_lines.append(ch['link'])
             added_ids.add(ch['simple'])
-            count_extras += 1
 
-    print(f"   ✅ Added {count_extras} extra channels.")
-
-    # ---------------------------------------------------------
-    # PART 3: LIVE EVENTS & TEMP
-    # ---------------------------------------------------------
-    print("\n3️⃣  Adding Live Events & Temp...")
-    
-    def add_external(url, grp_name):
+    # 3. LIVE & TEMP
+    print("\n3️⃣  Adding Live/Temp...")
+    def add_ext(url, g):
         try:
-            r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=10)
-            lines = r.text.splitlines()
-            for l in lines:
+            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
+            for l in r.text.splitlines():
                 if l.startswith("#EXTINF"):
                     l = re.sub(r'group-title="[^"]*"', '', l)
-                    l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{grp_name}"', l)
+                    l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{g}"', l)
                     final_lines.append(l)
-                elif l.startswith("http"):
-                    final_lines.append(l)
+                elif l.startswith("http"): final_lines.append(l)
         except: pass
 
-    add_external(FANCODE_URL, "Live Events")
-    add_external(SONY_LIVE_URL, "Live Events")
-    add_external(ZEE_LIVE_URL, "Live Events")
+    add_ext(FANCODE_URL, "Live Events")
+    add_ext(SONY_LIVE_URL, "Live Events")
+    add_ext(ZEE_LIVE_URL, "Live Events")
 
     if os.path.exists(YOUTUBE_FILE):
         with open(YOUTUBE_FILE, "r") as f:
             for l in f:
-                if "title" in l.lower():
-                     final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="",{l.split(":",1)[1].strip()}')
-                elif l.startswith("http"):
-                     final_lines.append(l.strip())
+                if "title" in l.lower(): final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="",{l.split(":",1)[1].strip()}')
+                elif l.startswith("http"): final_lines.append(l.strip())
 
-    # SAVE
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        f.write("\n".join(final_lines))
-    print(f"\n🎉 DONE. Playlist saved to {OUTPUT_FILE}")
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
+    print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     main()
