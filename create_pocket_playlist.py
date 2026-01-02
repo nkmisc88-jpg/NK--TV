@@ -19,6 +19,7 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 USER_AGENT = "plaYtv/7.0.8 (Linux;Android 9) ExoPlayerLib/2.11.7"
 
 # MASTER LIST
+# Note: Changed "Zee Tamil HD" -> "Zee Tamil" to match broader source names
 MASTER_CHANNELS = [
     ("Sports HD", "Star Sports 1 HD"), ("Sports HD", "Star Sports 2 HD"),
     ("Sports HD", "Star Sports 1 Hindi HD"), ("Sports HD", "Star Sports Select 1 HD"),
@@ -29,9 +30,9 @@ MASTER_CHANNELS = [
     ("Sports HD", "Astro Cricket"), ("Sports HD", "Willow Cricket"),
     ("Sports HD", "Sky Sports Cricket"),
     ("Tamil HD", "Sun TV HD"), ("Tamil HD", "KTV HD"),
-    ("Tamil HD", "Star Vijay HD"), ("Tamil HD", "Zee Tamil HD"),
+    ("Tamil HD", "Star Vijay HD"), ("Tamil HD", "Zee Tamil"),
     ("Tamil HD", "Colors Tamil HD"), ("Tamil HD", "Jaya TV HD"),
-    ("Tamil HD", "Zee Thirai HD"), ("Tamil HD", "Vijay Takkar"),
+    ("Tamil HD", "Zee Thirai"), ("Tamil HD", "Vijay Takkar"),
     ("Tamil HD", "Astro Vaanavil"), ("Tamil HD", "Astro Vinmeen HD"),
     ("Tamil HD", "Astro Thangathirai"), ("Tamil HD", "Astro Vellithirai"),
     ("Tamil HD", "Rasi Palan"), ("Tamil HD", "Rasi Movies"),
@@ -71,12 +72,12 @@ def get_source_channels():
         r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
         if r.status_code == 200:
             lines = r.text.splitlines()
-            current_props = [] # Store license keys
+            current_props = [] 
             
             for i in range(len(lines)):
                 line = lines[i].strip()
                 
-                # 1. COPY LICENSE KEYS (Critical for KTV, SunTV, Jio channels)
+                # 1. COPY LICENSE KEYS
                 if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT"):
                     current_props.append(line)
                     continue
@@ -90,16 +91,12 @@ def get_source_channels():
                     m_logo = re.search(r'tvg-logo="([^"]*)"', line)
                     if m_logo: logo = m_logo.group(1)
                     
-                    group = ""
-                    m_grp = re.search(r'group-title="([^"]*)"', line)
-                    if m_grp: group = m_grp.group(1)
-                    
                     link = ""
                     if i + 1 < len(lines):
                         pot_link = lines[i+1].strip()
                         if pot_link and not pot_link.startswith("#"):
                             link = pot_link
-                            # Append Headers if missing
+                            # Append Headers
                             if "http" in link and "|" not in link:
                                 link += f"|User-Agent={USER_AGENT}"
                     
@@ -109,11 +106,10 @@ def get_source_channels():
                             'simple': simple,
                             'link': link,
                             'logo': logo,
-                            'group': group,
-                            'props': current_props # Attach keys to channel
+                            'props': current_props,
+                            'group_src': line # Store original line for group checking later
                         })
                     
-                    # Reset props for next channel
                     current_props = []
                     
     except Exception as e:
@@ -123,9 +119,8 @@ def get_source_channels():
 def main():
     source_channels = get_source_channels()
     
-    ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
+    # Init Playlist (No Update Info line)
     final_lines = ["#EXTM3U"]
-    final_lines.append(f'#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: {ist_now.strftime("%d-%m-%Y %H:%M")}')
     final_lines.append("http://0.0.0.0")
 
     added_ids = set()
@@ -136,27 +131,25 @@ def main():
         target_simple = simplified_name(target_name)
         match = None
         
-        # Exact match
+        # Priority: Exact Match -> Fuzzy Match
         for ch in source_channels:
             if ch['simple'] == target_simple:
                 match = ch; break
-        # Fuzzy match
         if not match:
             for ch in source_channels:
                 if target_simple in ch['simple']:
                     match = ch; break
 
         if match:
-            # WRITE KEYS FIRST (Fixes Playback)
+            # Write Props (DRM Keys)
             if match['props']: final_lines.extend(match['props'])
             
             final_lines.append(f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{match["logo"]}",{target_name}')
             final_lines.append(match['link'])
             added_ids.add(match['simple'])
         else:
-            print(f"   ⚠️ Missing: {target_name}")
-            final_lines.append(f'#EXTINF:-1 group-title="{target_group}" tvg-logo="",⚠️ Offline: {target_name}')
-            final_lines.append("http://0.0.0.0")
+            # DO NOT ADD TO PLAYLIST if missing
+            print(f"   ⚠️ Skipping Missing Channel: {target_name}")
 
     # 2. EXTRAS (Sports + Tamil)
     print("\n2️⃣  Adding Extras...")
@@ -166,19 +159,19 @@ def main():
     for ch in source_channels:
         if ch['simple'] in added_ids: continue
         
-        grp = ch['group'].lower()
         name = ch['name'].lower()
-        final_group = None
+        # Parse Group from original line for better accuracy
+        grp_match = re.search(r'group-title="([^"]*)"', ch['group_src'])
+        grp = grp_match.group(1).lower() if grp_match else ""
 
+        final_group = None
         if "sport" in grp: final_group = "Sports Extra"
         elif "tamil" in grp: final_group = "Tamil Extra"
         elif any(x in name for x in SPORTS_KEYS) and "sport" in name: final_group = "Sports Extra"
         elif any(x in name for x in TAMIL_KEYS) and "tamil" in name: final_group = "Tamil Extra"
 
         if final_group:
-            # WRITE KEYS FIRST
             if ch['props']: final_lines.extend(ch['props'])
-                
             final_lines.append(f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{ch["logo"]}",{ch["name"]}')
             final_lines.append(ch['link'])
             added_ids.add(ch['simple'])
