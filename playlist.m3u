@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"
-# Updated on: 02-01-2026 11:22 AM IST
+# Updated on: 02-01-2026 12:30 PM IST
 #EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 ✅ Local Ready
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
@@ -338,8 +338,10 @@ https://rasinetworks.in/live/rasicinemaxhd/index.mpd
 https://rasinetworks.in/live/rasicinemahd/index.mpd
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasilifestyle.png",Rasi Lifestyle
 https://rasinetworks.in/live/rasilifestylehd/index.mpd
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg",ENG | Yalla Shabab Giants Vs Muscat Thunders
+https://in-mc-fdlive.fancode.com/mumbai/139159_english_hls_66b437e81a25094_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012824/1767158901179170_UC26_spain_vs_argentina_31dec_landscape_thumb.jpg",ENG | Spain vs Argentina - 2 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; LM-G900; Build/SKQ1.211103.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=7ccaca218ac78a4da2e662703b94c9ac-1767331809821
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767378717~acl=/*~id=173f437efe6dbc3a1be07bbcaeb28719-1767335516556~hmac=c0e6592dce32b25636224d40d9e6fb7bead731386eba500ed97d07ad5a2b8da4|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; RMX2151; Build/QP1A.190711.020)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f7f9dd3679727c54223901013bbe9fe5-1767336607918
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow Sports
