@@ -23,7 +23,7 @@ zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/m
 # POCKET TV SOURCE (Arunjunan20)
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# REMOVAL LIST
+# REMOVAL LIST (Skips broken template versions so working Extras take over)
 REMOVE_KEYWORDS = ["zee thirai", "zee tamil"]
 
 # MAPPING
@@ -145,7 +145,7 @@ def fetch_and_group(url, group_name):
     return entries
 
 # --- MODIFIED FUNCTION: POCKET TV (ARUNJUNAN) EXTRACTION ---
-# NO DEDUPLICATION - Adds EVERYTHING it finds
+# Adds ALL Sports and ALL Tamil channels. No Deduplication.
 def fetch_pocket_extras():
     entries = []
     print(f"🌍 Fetching & Filtering Pocket TV...")
@@ -153,7 +153,7 @@ def fetch_pocket_extras():
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
         
-        # SPECIFIC REQUESTS (Keywords if grouping fails)
+        # KEYWORDS for fallback
         SPECIFIC_WANTED = ["rasi", "astro", "vijay takkar"]
         
         if r.status_code == 200:
@@ -176,9 +176,8 @@ def fetch_pocket_extras():
                     elif 'group-title="Tamil"' in line or 'group-title="Tamil HD"' in line:
                         target_group = "Tamil Extra"
                     
-                    # 2. CHECK KEYWORDS (For channels not correctly grouped in source)
+                    # 2. CHECK KEYWORDS (For specific requests not grouped correctly)
                     elif any(x in name_lower for x in SPECIFIC_WANTED):
-                         # Assign group based on content
                          if "cricket" in name_lower or "sport" in name_lower:
                              target_group = "Sports Extra"
                          else:
@@ -251,7 +250,7 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # 1. TRY LOCAL (Preferred)
+                    # 1. TRY LOCAL (Preferred for everything)
                     mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
                     if clean_key in local_map:
                          final_lines.append(line)
@@ -289,7 +288,6 @@ def update_playlist():
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
     # 2. POCKET TV EXTRAS (ALL Sports + ALL Tamil)
-    # Deduplication logic removed
     final_lines.extend(fetch_pocket_extras())
 
     # 3. MANUAL / YOUTUBE
