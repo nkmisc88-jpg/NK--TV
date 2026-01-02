@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"
-# Updated on: 02-01-2026 08:22 AM IST
+# Updated on: 02-01-2026 09:28 AM IST
 #EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 ✅ Local Ready
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
@@ -338,10 +338,12 @@ https://rasinetworks.in/live/rasicinemaxhd/index.mpd
 https://rasinetworks.in/live/rasicinemahd/index.mpd
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasilifestyle.png",Rasi Lifestyle
 https://rasinetworks.in/live/rasilifestylehd/index.mpd
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138738_5800_AA_WF_fc-web_1766641250920.jpg",ENG | Wellington Firebirds Vs Auckland Aces
+https://in-mc-fdlive.fancode.com/mumbai/138738_english_hls_3ed4cd4c4186715_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012824/1767158901179170_UC26_spain_vs_argentina_31dec_landscape_thumb.jpg",ENG | Spain vs Argentina - 2 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; moto g84 5G; Build/T3TCS33.18-61-1-1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c623e66fdc1375e2edec21789c28934d-1767321247780
-#EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012742/1766776883972152_SuperSmash2526_womens_Auckland_Hearts_vs_Wellington_Blaze_26dec_landscape_thumb.jpg",ENG | Auckland Hearts vs Wellington Blaze - 2 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; TX6s; Build/QP1A.191105.004)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c623e66fdc1375e2edec21789c28934d-1767321247780
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; SM-A505FM; Build/RP1A.200720.012)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d86f16b88428521352ea8f64dc53973b-1767325809839
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012742/1766777112102152_SuperSmash2526_mens_Auckland_Aces_vs_Wellington_Firebirds_26dec_landscape_thumb.jpg",ENG | Auckland Aces vs Wellington Firebirds - 2 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; mt9632l; Build/PPR2.180905.006.A1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d86f16b88428521352ea8f64dc53973b-1767325809839
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow Sports
