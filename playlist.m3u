@@ -1,6 +1,6 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz,https://avkb.short.gy/epg.xml.gz" tvg-shift="-5.5"
-# Updated on: 02-01-2026 06:56 AM IST
-#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 ✅ Local Connected
+# Updated on: 02-01-2026 07:07 AM IST
+#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 ✅ Local Ready
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
 https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
@@ -121,7 +121,7 @@ http://0.0.0.0
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://i.postimg.cc/k5KdQRFN/image-Content-11734-j9kw60rc-m1.webp",Sun News
 https://livestream3.sunnxt.com/491c99fb6d0c49e88e6349170d890a2f/SunNewsB_IN_index.mpd
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/polimer-news-black.png",Polimer News
-https://jiotvpllive.cdn.jio.com/bpk-tv/Polimer_News_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthiya_Thalimurai.png",⚠️ Offline: Puthiya Thalimurai
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Thanthi_TV.png",Thanthi TV
@@ -147,7 +147,7 @@ http://0.0.0.0
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Madhimugam_TV.png",⚠️ Offline: Madhimugam TV
 http://0.0.0.0
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/INBA4900020A5_20240131T032253SQUARE.png_20240131032254.png",Republic TV
-https://jiotvpllive.cdn.jio.com/bpk-tv/Republic_TV_BTS/output/index.mpd?__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2&xxx=||cookie=__hdnea__=st=1767270647~exp=1767357047~acl=/*~hmac=062c2d43f8384a019ef80827889b3a9ed23ae25fdb737a30db411401bd7bfcf2
+https://jmp2.uk/stvp-INBA4900020A5
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://8upload.com/image/67da280876f6c/38-ndtv.png",NDTV 24x7
 https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8
 #EXTINF:-1 group-title="English & Hindi News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/india-today-in.png",India Today
@@ -340,8 +340,10 @@ https://rasinetworks.in/live/rasicinemahd/index.mpd
 https://rasinetworks.in/live/rasilifestylehd/index.mpd
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138770_5801_AH-W_WB-W_fc-web_1766596522148.jpg",ENG | Wellington Blaze Vs Auckland Hearts
 https://in-mc-fdlive.fancode.com/mumbai/138770_english_hls_ce7d2fed291474_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012824/1767158901179170_UC26_spain_vs_argentina_31dec_landscape_thumb.jpg",ENG | Spain vs Argentina - 2 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; V2434; Build/AP3A.240905.015.A2_CSNN_V000L1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=5d34b26a7bb9c7b205168fa3f886cb71-1767317650422
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012742/1766776883972152_SuperSmash2526_womens_Auckland_Hearts_vs_Wellington_Blaze_26dec_landscape_thumb.jpg",ENG | Auckland Hearts vs Wellington Blaze - 2 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; vivo Y19; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=bf2d41af9700e7a5066eeaebed6b3681-1767316448373
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767357242~acl=/*~id=fc1230d037e14e0245084f4a4392acb8-1767314040631~hmac=5147816d0ad19b0fdc7cdfcd31788c486489ee46ba707b0a81501eaf55558480|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; M2007J3SC; Build/AQ3A.240627.003)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=5d34b26a7bb9c7b205168fa3f886cb71-1767317650422
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow Sports
