@@ -15,7 +15,7 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# MASTER LIST (Priority Channels)
+# MASTER LIST (Reverted to "Zee Tamil HD" to force HD selection)
 MASTER_CHANNELS = [
     ("Sports HD", "Star Sports 1 HD"), ("Sports HD", "Star Sports 2 HD"),
     ("Sports HD", "Star Sports 1 Hindi HD"), ("Sports HD", "Star Sports Select 1 HD"),
@@ -26,9 +26,9 @@ MASTER_CHANNELS = [
     ("Sports HD", "Astro Cricket"), ("Sports HD", "Willow Cricket"),
     ("Sports HD", "Sky Sports Cricket"),
     ("Tamil HD", "Sun TV HD"), ("Tamil HD", "KTV HD"),
-    ("Tamil HD", "Star Vijay HD"), ("Tamil HD", "Zee Tamil"),
+    ("Tamil HD", "Star Vijay HD"), ("Tamil HD", "Zee Tamil HD"),
     ("Tamil HD", "Colors Tamil HD"), ("Tamil HD", "Jaya TV HD"),
-    ("Tamil HD", "Zee Thirai"), ("Tamil HD", "Vijay Takkar"),
+    ("Tamil HD", "Zee Thirai HD"), ("Tamil HD", "Vijay Takkar"),
     ("Tamil HD", "Astro Vaanavil"), ("Tamil HD", "Astro Vinmeen HD"),
     ("Tamil HD", "Astro Thangathirai"), ("Tamil HD", "Astro Vellithirai"),
     ("Tamil HD", "Rasi Palan"), ("Tamil HD", "Rasi Movies"),
@@ -62,42 +62,37 @@ def get_source_blocks():
         r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
         if r.status_code == 200:
             lines = r.text.splitlines()
-            
             current_block = []
             
             for line in lines:
                 line = line.strip()
                 if not line: continue
                 
-                # Start of a new block? (Header or Info)
                 if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT") or line.startswith("#EXTINF"):
                     current_block.append(line)
-                
-                # End of a block? (URL)
                 elif not line.startswith("#"):
                     current_block.append(line)
                     
-                    # PROCESS COMPLETED BLOCK
-                    # Extract Name for indexing
+                    # BLOCK COMPLETE
                     name_line = next((l for l in current_block if l.startswith("#EXTINF")), "")
                     if name_line:
                         raw_name = name_line.split(",")[-1].strip()
                         simple = simplified_name(raw_name)
                         
-                        # Extract Group for indexing
                         grp_match = re.search(r'group-title="([^"]*)"', name_line)
                         grp = grp_match.group(1).lower() if grp_match else ""
+                        
+                        # CHECK FOR KEYS
+                        has_keys = any(l.startswith("#KODIPROP") or l.startswith("#EXTVLCOPT") for l in current_block)
 
                         blocks.append({
                             'simple': simple,
                             'name': raw_name,
                             'group': grp,
-                            'lines': current_block # STORE EVERYTHING (Keys + Info + Link)
+                            'lines': current_block,
+                            'has_keys': has_keys
                         })
-                    
-                    # Reset for next channel
                     current_block = []
-                    
     except Exception as e:
         print(f"   ❌ Failed to load source: {e}")
     return blocks
@@ -105,46 +100,51 @@ def get_source_blocks():
 def main():
     source_blocks = get_source_blocks()
     
-    # Init Playlist
     final_lines = ["#EXTM3U"]
     final_lines.append("http://0.0.0.0")
 
     added_ids = set()
 
-    # 1. MASTER LIST (Priority)
+    # 1. MASTER LIST (Priority with Smart Selection)
     print("\n1️⃣  Processing Master List...")
     for target_group, target_name in MASTER_CHANNELS:
         target_simple = simplified_name(target_name)
-        match = None
         
-        # Priority 1: Exact Match
+        # FIND ALL POTENTIAL MATCHES
+        candidates = []
         for b in source_blocks:
-            if b['simple'] == target_simple:
-                match = b; break
+            # Exact or Fuzzy Match
+            if b['simple'] == target_simple or target_simple in b['simple']:
+                candidates.append(b)
         
-        # Priority 2: Containment Match (e.g. "Zee Tamil" inside "Zee Tamil HD")
-        if not match:
-            for b in source_blocks:
-                if target_simple in b['simple']:
-                    match = b; break
-        
-        if match:
-            # MODIFY GROUP TITLE IN THE BLOCK
+        # SMART SELECTION: Pick the best candidate
+        best_match = None
+        if candidates:
+            # 1. Prefer candidate with License Keys (DRM) - Usually the working HD stream
+            for c in candidates:
+                if c['has_keys']:
+                    best_match = c
+                    break
+            
+            # 2. If no keys found, fallback to the first match
+            if not best_match:
+                best_match = candidates[0]
+
+        if best_match:
+            # Modify Group Title
             new_lines = []
-            for l in match['lines']:
+            for l in best_match['lines']:
                 if l.startswith("#EXTINF"):
-                    # Regex replace the group-title
                     l = re.sub(r'group-title="[^"]*"', f'group-title="{target_group}"', l)
                 new_lines.append(l)
             
             final_lines.extend(new_lines)
-            added_ids.add(match['simple'])
+            added_ids.add(best_match['simple'])
         else:
-            print(f"   ⚠️ Channel Not Found in Source: {target_name}")
+            print(f"   ⚠️ Channel Not Found: {target_name}")
 
-    # 2. ADD ALL REMAINING CHANNELS (General Extras)
+    # 2. ADD ALL REMAINING CHANNELS
     print("\n2️⃣  Adding All Remaining Channels...")
-    
     SPORTS_KEYS = ["sport", "cricket", "f1", "racing", "football", "ten", "sony", "astro"]
     TAMIL_KEYS = ["tamil", "sun", "vijay", "zee", "kalaignar", "polimer", "news18 tamil", "thanthi", "puthiya", "jaya"]
     
@@ -155,15 +155,11 @@ def main():
         name = b['name'].lower()
         grp = b['group']
         
-        # Determine Target Group
         final_group = "General Extras"
+        if any(x in name for x in SPORTS_KEYS) or "sport" in grp: final_group = "Sports Extra"
+        elif any(x in name for x in TAMIL_KEYS) or "tamil" in grp: final_group = "Tamil Extra"
         
-        if any(x in name for x in SPORTS_KEYS) or "sport" in grp: 
-            final_group = "Sports Extra"
-        elif any(x in name for x in TAMIL_KEYS) or "tamil" in grp: 
-            final_group = "Tamil Extra"
-        
-        # Modify Group Title
+        # Modify Group
         new_lines = []
         for l in b['lines']:
             if l.startswith("#EXTINF"):
@@ -179,13 +175,12 @@ def main():
         
     print(f"   ✅ Added {count} extra channels.")
 
-    # 3. LIVE & TEMP (Copy verbatim)
+    # 3. LIVE & TEMP
     print("\n3️⃣  Adding Live/Temp...")
     def add_ext(url, g):
         try:
             r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
-            lines = r.text.splitlines()
-            for l in lines:
+            for l in r.text.splitlines():
                 if l.startswith("#EXTINF"):
                     l = re.sub(r'group-title="[^"]*"', '', l)
                     l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{g}"', l)
