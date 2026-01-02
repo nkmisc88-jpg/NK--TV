@@ -1,4 +1,3 @@
-
 import requests
 import re
 import datetime
@@ -17,15 +16,14 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# NEW LIVE EVENT SOURCES
+# LIVE EVENT SOURCES
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
 # POCKET TV SOURCE (Arunjunan20)
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# REMOVAL LIST
-# Added "zee tamil" here so script skips the broken template/backup version
+# REMOVAL LIST (Skip the broken template versions so we can add the working Extras)
 REMOVE_KEYWORDS = ["zee thirai", "zee tamil"]
 
 # FORCE BACKUP LIST
@@ -56,6 +54,8 @@ NAME_OVERRIDES = {
 # 1. HELPER FUNCTIONS
 # ==========================================
 def clean_name_key(name):
+    # Removes all spaces and symbols to ensure matching
+    # "Zee Tamil" -> "zeetamil"
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
@@ -110,7 +110,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. SMART PARSER & FETCHERS
+# 2. FETCHERS
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -163,7 +163,7 @@ def fetch_and_group(url, group_name):
         print(f"❌ Error fetching: {e}")
     return entries
 
-# --- NEW FUNCTION: POCKET TV (ARUNJUNAN) EXTRACTION ---
+# --- FIXED FUNCTION: ROBUST POCKET TV EXTRACTION ---
 def fetch_pocket_extras():
     entries = []
     print(f"🌍 Fetching & Filtering Pocket TV...")
@@ -171,13 +171,11 @@ def fetch_pocket_extras():
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
         
-        # STRICT LISTS (Fixed: Added no-space versions for Zee)
-        SPORTS_WANTED = ["astro cricket", "sony ten", "sky sports"]
+        # KEYWORDS (Cleaned, no spaces)
+        SPORTS_WANTED = ["astrocricket", "sonyten", "skysports"]
         TAMIL_WANTED = [
-            "zee tamil", "zeetamil",    # <--- Fixed
-            "zee thirai", "zeethirai",  # <--- Fixed
-            "vijay takkar", "rasi",
-            "astro thangathirai", "astro vellithirai", "astro vaanavil", "astro vinmeen"
+            "zeetamil", "zeethirai", "vijaytakkar", "rasi",
+            "astrothangathirai", "astrovellithirai", "astrovaanavil", "astrovinmeen"
         ]
         
         if r.status_code == 200:
@@ -188,14 +186,15 @@ def fetch_pocket_extras():
                 
                 if "#EXTINF" in line:
                     name = line.split(",")[-1].strip()
-                    name_lower = name.lower()
+                    # CLEAN NAME: "Astro Cricket HD" -> "astrocrickethd"
+                    name_clean = re.sub(r'[^a-zA-Z0-9]', '', name.lower())
                     
                     target_group = None
                     
-                    # CHECK STRICT MATCHES
-                    if any(x in name_lower for x in SPORTS_WANTED):
+                    # CHECK MATCHES (Is 'astrocricket' inside 'astrocrickethd'?)
+                    if any(x in name_clean for x in SPORTS_WANTED):
                         target_group = "Sports Extra"
-                    elif any(x in name_lower for x in TAMIL_WANTED):
+                    elif any(x in name_clean for x in TAMIL_WANTED):
                         target_group = "Tamil Extra"
                     
                     if target_group:
