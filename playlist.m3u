@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-02 16:14:41
+# Updated on: 2026-01-02 16:20:12
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,17 +846,17 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 2 January 2026 at 9:35:06 pm
+#DATE:- Friday, 2 January 2026 at 9:49:04 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138927" tvg-name="Sylhet Titans Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138927_5808_SYL_RAN_fc-web_1766733054374.jpg" tvg-language="ENGLISH" ,ENG | Sylhet Titans Vs Rangpur Riders
 https://in-mc-fdlive.fancode.com/mumbai/138927_english_hls_2ad2b01ca384942_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="138655" tvg-name="Abu Dhabi Knight Riders Vs Mi Emirates" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138633_5786_MIE_ADKR_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Abu Dhabi Knight Riders Vs Mi Emirates
 https://in-mc-fdlive.fancode.com/mumbai/138655_english_hls_f3a36ee85a97188_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139161" tvg-name="Ias Invincibles Vs Royal Oman Stallions" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Ias Invincibles Vs Royal Oman Stallions
 https://in-mc-fdlive.fancode.com/mumbai/139161_english_hls_863599e16528674_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 02-01-2026 21:20
+#DATE:- 02-01-2026 21:40
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090491950" tvg-name="Kaun Banega Crorepati" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012876/1767351403666101_KBC_S17_finale_2jan_simulcast_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | E105. Kaun Banega Crorepati - Season 17
-https://sonymtmnew.akamaized.net/hls/live/2043696/DAI26ME-KBC/master.m3u8?hdnea=exp=1767400201~acl=/*~id=392adf95e84d2852bb1d91aecb493e6c-1767357000125~hmac=e6bc9f3feba98cb4d63ab2ef56aedef7df493fabf0471d53569b8b4563496ef5|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; motorola edge 40; Build/V1TLS35.73-60-3-2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=586818d44c0300592d68ed3379ee7ca4-1767369008091
+https://sonymtmnew.akamaized.net/hls/live/2043696/DAI26ME-KBC/master.m3u8?hdnea=exp=1767400201~acl=/*~id=392adf95e84d2852bb1d91aecb493e6c-1767357000125~hmac=e6bc9f3feba98cb4d63ab2ef56aedef7df493fabf0471d53569b8b4563496ef5|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; CPH1933; Build/PKQ1.190714.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e6a7d0cebd84a365e5178d523c69523d-1767370210075
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Friday, 2 January 2026 at 9:30:07 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5853069" tvg-name="DP World ILT20" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5853069/list/1920x1080list78ff8a9b94a846abafe1bdca062d5251d24e8ac04cd4480594e6f6b73b56a2ec.jpg" tvg-language="hindi" ,HIN | MIE Vs ADKAR - Qualifier 2
@@ -866,23 +866,37 @@ https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list2ddd78c1d02b41e997a062a3d38caa55a59e5f48cc9f46c9ba77539307242882.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767455107~acl=%2f*~data=hdntl~hmac=5268bbefb20043a6f6e537db56655046e4f96bdbfa48abad0767d303da815eee|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767423122~acl=%2f*~id=065de796-f6fb-482e-837c-9f65d365a124~data=hdntl~hmac=8f0345cb4bbd4bbe8140dc0a7fc8bb15579c37ae252638ec95e825ec9da833c9|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767423122~acl=%2f*~id=065de796-f6fb-482e-837c-9f65d365a124~data=hdntl~hmac=8f0345cb4bbd4bbe8140dc0a7fc8bb15579c37ae252638ec95e825ec9da833c9|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-360/channel_list/360x2031c866f9b15d44e38b077973e3ab37e89",Zee Tamil HD APAC
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1767423122~acl=%2f*~id=065de796-f6fb-482e-837c-9f65d365a124~data=hdntl~hmac=8f0345cb4bbd4bbe8140dc0a7fc8bb15579c37ae252638ec95e825ec9da833c9|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
-https://keys.vodep39240327.workers.dev/?id=300.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png",Star Sports Select 2 HD
-https://keys.vodep39240327.workers.dev/?id=301.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/CHIT_Thumbnail-v1/CHIT_Thumbnail.png",Chithiram
+https://cdn-6.pishow.tv/live/1243/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://i.ibb.co/GQhjbGt/1000136225-photoaidcom-cropped.png",Velicham TV
+https://cdn.smartstream.video/smartstream-us/velichamtv/velichamtv/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://i.imgur.com/jSedjXf.png",Dheeran TV
+https://live.we2live.in/dheerantv/dheerantv/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://i.ibb.co/rQNDBCy/dd.png",DD Tamil
+https://d2lk5u59tns74c.cloudfront.net/out/v1/abf46b14847e45499f4a47f3a9afe93d/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240315_0856271246595482699747248.png",Vaanavil TV
+https://6n3yope4d9ok-hls-live.5centscdn.com/vaanavil/TV.stream/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/murasu-white.png",Murasu
+https://segment.yuppcdn.net/050522/murasu/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://i.imgur.com/YQK9ewf.png",Aastha Tamil
+https://aasthaott.akamaized.net/110923/smil:aasthatamil.smil/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://www.lyngsat.com/logo/tv/mm/malar-tv-in.png",Malar TV
+https://mumt04.tangotv.in/MALARTV/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/SVBC 2.png",SVBC
+http://player.mslivestream.net/tamil/ac206e74d75b285755ee4924df87d951.sdp/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11788-j9kypa94-v1/imageContent-11788-j9kypa94-m2.png",Sri Sankara
+https://thestarkind.mooo.com/3.php?live=true&in=ts_live_829.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://i.ibb.co/F0HvxrQ/vikatan.png",Vikatan TV
+https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/vikatan-tv/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-31376-jlxbt6kg-v2/imageContent-31376-jlxbt6kg-m2.png",Tata Play Tamil Cinema
+http://alpha-2ott.me:80/play/live.php?mac=00:1B:79:33:64:37&stream=155883&extension=ts|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/1167.png",Tata Play Hollywood Local
+http://alpha-2ott.me:80/play/live.php?mac=00:1B:79:33:64:37&stream=1097661&extension=ts|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-249-j5fyl7tk-v1/imageContent-249-j5fyl7tk-m1.png",Star Sports 1 Tamil
+https://tv.vaanam24.com/live.m3u8?c=STARSPORTSTAMILHD|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/Star%20Sports%202%20Tamil_Thumbnail_a2144bc4-8953-4ca9-980b-86499353c0da.png",Star Sports 2 Tamil
 https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/379753.ts|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Sports Extra" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/V2.0/new/Star_Sports_2.png",Star Sports 2 HD
-https://edge4-moblive.yuppcdn.net/drm1/smil:starsports2drm.smil/manifest.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-941-j5mhk5fc-v1/imageContent-941-j5mhk5fc-m1.png",DD Sports
-https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Ten_HD.png",SONY TEN 1 HD
 https://sl.vodep39240327.workers.dev/channel/SONY TEN 1 HD.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Ten2_HD.png",SONY TEN 2 HD
@@ -935,18 +949,16 @@ https://rasinetworks.in/live/rasimovieshd/index.mpd|User-Agent=Mozilla/5.0 (Wind
 https://rasinetworks.in/live/rasihollywoodhd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png",Rasi Music
 https://rasinetworks.in/live/rasimusichd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://yt3.googleusercontent.com/GJVGgzRXxK1FDoUpC8ztBHPu81PMnhc8inodKtEckH-rykiYLzg93HUQIoTIirwORynozMkR=s900-c-k-c0x00ffffff-no-rj",Zee Tamil News
-https://dpkvdnzbeen1l.cloudfront.net/index_4.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroVinmeen_2024.png",Astro Vinmeen
 https://live.catvod.com/live.php?id=Rusi|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroVaanavil_2024.png",Astro Vaanavil
 https://converse.nathcreqtives.com/astro/2309/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Astro_Vellithirai_v1.png",Astro Vellithirai
 https://converse.nathcreqtives.com/astro/5073/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/ZeeTamil_v1.png",Zee Tamil
-https://converse.nathcreqtives.com/astro/2311/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Sports Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroCricket_2024.png",Astro Cricket
-https://converse.nathcreqtives.com/astro/2504/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroShowcase_2024.png",Astro Showcase
+https://converse.nathcreqtives.com/astro/5054/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Sports Extra" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroSportsPlus_2024.png",Astro Sports Plus
+https://converse.nathcreqtives.com/astro/5171/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY2NzQ2NzgzLCJleHAiOjE3NjcxNzg3ODMsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2NzE3ODc4M30.RBIV_PHzh54QUlErzde1mSvTbP7j-tceOrm-lSAtB6s|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/236_144.png",beIN Sports HD
 https://abclxdjaaaaaaaamkqb6y4p6ie2zk.ottb.live.cf.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/k0duzgfejg/out/v1/70a50b1bda944628b8e7e66ab4069419/cenc.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/466_144.png",beIN Sports 2 HD
@@ -981,8 +993,6 @@ https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/3b7qwiqzk3/
 https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/uiffe4jhf0/out/v1/3534efafca8c4815adbb4d2e9a1fe003/cenc.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://i.ibb.co/KjmgSMVb/Picsart-25-09-02-13-14-35-124.png",Fancode 24/7
 https://a204aivottepl-a.akamaihd.net/sin-nitro/live/clients/dash/enc/fdb3pubmek/out/v1/aefca6420f944a9482e117f315de535f/cenc.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Sports Extra" tvg-logo="https://fancode.com/skillup-uploads/fc-web-logo/fc-logo-orange-block-bg.png",Fancode 24/7
-https://a166aivottlinear-a.akamaihd.net/OTTB/sin-nitro/live/clients/dash/enc/inpyms8ezu/out/v1/1084d5c9a97a4c5b9f9554c88f486646/cenc.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkjmoUatVnbQsL-NNHSj2L9zjbbMg92x5pNA&s",Fast Sports HD
 https://live2.shoq.com.pk/live/eds/Fast_Sports_HD/DASH/Fast_Sports_HD.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/upsspx1433379567.png",TSN 1
