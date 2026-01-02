@@ -10,9 +10,8 @@ template_file = "template.m3u"
 youtube_file = "youtube.txt"
 output_file = "playlist.m3u"
 
-# Priority 1: Arunjunan20
+# Sources
 URL_ARUN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
-# Priority 2: Fakeall
 URL_FAKEALL = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
 # Live Events
@@ -21,37 +20,25 @@ URL_SONY_LIVE = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/h
 URL_ZEE_LIVE = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
 # Headers
-HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"}
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+HEADERS = {"User-Agent": USER_AGENT}
 
 # ==========================================
-# 2. MATCHING LOGIC
+# 2. LOGIC
 # ==========================================
-def normalize(text):
+def get_core_name(name):
     """
-    Converts 'Star Sports 1 HD (Backup)' -> {'star', 'sports', '1', 'hd', 'backup'}
-    This allows us to match names even if they aren't identical.
+    Reduces name to its absolute core for matching.
+    'Star Sports 1 HD (Backup)' -> 'starsports1hd'
     """
-    if not text: return set()
-    # Remove brackets and symbols
-    text = re.sub(r'[\(\[\{].*?[\)\]\}]', '', text.lower())
-    text = re.sub(r'[^a-z0-9\s]', '', text)
-    return set(text.split())
+    if not name: return ""
+    # Remove things in brackets
+    name = re.sub(r'[\(\[\{].*?[\)\]\}]', '', name.lower())
+    # Remove non-alphanumeric
+    return re.sub(r'[^a-z0-9]', '', name)
 
-def is_match(target_name, candidate_name):
-    """
-    Returns True if the core words of the Target are inside the Candidate.
-    """
-    target_tokens = normalize(target_name)
-    candidate_tokens = normalize(candidate_name)
-    
-    if not target_tokens: return False
-    
-    # Check if ALL words in target are present in candidate
-    # e.g. Target: {star, sports} is inside Candidate: {star, sports, 1, hd}
-    return target_tokens.issubset(candidate_tokens)
-
-def load_playlist(url, name):
-    print(f"📥 Loading {name}...")
+def load_playlist(url, source_name):
+    print(f"📥 Loading {source_name}...")
     dataset = []
     try:
         r = requests.get(url, headers=HEADERS, timeout=15)
@@ -60,39 +47,61 @@ def load_playlist(url, name):
             for i in range(len(lines)):
                 line = lines[i].strip()
                 if line.startswith("#EXTINF"):
-                    # Extract Name
-                    ch_name = line.split(",")[-1].strip()
+                    raw_name = line.split(",")[-1].strip()
+                    core_name = get_core_name(raw_name)
                     
-                    # Extract Logo
                     logo = ""
-                    match_logo = re.search(r'tvg-logo="([^"]*)"', line)
-                    if match_logo: logo = match_logo.group(1)
+                    m = re.search(r'tvg-logo="([^"]*)"', line)
+                    if m: logo = m.group(1)
 
-                    # Extract Link
                     link = ""
                     if i + 1 < len(lines):
-                        next_line = lines[i+1].strip()
-                        if next_line and not next_line.startswith("#"):
-                            link = next_line
+                        potential_link = lines[i+1].strip()
+                        if potential_link and not potential_link.startswith("#"):
+                            link = potential_link
+                            # APPEND USER-AGENT TO FIX PLAYBACK
+                            if "http" in link and "|" not in link:
+                                link += f"|User-Agent={USER_AGENT}"
                     
-                    if link and ch_name:
-                        dataset.append({'name': ch_name, 'link': link, 'logo': logo})
-        print(f"   ✅ Loaded {len(dataset)} channels.")
+                    if link and core_name:
+                        dataset.append({
+                            'core_name': core_name,
+                            'raw_name': raw_name, 
+                            'link': link, 
+                            'logo': logo
+                        })
+        print(f"   ✅ {source_name}: {len(dataset)} channels.")
     except Exception as e:
-        print(f"   ❌ Error loading {name}: {e}")
+        print(f"   ❌ Error {source_name}: {e}")
     return dataset
+
+def find_best_match(target_name, dataset):
+    target_core = get_core_name(target_name)
+    
+    # 1. Exact Core Match
+    for ch in dataset:
+        if ch['core_name'] == target_core:
+            return ch
+            
+    # 2. Partial Core Match (Target inside Source)
+    # e.g. Target 'suntv' inside Source 'suntvhd'
+    for ch in dataset:
+        if target_core in ch['core_name']:
+            return ch
+            
+    return None
 
 # ==========================================
 # 3. MAIN SCRIPT
 # ==========================================
 def main():
     # 1. Load Sources
-    DB_ARUN = load_playlist(URL_ARUN, "Arunjunan20")
+    DB_ARUN = load_playlist(URL_ARUN, "Arunjunan")
     DB_FAKEALL = load_playlist(URL_FAKEALL, "Fakeall")
 
     final_lines = ['#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"']
     
-    # Add Time
+    # Time
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines.append(f'#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: {ist_now.strftime("%d-%m-%Y %H:%M")}')
     final_lines.append("http://0.0.0.0")
@@ -101,49 +110,45 @@ def main():
     print("\n🔨 Processing Template...")
     if os.path.exists(template_file):
         with open(template_file, "r") as f:
-            template_lines = f.readlines()
+            lines = f.readlines()
             
-        for line in template_lines:
+        for line in lines:
             line = line.strip()
             if line.startswith("#EXTINF"):
                 target_name = line.split(",")[-1].strip()
                 
-                # Get Group
                 group_match = re.search(r'group-title="([^"]*)"', line)
                 group = group_match.group(1) if group_match else "General"
 
-                link = None
-                logo = None
+                match = None
                 
-                # --- MATCHING STRATEGY ---
-                # 1. Check Arunjunan (Priority)
-                for ch in DB_ARUN:
-                    if is_match(target_name, ch['name']):
-                        link = ch['link']
-                        logo = ch['logo']
-                        break
+                # PRIORITY 1: ARUN
+                match = find_best_match(target_name, DB_ARUN)
                 
-                # 2. Check Fakeall (Backup)
-                if not link:
-                    for ch in DB_FAKEALL:
-                        if is_match(target_name, ch['name']):
-                            link = ch['link']
-                            logo = ch['logo']
-                            break
-                
-                # --- WRITE RESULT ---
-                # Use source logo if found, else template logo
-                if not logo:
-                    tmpl_logo = re.search(r'tvg-logo="([^"]*)"', line)
-                    if tmpl_logo: logo = tmpl_logo.group(1)
+                # PRIORITY 2: FAKEALL
+                if not match:
+                    match = find_best_match(target_name, DB_FAKEALL)
 
+                # OUTPUT
+                logo = ""
+                link = ""
+                
+                if match:
+                    link = match['link']
+                    logo = match['logo']
+                
+                # Fallback Logo
+                if not logo:
+                    m_tmpl = re.search(r'tvg-logo="([^"]*)"', line)
+                    if m_tmpl: logo = m_tmpl.group(1)
+                
                 logo_str = f'tvg-logo="{logo}"' if logo else 'tvg-logo=""'
 
                 if link:
                     final_lines.append(f'#EXTINF:-1 group-title="{group}" {logo_str},{target_name}')
                     final_lines.append(link)
                 else:
-                    print(f"   ⚠️ Offline: {target_name}")
+                    print(f"   ⚠️ Missing: {target_name}")
                     final_lines.append(f'#EXTINF:-1 group-title="{group}" {logo_str},⚠️ Offline: {target_name}')
                     final_lines.append("http://0.0.0.0")
     else:
@@ -153,22 +158,29 @@ def main():
     print("\n🔍 Adding Extras...")
     wanted_keywords = ["astro", "rasi", "vijay takkar", "zee thirai"]
     
+    # To avoid duplicates, track what we added
+    added_names = set()
+    
     for ch in DB_ARUN:
-        name_lower = ch['name'].lower()
+        name_lower = ch['raw_name'].lower()
         if any(w in name_lower for w in wanted_keywords):
+            # Check if we already added this via template
+            if ch['core_name'] in added_names: continue
+            
             grp = "Tamil Extra"
             if "cricket" in name_lower or "sports" in name_lower: 
                 grp = "Sports Extra"
             
-            final_lines.append(f'#EXTINF:-1 group-title="{grp}" tvg-logo="{ch["logo"]}",{ch["name"]}')
+            final_lines.append(f'#EXTINF:-1 group-title="{grp}" tvg-logo="{ch["logo"]}",{ch["raw_name"]}')
             final_lines.append(ch['link'])
+            added_names.add(ch['core_name'])
 
     # 4. Live Events
     print("\n🎥 Adding Live Events...")
     def add_live(url):
         d = load_playlist(url, "Live")
         for ch in d:
-            final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{ch["logo"]}",{ch["name"]}')
+            final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{ch["logo"]}",{ch["raw_name"]}')
             final_lines.append(ch['link'])
 
     add_live(URL_FANCODE)
