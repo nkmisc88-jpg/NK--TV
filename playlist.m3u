@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-02 19:01:17
+# Updated on: 2026-01-02 19:09:02
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 3 January 2026 at 12:28:05 am
+#DATE:- Saturday, 3 January 2026 at 12:35:06 am
 #EXTINF:-1 group-title="Live Events" tvg-id="139161" tvg-name="Ias Invincibles Vs Royal Oman Stallions" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Ias Invincibles Vs Royal Oman Stallions
 https://in-mc-fdlive.fancode.com/mumbai/139161_english_hls_863599e16528674_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139198" tvg-name="Al Ahli Saudi Fc Vs Al Nassr Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Ahli-Saudi-FC-vs-Al-Nassr_fc-web_1767365352732.jpg" tvg-language="ENGLISH" ,ENG | Al Ahli Saudi Fc Vs Al Nassr Fc
