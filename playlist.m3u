@@ -1,29 +1,29 @@
 #EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"
-#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: 02-01-2026 20:03
+#EXTINF:-1 group-title="Update Info" tvg-logo="https://i.imgur.com/7Xj4G6d.png",🟡 Updated: 02-01-2026 20:08
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Star Sports 1 HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Star Sports 1 HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/V2.0/new/Star_Sports_2.png",Star Sports 2 HD
 https://edge4-moblive.yuppcdn.net/drm1/smil:starsports2drm.smil/manifest.mpd
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Star Sports 1 Hindi HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Star Sports 1 Hindi HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Star Sports Select 1 HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Star Sports Select 1 HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Star Sports Select 2 HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Star Sports Select 2 HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Sony Sports Ten 1 HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Sony Sports Ten 1 HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Sony Sports Ten 2 HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Sony Sports Ten 2 HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Sony Sports Ten 3 HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Sony Sports Ten 3 HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Sony Sports Ten 4 HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Sony Sports Ten 4 HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Sony Sports Ten 5 HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Sony Sports Ten 5 HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Sports18 1 HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Sports18 1 HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Check Source: Eurosport HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="",⚠️ Offline: Eurosport HD
 http://0.0.0.0
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png",Astro Cricket
 https://live.catvod.com/live.php?id=Acricket
@@ -37,111 +37,111 @@ https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_inde
 https://livestream.sunnxt.com/61477b4c8d8d45d5a49e044cc1dffc60/KTVHDB_IN_index.mpd
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/496.png",Star Vijay HD
 https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer=https://m3u.8088y.fun/
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Check Source: Zee Tamil HD
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Offline: Colors Tamil HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Check Source: Colors Tamil HD
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Offline: Jaya TV HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Check Source: Jaya TV HD
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Offline: Vijay Takkar
 http://0.0.0.0
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Check Source: Zee Thirai HD
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Offline: Astro Vaanavil
 http://0.0.0.0
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Check Source: Vijay Takkar
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Offline: Astro Vinmeen HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Check Source: Astro Vaanavil
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Offline: Astro Thangathirai
 http://0.0.0.0
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Check Source: Astro Vinmeen HD
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Offline: Astro Vellithirai
 http://0.0.0.0
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Check Source: Astro Thangathirai
-http://0.0.0.0
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Check Source: Astro Vellithirai
-http://0.0.0.0
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Check Source: Rasi Palan
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="",⚠️ Offline: Rasi Palan
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1518425091386983341611136.png",Rasi Movies
 https://rasinetworks.in/live/rasimovieshd/index.mpd
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png",Rasi Music
 https://rasinetworks.in/live/rasimusichd/index.mpd
-#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Check Source: Discovery HD
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Offline: Discovery HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Check Source: Animal Planet HD
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Offline: Animal Planet HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Check Source: Nat Geo HD
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Offline: Nat Geo HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Check Source: Nat Geo Wild HD
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Offline: Nat Geo Wild HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Check Source: Sony BBC Earth HD
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Offline: Sony BBC Earth HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Check Source: History TV18 HD
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Offline: History TV18 HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Check Source: TLC HD
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Offline: TLC HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Check Source: TravelXP HD
+#EXTINF:-1 group-title="Infotainment" tvg-logo="",⚠️ Offline: TravelXP HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Check Source: Star Movies HD
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Offline: Star Movies HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Check Source: Sony Pix HD
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Offline: Sony Pix HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Check Source: Movies Now HD
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Offline: Movies Now HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Check Source: MN+ HD
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Offline: MN+ HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Check Source: MNX HD
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Offline: MNX HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Check Source: Star Gold HD
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Offline: Star Gold HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Check Source: Sony Max HD
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Offline: Sony Max HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Check Source: Zee Cinema HD
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Offline: Zee Cinema HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Check Source: And Pictures HD
+#EXTINF:-1 group-title="Movies" tvg-logo="",⚠️ Offline: And Pictures HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Check Source: Star Plus HD
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Offline: Star Plus HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Check Source: Sony SET HD
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Offline: Sony SET HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Check Source: Sony SAB HD
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Offline: Sony SAB HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Check Source: Zee TV HD
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Offline: Zee TV HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Check Source: Colors HD
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Offline: Colors HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Check Source: Star Bharat HD
+#EXTINF:-1 group-title="Entertainment" tvg-logo="",⚠️ Offline: Star Bharat HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Malayalam" tvg-logo="",⚠️ Check Source: Asianet HD
+#EXTINF:-1 group-title="Malayalam" tvg-logo="",⚠️ Offline: Asianet HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Malayalam" tvg-logo="",⚠️ Check Source: Surya TV HD
+#EXTINF:-1 group-title="Malayalam" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240305_0902541690314621833418150.png",Surya TV HD
+https://stream.sscloud7.in/live/suryatv/playlist.m3u8
+#EXTINF:-1 group-title="Malayalam" tvg-logo="",⚠️ Offline: Mazhavil Manorama HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Malayalam" tvg-logo="",⚠️ Check Source: Mazhavil Manorama HD
+#EXTINF:-1 group-title="Telugu" tvg-logo="",⚠️ Offline: Star Maa HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Telugu" tvg-logo="",⚠️ Check Source: Star Maa HD
+#EXTINF:-1 group-title="Telugu" tvg-logo="",⚠️ Offline: Zee Telugu HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Telugu" tvg-logo="",⚠️ Check Source: Zee Telugu HD
+#EXTINF:-1 group-title="Telugu" tvg-logo="",⚠️ Offline: Gemini TV HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Telugu" tvg-logo="",⚠️ Check Source: Gemini TV HD
+#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Offline: Colors Kannada HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Check Source: Colors Kannada HD
+#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Offline: Star Suvarna HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Check Source: Star Suvarna HD
+#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Offline: Zee Kannada HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Check Source: Zee Kannada HD
+#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Offline: Udaya TV HD
 http://0.0.0.0
-#EXTINF:-1 group-title="Kannada" tvg-logo="",⚠️ Check Source: Udaya TV HD
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Nick
 http://0.0.0.0
-#EXTINF:-1 group-title="Kids" tvg-logo="https://supair.dishanywhere.com/supair-images/channels/thumbnail/32155.png",Nick
-http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8
-#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Check Source: Sonic
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Sonic
 http://0.0.0.0
-#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Check Source: Hungama
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Hungama
 http://0.0.0.0
 #EXTINF:-1 group-title="Kids" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/DISNHD_Thumbnail-v1/DISNHD_Thumbnail.png",Disney Channel
 https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/19741.ts
-#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Check Source: Cartoon Network
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Cartoon Network
 http://0.0.0.0
-#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Check Source: Pogo
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Pogo
 http://0.0.0.0
-#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Check Source: Sony Yay
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Sony Yay
 http://0.0.0.0
-#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Check Source: Discovery Kids
+#EXTINF:-1 group-title="Kids" tvg-logo="",⚠️ Offline: Discovery Kids
 http://0.0.0.0
 #EXTINF:-1 group-title="News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/times-now-in.png",Times Now
 https://d3pvf6sv7wsu07.cloudfront.net/master.m3u8
@@ -159,12 +159,34 @@ https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8
 https://segment.yuppcdn.net/240122/puthiya/playlist.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="",Thanthi TV
 http://stream2.oppocast.com/than_stream
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
+#EXTINF:-1 group-title="Sports Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png",Astro Cricket
+https://live.catvod.com/live.php?id=Acricket
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1518425091386983341611136.png",Rasi Movies
+https://rasinetworks.in/live/rasimovieshd/index.mpd
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942518224615220455317164.png",Rasi Hollywood
+https://rasinetworks.in/live/rasihollywoodhd/index.mpd
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png",Rasi Music
+https://rasinetworks.in/live/rasimusichd/index.mpd
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroVinmeen_2024.png",Astro Vinmeen
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 11; Philips Google TV TA7 Build/RTM5.220609.199; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1437564760907591116562534.png",Rasi TV HD
+https://rasinetworks.in/live/rasitvhd/index.mpd
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942127817851833380019717.png",Rasi Comedy
+https://rasinetworks.in/live/rasicomedyhd/index.mpd
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasiclassic.png",Rasi Classic
+https://rasinetworks.in/live/rasiclassichd/index.mpd
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasicinemax.png",Rasi Cinemax
+https://rasinetworks.in/live/rasicinemaxhd/index.mpd
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasicinema.png",Rasi Cinema
+https://rasinetworks.in/live/rasicinemahd/index.mpd
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="http://tnm3u.jw.lt/icon/tamil/local/rasilifestyle.png",Rasi Lifestyle
+https://rasinetworks.in/live/rasilifestylehd/index.mpd
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138927_5808_SYL_RAN_fc-web_1766733054374.jpg",ENG | Sylhet Titans Vs Rangpur Riders
 https://in-mc-fdlive.fancode.com/mumbai/138927_english_hls_2ad2b01ca384942_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138633_5786_MIE_ADKR_FC-Web.jpg",ENG | Abu Dhabi Knight Riders Vs Mi Emirates
 https://in-mc-fdlive.fancode.com/mumbai/138655_english_hls_f3a36ee85a97188_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg",ENG | Majees Titans Vs Renaissance Challengers
-https://in-mc-fdlive.fancode.com/mumbai/139160_english_hls_72995e4f2798476_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012824/1767159010787170_UC26_greece_vs_japan_31dec_landscape_thumb.jpg",ENG |  Greece vs Japan - 2 Jan 2026
 https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/std_lrh-800300010.m3u8?hdnea=exp=1767400201~acl=/*~id=392adf95e84d2852bb1d91aecb493e6c-1767357000125~hmac=e6bc9f3feba98cb4d63ab2ef56aedef7df493fabf0471d53569b8b4563496ef5|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; Haier MatrixTV BE; Build/RTM7.230903.140)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d0213db0124fbb4921a37452a558f03f-1767364211224
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5853069/list/1920x1080list78ff8a9b94a846abafe1bdca062d5251d24e8ac04cd4480594e6f6b73b56a2ec.jpg",HIN | MIE Vs ADKAR - Qualifier 2
@@ -173,3 +195,9 @@ https://falconstream.zee5.com/cmaf/live/2109037/QUALIFIER_2/master.m3u8?hdntl=ex
 https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767439805~acl=%2f*~data=hdntl~hmac=3ca202140be388f486f85caf0b2dd06c82d3984e0c4e65f0ddd5fc475bb2d8e2|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list2ddd78c1d02b41e997a062a3d38caa55a59e5f48cc9f46c9ba77539307242882.jpg",ENG | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767439807~acl=%2f*~data=hdntl~hmac=689a012fa6331b69624c4f85ee35fcc015f0cf1dfbae464097a30edc67512695|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 group-title="Temporary" tvg-logo="",Fox 501
+#EXTINF:-1 group-title="Temporary" tvg-logo="",Willow Sports
+#EXTINF:-1 group-title="Temporary" tvg-logo="",Fox 505
+#EXTINF:-1 group-title="Temporary" tvg-logo="",Fox 502
+#EXTINF:-1 group-title="Temporary" tvg-logo="",Fox 501
+#EXTINF:-1 group-title="Temporary" tvg-logo="",Willow Sports 2
