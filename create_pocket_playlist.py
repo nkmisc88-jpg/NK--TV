@@ -15,9 +15,8 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# --- PLAYBACK HEADERS (The Fix) ---
-# These are the specific headers required to make the streams play.
-PLAY_HEADERS = 'User-Agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" Referer="https://jiotv.com/"'
+# HEADERS (Using the mobile app agent is safer for Jio)
+USER_AGENT = "plaYtv/7.0.8 (Linux;Android 9) ExoPlayerLib/2.11.7"
 
 # MASTER LIST
 MASTER_CHANNELS = [
@@ -69,14 +68,22 @@ def get_source_channels():
     print("📥 Downloading Source Playlist...")
     channels = []
     try:
-        # Use a generic User Agent for downloading the list itself
-        dl_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        r = requests.get(POCKET_URL, headers={"User-Agent": dl_ua}, timeout=20)
-        
+        r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
         if r.status_code == 200:
             lines = r.text.splitlines()
+            
+            # Temporary storage for props (License keys)
+            current_props = []
+            
             for i in range(len(lines)):
                 line = lines[i].strip()
+                
+                # 1. Capture DRM/License Keys (KODIPROP / EXTVLCOPT)
+                if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT"):
+                    current_props.append(line)
+                    continue
+
+                # 2. Process Info Line
                 if line.startswith("#EXTINF"):
                     # Name
                     raw_name = line.split(",")[-1].strip()
@@ -98,11 +105,9 @@ def get_source_channels():
                         pot_link = lines[i+1].strip()
                         if pot_link and not pot_link.startswith("#"):
                             link = pot_link
-                            
-                            # --- CRITICAL PLAYBACK FIX ---
-                            # Only append headers if they aren't already there
+                            # Append Headers for Playback (Standard for Jio)
                             if "http" in link and "|" not in link:
-                                link += f"|{PLAY_HEADERS}"
+                                link += f"|User-Agent={USER_AGENT}"
                     
                     if link and simple:
                         channels.append({
@@ -110,9 +115,13 @@ def get_source_channels():
                             'simple': simple,
                             'link': link,
                             'logo': logo,
-                            'group': group
+                            'group': group,
+                            'props': current_props  # Attach the captured keys
                         })
-        print(f"   ✅ Source loaded: {len(channels)} channels.")
+                    
+                    # Reset props for next channel
+                    current_props = []
+                    
     except Exception as e:
         print(f"   ❌ Failed to load source: {e}")
     return channels
@@ -144,6 +153,10 @@ def main():
                     match = ch; break
 
         if match:
+            # WRITE DRM KEYS FIRST
+            if match['props']:
+                final_lines.extend(match['props'])
+            
             final_lines.append(f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{match["logo"]}",{target_name}')
             final_lines.append(match['link'])
             added_ids.add(match['simple'])
@@ -171,6 +184,10 @@ def main():
         elif any(x in name for x in TAMIL_KEYS) and "tamil" in name: final_group = "Tamil Extra"
 
         if final_group:
+            # WRITE DRM KEYS FIRST
+            if ch['props']:
+                final_lines.extend(ch['props'])
+                
             final_lines.append(f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{ch["logo"]}",{ch["name"]}')
             final_lines.append(ch['link'])
             added_ids.add(ch['simple'])
@@ -184,6 +201,9 @@ def main():
                 if l.startswith("#EXTINF"):
                     l = re.sub(r'group-title="[^"]*"', '', l)
                     l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{g}"', l)
+                    final_lines.append(l)
+                # Keep DRM props for Live Events too if they exist
+                elif l.startswith("#KODIPROP") or l.startswith("#EXTVLCOPT"):
                     final_lines.append(l)
                 elif l.startswith("http"): final_lines.append(l)
         except: pass
