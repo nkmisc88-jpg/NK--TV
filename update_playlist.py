@@ -1,3 +1,4 @@
+
 import requests
 import re
 import datetime
@@ -23,12 +24,13 @@ zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/m
 # POCKET TV SOURCE (Arunjunan20)
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# REMOVAL LIST (Added Zee Tamil here so we use the working PocketTV version instead)
+# REMOVAL LIST
+# Added "zee tamil" here so script skips the broken template/backup version
 REMOVE_KEYWORDS = ["zee thirai", "zee tamil"]
 
 # FORCE BACKUP LIST
 FORCE_BACKUP_KEYWORDS = [
-    "vijay", "asianet", "suvarna", "maa", "hotstar", "set", "sab",
+    "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
     "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
     "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
     "&pictures", "ten"
@@ -169,10 +171,12 @@ def fetch_pocket_extras():
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
         
-        # STRICT LISTS
+        # STRICT LISTS (Fixed: Added no-space versions for Zee)
         SPORTS_WANTED = ["astro cricket", "sony ten", "sky sports"]
         TAMIL_WANTED = [
-            "zee tamil", "zee thirai", "vijay takkar", "rasi",
+            "zee tamil", "zeetamil",    # <--- Fixed
+            "zee thirai", "zeethirai",  # <--- Fixed
+            "vijay takkar", "rasi",
             "astro thangathirai", "astro vellithirai", "astro vaanavil", "astro vinmeen"
         ]
         
@@ -298,13 +302,13 @@ def update_playlist():
 
     except FileNotFoundError: pass
 
-    # 1. LIVE EVENTS (Fancode/Sony/Zee)
+    # 1. LIVE EVENTS
     print("🎥 Appending Live Events...")
     final_lines.extend(fetch_and_group(fancode_url, "Live Events"))
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 2. POCKET TV EXTRAS (Arunjunan20)
+    # 2. POCKET TV EXTRAS
     final_lines.extend(fetch_pocket_extras())
 
     # 3. MANUAL / YOUTUBE
