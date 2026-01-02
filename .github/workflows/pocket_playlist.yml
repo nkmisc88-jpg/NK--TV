@@ -30,8 +30,15 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
+          
+          # 1. Stage the file
           git add pocket_playlist.m3u
-          # The fix: Pull changes before pushing to avoid "fetch first" error
-          git pull --rebase origin main
+          
+          # 2. Commit the file (Save it locally)
           git commit -m "Auto-update Pocket Playlist" || echo "No changes to commit"
+          
+          # 3. Pull latest changes (Rebase on top of our new commit)
+          git pull --rebase origin main
+          
+          # 4. Push final result
           git push
