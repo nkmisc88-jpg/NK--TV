@@ -8,50 +8,48 @@ import os
 # ==========================================
 template_file = "template.m3u"
 youtube_file = "youtube.txt"
+reference_file = "jiotv_playlist.m3u.m3u8" # Local Map
 output_file = "playlist.m3u"
 
-# Priority 1: Arunjunan20 (Pocket TV)
-URL_ARUN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
-# Priority 2: Fakeall
-URL_FAKEALL = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
-# Priority 3: Local
+# Sources
 URL_LOCAL = "http://192.168.0.146:5350/live"
-reference_file = "jiotv_playlist.m3u.m3u8"
+URL_ARUN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
+URL_FAKEALL = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 
 # Live Events
 URL_FANCODE = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 URL_SONY_LIVE = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 URL_ZEE_LIVE = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# Headers (Fixed for Zee5 Playback)
+# Headers (Crucial for Playback)
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
 HEADERS = {"User-Agent": USER_AGENT}
 
 # ==========================================
 # 2. MATCHING LOGIC
 # ==========================================
-def get_core_name(text):
+def normalize(text):
     """
-    Strict Cleaner: 'Zee Tamil HD' -> 'zeetamilhd'
-    Fixes spacing mismatches.
+    Robust Cleaner:
+    'Zee Thirai HD' -> 'zeethiraihd' (Removes spaces to fix Zee matching)
+    'Star Sports 1 HD (Backup)' -> 'starsports1hdbackup'
     """
     if not text: return ""
-    # Remove things in brackets
+    # Remove things in brackets/parentheses
     text = re.sub(r'[\(\[\{].*?[\)\]\}]', '', text.lower())
-    # Remove ALL non-alphanumeric characters (including spaces)
+    # Remove ALL non-alphanumeric chars (including spaces)
     return re.sub(r'[^a-z0-9]', '', text)
 
-def get_tokens(text):
+def is_match(target_name, candidate_name):
     """
-    Flexible Cleaner: 'Zee Tamil HD' -> {'zee', 'tamil', 'hd'}
+    Checks if target is inside candidate (e.g. 'zeethirai' in 'zeethiraihd')
     """
-    if not text: return set()
-    clean = re.sub(r'[\(\[\{].*?[\)\]\}]', '', text.lower())
-    clean = re.sub(r'[^a-z0-9\s]', '', clean)
-    return set(clean.split())
+    t = normalize(target_name)
+    c = normalize(candidate_name)
+    return t in c
 
-def load_playlist(url, source_name, is_local=False, local_file=None):
-    print(f"📥 Loading {source_name}...")
+def load_playlist(url, is_local=False, local_file=None):
+    print(f"📥 Loading {url if not is_local else local_file}...")
     dataset = []
     lines = []
     try:
@@ -71,65 +69,35 @@ def load_playlist(url, source_name, is_local=False, local_file=None):
                 m = re.search(r'tvg-logo="([^"]*)"', line)
                 if m: logo = m.group(1)
                 
-                ch_id = ""
+                # Link Logic
+                link = ""
                 if is_local:
                     m_id = re.search(r'tvg-id="(\d+)"', line)
-                    if m_id: ch_id = m_id.group(1)
-
-                link = ""
-                if is_local and ch_id:
-                    link = f"{URL_LOCAL}/{ch_id}.m3u8"
+                    if m_id: link = f"{URL_LOCAL}/{m_id.group(1)}.m3u8"
                 elif not is_local:
                     if i + 1 < len(lines):
-                        potential_link = lines[i+1].strip()
-                        if potential_link and not potential_link.startswith("#"):
-                            link = potential_link
-                            # FIX PLAYBACK: FORCE USER AGENT
+                        plink = lines[i+1].strip()
+                        if plink and not plink.startswith("#"):
+                            link = plink
+                            # APPEND USER-AGENT TO FIX PLAYBACK ERROR
                             if "http" in link and "|" not in link:
                                 link += f"|User-Agent={USER_AGENT}"
                 
                 if link:
-                    dataset.append({
-                        'name': name,
-                        'core': get_core_name(name),   # Pre-calculate zeetamilhd
-                        'tokens': get_tokens(name),    # Pre-calculate {zee, tamil, hd}
-                        'link': link,
-                        'logo': logo
-                    })
-        print(f"   ✅ {source_name}: {len(dataset)} channels.")
+                    dataset.append({'name': name, 'link': link, 'logo': logo})
+        print(f"   ✅ Loaded {len(dataset)} channels.")
     except Exception as e:
-        print(f"   ❌ Error {source_name}: {e}")
+        print(f"   ❌ Error: {e}")
     return dataset
-
-def find_best_match(target_name, database):
-    """
-    Tries 2 methods to find a channel:
-    1. Core Match (zeethiraihd == zeethiraihd) -> Fixes spacing
-    2. Token Subset ({zee, thirai, hd} in {zee, thirai, hd, backup}) -> Fixes extra words
-    """
-    target_core = get_core_name(target_name)
-    target_tokens = get_tokens(target_name)
-    
-    # Method 1: Exact Core Match (Strongest)
-    for ch in database:
-        if ch['core'] == target_core:
-            return ch
-            
-    # Method 2: Token Subset (Flexible)
-    for ch in database:
-        if target_tokens.issubset(ch['tokens']):
-            return ch
-            
-    return None
 
 # ==========================================
 # 3. MAIN SCRIPT
 # ==========================================
 def main():
     # 1. Load Sources
-    DB_LOCAL = load_playlist(None, "Local Map", True, reference_file)
-    DB_ARUN = load_playlist(URL_ARUN, "Arunjunan20")
-    DB_FAKEALL = load_playlist(URL_FAKEALL, "Fakeall")
+    DB_LOCAL = load_playlist(None, True, reference_file)
+    DB_ARUN = load_playlist(URL_ARUN)
+    DB_FAKEALL = load_playlist(URL_FAKEALL)
 
     final_lines = ['#EXTM3U x-tvg-url="http://192.168.0.146:5350/epg.xml.gz"']
     
@@ -151,31 +119,46 @@ def main():
                 group_match = re.search(r'group-title="([^"]*)"', line)
                 group = group_match.group(1) if group_match else "General"
 
-                match = None
-                source_used = "None"
+                link = None
+                logo = None
                 
-                # --- PRIORITY LOGIC ---
+                # --- PRIORITY LOGIC (Restored) ---
                 
-                # A. Star/Sony/Zee -> Arunjunan First
+                # RULE 1: Star/Sony/Zee -> Arunjunan First
                 if any(x in target_name.lower() for x in ["star", "sony", "zee", "set "]):
-                    match = find_best_match(target_name, DB_ARUN)
-                    if not match: match = find_best_match(target_name, DB_FAKEALL)
-                    if not match: match = find_best_match(target_name, DB_LOCAL)
+                    # 1. Arun
+                    for ch in DB_ARUN:
+                        if is_match(target_name, ch['name']):
+                            link = ch['link']; logo = ch['logo']; break
+                    # 2. Fakeall
+                    if not link:
+                        for ch in DB_FAKEALL:
+                            if is_match(target_name, ch['name']):
+                                link = ch['link']; logo = ch['logo']; break
+                    # 3. Local
+                    if not link:
+                         for ch in DB_LOCAL:
+                            if is_match(target_name, ch['name']):
+                                link = ch['link']; break
 
-                # B. Others -> Local First
+                # RULE 2: All Others (Sun, Colors, News) -> Local First
                 else:
-                    match = find_best_match(target_name, DB_LOCAL)
-                    if not match: match = find_best_match(target_name, DB_ARUN)
-                    if not match: match = find_best_match(target_name, DB_FAKEALL)
+                    # 1. Local
+                    for ch in DB_LOCAL:
+                        if is_match(target_name, ch['name']):
+                            link = ch['link']; break
+                    # 2. Arun
+                    if not link:
+                        for ch in DB_ARUN:
+                             if is_match(target_name, ch['name']):
+                                link = ch['link']; logo = ch['logo']; break
+                    # 3. Fakeall
+                    if not link:
+                        for ch in DB_FAKEALL:
+                             if is_match(target_name, ch['name']):
+                                link = ch['link']; logo = ch['logo']; break
 
                 # --- WRITE ---
-                logo = ""
-                link = ""
-                
-                if match:
-                    link = match['link']
-                    logo = match['logo']
-                
                 if not logo:
                     m_tmpl = re.search(r'tvg-logo="([^"]*)"', line)
                     if m_tmpl: logo = m_tmpl.group(1)
@@ -193,28 +176,29 @@ def main():
     # 3. Extras (Astro/Rasi)
     print("\n🔍 Adding Extras...")
     wanted = ["astro", "rasi", "vijay takkar", "zee thirai"]
-    # Track added so we don't duplicate
+    # Track added to prevent duplicates
     added_cores = set()
     
     for ch in DB_ARUN:
         name_lower = ch['name'].lower()
         if any(w in name_lower for w in wanted):
-            if ch['core'] in added_cores: continue
+            core = normalize(ch['name'])
+            if core in added_cores: continue
             
             grp = "Tamil Extra"
             if "cricket" in name_lower or "sports" in name_lower: grp = "Sports Extra"
             
             final_lines.append(f'#EXTINF:-1 group-title="{grp}" tvg-logo="{ch["logo"]}",{ch["name"]}')
             final_lines.append(ch['link'])
-            added_cores.add(ch['core'])
+            added_cores.add(core)
 
     # 4. Live & Manual
     print("\n🎥 Adding Live/Manual...")
     def add_live(url):
-        d = load_playlist(url, "Live")
+        d = load_playlist(url)
         for ch in d:
             final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{ch["logo"]}",{ch["name"]}')
-            final_lines.append(ch["link"])
+            final_lines.append(ch['link'])
     add_live(URL_FANCODE); add_live(URL_SONY_LIVE); add_live(URL_ZEE_LIVE)
 
     if os.path.exists(youtube_file):
