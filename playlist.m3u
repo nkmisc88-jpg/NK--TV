@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-02 18:40:07
+# Updated on: 2026-01-02 18:50:55
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a&xxx=||cookie=__hdnea__=st=1767316440~exp=1767402840~acl=/*~hmac=1e690d1994f1431fefcef3e73528014bf1d9f163793c8324278238795c2dee3a
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 3 January 2026 at 12:07:04 am
+#DATE:- Saturday, 3 January 2026 at 12:14:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="139161" tvg-name="Ias Invincibles Vs Royal Oman Stallions" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-League_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Ias Invincibles Vs Royal Oman Stallions
 https://in-mc-fdlive.fancode.com/mumbai/139161_english_hls_863599e16528674_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139198" tvg-name="Al Ahli Saudi Fc Vs Al Nassr Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Ahli-Saudi-FC-vs-Al-Nassr_fc-web_1767365352732.jpg" tvg-language="ENGLISH" ,ENG | Al Ahli Saudi Fc Vs Al Nassr Fc
@@ -854,9 +854,7 @@ https://in-mc-fdlive.fancode.com/mumbai/139198_english_hls_8e24473f2b52638_1ta-d
 #DATE:- 02-01-2026 23:40
 #No live matches.
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 3 January 2026 at 12:00:05 am
-#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5853069" tvg-name="DP World ILT20" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5853069/list/1920x1080list78ff8a9b94a846abafe1bdca062d5251d24e8ac04cd4480594e6f6b73b56a2ec.jpg" tvg-language="hindi" ,HIN | MIE Vs ADKAR - Qualifier 2
-https://falconstream.zee5.com/cmaf/live/2109037/QUALIFIER_2/master.m3u8?hdntl=exp=1767464104~acl=%2f*~data=hdntl~hmac=2daec90435ef196776da4c33fd87fb7fb6e80dc02bc7dcc3aae2173177459e54|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+# Last Checked: 3/1/2026, 00:15:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767423122~acl=%2f*~id=065de796-f6fb-482e-837c-9f65d365a124~data=hdntl~hmac=8f0345cb4bbd4bbe8140dc0a7fc8bb15579c37ae252638ec95e825ec9da833c9|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
