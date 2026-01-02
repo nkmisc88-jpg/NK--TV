@@ -15,10 +15,7 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# HEADERS (Standard for Jio playback)
-USER_AGENT = "plaYtv/7.0.8 (Linux;Android 9) ExoPlayerLib/2.11.7"
-
-# MASTER LIST (Priority Order)
+# MASTER LIST (Priority Channels)
 MASTER_CHANNELS = [
     ("Sports HD", "Star Sports 1 HD"), ("Sports HD", "Star Sports 2 HD"),
     ("Sports HD", "Star Sports 1 Hindi HD"), ("Sports HD", "Star Sports Select 1 HD"),
@@ -29,9 +26,9 @@ MASTER_CHANNELS = [
     ("Sports HD", "Astro Cricket"), ("Sports HD", "Willow Cricket"),
     ("Sports HD", "Sky Sports Cricket"),
     ("Tamil HD", "Sun TV HD"), ("Tamil HD", "KTV HD"),
-    ("Tamil HD", "Star Vijay HD"), ("Tamil HD", "Zee Tamil HD"),
+    ("Tamil HD", "Star Vijay HD"), ("Tamil HD", "Zee Tamil"),
     ("Tamil HD", "Colors Tamil HD"), ("Tamil HD", "Jaya TV HD"),
-    ("Tamil HD", "Zee Thirai HD"), ("Tamil HD", "Vijay Takkar"),
+    ("Tamil HD", "Zee Thirai"), ("Tamil HD", "Vijay Takkar"),
     ("Tamil HD", "Astro Vaanavil"), ("Tamil HD", "Astro Vinmeen HD"),
     ("Tamil HD", "Astro Thangathirai"), ("Tamil HD", "Astro Vellithirai"),
     ("Tamil HD", "Rasi Palan"), ("Tamil HD", "Rasi Movies"),
@@ -46,13 +43,7 @@ MASTER_CHANNELS = [
     ("Movies", "&Pictures HD"),
     ("Entertainment", "Star Plus HD"), ("Entertainment", "Sony SET HD"),
     ("Entertainment", "Sony SAB HD"), ("Entertainment", "Zee TV HD"),
-    ("Entertainment", "Colors HD"), ("Entertainment", "Star Bharat HD"),
-    ("Kids", "Nick"), ("Kids", "Sonic"), ("Kids", "Hungama"),
-    ("Kids", "Disney Channel"), ("Kids", "Cartoon Network"),
-    ("Kids", "Pogo"), ("Kids", "Sony Yay"), ("Kids", "Discovery Kids"),
-    ("News", "Times Now"), ("News", "NDTV 24x7"), ("News", "India Today"),
-    ("News", "CNN News18"), ("News", "Sun News"), ("News", "Polimer News"),
-    ("News", "Puthiya Thalaimurai"), ("News", "Thanthi TV")
+    ("Entertainment", "Colors HD"), ("Entertainment", "Star Bharat HD")
 ]
 
 # ==========================================
@@ -64,60 +55,55 @@ def simplified_name(name):
     name = re.sub(r'[\(\[\{].*?[\)\]\}]', '', name.lower())
     return re.sub(r'[^a-z0-9]', '', name)
 
-def get_source_channels():
+def get_source_blocks():
     print("📥 Downloading Source Playlist...")
-    channels = []
+    blocks = []
     try:
         r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
         if r.status_code == 200:
             lines = r.text.splitlines()
-            current_props = [] 
             
-            for i in range(len(lines)):
-                line = lines[i].strip()
+            current_block = []
+            
+            for line in lines:
+                line = line.strip()
+                if not line: continue
                 
-                # 1. COPY LICENSE KEYS
-                if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT"):
-                    current_props.append(line)
-                    continue
+                # Start of a new block? (Header or Info)
+                if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT") or line.startswith("#EXTINF"):
+                    current_block.append(line)
+                
+                # End of a block? (URL)
+                elif not line.startswith("#"):
+                    current_block.append(line)
+                    
+                    # PROCESS COMPLETED BLOCK
+                    # Extract Name for indexing
+                    name_line = next((l for l in current_block if l.startswith("#EXTINF")), "")
+                    if name_line:
+                        raw_name = name_line.split(",")[-1].strip()
+                        simple = simplified_name(raw_name)
+                        
+                        # Extract Group for indexing
+                        grp_match = re.search(r'group-title="([^"]*)"', name_line)
+                        grp = grp_match.group(1).lower() if grp_match else ""
 
-                # 2. Process Channel Info
-                if line.startswith("#EXTINF"):
-                    raw_name = line.split(",")[-1].strip()
-                    simple = simplified_name(raw_name)
-                    
-                    logo = ""
-                    m_logo = re.search(r'tvg-logo="([^"]*)"', line)
-                    if m_logo: logo = m_logo.group(1)
-                    
-                    link = ""
-                    if i + 1 < len(lines):
-                        pot_link = lines[i+1].strip()
-                        if pot_link and not pot_link.startswith("#"):
-                            link = pot_link
-                            # Append Headers
-                            if "http" in link and "|" not in link:
-                                link += f"|User-Agent={USER_AGENT}"
-                    
-                    if link and simple:
-                        channels.append({
-                            'name': raw_name,
+                        blocks.append({
                             'simple': simple,
-                            'link': link,
-                            'logo': logo,
-                            'props': current_props,
-                            'group_src': line # Store original line for group checking
+                            'name': raw_name,
+                            'group': grp,
+                            'lines': current_block # STORE EVERYTHING (Keys + Info + Link)
                         })
                     
-                    current_props = []
-            print(f"   ✅ Source loaded: {len(channels)} total channels.")
+                    # Reset for next channel
+                    current_block = []
                     
     except Exception as e:
         print(f"   ❌ Failed to load source: {e}")
-    return channels
+    return blocks
 
 def main():
-    source_channels = get_source_channels()
+    source_blocks = get_source_blocks()
     
     # Init Playlist
     final_lines = ["#EXTM3U"]
@@ -132,78 +118,78 @@ def main():
         match = None
         
         # Priority 1: Exact Match
-        for ch in source_channels:
-            if ch['simple'] == target_simple:
-                match = ch; break
+        for b in source_blocks:
+            if b['simple'] == target_simple:
+                match = b; break
         
-        # Priority 2: Fuzzy (Target inside Source)
-        # e.g. "Zee Tamil" inside "Zee Tamil HD"
+        # Priority 2: Containment Match (e.g. "Zee Tamil" inside "Zee Tamil HD")
         if not match:
-            for ch in source_channels:
-                if target_simple in ch['simple']:
-                    match = ch; break
+            for b in source_blocks:
+                if target_simple in b['simple']:
+                    match = b; break
         
-        # Priority 3: Fuzzy Reverse (Source inside Target)
-        # e.g. Source "Zee Tamil" inside Target "Zee Tamil HD"
-        if not match:
-             for ch in source_channels:
-                if ch['simple'] in target_simple:
-                    match = ch; break
-
         if match:
-            # Write Props (DRM Keys)
-            if match['props']: final_lines.extend(match['props'])
+            # MODIFY GROUP TITLE IN THE BLOCK
+            new_lines = []
+            for l in match['lines']:
+                if l.startswith("#EXTINF"):
+                    # Regex replace the group-title
+                    l = re.sub(r'group-title="[^"]*"', f'group-title="{target_group}"', l)
+                new_lines.append(l)
             
-            final_lines.append(f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{match["logo"]}",{target_name}')
-            final_lines.append(match['link'])
+            final_lines.extend(new_lines)
             added_ids.add(match['simple'])
         else:
-            # Silent skip if missing, no "Offline" spam
-            print(f"   ⚠️ Missing Priority: {target_name}")
+            print(f"   ⚠️ Channel Not Found in Source: {target_name}")
 
-    # 2. ADD ALL REMAINING CHANNELS (No Strict Filtering)
+    # 2. ADD ALL REMAINING CHANNELS (General Extras)
     print("\n2️⃣  Adding All Remaining Channels...")
     
     SPORTS_KEYS = ["sport", "cricket", "f1", "racing", "football", "ten", "sony", "astro"]
     TAMIL_KEYS = ["tamil", "sun", "vijay", "zee", "kalaignar", "polimer", "news18 tamil", "thanthi", "puthiya", "jaya"]
     
     count = 0
-    for ch in source_channels:
-        if ch['simple'] in added_ids: continue
+    for b in source_blocks:
+        if b['simple'] in added_ids: continue
         
-        name = ch['name'].lower()
+        name = b['name'].lower()
+        grp = b['group']
         
-        # Detect Group
-        final_group = "General Extras" # Default Group for everything else
+        # Determine Target Group
+        final_group = "General Extras"
         
-        if any(x in name for x in SPORTS_KEYS): 
+        if any(x in name for x in SPORTS_KEYS) or "sport" in grp: 
             final_group = "Sports Extra"
-        elif any(x in name for x in TAMIL_KEYS): 
+        elif any(x in name for x in TAMIL_KEYS) or "tamil" in grp: 
             final_group = "Tamil Extra"
         
-        # Add the channel (Ensure we copy license keys)
-        if ch['props']: final_lines.extend(ch['props'])
-        
-        final_lines.append(f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{ch["logo"]}",{ch["name"]}')
-        final_lines.append(ch['link'])
-        added_ids.add(ch['simple'])
+        # Modify Group Title
+        new_lines = []
+        for l in b['lines']:
+            if l.startswith("#EXTINF"):
+                if 'group-title="' in l:
+                    l = re.sub(r'group-title="[^"]*"', f'group-title="{final_group}"', l)
+                else:
+                    l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{final_group}"')
+            new_lines.append(l)
+            
+        final_lines.extend(new_lines)
+        added_ids.add(b['simple'])
         count += 1
         
     print(f"   ✅ Added {count} extra channels.")
 
-    # 3. LIVE & TEMP
+    # 3. LIVE & TEMP (Copy verbatim)
     print("\n3️⃣  Adding Live/Temp...")
     def add_ext(url, g):
         try:
             r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
-            for l in r.text.splitlines():
+            lines = r.text.splitlines()
+            for l in lines:
                 if l.startswith("#EXTINF"):
                     l = re.sub(r'group-title="[^"]*"', '', l)
                     l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{g}"', l)
-                    final_lines.append(l)
-                elif l.startswith("#KODIPROP") or l.startswith("#EXTVLCOPT"):
-                    final_lines.append(l)
-                elif l.startswith("http"): final_lines.append(l)
+                final_lines.append(l)
         except: pass
 
     add_ext(FANCODE_URL, "Live Events")
