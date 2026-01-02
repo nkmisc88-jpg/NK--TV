@@ -23,16 +23,8 @@ zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/m
 # POCKET TV SOURCE (Arunjunan20)
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# REMOVAL LIST (Skip the broken template versions so we can add the working Extras)
+# REMOVAL LIST (Cleaned up)
 REMOVE_KEYWORDS = ["zee thirai", "zee tamil"]
-
-# FORCE BACKUP LIST
-FORCE_BACKUP_KEYWORDS = [
-    "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
-    "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
-    "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
-    "&pictures", "ten"
-]
 
 # MAPPING
 NAME_OVERRIDES = {
@@ -45,26 +37,15 @@ NAME_OVERRIDES = {
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "nat geo hd": "National Geographic HD",
     "nat geo wild hd": "Nat Geo Wild HD",
-    "sony sports ten 1 hd": "Sony Sports Ten 1 HD",
-    "sony sports ten 2 hd": "Sony Sports Ten 2 HD",
-    "sony sports ten 5 hd": "Sony Sports Ten 5 HD",
 }
 
 # ==========================================
 # 1. HELPER FUNCTIONS
 # ==========================================
 def clean_name_key(name):
-    # Removes all spaces and symbols to ensure matching
-    # "Zee Tamil" -> "zeetamil"
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
-
-def should_force_backup(name):
-    norm = name.lower()
-    for k in FORCE_BACKUP_KEYWORDS:
-        if k in norm: return True
-    return False
 
 def find_best_backup_link(original_name, backup_map):
     clean_orig = clean_name_key(original_name)
@@ -110,7 +91,7 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. FETCHERS
+# 2. SMART PARSER & FETCHERS
 # ==========================================
 def parse_youtube_txt():
     new_entries = []
@@ -163,7 +144,7 @@ def fetch_and_group(url, group_name):
         print(f"❌ Error fetching: {e}")
     return entries
 
-# --- FIXED FUNCTION: ROBUST POCKET TV EXTRACTION ---
+# --- NEW FUNCTION: POCKET TV (ARUNJUNAN) EXTRACTION ---
 def fetch_pocket_extras():
     entries = []
     print(f"🌍 Fetching & Filtering Pocket TV...")
@@ -172,7 +153,7 @@ def fetch_pocket_extras():
         r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
         
         # KEYWORDS (Cleaned, no spaces)
-        SPORTS_WANTED = ["astrocricket", "sonyten", "skysports"]
+        # Only strict list for Tamil now. Sports is ALL sports.
         TAMIL_WANTED = [
             "zeetamil", "zeethirai", "vijaytakkar", "rasi",
             "astrothangathirai", "astrovellithirai", "astrovaanavil", "astrovinmeen"
@@ -191,9 +172,12 @@ def fetch_pocket_extras():
                     
                     target_group = None
                     
-                    # CHECK MATCHES (Is 'astrocricket' inside 'astrocrickethd'?)
-                    if any(x in name_clean for x in SPORTS_WANTED):
+                    # 1. DETECT SPORTS GROUP IN SOURCE
+                    # If the source line says group-title="Sports", we grab it.
+                    if 'group-title="Sports"' in line or 'group-title="Sports HD"' in line:
                         target_group = "Sports Extra"
+                    
+                    # 2. CHECK TAMIL EXTRAS
                     elif any(x in name_clean for x in TAMIL_WANTED):
                         target_group = "Tamil Extra"
                     
@@ -262,37 +246,30 @@ def update_playlist():
 
                 if i + 1 < len(lines) and "http://placeholder" in lines[i+1]:
                     clean_key = clean_name_key(original_name)
-                    found_block = None
                     
-                    if should_force_backup(original_name):
-                        found_block = find_best_backup_link(original_name, backup_map)
-                    
-                    if found_block:
-                         final_lines.append(line); final_lines.extend(found_block)
+                    # 1. TRY LOCAL (Preferred for everything now except deleted Zee/Sony)
+                    mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
+                    if clean_key in local_map:
+                         final_lines.append(line)
+                         final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
                          skip_next_url = True
-                         stats["backup"] += 1
+                         stats["local"] += 1
+                    elif mapped_key and mapped_key in local_map:
+                         final_lines.append(line)
+                         final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
+                         skip_next_url = True
+                         stats["local"] += 1
                     else:
-                         mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
-                         if clean_key in local_map:
-                             final_lines.append(line)
-                             final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
+                         # 2. BACKUP
+                         found_block = find_best_backup_link(original_name, backup_map)
+                         if found_block:
+                             final_lines.append(line); final_lines.extend(found_block)
                              skip_next_url = True
-                             stats["local"] += 1
-                         elif mapped_key and mapped_key in local_map:
-                             final_lines.append(line)
-                             final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
-                             skip_next_url = True
-                             stats["local"] += 1
+                             stats["backup"] += 1
                          else:
-                             found_block = find_best_backup_link(original_name, backup_map)
-                             if found_block:
-                                 final_lines.append(line); final_lines.extend(found_block)
-                                 skip_next_url = True
-                                 stats["backup"] += 1
-                             else:
-                                 final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
-                                 skip_next_url = True
-                                 stats["missing"] += 1
+                             final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
+                             skip_next_url = True
+                             stats["missing"] += 1
                 else:
                     final_lines.append(line)
             elif not line.startswith("#"):
@@ -307,7 +284,7 @@ def update_playlist():
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 2. POCKET TV EXTRAS
+    # 2. POCKET TV EXTRAS (All Sports + Selected Tamil)
     final_lines.extend(fetch_pocket_extras())
 
     # 3. MANUAL / YOUTUBE
