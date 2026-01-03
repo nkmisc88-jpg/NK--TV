@@ -18,10 +18,10 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 # HEADERS
 UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-# EXCLUSION LIST (Garbage Collection)
+# EXCLUSION LIST (Removed 'apac' to restore missing channels)
 BAD_KEYWORDS = [
     "hits", "tata play", "tataplay", "local", "fm", "radio", 
-    "pluto", "yupp", "usa", "overseas", "cinemania", "cinema", "apac", # Added apac
+    "pluto", "yupp", "usa", "overseas", "cinemania", "cinema", 
     "kannada", "malayalam", "telugu", "bengali", "marathi", 
     "gujarati", "odia", "punjabi", "urdu", "nepali"
 ]
@@ -38,7 +38,7 @@ MASTER_CHANNELS = [
     ("Sports HD", "Astro Cricket"), ("Sports HD", "Willow Cricket"),
     ("Sports HD", "Sky Sports Cricket"),
     
-    # MOVED ITEMS (Star Sports Tamil moved here)
+    # MOVED ITEMS
     ("Sports HD", "Star Sports 1 Tamil HD"), ("Sports HD", "Star Sports 2 Tamil HD"),
 
     # --- TAMIL HD ---
@@ -50,7 +50,7 @@ MASTER_CHANNELS = [
     ("Tamil HD", "Astro Thangathirai"), ("Tamil HD", "Astro Vellithirai"),
 
     # --- TAMIL SD ---
-    ("Tamil SD", "Vijay Takkar"), # Moved here as requested
+    ("Tamil SD", "Vijay Takkar"),
 
     # --- INFOTAINMENT HD ---
     ("Infotainment HD", "Discovery HD"), ("Infotainment HD", "Animal Planet HD"),
@@ -83,7 +83,7 @@ MASTER_CHANNELS = [
     ("Others", "Colors HD"), ("Others", "Star Bharat HD"),
     
     # --- KIDS ---
-    ("Kids", "CN HD+ Tamil"), # Moved to Kids
+    ("Kids", "CN HD+ Tamil"),
     ("Kids", "Nick"), ("Kids", "Sonic"), ("Kids", "Hungama"),
     ("Kids", "Disney Channel"), ("Kids", "Cartoon Network"),
     ("Kids", "Pogo"), ("Kids", "Sony Yay"), ("Kids", "Discovery Kids")
@@ -94,9 +94,13 @@ MASTER_CHANNELS = [
 # ==========================================
 
 def simplified_name(name):
+    """
+    Strips special characters but KEEPS text inside brackets.
+    'Sun TV (HD)' -> 'suntvhd' (Matches 'Sun TV HD')
+    """
     if not name: return ""
-    name = re.sub(r'[\(\[\{].*?[\)\]\}]', '', name.lower())
-    return re.sub(r'[^a-z0-9]', '', name)
+    # Only remove non-alphanumeric characters
+    return re.sub(r'[^a-z0-9]', '', name.lower())
 
 def get_source_data():
     print("📥 Downloading Source Playlist...")
@@ -159,7 +163,7 @@ def determine_group(name, src_group):
     name = name.lower()
     src_group = src_group.lower()
 
-    # FORCE MOVES (Overrides everything else)
+    # FORCE MOVES
     if "vijay takkar" in name: return "Tamil SD"
     if "cn hd+" in name and "tamil" in name: return "Kids"
     if "star sports" in name and "tamil" in name: return "Sports HD"
@@ -208,6 +212,7 @@ def main():
         target_simple = simplified_name(target_name)
         
         # FIND BEST MATCH
+        # Check if Target matches Source OR Source matches Target (Fuzzy)
         candidates = [i for i in source_items if i['simple'] == target_simple or target_simple in i['simple']]
         
         best_match = None
@@ -221,7 +226,7 @@ def main():
             # WRITE PROPS
             final_lines.extend(best_match['props'])
             
-            # REBUILD EXTINF (Fixes 'Raw Github' issue)
+            # REBUILD EXTINF
             line = f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{best_match["logo"]}",{target_name}'
             final_lines.append(line)
             
@@ -248,7 +253,7 @@ def main():
         name_lower = item['name'].lower()
         grp_lower = item['group_src'].lower()
 
-        # REMOVAL FILTERS
+        # REMOVAL FILTERS (Removed apac from here)
         if any(bad in name_lower for bad in BAD_KEYWORDS) or any(bad in grp_lower for bad in BAD_KEYWORDS):
             if "rasi" in name_lower: pass 
             else: continue 
@@ -265,7 +270,7 @@ def main():
         # WRITE PROPS
         final_lines.extend(item['props'])
         
-        # REBUILD EXTINF (New Group)
+        # REBUILD EXTINF
         line = f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{item["logo"]}",{item["name"]}'
         final_lines.append(line)
         
@@ -291,7 +296,7 @@ def main():
             r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
             for l in r.text.splitlines():
                 if l.startswith("#EXTINF"):
-                    # Rebuild live event lines too to be safe
+                    # Rebuild live event lines
                     l = re.sub(r'group-title="[^"]*"', '', l)
                     l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{g}"', l)
                 final_lines.append(l)
