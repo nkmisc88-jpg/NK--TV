@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-03 19:48:55
+# Updated on: 2026-01-03 20:52:40
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,9 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767402576~exp=1767488976~acl=/*~hmac=32a40203f92f51c8791fb847b0ff2023d97374e4e48e04e7c398179150dcc536"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767402576~exp=1767488976~acl=/*~hmac=32a40203f92f51c8791fb847b0ff2023d97374e4e48e04e7c398179150dcc536&xxx=||cookie=__hdnea__=st=1767402576~exp=1767488976~acl=/*~hmac=32a40203f92f51c8791fb847b0ff2023d97374e4e48e04e7c398179150dcc536
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 4 January 2026 at 1:14:05 am
-#EXTINF:-1 group-title="Live Events" tvg-id="131009" tvg-name="Elche Cf Vs Villarreal Cf" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131009_5427_ELC_VIL_fc-web.png" tvg-language="ENGLISH" ,ENG | Elche Cf Vs Villarreal Cf
-https://in-mc-fdlive.fancode.com/mumbai/131009_english_hls_e5a8bbfad987141_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Sunday, 4 January 2026 at 2:21:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138380" tvg-name="Mali Vs Tunisia" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mali-vs-tunisia_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Mali Vs Tunisia
 https://in-mc-fdlive.fancode.com/mumbai/138380_english_hls_f82d05426848033_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="131002" tvg-name="Rcd Espanyol Vs Fc Barcelona" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131002_5427_ESL_BAR_fc-web.png" tvg-language="ENGLISH" ,ENG | Rcd Espanyol Vs Fc Barcelona
@@ -862,7 +860,7 @@ https://in-mc-fdlive.fancode.com/mumbai/131002_bengali_hls_ba67f0621795600_1ta-d
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 3/1/2026, 23:30:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767509642~acl=%2f*~id=a102e36b-9d92-45ca-8a4d-4a1f778eb49b~data=hdntl~hmac=778fc3afc1f23be2939a14eee81f7d1b072c98a8e8e017bb8cee62fe73e6b648|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767552903~acl=%2f*~id=b7e2dac6-b759-4030-b989-5b314b8ea1fb~data=hdntl~hmac=4fbbc9eebde3413c504532ff49d8d38094a3b6bfa2f0cf16763fedeaadeb379b|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
 https://keys.vodep39240327.workers.dev/?id=300.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png",Star Sports Select 2 HD
