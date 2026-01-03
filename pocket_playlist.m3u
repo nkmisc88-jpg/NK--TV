@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-03 13:30:37 IST
+# Last Updated: 2026-01-03 14:22:42 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -57,7 +57,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsTamilHD_BTS/output/index.mpd?__hdne
 #EXTINF:-1 tvg-id="0-9-zeetamil" group-title="Tamil" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767466382~acl=%2f*~id=3c736f23-bdcf-4757-b331-cb9edbe26270~data=hdntl~hmac=82df71f6cd736b5432880d8c10db97d2112d7312f3070ec471f2df3c52b1802f
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767509642~acl=%2f*~id=a102e36b-9d92-45ca-8a4d-4a1f778eb49b~data=hdntl~hmac=778fc3afc1f23be2939a14eee81f7d1b072c98a8e8e017bb8cee62fe73e6b648
 #EXTINF:-1 tvg-id="894" group-title="Tamil" tvg-logo="https://tatalogo.pages.dev/380.png",KTV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ba9bfe750a56514e9c63c456fad1e428&key=e0ca0ee9dbaac2942753d928b92824c5
@@ -157,7 +157,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Puthu_Yugam_BTS/output/index.mpd?__hdnea_
 #EXTINF:-1 tvg-id="0-9-224" group-title="Movies" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767466382~acl=%2f*~id=3c736f23-bdcf-4757-b331-cb9edbe26270~data=hdntl~hmac=82df71f6cd736b5432880d8c10db97d2112d7312f3070ec471f2df3c52b1802f
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767509642~acl=%2f*~id=a102e36b-9d92-45ca-8a4d-4a1f778eb49b~data=hdntl~hmac=778fc3afc1f23be2939a14eee81f7d1b072c98a8e8e017bb8cee62fe73e6b648
 #EXTINF:-1 tvg-id="3266" group-title="Movies" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11197-j9i4fbbs-v2/imageContent-11197-j9i4fbbs-m4.png",Vijay Super HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4058ba890768578093e4d30bc957b85c&key=42d335cfebf7292487522ac572d706a8
@@ -215,7 +215,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Tunes_6_BTS/output/index.mpd?__hdnea__=st
 #EXTINF:-1 tvg-id="0-9-360" group-title="Entertainment" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-360/channel_list/360x2031c866f9b15d44e38b077973e3ab37e89",Zee Tamil HD APAC
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1767466382~acl=%2f*~id=3c736f23-bdcf-4757-b331-cb9edbe26270~data=hdntl~hmac=82df71f6cd736b5432880d8c10db97d2112d7312f3070ec471f2df3c52b1802f
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1767509642~acl=%2f*~id=a102e36b-9d92-45ca-8a4d-4a1f778eb49b~data=hdntl~hmac=778fc3afc1f23be2939a14eee81f7d1b072c98a8e8e017bb8cee62fe73e6b648
 #EXTINF:-1 tvg-id="1158" group-title="Entertainment" tvg-logo="https://tatalogo.pages.dev/187.png",Colors Infinity HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=509216860f8e594aaf7e921296f53851&key=536df1e35e2bb055be0117b51db8139c
@@ -225,15 +225,15 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Infinity_HD_BTS/output/index.mpd?_
 #EXTINF:-1 tvg-id="0-9-zeecafehd" group-title="Entertainment" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/ZeeCafeHD_Thumbnail_ceda2afa-65e4-4d25-98c0-750f82a0a2fc.png",Zee Café HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105539/ZeecafeHDELE/index-connected.m3u8?hdntl=exp=1767466382~acl=%2f*~id=3c736f23-bdcf-4757-b331-cb9edbe26270~data=hdntl~hmac=82df71f6cd736b5432880d8c10db97d2112d7312f3070ec471f2df3c52b1802f
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105539/ZeecafeHDELE/index-connected.m3u8?hdntl=exp=1767509642~acl=%2f*~id=a102e36b-9d92-45ca-8a4d-4a1f778eb49b~data=hdntl~hmac=778fc3afc1f23be2939a14eee81f7d1b072c98a8e8e017bb8cee62fe73e6b648
 #EXTINF:-1 tvg-id="0-9-channel_2105335046" group-title="Entertainment" tvg-logo="https://i.ibb.co/rRnZvRNk/1000192802-modified.png",&Flix HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105517/AndFlixHDELE/index-connected.m3u8?hdntl=exp=1767466382~acl=%2f*~id=3c736f23-bdcf-4757-b331-cb9edbe26270~data=hdntl~hmac=82df71f6cd736b5432880d8c10db97d2112d7312f3070ec471f2df3c52b1802f
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105517/AndFlixHDELE/index-connected.m3u8?hdntl=exp=1767509642~acl=%2f*~id=a102e36b-9d92-45ca-8a4d-4a1f778eb49b~data=hdntl~hmac=778fc3afc1f23be2939a14eee81f7d1b072c98a8e8e017bb8cee62fe73e6b648
 #EXTINF:-1 tvg-id="0-9-9z5543514" group-title="Entertainment" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/&PriveHD_Thumbnail_8fe4510f-be7c-475c-8f5f-85b5fe6f52ab.png",&Prive HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2104969/AndPriveHDELENEW/index-connected.m3u8?hdntl=exp=1767466382~acl=%2f*~id=3c736f23-bdcf-4757-b331-cb9edbe26270~data=hdntl~hmac=82df71f6cd736b5432880d8c10db97d2112d7312f3070ec471f2df3c52b1802f
+https://z5ak-cmaflive.zee5.com/cmaf/live/2104969/AndPriveHDELENEW/index-connected.m3u8?hdntl=exp=1767509642~acl=%2f*~id=a102e36b-9d92-45ca-8a4d-4a1f778eb49b~data=hdntl~hmac=778fc3afc1f23be2939a14eee81f7d1b072c98a8e8e017bb8cee62fe73e6b648
 #EXTINF:-1 tvg-id="1145" group-title="Entertainment" tvg-logo="https://tatalogo.pages.dev/406.png",MTV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=90d8713ba5e85d779d005b1f14a5bc8d&key=33650314fe1e945017640ba9878c5de9
@@ -465,7 +465,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Travel_XP_Tamil_BTS/output/index.mpd?__hd
 #EXTINF:-1 tvg-id="0-9-348" group-title="Infotainment" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-348/channel_list/360x20333fcf07b744341518375ae7ae35c08c7",Zee Zest HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1767466382~acl=%2f*~id=3c736f23-bdcf-4757-b331-cb9edbe26270~data=hdntl~hmac=82df71f6cd736b5432880d8c10db97d2112d7312f3070ec471f2df3c52b1802f
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1767509642~acl=%2f*~id=a102e36b-9d92-45ca-8a4d-4a1f778eb49b~data=hdntl~hmac=778fc3afc1f23be2939a14eee81f7d1b072c98a8e8e017bb8cee62fe73e6b648
 #EXTINF:-1 tvg-id="2230" group-title="Infotainment" tvg-logo="https://img.media.jio.com/imagespublic/4/12/301317_1670477602583_l_high.jpg",Jio Specials HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=6017d0514d425fa38f6e80ba6dcc852f&key=0018944b00adf2078f62386f30c68b74
@@ -2454,12 +2454,12 @@ https://stream.zeno.fm/nka8zm9x1oouv
 https://stream.zeno.fm/nzi27fhhwv3tv
 #EXTINF:-1 group-title="Tamil FM Radio",Anbu FM
 https://stream.zeno.fm/5csru2np4bruv
-#EXTINF:-1 group-title="Live Events" tvg-id="138816" tvg-name="Brisbane Roar Vs Wellington Phoenix" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138816_5802_BRB_WEL_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Brisbane Roar Vs Wellington Phoenix
-https://in-mc-fdlive.fancode.com/mumbai/138816_english_hls_0e512a23a221736_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="138817" tvg-name="Melbourne City Vs Sydney Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138817_5802_MLC_SYD_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Melbourne City Vs Sydney Fc
+https://in-mc-fdlive.fancode.com/mumbai/138817_english_hls_ed6c5c3dee23255_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498764" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012865/1767337567004298_UC26_Australia_vs_Norway_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Australia vs Norway - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; AI PONT; Build/RTO2.240710.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=9ed92fa063478495abe01f9159d212be-1767426611198
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; 2312BPC51H; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2062c7147b055a6fb89a46d2e5283230-1767430208245
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498797" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012864/1767337389784631_UC26_France_vs_Switzerland_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | France vs Switzerland - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; GM1911; Build/SKQ1.211113.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=9ed92fa063478495abe01f9159d212be-1767426611198
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; I2207; Build/TP1A.220624.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2062c7147b055a6fb89a46d2e5283230-1767430208245
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873755" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873755/list/1920x1080list7a091c1249a2434d83f7924533ebc50f1937af9e12784924b75beb85ffe5a6bc.jpg" tvg-language="bengali" ,BEN | Northbengal United Fc Vs North 24 Parganas Fc
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1767511803~acl=%2f*~data=hdntl~hmac=56a8ebd3eaa0693aa3d0206906682cbb386902bb4a69be3ba4800f6dfb4f61e7|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873755" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873755/list/1920x1080list7a091c1249a2434d83f7924533ebc50f1937af9e12784924b75beb85ffe5a6bc.jpg" tvg-language="english" ,ENG | Northbengal United Fc Vs North 24 Parganas Fc
