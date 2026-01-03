@@ -16,11 +16,13 @@ SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/h
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
 # HEADERS
+# Standard Browser UA (Fixes Astro, Local, Cinemania, etc.)
 UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-# EXCLUSION LIST (Strict Clean-up)
+# EXCLUSION LIST (Garbage Collection)
 BAD_KEYWORDS = [
     "hits", "tata play", "tataplay", "local", "fm", "radio", 
+    "pluto", "yupp", "usa", "overseas", "cinemania", "cinema", # Removed specific garbage
     "kannada", "malayalam", "telugu", "bengali", "marathi", 
     "gujarati", "odia", "punjabi", "urdu", "nepali"
 ]
@@ -135,10 +137,6 @@ def determine_group(name, src_group):
     """Categorizes unknown channels."""
     name = name.lower()
     src_group = src_group.lower()
-    
-    # 1. FIX "RAW GITHUB" GROUPS
-    if "http" in src_group or "github" in src_group or "iptv" in src_group:
-        src_group = ""
 
     if "tamil" in name or "tamil" in src_group:
         if "news" in name: return "Tamil News"
@@ -190,10 +188,7 @@ def main():
             new_lines = []
             for l in best_match['lines']:
                 if l.startswith("#EXTINF"):
-                    # 1. Remove old group
-                    l = re.sub(r'group-title="[^"]*"', '', l)
-                    # 2. Insert new group (The FIX for "Raw Github" bug)
-                    # Uses regex to insert group-title right after #EXTINF:-1 or #EXTINF:0
+                    l = re.sub(r'group-title="[^"]*"', '', l) 
                     l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{target_group}"', l)
                 elif not l.startswith("#"):
                     # ASTRO FIX
@@ -221,6 +216,7 @@ def main():
 
         # REMOVAL FILTERS
         if any(bad in name_lower for bad in BAD_KEYWORDS) or any(bad in grp_lower for bad in BAD_KEYWORDS):
+            # EXCEPTION: Keep "Rasi"
             if "rasi" in name_lower: pass 
             else: continue 
 
@@ -236,10 +232,11 @@ def main():
         for l in b['lines']:
             if l.startswith("#EXTINF"):
                 l = re.sub(r'group-title="[^"]*"', '', l)
-                # Universal Regex Fix here too
                 l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{final_group}"', l)
             elif not l.startswith("#"):
-                 if "astro" in name_lower and "http" in l:
+                 # UNIVERSAL BROWSER FIX for Extras (fixes Cinemania, Tamil Cinema, Astro)
+                 # Only apply if it DOESN'T have keys (keys imply it's a mobile stream like Jio)
+                 if not b['has_keys'] and "http" in l:
                      if "|" in l: l = l.split("|")[0]
                      l += f"|User-Agent={UA_BROWSER}"
             new_lines.append(l)
@@ -275,7 +272,22 @@ def main():
                 if "title" in l.lower(): final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",{l.split(":",1)[1].strip()}')
                 elif l.startswith("http"): final_lines.append(l.strip())
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
+    # -------------------------------------------
+    # 4. FINAL SCRUB (Remove Raw Github Groups)
+    # -------------------------------------------
+    clean_lines = []
+    for line in final_lines:
+        # Detect messy groups
+        if 'group-title="' in line:
+            m = re.search(r'group-title="([^"]*)"', line)
+            if m:
+                g_name = m.group(1)
+                # If group looks like a URL or is empty
+                if "http" in g_name or "github" in g_name or not g_name.strip():
+                     line = line.replace(f'group-title="{g_name}"', 'group-title="Others"')
+        clean_lines.append(line)
+
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f: f.write("\n".join(clean_lines))
     print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
