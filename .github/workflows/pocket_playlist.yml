@@ -1,9 +1,12 @@
 name: Pocket Playlist Generator
 
 on:
+  push:
+    paths:
+      - '**' # Triggers on any change to the repo
+  workflow_dispatch: # Allows manual trigger button
   schedule:
-    - cron: '0 */3 * * *' # Run every 3 hours
-  workflow_dispatch:      # Manual run button
+    - cron: '*/15 * * * *' # Runs every 15 minutes
 
 jobs:
   build:
