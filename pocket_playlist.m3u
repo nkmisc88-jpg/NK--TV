@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-03 11:15:00 IST
+# Last Updated: 2026-01-03 11:24:53 IST
 http://0.0.0.0
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=fe7718fbb3fb4ba78c07cc0f578744e6:624e24b1843b459fab0a949609416f0d
@@ -1056,20 +1056,20 @@ https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlc
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481315|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTM3U
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 3 January 2026 at 11:14:09 am
+#DATE:- Saturday, 3 January 2026 at 11:21:05 am
 #EXTINF:-1 group-title="Live events" tvg-id="138739" tvg-name="Central Stags Vs Canterbury" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138739_5800_CS_CTB_fc-web_1766641251032.jpg" tvg-language="ENGLISH" ,ENG | Central Stags Vs Canterbury
 https://in-mc-fdlive.fancode.com/mumbai/138739_english_hls_3e7a73d0358892_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live events" tvg-id="138816" tvg-name="Brisbane Roar Vs Wellington Phoenix" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138816_5802_BRB_WEL_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Brisbane Roar Vs Wellington Phoenix
 https://in-mc-fdlive.fancode.com/mumbai/138816_english_hls_0e512a23a221736_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTM3U
-#DATE:- 03-01-2026 11:00
+#DATE:- 03-01-2026 11:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live events" tvg-id="1090498797" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012864/1767337389784631_UC26_France_vs_Switzerland_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | France vs Switzerland - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767443401~acl=/*~id=1f3ce9d67876798a0af2991c65ba839d-1767400200159~hmac=74896af97658934c32da3a161405b468a978e5d50b13ac8610db9dd0cb5ad301|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; CPH2467; Build/RKQ1.211119.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=788f373e7f06215e33e0df4b826f31be-1767418208055
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767443401~acl=/*~id=1f3ce9d67876798a0af2991c65ba839d-1767400200159~hmac=74896af97658934c32da3a161405b468a978e5d50b13ac8610db9dd0cb5ad301|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; DOMO Slate; Build/ZX)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=ecfb4c7108df918a34595288e6f58c3f-1767419410759
 #EXTINF:-1 group-title="Live events" tvg-id="1090498576" tvg-name="Super Smash 2025/26 Men's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012758/1766815943251385_SuperSmash2526_mens_Central-Stags-vs-Canterbury-Kings_27dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Central Stags vs Canterbury Kings - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767443401~acl=/*~id=1f3ce9d67876798a0af2991c65ba839d-1767400200159~hmac=74896af97658934c32da3a161405b468a978e5d50b13ac8610db9dd0cb5ad301|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; SMART TV; Build/PPR2.180905.006.A1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=788f373e7f06215e33e0df4b826f31be-1767418208055
+https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767443401~acl=/*~id=1f3ce9d67876798a0af2991c65ba839d-1767400200159~hmac=74896af97658934c32da3a161405b468a978e5d50b13ac8610db9dd0cb5ad301|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; CPH2159; Build/TP1A.220905.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=ecfb4c7108df918a34595288e6f58c3f-1767419410759
 #EXTINF:-1 group-title="Live events" tvg-id="1090498764" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012862/176733628664789_UC26_Belgium_vs_China_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Belgium vs China - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767443401~acl=/*~id=1f3ce9d67876798a0af2991c65ba839d-1767400200159~hmac=74896af97658934c32da3a161405b468a978e5d50b13ac8610db9dd0cb5ad301|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; H40; Build/QP1A.191105.004)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=788f373e7f06215e33e0df4b826f31be-1767418208055
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767443401~acl=/*~id=1f3ce9d67876798a0af2991c65ba839d-1767400200159~hmac=74896af97658934c32da3a161405b468a978e5d50b13ac8610db9dd0cb5ad301|User-Agent=com.sonyliv/6.22.4 (Android 6; en_GB; TV348_DTMB; Build/MRA58K)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=ecfb4c7108df918a34595288e6f58c3f-1767419410759
 #EXTM3U
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 3/1/2026, 00:15:04
