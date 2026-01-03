@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-03 07:44:40
+# Updated on: 2026-01-03 07:47:12
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -856,7 +856,7 @@ https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=e
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498797" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012864/1767337389784631_UC26_France_vs_Switzerland_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | France vs Switzerland - 3 Jan 2026
 https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; motorola one power; Build/PPTS29.74-41-4)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=550c3496103a71d3e43939a8c743fd96-1767425409781
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 3 January 2026 at 1:00:12 pm
+#DATE:- Saturday, 3 January 2026 at 1:15:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873755" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873755/list/1920x1080list7a091c1249a2434d83f7924533ebc50f1937af9e12784924b75beb85ffe5a6bc.jpg" tvg-language="bengali" ,BEN | Northbengal United Fc Vs North 24 Parganas Fc
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1767511803~acl=%2f*~data=hdntl~hmac=56a8ebd3eaa0693aa3d0206906682cbb386902bb4a69be3ba4800f6dfb4f61e7|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873755" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873755/list/1920x1080list7a091c1249a2434d83f7924533ebc50f1937af9e12784924b75beb85ffe5a6bc.jpg" tvg-language="english" ,ENG | Northbengal United Fc Vs North 24 Parganas Fc
