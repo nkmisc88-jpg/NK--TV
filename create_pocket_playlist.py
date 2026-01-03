@@ -16,9 +16,7 @@ SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/h
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
 # HEADERS
-# 1. Jio/Zee/Sony Channels (Mobile App Agent)
-UA_JIO = "plaYtv/7.0.8 (Linux;Android 9) ExoPlayerLib/2.11.7"
-# 2. Astro/General Channels (Browser Agent - Fixes Astro)
+# Only used for Astro. For others, we trust the source keys (#KODIPROP).
 UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # MASTER LIST (Priority Channels)
@@ -102,6 +100,7 @@ def get_source_blocks():
                 line = line.strip()
                 if not line: continue
                 
+                # Capture all lines relevant to the channel
                 if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT") or line.startswith("#EXTINF"):
                     current_block.append(line)
                 elif not line.startswith("#"):
@@ -164,7 +163,7 @@ def main():
     final_lines = ["#EXTM3U"]
     final_lines.append("http://0.0.0.0")
 
-    added_ids = set() # Stores 'suntvhd', 'ktvhd'
+    added_ids = set() # Track added IDs to prevent duplicates
     
     # -------------------------------------------
     # 1. MASTER LIST (Priority)
@@ -175,7 +174,7 @@ def main():
         
         candidates = [b for b in source_blocks if b['simple'] == target_simple or target_simple in b['simple']]
         
-        # Pick best match (prefer keys)
+        # Pick best match (prefer keys/HD)
         best_match = None
         if candidates:
             for c in candidates:
@@ -183,21 +182,17 @@ def main():
             if not best_match: best_match = candidates[0]
 
         if best_match:
-            # FIX PLAYBACK: Inject User-Agent
+            # COPY EXACTLY (Don't break the keys!)
             new_lines = []
             for l in best_match['lines']:
                 if l.startswith("#EXTINF"):
-                    # Set Group
+                    # Only modify the group-title
                     l = re.sub(r'group-title="[^"]*"', '', l) 
                     l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{target_group}"')
                 elif not l.startswith("#"):
-                    # Add UA
-                    if "http" in l and "|" not in l:
-                        # ASTRO FIX: Use Browser Agent for Astro, Jio Agent for others
-                        if "astro" in target_name.lower():
-                            l += f"|User-Agent={UA_BROWSER}"
-                        else:
-                            l += f"|User-Agent={UA_JIO}"
+                    # ONLY Fix Astro. Leave others alone.
+                    if "astro" in target_name.lower() and "http" in l and "|" not in l:
+                        l += f"|User-Agent={UA_BROWSER}"
                 new_lines.append(l)
             
             final_lines.extend(new_lines)
@@ -217,7 +212,6 @@ def main():
         
         # 2. HD vs SD Logic
         # If this is "suntv" (SD), check if "suntvhd" is already added.
-        # If "suntvhd" is in added_ids, SKIP this SD version.
         is_sd = "hd" not in b['simple']
         if is_sd:
             potential_hd = b['simple'] + "hd"
@@ -235,11 +229,9 @@ def main():
                 l = re.sub(r'group-title="[^"]*"', '', l)
                 l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{final_group}"')
             elif not l.startswith("#"):
-                 if "http" in l and "|" not in l:
-                        if "astro" in b['name'].lower():
-                            l += f"|User-Agent={UA_BROWSER}"
-                        else:
-                            l += f"|User-Agent={UA_JIO}"
+                 # ONLY Fix Astro. Leave others alone.
+                 if "astro" in b['name'].lower() and "http" in l and "|" not in l:
+                     l += f"|User-Agent={UA_BROWSER}"
             new_lines.append(l)
             
         final_lines.extend(new_lines)
