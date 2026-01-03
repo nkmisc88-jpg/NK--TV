@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-03 23:34:26
+# Updated on: 2026-01-03 23:49:17
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767443306~exp=1767529706~acl=/*~hmac=bea38e16783bfef88f2f2787a46279e01c9f3aa6038dbaff00bac25589a470e5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767443306~exp=1767529706~acl=/*~hmac=bea38e16783bfef88f2f2787a46279e01c9f3aa6038dbaff00bac25589a470e5&xxx=||cookie=__hdnea__=st=1767443306~exp=1767529706~acl=/*~hmac=bea38e16783bfef88f2f2787a46279e01c9f3aa6038dbaff00bac25589a470e5
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 4 January 2026 at 5:00:04 am
+#DATE:- Sunday, 4 January 2026 at 5:14:06 am
 #EXTINF:-1 group-title="Live Events" tvg-id="133962" tvg-name="Queensland Fire Vs Tasmania Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Women's-National-Cricket-League_old_v1_1758034980139.jpg" tvg-language="ENGLISH" ,ENG | Queensland Fire Vs Tasmania Women
 https://in-mc-fdlive.fancode.com/mumbai/133962_english_hls_178f8d65cd6342_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #DATE:- 04-01-2026 05:00
