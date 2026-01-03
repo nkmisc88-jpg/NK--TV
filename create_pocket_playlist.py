@@ -2,6 +2,7 @@ import requests
 import re
 import datetime
 import os
+import sys
 
 # ==========================================
 # CONFIGURATION
@@ -10,7 +11,7 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 
 # SOURCES
-POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
+POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
@@ -18,7 +19,7 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 # HEADERS
 UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-# EXCLUSION LIST (APAC is REMOVED from here, so those channels will come back)
+# EXCLUSION LIST (Removed 'apac')
 BAD_KEYWORDS = [
     "hits", "tata play", "tataplay", "local", "fm", "radio", 
     "pluto", "yupp", "usa", "overseas", "cinemania", "cinema", 
@@ -77,7 +78,7 @@ MASTER_CHANNELS = [
 
     # --- OTHERS ---
     ("Others", "Star Plus HD"), ("Others", "Sony SET HD"),
-    ("Others", "Others", "Sony SAB HD"), ("Others", "Zee TV HD"),
+    ("Others", "Sony SAB HD"), ("Others", "Zee TV HD"),
     ("Others", "Colors HD"), ("Others", "Star Bharat HD"),
     
     # --- KIDS ---
@@ -93,8 +94,6 @@ MASTER_CHANNELS = [
 
 def simplified_name(name):
     if not name: return ""
-    # Only remove non-alphanumeric characters. 
-    # This ensures 'Sun TV (HD)' becomes 'suntvhd', matching our 'Sun TV HD' target.
     return re.sub(r'[^a-z0-9]', '', name.lower())
 
 def get_source_data():
@@ -102,68 +101,68 @@ def get_source_data():
     items = []
     try:
         r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
-        if r.status_code == 200:
-            lines = r.text.splitlines()
-            current_props = []
+        
+        if r.status_code != 200:
+            print(f"❌ CRITICAL ERROR: Could not download source. Status Code: {r.status_code}")
+            sys.exit(1) 
+
+        lines = r.text.splitlines()
+        current_props = []
+        
+        for i in range(len(lines)):
+            line = lines[i].strip()
+            if not line: continue
             
-            for i in range(len(lines)):
-                line = lines[i].strip()
-                if not line: continue
+            if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT"):
+                current_props.append(line)
+                continue
+
+            if line.startswith("#EXTINF"):
+                raw_name = line.split(",")[-1].strip()
+                simple = simplified_name(raw_name)
                 
-                # 1. Capture Props
-                if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT"):
-                    current_props.append(line)
-                    continue
+                logo = ""
+                m_logo = re.search(r'tvg-logo="([^"]*)"', line)
+                if m_logo: logo = m_logo.group(1)
+                
+                grp = ""
+                m_grp = re.search(r'group-title="([^"]*)"', line)
+                if m_grp: grp = m_grp.group(1).lower()
 
-                # 2. Capture Info
-                if line.startswith("#EXTINF"):
-                    # Extract Name
-                    raw_name = line.split(",")[-1].strip()
-                    simple = simplified_name(raw_name)
-                    
-                    # Extract Logo
-                    logo = ""
-                    m_logo = re.search(r'tvg-logo="([^"]*)"', line)
-                    if m_logo: logo = m_logo.group(1)
-                    
-                    # Extract Source Group
-                    grp = ""
-                    m_grp = re.search(r'group-title="([^"]*)"', line)
-                    if m_grp: grp = m_grp.group(1).lower()
+                link = ""
+                if i + 1 < len(lines):
+                    pot_link = lines[i+1].strip()
+                    if pot_link and not pot_link.startswith("#"):
+                        link = pot_link
 
-                    # 3. Capture Link (Next Line)
-                    link = ""
-                    if i + 1 < len(lines):
-                        pot_link = lines[i+1].strip()
-                        if pot_link and not pot_link.startswith("#"):
-                            link = pot_link
-
-                    if link:
-                        items.append({
-                            'name': raw_name,
-                            'simple': simple,
-                            'logo': logo,
-                            'group_src': grp,
-                            'link': link,
-                            'props': current_props
-                        })
-                    
-                    current_props = [] # Reset
+                if link:
+                    items.append({
+                        'name': raw_name,
+                        'simple': simple,
+                        'logo': logo,
+                        'group_src': grp,
+                        'link': link,
+                        'props': current_props
+                    })
+                
+                current_props = [] 
+        
+        print(f"✅ Source Loaded: {len(items)} channels found.")
+        
     except Exception as e:
-        print(f"   ❌ Failed to load source: {e}")
+        print(f"❌ Failed to load source: {e}")
+        sys.exit(1)
+        
     return items
 
 def determine_group(name, src_group):
-    """Categorizes unknown channels."""
     name = name.lower()
     src_group = src_group.lower()
 
-    # FORCE MOVES
     if "vijay takkar" in name: return "Tamil SD"
     if "cn hd+" in name and "tamil" in name: return "Kids"
     if "star sports" in name and "tamil" in name: return "Sports HD"
 
-    # LOGIC FLOW
     if "tamil" in name or "tamil" in src_group:
         if "news" in name: return "Tamil News"
         if "hd" in name: return "Tamil HD"
@@ -185,8 +184,7 @@ def determine_group(name, src_group):
             if any(x in name for x in ["star", "zee", "set", "color"]): return "Hindi Movies HD"
             return "English Movies HD"
 
-    # KIDS
-    if any(k in name for k in ["cartoon", "pogo", "nick", "disney", "sonic", "hungama", "kids", "cn hd+"]):
+    if any(k in name for k in ["cartoon", "pogo", "nick", "disney", "sonic", "hungama", "kids"]):
         return "Kids"
 
     return "Others"
@@ -194,38 +192,31 @@ def determine_group(name, src_group):
 def main():
     source_items = get_source_data()
     
+    # TIMESTAMP LOGIC: This ensures file content changes every run!
+    ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U"]
+    final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
     added_ids = set() 
     
-    # -------------------------------------------
-    # 1. MASTER LIST (Priority)
-    # -------------------------------------------
     print("\n1️⃣  Processing Master List...")
     for target_group, target_name in MASTER_CHANNELS:
         target_simple = simplified_name(target_name)
         
-        # FIND BEST MATCH
-        # Use simple inclusion to match 'Sun TV (HD)' [suntvhd] with 'Sun TV HD' [suntvhd]
         candidates = [i for i in source_items if i['simple'] == target_simple or target_simple in i['simple']]
         
         best_match = None
         if candidates:
-            # Prefer keys
             for c in candidates:
                 if c['props']: best_match = c; break
             if not best_match: best_match = candidates[0]
 
         if best_match:
-            # WRITE PROPS
             final_lines.extend(best_match['props'])
-            
-            # REBUILD EXTINF
             line = f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{best_match["logo"]}",{target_name}'
             final_lines.append(line)
             
-            # WRITE LINK (Apply Astro Fix)
             lnk = best_match['link']
             if "astro" in target_name.lower() and "http" in lnk:
                 if "|" in lnk: lnk = lnk.split("|")[0]
@@ -236,11 +227,7 @@ def main():
         else:
             print(f"   ⚠️ Channel Not Found: {target_name}")
 
-    # -------------------------------------------
-    # 2. EXTRAS (Clean & Sort)
-    # -------------------------------------------
     print("\n2️⃣  Cleaning & Sorting Extras...")
-    
     count = 0
     for item in source_items:
         if item['simple'] in added_ids: continue
@@ -248,29 +235,21 @@ def main():
         name_lower = item['name'].lower()
         grp_lower = item['group_src'].lower()
 
-        # REMOVAL FILTERS (No APAC in list!)
         if any(bad in name_lower for bad in BAD_KEYWORDS) or any(bad in grp_lower for bad in BAD_KEYWORDS):
             if "rasi" in name_lower: pass 
             else: continue 
 
-        # HD vs SD Logic
         is_sd = "hd" not in item['simple']
         if is_sd:
             potential_hd = item['simple'] + "hd"
-            # If HD version exists in added_ids, skip SD
             if potential_hd in added_ids: continue
 
-        # CATEGORIZE
         final_group = determine_group(item['name'], item['group_src'])
         
-        # WRITE PROPS
         final_lines.extend(item['props'])
-        
-        # REBUILD EXTINF
         line = f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{item["logo"]}",{item["name"]}'
         final_lines.append(line)
         
-        # WRITE LINK
         lnk = item['link']
         if not item['props'] and "http" in lnk:
              if "|" in lnk: lnk = lnk.split("|")[0]
@@ -282,26 +261,26 @@ def main():
         
     print(f"   ✅ Added {count} extra channels.")
 
-    # -------------------------------------------
-    # 3. LIVE & TEMP
-    # -------------------------------------------
+    # TEMPORARY CHANNELS LOGIC
     print("\n3️⃣  Adding Live Events & Temp...")
-    
     def add_ext(url, g):
         try:
             r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
-            for l in r.text.splitlines():
-                if l.startswith("#EXTINF"):
-                    l = re.sub(r'group-title="[^"]*"', '', l)
-                    l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{g}"', l)
-                final_lines.append(l)
+            if r.status_code == 200:
+                for l in r.text.splitlines():
+                    if l.startswith("#EXTINF"):
+                        l = re.sub(r'group-title="[^"]*"', '', l)
+                        l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{g}"', l)
+                    final_lines.append(l)
         except: pass
 
     add_ext(FANCODE_URL, "Live events")
     add_ext(SONY_LIVE_URL, "Live events")
     add_ext(ZEE_LIVE_URL, "Live events")
 
+    # Read YouTube.txt (Temporary Channels)
     if os.path.exists(YOUTUBE_FILE):
+        print("   ✅ Found youtube.txt, processing...")
         with open(YOUTUBE_FILE, "r") as f:
             for l in f:
                 if "title" in l.lower(): 
@@ -309,6 +288,8 @@ def main():
                     if len(parts) > 1:
                         final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",{parts[1].strip()}')
                 elif l.startswith("http"): final_lines.append(l.strip())
+    else:
+        print("   ⚠️ youtube.txt not found (Skipping)")
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
