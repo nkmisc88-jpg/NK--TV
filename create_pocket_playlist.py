@@ -19,10 +19,10 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 # HEADERS
 UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-# EXCLUSION LIST (Removed 'apac')
+# EXCLUSION LIST (Cinemania, Cinema, APAC, Local are REMOVED from here -> They are Safe)
 BAD_KEYWORDS = [
-    "hits", "tata play", "tataplay", "local", "fm", "radio", 
-    "pluto", "yupp", "usa", "overseas", "cinemania", "cinema", 
+    "hits", "tata play", "tataplay", "fm", "radio", 
+    "pluto", "yupp", "usa", "overseas", 
     "kannada", "malayalam", "telugu", "bengali", "marathi", 
     "gujarati", "odia", "punjabi", "urdu", "nepali"
 ]
@@ -159,6 +159,7 @@ def determine_group(name, src_group):
     name = name.lower()
     src_group = src_group.lower()
 
+    # FORCE MOVES
     if "vijay takkar" in name: return "Tamil SD"
     if "cn hd+" in name and "tamil" in name: return "Kids"
     if "star sports" in name and "tamil" in name: return "Sports HD"
@@ -192,7 +193,7 @@ def determine_group(name, src_group):
 def main():
     source_items = get_source_data()
     
-    # TIMESTAMP LOGIC: This ensures file content changes every run!
+    # TIMESTAMP
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U"]
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
@@ -218,6 +219,7 @@ def main():
             final_lines.append(line)
             
             lnk = best_match['link']
+            # ASTRO FIX
             if "astro" in target_name.lower() and "http" in lnk:
                 if "|" in lnk: lnk = lnk.split("|")[0]
                 lnk += f"|User-Agent={UA_BROWSER}"
@@ -235,6 +237,7 @@ def main():
         name_lower = item['name'].lower()
         grp_lower = item['group_src'].lower()
 
+        # REMOVAL FILTERS (Updated)
         if any(bad in name_lower for bad in BAD_KEYWORDS) or any(bad in grp_lower for bad in BAD_KEYWORDS):
             if "rasi" in name_lower: pass 
             else: continue 
@@ -250,6 +253,8 @@ def main():
         line = f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{item["logo"]}",{item["name"]}'
         final_lines.append(line)
         
+        # UNIVERSAL PLAYBACK FIX (For Cinemania/Cinema etc)
+        # If it doesn't have keys (#KODIPROP), we assume it needs a Browser User-Agent.
         lnk = item['link']
         if not item['props'] and "http" in lnk:
              if "|" in lnk: lnk = lnk.split("|")[0]
@@ -261,7 +266,6 @@ def main():
         
     print(f"   ✅ Added {count} extra channels.")
 
-    # TEMPORARY CHANNELS LOGIC
     print("\n3️⃣  Adding Live Events & Temp...")
     def add_ext(url, g):
         try:
@@ -278,9 +282,7 @@ def main():
     add_ext(SONY_LIVE_URL, "Live events")
     add_ext(ZEE_LIVE_URL, "Live events")
 
-    # Read YouTube.txt (Temporary Channels)
     if os.path.exists(YOUTUBE_FILE):
-        print("   ✅ Found youtube.txt, processing...")
         with open(YOUTUBE_FILE, "r") as f:
             for l in f:
                 if "title" in l.lower(): 
@@ -288,8 +290,6 @@ def main():
                     if len(parts) > 1:
                         final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",{parts[1].strip()}')
                 elif l.startswith("http"): final_lines.append(l.strip())
-    else:
-        print("   ⚠️ youtube.txt not found (Skipping)")
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
