@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-04 00:04:13 IST
+# Last Updated: 2026-01-04 00:24:04 IST
 http://0.0.0.0
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="", ------------------
 http://0.0.0.0
@@ -2496,6 +2496,8 @@ https://stream.zeno.fm/5csru2np4bruv
 https://in-mc-fdlive.fancode.com/mumbai/131009_english_hls_e5a8bbfad987141_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139199" tvg-name="Al Ittihad Vs Al Taawoun" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Ittihad-vs-Al-Taawoun_fc-web_1767365352745.jpg" tvg-language="ENGLISH" ,ENG | Al Ittihad Vs Al Taawoun
 https://in-mc-fdlive.fancode.com/mumbai/139199_english_hls_a0241c044c8970_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="138380" tvg-name="Mali Vs Tunisia" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mali-vs-tunisia_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Mali Vs Tunisia
+https://in-mc-fdlive.fancode.com/mumbai/138380_english_hls_f82d05426848033_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="138914" tvg-name="Real Valladolid Vs Racing Club" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg" tvg-language="ENGLISH" ,ENG | Real Valladolid Vs Racing Club
 https://in-mc-fdlive.fancode.com/mumbai/138914_english_hls_3b2550c32c26353_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 Title: Fox 501
