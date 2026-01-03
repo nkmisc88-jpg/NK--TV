@@ -11,19 +11,15 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# 1. EMPTY GROUPS TO CREATE
-TARGET_GROUPS = [
-    "Tamil HD",
-    "Tamil SD",
-    "Tamil News",
-    "Sports HD",
-    "Sports SD",
-    "Kids",
-    "Infotainment HD",
-    "Infotainment SD",
-    "English and Hindi News",
-    "Others",
-    "Local Channels"
+# 1. CHANNELS TO COPY (Will appear in "Tamil HD" AND original group)
+COPY_TO_TAMIL_HD = [
+    "Sun TV HD",
+    "Star Vijay HD",
+    "Colors Tamil HD",
+    "Zee Tamil HD",
+    "KTV HD",
+    "Sun Music HD",
+    "Jaya TV HD"
 ]
 
 # 2. FILTERS (Global Deletions)
@@ -43,12 +39,10 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 def get_group_and_name(line):
     grp_match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
     group = grp_match.group(1).lower() if grp_match else ""
-    name = line.split(",")[-1].lower().strip()
+    name = line.split(",")[-1].strip()
     return group, name
 
-def should_keep_channel(extinf_line):
-    group, name = get_group_and_name(extinf_line)
-    
+def should_keep_channel(group, name):
     # Global Deletions
     clean_group = group.replace(" ", "")
     for bad in BAD_KEYWORDS:
@@ -58,7 +52,7 @@ def should_keep_channel(extinf_line):
     if "astro go" in group:
         is_allowed = False
         for allowed in ASTRO_KEEP:
-            if allowed in name:
+            if allowed in name.lower():
                 is_allowed = True
                 break
         if not is_allowed: return False 
@@ -92,20 +86,13 @@ def main():
         print(f"❌ Failed: {e}")
         sys.exit(1)
 
-    # 1. HEADER
+    # HEADER
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U"]
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # 2. CREATE EMPTY GROUPS (Placeholders)
-    print("🔨 Creating Empty Groups...")
-    for group in TARGET_GROUPS:
-        # Add a dummy channel so the group appears in players
-        final_lines.append(f'#EXTINF:-1 group-title="{group}" tvg-logo="", ------------------')
-        final_lines.append("http://0.0.0.0")
-
-    # 3. PROCESS ORIGINAL CHANNELS
+    # PROCESS CHANNELS
     current_buffer = []
     skip_this_channel = False
     
@@ -115,42 +102,74 @@ def main():
         if line.startswith("#EXTM3U"): continue
 
         if line.startswith("#EXTINF"):
+            # PROCESS PREVIOUS CHANNEL BUFFER
             if current_buffer and not skip_this_channel:
+                # 1. Add Original Channel
                 final_lines.extend(current_buffer)
+
+                # 2. Check if we need to COPY this channel to "Tamil HD"
+                # We look at the #EXTINF line (first line of buffer usually)
+                extinf = current_buffer[0]
+                _, ch_name = get_group_and_name(extinf)
+                
+                # Check for exact or partial match in our list
+                if any(target.lower() == ch_name.lower() for target in COPY_TO_TAMIL_HD):
+                    # Create a copy
+                    copy_buffer = []
+                    for buf_line in current_buffer:
+                        if buf_line.startswith("#EXTINF"):
+                            # Replace old group with Tamil HD
+                            new_line = re.sub(r'group-title="([^"]*)"', 'group-title="Tamil HD"', buf_line)
+                            copy_buffer.append(new_line)
+                        else:
+                            copy_buffer.append(buf_line)
+                    final_lines.extend(copy_buffer)
+
             current_buffer = []
             skip_this_channel = False
             
-            if not should_keep_channel(line):
+            group, name = get_group_and_name(line)
+            if not should_keep_channel(group, name):
                 skip_this_channel = True
 
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # Astro Fix
+            # Astro Fix Logic
             if "astro" in current_buffer[0].lower() and "http" in line:
                  if "User-Agent" not in line:
                      if "|" in line: line = line.split("|")[0]
                      line += "|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
                      current_buffer[-1] = line
 
-            if not skip_this_channel:
-                final_lines.extend(current_buffer)
-            current_buffer = []
-            skip_this_channel = False
+    # FLUSH LAST CHANNEL
+    if current_buffer and not skip_this_channel:
+        final_lines.extend(current_buffer)
+        # Check copy for last channel too
+        extinf = current_buffer[0]
+        _, ch_name = get_group_and_name(extinf)
+        if any(target.lower() == ch_name.lower() for target in COPY_TO_TAMIL_HD):
+            copy_buffer = []
+            for buf_line in current_buffer:
+                if buf_line.startswith("#EXTINF"):
+                    new_line = re.sub(r'group-title="([^"]*)"', 'group-title="Tamil HD"', buf_line)
+                    copy_buffer.append(new_line)
+                else:
+                    copy_buffer.append(buf_line)
+            final_lines.extend(copy_buffer)
 
-    # 4. ADD LIVE EVENTS
+    # ADD LIVE EVENTS
     print("📥 Adding Live Events...")
     final_lines.extend(fetch_live_events(FANCODE_URL))
     final_lines.extend(fetch_live_events(SONY_LIVE_URL))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
 
-    # 5. ADD TEMPORARY CHANNELS
+    # ADD TEMPORARY CHANNELS
     if os.path.exists(YOUTUBE_FILE):
         print("📥 Appending youtube.txt...")
         with open(YOUTUBE_FILE, "r") as f:
             for l in f:
-                l = l.strip()
-                if l: final_lines.append(l)
+                if l.strip(): final_lines.append(l.strip())
 
     # SAVE
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
