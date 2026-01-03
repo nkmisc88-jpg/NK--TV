@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-03 07:47:12
+# Updated on: 2026-01-03 08:51:00
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,23 +846,23 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767402576~exp=1767488976~acl=/*~hmac=32a40203f92f51c8791fb847b0ff2023d97374e4e48e04e7c398179150dcc536"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767402576~exp=1767488976~acl=/*~hmac=32a40203f92f51c8791fb847b0ff2023d97374e4e48e04e7c398179150dcc536&xxx=||cookie=__hdnea__=st=1767402576~exp=1767488976~acl=/*~hmac=32a40203f92f51c8791fb847b0ff2023d97374e4e48e04e7c398179150dcc536
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 3 January 2026 at 1:14:06 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="138816" tvg-name="Brisbane Roar Vs Wellington Phoenix" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138816_5802_BRB_WEL_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Brisbane Roar Vs Wellington Phoenix
-https://in-mc-fdlive.fancode.com/mumbai/138816_english_hls_0e512a23a221736_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 03-01-2026 13:00
+#DATE:- Saturday, 3 January 2026 at 2:14:05 pm
+#EXTINF:-1 group-title="Live Events" tvg-id="138817" tvg-name="Melbourne City Vs Sydney Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138817_5802_MLC_SYD_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Melbourne City Vs Sydney Fc
+https://in-mc-fdlive.fancode.com/mumbai/138817_english_hls_ed6c5c3dee23255_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 03-01-2026 14:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498764" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012862/176733628664789_UC26_Belgium_vs_China_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Belgium vs China - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; 25028PC03I; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=550c3496103a71d3e43939a8c743fd96-1767425409781
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498764" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012865/1767337567004298_UC26_Australia_vs_Norway_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Australia vs Norway - 3 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; 2312BPC51H; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2062c7147b055a6fb89a46d2e5283230-1767430208245
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498797" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012864/1767337389784631_UC26_France_vs_Switzerland_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | France vs Switzerland - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; motorola one power; Build/PPTS29.74-41-4)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=550c3496103a71d3e43939a8c743fd96-1767425409781
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; I2207; Build/TP1A.220624.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2062c7147b055a6fb89a46d2e5283230-1767430208245
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 3 January 2026 at 1:15:05 pm
+#DATE:- Saturday, 3 January 2026 at 2:15:04 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873755" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873755/list/1920x1080list7a091c1249a2434d83f7924533ebc50f1937af9e12784924b75beb85ffe5a6bc.jpg" tvg-language="bengali" ,BEN | Northbengal United Fc Vs North 24 Parganas Fc
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1767511803~acl=%2f*~data=hdntl~hmac=56a8ebd3eaa0693aa3d0206906682cbb386902bb4a69be3ba4800f6dfb4f61e7|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873755" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873755/list/1920x1080list7a091c1249a2434d83f7924533ebc50f1937af9e12784924b75beb85ffe5a6bc.jpg" tvg-language="english" ,ENG | Northbengal United Fc Vs North 24 Parganas Fc
 https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M01/master.m3u8?hdntl=exp=1767511807~acl=%2f*~data=hdntl~hmac=01e1449b9b8e4a48d72e99afb5b56eb70052531d56bf348c41bb0f17ab39c6eb|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767466382~acl=%2f*~id=3c736f23-bdcf-4757-b331-cb9edbe26270~data=hdntl~hmac=82df71f6cd736b5432880d8c10db97d2112d7312f3070ec471f2df3c52b1802f|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767509642~acl=%2f*~id=a102e36b-9d92-45ca-8a4d-4a1f778eb49b~data=hdntl~hmac=778fc3afc1f23be2939a14eee81f7d1b072c98a8e8e017bb8cee62fe73e6b648|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
 https://keys.vodep39240327.workers.dev/?id=300.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png",Star Sports Select 2 HD
