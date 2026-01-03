@@ -10,101 +10,24 @@ import sys
 OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 
-# SOURCES - BACK TO SINGLE RELIABLE SOURCE
+# ONLY ONE SOURCE (The one you know works)
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
-FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
-SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
-ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# HEADERS
+# Headers for Astro/Web channels
 UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-
-# EXCLUSION LIST (MINIMAL - Only deleting absolute garbage)
-BAD_KEYWORDS = [
-    "hits", "tata play", "tataplay", "fm", "radio", 
-    "pluto", "yupp", "usa", "overseas", 
-    "kannada", "malayalam", "telugu", "bengali", "marathi", 
-    "gujarati", "odia", "punjabi", "urdu", "nepali"
-]
-
-# MASTER LIST (Your Custom Groups)
-MASTER_CHANNELS = [
-    # --- SPORTS HD ---
-    ("Sports HD", "Star Sports 1 HD"), ("Sports HD", "Star Sports 2 HD"),
-    ("Sports HD", "Star Sports 1 Hindi HD"), ("Sports HD", "Star Sports Select 1 HD"),
-    ("Sports HD", "Star Sports Select 2 HD"), ("Sports HD", "Sony Sports Ten 1 HD"),
-    ("Sports HD", "Sony Sports Ten 2 HD"), ("Sports HD", "Sony Sports Ten 3 HD"),
-    ("Sports HD", "Sony Sports Ten 4 HD"), ("Sports HD", "Sony Sports Ten 5 HD"),
-    ("Sports HD", "Sports18 1 HD"), ("Sports HD", "Eurosport HD"),
-    ("Sports HD", "Astro Cricket"), ("Sports HD", "Willow Cricket"),
-    ("Sports HD", "Sky Sports Cricket"),
-    ("Sports HD", "Star Sports 1 Tamil HD"), ("Sports HD", "Star Sports 2 Tamil HD"),
-
-    # --- TAMIL HD ---
-    ("Tamil HD", "Sun TV HD"), ("Tamil HD", "KTV HD"),
-    ("Tamil HD", "Star Vijay HD"), ("Tamil HD", "Zee Tamil HD"),
-    ("Tamil HD", "Colors Tamil HD"), ("Tamil HD", "Jaya TV HD"),
-    ("Tamil HD", "Zee Thirai HD"), 
-    ("Tamil HD", "Astro Vaanavil"), ("Tamil HD", "Astro Vinmeen HD"),
-    ("Tamil HD", "Astro Thangathirai"), ("Tamil HD", "Astro Vellithirai"),
-
-    # --- TAMIL SD ---
-    ("Tamil SD", "Vijay Takkar"),
-
-    # --- INFOTAINMENT HD ---
-    ("Infotainment HD", "Discovery HD"), ("Infotainment HD", "Animal Planet HD"),
-    ("Infotainment HD", "Nat Geo HD"), ("Infotainment HD", "Nat Geo Wild HD"),
-    ("Infotainment HD", "Sony BBC Earth HD"), ("Infotainment HD", "History TV18 HD"),
-    ("Infotainment HD", "TLC HD"), ("Infotainment HD", "TravelXP HD"),
-
-    # --- ENGLISH MOVIES HD ---
-    ("English Movies HD", "Star Movies HD"), ("English Movies HD", "Sony Pix HD"),
-    ("English Movies HD", "Movies Now HD"), ("English Movies HD", "MN+ HD"),
-    ("English Movies HD", "MNX HD"), 
-
-    # --- HINDI MOVIES HD ---
-    ("Hindi Movies HD", "Star Gold HD"), ("Hindi Movies HD", "Sony Max HD"),
-    ("Hindi Movies HD", "Zee Cinema HD"), ("Hindi Movies HD", "&Pictures HD"),
-
-    # --- TAMIL NEWS ---
-    ("Tamil News", "Sun News"), ("Tamil News", "Polimer News"),
-    ("Tamil News", "Puthiya Thalaimurai"), ("Tamil News", "Thanthi TV"),
-    ("Tamil News", "Kalaignar Seithigal"), ("Tamil News", "News18 Tamil Nadu"),
-
-    # --- ENGLISH AND HINDI NEWS ---
-    ("English and Hindi News", "Times Now"), ("English and Hindi News", "NDTV 24x7"),
-    ("English and Hindi News", "India Today"), ("English and Hindi News", "CNN News18"),
-    ("English and Hindi News", "Republic TV"), ("English and Hindi News", "Aaj Tak"),
-
-    # --- OTHERS ---
-    ("Others", "Star Plus HD"), ("Others", "Sony SET HD"),
-    ("Others", "Sony SAB HD"), ("Others", "Zee TV HD"),
-    ("Others", "Colors HD"), ("Others", "Star Bharat HD"),
-    
-    # --- KIDS ---
-    ("Kids", "CN HD+ Tamil"),
-    ("Kids", "Nick"), ("Kids", "Sonic"), ("Kids", "Hungama"),
-    ("Kids", "Disney Channel"), ("Kids", "Cartoon Network"),
-    ("Kids", "Pogo"), ("Kids", "Sony Yay"), ("Kids", "Discovery Kids")
-]
 
 # ==========================================
 # LOGIC
 # ==========================================
-
-def simplified_name(name):
-    if not name: return ""
-    return re.sub(r'[^a-z0-9]', '', name.lower())
 
 def get_source_data():
     print("📥 Downloading Source Playlist...")
     items = []
     try:
         r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
-        
         if r.status_code != 200:
-            print(f"❌ CRITICAL ERROR: Could not download source. Status Code: {r.status_code}")
-            sys.exit(1) 
+            print(f"❌ Critical Error: Status {r.status_code}")
+            sys.exit(1)
 
         lines = r.text.splitlines()
         current_props = []
@@ -113,22 +36,24 @@ def get_source_data():
             line = lines[i].strip()
             if not line: continue
             
+            # 1. Capture License Keys (Do not touch these!)
             if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT"):
                 current_props.append(line)
                 continue
 
+            # 2. Capture Channel Info
             if line.startswith("#EXTINF"):
-                raw_name = line.split(",")[-1].strip()
-                simple = simplified_name(raw_name)
-                
-                logo = ""
-                m_logo = re.search(r'tvg-logo="([^"]*)"', line)
-                if m_logo: logo = m_logo.group(1)
-                
+                # Extract Group Title
                 grp = ""
                 m_grp = re.search(r'group-title="([^"]*)"', line)
-                if m_grp: grp = m_grp.group(1).lower()
+                if m_grp: grp = m_grp.group(1)
 
+                # SANITIZE GROUP: Fix the "Raw Github" error
+                # If group is empty OR looks like a URL, force it to "Others"
+                if not grp or "http" in grp or "github" in grp:
+                    grp = "Others"
+
+                # 3. Capture Link
                 link = ""
                 if i + 1 < len(lines):
                     pot_link = lines[i+1].strip()
@@ -137,153 +62,58 @@ def get_source_data():
 
                 if link:
                     items.append({
-                        'name': raw_name,
-                        'simple': simple,
-                        'logo': logo,
-                        'group_src': grp,
+                        'line_raw': line, # Keep original line info
+                        'group_clean': grp,
                         'link': link,
                         'props': current_props
                     })
                 
-                current_props = [] 
+                current_props = [] # Reset for next channel
         
-        print(f"✅ Source Loaded: {len(items)} channels found.")
-        
+        print(f"✅ Source Loaded: {len(items)} channels.")
+        return items
+
     except Exception as e:
-        print(f"❌ Failed to load source: {e}")
+        print(f"❌ Error: {e}")
         sys.exit(1)
-        
-    return items
-
-def determine_group(name, src_group):
-    name = name.lower()
-    src_group = src_group.lower()
-
-    if "vijay takkar" in name: return "Tamil SD"
-    if "cn hd+" in name and "tamil" in name: return "Kids"
-    if "star sports" in name and "tamil" in name: return "Sports HD"
-
-    if "tamil" in name or "tamil" in src_group:
-        if "news" in name: return "Tamil News"
-        if "hd" in name: return "Tamil HD"
-        return "Tamil SD"
-
-    if "sport" in name or "cricket" in name or "sport" in src_group:
-        if "hd" in name: return "Sports HD"
-        return "Sports SD"
-
-    if "news" in name or "news" in src_group: return "English and Hindi News"
-
-    info_keys = ["discovery", "nat geo", "animal planet", "history", "tlc", "travelxp", "bbc earth"]
-    if any(k in name for k in info_keys) or "documentary" in src_group:
-        if "hd" in name: return "Infotainment HD"
-        return "Infotainment SD"
-
-    if "movie" in name or "cinema" in name or "film" in name or "pix" in name or "mn" in name or "gold" in name:
-        if "hd" in name:
-            if any(x in name for x in ["star", "zee", "set", "color"]): return "Hindi Movies HD"
-            return "English Movies HD"
-
-    if any(k in name for k in ["cartoon", "pogo", "nick", "disney", "sonic", "hungama", "kids"]):
-        return "Kids"
-
-    return "Others"
 
 def main():
     source_items = get_source_data()
     
-    # TIMESTAMP
+    # Header
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U"]
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    added_ids = set() 
-    
-    # 1. PRIORITY CHANNELS (Find best match with Keys)
-    print("\n1️⃣  Processing Master List...")
-    for target_group, target_name in MASTER_CHANNELS:
-        target_simple = simplified_name(target_name)
-        
-        candidates = [i for i in source_items if i['simple'] == target_simple or target_simple in i['simple']]
-        
-        best_match = None
-        if candidates:
-            # Prefer items with Props (Keys) first
-            for c in candidates:
-                if c['props']: best_match = c; break
-            if not best_match: best_match = candidates[0]
-
-        if best_match:
-            final_lines.extend(best_match['props'])
-            line = f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{best_match["logo"]}",{target_name}'
-            final_lines.append(line)
-            
-            lnk = best_match['link']
-            # ASTRO FIX
-            if "astro" in target_name.lower() and "http" in lnk:
-                if "|" in lnk: lnk = lnk.split("|")[0]
-                lnk += f"|User-Agent={UA_BROWSER}"
-            final_lines.append(lnk)
-            
-            added_ids.add(best_match['simple'])
-        else:
-            print(f"   ⚠️ Channel Not Found: {target_name}")
-
-    # 2. ALL REMAINING CHANNELS (Extras)
-    print("\n2️⃣  Adding Extras (Restoring everything else)...")
-    count = 0
+    # PROCESS EVERY SINGLE CHANNEL
     for item in source_items:
-        if item['simple'] in added_ids: continue
-        
-        name_lower = item['name'].lower()
-        grp_lower = item['group_src'].lower()
-
-        # REMOVAL FILTERS (Minimal - only removing garbage)
-        if any(bad in name_lower for bad in BAD_KEYWORDS) or any(bad in grp_lower for bad in BAD_KEYWORDS):
-            if "rasi" in name_lower: pass 
-            else: continue 
-
-        # Simple HD vs SD Logic (Don't add SD if HD is already there)
-        is_sd = "hd" not in item['simple']
-        if is_sd:
-            potential_hd = item['simple'] + "hd"
-            if potential_hd in added_ids: continue
-
-        final_group = determine_group(item['name'], item['group_src'])
-        
+        # 1. Add License Keys (if any)
         final_lines.extend(item['props'])
-        line = f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{item["logo"]}",{item["name"]}'
-        final_lines.append(line)
+
+        # 2. Rebuild #EXTINF Line with Clean Group
+        # We strip the old group-title and add our clean one
+        old_line = item['line_raw']
+        old_line = re.sub(r'group-title="[^"]*"', '', old_line) # Remove old group
+        # Insert new group safely
+        new_line = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{item["group_clean"]}"', old_line)
+        final_lines.append(new_line)
+
+        # 3. Add Link (With Astro Fix)
+        link = item['link']
         
-        # UNIVERSAL PLAYBACK FIX (For Cinemania/Cinema etc)
-        lnk = item['link']
-        if not item['props'] and "http" in lnk:
-             if "|" in lnk: lnk = lnk.split("|")[0]
-             lnk += f"|User-Agent={UA_BROWSER}"
-        final_lines.append(lnk)
-            
-        added_ids.add(item['simple'])
-        count += 1
+        # FIX: If it is Astro/Cinemania and has NO license keys, it likely needs a Browser Header
+        # We check "http" to ensure we don't break local files or rtmp
+        is_jio_zee = len(item['props']) > 0
+        if not is_jio_zee and "http" in link:
+             # Check if we need to fix Astro or Web channels
+             if "astro" in new_line.lower() or "cinema" in new_line.lower():
+                 if "|" in link: link = link.split("|")[0] # Clean existing params
+                 link += f"|User-Agent={UA_BROWSER}"
         
-    print(f"   ✅ Added {count} extra channels.")
+        final_lines.append(link)
 
-    print("\n3️⃣  Adding Live Events & Temp...")
-    def add_ext(url, g):
-        try:
-            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
-            if r.status_code == 200:
-                for l in r.text.splitlines():
-                    if l.startswith("#EXTINF"):
-                        l = re.sub(r'group-title="[^"]*"', '', l)
-                        l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{g}"', l)
-                    final_lines.append(l)
-        except: pass
-
-    add_ext(FANCODE_URL, "Live events")
-    add_ext(SONY_LIVE_URL, "Live events")
-    add_ext(ZEE_LIVE_URL, "Live events")
-
+    # 4. Add Temporary Channels (Youtube.txt)
     if os.path.exists(YOUTUBE_FILE):
         with open(YOUTUBE_FILE, "r") as f:
             for l in f:
@@ -293,8 +123,9 @@ def main():
                         final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",{parts[1].strip()}')
                 elif l.startswith("http"): final_lines.append(l.strip())
 
+    # Save
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
-    print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
+    print(f"\n✅ DONE. Saved to {OUTPUT_FILE} ({len(source_items)} channels)")
 
 if __name__ == "__main__":
     main()
