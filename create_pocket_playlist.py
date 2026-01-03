@@ -15,7 +15,14 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# MASTER LIST (Priority Channels)
+# HEADERS
+# Astro needs this specific browser header to play
+UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+# EXCLUSION LIST (Delete these)
+BAD_KEYWORDS = ["hits", "tata play", "tataplay", "local", "kannada", "malayalam", "telugu", "bengali", "marathi", "gujarati", "odia", "punjabi", "urdu"]
+
+# MASTER LIST (Your Priority Layout)
 MASTER_CHANNELS = [
     # --- SPORTS HD ---
     ("Sports HD", "Star Sports 1 HD"), ("Sports HD", "Star Sports 2 HD"),
@@ -60,13 +67,10 @@ MASTER_CHANNELS = [
     ("English and Hindi News", "India Today"), ("English and Hindi News", "CNN News18"),
     ("English and Hindi News", "Republic TV"), ("English and Hindi News", "Aaj Tak"),
 
-    # --- OTHERS (Entertainment/Regional) ---
+    # --- OTHERS ---
     ("Others", "Star Plus HD"), ("Others", "Sony SET HD"),
     ("Others", "Sony SAB HD"), ("Others", "Zee TV HD"),
     ("Others", "Colors HD"), ("Others", "Star Bharat HD"),
-    ("Others", "Asianet HD"), ("Others", "Surya TV HD"),
-    ("Others", "Star Maa HD"), ("Others", "Zee Telugu HD"),
-    ("Others", "Colors Kannada HD"), ("Others", "Zee Kannada HD"),
     
     # --- KIDS ---
     ("Others", "Nick"), ("Others", "Sonic"), ("Others", "Hungama"),
@@ -129,6 +133,10 @@ def determine_group(name, src_group):
     name = name.lower()
     src_group = src_group.lower()
     
+    # Filter "Garbage" Groups (URLs or Raw text)
+    if "http" in src_group or "github" in src_group:
+        src_group = "" # Reset bad group name
+
     if "tamil" in name or "tamil" in src_group:
         if "news" in name: return "Tamil News"
         if "hd" in name: return "Tamil HD"
@@ -169,7 +177,6 @@ def main():
         
         candidates = [b for b in source_blocks if b['simple'] == target_simple or target_simple in b['simple']]
         
-        # Pick best match (prefer keys)
         best_match = None
         if candidates:
             for c in candidates:
@@ -177,13 +184,16 @@ def main():
             if not best_match: best_match = candidates[0]
 
         if best_match:
-            # COPY EXACTLY (Clone Mode)
             new_lines = []
             for l in best_match['lines']:
                 if l.startswith("#EXTINF"):
-                    # Only modify Group Title
                     l = re.sub(r'group-title="[^"]*"', '', l) 
                     l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{target_group}"')
+                elif not l.startswith("#"):
+                    # ASTRO FIX: Force Browser Agent
+                    if "astro" in target_name.lower() and "http" in l:
+                        if "|" in l: l = l.split("|")[0] # Remove existing UA
+                        l += f"|User-Agent={UA_BROWSER}"
                 new_lines.append(l)
             
             final_lines.extend(new_lines)
@@ -192,36 +202,45 @@ def main():
             print(f"   ⚠️ Channel Not Found: {target_name}")
 
     # -------------------------------------------
-    # 2. ADD REMAINING
+    # 2. ADD REMAINING (Clean & Sort)
     # -------------------------------------------
-    print("\n2️⃣  Categorizing Remaining Channels...")
+    print("\n2️⃣  Cleaning & Sorting Extras...")
     
     count = 0
     for b in source_blocks:
-        # 1. Duplicate Check
+        # A. Duplicate Check
         if b['simple'] in added_ids: continue
         
-        # 2. FILTER: LOCAL CHANNELS (Except Rasi)
-        if "local" in b['group']:
-            if "rasi" not in b['name'].lower():
-                continue # Delete channel
-        
-        # 3. HD vs SD Logic
+        name_lower = b['name'].lower()
+        grp_lower = b['group'].lower()
+
+        # B. REMOVAL FILTERS (Strict)
+        # 1. Keywords (Hits, Tata Play, Languages)
+        if any(bad in name_lower for bad in BAD_KEYWORDS) or any(bad in grp_lower for bad in BAD_KEYWORDS):
+            # EXCEPTION: Keep "Rasi" even if group is Local
+            if "rasi" in name_lower: pass 
+            else: continue 
+
+        # 2. HD vs SD Logic (Skip SD if HD exists)
         is_sd = "hd" not in b['simple']
         if is_sd:
             potential_hd = b['simple'] + "hd"
-            if potential_hd in added_ids:
-                continue
+            if potential_hd in added_ids: continue
 
-        # Determine Group
+        # C. Categorize
         final_group = determine_group(b['name'], b['group'])
         
-        # Write Block
+        # D. Write Block
         new_lines = []
         for l in b['lines']:
             if l.startswith("#EXTINF"):
                 l = re.sub(r'group-title="[^"]*"', '', l)
                 l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{final_group}"')
+            elif not l.startswith("#"):
+                 # ASTRO FIX: Force Browser Agent for extras too
+                 if "astro" in name_lower and "http" in l:
+                     if "|" in l: l = l.split("|")[0]
+                     l += f"|User-Agent={UA_BROWSER}"
             new_lines.append(l)
             
         final_lines.extend(new_lines)
