@@ -18,7 +18,7 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 # HEADERS
 UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-# EXCLUSION LIST (Removed 'apac' to restore missing channels)
+# EXCLUSION LIST (APAC is REMOVED from here, so those channels will come back)
 BAD_KEYWORDS = [
     "hits", "tata play", "tataplay", "local", "fm", "radio", 
     "pluto", "yupp", "usa", "overseas", "cinemania", "cinema", 
@@ -37,8 +37,6 @@ MASTER_CHANNELS = [
     ("Sports HD", "Sports18 1 HD"), ("Sports HD", "Eurosport HD"),
     ("Sports HD", "Astro Cricket"), ("Sports HD", "Willow Cricket"),
     ("Sports HD", "Sky Sports Cricket"),
-    
-    # MOVED ITEMS
     ("Sports HD", "Star Sports 1 Tamil HD"), ("Sports HD", "Star Sports 2 Tamil HD"),
 
     # --- TAMIL HD ---
@@ -79,7 +77,7 @@ MASTER_CHANNELS = [
 
     # --- OTHERS ---
     ("Others", "Star Plus HD"), ("Others", "Sony SET HD"),
-    ("Others", "Sony SAB HD"), ("Others", "Zee TV HD"),
+    ("Others", "Others", "Sony SAB HD"), ("Others", "Zee TV HD"),
     ("Others", "Colors HD"), ("Others", "Star Bharat HD"),
     
     # --- KIDS ---
@@ -94,12 +92,9 @@ MASTER_CHANNELS = [
 # ==========================================
 
 def simplified_name(name):
-    """
-    Strips special characters but KEEPS text inside brackets.
-    'Sun TV (HD)' -> 'suntvhd' (Matches 'Sun TV HD')
-    """
     if not name: return ""
-    # Only remove non-alphanumeric characters
+    # Only remove non-alphanumeric characters. 
+    # This ensures 'Sun TV (HD)' becomes 'suntvhd', matching our 'Sun TV HD' target.
     return re.sub(r'[^a-z0-9]', '', name.lower())
 
 def get_source_data():
@@ -212,7 +207,7 @@ def main():
         target_simple = simplified_name(target_name)
         
         # FIND BEST MATCH
-        # Check if Target matches Source OR Source matches Target (Fuzzy)
+        # Use simple inclusion to match 'Sun TV (HD)' [suntvhd] with 'Sun TV HD' [suntvhd]
         candidates = [i for i in source_items if i['simple'] == target_simple or target_simple in i['simple']]
         
         best_match = None
@@ -253,7 +248,7 @@ def main():
         name_lower = item['name'].lower()
         grp_lower = item['group_src'].lower()
 
-        # REMOVAL FILTERS (Removed apac from here)
+        # REMOVAL FILTERS (No APAC in list!)
         if any(bad in name_lower for bad in BAD_KEYWORDS) or any(bad in grp_lower for bad in BAD_KEYWORDS):
             if "rasi" in name_lower: pass 
             else: continue 
@@ -262,6 +257,7 @@ def main():
         is_sd = "hd" not in item['simple']
         if is_sd:
             potential_hd = item['simple'] + "hd"
+            # If HD version exists in added_ids, skip SD
             if potential_hd in added_ids: continue
 
         # CATEGORIZE
@@ -274,7 +270,7 @@ def main():
         line = f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{item["logo"]}",{item["name"]}'
         final_lines.append(line)
         
-        # WRITE LINK (Universal Browser Fix for non-key channels)
+        # WRITE LINK
         lnk = item['link']
         if not item['props'] and "http" in lnk:
              if "|" in lnk: lnk = lnk.split("|")[0]
@@ -296,7 +292,6 @@ def main():
             r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
             for l in r.text.splitlines():
                 if l.startswith("#EXTINF"):
-                    # Rebuild live event lines
                     l = re.sub(r'group-title="[^"]*"', '', l)
                     l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{g}"', l)
                 final_lines.append(l)
