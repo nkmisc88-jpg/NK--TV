@@ -21,7 +21,7 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 # 3. FILTERS
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas"]
 
-# Astro GO Allow List (Only keep these 6)
+# Astro GO Allow List
 ASTRO_KEEP = [
     "vinmeen", "thangathirai", "vaanavil", 
     "vasantham", "vellithirai", "sports plus"
@@ -133,48 +133,27 @@ def main():
     final_lines.extend(fetch_live_events(SONY_LIVE_URL, "Sony Live"))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL, "Zee Live"))
 
-    # 5. ADD TEMPORARY CHANNELS (ROBUST FIX)
+    # 5. ADD TEMPORARY CHANNELS (FIXED)
     if os.path.exists(YOUTUBE_FILE):
         print("📥 Appending youtube.txt...")
         with open(YOUTUBE_FILE, "r") as f:
-            yt_lines = f.read().splitlines()
+            yt_lines = f.readlines()
             
-        pending_name = "Temporary Channel"
-        pending_extinf = None
-        
-        for line in yt_lines:
-            line = line.strip()
-            if not line: continue
+        for i in range(len(yt_lines)):
+            line = yt_lines[i].strip()
             
-            # Case A: It's an M3U header
-            if line.startswith("#EXTINF"):
-                # Force group to Temporary Channels
-                if 'group-title="' in line:
-                    line = re.sub(r'group-title="([^"]*)"', 'group-title="Temporary Channels"', line)
-                else:
-                    line = line.replace("#EXTINF:-1", '#EXTINF:-1 group-title="Temporary Channels"')
-                pending_extinf = line
-                pending_name = None # Clear text name since we have EXTINF
-
-            # Case B: It's a URL
-            elif line.startswith("http") or line.startswith("rtmp"):
-                # If we have a pending EXTINF (from Case A), use it
-                if pending_extinf:
-                    final_lines.append(pending_extinf)
-                    pending_extinf = None
-                # If we have a pending text name (from Case C), generate EXTINF
-                elif pending_name:
-                     final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels",{pending_name}')
-                else:
-                     # Fallback if just a bare URL
-                     final_lines.append('#EXTINF:-1 group-title="Temporary Channels",Temporary Channel')
+            # If line is a URL
+            if line.startswith("http") or line.startswith("rtmp"):
+                # Get name from previous line, or default
+                name = "Temporary Channel"
+                if i > 0:
+                    prev = yt_lines[i-1].strip()
+                    if prev and not prev.startswith("http") and not prev.startswith("#"):
+                        name = prev
                 
+                # FORCE GROUP TITLE
+                final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",{name}')
                 final_lines.append(line)
-                pending_name = "Temporary Channel" # Reset
-
-            # Case C: It's just text (The Name)
-            elif not line.startswith("#"):
-                pending_name = line
 
     # SAVE
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
