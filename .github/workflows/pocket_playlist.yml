@@ -2,14 +2,17 @@ name: Pocket Playlist Generator
 
 on:
   schedule:
-    - cron: '0 */3 * * *' # Run every 3 hours
-  workflow_dispatch:      # Manual run button
+    - cron: '*/15 * * * *' # Run every 15 minutes
+  workflow_dispatch:       # Manual run button
+  push:
+    paths:
+      - 'create_pocket_playlist.py' # Run immediately when script is changed
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    permissions:          # Give permission to write files
+    permissions:
       contents: write
 
     steps:
