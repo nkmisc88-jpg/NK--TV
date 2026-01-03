@@ -18,10 +18,10 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 # HEADERS
 UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-# EXCLUSION LIST (Now includes 'apac')
+# EXCLUSION LIST (Garbage Collection)
 BAD_KEYWORDS = [
     "hits", "tata play", "tataplay", "local", "fm", "radio", 
-    "pluto", "yupp", "usa", "overseas", "cinemania", "cinema", "apac",
+    "pluto", "yupp", "usa", "overseas", "cinemania", "cinema", "apac", # Added apac
     "kannada", "malayalam", "telugu", "bengali", "marathi", 
     "gujarati", "odia", "punjabi", "urdu", "nepali"
 ]
@@ -38,7 +38,7 @@ MASTER_CHANNELS = [
     ("Sports HD", "Astro Cricket"), ("Sports HD", "Willow Cricket"),
     ("Sports HD", "Sky Sports Cricket"),
     
-    # MOVED ITEMS
+    # MOVED ITEMS (Star Sports Tamil moved here)
     ("Sports HD", "Star Sports 1 Tamil HD"), ("Sports HD", "Star Sports 2 Tamil HD"),
 
     # --- TAMIL HD ---
@@ -50,7 +50,7 @@ MASTER_CHANNELS = [
     ("Tamil HD", "Astro Thangathirai"), ("Tamil HD", "Astro Vellithirai"),
 
     # --- TAMIL SD ---
-    ("Tamil SD", "Vijay Takkar"),
+    ("Tamil SD", "Vijay Takkar"), # Moved here as requested
 
     # --- INFOTAINMENT HD ---
     ("Infotainment HD", "Discovery HD"), ("Infotainment HD", "Animal Planet HD"),
@@ -83,7 +83,7 @@ MASTER_CHANNELS = [
     ("Others", "Colors HD"), ("Others", "Star Bharat HD"),
     
     # --- KIDS ---
-    ("Kids", "CN HD+ Tamil"),
+    ("Kids", "CN HD+ Tamil"), # Moved to Kids
     ("Kids", "Nick"), ("Kids", "Sonic"), ("Kids", "Hungama"),
     ("Kids", "Disney Channel"), ("Kids", "Cartoon Network"),
     ("Kids", "Pogo"), ("Kids", "Sony Yay"), ("Kids", "Discovery Kids")
@@ -111,22 +111,28 @@ def get_source_data():
                 line = lines[i].strip()
                 if not line: continue
                 
+                # 1. Capture Props
                 if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT"):
                     current_props.append(line)
                     continue
 
+                # 2. Capture Info
                 if line.startswith("#EXTINF"):
+                    # Extract Name
                     raw_name = line.split(",")[-1].strip()
                     simple = simplified_name(raw_name)
                     
+                    # Extract Logo
                     logo = ""
                     m_logo = re.search(r'tvg-logo="([^"]*)"', line)
                     if m_logo: logo = m_logo.group(1)
                     
+                    # Extract Source Group
                     grp = ""
                     m_grp = re.search(r'group-title="([^"]*)"', line)
                     if m_grp: grp = m_grp.group(1).lower()
 
+                    # 3. Capture Link (Next Line)
                     link = ""
                     if i + 1 < len(lines):
                         pot_link = lines[i+1].strip()
@@ -143,7 +149,7 @@ def get_source_data():
                             'props': current_props
                         })
                     
-                    current_props = []
+                    current_props = [] # Reset
     except Exception as e:
         print(f"   ❌ Failed to load source: {e}")
     return items
@@ -153,10 +159,12 @@ def determine_group(name, src_group):
     name = name.lower()
     src_group = src_group.lower()
 
+    # FORCE MOVES (Overrides everything else)
     if "vijay takkar" in name: return "Tamil SD"
     if "cn hd+" in name and "tamil" in name: return "Kids"
     if "star sports" in name and "tamil" in name: return "Sports HD"
 
+    # LOGIC FLOW
     if "tamil" in name or "tamil" in src_group:
         if "news" in name: return "Tamil News"
         if "hd" in name: return "Tamil HD"
@@ -178,7 +186,8 @@ def determine_group(name, src_group):
             if any(x in name for x in ["star", "zee", "set", "color"]): return "Hindi Movies HD"
             return "English Movies HD"
 
-    if any(k in name for k in ["cartoon", "pogo", "nick", "disney", "sonic", "hungama", "kids"]):
+    # KIDS
+    if any(k in name for k in ["cartoon", "pogo", "nick", "disney", "sonic", "hungama", "kids", "cn hd+"]):
         return "Kids"
 
     return "Others"
@@ -191,24 +200,32 @@ def main():
 
     added_ids = set() 
     
+    # -------------------------------------------
+    # 1. MASTER LIST (Priority)
+    # -------------------------------------------
     print("\n1️⃣  Processing Master List...")
     for target_group, target_name in MASTER_CHANNELS:
         target_simple = simplified_name(target_name)
         
+        # FIND BEST MATCH
         candidates = [i for i in source_items if i['simple'] == target_simple or target_simple in i['simple']]
         
         best_match = None
         if candidates:
+            # Prefer keys
             for c in candidates:
                 if c['props']: best_match = c; break
             if not best_match: best_match = candidates[0]
 
         if best_match:
+            # WRITE PROPS
             final_lines.extend(best_match['props'])
             
+            # REBUILD EXTINF (Fixes 'Raw Github' issue)
             line = f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{best_match["logo"]}",{target_name}'
             final_lines.append(line)
             
+            # WRITE LINK (Apply Astro Fix)
             lnk = best_match['link']
             if "astro" in target_name.lower() and "http" in lnk:
                 if "|" in lnk: lnk = lnk.split("|")[0]
@@ -219,7 +236,11 @@ def main():
         else:
             print(f"   ⚠️ Channel Not Found: {target_name}")
 
+    # -------------------------------------------
+    # 2. EXTRAS (Clean & Sort)
+    # -------------------------------------------
     print("\n2️⃣  Cleaning & Sorting Extras...")
+    
     count = 0
     for item in source_items:
         if item['simple'] in added_ids: continue
@@ -227,23 +248,28 @@ def main():
         name_lower = item['name'].lower()
         grp_lower = item['group_src'].lower()
 
-        # REMOVAL FILTERS (Added 'apac')
+        # REMOVAL FILTERS
         if any(bad in name_lower for bad in BAD_KEYWORDS) or any(bad in grp_lower for bad in BAD_KEYWORDS):
             if "rasi" in name_lower: pass 
             else: continue 
 
+        # HD vs SD Logic
         is_sd = "hd" not in item['simple']
         if is_sd:
             potential_hd = item['simple'] + "hd"
             if potential_hd in added_ids: continue
 
+        # CATEGORIZE
         final_group = determine_group(item['name'], item['group_src'])
         
+        # WRITE PROPS
         final_lines.extend(item['props'])
         
+        # REBUILD EXTINF (New Group)
         line = f'#EXTINF:-1 group-title="{final_group}" tvg-logo="{item["logo"]}",{item["name"]}'
         final_lines.append(line)
         
+        # WRITE LINK (Universal Browser Fix for non-key channels)
         lnk = item['link']
         if not item['props'] and "http" in lnk:
              if "|" in lnk: lnk = lnk.split("|")[0]
@@ -255,12 +281,17 @@ def main():
         
     print(f"   ✅ Added {count} extra channels.")
 
+    # -------------------------------------------
+    # 3. LIVE & TEMP
+    # -------------------------------------------
     print("\n3️⃣  Adding Live Events & Temp...")
+    
     def add_ext(url, g):
         try:
             r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
             for l in r.text.splitlines():
                 if l.startswith("#EXTINF"):
+                    # Rebuild live event lines too to be safe
                     l = re.sub(r'group-title="[^"]*"', '', l)
                     l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{g}"', l)
                 final_lines.append(l)
