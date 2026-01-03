@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-02 23:48:18
+# Updated on: 2026-01-03 01:31:40
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,15 +846,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767357003~exp=1767443403~acl=/*~hmac=ca7935652176f8008e8eeca1bb2f2a4c93e3e6d381b758e1beed6832dc407a1b"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767357003~exp=1767443403~acl=/*~hmac=ca7935652176f8008e8eeca1bb2f2a4c93e3e6d381b758e1beed6832dc407a1b&xxx=||cookie=__hdnea__=st=1767357003~exp=1767443403~acl=/*~hmac=ca7935652176f8008e8eeca1bb2f2a4c93e3e6d381b758e1beed6832dc407a1b
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 3 January 2026 at 5:14:05 am
+#DATE:- Saturday, 3 January 2026 at 7:00:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138771" tvg-name="Central Hinds Vs Canterbury Magicians" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138771_5801_CH-W_CM-W_fc-web_1766596522078.jpg" tvg-language="ENGLISH" ,ENG | Central Hinds Vs Canterbury Magicians
 https://in-mc-fdlive.fancode.com/mumbai/138771_english_hls_927149832076500_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 03-01-2026 05:00
+#EXTINF:-1 group-title="Live Events" tvg-id="139164" tvg-name="Boston Vs Los Angeles" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png" tvg-language="ENGLISH" ,ENG | Boston Vs Los Angeles
+https://in-mc-fdlive.fancode.com/mumbai/139164_english_hls_e73df5a93a99098_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 03-01-2026 07:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498797" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012864/1767337389784631_UC26_France_vs_Switzerland_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | France vs Switzerland - 3 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767443401~acl=/*~id=1f3ce9d67876798a0af2991c65ba839d-1767400200159~hmac=74896af97658934c32da3a161405b468a978e5d50b13ac8610db9dd0cb5ad301|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; G26; Build/TP1A.220624.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=09e6e36f4d1dfcd8c5ee957e47b0e191-1767403809754
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498574" tvg-name="Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012758/1766829392461385_SuperSmash2526_womens_Central-Hinds-vs-Canterbury-Magicians_27dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Central Hinds vs Canterbury Magicians - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767421801~acl=/*~id=e116f91abef93026a51438d957fe40b0-1767378600093~hmac=384612708ef275f9d6c22f10f9a163469182d986b26abfefd5c969a212889135|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; SM-M017F; Build/RP1A.200720.012)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=014a2dc1eff6ec314f467c9a4a262963-1767396607898
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767443401~acl=/*~id=1f3ce9d67876798a0af2991c65ba839d-1767400200159~hmac=74896af97658934c32da3a161405b468a978e5d50b13ac8610db9dd0cb5ad301|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; SM-X900; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=09e6e36f4d1dfcd8c5ee957e47b0e191-1767403809754
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498764" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012862/176733628664789_UC26_Belgium_vs_China_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Belgium vs China - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767421801~acl=/*~id=e116f91abef93026a51438d957fe40b0-1767378600093~hmac=384612708ef275f9d6c22f10f9a163469182d986b26abfefd5c969a212889135|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; 2310FPCA4I; Build/UP1A.231005.007)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=014a2dc1eff6ec314f467c9a4a262963-1767396607898
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767443401~acl=/*~id=1f3ce9d67876798a0af2991c65ba839d-1767400200159~hmac=74896af97658934c32da3a161405b468a978e5d50b13ac8610db9dd0cb5ad301|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; I32101IE; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=09e6e36f4d1dfcd8c5ee957e47b0e191-1767403809754
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 3/1/2026, 00:15:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
