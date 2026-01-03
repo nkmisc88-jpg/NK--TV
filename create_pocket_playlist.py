@@ -15,10 +15,6 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# HEADERS
-# Only used for Astro. For others, we trust the source keys (#KODIPROP).
-UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-
 # MASTER LIST (Priority Channels)
 MASTER_CHANNELS = [
     # --- SPORTS HD ---
@@ -100,7 +96,6 @@ def get_source_blocks():
                 line = line.strip()
                 if not line: continue
                 
-                # Capture all lines relevant to the channel
                 if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT") or line.startswith("#EXTINF"):
                     current_block.append(line)
                 elif not line.startswith("#"):
@@ -163,7 +158,7 @@ def main():
     final_lines = ["#EXTM3U"]
     final_lines.append("http://0.0.0.0")
 
-    added_ids = set() # Track added IDs to prevent duplicates
+    added_ids = set() 
     
     # -------------------------------------------
     # 1. MASTER LIST (Priority)
@@ -174,7 +169,7 @@ def main():
         
         candidates = [b for b in source_blocks if b['simple'] == target_simple or target_simple in b['simple']]
         
-        # Pick best match (prefer keys/HD)
+        # Pick best match (prefer keys)
         best_match = None
         if candidates:
             for c in candidates:
@@ -182,17 +177,13 @@ def main():
             if not best_match: best_match = candidates[0]
 
         if best_match:
-            # COPY EXACTLY (Don't break the keys!)
+            # COPY EXACTLY (Clone Mode)
             new_lines = []
             for l in best_match['lines']:
                 if l.startswith("#EXTINF"):
-                    # Only modify the group-title
+                    # Only modify Group Title
                     l = re.sub(r'group-title="[^"]*"', '', l) 
                     l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{target_group}"')
-                elif not l.startswith("#"):
-                    # ONLY Fix Astro. Leave others alone.
-                    if "astro" in target_name.lower() and "http" in l and "|" not in l:
-                        l += f"|User-Agent={UA_BROWSER}"
                 new_lines.append(l)
             
             final_lines.extend(new_lines)
@@ -201,7 +192,7 @@ def main():
             print(f"   ⚠️ Channel Not Found: {target_name}")
 
     # -------------------------------------------
-    # 2. ADD REMAINING (Smart HD vs SD Logic)
+    # 2. ADD REMAINING
     # -------------------------------------------
     print("\n2️⃣  Categorizing Remaining Channels...")
     
@@ -210,13 +201,16 @@ def main():
         # 1. Duplicate Check
         if b['simple'] in added_ids: continue
         
-        # 2. HD vs SD Logic
-        # If this is "suntv" (SD), check if "suntvhd" is already added.
+        # 2. FILTER: LOCAL CHANNELS (Except Rasi)
+        if "local" in b['group']:
+            if "rasi" not in b['name'].lower():
+                continue # Delete channel
+        
+        # 3. HD vs SD Logic
         is_sd = "hd" not in b['simple']
         if is_sd:
             potential_hd = b['simple'] + "hd"
             if potential_hd in added_ids:
-                # print(f"   Skipping {b['name']} (HD version already exists)")
                 continue
 
         # Determine Group
@@ -228,10 +222,6 @@ def main():
             if l.startswith("#EXTINF"):
                 l = re.sub(r'group-title="[^"]*"', '', l)
                 l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{final_group}"')
-            elif not l.startswith("#"):
-                 # ONLY Fix Astro. Leave others alone.
-                 if "astro" in b['name'].lower() and "http" in l and "|" not in l:
-                     l += f"|User-Agent={UA_BROWSER}"
             new_lines.append(l)
             
         final_lines.extend(new_lines)
