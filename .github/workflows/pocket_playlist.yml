@@ -2,12 +2,15 @@ name: Pocket Playlist Generator
 
 on:
   schedule:
-    - cron: '0 */3 * * *' # Runs every 3 hours
-  workflow_dispatch:      # Allows manual run button
+    - cron: '0 */3 * * *' # Run every 3 hours
+  workflow_dispatch:      # Manual run button
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:          # Give permission to write files
+      contents: write
 
     steps:
       - name: Checkout Code
@@ -26,19 +29,10 @@ jobs:
       - name: Run Pocket Script
         run: python create_pocket_playlist.py
 
-      - name: Commit and Push
+      - name: Force Push Changes
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          
-          # 1. Stage the file
           git add pocket_playlist.m3u
-          
-          # 2. Commit the file (Save it locally)
-          git commit -m "Auto-update Pocket Playlist" || echo "No changes to commit"
-          
-          # 3. Pull latest changes (Rebase on top of our new commit)
-          git pull --rebase origin main
-          
-          # 4. Push final result
-          git push
+          git commit -m "Auto-update Playlist" || echo "No changes to commit"
+          git push --force origin main
