@@ -16,7 +16,6 @@ SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/h
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
 # HEADERS
-# Astro needs this specific browser header to play
 UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # EXCLUSION LIST (Strict Clean-up)
@@ -88,7 +87,6 @@ MASTER_CHANNELS = [
 
 def simplified_name(name):
     if not name: return ""
-    # Strip everything except letters and numbers for strict duplicate checking
     name = re.sub(r'[\(\[\{].*?[\)\]\}]', '', name.lower())
     return re.sub(r'[^a-z0-9]', '', name)
 
@@ -140,7 +138,7 @@ def determine_group(name, src_group):
     
     # 1. FIX "RAW GITHUB" GROUPS
     if "http" in src_group or "github" in src_group or "iptv" in src_group:
-        src_group = "" # Treat as empty/unknown
+        src_group = ""
 
     if "tamil" in name or "tamil" in src_group:
         if "news" in name: return "Tamil News"
@@ -192,13 +190,14 @@ def main():
             new_lines = []
             for l in best_match['lines']:
                 if l.startswith("#EXTINF"):
-                    # Only modify Group Title
-                    l = re.sub(r'group-title="[^"]*"', '', l) 
-                    l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{target_group}"')
+                    # 1. Remove old group
+                    l = re.sub(r'group-title="[^"]*"', '', l)
+                    # 2. Insert new group (The FIX for "Raw Github" bug)
+                    # Uses regex to insert group-title right after #EXTINF:-1 or #EXTINF:0
+                    l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{target_group}"', l)
                 elif not l.startswith("#"):
-                    # ASTRO FIX: Cleanly replace UA
+                    # ASTRO FIX
                     if "astro" in target_name.lower() and "http" in l:
-                        # Remove existing params after |
                         if "|" in l: l = l.split("|")[0] 
                         l += f"|User-Agent={UA_BROWSER}"
                 new_lines.append(l)
@@ -215,36 +214,31 @@ def main():
     
     count = 0
     for b in source_blocks:
-        # A. Duplicate Check
         if b['simple'] in added_ids: continue
         
         name_lower = b['name'].lower()
         grp_lower = b['group'].lower()
 
-        # B. REMOVAL FILTERS (Strict)
-        # 1. Keywords
+        # REMOVAL FILTERS
         if any(bad in name_lower for bad in BAD_KEYWORDS) or any(bad in grp_lower for bad in BAD_KEYWORDS):
             if "rasi" in name_lower: pass 
             else: continue 
 
-        # 2. HD vs SD Logic (Skip SD if HD exists)
+        # HD vs SD Logic
         is_sd = "hd" not in b['simple']
         if is_sd:
             potential_hd = b['simple'] + "hd"
-            # Check if HD version was already added in Master List or Extras
             if potential_hd in added_ids: continue
 
-        # C. Categorize
         final_group = determine_group(b['name'], b['group'])
         
-        # D. Write Block
         new_lines = []
         for l in b['lines']:
             if l.startswith("#EXTINF"):
                 l = re.sub(r'group-title="[^"]*"', '', l)
-                l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{final_group}"')
+                # Universal Regex Fix here too
+                l = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{final_group}"', l)
             elif not l.startswith("#"):
-                 # ASTRO FIX: Cleanly replace UA for extras too
                  if "astro" in name_lower and "http" in l:
                      if "|" in l: l = l.split("|")[0]
                      l += f"|User-Agent={UA_BROWSER}"
