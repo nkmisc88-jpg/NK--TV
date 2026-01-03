@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-04 03:19:30 IST
+# Last Updated: 2026-01-04 04:11:09 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -2517,14 +2517,6 @@ https://stream.zeno.fm/nka8zm9x1oouv
 https://stream.zeno.fm/nzi27fhhwv3tv
 #EXTINF:-1 group-title="Tamil FM Radio",Anbu FM
 https://stream.zeno.fm/5csru2np4bruv
-#EXTINF:-1 group-title="Live Events" tvg-id="138380" tvg-name="Mali Vs Tunisia" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mali-vs-tunisia_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Mali Vs Tunisia
-https://in-mc-fdlive.fancode.com/mumbai/138380_english_hls_f82d05426848033_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="131002" tvg-name="Rcd Espanyol Vs Fc Barcelona" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131002_5427_ESL_BAR_fc-web.png" tvg-language="ENGLISH" ,ENG | Rcd Espanyol Vs Fc Barcelona
-https://in-mc-fdlive.fancode.com/mumbai/131002_english_hls_ffca0bc4321692_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="131002" tvg-name="Rcd Espanyol Vs Fc Barcelona" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131002_5427_ESL_BAR_fc-web.png" tvg-language="HINDI" ,HIN | Rcd Espanyol Vs Fc Barcelona
-https://in-mc-fdlive.fancode.com/mumbai/131002_hindi_hls_98137b5afc67080_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="131002" tvg-name="Rcd Espanyol Vs Fc Barcelona" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131002_5427_ESL_BAR_fc-web.png" tvg-language="BENGALI" ,BEN | Rcd Espanyol Vs Fc Barcelona
-https://in-mc-fdlive.fancode.com/mumbai/131002_bengali_hls_ba67f0621795600_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 Title: Fox 501
 Logo :
 Link : https://vt-ip.vodep39240327.workers.dev/1972.m3u8
