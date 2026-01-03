@@ -19,10 +19,14 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 # Astro needs this specific browser header to play
 UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-# EXCLUSION LIST (Delete these)
-BAD_KEYWORDS = ["hits", "tata play", "tataplay", "local", "kannada", "malayalam", "telugu", "bengali", "marathi", "gujarati", "odia", "punjabi", "urdu"]
+# EXCLUSION LIST (Strict Clean-up)
+BAD_KEYWORDS = [
+    "hits", "tata play", "tataplay", "local", "fm", "radio", 
+    "kannada", "malayalam", "telugu", "bengali", "marathi", 
+    "gujarati", "odia", "punjabi", "urdu", "nepali"
+]
 
-# MASTER LIST (Your Priority Layout)
+# MASTER LIST (Priority Channels)
 MASTER_CHANNELS = [
     # --- SPORTS HD ---
     ("Sports HD", "Star Sports 1 HD"), ("Sports HD", "Star Sports 2 HD"),
@@ -84,6 +88,7 @@ MASTER_CHANNELS = [
 
 def simplified_name(name):
     if not name: return ""
+    # Strip everything except letters and numbers for strict duplicate checking
     name = re.sub(r'[\(\[\{].*?[\)\]\}]', '', name.lower())
     return re.sub(r'[^a-z0-9]', '', name)
 
@@ -133,9 +138,9 @@ def determine_group(name, src_group):
     name = name.lower()
     src_group = src_group.lower()
     
-    # Filter "Garbage" Groups (URLs or Raw text)
-    if "http" in src_group or "github" in src_group:
-        src_group = "" # Reset bad group name
+    # 1. FIX "RAW GITHUB" GROUPS
+    if "http" in src_group or "github" in src_group or "iptv" in src_group:
+        src_group = "" # Treat as empty/unknown
 
     if "tamil" in name or "tamil" in src_group:
         if "news" in name: return "Tamil News"
@@ -187,12 +192,14 @@ def main():
             new_lines = []
             for l in best_match['lines']:
                 if l.startswith("#EXTINF"):
+                    # Only modify Group Title
                     l = re.sub(r'group-title="[^"]*"', '', l) 
                     l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{target_group}"')
                 elif not l.startswith("#"):
-                    # ASTRO FIX: Force Browser Agent
+                    # ASTRO FIX: Cleanly replace UA
                     if "astro" in target_name.lower() and "http" in l:
-                        if "|" in l: l = l.split("|")[0] # Remove existing UA
+                        # Remove existing params after |
+                        if "|" in l: l = l.split("|")[0] 
                         l += f"|User-Agent={UA_BROWSER}"
                 new_lines.append(l)
             
@@ -215,9 +222,8 @@ def main():
         grp_lower = b['group'].lower()
 
         # B. REMOVAL FILTERS (Strict)
-        # 1. Keywords (Hits, Tata Play, Languages)
+        # 1. Keywords
         if any(bad in name_lower for bad in BAD_KEYWORDS) or any(bad in grp_lower for bad in BAD_KEYWORDS):
-            # EXCEPTION: Keep "Rasi" even if group is Local
             if "rasi" in name_lower: pass 
             else: continue 
 
@@ -225,6 +231,7 @@ def main():
         is_sd = "hd" not in b['simple']
         if is_sd:
             potential_hd = b['simple'] + "hd"
+            # Check if HD version was already added in Master List or Extras
             if potential_hd in added_ids: continue
 
         # C. Categorize
@@ -237,7 +244,7 @@ def main():
                 l = re.sub(r'group-title="[^"]*"', '', l)
                 l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{final_group}"')
             elif not l.startswith("#"):
-                 # ASTRO FIX: Force Browser Agent for extras too
+                 # ASTRO FIX: Cleanly replace UA for extras too
                  if "astro" in name_lower and "http" in l:
                      if "|" in l: l = l.split("|")[0]
                      l += f"|User-Agent={UA_BROWSER}"
