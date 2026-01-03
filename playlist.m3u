@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-03 22:52:04
+# Updated on: 2026-01-03 23:34:26
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -845,10 +845,14 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767443306~exp=1767529706~acl=/*~hmac=bea38e16783bfef88f2f2787a46279e01c9f3aa6038dbaff00bac25589a470e5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767443306~exp=1767529706~acl=/*~hmac=bea38e16783bfef88f2f2787a46279e01c9f3aa6038dbaff00bac25589a470e5&xxx=||cookie=__hdnea__=st=1767443306~exp=1767529706~acl=/*~hmac=bea38e16783bfef88f2f2787a46279e01c9f3aa6038dbaff00bac25589a470e5
-##Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-# Last Checked: 4/1/2026, 04:07:08
-#DATE:- 03-01-2026 23:20
-#No live matches.
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#DATE:- Sunday, 4 January 2026 at 5:00:04 am
+#EXTINF:-1 group-title="Live Events" tvg-id="133962" tvg-name="Queensland Fire Vs Tasmania Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Women's-National-Cricket-League_old_v1_1758034980139.jpg" tvg-language="ENGLISH" ,ENG | Queensland Fire Vs Tasmania Women
+https://in-mc-fdlive.fancode.com/mumbai/133962_english_hls_178f8d65cd6342_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 04-01-2026 05:00
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498819" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012903/1767417783017834_UC26_Germany_vs_Netherlands_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Germany vs Netherlands - 4 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767508201~acl=/*~id=ea6e26fd1fef59579f77416ccd97a2f8-1767465000190~hmac=83dedf7a24874136859d3d0153ee9bbbb28502ccf70279764a421f7b17df4ac0|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; TVBOX; Build/NHG47K)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=63c6464bf825363c71bf3ccc2ae3e38d-1767483006987
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 3/1/2026, 23:30:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
