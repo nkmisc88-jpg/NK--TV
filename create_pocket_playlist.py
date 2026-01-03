@@ -15,7 +15,13 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# MASTER LIST (Mapped to your EXACT requested groups)
+# HEADERS
+# 1. Jio/Zee/Sony Channels (Mobile App Agent)
+UA_JIO = "plaYtv/7.0.8 (Linux;Android 9) ExoPlayerLib/2.11.7"
+# 2. Astro/General Channels (Browser Agent - Fixes Astro)
+UA_BROWSER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+# MASTER LIST (Priority Channels)
 MASTER_CHANNELS = [
     # --- SPORTS HD ---
     ("Sports HD", "Star Sports 1 HD"), ("Sports HD", "Star Sports 2 HD"),
@@ -34,10 +40,6 @@ MASTER_CHANNELS = [
     ("Tamil HD", "Zee Thirai HD"), ("Tamil HD", "Vijay Takkar"),
     ("Tamil HD", "Astro Vaanavil"), ("Tamil HD", "Astro Vinmeen HD"),
     ("Tamil HD", "Astro Thangathirai"), ("Tamil HD", "Astro Vellithirai"),
-
-    # --- TAMIL SD (If any specific preferences, otherwise Extras will catch them) ---
-    ("Tamil SD", "Sun TV"), ("Tamil SD", "KTV"), ("Tamil SD", "Star Vijay"),
-    ("Tamil SD", "Zee Tamil"), ("Tamil SD", "Rasi Palan"), ("Tamil SD", "Rasi Movies"),
 
     # --- INFOTAINMENT HD ---
     ("Infotainment HD", "Discovery HD"), ("Infotainment HD", "Animal Planet HD"),
@@ -72,7 +74,7 @@ MASTER_CHANNELS = [
     ("Others", "Star Maa HD"), ("Others", "Zee Telugu HD"),
     ("Others", "Colors Kannada HD"), ("Others", "Zee Kannada HD"),
     
-    # --- KIDS (Putting in Others or maybe SD?) ---
+    # --- KIDS ---
     ("Others", "Nick"), ("Others", "Sonic"), ("Others", "Hungama"),
     ("Others", "Disney Channel"), ("Others", "Cartoon Network"),
     ("Others", "Pogo"), ("Others", "Sony Yay"), ("Others", "Discovery Kids")
@@ -100,7 +102,6 @@ def get_source_blocks():
                 line = line.strip()
                 if not line: continue
                 
-                # Capture everything (Keys + Headers + Info)
                 if line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT") or line.startswith("#EXTINF"):
                     current_block.append(line)
                 elif not line.startswith("#"):
@@ -112,11 +113,9 @@ def get_source_blocks():
                         raw_name = name_line.split(",")[-1].strip()
                         simple = simplified_name(raw_name)
                         
-                        # Extract original group for sorting
                         grp_match = re.search(r'group-title="([^"]*)"', name_line)
                         grp = grp_match.group(1).lower() if grp_match else ""
                         
-                        # Check for License Keys (DRM)
                         has_keys = any(l.startswith("#KODIPROP") or l.startswith("#EXTVLCOPT") for l in current_block)
 
                         blocks.append({
@@ -132,41 +131,31 @@ def get_source_blocks():
     return blocks
 
 def determine_group(name, src_group):
-    """Categorizes unknown channels into your 13 requested groups."""
+    """Categorizes unknown channels."""
     name = name.lower()
     src_group = src_group.lower()
     
-    # 1. TAMIL
     if "tamil" in name or "tamil" in src_group:
         if "news" in name: return "Tamil News"
         if "hd" in name: return "Tamil HD"
         return "Tamil SD"
 
-    # 2. SPORTS
     if "sport" in name or "cricket" in name or "sport" in src_group:
         if "hd" in name: return "Sports HD"
         return "Sports SD"
 
-    # 3. NEWS (Non-Tamil)
-    if "news" in name or "news" in src_group:
-        return "English and Hindi News"
+    if "news" in name or "news" in src_group: return "English and Hindi News"
 
-    # 4. INFOTAINMENT
-    # Common keywords
     info_keys = ["discovery", "nat geo", "animal planet", "history", "tlc", "travelxp", "bbc earth"]
-    if any(k in name for k in info_keys) or "documentary" in src_group or "knowledge" in src_group:
+    if any(k in name for k in info_keys) or "documentary" in src_group:
         if "hd" in name: return "Infotainment HD"
         return "Infotainment SD"
 
-    # 5. MOVIES
     if "movie" in name or "cinema" in name or "film" in name or "pix" in name or "mn" in name or "gold" in name:
         if "hd" in name:
-            # Guess Language
-            if "star" in name or "zee" in name or "set" in name or "color" in name:
-                return "Hindi Movies HD" # Good guess for Indian networks
-            return "English Movies HD"   # Default for others
+            if any(x in name for x in ["star", "zee", "set", "color"]): return "Hindi Movies HD"
+            return "English Movies HD"
 
-    # 6. Fallback
     return "Others"
 
 def main():
@@ -175,37 +164,40 @@ def main():
     final_lines = ["#EXTM3U"]
     final_lines.append("http://0.0.0.0")
 
-    added_ids = set()
-
+    added_ids = set() # Stores 'suntvhd', 'ktvhd'
+    
     # -------------------------------------------
-    # 1. MASTER LIST (Priority Channels)
+    # 1. MASTER LIST (Priority)
     # -------------------------------------------
     print("\n1️⃣  Processing Master List...")
     for target_group, target_name in MASTER_CHANNELS:
         target_simple = simplified_name(target_name)
         
-        # Find Matches
-        candidates = []
-        for b in source_blocks:
-            if b['simple'] == target_simple or target_simple in b['simple']:
-                candidates.append(b)
+        candidates = [b for b in source_blocks if b['simple'] == target_simple or target_simple in b['simple']]
         
-        # Smart Select (Prefer Keys/HD)
+        # Pick best match (prefer keys)
         best_match = None
         if candidates:
-            # Prefer keys
             for c in candidates:
                 if c['has_keys']: best_match = c; break
             if not best_match: best_match = candidates[0]
 
         if best_match:
-            # Rewrite Group Title
+            # FIX PLAYBACK: Inject User-Agent
             new_lines = []
             for l in best_match['lines']:
                 if l.startswith("#EXTINF"):
-                    # Remove old group, add new one
+                    # Set Group
                     l = re.sub(r'group-title="[^"]*"', '', l) 
                     l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{target_group}"')
+                elif not l.startswith("#"):
+                    # Add UA
+                    if "http" in l and "|" not in l:
+                        # ASTRO FIX: Use Browser Agent for Astro, Jio Agent for others
+                        if "astro" in target_name.lower():
+                            l += f"|User-Agent={UA_BROWSER}"
+                        else:
+                            l += f"|User-Agent={UA_JIO}"
                 new_lines.append(l)
             
             final_lines.extend(new_lines)
@@ -214,23 +206,40 @@ def main():
             print(f"   ⚠️ Channel Not Found: {target_name}")
 
     # -------------------------------------------
-    # 2. ADD ALL REMAINING (Auto-Sorted)
+    # 2. ADD REMAINING (Smart HD vs SD Logic)
     # -------------------------------------------
     print("\n2️⃣  Categorizing Remaining Channels...")
     
     count = 0
     for b in source_blocks:
+        # 1. Duplicate Check
         if b['simple'] in added_ids: continue
         
+        # 2. HD vs SD Logic
+        # If this is "suntv" (SD), check if "suntvhd" is already added.
+        # If "suntvhd" is in added_ids, SKIP this SD version.
+        is_sd = "hd" not in b['simple']
+        if is_sd:
+            potential_hd = b['simple'] + "hd"
+            if potential_hd in added_ids:
+                # print(f"   Skipping {b['name']} (HD version already exists)")
+                continue
+
         # Determine Group
         final_group = determine_group(b['name'], b['group'])
         
-        # Rewrite Group Title
+        # Write Block
         new_lines = []
         for l in b['lines']:
             if l.startswith("#EXTINF"):
                 l = re.sub(r'group-title="[^"]*"', '', l)
                 l = l.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{final_group}"')
+            elif not l.startswith("#"):
+                 if "http" in l and "|" not in l:
+                        if "astro" in b['name'].lower():
+                            l += f"|User-Agent={UA_BROWSER}"
+                        else:
+                            l += f"|User-Agent={UA_JIO}"
             new_lines.append(l)
             
         final_lines.extend(new_lines)
