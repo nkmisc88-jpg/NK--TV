@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-03 16:18:30 IST
+# Last Updated: 2026-01-03 16:28:58 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -2456,12 +2456,10 @@ https://stream.zeno.fm/nzi27fhhwv3tv
 https://stream.zeno.fm/5csru2np4bruv
 #EXTINF:-1 group-title="Live Events" tvg-id="139295" tvg-name="Oman Women's Red Vs Oman Women's Blue" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-D20-Womens_Exhibition-match-FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Oman Women's Red Vs Oman Women's Blue
 https://in-mc-fdlive.fancode.com/mumbai/139295_english_hls_6203f5261a30960_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="138817" tvg-name="Melbourne City Vs Sydney Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138817_5802_MLC_SYD_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Melbourne City Vs Sydney Fc
-https://in-mc-fdlive.fancode.com/mumbai/138817_english_hls_ed6c5c3dee23255_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498797" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012867/1767337836864765_UC26_Usa_vs_Argentina_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | USA vs Argentina - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; X80Royal; Build/QP1A.191105.004)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=97ba355eebc8ab001b019004b4ffd0d8-1767436208658
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; HPB-AN00; Build/PQ3A.190605.03081104)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=16738470558dc299041fdbfc1cd8dd41-1767437409254
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498764" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012865/1767337567004298_UC26_Australia_vs_Norway_2jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Australia vs Norway - 3 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; Nokia T20; Build/RP1A.201005.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=97ba355eebc8ab001b019004b4ffd0d8-1767436208658
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767465001~acl=/*~id=e4679a719ffc13690972ba254dfe018b-1767421800146~hmac=76298ef02b31d930811af46baf93a9b1b354d104bcbe6d21d93ca0c2a27b4f45|User-Agent=com.sonyliv/6.22.4 (Android 7; en_GB; SM-N976N; Build/N2G48H)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=16738470558dc299041fdbfc1cd8dd41-1767437409254
 Title: Fox 501
 Logo :
 Link : https://vt-ip.vodep39240327.workers.dev/1972.m3u8
