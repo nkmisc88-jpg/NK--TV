@@ -1,4 +1,5 @@
 import requests
+import re
 import datetime
 import os
 import sys
@@ -10,16 +11,21 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# GROUPS TO DELETE (Case insensitive)
-BAD_GROUPS = ["pluto", "usa channels", "yupp tv", "sun nxt"]
+# KEYWORDS TO DELETE
+# We use partial names (e.g., "yupp" covers "YuppTV" and "Yupp TV")
+BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas"]
 
-def is_bad_group(line):
-    """Checks if the group-title in the line matches any bad group."""
-    line_lower = line.lower()
-    for bad in BAD_GROUPS:
-        # Check if group-title="bad" exists in the line
-        if f'group-title="{bad}"' in line_lower or f'group-title="{bad}' in line_lower:
-            return True
+def should_skip(line):
+    """Checks if the line contains any BAD_KEYWORDS in the group-title."""
+    # 1. Extract the group title using Regex
+    match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
+    if match:
+        group_name = match.group(1).lower().replace(" ", "") # Remove spaces (sun nxt -> sunnxt)
+        
+        # 2. Check if any bad keyword is inside the clean group name
+        for bad in BAD_KEYWORDS:
+            if bad in group_name:
+                return True
     return False
 
 def main():
@@ -44,40 +50,43 @@ def main():
     final_lines.append("http://0.0.0.0")
 
     # PROCESS CHANNELS
-    # We buffer lines (props + extinf) until we hit a URL
     current_buffer = []
+    skip_this_channel = False
     
     for line in source_lines:
         line = line.strip()
         if not line: continue
 
-        # Ignore the source's #EXTM3U header
-        if line.startswith("#EXTM3U"):
-            continue
+        # Ignore original header
+        if line.startswith("#EXTM3U"): continue
+
+        # Start of a new channel block (#EXTINF usually starts it)
+        if line.startswith("#EXTINF"):
+            # New channel started, check if previous buffer needs saving
+            if current_buffer and not skip_this_channel:
+                final_lines.extend(current_buffer)
+            
+            # Reset for new channel
+            current_buffer = []
+            skip_this_channel = False
+            
+            # CHECK IF WE SHOULD DELETE THIS NEW CHANNEL
+            if should_skip(line):
+                skip_this_channel = True
 
         # Add line to buffer
         current_buffer.append(line)
 
-        # If line is a URL (doesn't start with #), the channel block is complete
+        # If it's a link (end of block), verify logic
         if not line.startswith("#"):
-            # Analyze the block to see if we should keep it
-            keep_channel = True
-            
-            # Find the #EXTINF line in the buffer to check the group
-            for buf_line in current_buffer:
-                if buf_line.startswith("#EXTINF"):
-                    if is_bad_group(buf_line):
-                        keep_channel = False
-                        break
-            
-            # If safe, add to final list
-            if keep_channel:
+            # If we are NOT skipping, save the buffer now
+            if not skip_this_channel:
                 final_lines.extend(current_buffer)
-            
-            # Clear buffer for next channel
+            # Clear buffer immediately to avoid duplication
             current_buffer = []
+            skip_this_channel = False
 
-    # Append Temporary Channels (if file exists)
+    # Append Temporary Channels
     if os.path.exists(YOUTUBE_FILE):
         print("   + Appending youtube.txt")
         with open(YOUTUBE_FILE, "r") as f:
