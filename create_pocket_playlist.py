@@ -11,22 +11,56 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# KEYWORDS TO DELETE
-# We use partial names (e.g., "yupp" covers "YuppTV" and "Yupp TV")
+# 1. GROUPS TO DELETE ENTIRELY
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas"]
 
-def should_skip(line):
-    """Checks if the line contains any BAD_KEYWORDS in the group-title."""
-    # 1. Extract the group title using Regex
-    match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
-    if match:
-        group_name = match.group(1).lower().replace(" ", "") # Remove spaces (sun nxt -> sunnxt)
+# 2. ASTRO GO ALLOW LIST (Only keep these 6)
+ASTRO_KEEP = [
+    "vinmeen", 
+    "thangathirai", 
+    "vaanavil", 
+    "vasantham", 
+    "vellithirai", 
+    "sports plus"
+]
+
+def get_group_and_name(line):
+    """Extracts group-title and channel name from #EXTINF line."""
+    # Extract Group
+    grp_match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
+    group = grp_match.group(1).lower() if grp_match else ""
+    
+    # Extract Name (after the last comma)
+    name = line.split(",")[-1].lower().strip()
+    
+    return group, name
+
+def should_keep_channel(extinf_line):
+    """Decides whether to keep or skip a channel based on rules."""
+    group, name = get_group_and_name(extinf_line)
+    
+    # RULE 1: Global Deletions (Pluto, Yupp, etc.)
+    # We check if the group name contains any bad keyword
+    # We remove spaces to match "Sun NXT" as "sunnxt"
+    clean_group = group.replace(" ", "")
+    for bad in BAD_KEYWORDS:
+        if bad in clean_group:
+            return False # DELETE
+            
+    # RULE 2: Astro GO Filter (Keep only 6 specific channels)
+    if "astro go" in group:
+        # Check if the name matches any of our allowed list
+        is_allowed = False
+        for allowed in ASTRO_KEEP:
+            if allowed in name:
+                is_allowed = True
+                break
         
-        # 2. Check if any bad keyword is inside the clean group name
-        for bad in BAD_KEYWORDS:
-            if bad in group_name:
-                return True
-    return False
+        if not is_allowed:
+            return False # DELETE (It's Astro GO but not one of the 6)
+
+    # If it passed all checks, KEEP it
+    return True
 
 def main():
     print("📥 Downloading Source Playlist...")
@@ -57,32 +91,32 @@ def main():
         line = line.strip()
         if not line: continue
 
-        # Ignore original header
+        # Ignore source header
         if line.startswith("#EXTM3U"): continue
 
-        # Start of a new channel block (#EXTINF usually starts it)
+        # Start of a new channel block
         if line.startswith("#EXTINF"):
-            # New channel started, check if previous buffer needs saving
+            # 1. Save previous channel if valid
             if current_buffer and not skip_this_channel:
                 final_lines.extend(current_buffer)
             
-            # Reset for new channel
+            # 2. Reset for new channel
             current_buffer = []
             skip_this_channel = False
             
-            # CHECK IF WE SHOULD DELETE THIS NEW CHANNEL
-            if should_skip(line):
+            # 3. Check logic
+            if not should_keep_channel(line):
                 skip_this_channel = True
 
         # Add line to buffer
         current_buffer.append(line)
 
-        # If it's a link (end of block), verify logic
+        # End of block (Link)
         if not line.startswith("#"):
-            # If we are NOT skipping, save the buffer now
+            # If valid, save now
             if not skip_this_channel:
                 final_lines.extend(current_buffer)
-            # Clear buffer immediately to avoid duplication
+            # Clear buffer
             current_buffer = []
             skip_this_channel = False
 
@@ -97,7 +131,7 @@ def main():
                         final_lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",{parts[1].strip()}')
                 elif l.startswith("http"): final_lines.append(l.strip())
 
-    # Save to file
+    # Save
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
     
