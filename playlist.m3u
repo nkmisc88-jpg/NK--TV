@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-04 10:52:32
+# Updated on: 2026-01-04 11:29:23
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -845,14 +845,16 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347&xxx=||cookie=__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347
-##Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-# Last Checked: 4/1/2026, 16:21:07
-#DATE:- 04-01-2026 16:20
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#DATE:- Sunday, 4 January 2026 at 4:56:07 pm
+#EXTINF:-1 group-title="Live Events" tvg-id="138923" tvg-name="Dhaka Capitals Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138923_5808_DC_RAN_fc-web_1766733054311.jpg" tvg-language="ENGLISH" ,ENG | Dhaka Capitals Vs Rangpur Riders
+https://in-mc-fdlive.fancode.com/mumbai/138923_english_hls_dde84a7f2d34956_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 04-01-2026 16:40
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498851" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012907/1767418859715450_UC26_Italy_vs_Switzerland_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Italy vs Switzerland - 4 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 8; en_GB; SM-M305F; Build/M1AJQ)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=82daba0f8adbf2daf00a341be8098eae-1767523810446
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 16; en_GB; SM-S906E; Build/BP2A.250605.031.A3)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=7ef1577eddef53cd18d5b576cfb75ed4-1767525011044
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498819" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012906/176741854171177_UC26_Canada_vs_China_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Canada vs China - 4 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; TECNO KE5k; Build/QP1A.190711.020)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=82daba0f8adbf2daf00a341be8098eae-1767523810446
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; LAVA LZX411; Build/TP1A.220624.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=7ef1577eddef53cd18d5b576cfb75ed4-1767525011044
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 4/1/2026, 16:15:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
