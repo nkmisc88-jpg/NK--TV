@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-04 09:34:32
+# Updated on: 2026-01-04 09:49:28
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347&xxx=||cookie=__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 4 January 2026 at 2:42:10 pm
+#DATE:- Sunday, 4 January 2026 at 3:14:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138922" tvg-name="Sylhet Titans Vs Chattogram Royals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138922_5808_SYL_CCH_fc-web_1766733054335.jpg" tvg-language="ENGLISH" ,ENG | Sylhet Titans Vs Chattogram Royals
 https://in-mc-fdlive.fancode.com/mumbai/138922_english_hls_f600312ea539382_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="138818" tvg-name="Adelaide United Vs Central Coast Mariners" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138818_5802_ADL_CCM_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Adelaide United Vs Central Coast Mariners
