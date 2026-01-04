@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-04 13:09:19 IST
+# Last Updated: 2026-01-04 13:20:24 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -2257,11 +2257,11 @@ https://in-mc-fdlive.fancode.com/mumbai/139185_english_hls_3ad8fbc07a69956_1ta-d
 #EXTINF:-1 group-title="Live Events" tvg-id="139184" tvg-name="Pat Rafter Arena   Day 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 1
 https://in-mc-fdlive.fancode.com/mumbai/139184_english_hls_fbd0e5d5dc38428_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498851" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012905/176741816598432_UC26_Great_Britain_vs_Japan_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Great Britain vs Japan - 4 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; V2427; Build/AP3A.240905.015.A2_V000L1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e4f173b5ee10099381ba9cdceb12cc12-1767511813630
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; TVBOX; Build/D9 PRO 5G)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2f6b2f34e50de4ac2dd4bbd161e32a12-1767513011916
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498578" tvg-name="Super Smash 2025/26 Men's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012758/1766817717601385_SuperSmash2526_mens_Northern-Brave-vs-Otago-Volts_27dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Northern Brave vs Otago Volts - 4 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; CPH2413; Build/SKQ1.220303.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e4f173b5ee10099381ba9cdceb12cc12-1767511813630
+https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; V2504; Build/AP3A.240905.015.A2_V000L1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2f6b2f34e50de4ac2dd4bbd161e32a12-1767513011916
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498819" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012906/176741854171177_UC26_Canada_vs_China_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Canada vs China - 4 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; 24069PC21I; Build/UKQ1.240116.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e4f173b5ee10099381ba9cdceb12cc12-1767511813630
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; RMX3511; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2f6b2f34e50de4ac2dd4bbd161e32a12-1767513011916
 Title: Fox 501
 Logo :
 Link : https://vt-ip.vodep39240327.workers.dev/1972.m3u8
