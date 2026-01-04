@@ -12,7 +12,6 @@ YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
 # 1. CHANNELS TO MOVE TO "Tamil HD"
-# These are HD channels currently in "Tamil" group
 MOVE_TO_TAMIL_HD = [
     "Sun TV HD",
     "Star Vijay HD",
@@ -24,10 +23,10 @@ MOVE_TO_TAMIL_HD = [
 ]
 
 # 2. FILTERS (Global Deletions)
-BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas"]
+# Added "extras" here to remove that group entirely
+BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras"]
 
 # 3. ASTRO GO ALLOW LIST
-# These will be moved to "Tamil HD"
 ASTRO_KEEP = [
     "vinmeen", "thangathirai", "vaanavil", 
     "vasantham", "vellithirai", "sports plus"
@@ -45,12 +44,16 @@ def get_group_and_name(line):
     return group, name
 
 def should_keep_channel(group, name):
-    # Global Deletions
+    # 1. Check for APAC in the Name
+    if "apac" in name.lower():
+        return False
+
+    # 2. Check Global Deletions (Group Name)
     clean_group = group.replace(" ", "")
     for bad in BAD_KEYWORDS:
         if bad in clean_group: return False 
             
-    # Astro GO Filter
+    # 3. Astro GO Filter
     if "astro go" in group:
         is_allowed = False
         for allowed in ASTRO_KEEP:
@@ -115,18 +118,17 @@ def main():
             # 1. CHECK FILTERS
             if not should_keep_channel(group, name):
                 skip_this_channel = True
-                current_buffer.append(line)
+                current_buffer.append(line) # Add to buffer just to clear it properly next loop
                 continue
 
             # 2. DETERMINE NEW GROUP
-            new_group = group # Default: keep original group (e.g., "Sports", "Kids")
+            new_group = group 
 
             # Logic A: Rename "Tamil" -> "Tamil SD"
             if group == "tamil":
                 new_group = "Tamil SD"
 
             # Logic B: Move HD Channels -> "Tamil HD"
-            # (Matches exactly names like 'Sun TV HD')
             if any(target.lower() == name.lower() for target in MOVE_TO_TAMIL_HD):
                 new_group = "Tamil HD"
 
