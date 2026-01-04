@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-04 15:20:43 IST
+# Last Updated: 2026-01-04 16:13:12 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -996,7 +996,7 @@ https://ipcloud.live/anbutv/anbutvhd/index.m3u8
 #EXTINF:-1tvg-id="" tvg-logo="" group-title="Local Channels",M television
 https://ipcloud.live/mtv/menhd/index.m3u8
 #EXTINF:-1 tvg-logo="https://harisofttecch.in/tamiltvlive//upload/1664776099_4444.jpg" group-title="Local Channels",MKP tv
-http://media.7starcloud.com:1935/harimedia/mkptv/playlist.m3u8
+http://mkpcloud.publicvm.com:1935/mkptv/myStream/playlist.m3u8
 ASHOKADIGITAL
 #EXTINF:-1 tvg-logo="" group-title="Local Channels", Params Tv
 https://app.ashokadigital.net/app/a3e0b02f/index.m3u8
@@ -2248,18 +2248,16 @@ https://stream.zeno.fm/nka8zm9x1oouv
 https://stream.zeno.fm/nzi27fhhwv3tv
 #EXTINF:-1 group-title="Tamil FM Radio",Anbu FM
 https://stream.zeno.fm/5csru2np4bruv
-#EXTINF:-1 group-title="Live Events" tvg-id="138922" tvg-name="Sylhet Titans Vs Chattogram Royals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138922_5808_SYL_CCH_fc-web_1766733054335.jpg" tvg-language="ENGLISH" ,ENG | Sylhet Titans Vs Chattogram Royals
-https://in-mc-fdlive.fancode.com/mumbai/138922_english_hls_f600312ea539382_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="138818" tvg-name="Adelaide United Vs Central Coast Mariners" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138818_5802_ADL_CCM_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Adelaide United Vs Central Coast Mariners
 https://in-mc-fdlive.fancode.com/mumbai/138818_english_hls_e5eade658c26634_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139185" tvg-name="Show Court 1   Day 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 1
-https://in-mc-fdlive.fancode.com/mumbai/139185_english_hls_3ad8fbc07a69956_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139184" tvg-name="Pat Rafter Arena   Day 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 1
-https://in-mc-fdlive.fancode.com/mumbai/139184_english_hls_fbd0e5d5dc38428_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498851" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012907/1767418859715450_UC26_Italy_vs_Switzerland_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Italy vs Switzerland - 4 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; SM-A065F; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=737b4b972cf2e6dd5f32077dc307939a-1767520210451
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; SM-M326B; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=bbc4c9766fdfe8ef717c967220bc8c8b-1767522611083
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498819" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012906/176741854171177_UC26_Canada_vs_China_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Canada vs China - 4 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; OPD2304; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=737b4b972cf2e6dd5f32077dc307939a-1767520210451
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767551401~acl=/*~id=280fc855ee7a5e8361ed94f7c82eae00-1767508200150~hmac=d107900f19bf2e14cc77ac089868b58daae22a231e0280d037660ddaeaae4cc6|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; ART-L29N; Build/HUAWEIART-L29N)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=bbc4c9766fdfe8ef717c967220bc8c8b-1767522611083
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873793" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873793/list/1920x1080list8f636ca0a0144aaf90cfcd3388751aec530d56fffbec4c82b5c7e690bd57889b.jpg" tvg-language="bengali" ,BEN | Sundarban Bengal Auto Fc Vs Kopa Tigers Birbhum
+https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1767598203~acl=%2f*~data=hdntl~hmac=6eeb5993e61d8fd46d365468c0d94f7caf1f6eba63279a05c8d2ccfc2389c7ec|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873793" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873793/list/1920x1080list8f636ca0a0144aaf90cfcd3388751aec530d56fffbec4c82b5c7e690bd57889b.jpg" tvg-language="english" ,ENG | Sundarban Bengal Auto Fc Vs Kopa Tigers Birbhum
+https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M01/master.m3u8?hdntl=exp=1767598207~acl=%2f*~data=hdntl~hmac=d7cc486ccd819ce50f4dd247b2eba4004abf3492be171255758788ee1c53f147|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 Title: Fox 501
 Logo :
 Link : https://vt-ip.vodep39240327.workers.dev/1972.m3u8
