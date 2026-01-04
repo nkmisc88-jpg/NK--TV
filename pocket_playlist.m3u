@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-05 01:22:15 IST
+# Last Updated: 2026-01-05 02:12:29 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -57,7 +57,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsTamilHD_BTS/output/index.mpd?__hdne
 #EXTINF:-1 tvg-id="0-9-zeetamil" group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767596162~acl=%2f*~id=bdc87597-c81e-45b1-b39b-f46d6671776e~data=hdntl~hmac=6b8e68fed6f43039c159017c4388b494fe0b28d10e7f32db773c7b39eadb246c
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767639362~acl=%2f*~id=2fc190bc-3863-4c31-9e48-63eb788f944c~data=hdntl~hmac=f5c4845675a2953e6d907224813b221d01049b308d2911884f49acb1b81fed38
 #EXTINF:-1 tvg-id="894" group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/380.png",KTV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ba9bfe750a56514e9c63c456fad1e428&key=e0ca0ee9dbaac2942753d928b92824c5
@@ -157,7 +157,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Puthu_Yugam_BTS/output/index.mpd?__hdnea_
 #EXTINF:-1 tvg-id="0-9-224" group-title="Movies" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767596162~acl=%2f*~id=bdc87597-c81e-45b1-b39b-f46d6671776e~data=hdntl~hmac=6b8e68fed6f43039c159017c4388b494fe0b28d10e7f32db773c7b39eadb246c
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767639362~acl=%2f*~id=2fc190bc-3863-4c31-9e48-63eb788f944c~data=hdntl~hmac=f5c4845675a2953e6d907224813b221d01049b308d2911884f49acb1b81fed38
 #EXTINF:-1 tvg-id="3266" group-title="Movies" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11197-j9i4fbbs-v2/imageContent-11197-j9i4fbbs-m4.png",Vijay Super HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4058ba890768578093e4d30bc957b85c&key=42d335cfebf7292487522ac572d706a8
@@ -221,15 +221,15 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Infinity_HD_BTS/output/index.mpd?_
 #EXTINF:-1 tvg-id="0-9-zeecafehd" group-title="Entertainment" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/ZeeCafeHD_Thumbnail_ceda2afa-65e4-4d25-98c0-750f82a0a2fc.png",Zee Café HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105539/ZeecafeHDELE/index-connected.m3u8?hdntl=exp=1767596162~acl=%2f*~id=bdc87597-c81e-45b1-b39b-f46d6671776e~data=hdntl~hmac=6b8e68fed6f43039c159017c4388b494fe0b28d10e7f32db773c7b39eadb246c
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105539/ZeecafeHDELE/index-connected.m3u8?hdntl=exp=1767639362~acl=%2f*~id=2fc190bc-3863-4c31-9e48-63eb788f944c~data=hdntl~hmac=f5c4845675a2953e6d907224813b221d01049b308d2911884f49acb1b81fed38
 #EXTINF:-1 tvg-id="0-9-channel_2105335046" group-title="Entertainment" tvg-logo="https://i.ibb.co/rRnZvRNk/1000192802-modified.png",&Flix HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105517/AndFlixHDELE/index-connected.m3u8?hdntl=exp=1767596162~acl=%2f*~id=bdc87597-c81e-45b1-b39b-f46d6671776e~data=hdntl~hmac=6b8e68fed6f43039c159017c4388b494fe0b28d10e7f32db773c7b39eadb246c
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105517/AndFlixHDELE/index-connected.m3u8?hdntl=exp=1767639362~acl=%2f*~id=2fc190bc-3863-4c31-9e48-63eb788f944c~data=hdntl~hmac=f5c4845675a2953e6d907224813b221d01049b308d2911884f49acb1b81fed38
 #EXTINF:-1 tvg-id="0-9-9z5543514" group-title="Entertainment" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/&PriveHD_Thumbnail_8fe4510f-be7c-475c-8f5f-85b5fe6f52ab.png",&Prive HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2104969/AndPriveHDELENEW/index-connected.m3u8?hdntl=exp=1767596162~acl=%2f*~id=bdc87597-c81e-45b1-b39b-f46d6671776e~data=hdntl~hmac=6b8e68fed6f43039c159017c4388b494fe0b28d10e7f32db773c7b39eadb246c
+https://z5ak-cmaflive.zee5.com/cmaf/live/2104969/AndPriveHDELENEW/index-connected.m3u8?hdntl=exp=1767639362~acl=%2f*~id=2fc190bc-3863-4c31-9e48-63eb788f944c~data=hdntl~hmac=f5c4845675a2953e6d907224813b221d01049b308d2911884f49acb1b81fed38
 #EXTINF:-1 tvg-id="1145" group-title="Entertainment" tvg-logo="https://tatalogo.pages.dev/406.png",MTV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=90d8713ba5e85d779d005b1f14a5bc8d&key=33650314fe1e945017640ba9878c5de9
@@ -461,7 +461,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Travel_XP_Tamil_BTS/output/index.mpd?__hd
 #EXTINF:-1 tvg-id="0-9-348" group-title="Infotainment" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-348/channel_list/360x20333fcf07b744341518375ae7ae35c08c7",Zee Zest HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1767596162~acl=%2f*~id=bdc87597-c81e-45b1-b39b-f46d6671776e~data=hdntl~hmac=6b8e68fed6f43039c159017c4388b494fe0b28d10e7f32db773c7b39eadb246c
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1767639362~acl=%2f*~id=2fc190bc-3863-4c31-9e48-63eb788f944c~data=hdntl~hmac=f5c4845675a2953e6d907224813b221d01049b308d2911884f49acb1b81fed38
 #EXTINF:-1 tvg-id="2230" group-title="Infotainment" tvg-logo="https://img.media.jio.com/imagespublic/4/12/301317_1670477602583_l_high.jpg",Jio Specials HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=6017d0514d425fa38f6e80ba6dcc852f&key=0018944b00adf2078f62386f30c68b74
@@ -2254,7 +2254,3 @@ https://in-mc-fdlive.fancode.com/mumbai/138383_english_hls_1c86ed249198186_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/131001_english_hls_61a5b6264b76453_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="138915" tvg-name="Deportivo La Coruna Vs Cádiz" tvg-logo="https://images.fancode.com/aig/match/v1/138915_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Deportivo La Coruna Vs Cádiz
 https://in-mc-fdlive.fancode.com/mumbai/138915_english_hls_d46df3cb6315335_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="131007" tvg-name="Deportivo Alaves Vs Real Oviedo" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131007_5427_ALA_RO_fc-web.png" tvg-language="ENGLISH" ,ENG | Deportivo Alaves Vs Real Oviedo
-https://in-mc-fdlive.fancode.com/mumbai/131007_english_hls_484c87b6d672414_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5853058" tvg-name="DP World ILT20" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5853058/list/1920x1080listb57959002dc94db586c06b7ae75bfca04b4d7f7db9f24676b020a07a1cecdbcd.jpg" tvg-language="hindi" ,HIN | DV Vs MIE - Final
-https://falconstream.zee5.com/cmaf/live/2109037/FINAL/master.m3u8?hdntl=exp=1767634203~acl=%2f*~data=hdntl~hmac=9e968d675b05e85a925114b8abbba87d29aa0ee589fc9ff2d3afcdb7a16291aa|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
