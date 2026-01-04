@@ -11,9 +11,9 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# 1. CHANNELS TO COPY (Exact Name Match)
-# These will appear in their ORIGINAL group AND "Tamil HD"
-COPY_TO_TAMIL_HD = [
+# 1. CHANNELS TO MOVE TO "Tamil HD"
+# These are HD channels currently in "Tamil" group
+MOVE_TO_TAMIL_HD = [
     "Sun TV HD",
     "Star Vijay HD",
     "Colors Tamil HD",
@@ -27,6 +27,7 @@ COPY_TO_TAMIL_HD = [
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas"]
 
 # 3. ASTRO GO ALLOW LIST
+# These will be moved to "Tamil HD"
 ASTRO_KEEP = [
     "vinmeen", "thangathirai", "vaanavil", 
     "vasantham", "vellithirai", "sports plus"
@@ -44,10 +45,12 @@ def get_group_and_name(line):
     return group, name
 
 def should_keep_channel(group, name):
+    # Global Deletions
     clean_group = group.replace(" ", "")
     for bad in BAD_KEYWORDS:
         if bad in clean_group: return False 
             
+    # Astro GO Filter
     if "astro go" in group:
         is_allowed = False
         for allowed in ASTRO_KEEP:
@@ -101,65 +104,57 @@ def main():
         if line.startswith("#EXTM3U"): continue
 
         if line.startswith("#EXTINF"):
-            # --- PROCESS PREVIOUS BUFFER ---
             if current_buffer and not skip_this_channel:
-                # 1. Add the Original Channel
                 final_lines.extend(current_buffer)
-
-                # 2. Check if we need to COPY this to Tamil HD
-                # We look at the first line of the buffer (the EXTINF)
-                extinf = current_buffer[0]
-                _, ch_name = get_group_and_name(extinf)
-                
-                # Check if this channel is in our copy list
-                if any(target.lower() == ch_name.lower() for target in COPY_TO_TAMIL_HD):
-                    # Create the COPY
-                    for buf_line in current_buffer:
-                        if buf_line.startswith("#EXTINF"):
-                            # Force the group to Tamil HD
-                            if 'group-title="' in buf_line:
-                                new_line = re.sub(r'group-title="([^"]*)"', 'group-title="Tamil HD"', buf_line)
-                            else:
-                                new_line = buf_line.replace("#EXTINF:-1", '#EXTINF:-1 group-title="Tamil HD"')
-                            final_lines.append(new_line)
-                        else:
-                            # Add the link/props exactly as is
-                            final_lines.append(buf_line)
-
-            # --- START NEW CHANNEL ---
+            
             current_buffer = []
             skip_this_channel = False
             
             group, name = get_group_and_name(line)
+            
+            # 1. CHECK FILTERS
             if not should_keep_channel(group, name):
                 skip_this_channel = True
+                current_buffer.append(line)
+                continue
+
+            # 2. DETERMINE NEW GROUP
+            new_group = group # Default: keep original group (e.g., "Sports", "Kids")
+
+            # Logic A: Rename "Tamil" -> "Tamil SD"
+            if group == "tamil":
+                new_group = "Tamil SD"
+
+            # Logic B: Move HD Channels -> "Tamil HD"
+            # (Matches exactly names like 'Sun TV HD')
+            if any(target.lower() == name.lower() for target in MOVE_TO_TAMIL_HD):
+                new_group = "Tamil HD"
+
+            # Logic C: Move Astro GO -> "Tamil HD"
+            if "astro go" in group:
+                new_group = "Tamil HD"
+
+            # 3. APPLY NEW GROUP
+            if new_group != group:
+                if 'group-title="' in line:
+                    line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
+                else:
+                    line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
 
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # Astro Fix Logic (Add header if missing)
+            # Astro Fix Logic
             if "astro" in current_buffer[0].lower() and "http" in line:
                  if "User-Agent" not in line:
                      if "|" in line: line = line.split("|")[0]
                      line += "|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
                      current_buffer[-1] = line
 
-    # FLUSH LAST CHANNEL
-    if current_buffer and not skip_this_channel:
-        final_lines.extend(current_buffer)
-        # Check copy for last channel
-        extinf = current_buffer[0]
-        _, ch_name = get_group_and_name(extinf)
-        if any(target.lower() == ch_name.lower() for target in COPY_TO_TAMIL_HD):
-            for buf_line in current_buffer:
-                if buf_line.startswith("#EXTINF"):
-                    if 'group-title="' in buf_line:
-                        new_line = re.sub(r'group-title="([^"]*)"', 'group-title="Tamil HD"', buf_line)
-                    else:
-                        new_line = buf_line.replace("#EXTINF:-1", '#EXTINF:-1 group-title="Tamil HD"')
-                    final_lines.append(new_line)
-                else:
-                    final_lines.append(buf_line)
+            if not skip_this_channel:
+                final_lines.extend(current_buffer)
+            current_buffer = []
+            skip_this_channel = False
 
     # ADD LIVE EVENTS
     print("📥 Adding Live Events...")
