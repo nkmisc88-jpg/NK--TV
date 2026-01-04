@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-04 13:42:52
+# Updated on: 2026-01-04 14:01:28
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,21 +846,23 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347&xxx=||cookie=__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 4 January 2026 at 7:07:05 pm
+#DATE:- Sunday, 4 January 2026 at 7:28:07 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138923" tvg-name="Rangpur Riders Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138923_5808_DC_RAN_fc-web_1766733054311.jpg" tvg-language="ENGLISH" ,ENG | Rangpur Riders Vs Dhaka Capitals
 https://in-mc-fdlive.fancode.com/mumbai/138923_english_hls_dde84a7f2d34956_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="138656" tvg-name="Desert Vipers Vs Mi Emirates" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138646_5786_DV_MIE_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Desert Vipers Vs Mi Emirates
+https://in-mc-fdlive.fancode.com/mumbai/138656_english_hls_ce83ff130b39556_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="136995" tvg-name="Birmingham City F.c. Vs Coventry City Football Club" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/136995_5489_BIR_CVC_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Birmingham City F.c. Vs Coventry City Football Club
 https://in-mc-fdlive.fancode.com/mumbai/136995_english_hls_5bfdb1693841546_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="131006" tvg-name="Sevilla Fc Vs Levante" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131006_5427_SEV_LE_fc-web.png" tvg-language="ENGLISH" ,ENG | Sevilla Fc Vs Levante
 https://in-mc-fdlive.fancode.com/mumbai/131006_english_hls_930d99133983713_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="138913" tvg-name="Sporting De Gijón Vs Málaga" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg" tvg-language="ENGLISH" ,ENG | Sporting De Gijón Vs Málaga
 https://in-mc-fdlive.fancode.com/mumbai/138913_english_hls_32a46ea01692491_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 04-01-2026 19:00
+#DATE:- 04-01-2026 19:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498851" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012907/1767418859715450_UC26_Italy_vs_Switzerland_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Italy vs Switzerland - 4 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767573001~acl=/*~id=66cf842534121b69fc6fecc9894058b4-1767529800116~hmac=7a695b7dff3ea71c1faf0420059724ef49fed63d815e9b499e131bd629e6e70f|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; SM-N976N; Build/PQ3A.190605.01111538)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d3e19c88742655624072716f04701998-1767533411563
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767573001~acl=/*~id=66cf842534121b69fc6fecc9894058b4-1767529800116~hmac=7a695b7dff3ea71c1faf0420059724ef49fed63d815e9b499e131bd629e6e70f|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; LE2101; Build/UKQ1.230924.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f8b4b977585c0d74f093e7e12ee94fa2-1767534611077
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 4 January 2026 at 7:00:06 pm
+#DATE:- Sunday, 4 January 2026 at 7:30:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5853058" tvg-name="DP World ILT20" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5853058/list/1920x1080listb57959002dc94db586c06b7ae75bfca04b4d7f7db9f24676b020a07a1cecdbcd.jpg" tvg-language="hindi" ,HIN | DV Vs MIE - Final
 https://falconstream.zee5.com/cmaf/live/2109037/FINAL/master.m3u8?hdntl=exp=1767618904~acl=%2f*~data=hdntl~hmac=406d4b68b9c5c685231cc2293d340c0831e4279ccefde2b6d3515dbad48257df|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list250113f34f1d48cc9f6637cc3d1efb7b5390404fca394b0caa5a1f0a3cc3e7f5.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
