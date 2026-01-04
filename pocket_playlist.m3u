@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-04 11:00:46 IST
+# Last Updated: 2026-01-04 11:07:49 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -212,10 +212,6 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_Max_BTS/output/index.mpd?__hdnea__=s
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Tunes_6_BTS/output/index.mpd?__hdnea__=st=1767489662~exp=1767576062~acl=/*~hmac=682ba72d01454a471a92270887f4a2eb4c9dfd743e904a7baaa9cffb5bae3347
-#EXTINF:-1 tvg-id="0-9-360" group-title="Entertainment" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-360/channel_list/360x2031c866f9b15d44e38b077973e3ab37e89",Zee Tamil HD APAC
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
-#EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1767552903~acl=%2f*~id=b7e2dac6-b759-4030-b989-5b314b8ea1fb~data=hdntl~hmac=4fbbc9eebde3413c504532ff49d8d38094a3b6bfa2f0cf16763fedeaadeb379b
 #EXTINF:-1 tvg-id="1158" group-title="Entertainment" tvg-logo="https://tatalogo.pages.dev/187.png",Colors Infinity HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=509216860f8e594aaf7e921296f53851&key=536df1e35e2bb055be0117b51db8139c
@@ -1651,32 +1647,12 @@ https://streams2.sofast.tv/ptnr-yupptv/title-THALAA-TV-TAM_yupptv/v1/master/611d
 #EXTINF:-1  tvg-name="Southern Tv" group-title="Local Channels" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240331_0037217658317852544226240.png",Southern Tv
 https://player.mslivestream.net/mslive/9fe7c84b8253e88099d47237e0b7367c.sdp/playlist.m3u8
 ============================== Sling =====================================================
-#EXTINF:-1 tvg-id="Miramax" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/e/ee/Miramax_Television.png/revision/latest?cb=20121215093325" group-title="Extras", Miramax
-https://linear-798.frequency.stream/mt/plex/798/hls/master/playlist.m3u8
-#EXTINF:-1 channel-id="Cinelife" tvg-logo="https://i.ibb.co/LZTD9gt/Cinelife.jpg" group-title="Extras", CineLife
-https://magnolia-cinelife.amagi.tv/hls/amagi_hls_data_magnoliaA-cinelife-oando/CDN/playlist.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" group-title="Extras" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfLOa4vtcn2Q30IKYU2csQUUnLoSF1on2CJpydscy5yQ&s",Watch Mojo TV
-https://watchmojo-1-us.tcl.wurl.tv/playlist.m3u8
-#EXTINF:-1  tvg-name="MGM Presents" tvg-id="5263332f746c6b1bed25aa6c105a79d9" tvg-logo="https://images.sr.roku.com/idType/roku/context/trc/id/5263332f746c6b1bed25aa6c105a79d9/https%3A%2F%2Fimage.roku.com%2Fbh-uploads%2Fproduction%2FinfoHUDLogo%2F1747061592882_MGMPresents_HUDLogo_Centered_260x147.png" tvg-chno="295" group-title="Extras",MGM Presents
-https://jmp2.uk/rok-5263332f746c6b1bed25aa6c105a79d9.m3u8
-#EXTINF:-1  tvg-name="Movie Hub" tvg-id="d32267711c6a5cf36520716c96b5b3fa" tvg-logo="https://images.sr.roku.com/idType/roku/context/trc/id/d32267711c6a5cf36520716c96b5b3fa/https%3A%2F%2Fimage.roku.com%2Fbh-uploads%2Fproduction%2FinfoHUDLogo%2F1741793656039_Movie_Hub_260x147.png" tvg-chno="305" group-title="Extras",Movie Hub
-https://jmp2.uk/rok-d32267711c6a5cf36520716c96b5b3fa.m3u8
-#EXTINF:-1  tvg-name="Movie Hub Action" tvg-id="c5cbd4129753f5732d7160596440404f" tvg-logo="https://images.sr.roku.com/idType/roku/context/trc/id/c5cbd4129753f5732d7160596440404f/https%3A%2F%2Fimage.roku.com%2Fbh-uploads%2Fproduction%2FinfoHUDLogo%2F1741793611093_Movie_Hub_Action_260x147.png" tvg-chno="282" group-title="Extras",Movie Hub Action
-https://jmp2.uk/rok-c5cbd4129753f5732d7160596440404f.m3u8
-#EXTINF:-1  tvg-name="My Time Movie Network" tvg-id="be3c81de355c56f89cbf99301735cfd2" tvg-logo="https://images.sr.roku.com/idType/roku/context/trc/id/be3c81de355c56f89cbf99301735cfd2/https%3A%2F%2Fimage.roku.com%2Fbh-uploads%2Fproduction%2FinfoHUDLogo%2F1654727499791_MyTime_Roku_ChannelLogos_260x147.png" tvg-chno="275" group-title="Extras",My Time Movie Network
-https://jmp2.uk/rok-be3c81de355c56f89cbf99301735cfd2.m3u8
-#EXTINF:-1  tvg-name="FilmRise Free Movies" tvg-id="d6f71998860459eca1bed73db5988330" tvg-logo="https://images.sr.roku.com/idType/roku/context/trc/id/d6f71998860459eca1bed73db5988330/https%3A%2F%2Fimage.roku.com%2Fbh-uploads%2Fproduction%2FinfoHUDLogo%2F1673451464197_FilmRise_FreeMovies_260x147.png" tvg-chno="298" group-title="Extras",FilmRise Free Movies
-https://jmp2.uk/rok-d6f71998860459eca1bed73db5988330.m3u8
-#EXTINF:-1  tvg-name="FilmRise Action" tvg-id="0abef49cfd6759b18f2ce64290cbdda3" tvg-logo="https://images.sr.roku.com/idType/roku/context/trc/id/0abef49cfd6759b18f2ce64290cbdda3/https%3A%2F%2Fimage.roku.com%2Fbh-uploads%2Fproduction%2FinfoHUDLogo%2F1673450513655_HUDidentifier_filmRiseAction.png" tvg-chno="288" group-title="Extras",FilmRise Action
-https://jmp2.uk/rok-0abef49cfd6759b18f2ce64290cbdda3.m3u8
 #EXTINF:-1  tvg-id="Mr.bean" tvg-logo="https://tvpnlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/GB900003KR_20250107T031153SQUARE.png" tvg-chno="4823" group-title="Kids",Mr Bean Animated
 https://amg00627-amg00627c30-rakuten-es-3990.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mrbeanescc-rakutenes/playlist.m3u8
 #EXTINF:-1  tvg-id="Mr.bean" tvg-logo="https://tvpnlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/GB4000008O5_20250107T031325SQUARE.png" tvg-chno="4159" group-title="Kids",Mr Bean Live Action
 https://jmp2.uk/stvp-GB4000008O5
 #EXTINF:-1  tvg-id="Tom&Jerry" tvg-logo="https://m.media-amazon.com/images/M/MV5BODY2YWI1OTAtY2FhZS00MGI1LTk0YjUtYmE3MDk0OGFkMWUyXkEyXkFqcGc@._V1_.jpg"  group-title="Kids",Tom & Jerry
 https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8
-#EXTINF:-1  tvg-name="National Geographic Wild" tvg-id="Nat.Geo.Wild.HD.my" tvg-logo="https://i.imgur.com/8X4jiMY.png" group-title="Extras",National Geographic Wild
-https://amg00426-littledotstudio-realwildnz-samsungnz-wz0bm.amagi.tv/playlist/amg00426-littledotstudio-realwildnz-samsungnz/playlist.m3u8
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-logo="https://spoo.me/Friends" group-title="Premium 24/7", Friends
 http://cord-cutter.net:8080/23aEYt/109375/66407
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-logo="https://spoo.me/HIMYM" group-title="Premium 24/7", How I Met Your Mother
@@ -1707,202 +1683,10 @@ https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/3b7qwiqzk3/
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=3dcfbec0e7146928baa55210bf2cb62f:bc85f74f815d9be5ae1dd6defaa05135
 https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/uiffe4jhf0/out/v1/3534efafca8c4815adbb4d2e9a1fe003/cenc.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/iHE1PSL.png", Discovery Science HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=b6a1dfce06caf463d29b91fc890baad1:4ce50c2ee03a4fbec5ddbf57bc8e6c8b
-https://zap-live1-ott.izzigo.tv/4/out/u/dash/DISCOVERY-SCIENCE-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/9qacl00.png", Discovery Turbo HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=e4bae4a7baa977c5b1a253adc589b6a7:ed5aa984b371395293b2c2a27125509c
-https://zap-live1-ott.izzigo.tv/4/out/u/dash/DISCOVERY-TURBO-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/Fx6qJIj.png", HBO HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=df18f6a05bab28d89e5dc01d88f4deb8:baceb525467c0db22ba83090616c1ad0
-https://zap-live1-ott.izzigo.tv/5/out/u/dash/HBO-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/VU0rKXI.png", HBO2 HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=09e84fc7ecb71def143cd7e2771f3b35:1a91f2d315fb0593321ba60aa783ec2c
-https://zap-live1-ott.izzigo.tv/5/out/u/dash/HBO2-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/P6eUKmQ.png", HBO Mundi HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=ba4052ca5eb6f8ff6b98d47d098b2dec:bb3e4bfa1821d2bdc25c9a0970e4e3b8
-https://zap-live1-ott.izzigo.tv/5/out/u/dash/HBO-MUNDI-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/4wiKcEP.png", HBO Plus HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=861ab989089891d84ad0da296954437c:3bdf94f9fc1888529f8d27d070d38566
-https://zap-live1-ott.izzigo.tv/5/out/u/dash/HBO-PLUS-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/AL4mX4j.png", HBO Pop HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=bcf36f412fa3d735cea04f7443fbf77c:6ff29fb2d6b7d825eb06004650a0a4ea
-https://zap-live1-ott.izzigo.tv/5/out/u/dash/HBO-POP-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/xDsrjlD.png", HBO Signature HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=5782156290f035ef28ae66cca252eedd:10d8bb6d9f9852747298487ab3c4afa3
-https://zap-live1-ott.izzigo.tv/5/out/u/dash/HBO-SIGNATURE-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/GLLJ9zE.png", HBO XTreme HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=bc8d4369fcff86db765db82356b4797c:8a7e801dbc275e3f4e1f43cba648906a
-https://zap-live1-ott.izzigo.tv/5/out/u/dash/HBO-XTREME-HD/default.mpd
-#EXTINF:-1 tvg-logo="https://geo.edge.pontiscloud.com:9002/images/102/CH_LOGO/160/160/0/0/7354519807335.png" group-title="Extras", HBO Family
-#KODIPROP:inputstream.adaptive.stream_headers=Referer=
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=3b1b15c86e64344e8802b06b806957c5:114983add26911b589595d931b505ca5
-https://nog-live1-ott.izzigo.tv/5/out/u/dash/HBOFAMILYHD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://geo.edge.pontiscloud.com:9002/images/52/CH_LOGO/160/160/0/0/95118087071584.png", A&E
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=65439188fe819667ba31731f59c7c28b:011efcb86dc0c336c1bb61d602c71691
-https://covoslivechannels2dash.clarovideo.com/Content/DASH_DASH_FK/Live/Channel(AE_MUNDO_HD)/manifest.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/mrewZuD.png", Universal Cinema HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=44a9e6477651b3b47f3a2b727d562835:1b87070d9fad5dee0a35ff014a2063a7
-https://zap-live1-ott.izzigo.tv/2/out/u/dash/UNIVERSAL-CINEMA-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/72rddmc.png", Universal Comedy HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=92b162b0b1d0dbb1e401f5845b4ce109:83b7ae276784a7f78f4a0c1190974d5c
-https://zap-live1-ott.izzigo.tv/2/out/u/dash/UNIVERSAL-COMEDY-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/vK3Qajx.png", Universal Crime HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=3a908a5d38a9c496ced27faa6bf5ff8e:85a5835a92bd7f87faf5ffbcb8814d33
-https://zap-live1-ott.izzigo.tv/2/out/u/dash/UNIVERSAL-CRIME-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/B3rak1A.png", Universal Premiere HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=9ccd5dd0c86a40ed719b83e1801bcd88:6d5e62525837ba9b7e09cfb8716116ba
-https://zap-live1-ott.izzigo.tv/2/out/u/dash/UNIVERSAL-PREMIERE-HD/default.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/193BHz6.png", Universal Reality HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=02a02bce7a3c518386e0da4e5ec0188d:071c7cc4c2f33e1e2d3fa3807d1bbbcc
-https://zap-live1-ott.izzigo.tv/2/out/u/dash/UNIVERSAL-REALITY-HD/default.mpd
-#EXTINF:-1 tvg-id="Canal.Paramount.Channel.(México).mx" tvg-logo="https://i.imgur.com/fxwLZXp.png" group-title="Extras",Paramount Network
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.stream_headers=User-Agent="Mozilla/5.0 (Windows NT 11.O; Win64; x64) AppleWebKit/537.36 (KHTML, like Geck0) Chrome/102.0.0.0 Safari/537.37"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=90cc957ead3f42e98b46d14e8c4b08de:3ab7cff1e63b9efc40aa962023b4b6b8
-https://zap-live1-ott.izzigo.tv/2/out/u/dash/PARAMOUNT-HD/default.mpd
-#EXTINF:-1 tvg-logo="https://geo.edge.pontiscloud.com:9002/images/22/CH_LOGO/160/160/0/0/14633187073787.png?worldtv2" group-title="Extras", Warner
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=a62d210f0f907a0ebfb84a790d42780b:590779be25e38a41d817f6ad13f5b070
-https://nog-live1-ott.izzigo.tv/5/out/u/dash/WARNERHD/default.mpd
-#EXTINF:-1 tvg-logo="https://geo.edge.pontiscloud.com:9002/images/50/CH_LOGO/160/160/0/0/77798092074367.png? worldtv2" group-title="Extras", Disney Channel
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=f047ea1abdca6f03117454c4de0b6d5b:b038c8c8f114c568956d428e80ae38d7
-https://nog-live1-ott.izzigo.tv/2/out/u/dash/DISNEYCHANNELHD/default.mpd
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/ZqHkBP66/teennick.png" group-title="Extras", TeenNick
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=57588399a2a939927418a588126e316d:6566f7996a957773701e2de8741ce176
-https://nog-live1-ott.izzigo.tv/4/out/u/dash/TEENNICKHD/default.mpd
-#EXTINF:-1 tvg-logo="https://geo.edge.pontiscloud.com:9002/images/320/CH_LOGO/160/160/0/0/70239189071229.png? worldtv2" group-title="Extras", Nickelodeon
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=294848a1c20273b5546c204b117fd7fe:47b4a3e3b2d5bbd54143a6af43268bbd
-https://nog-live1-ott.izzigo.tv/2/out/u/dash/NICKHD/default.mpd
-#EXTINF:-1 tvg-logo="https://geo.edge.pontiscloud.com:9002/images/53/CH_LOGO/160/160/0/0/29332619071250.png" group-title="Extras", AMC
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=97cfeda35c2f42d6c2be729ea2945b12:59c1f3c384bd0a25e817539d5fe6e24b
-https://nog-live1-ott.izzigo.tv/4/out/u/dash/AMCHD/default.mpd
-#EXTINF:-1 tvg-logo="https://geo.edge.pontiscloud.com:9002/images/70/CH_LOGO/160/160/0/0/4140286707756.png? worldtv2" group-title="Extras", Disney Jr.
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=d41d2ae9b0d875ba12e97c5a3f3eec82:3a443892e1ad1158c6fd2bf9c9146eb6
-https://nog-live1-ott.izzigo.tv/5/out/u/dash/DISNEYJRHD/default.mpd
-#EXTINF:-1 tvg-id="Canal.Comedy.Central.(México).sv" tvg-logo="https://i.imgur.com/32XV9vn.png" group-title="Extras",Comedy Central
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.stream_headers=User-Agent="Mozilla/5.0 (Windows NT 11.O; Win64; x64) AppleWebKit/537.36 (KHTML, like Geck0) Chrome/102.0.0.0 Safari/537.37"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=2a61b7a7912064acc62a06a6ae22ac5c:5bfb374d644703550f0637532bca0491
-https://zap-live1-ott.izzigo.tv/2/out/u/dash/COMEDY-CENTRAL-HD/default.mpd
-#EXTINF:-1 tvg-logo="https://geo.edge.pontiscloud.com:9002/images/44/CH_LOGO/160/160/0/0/15119500074230.png" group-title="Extras", TNT
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=8c7c3c7a05812a5245d64c0eced08a41:e56c4dedfa6c51f617cc7c9d2d61f7a8
-https://nog-live1-ott.izzigo.tv/1/out/u/dash/TNTSERIESHD/default.mpd
-#EXTINF:-1 tvg-logo="https://geo.edge.pontiscloud.com:9002/images/55/CH_LOGO/160/160/0/0/77211152071862.png" group-title="Extras", AXN
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=976d703cb95202a808972c722544fae1:562775b170402c6e2309ff69b9e48e82
-https://nog-live1-ott.izzigo.tv/3/out/u/dash/AXNHD/default.mpd
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/NfbJwMbX/tnt-us.png" group-title="Extras", TNT
-#KODIPROP:inputstream.adaptive.stream_headers=Referer=
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=37971d47c9e64d7584058efcfdc424b3:9944ecda48ef3d6325ccf89ab32bef83
-https://nog-live1-ott.izzigo.tv/6/out/u/dash/TNTHDH265/default.mpd
-#EXTINF:-1 tvg-logo="https://i.postimg.cc/RhyGzGT1/amc-series.png" group-title="Extras", AMC SERIES
-#KODIPROP:inputstream.adaptive.stream_headers=Referer=
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=a7f17a97ad60b44791b59611754cee68:6aaa00f8c250cf28a10ce84b8748ea94
-https://nog-live1-ott.izzigo.tv/14/out/u/dash/AMC-SERIES-HD/default.mpd
-#EXTINF:-1 tvg-logo="https://supair.dishanywhere.com/supair-images/channels/thumbnail/327235.png" group-title="Extras", FX HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=8ce1ec3e2402a170cbe13b79ce9bb30f:82fdcfde32cc02673547e58b50e2b5ae
-https://nog-live1-ott.izzigo.tv/3/out/u/dash/FXHD/default.mpd
-#EXTINF:-1 tvg-logo="https://geo.edge.pontiscloud.com:9002/images/47/CH_LOGO/160/160/0/0/60951863073142.png" group-title="Extras", Cinemax
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=fa6d1b52dd986d8faab9cca6adb8874b:6022259ba9edb1fe66b4507b51e1c12f
-https://nog-live1-ott.izzigo.tv/5/out/u/dash/CINEMAXHD/default.mpd
-#EXTINF:-1 tvg-id="Canal.Sony.(México).mx" tvg-logo="https://i.imgur.com/lyvKcFK.png" group-title="Extras",Sony Channel
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.stream_headers=User-Agent="Mozilla/5.0 (Windows NT 11.O; Win64; x64) AppleWebKit/537.36 (KHTML, like Geck0) Chrome/102.0.0.0 Safari/537.37"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=47b8d1118047c47ff9d794fca6c9997a:97af829b2dd037fb85550b85b0757685
-https://zap-live1-ott.izzigo.tv/3/out/u/dash/SONY-HD/default.mpd
-#EXTINF:-1 tvg-id="Canal.Cine.Sony.sv" tvg-logo="https://i.imgur.com/ZhH7tLU.png" group-title="Extras",Sony Movies
-#KODIPROP:inputstream.adaptive.stream_headers=Referer="https://www.izzigo.tv/"
-#KODIPROP:inputstream.adaptive.stream_headers=User-Agent="Mozilla/5.0 (Windows NT 11.O; Win64; x64) AppleWebKit/537.36 (KHTML, like Geck0) Chrome/102.0.0.0 Safari/537.37"
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=d6c0b2a5a6d7aa72f6f76f3607364cea:29772b450393146e8d1b56107f5163a2
-https://zap-live1-ott.izzigo.tv/4/out/u/dash/SONY-MOVIES-HD/default.mpd
 EXTINF:-1 tvg-id="StarzKidsFamilyEast.us" tvg-logo="https://m.media-amazon.com/images/G/01/LCXO_Station_Logos/starz_kf._SL170_FMpng_.png" group-title="US Channels",Starz Kids & Family HD East
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"0c6ca94e4d9cdcb8eb387e659ba00834":"0565f7a65c76833908647b4a4c382d26"}
 https://a202aivottlinear-a.akamaihd.net/OTTB/PDX/clients/dash/enc/6tayf6u2ws/out/v1/54ee39a134714248b735eb986bff786d/cenc.mpd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/crave-1-ca.png" group-title="Extras", CRAVE 1
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=4a107945066f45a9af2c32ea88be60f4:df97e849d68479ec16e395feda7627d0
-https://live-crave.video.9c9media.com/137c6e2e72e1bf67b82614c7c9b216d6f3a8c8281748505659713/fe/f/crave/crave1/manifest.mpd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/crave-2-ca.png" group-title="Extras", CRAVE 2
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=4ac6eaaf0e5e4f94987cbb5b243b54e8:8bb3f2f421f6afd025fa46c784944ad6
-https://live-crave.video.9c9media.com/ab4332c60e19b6629129eeb38a2a6ac6db5df2571721750022187/fe/f/crave/crave2/manifest.mpd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/crave-3-ca.png" group-title="Extras", CRAVE 3
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=eac7cd7979f04288bc335fc1d88fa344:0fca71cf91b3c4931ad3cf66c631c24c
-https://live-crave.video.9c9media.com/58def7d65f59ffaf995238981dd0e276d5a8fe8d1748593014588/fe/f/crave/crave3/manifest.mpd
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/crave-4-ca.png" group-title="Extras", CRAVE 4
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=a7242a7026ff45609114ee1f3beb34dc:65c32ada65548203a3683d5d37dd3a06
-https://live-crave.video.9c9media.com/c5875a31f178e038f7cc572b1aa0defb996ce7171748593186018/fe/f/crave/crave4/manifest.mpd
-#EXTINF:-1 tvg-id="Starz1" tvg-name="Starz 1" tvg-logo="" group-title="Extras",STARZ 1
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=5ebcf53fd1794237aa02af52413e0c2a:bd2f5d20887507da6f26401b1d95aeee
-https://live-crave.video.9c9media.com/59c2df870a1e8c5b14c4f5ed7e951e1cef9474581754944303887/fe/f/crave/starz1/manifest.mpd?u=li
-#EXTINF:-1 tvg-id="Starz2" tvg-name="Starz 2" tvg-logo="" group-title="Extras",STARZ 2
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=5389bf9aa04e467aac818fac7138f8f4:ebb8e28d9081a462015de790e76759f0
-https://live-crave.video.9c9media.com/65a655714b62d8c989ad80dc30e3035b0bfb65b41754945004845/fe/f/crave/starz2/manifest.mpd?u=li
-#EXTINF:-1 group-title="Extras" tvg-logo="https://i.imgur.com/ETZqCII.png", Amazon Movies
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=3e429eb91a1791d55df2a554dc58dda7:2f688f94ef580a61eada6932598137e4
-https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/oynu8tcxfa/out/v1/ab567b96658c4d84ae1fc6c67110987c/cenc.mpd
-#EXTINF:-1 group-title="Extras" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/4/4e/CW_Gold_%28The_CW_Channels_feature_icon%29.jpg/revision/latest/scale-to-width-down/250?cb=20250802193103", CW Gold
-https://d1d726ny1vain2.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-femoe55fvrdvc/playlist.m3u8
-#EXTINF:-1 group-title="Extras" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/c/c8/CW_Forever_%282024%29_%28better_version%29.png/revision/latest/scale-to-width-down/250?cb=20250718132251", CW Forever
-https://d1sknsnbkyvie.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-sbcl5hxexbihh/playlist.m3u8
-#EXTINF:-1 group-title="Extras" tvg-logo="https://images.seeklogo.com/logo-png/40/2/star-channel-logo-png_seeklogo-403871.png", Star Channel
-https://webtvstream.bhtelecom.ba/star_channel.m3u8
-#EXTINF:-1 group-title="Extras" tvg-logo="https://images.seeklogo.com/logo-png/52/2/star-movies-logo-png_seeklogo-523979.png", Star Movies
-https://webtvstream.bhtelecom.ba/star_movies.m3u8
-#EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-logo="https://lge-static.ottera.tv/prod/lge/linear_channel/logo/1600x400/lg1film_epg_white_2_0.png" group-title="Extras",LG 1 Film
-https://stream.ads.ottera.tv/playlist.m3u8?network_id=15465
-#EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-logo="https://lge-static.ottera.tv/prod/lge/linear_channel/logo/1600x400/lg1spt_epg_white.png" group-title="Extras",LG 1 Spotlight
-https://stream.ads.ottera.tv/playlist.m3u8?network_id=13959
-#EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-logo="https://lge-static.ottera.tv/prod/lge/linear_channel/logo/1600x400/lg1_800x200_white.png" group-title="Extras",LG 1
-https://stream.ads.ottera.tv/playlist.m3u8?network_id=10957
 #EXTINF:-1 tvg-id="CRE" tvg-name="CricLife 1" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT5J2gFH_mFzD330RmYFdWmdqJ6r3QSKLen_g1GYSyVkFpAcHNrMvRkn1K&s=10" group-title="Sports",CricLife 1
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=1e23e51b09a67b83813c17049870bcd4:c3d6288e378b0dc55320fd0e6fd2e55f
@@ -1926,14 +1710,6 @@ https://a166aivottlinear-a.akamaihd.net/OTTB/sin-nitro/live/clients/dash/enc/inp
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=ba9b637b639af897f228114363e882fa:27508374902bd52361f08a2ad4dba3a3
 https://live2.shoq.com.pk/live/eds/Fast_Sports_HD/DASH/Fast_Sports_HD.mpd
-#EXTINF:-1 tvg-logo="https://ev-img-cdn-lb.shoq.com.pk/prd-peg-data/default/images/logos/live/bol-entertainment.png" group-title="Extras",Bol Entertainment
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=1ab9491349c9b6217b8e7cec08e6b5a3:f37b1bbe691db067003522b053251945
-https://live2.shoq.com.pk/live/eds/Bol_Entertainment/DASH/Bol_Entertainment.mpd
-#EXTINF:-1 tvg-logo="https://ev-img-cdn-lb.shoq.com.pk/prd-peg-data/default/images/logos/live/filmax.png" group-title="Extras",Filmax
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=eefc4c6db6d961885314bb5c58fd226b:da646d01cc7a852b093854299dbc7b87
-https://live2.shoq.com.pk/live/eds/FILMAX/DASH/FILMAX.mpd
 #EXTINF:-1 tvg-id="TSN 1" tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/upsspx1433379567.png" group-title="Sports",TSN 1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -1957,8 +1733,6 @@ https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/irtfdsri14/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=8ce20e2a4b3dd04e0a6e5469b7cb47be:163c323b65d0597b13f037641fd67b1e
 http://otte.live.fly.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/mttgh1c4ei/out/v1/9cc664b146744e2ba23066aa048efbc5/cenc.mpd
-#EXTINF:-1 tvg-id="" group-title="Extras" tvg-logo="",Dolby Surround Check
-https://ott.dolby.com/OnDelKits/DDP/Dolby_Digital_Plus_Online_Delivery_Kit_v1.4.1/Test_Signals/muxed_streams/DASH/Live_MPD/ChID_voices_1280x720p_25fps_h264_6ch_256kbps_ddp.mpd
 ================================== PREMIUM 24/7 =======================================================
 #EXTINF:-1  tvg-name="Cinemania 4k" tvg-id="24.7.Dummy.us" group-title="Premium 24/7" tvg-logo="http://b1g.pw/logos2/CineMania4K_tamil.jpg",Cinemania 4K
 http://filex.me:8080//live/MAS101A/MAS101AABB/532829.ts
