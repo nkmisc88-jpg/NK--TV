@@ -23,7 +23,7 @@ MOVE_TO_TAMIL_HD = [
 ]
 
 # 2. FILTERS (Global Deletions)
-# Added "extras" here to remove that group entirely
+# Added "extras" to ban list
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras"]
 
 # 3. ASTRO GO ALLOW LIST
@@ -44,7 +44,7 @@ def get_group_and_name(line):
     return group, name
 
 def should_keep_channel(group, name):
-    # 1. Check for APAC in the Name
+    # 1. Check for APAC in Name
     if "apac" in name.lower():
         return False
 
@@ -118,7 +118,7 @@ def main():
             # 1. CHECK FILTERS
             if not should_keep_channel(group, name):
                 skip_this_channel = True
-                current_buffer.append(line) # Add to buffer just to clear it properly next loop
+                current_buffer.append(line)
                 continue
 
             # 2. DETERMINE NEW GROUP
@@ -164,12 +164,35 @@ def main():
     final_lines.extend(fetch_live_events(SONY_LIVE_URL))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
 
-    # ADD TEMPORARY CHANNELS
+    # ADD TEMPORARY CHANNELS (FORCED VISIBILITY)
     if os.path.exists(YOUTUBE_FILE):
-        print("📥 Appending youtube.txt...")
+        print("📥 Processing youtube.txt...")
         with open(YOUTUBE_FILE, "r") as f:
-            for l in f:
-                if l.strip(): final_lines.append(l.strip())
+            yt_lines = f.readlines()
+        
+        for i in range(len(yt_lines)):
+            line = yt_lines[i].strip()
+            if not line: continue
+            
+            # Case 1: It's an Info line (#EXTINF)
+            # We FORCE the group-title to be "Temporary Channels"
+            if line.startswith("#EXTINF"):
+                # Remove any existing group
+                line = re.sub(r'group-title="([^"]*)"', '', line)
+                # Insert our group
+                line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Temporary Channels"', line)
+                final_lines.append(line)
+            
+            # Case 2: It's a Link (http/rtmp)
+            elif line.startswith("http") or line.startswith("rtmp"):
+                # If the previous line was NOT an EXTINF info line, we need to create one
+                # otherwise this link will be hidden/ignored by players
+                prev_line = yt_lines[i-1].strip() if i > 0 else ""
+                if not prev_line.startswith("#EXTINF"):
+                    # Create a dummy name for this raw link
+                    final_lines.append('#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Temporary Channel')
+                
+                final_lines.append(line)
 
     # SAVE
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
