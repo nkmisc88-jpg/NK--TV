@@ -42,8 +42,8 @@ INFOTAINMENT_KEYWORDS = [
     "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
 ]
 
-# 2. DELETE LIST
-BAD_KEYWORDS = ["fashion"]
+# 2. DELETE LIST (Groups/Channels to remove)
+BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto"]
 
 # 3. LIVE EVENTS
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
@@ -56,7 +56,7 @@ LOGO_MAP = {
     "fox": "https://i.imgur.com/39s1fL3.png"
 }
 
-# Standard User Agent (Only used for YouTube/Live events, NOT applied to main channels)
+# Standard User Agent (Only for YouTube/Temp channels)
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_group_and_name(line):
@@ -65,26 +65,42 @@ def get_group_and_name(line):
     name = line.split(",")[-1].strip()
     return group, name
 
-def should_keep_channel(name):
-    # Only checks for "fashion"
-    clean_name = name.lower()
+def should_keep_channel(group, name):
+    # Check both Group Name and Channel Name
+    check_str = (group + " " + name).lower()
     for bad in BAD_KEYWORDS:
-        if bad in clean_name: return False 
+        if bad in check_str: return False 
     return True
 
-def fetch_playlist_lines(url):
+def fetch_live_events(url):
     lines = []
     try:
-        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
         if r.status_code == 200:
             content = r.text.splitlines()
             for line in content:
                 line = line.strip()
                 if not line: continue
                 if line.startswith("#EXTM3U"): continue
-                lines.append(line)
+                
+                # FORCE GROUP TO "Live Events"
+                if line.startswith("#EXTINF"):
+                    # Remove existing group-title if any
+                    line = re.sub(r'group-title="([^"]*)"', '', line)
+                    # Add new group-title
+                    line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
+                    lines.append(line)
+                elif not line.startswith("#"):
+                    lines.append(line)
     except: pass
     return lines
+
+def get_auto_logo(channel_name):
+    name_lower = channel_name.lower()
+    for key, url in LOGO_MAP.items():
+        if key in name_lower:
+            return url
+    return ""
 
 def parse_youtube_txt():
     lines = []
@@ -92,8 +108,7 @@ def parse_youtube_txt():
     try:
         with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
             file_lines = f.readlines()
-        current_title = ""
-        current_logo = ""
+        current_title, current_logo = "", ""
         for line in file_lines:
             line = line.strip()
             if not line: continue
@@ -110,24 +125,23 @@ def parse_youtube_txt():
                     if len(parts) > 1: url = parts[1].strip()
                 if url.startswith("http") or url.startswith("rtmp"):
                     if not current_title: current_title = "Temporary Channel"
+                    if not current_logo or len(current_logo) < 5:
+                        current_logo = get_auto_logo(current_title)
                     lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
                     if "http" in url and "|" not in url: url += f"|User-Agent={UA_HEADER}"
                     lines.append(url)
-                    current_title = ""
-                    current_logo = ""
+                    current_title, current_logo = "", ""
     except: pass
     return lines
 
 def main():
     print("📥 Downloading Source Playlist...")
     
-    # 1. Header
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U"]
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # 2. Fetch Source
     try:
         r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
         source_lines = r.text.splitlines()
@@ -137,6 +151,7 @@ def main():
 
     seen_channels = set()
     current_buffer = []
+    zee_tamil_count = 0
 
     for line in source_lines:
         line = line.strip()
@@ -151,12 +166,12 @@ def main():
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             
-            # A. DELETE FILTER (Fashion TV)
-            if not should_keep_channel(name):
-                current_buffer = []
+            # --- 1. FILTER CHECK ---
+            if not should_keep_channel(group, name):
+                current_buffer = [] 
                 continue
 
-            # B. IDENTIFY DUPLICATES
+            # --- 2. IDENTIFY DUPLICATES ---
             clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
             is_duplicate = False
             if clean_id in seen_channels:
@@ -164,56 +179,59 @@ def main():
             else:
                 seen_channels.add(clean_id)
 
-            # C. GROUP RENAMING LOGIC
+            # --- 3. GROUP RENAMING LOGIC ---
             new_group = group 
             
-            if is_duplicate:
-                # If it's a duplicate, move it to Backup immediately
+            # === SPECIAL LOGIC: ZEE TAMIL HD SWAP ===
+            if "zee tamil hd" in clean_name:
+                zee_tamil_count += 1
+                if zee_tamil_count == 1:
+                    new_group = "Backup"   # 1st copy (broken) -> Backup
+                    is_duplicate = True    # Treat as backup
+                elif zee_tamil_count == 2:
+                    new_group = "Tamil HD" # 2nd copy (working) -> Main Group
+                    is_duplicate = False   # Treat as main
+                else:
+                    new_group = "Backup"
+            
+            # === STANDARD LOGIC ===
+            elif is_duplicate:
+                # All other duplicates go to Backup
                 new_group = "Backup"
             else:
-                # Only rename if it's the MAIN (first) copy
+                # Main renaming for non-duplicates (and the good Zee Tamil)
                 group_lower = group.lower()
 
-                # Base Renames
                 if group_lower == "tamil": new_group = "Tamil SD"
                 if group_lower == "local channels": new_group = "Tamil Extra"
                 if "premium 24/7" in group_lower: new_group = "Tamil Extra"
                 if "astro go" in group_lower: new_group = "Tamil Extra"
                 if group_lower == "sports": new_group = "Sports Extra"
                 
-                # Others (Entertainment, Movies, Music)
                 if "entertainment" in group_lower: new_group = "Others"
                 if "movies" in group_lower: new_group = "Others"
                 if "music" in group_lower: new_group = "Others"
-
-                # Infotainment
                 if "infotainment" in group_lower: new_group = "Infotainment HD"
 
-                # News
                 if "news" in group_lower and "tamil" not in group_lower and "malayalam" not in group_lower:
                     new_group = "English and Hindi News"
 
-                # Specific Moves
                 if "j movies" in clean_name or "raj digital plus" in clean_name: new_group = "Tamil SD"
                 if "rasi movies" in clean_name or "rasi hollywood" in clean_name: new_group = "Tamil Extra"
                 if "dd sports" in clean_name: new_group = "Sports Extra"
                     
-                # Infotainment SD Moves
                 if any(target.lower() in clean_name for target in MOVE_TO_INFOTAINMENT_SD):
                      new_group = "Infotainment SD"
 
                 if any(k in clean_name for k in INFOTAINMENT_KEYWORDS):
                     if "hd" not in clean_name: new_group = "Infotainment SD"
 
-                # Sports HD
                 for target in SPORTS_HD_KEEP:
                     if target.lower() in clean_name: new_group = "Sports HD"; break
                 
-                # Tamil News
                 if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]):
                     new_group = "Tamil News"
 
-                # Tamil HD
                 if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
                     new_group = "Tamil HD"
 
@@ -227,7 +245,7 @@ def main():
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # NO MODIFICATION TO LINK. RAW COPY.
+            # RAW COPY - No modifications to link
             current_buffer[-1] = line
             
             final_lines.extend(current_buffer)
@@ -238,9 +256,11 @@ def main():
 
     # ADD LIVE EVENTS
     print("📥 Adding Live Events...")
-    final_lines.extend(fetch_playlist_lines(FANCODE_URL))
-    final_lines.extend(fetch_playlist_lines(SONY_LIVE_URL))
-    final_lines.extend(fetch_playlist_lines(ZEE_LIVE_URL))
+    final_lines.extend(fetch_live_events(FANCODE_URL))
+    final_lines.extend(fetch_live_events(SONY_LIVE_URL))
+    final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
+    
+    # ADD YOUTUBE
     final_lines.extend(parse_youtube_txt())
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
