@@ -46,8 +46,7 @@ INFOTAINMENT_KEYWORDS = [
     "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
 ]
 
-# 6. FILTERS (Global Deletions)
-# Added "fashion tv" here to delete it
+# 6. FILTERS
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac", "fashion tv"]
 
 # 7. ASTRO KEEP LIST
@@ -161,19 +160,23 @@ def parse_youtube_txt():
                 if url.startswith("http") or url.startswith("rtmp"):
                     if not current_title: current_title = "Temporary Channel"
                     
+                    # AUTO LOGO LOGIC
                     if not current_logo or len(current_logo) < 5:
                         current_logo = get_auto_logo(current_title)
 
                     entry = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}'
                     temp_channels.append(entry)
                     
+                    # LINK FIXES
                     if "http" in url and "|" not in url:
                         url += f"|User-Agent={UA_HEADER}"
                     temp_channels.append(url)
                     
                     current_title = ""
                     current_logo = ""
-    except: pass
+
+    except Exception as e:
+        print(f"⚠️ Error parsing youtube.txt: {e}")
     return temp_channels
 
 def main():
@@ -194,7 +197,7 @@ def main():
     # TRACKING VARIABLES
     seen_channels = set()
     zee_tamil_count = 0
-    zee_zest_count = 0 # Counter for Zee Zest
+    zee_zest_count = 0 
     
     # PROCESS CHANNELS
     current_buffer = []
@@ -223,11 +226,10 @@ def main():
                     skip_this_channel = True
                     continue 
             
-            # --- ZEE ZEST HD FIX (New) ---
-            # Skips the first copy (broken), keeps the 2nd
+            # --- ZEE ZEST HD FIX ---
             elif "zee zest hd" in clean_name:
                 zee_zest_count += 1
-                if zee_zest_count == 2: pass
+                if zee_zest_count == 2: pass 
                 else:
                     skip_this_channel = True
                     continue
@@ -255,16 +257,19 @@ def main():
             if "premium 24/7" in group_lower: new_group = "Tamil Extra"
             if "astro go" in group_lower: new_group = "Tamil Extra"
             if group_lower == "sports": new_group = "Sports Extra"
-
-            # 2. Rename Entertainment -> Others
-            if "entertainment" in group_lower:
-                new_group = "Others"
             
-            # 3. Rename News -> English and Hindi News
+            # 2. RENAME: Entertainment & Movies -> Others
+            if "entertainment" in group_lower: new_group = "Others"
+            if "movies" in group_lower: new_group = "Others"
+
+            # 3. RENAME: Infotainment -> Infotainment HD
+            if "infotainment" in group_lower: new_group = "Infotainment HD"
+
+            # 4. RENAME: News -> English and Hindi News
             if "news" in group_lower and "tamil" not in group_lower and "malayalam" not in group_lower:
                 new_group = "English and Hindi News"
 
-            # 4. Specific Moves
+            # 5. Specific Moves
             if "j movies" in clean_name or "raj digital plus" in clean_name:
                 new_group = "Tamil SD"
             if "rasi movies" in clean_name or "rasi hollywood" in clean_name:
@@ -272,26 +277,26 @@ def main():
             if "dd sports" in clean_name:
                 new_group = "Sports Extra"
                 
-            # 5. Move to Infotainment SD
+            # 6. Move to Infotainment SD (Specific List)
             if any(target.lower() in clean_name for target in [x.lower() for x in MOVE_TO_INFOTAINMENT_SD]):
                  new_group = "Infotainment SD"
 
-            # 6. Infotainment SD Logic (Keywords + Not HD)
+            # 7. Infotainment SD Logic (Keywords + Not HD)
             if any(k in clean_name for k in INFOTAINMENT_KEYWORDS):
                 if "hd" not in clean_name:
                     new_group = "Infotainment SD"
 
-            # 7. Sports HD (Strict)
+            # 8. Sports HD (Strict)
             for target in SPORTS_HD_KEEP:
                 if target.lower() in clean_name:
                     new_group = "Sports HD"
                     break
             
-            # 8. Tamil News
+            # 9. Tamil News
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]):
                 new_group = "Tamil News"
 
-            # 9. Tamil HD
+            # 10. Tamil HD
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
                 new_group = "Tamil HD"
 
