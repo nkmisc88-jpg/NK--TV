@@ -46,8 +46,8 @@ INFOTAINMENT_KEYWORDS = [
     "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
 ]
 
-# 6. FILTERS
-BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac", "fashion tv"]
+# 6. FILTERS (Global Deletions)
+BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac", "fashion"]
 
 # 7. ASTRO KEEP LIST
 ASTRO_KEEP = [
@@ -90,7 +90,7 @@ def should_keep_channel(group, name):
     
     clean_group = group.lower().replace(" ", "")
     for bad in BAD_KEYWORDS:
-        if bad in clean_group: return False 
+        if bad in clean_group or bad in name.lower(): return False 
             
     if "astro go" in group.lower():
         is_allowed = False
@@ -196,7 +196,6 @@ def main():
 
     # TRACKING VARIABLES
     seen_channels = set()
-    zee_tamil_count = 0
     zee_zest_count = 0 
     
     # PROCESS CHANNELS
@@ -218,23 +217,15 @@ def main():
             clean_name = name.lower().strip()
             group_lower = group.lower()
             
-            # --- ZEE TAMIL HD FIX ---
-            if "zee tamil hd" in clean_name:
-                zee_tamil_count += 1
-                if zee_tamil_count == 2: pass 
-                else:
-                    skip_this_channel = True
-                    continue 
-            
-            # --- ZEE ZEST HD FIX ---
-            elif "zee zest hd" in clean_name:
+            # --- ZEE ZEST HD FIX (Keep 2nd Only) ---
+            if "zee zest hd" in clean_name:
                 zee_zest_count += 1
                 if zee_zest_count == 2: pass 
                 else:
                     skip_this_channel = True
                     continue
 
-            # --- STANDARD DEDUPLICATION ---
+            # --- STANDARD DEDUPLICATION (Includes Zee Tamil HD now) ---
             else:
                 clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
                 if clean_id in seen_channels:
@@ -258,9 +249,10 @@ def main():
             if "astro go" in group_lower: new_group = "Tamil Extra"
             if group_lower == "sports": new_group = "Sports Extra"
             
-            # 2. RENAME: Entertainment & Movies -> Others
+            # 2. RENAME: Entertainment & Movies & Music -> Others
             if "entertainment" in group_lower: new_group = "Others"
             if "movies" in group_lower: new_group = "Others"
+            if "music" in group_lower: new_group = "Others"
 
             # 3. RENAME: Infotainment -> Infotainment HD
             if "infotainment" in group_lower: new_group = "Infotainment HD"
@@ -296,7 +288,7 @@ def main():
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]):
                 new_group = "Tamil News"
 
-            # 10. Tamil HD
+            # 10. Tamil HD (Overrides Others/Music renames for Sun Music HD etc)
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
                 new_group = "Tamil HD"
 
