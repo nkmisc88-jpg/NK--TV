@@ -9,7 +9,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-# FIXED: Removed the bad 'googl' import causing the crash
 
 # ==========================================
 # CONFIGURATION
@@ -18,7 +17,18 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# 1. GROUP MAPPING
+# 1. LIVE EVENT LINKS (JSON & M3U)
+# Note: Use RAW links for everything!
+FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
+SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
+ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
+
+# --- NEW: DebugDyno JSON Links (Add your new ones here) ---
+HOTSTAR_JSON = "https://raw.githubusercontent.com/DebugDyno/yo_events/main/data/jiohotstar.json"
+WATCHO_JSON  = "https://raw.githubusercontent.com/DebugDyno/yo_events/main/data/watcho.json"
+# (You can add more JSON links here)
+
+# 2. GROUP MAPPING
 MOVE_TO_TAMIL_HD = [
     "Sun TV HD", "Star Vijay HD", "Colors Tamil HD", 
     "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD",
@@ -45,22 +55,65 @@ SPORTS_HD_KEEP = [
 INFOTAINMENT_KEYWORDS = ["discovery", "animal planet", "nat geo", "history tv", "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"]
 BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
 
-# Live Events
-FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
-SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
-ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
-
 DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
+UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
+# ==========================================
+# NEW: JSON PARSER (For DebugDyno)
+# ==========================================
+def fetch_json_events(url):
+    print(f"   📥 Fetching JSON Events: {url}...")
+    lines = []
+    try:
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        if r.status_code == 200:
+            data = r.json() # Parse JSON
+            
+            # Handle if it's a dictionary with a key like "channels" or just a list
+            items = []
+            if isinstance(data, list):
+                items = data
+            elif isinstance(data, dict):
+                # Try to find the list inside the dict
+                for key in ["channels", "events", "data", "matches"]:
+                    if key in data and isinstance(data[key], list):
+                        items = data[key]
+                        break
+            
+            for item in items:
+                # 1. Find Name
+                name = item.get("name") or item.get("title") or item.get("channel_name") or "Unknown Event"
+                
+                # 2. Find URL
+                stream_url = item.get("url") or item.get("stream_url") or item.get("link") or item.get("stream")
+                
+                # 3. Find Logo
+                logo = item.get("logo") or item.get("icon") or item.get("image") or DEFAULT_LOGO
+                
+                if stream_url:
+                    # Construct the M3U line
+                    lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{logo}",{name}')
+                    
+                    # Add headers if needed (DebugDyno links often need simple User-Agent)
+                    if "|" not in stream_url and "http" in stream_url:
+                        stream_url += "|User-Agent=Mozilla/5.0"
+                    
+                    lines.append(stream_url)
+                    
+    except Exception as e:
+        print(f"   ⚠️ Failed to parse JSON: {e}")
+    return lines
+
+# ==========================================
+# BROWSER & HELPER FUNCTIONS
+# ==========================================
 def get_real_m3u8_using_browser(url):
     print(f"   🚀 Launching Browser for: {url}")
-    
     chrome_options = Options()
     chrome_options.add_argument("--headless") 
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    # Correct way to enable performance logging
-    chrome_options.set_capability("goog:loggingPrefs", {"performance": "ALL"})
+    chrome_options.set_capability("goog:loggingPrefs", {"performance": "ALL"}) # Fixed Typo Here
 
     driver = None
     found_m3u8 = None
@@ -70,7 +123,7 @@ def get_real_m3u8_using_browser(url):
         driver = webdriver.Chrome(service=service, options=chrome_options)
         
         driver.get(url)
-        time.sleep(10) # Wait for JS to generate token
+        time.sleep(10) 
         
         logs = driver.get_log("performance")
         for entry in logs:
@@ -88,7 +141,6 @@ def get_real_m3u8_using_browser(url):
 
     if found_m3u8:
         return f"{found_m3u8}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    
     return None
 
 def get_group_and_name(line):
@@ -143,8 +195,9 @@ def parse_youtube_txt():
             if not line: continue
             lower_line = line.lower()
             
-            # Skip garbage lines (Fix for your screenshot issue)
-            if len(line) > 100 and "http" not in line: continue 
+            # --- GARBAGE PROTECTION ---
+            # If a line is super long and isn't a URL, skip it (Fixes your screenshot issue)
+            if len(line) > 150 and "http" not in lower_line: continue 
 
             if lower_line.startswith("title"):
                 parts = line.split(":", 1)
@@ -266,9 +319,15 @@ def main():
     if current_buffer: final_lines.extend(current_buffer)
 
     print("📥 Adding Live Events...")
+    # Add M3U Playlists
     final_lines.extend(fetch_live_events(FANCODE_URL))
     final_lines.extend(fetch_live_events(SONY_LIVE_URL))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
+    
+    # Add JSON Playlists (New DebugDyno support)
+    print("📥 Adding JSON Events...")
+    final_lines.extend(fetch_json_events(HOTSTAR_JSON))
+    final_lines.extend(fetch_json_events(WATCHO_JSON))
     
     print("📥 Adding Custom Links...")
     final_lines.extend(parse_youtube_txt())
