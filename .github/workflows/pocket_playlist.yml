@@ -1,24 +1,16 @@
 name: Pocket Playlist Generator
 
 on:
-  # 1. Run automatically every 15 minutes (Refreshes YouTube links)
   schedule:
-    - cron: '*/15 * * * *'
-  
-  # 2. Run immediately when you save ANY file (like youtube.txt)
+    - cron: '*/15 * * * *' # Runs every 15 mins
   push:
-    branches:
-      - main
     paths:
-      - '**'  # <--- THIS is the fix. It watches ALL files.
-
-  # 3. Manual Run Button
+      - '**' # Runs on ANY file change
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
 
@@ -43,6 +35,12 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
+          
+          # 1. Add the new playlist
           git add pocket_playlist.m3u
-          # The part below prevents the script from failing if there are no changes
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Playlist" && git push)
+          
+          # 2. Check for new changes online and merge them (FIXES YOUR ERROR)
+          git pull origin main --rebase
+          
+          # 3. Commit and Push
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Playlist" && git push origin main)
