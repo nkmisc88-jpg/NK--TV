@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-05 18:27:39
+# Updated on: 2026-01-05 18:28:30
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -1042,4 +1042,4 @@ https://www.youtube.com/@SunNewsTamil/live
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Polimer News
 https://www.youtube.com/@polimernews/live
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Aaj Tak
-https://www.youtube.com/@AajTak/live
+https://www.youtube.com/@SunNewsTamil/live
