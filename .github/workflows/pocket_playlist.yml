@@ -2,11 +2,11 @@ name: Pocket Playlist Generator
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # Run every 15 minutes
-  workflow_dispatch:       # Manual trigger
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
   push:
     paths:
-      - 'create_pocket_playlist.py' # Run if you edit the script
+      - 'create_pocket_playlist.py'
 
 jobs:
   build:
@@ -35,12 +35,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          
-          # Add the new file
           git add pocket_playlist.m3u
-          
-          # Commit the change
           git commit -m "Auto-update Playlist" || echo "No changes to commit"
-          
-          # FORCE PUSH to overwrite the server version (Solves your error)
+          # FORCE PUSH to fix your "Rejected" error
           git push -f origin main
