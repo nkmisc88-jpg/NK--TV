@@ -43,7 +43,8 @@ INFOTAINMENT_KEYWORDS = [
 ]
 
 # 2. DELETE LIST (Groups/Channels to remove)
-BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto"]
+# Added "sun nxt" and "jio specials hd"
+BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "jio specials hd"]
 
 # 3. LIVE EVENTS
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
