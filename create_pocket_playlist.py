@@ -9,7 +9,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.googl.logging import LogType
+# FIXED: Removed the bad 'googl' import causing the crash
 
 # ==========================================
 # CONFIGURATION
@@ -18,65 +18,79 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# [KEEP YOUR EXISTING GROUP MAPPINGS HERE - PASTED FOR BREVITY]
-# ... (Paste your Move/Delete lists here if they are missing) ...
+# 1. GROUP MAPPING
+MOVE_TO_TAMIL_HD = [
+    "Sun TV HD", "Star Vijay HD", "Colors Tamil HD", 
+    "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD",
+    "Zee Thirai HD", "Vijay Super HD"
+]
+
+MOVE_TO_TAMIL_NEWS = [
+    "Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", 
+    "Tamil Janam", "Jaya Plus", "M Nadu", "News J", 
+    "News18 Tamil Nadu", "News Tamil 24x7", "Win TV", 
+    "Zee Tamil News", "Polimer News", "Puthiya Thalaimurai", 
+    "Seithigal TV", "Sathiyam TV", "MalaiMurasu Seithigal"
+]
+
+MOVE_TO_INFOTAINMENT_SD = ["GOOD TiMES", "Food Food"]
+
+SPORTS_HD_KEEP = [
+    "Star Sports 1 HD", "Star Sports 2 HD", 
+    "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", 
+    "Star Sports Select 1 HD", "Star Sports Select 2 HD", 
+    "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"
+]
+
+INFOTAINMENT_KEYWORDS = ["discovery", "animal planet", "nat geo", "history tv", "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"]
 BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
+
+# Live Events
+FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
+SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
+ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
 DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
 
 def get_real_m3u8_using_browser(url):
-    """
-    Launches a headless Chrome browser to capture network traffic
-    and find the hidden .m3u8 link.
-    """
     print(f"   🚀 Launching Browser for: {url}")
     
-    # 1. Setup Chrome Options (Headless = Invisible)
     chrome_options = Options()
     chrome_options.add_argument("--headless") 
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    
-    # Enable Performance Logging (To see network traffic)
+    # Correct way to enable performance logging
     chrome_options.set_capability("goog:loggingPrefs", {"performance": "ALL"})
 
     driver = None
     found_m3u8 = None
 
     try:
-        # 2. Start Browser
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options=chrome_options)
         
-        # 3. Visit the Page
         driver.get(url)
-        time.sleep(8) # Wait 8 seconds for JS to generate the token
+        time.sleep(10) # Wait for JS to generate token
         
-        # 4. Scan Network Logs
         logs = driver.get_log("performance")
         for entry in logs:
             message = json.loads(entry["message"])["message"]
             if "Network.requestWillBeSent" in message["method"]:
                 request_url = message["params"]["request"]["url"]
-                
-                # Look for the .m3u8 link
                 if ".m3u8" in request_url:
                     print(f"      🎯 Found hidden link: {request_url[:50]}...")
                     found_m3u8 = request_url
-                    break # Stop after finding the first one
-                    
+                    break 
     except Exception as e:
         print(f"   ⚠️ Browser Error: {e}")
     finally:
         if driver: driver.quit()
 
     if found_m3u8:
-        # Add User-Agent to make it play
         return f"{found_m3u8}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     
     return None
 
-# [KEEP YOUR EXISTING HELPER FUNCTIONS]
 def get_group_and_name(line):
     grp_match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
     group = grp_match.group(1).strip() if grp_match else ""
@@ -94,7 +108,6 @@ def get_clean_id(name):
     return re.sub(r'[^a-z0-9]', '', name)
 
 def fetch_live_events(url):
-    # [Paste your existing fetch_live_events code here]
     lines = []
     try:
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
@@ -130,6 +143,9 @@ def parse_youtube_txt():
             if not line: continue
             lower_line = line.lower()
             
+            # Skip garbage lines (Fix for your screenshot issue)
+            if len(line) > 100 and "http" not in line: continue 
+
             if lower_line.startswith("title"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_title = parts[1].strip()
@@ -143,16 +159,13 @@ def parse_youtube_txt():
                 url = line[url_start:].strip()
                 url = url.split(" ")[0]
 
-                # LOGIC: If it's NOT a direct link and NOT YouTube, use Browser
                 if "youtube" not in lower_line and not url.endswith(".m3u8"):
                     final_link = get_real_m3u8_using_browser(url)
                     if final_link:
                         lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
                         lines.append(final_link)
-                        print(f"   ✅ Browser Found Stream: {current_title}")
                     else:
                         print(f"   ❌ Browser Failed: {current_title}")
-
                 else:
                      lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
                      if "|" not in url: url += "|User-Agent=Mozilla/5.0"
@@ -179,18 +192,84 @@ def main():
         print(f"❌ Failed: {e}")
         sys.exit(1)
 
-    # [Paste the rest of your Main function logic here (HD scan, grouping, etc.)]
-    # ... (Keep the exact same logic as before for standard channels) ...
-    
-    # FOR NOW, I am putting just the essential part to make it run:
-    seen_channels = set()
+    hd_channels_exist = set()
     for line in source_lines:
-        # ... (Your existing loop logic) ...
-        # If you need me to paste the FULL 200 lines again let me know, 
-        # but you can just copy the 'parse_youtube_txt' and 'get_real_m3u8_using_browser' functions
-        # and replace them in your current script.
-        pass 
+        if line.startswith("#EXTINF"):
+            _, name = get_group_and_name(line)
+            if "hd" in name.lower():
+                hd_channels_exist.add(get_clean_id(name))
 
+    seen_channels = set()
+    current_buffer = []
+    zee_tamil_count = 0
+
+    for line in source_lines:
+        line = line.strip()
+        if not line: continue
+        if line.startswith("#EXTM3U"): continue
+        if line.startswith("#EXTINF"):
+            if current_buffer: final_lines.extend(current_buffer)
+            current_buffer = []
+            group, name = get_group_and_name(line)
+            clean_name = name.lower().strip()
+            
+            if not should_keep_channel(group, name): current_buffer = []; continue
+            if "hd" not in clean_name:
+                base_id = get_clean_id(name)
+                if base_id in hd_channels_exist: current_buffer = []; continue
+
+            exact_clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
+            is_duplicate = False
+            if exact_clean_id in seen_channels: is_duplicate = True
+            else: seen_channels.add(exact_clean_id)
+
+            new_group = group 
+            if "zee tamil hd" in clean_name:
+                zee_tamil_count += 1
+                if zee_tamil_count == 1: new_group = "Backup"; is_duplicate = True
+                elif zee_tamil_count == 2: new_group = "Tamil HD"; is_duplicate = False
+                else: new_group = "Backup"
+            elif is_duplicate: new_group = "Backup"
+            else:
+                group_lower = group.lower()
+                if group_lower == "tamil": new_group = "Tamil Extra"
+                if group_lower == "local channels": new_group = "Tamil Extra"
+                if "premium 24/7" in group_lower: new_group = "Tamil Extra"
+                if "astro go" in group_lower: new_group = "Tamil Extra"
+                if group_lower == "sports": new_group = "Sports Extra"
+                if "extras" in group_lower: new_group = "Others" 
+                if "entertainment" in group_lower: new_group = "Others"
+                if "movies" in group_lower: new_group = "Others"
+                if "music" in group_lower: new_group = "Others"
+                if "infotainment" in group_lower: new_group = "Infotainment HD"
+                if "news" in group_lower and "tamil" not in group_lower: new_group = "English and Hindi News"
+                if new_group == "Tamil Extra" and "sports" in clean_name: new_group = "Sports Extra"
+                if "j movies" in clean_name or "raj digital plus" in clean_name: new_group = "Tamil Extra"
+                if "rasi movies" in clean_name or "rasi hollywood" in clean_name: new_group = "Tamil Extra"
+                if "dd sports" in clean_name: new_group = "Sports Extra"
+                if any(k in clean_name for k in INFOTAINMENT_KEYWORDS) and "hd" not in clean_name: new_group = "Infotainment SD"
+                if any(t in clean_name for t in MOVE_TO_INFOTAINMENT_SD): new_group = "Infotainment SD"
+                for target in SPORTS_HD_KEEP:
+                     if target.lower() in clean_name: new_group = "Sports HD"; break
+                if any(t in clean_name for t in MOVE_TO_TAMIL_NEWS): new_group = "Tamil News"
+                if any(t in clean_name for t in MOVE_TO_TAMIL_HD): new_group = "Tamil HD"
+
+            if new_group != group:
+                if 'group-title="' in line: line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
+                else: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
+        current_buffer.append(line)
+        if not line.startswith("#"):
+            current_buffer[-1] = line
+            final_lines.extend(current_buffer)
+            current_buffer = []
+
+    if current_buffer: final_lines.extend(current_buffer)
+
+    print("📥 Adding Live Events...")
+    final_lines.extend(fetch_live_events(FANCODE_URL))
+    final_lines.extend(fetch_live_events(SONY_LIVE_URL))
+    final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
+    
     print("📥 Adding Custom Links...")
     final_lines.extend(parse_youtube_txt())
 
