@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-05 11:41:25
+# Updated on: 2026-01-05 11:46:00
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58&xxx=||cookie=__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 5 January 2026 at 5:07:08 pm
+#DATE:- Monday, 5 January 2026 at 5:14:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138931" tvg-name="Chattogram Royals Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138931_5808_CCH_RAN_fc-web_1766733054166.jpg" tvg-language="ENGLISH" ,ENG | Chattogram Royals Vs Rangpur Riders
 https://in-mc-fdlive.fancode.com/mumbai/138931_english_hls_cf91c4037e70925_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139204" tvg-name="Center Court   Day 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 1
@@ -860,7 +860,7 @@ https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=e
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498866" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767426294128238_UC26_Great-Britain-vs-Greece_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Great Britain vs Greece - 5 Jan 2026
 https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767637801~acl=/*~id=fc02ae0b86f2a94ca8bfe0251fbfa862-1767594600154~hmac=41d593988c3639e772658a78195d1e543874640f92257595732d53dbbd76510e|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; BRAVIA 2K GB ATV3; Build/PTT1.190515.001.S38)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=bbc94f9b4d23ad0c6ea2bf5bc17d43eb-1767611411971
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 5 January 2026 at 5:00:14 pm
+#DATE:- Monday, 5 January 2026 at 5:15:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list675b8ef264834d209f66cca87421a145349a679bf8c74855ac780257a4d01764.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767699005~acl=%2f*~data=hdntl~hmac=58760db1e46a37c26cca31ebb0b14e9687ec484ed80fdca5f40f0a044263e5b1|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list675b8ef264834d209f66cca87421a145349a679bf8c74855ac780257a4d01764.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
