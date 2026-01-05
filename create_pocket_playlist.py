@@ -46,8 +46,8 @@ INFOTAINMENT_KEYWORDS = [
     "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
 ]
 
-# 6. FILTERS (Only delete these)
-# Added "fashion" to delete Fashion TV
+# 6. FILTERS (Global Deletions)
+# Only Fashion TV is deleted
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac", "fashion"]
 
 # 7. ASTRO KEEP LIST
@@ -76,7 +76,7 @@ LOGO_MAP = {
     "history": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/History_Logo.svg/800px-History_Logo.svg.png"
 }
 
-# HEADERS
+# HEADERS (Basic User-Agent only)
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_group_and_name(line):
@@ -174,12 +174,7 @@ def main():
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # TRACKING VARIABLES
-    zee_zest_count = 0 
-    
-    # PROCESS CHANNELS
     current_buffer = []
-    skip_this_channel = False
     
     for line in source_lines:
         line = line.strip()
@@ -187,29 +182,18 @@ def main():
         if line.startswith("#EXTM3U"): continue
 
         if line.startswith("#EXTINF"):
-            if current_buffer and not skip_this_channel:
+            if current_buffer:
                 final_lines.extend(current_buffer)
             current_buffer = []
-            skip_this_channel = False
             
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             group_lower = group.lower()
             
-            # --- ZEE ZEST HD FIX ONLY ---
-            # Skips the first copy (broken), keeps the 2nd
-            if "zee zest hd" in clean_name:
-                zee_zest_count += 1
-                if zee_zest_count == 2: pass
-                else:
-                    skip_this_channel = True
-                    continue
-
-            # --- NO OTHER DEDUPLICATION (All channels kept) ---
-            
-            # --- FILTERS (Only Fashion TV deleted) ---
+            # --- FILTERS (Delete Only) ---
             if not should_keep_channel(group, name):
-                skip_this_channel = True
+                # Only skipping if it's explicitly "bad" (e.g. Fashion TV)
+                current_buffer = []
                 continue
 
             # --- GROUP MOVING LOGIC ---
@@ -261,7 +245,7 @@ def main():
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]):
                 new_group = "Tamil News"
 
-            # 10. Tamil HD
+            # 10. Tamil HD (Overrides Others/Music renames for Sun Music HD etc)
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
                 new_group = "Tamil HD"
 
@@ -275,16 +259,19 @@ def main():
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # --- GLOBAL PLAYBACK FIX ---
+            # --- BASIC PLAYBACK FIX (User-Agent Only) ---
             if "http" in line and "|" not in line:
                 line += f"|User-Agent={UA_HEADER}"
             
             current_buffer[-1] = line
             
-            if not skip_this_channel:
-                final_lines.extend(current_buffer)
+            # Add to playlist
+            final_lines.extend(current_buffer)
             current_buffer = []
-            skip_this_channel = False
+
+    # Add last buffer if exists
+    if current_buffer:
+        final_lines.extend(current_buffer)
 
     # ADD LIVE EVENTS & TEMP
     print("📥 Adding Live Events...")
