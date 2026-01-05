@@ -15,10 +15,8 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# Basic User-Agent (Required for playback)
-UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-
 def fetch_playlist_lines(url):
+    """Downloads a playlist and returns its lines exactly as is."""
     lines = []
     try:
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
@@ -27,6 +25,7 @@ def fetch_playlist_lines(url):
             for line in content:
                 line = line.strip()
                 if not line: continue
+                # Skip the #EXTM3U header from sources so we don't have duplicates
                 if line.startswith("#EXTM3U"): continue
                 lines.append(line)
     except:
@@ -34,6 +33,7 @@ def fetch_playlist_lines(url):
     return lines
 
 def parse_youtube_txt():
+    """Reads youtube.txt and formats it for M3U."""
     lines = []
     if not os.path.exists(YOUTUBE_FILE): return []
     try:
@@ -66,10 +66,6 @@ def parse_youtube_txt():
                     
                     # Create Entry
                     lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
-                    
-                    # Add User-Agent if missing
-                    if "http" in url and "|" not in url:
-                        url += f"|User-Agent={UA_HEADER}"
                     lines.append(url)
                     
                     current_title = ""
@@ -86,25 +82,20 @@ def main():
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # 2. Get Main Source
-    source_lines = fetch_playlist_lines(POCKET_URL)
-    
-    # 3. Process Source (EXACT COPY + User-Agent only)
-    for line in source_lines:
-        if not line.startswith("#") and "http" in line and "|" not in line:
-            line += f"|User-Agent={UA_HEADER}"
-        final_lines.append(line)
+    # 2. Get Main Source (EXACT COPY)
+    # We do NOT touch the lines. No checking for http, no adding headers.
+    final_lines.extend(fetch_playlist_lines(POCKET_URL))
 
-    # 4. Add Live Events
+    # 3. Add Live Events
     print("📥 Adding Live Events...")
     final_lines.extend(fetch_playlist_lines(FANCODE_URL))
     final_lines.extend(fetch_playlist_lines(SONY_LIVE_URL))
     final_lines.extend(fetch_playlist_lines(ZEE_LIVE_URL))
 
-    # 5. Add YouTube
+    # 4. Add YouTube
     final_lines.extend(parse_youtube_txt())
 
-    # 6. Save
+    # 5. Save
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
     
