@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-05 22:56:02
+# Updated on: 2026-01-05 23:35:22
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,11 +846,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab&xxx=||cookie=__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 6 January 2026 at 4:21:10 am
+#DATE:- Tuesday, 6 January 2026 at 5:00:05 am
+#EXTINF:-1 group-title="Live Events" tvg-id="138741" tvg-name="Auckland Aces Vs Otago Volts" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138741_5800_AA_OV_fc-web_1766641250967.jpg" tvg-language="ENGLISH" ,ENG | Auckland Aces Vs Otago Volts
+https://in-mc-fdlive.fancode.com/mumbai/138741_english_hls_b36cd39d8d7465_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="133963" tvg-name="Victoria Women Vs Act Meteors" tvg-logo="https://images.fancode.com/aig/match/v1/133963_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Victoria Women Vs Act Meteors
 https://in-mc-fdlive.fancode.com/mumbai/133963_english_hls_7ca9b4a79566659_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 05-01-2026 23:20
-#No live matches.
+#EXTINF:-1 group-title="Live Events" tvg-id="133965" tvg-name="Queensland Fire Vs Tasmania Women" tvg-logo="https://images.fancode.com/aig/match/v1/133965_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Queensland Fire Vs Tasmania Women
+https://in-mc-fdlive.fancode.com/mumbai/133965_english_hls_6f58f9021288256_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 06-01-2026 05:00
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498903" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767427703499238_UC26_Canada-vs-Belgium_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Canada vs Belgium - 6 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767681001~acl=/*~id=2e2be439187f8dea77cbfaa92bea27ef-1767637800189~hmac=f8e18f65e6b99cd4ed7eb1246523316efd0efb83ef3f4f1ca57d8cf5bf9c5fff|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; LM-V600; Build/TKQ1.220829.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=1b200125b9b4ec63ad654101f8b1ea74-1767655811121
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498833" tvg-name="Super Smash 2025/26 Men's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012967/1767596813484377_SuperSmash2526_mens_Auckland_Aces_vs_Otago_Volts_5jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Auckland Aces vs Otago Volts - 6 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767681001~acl=/*~id=2e2be439187f8dea77cbfaa92bea27ef-1767637800189~hmac=f8e18f65e6b99cd4ed7eb1246523316efd0efb83ef3f4f1ca57d8cf5bf9c5fff|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; Nokia 5.4; Build/SKQ1.220119.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=1b200125b9b4ec63ad654101f8b1ea74-1767655811121
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 5/1/2026, 22:15:18
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
