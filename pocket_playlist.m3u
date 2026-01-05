@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-05 16:54:03 IST
+# Last Updated: 2026-01-05 16:57:51 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -23,9 +23,6 @@ https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://jkey.playlivtvlinks.workers.dev/?id=429
 https://keys.vodep39240327.workers.dev/?id=429.mpd
-#EXTINF:-1 tvg-id="608" group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
-https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=b5a2c6d13b9748de9ceebc0a8adc8af3:e806fec1bf1c8a844216118c94bad020
 #EXTINF:-1 tvg-id="ts511" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11954-j9lu45o8-v1/imageContent-11954-j9lu45o8-m1.png" group-title="Tamil HD",Sun Music HD
@@ -2107,3 +2104,19 @@ https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=e
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M02/master.m3u8?hdntl=exp=1767695407~acl=%2f*~data=hdntl~hmac=f8c5516ac9671682fb51310a664fdb1b15d034957318f0af09c9833b0c598256|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873754" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873754/list/1920x1080listd969dfa7b58d47cb9c3f3d0f3fe9ab938b73ae701d00406184ee79a15872ac88.jpg" tvg-language="english" ,ENG | Northbengal United Fc Vs Burdwan Blasters
 https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M02/master.m3u8?hdntl=exp=1767695410~acl=%2f*~data=hdntl~hmac=13f04bc7104d749f4649db022ee92c47e6ca5b698e5d3b8ac340fcfd93ba1610|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
+https://vt-ip.vodep39240327.workers.dev/1972.m3u8
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow Sports
+https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/cb573e1e657764909bc33778d1f84582e75939d91374942a6bb45d8975d30b0ad0e9f0c5ee18e975099d18dc7c0b6c075d7ac21fd87c1cc6d82efa5766294471989eb51978a828218a09f4e71899487b32ec33708e7c1777dda9291c8429b06a776b826b4077424039949f5c6fbbdf48cf2739faf08823602e0b75be659e6a346c81c5860c068035ffe65817cb3d66df629004e63e89e6a571a625df34a64dc3cba191e42ab7849364ad50b07e61d0450c70a17916796795fae3a7ef9e6e91af2df5a63cf0b43e1d8b425155fbfe849160e82cf786378a5a45d16c97448c249e7be55de9b800f0dfdba5224b5af59d0981465d5b7a209d270e78d37b0c113b71cfb1b2c034ef20/192/1920x1080_5859480/index.m3u8
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 505
+http://51.89.148.37:8080/catena-9-15390503-streamer-_fox_sports_505_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 502
+http://51.89.148.37:8080/catena-9-94-streamer-fox_sports_502_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
+http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow Sports 2
+https://aps32.playlist.live-video.net/v1/playlist/CrkFPA0wAtrho7iChuzsoGMxOZpA0BqV550E3bIlOIHkCgVRYjJ_u8aW92tRxpiS_jGJbKTX5hBF_fReryfJnRw6O394aghxr5mPv-CTTcx7IIFoG71pPhPE1E_SZHypAl47lIqxbmVcaSNeA-TtO6sDF0OTjWtIqRVSvUba0g8b6LGJyc6fZvGbUdPOGXiSsBJYvcVLo0zwt5PnYq9dLdzi46izUwMKYyh4udau9K7zizlgWAAfDi7BZYc7zn3KnmN1v1ItD-tiLANRJWTQwrJSotH4ZgYbGq52Dd7twoT7IIjyY7W4g1t19ybUcIeHWHTBKyXSbGmE6JBPe7GAlJcqeDBbP9n4khrBDQTMwZwRuKIPkBXLjB9pqkZaYgeJrjDfgiZ8xqi-ofZnyxnE36XTWCL-EqHSyF4OlVo_zKVdV29ic0fQskLrbZ7VbKr4DkJ4sCghUtaIuv7TWYzSVKjCnQbqecAQPQ8r1rS5A-EV1_QvGXF5iJwi3mClk9XYeYVT-Ynnq41sXoz04M-A9sUtGH95T_p_FphjKfEDTsG7e4ZgC-gkRvdgo_zB_R_Alk7UenuHJ0olW1yMrMg1U_T3-Zx78_CVS6NSsQQ0PCcBHe0NQ2Cn2WgE7L-idRBO8Lu4E3fShNxhx608Om8CxJe6XfAxKh69SQdBWmJGI8Ho0PAxDrm3XUh4oeZfzIrlJu_W_ZB6KJvV8s_h2vvNnZiQll_Fx08-Zdyao0248EDzuT8zOgOCzn0aGfZYlTuL02pOhSIX9tNOUC5Bz9EyIFkKVvmmxQJRnXLH5WiyOD4nCtOBkj7hBs14w_9OA_hNbF7RNQQuQKR2wOHzVLwKL6CYAk0rwABdBFEoQTgsY9HkYDYH60EBZ0b3I0pRoXqL4t1TL01dBC8BbH42Oosz7fnu_qGFk0YQSegTKhoMVZNLwN_nPZfyphaDIAEqCXVzLXdlc3QtMjCJDg.m3u8
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow
+https://dj-tm-srvr1.vercel.app/title/WILLOW_CA-HD(720p60)@DJ-TM.m3u8?data=BcHLDkQwFADQD7K4yAxricekqF6k2GpcJalIvOfrnQOV-VxxSD_edoO_NUXs2lqKFGcv4H8gxFxcunKyOtejcr9Jgw8B828xp2dtYIInWcytsp60kgduXSuJWWWIHHfei2hc8QU|Telegram=@links_macha_official&Creator=@DJ-TM
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow
+https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/cb543e1e786c648798d43d63d1ef41a5f9591fde1d6988693eb5518975d1073edce2a59caa08ff16388f1ede7f0a66413a3e951fda77118fd87eb141453c5728cfffe729a2c05616b7db083429b56a062a866a68ac39437ed0e21f48a238b6720a5aa82a66443d80b846ac7250db80148b61299bce8c37683f03409a5e5afba358b1ebb358178d6fa8b61455c02640e59f43c8821ca688d15fcb5e8227a31d94c1a1d98617d386f32493688aa2d675581fb0ae3bf6e053b2d39b1b56f61309756e9e623ef1842a1d954e422697973e24488d7aec8c2b86613bae128d0df7581fa4877bc5ca6fdac490de504f38b0c550606dc88fc6dfad6563ed34a9e18175120d3578bddb654424f85bfdab0d49d311b7e35ffa97308cb5263637cc9a448f9c884e8eda8267933fc3cbf89972170033444ab154ac9e62cc3a9d569c8e4271121d1fedad5ccad08d05707a19d2c91ef5030bb5debc86dd2532de2f4e09bf2e8a0d4524e71c5851c961b99635678c662d803636f41175a34aeeb721f0e88ab15475e590970caf2fdcb40cd3e40be6386f0e4ce0a45e2a2f264ad9e06202276a8314b4a1adcf434951bcb99d8483395e20361855008e989753939ccf2418568c1311697a14188117940efb055a0b3ac60ed9ce5d276567fca26e0d595c506f77f3564d4df31da048d796c0b2/43/1920x1080_5859480/index.m3u8
