@@ -43,7 +43,6 @@ INFOTAINMENT_KEYWORDS = [
 ]
 
 # 2. DELETE LIST
-# Added "sunnxt" specifically for the group name
 BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
 
 # 3. LIVE EVENTS
@@ -73,7 +72,6 @@ def should_keep_channel(group, name):
     return True
 
 def get_clean_id(name):
-    """Normalize name for HD comparison (remove spaces, symbols, and 'hd')"""
     name = name.lower().replace("hd", "").replace(" ", "").strip()
     return re.sub(r'[^a-z0-9]', '', name)
 
@@ -153,8 +151,6 @@ def main():
         sys.exit(1)
 
     # --- STEP 1: SCAN FOR HD CHANNELS ---
-    # We create a set of "base names" that have an HD version.
-    # e.g., if "Sun TV HD" exists, we add "suntv" to the set.
     hd_channels_exist = set()
     for line in source_lines:
         if line.startswith("#EXTINF"):
@@ -180,22 +176,19 @@ def main():
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             
-            # 1. FILTER CHECK (Fashion, SunNXT, etc.)
+            # 1. FILTER CHECK
             if not should_keep_channel(group, name):
                 current_buffer = [] 
                 continue
 
             # 2. SD DELETION CHECK
-            # If this is SD, check if an HD version exists in our set
             if "hd" not in clean_name:
                 base_id = get_clean_id(name)
                 if base_id in hd_channels_exist:
-                    # HD version exists, so DELETE this SD version
                     current_buffer = []
                     continue
 
             # 3. IDENTIFY DUPLICATES
-            # (Note: we use a different ID for duplication to keep exact matches distinct from SD/HD matches)
             exact_clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
             is_duplicate = False
             if exact_clean_id in seen_channels:
@@ -222,24 +215,33 @@ def main():
             elif is_duplicate:
                 new_group = "Backup"
             else:
-                # Main renaming for non-duplicates
                 group_lower = group.lower()
 
-                if group_lower == "tamil": new_group = "Tamil SD"
+                # TAMIL -> TAMIL EXTRA (Changed from Tamil SD)
+                if group_lower == "tamil": new_group = "Tamil Extra"
                 if group_lower == "local channels": new_group = "Tamil Extra"
                 if "premium 24/7" in group_lower: new_group = "Tamil Extra"
                 if "astro go" in group_lower: new_group = "Tamil Extra"
-                if group_lower == "sports": new_group = "Sports Extra"
                 
+                # OTHER GROUPS
+                if group_lower == "sports": new_group = "Sports Extra"
+                if "extras" in group_lower: new_group = "Others" # Added Extras -> Others
                 if "entertainment" in group_lower: new_group = "Others"
                 if "movies" in group_lower: new_group = "Others"
                 if "music" in group_lower: new_group = "Others"
                 if "infotainment" in group_lower: new_group = "Infotainment HD"
 
+                # NEWS
                 if "news" in group_lower and "tamil" not in group_lower and "malayalam" not in group_lower:
                     new_group = "English and Hindi News"
 
-                if "j movies" in clean_name or "raj digital plus" in clean_name: new_group = "Tamil SD"
+                # === SPECIFIC MOVES ===
+                
+                # 1. Sports inside Tamil Extra -> Sports Extra
+                if new_group == "Tamil Extra" and "sports" in clean_name:
+                    new_group = "Sports Extra"
+
+                if "j movies" in clean_name or "raj digital plus" in clean_name: new_group = "Tamil SD" # Force these to SD if needed, or leave as Extra
                 if "rasi movies" in clean_name or "rasi hollywood" in clean_name: new_group = "Tamil Extra"
                 if "dd sports" in clean_name: new_group = "Sports Extra"
                     
@@ -268,7 +270,7 @@ def main():
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # RAW COPY - No modifications to link
+            # RAW COPY
             current_buffer[-1] = line
             
             final_lines.extend(current_buffer)
