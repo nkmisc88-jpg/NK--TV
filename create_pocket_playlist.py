@@ -77,11 +77,46 @@ def get_clean_id(name):
 
 def extract_youtube_id(url):
     """Extracts the 11-char Video ID from a YouTube URL."""
-    # Matches: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/live/ID
     regex = r"(?:v=|\/)([0-9A-Za-z_-]{11}).*"
     match = re.search(regex, url)
     if match:
         return match.group(1)
+    return None
+
+def get_live_video_id(channel_url):
+    """
+    Scrapes the YouTube Channel's 'Live' page to find the current active Video ID.
+    Works for links like: https://www.youtube.com/@ChannelName/live
+    """
+    try:
+        # We need a browser-like User-Agent or YouTube will block the request
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept-Language": "en-US,en;q=0.9"
+        }
+        
+        # 1. If user provided a /live link, use it. If not, try to append /live (basic guess)
+        target_url = channel_url
+        if "/live" not in target_url and "@" in target_url:
+            target_url = target_url.rstrip("/") + "/live"
+
+        # 2. Fetch the page
+        r = requests.get(target_url, headers=headers, timeout=15)
+        
+        # 3. Use Regex to find the "canonical" video ID hidden in the HTML
+        # YouTube usually puts: <link rel="canonical" href="https://www.youtube.com/watch?v=VIDEO_ID">
+        match = re.search(r'rel="canonical"\s+href="https://www.youtube.com/watch\?v=([a-zA-Z0-9_-]{11})"', r.text)
+        
+        if match:
+            return match.group(1)
+        
+        # Fallback: Look for "videoId":"..." pattern
+        match_json = re.search(r'"videoId":"([a-zA-Z0-9_-]{11})"', r.text)
+        if match_json:
+            return match_json.group(1)
+
+    except:
+        pass
     return None
 
 def fetch_live_events(url):
@@ -112,7 +147,7 @@ def get_auto_logo(channel_name):
     return ""
 
 def parse_youtube_txt():
-    """Reads youtube.txt and formats links for Internal OTT Navigator Playback."""
+    """Reads youtube.txt, finds LIVE IDs automatically, and formats for OTT Navigator."""
     lines = []
     if not os.path.exists(YOUTUBE_FILE): return []
     try:
@@ -135,23 +170,36 @@ def parse_youtube_txt():
                     parts = line.split(":", 1)
                     if len(parts) > 1: url = parts[1].strip()
                 
-                # --- YOUTUBE LOGIC (INTERNAL PLAYBACK) ---
-                if "youtube.com" in url or "youtu.be" in url:
-                    video_id = extract_youtube_id(url)
-                    if video_id:
-                        if not current_logo: 
-                            current_logo = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"
-                        if not current_title: 
-                            current_title = f"YouTube Live {video_id}"
-                        
-                        # Use 'plugin://' scheme to force internal playback in OTT Nav/TiviMate
-                        plugin_url = f"plugin://plugin.video.youtube/play/?video_id={video_id}"
-                        
-                        lines.append(f'#EXTINF:-1 group-title="YouTube Live" tvg-logo="{current_logo}",{current_title}')
-                        lines.append(plugin_url)
+                video_id = None
+                
+                # --- CASE 1: CHANNEL LIVE URL (Auto-Grabber) ---
+                # e.g. https://www.youtube.com/@AajTak/live
+                if "/live" in url or ("@" in url and "watch?v=" not in url):
+                    print(f"   🔎 Scanning Live Channel: {current_title}...")
+                    video_id = get_live_video_id(url)
+                    if not video_id:
+                        print(f"   ⚠️ No Live Stream found for {current_title}")
 
-                # --- NORMAL LINKS ---
-                elif url.startswith("http") or url.startswith("rtmp"):
+                # --- CASE 2: DIRECT VIDEO LINK ---
+                # e.g. https://www.youtube.com/watch?v=Nq2wYlWFucg
+                elif "watch?v=" in url or "youtu.be" in url:
+                    video_id = extract_youtube_id(url)
+
+                # --- ADD TO PLAYLIST ---
+                if video_id:
+                    if not current_logo: 
+                        current_logo = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"
+                    if not current_title: 
+                        current_title = f"YouTube Live {video_id}"
+                    
+                    # Internal Plugin Playback (No ads, no browser)
+                    plugin_url = f"plugin://plugin.video.youtube/play/?video_id={video_id}"
+                    
+                    lines.append(f'#EXTINF:-1 group-title="YouTube Live" tvg-logo="{current_logo}",{current_title}')
+                    lines.append(plugin_url)
+
+                # --- NON-YOUTUBE LINKS ---
+                elif "youtube" not in url and (url.startswith("http") or url.startswith("rtmp")):
                     if not current_title: current_title = "Temporary Channel"
                     if not current_logo or len(current_logo) < 5:
                         current_logo = get_auto_logo(current_title)
