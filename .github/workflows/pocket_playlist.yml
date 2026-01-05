@@ -1,38 +1,21 @@
 name: Pocket Playlist Generator
 
 on:
+  # 1. Run automatically every 15 minutes
   schedule:
     - cron: '*/15 * * * *'
-  workflow_dispatch:
+  
+  # 2. Run immediately when you Push (save) changes to ANY file
   push:
+    branches:
+      - main       # Make sure this matches your branch name (main or master)
     paths:
-      - 'create_pocket_playlist.py'
+      - '**'       # This is the Key! '**' means "Watch ALL files" (including youtube.txt)
+
+  # 3. Allow manual button click
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests
-
-      - name: Run Pocket Script
-        run: python create_pocket_playlist.py
-
-      - name: Commit and Push
-        run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
-          git add pocket_playlist.m3u
-          git commit -m "Auto-update Playlist" || echo "No changes to commit"
-          git push -f origin main
+    # ... (rest of your existing code)
