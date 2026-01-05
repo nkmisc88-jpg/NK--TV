@@ -39,8 +39,11 @@ jobs:
           # 1. Add the new playlist
           git add pocket_playlist.m3u
           
-          # 2. Check for new changes online and merge them (FIXES YOUR ERROR)
+          # 2. COMMIT FIRST (This fixes the error 128)
+          git commit -m "Auto-update Playlist" || echo "No changes to commit"
+          
+          # 3. NOW Pull the latest changes (like your youtube.txt edits)
           git pull origin main --rebase
           
-          # 3. Commit and Push
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Playlist" && git push origin main)
+          # 4. Push everything
+          git push origin main
