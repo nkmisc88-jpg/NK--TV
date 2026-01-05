@@ -11,7 +11,7 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# 1. CHANNELS TO MOVE TO "Tamil HD" (From Tamil SD/Other groups)
+# 1. CHANNELS TO MOVE TO "Tamil HD"
 MOVE_TO_TAMIL_HD = [
     "Sun TV HD",
     "Star Vijay HD",
@@ -22,17 +22,23 @@ MOVE_TO_TAMIL_HD = [
     "Jaya TV HD"
 ]
 
-# 2. FILTERS (Global Deletions)
-# Added "extras" and "apac" to be safe
+# 2. CHANNELS TO KEEP DUPLICATES FOR (Fix for broken links)
+# If a channel is listed here, the script will NOT delete its duplicates.
+# This lets you see all versions to find the working one.
+ALLOW_DUPLICATES = [
+    "Zee Tamil HD"
+]
+
+# 3. FILTERS (Global Deletions)
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac"]
 
-# 3. ASTRO GO ALLOW LIST (Only these 6)
+# 4. ASTRO GO ALLOW LIST
 ASTRO_KEEP = [
     "vinmeen", "thangathirai", "vaanavil", 
     "vasantham", "vellithirai", "sports plus"
 ]
 
-# 4. LIVE EVENT SOURCES
+# 5. LIVE EVENT SOURCES
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
@@ -44,22 +50,16 @@ def get_group_and_name(line):
     return group, name
 
 def should_keep_channel(group, name):
-    # Filter 1: APAC in Name
     if "apac" in name.lower(): return False
-
-    # Filter 2: Bad Keywords in Group
     clean_group = group.replace(" ", "")
     for bad in BAD_KEYWORDS:
         if bad in clean_group: return False 
-            
-    # Filter 3: Astro GO Specific List
     if "astro go" in group:
         is_allowed = False
         for allowed in ASTRO_KEEP:
             if allowed in name.lower():
                 is_allowed = True; break
         if not is_allowed: return False 
-
     return True
 
 def fetch_live_events(url):
@@ -72,7 +72,6 @@ def fetch_live_events(url):
                 line = line.strip()
                 if not line: continue
                 if line.startswith("#EXTINF"):
-                    # Force group to Live Events
                     line = re.sub(r'group-title="([^"]*)"', '', line)
                     line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
                     events.append(line)
@@ -96,7 +95,7 @@ def main():
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # --- TRACKING VARIABLES FOR DEDUPLICATION ---
+    # TRACKING
     seen_channels = set()
     
     # PROCESS CHANNELS
@@ -109,26 +108,29 @@ def main():
         if line.startswith("#EXTM3U"): continue
 
         if line.startswith("#EXTINF"):
-            # SAVE PREVIOUS CHANNEL
             if current_buffer and not skip_this_channel:
                 final_lines.extend(current_buffer)
-            
-            # RESET FOR NEW CHANNEL
             current_buffer = []
             skip_this_channel = False
             
             group, name = get_group_and_name(line)
             
             # --- DEDUPLICATION LOGIC ---
-            # Create a simplified ID (e.g., "Sun TV HD" -> "suntvhd")
             clean_id = re.sub(r'[^a-z0-9]', '', name.lower())
             
-            if clean_id in seen_channels:
-                # We have seen this channel before! DELETE THIS DUPLICATE.
+            # Check if this channel is in our "Allow Duplicates" list
+            is_exception = False
+            for allowed in ALLOW_DUPLICATES:
+                if allowed.lower() in name.lower():
+                    is_exception = True
+                    break
+            
+            if clean_id in seen_channels and not is_exception:
+                # Duplicate found, AND it's not an exception -> DELETE
                 skip_this_channel = True
                 continue
             else:
-                # First time seeing it. Remember it.
+                # First time seeing it OR it is an exception -> KEEP
                 seen_channels.add(clean_id)
             
             # --- FILTERS ---
@@ -136,21 +138,12 @@ def main():
                 skip_this_channel = True
                 continue
 
-            # --- GROUP MOVING LOGIC ---
+            # --- GROUP MOVING ---
             new_group = group 
-            
-            # 1. Rename Tamil -> Tamil SD
             if group == "tamil": new_group = "Tamil SD"
-            
-            # 2. Move Specific HD channels -> Tamil HD
-            if any(target.lower() == name.lower() for target in MOVE_TO_TAMIL_HD):
-                new_group = "Tamil HD"
-            
-            # 3. Move Astro GO -> Tamil HD
-            if "astro go" in group:
-                new_group = "Tamil HD"
+            if any(target.lower() == name.lower() for target in MOVE_TO_TAMIL_HD): new_group = "Tamil HD"
+            if "astro go" in group: new_group = "Tamil HD"
 
-            # Apply New Group
             if new_group != group:
                 if 'group-title="' in line:
                     line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
@@ -160,7 +153,6 @@ def main():
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # Astro Fix Logic (Add User-Agent)
             if "astro" in current_buffer[0].lower() and "http" in line:
                  if "User-Agent" not in line:
                      if "|" in line: line = line.split("|")[0]
@@ -178,17 +170,15 @@ def main():
     final_lines.extend(fetch_live_events(SONY_LIVE_URL))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
 
-    # ADD TEMPORARY CHANNELS (Universal Fix)
+    # ADD TEMPORARY CHANNELS
     if os.path.exists(YOUTUBE_FILE):
         print("📥 Processing youtube.txt...")
         with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
             yt_lines = f.read().splitlines()
-
         pending_extinf = ""
         for line in yt_lines:
             line = line.strip()
             if not line: continue
-
             if line.startswith("#EXTINF"):
                 if 'group-title="' in line:
                     line = re.sub(r'group-title="[^"]*"', 'group-title="Temporary Channels"', line)
@@ -199,15 +189,11 @@ def main():
                     else:
                          line += ' group-title="Temporary Channels"'
                 pending_extinf = line
-            
             elif line.startswith("http") or line.startswith("rtmp"):
-                if pending_extinf:
-                    final_lines.append(pending_extinf)
-                else:
-                    final_lines.append('#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Temporary Channel')
+                if pending_extinf: final_lines.append(pending_extinf)
+                else: final_lines.append('#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Temporary Channel')
                 final_lines.append(line)
                 pending_extinf = "" 
-            
             elif not line.startswith("#"):
                  pending_extinf = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",{line}'
 
