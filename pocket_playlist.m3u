@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-05 20:33:55 IST
+# Last Updated: 2026-01-05 20:39:22 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,10 @@ https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://jkey.playlivtvlinks.workers.dev/?id=429
-https://keys.vodep39240327.workers.dev/?id=429.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://keys.vodep39240327.workers.dev/?id=429.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Content-Type=application/dash+xml
+#EXTINF:-1 tvg-id="608" group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
+https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=b5a2c6d13b9748de9ceebc0a8adc8af3:e806fec1bf1c8a844216118c94bad020
 #EXTINF:-1 tvg-id="ts511" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11954-j9lu45o8-v1/imageContent-11954-j9lu45o8-m1.png" group-title="Tamil HD",Sun Music HD
@@ -131,7 +134,7 @@ https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Super_HD_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="3269" group-title="Movies" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-73570-l91cvyrk-v1/imageContent-73570-l91cvyrk-m2.png",Vijay Takkar
+#EXTINF:-1 tvg-id="3269" group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-73570-l91cvyrk-v1/imageContent-73570-l91cvyrk-m2.png",Vijay Takkar
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ecdf4d18807e55bf814c3f40656a33c3&key=0031af1bf42234195cda0eb88fd6003b
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
@@ -149,67 +152,67 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/J_Movies_BTS/output/index.mpd?__hdnea__=s
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_Digital_Plus_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="1104" group-title="Movies" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12086-j9od8wxc-v1/imageContent-12086-j9od8wxc-m1.png",Star Movies HD
+#EXTINF:-1 tvg-id="1104" group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12086-j9od8wxc-v1/imageContent-12086-j9od8wxc-m1.png",Star Movies HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=6ac6943751e558b181da32727f03dff7&key=f36e5cd48252bcd0fcda2bfe21f5b365
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Movies_HD_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="1110" group-title="Movies" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12193-j9q33dpc-v2/imageContent-12193-j9q33dpc-m3.png",Star Movies Select HD
+#EXTINF:-1 tvg-id="1110" group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12193-j9q33dpc-v2/imageContent-12193-j9q33dpc-m3.png",Star Movies Select HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b55393cd147a54debaf2b0f2d82b5d9f&key=6b168db49241a78c1b423ab9a29409ef
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Movies_Select_HD_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="748" group-title="Music" tvg-logo="https://tatalogo.pages.dev/425.png",Raj Musix
+#EXTINF:-1 tvg-id="748" group-title="Others" tvg-logo="https://tatalogo.pages.dev/425.png",Raj Musix
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=7fbca27f1de95241963dbf8ad9c85ade&key=7f71987978c403c7d78fd4ae92990496
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_Musix_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="420" group-title="Music" tvg-logo="https://tatalogo.pages.dev/199.png",Jaya Max
+#EXTINF:-1 tvg-id="420" group-title="Others" tvg-logo="https://tatalogo.pages.dev/199.png",Jaya Max
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=fac51ad9458958668729ddf5ac67a9ae&key=39fe92ea06365c6f01987739a48e9798
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_Max_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="803" group-title="Music" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Tunes_6.png",Tunes 6
+#EXTINF:-1 tvg-id="803" group-title="Others" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Tunes_6.png",Tunes 6
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b0c237a374cd57bb80afeec16f6ab680&key=08dab9f7242dbd95f1e494a96f6fdad8
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Tunes_6_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="1158" group-title="Entertainment" tvg-logo="https://tatalogo.pages.dev/187.png",Colors Infinity HD
+#EXTINF:-1 tvg-id="1158" group-title="Others" tvg-logo="https://tatalogo.pages.dev/187.png",Colors Infinity HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=509216860f8e594aaf7e921296f53851&key=536df1e35e2bb055be0117b51db8139c
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Infinity_HD_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="0-9-zeecafehd" group-title="Entertainment" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/ZeeCafeHD_Thumbnail_ceda2afa-65e4-4d25-98c0-750f82a0a2fc.png",Zee Café HD
+#EXTINF:-1 tvg-id="0-9-zeecafehd" group-title="Others" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/ZeeCafeHD_Thumbnail_ceda2afa-65e4-4d25-98c0-750f82a0a2fc.png",Zee Café HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105539/ZeecafeHDELE/index-connected.m3u8?hdntl=exp=1767682622~acl=%2f*~id=512e82bb-5cdc-41e7-85ad-a0fd359e274e~data=hdntl~hmac=965b657f73cfb12492576fad7f58dac37c63dfc48139441edb432aac110de6eb|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="0-9-channel_2105335046" group-title="Entertainment" tvg-logo="https://i.ibb.co/rRnZvRNk/1000192802-modified.png",&Flix HD
+#EXTINF:-1 tvg-id="0-9-channel_2105335046" group-title="Others" tvg-logo="https://i.ibb.co/rRnZvRNk/1000192802-modified.png",&Flix HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105517/AndFlixHDELE/index-connected.m3u8?hdntl=exp=1767682622~acl=%2f*~id=512e82bb-5cdc-41e7-85ad-a0fd359e274e~data=hdntl~hmac=965b657f73cfb12492576fad7f58dac37c63dfc48139441edb432aac110de6eb|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="0-9-9z5543514" group-title="Entertainment" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/&PriveHD_Thumbnail_8fe4510f-be7c-475c-8f5f-85b5fe6f52ab.png",&Prive HD
+#EXTINF:-1 tvg-id="0-9-9z5543514" group-title="Others" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/&PriveHD_Thumbnail_8fe4510f-be7c-475c-8f5f-85b5fe6f52ab.png",&Prive HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
 https://z5ak-cmaflive.zee5.com/cmaf/live/2104969/AndPriveHDELENEW/index-connected.m3u8?hdntl=exp=1767682622~acl=%2f*~id=512e82bb-5cdc-41e7-85ad-a0fd359e274e~data=hdntl~hmac=965b657f73cfb12492576fad7f58dac37c63dfc48139441edb432aac110de6eb|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="1145" group-title="Entertainment" tvg-logo="https://tatalogo.pages.dev/406.png",MTV HD
+#EXTINF:-1 tvg-id="1145" group-title="Others" tvg-logo="https://tatalogo.pages.dev/406.png",MTV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=90d8713ba5e85d779d005b1f14a5bc8d&key=33650314fe1e945017640ba9878c5de9
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/MTV_HD_Plus_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="1375" group-title="Entertainment" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11162-j99oso8o-v2/imageContent-11162-j99oso8o-m1.png",Disney International HD
+#EXTINF:-1 tvg-id="1375" group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11162-j99oso8o-v2/imageContent-11162-j99oso8o-m1.png",Disney International HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=d0e021aa91c65e68a7028c2a6a762eca&key=d50822403365e360d12840251cecee84
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Disney_International_HD_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="1226" group-title="Entertainment" tvg-logo="https://tatalogo.pages.dev/433.png",Nick HD+
+#EXTINF:-1 tvg-id="1226" group-title="Others" tvg-logo="https://tatalogo.pages.dev/433.png",Nick HD+
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=50c0ac86d9445b3a855fcabae7538aaf&key=cf79083218d809d379c2f64acbde561f
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
@@ -365,7 +368,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Super_Hungama_BTS/output/index.mpd?__hdne
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Nick_Junior_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Kids" tvg-logo="https://tatalogo.pages.dev/119.png",Discovery Kids
+#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://tatalogo.pages.dev/119.png",Discovery Kids
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e921b8507a5e5cd1bb4433b3fd1f5e0a:037835bab43e7ef4a41a97c638cd9c1d
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
@@ -377,59 +380,55 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_Kids_2_BTS/output/index.mpd?__h
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/SonyYAYHin_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="146" group-title="Infotainment" tvg-logo="https://tatalogo.pages.dev/616.png",History TV18 HD
+#EXTINF:-1 tvg-id="146" group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/616.png",History TV18 HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=0172b8cd13ed59349a05aadc58ae11e0&key=e4ab7836617767a2a6e7aaae17fad2b6
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/History_HD_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Infotainment" tvg-logo="https://tatalogo.pages.dev/341.png",Discovery HD World
+#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/341.png",Discovery HD World
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=ce16454b1fc85beab2f807af176046bb:ff67cca83c770daa6dc9c295cc76564f
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_HD_World_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="1335" group-title="Infotainment" tvg-logo="https://tatalogo.pages.dev/605.png",National Geographic HD
+#EXTINF:-1 tvg-id="1335" group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/605.png",National Geographic HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4b006dd7965e5777a7fa33dd636c2e5d&key=179f796bdf11b750bebd469a3aeae1d0
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/National_Geographic_HD_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="1332" group-title="Infotainment" tvg-logo="https://tatalogo.pages.dev/413.png",Nat Geo Wild HD
+#EXTINF:-1 tvg-id="1332" group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/413.png",Nat Geo Wild HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=45fc661aa1af51c98950c43329391d18&key=c2677c874886e78d24b3fb656c5734e0
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Nat_Geo_Wild_HD_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Infotainment" tvg-logo="https://tatalogo.pages.dev/130.png",Animal Planet HD World
+#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/130.png",Animal Planet HD World
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=2e5b244dece4589e8cb63c3f78599b8b:d0bf0aea980e46b12a38f8004505e2fe
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Animal_Planet_HD_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="3430" group-title="Infotainment" tvg-logo="https://tatalogo.pages.dev/219.png",Discovery Tamil
+#EXTINF:-1 tvg-id="3430" group-title="Infotainment SD" tvg-logo="https://tatalogo.pages.dev/219.png",Discovery Tamil
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=f91eebcabe535ca79d870938b931282a&key=9b1820ed98bde518f9150fa4170e75e8
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/DiscoveryTam_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="821" group-title="Infotainment" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SOBB_Thumbnail-v6/SOBB_Thumbnail.png",Sony BBC Earth HD
+#EXTINF:-1 tvg-id="821" group-title="Infotainment HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SOBB_Thumbnail-v6/SOBB_Thumbnail.png",Sony BBC Earth HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=f45e69507f0f5aa1a6e82374efb0af25&key=f84348219837769feb5a26a7b1cd31dc
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/SonyBBCEarthHin_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="814" group-title="Infotainment" tvg-logo="https://tatalogo.pages.dev/444.png",Travelxp Tamil
+#EXTINF:-1 tvg-id="814" group-title="Infotainment SD" tvg-logo="https://tatalogo.pages.dev/444.png",Travelxp Tamil
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=422041867ef8519f80db68590dcec30c&key=7a8dac15a397d0d6286046eb0392d581
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Travel_XP_Tamil_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="0-9-348" group-title="Infotainment" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-348/channel_list/360x20333fcf07b744341518375ae7ae35c08c7",Zee Zest HD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
-#EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1767682622~acl=%2f*~id=512e82bb-5cdc-41e7-85ad-a0fd359e274e~data=hdntl~hmac=965b657f73cfb12492576fad7f58dac37c63dfc48139441edb432aac110de6eb|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="2230" group-title="Infotainment" tvg-logo="https://img.media.jio.com/imagespublic/4/12/301317_1670477602583_l_high.jpg",Jio Specials HD
+#EXTINF:-1 tvg-id="2230" group-title="Infotainment HD" tvg-logo="https://img.media.jio.com/imagespublic/4/12/301317_1670477602583_l_high.jpg",Jio Specials HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=6017d0514d425fa38f6e80ba6dcc852f&key=0018944b00adf2078f62386f30c68b74
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
@@ -447,7 +446,7 @@ https://keys.vodep39240327.workers.dev/?id=300.mpd|User-Agent=Mozilla/5.0 (Windo
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
 https://keys.vodep39240327.workers.dev/?id=301.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ================================ TAMIL M3U ==========================================================
-#EXTINF:-1 tvg-id="ts647" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/isai-aruvi-black.png" group-title="Music", Isai Aruvi
+#EXTINF:-1 tvg-id="ts647" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/isai-aruvi-black.png" group-title="Others", Isai Aruvi
 https://edge2-moblive.yuppcdn.net/drm1/smil:isaiaruvitvdrm.smil/manifest.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="ts611" tvg-name="Sirippoli" tvg-logo="https://tatalogo.pages.dev/611.png" group-title="Tamil SD", Sirippoli
 https://edge2-moblive.yuppcdn.net/drm1/smil:sirippolitvdrm.smil/manifest.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -467,7 +466,7 @@ https://live.we2live.in/dheerantv/dheerantv/playlist.m3u8|User-Agent=Mozilla/5.0
 https://d2lk5u59tns74c.cloudfront.net/out/v1/abf46b14847e45499f4a47f3a9afe93d/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF: -1 tvg-id="1518" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240313_0159072608720790962587693.png" group-title="Tamil SD",Moon TV
 https://player.mslivestream.net/mslive/e10bb900976df9177b9a080314f26f86.sdp/chunks.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="7S.MUSIC.in" tvg-logo="https://tataprime.files.wordpress.com/2024/03/wp-17097527414494923868850942693233.png" group-title="Music", 7S Music
+#EXTINF:-1 tvg-id="7S.MUSIC.in" tvg-logo="https://tataprime.files.wordpress.com/2024/03/wp-17097527414494923868850942693233.png" group-title="Others", 7S Music
 https://mumt03.tangotv.in/7SMUSIC/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF: -1 tvg-id="971" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240315_0856271246595482699747248.png" group-title="Tamil SD", Vaanavil TV
 https://6n3yope4d9ok-hls-live.5centscdn.com/vaanavil/TV.stream/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -490,61 +489,59 @@ https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26
 http://alpha-2ott.me:80/play/live.php?mac=00:1B:79:33:64:37&stream=155883&extension=ts|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF: -1 tvg-id="ts789" group-title="Tamil SD" tvg-logo="https://tatalogo.pages.dev/1167.png", Tata Play Hollywood Local
 http://alpha-2ott.me:80/play/live.php?mac=00:1B:79:33:64:37&stream=1097661&extension=ts|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 group-title="Entertainment" tvg-logo="https://i.ibb.co/wNmB354M/Picsart-25-09-04-12-47-02-235.png", Star Vijay UK
+#EXTINF: -1 group-title="Others" tvg-logo="https://i.ibb.co/wNmB354M/Picsart-25-09-04-12-47-02-235.png", Star Vijay UK
 https://peaky.techcoder40.workers.dev/776.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="ts905" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-62236-kny7yzaw-v1/imageContent-62236-kny7yzaw-m1.png" group-title="Kids",ETV Bal Bharat
 https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/355286.ts|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF: -1 tvg-id="Animax" tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/07/20240707_1001225329215954789331277.png" group-title="Kids" , Animax
 https://jmp2.uk/stvp-INBD13000043W|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="923" tvg-logo="https://tatalogo.pages.dev/923.png" group-title="Infotainment", Travelxp 4K HDR
+#EXTINF: -1 tvg-id="923" tvg-logo="https://tatalogo.pages.dev/923.png" group-title="Infotainment HD", Travelxp 4K HDR
 https://deltatesttatasky.akamaized.net/out/i/968284.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_GOOD_TIMES/images/LOGO_HD/image.png" group-title="Infotainment", GOOD TiMES
+#EXTINF: -1 tvg-id="" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_GOOD_TIMES/images/LOGO_HD/image.png" group-title="Infotainment SD", GOOD TiMES
 https://amg01448-samsungin-ndtvgoodtimes-samsungin-ad-gp.amagi.tv/playlist/amg01448-samsungin-ndtvgoodtimes-samsungin/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ts126" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/EPI_Thumbnail-v2/EPI_Thumbnail.png" group-title="Infotainment",EPIC
+#EXTINF:-1 tvg-id="ts126" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/EPI_Thumbnail-v2/EPI_Thumbnail.png" group-title="Infotainment HD",EPIC
 https://jmp2.uk/stvp-IN17000109O|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="136" tvg-chno="83" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu6XXFakC801HfjU8rfRtxfLmBjH_I__e9PA&s" group-title="Infotainment", Village Cooking Channel
+#EXTINF: -1 tvg-id="136" tvg-chno="83" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu6XXFakC801HfjU8rfRtxfLmBjH_I__e9PA&s" group-title="Infotainment HD", Village Cooking Channel
 https://rpn3.bozztv.com/dvrfl07/ushba-t10/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN3000003QJ_20240925T012639SQUARE.png" group-title="Infotainment",Foodxp
+#EXTINF:-1 tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN3000003QJ_20240925T012639SQUARE.png" group-title="Infotainment HD",Foodxp
 https://jmp2.uk/stvp-IN3000003QJ|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ts117" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-384-j5jpj9hc-v1/imageContent-384-j5jpj9hc-m1.png" group-title="Infotainment",Food Food
+#EXTINF:-1 tvg-id="ts117" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-384-j5jpj9hc-v1/imageContent-384-j5jpj9hc-m1.png" group-title="Infotainment SD",Food Food
 http://iptvmedia.live:8080/F18115/068f009e/1362|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ts227" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-959-j5mipsnk-v1/imageContent-959-j5mipsnk-m1.png" group-title="Infotainment",Fashion TV
-https://ftv1.b-cdn.net/bfdbb576-83f7-11f0-9f89-0200170e3e04_1000028043_HLS/video_10801920_p_0.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ======================================= TIMES PLAY ====================================================
-#EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/wthfwe.jpeg" group-title="Movies",Movies Now HD
+#EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/wthfwe.jpeg" group-title="Others",Movies Now HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=40f019b86241d23ef075633fd7f1e927:058dec845bd340178a388edd104a015e
 https://times-ott-live.akamaized.net/moviesnow_wv_drm/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/vunjev.jpeg" group-title="Movies",MNX HD
+#EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/vunjev.jpeg" group-title="Others",MNX HD
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=40f019b86241d23ef075633fd7f1e927:058dec845bd340178a388edd104a015e
 https://times-ott-live.akamaized.net/mnxhd_wv_drm/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/leazcc.jpeg" group-title="Movies",MN+ HD
+#EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/leazcc.jpeg" group-title="Others",MN+ HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=40f019b86241d23ef075633fd7f1e927:058dec845bd340178a388edd104a015e
 https://times-ott-live.akamaized.net/mnplus_wv_drm/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=40f019b86241d23ef075633fd7f1e927:058dec845bd340178a388edd104a015e
-#EXTINF:-1 tvg-id="ts174" tvg-logo="https://tatalogo.pages.dev/174.png" group-title="Movies", Romedy Now
+#EXTINF:-1 tvg-id="ts174" tvg-logo="https://tatalogo.pages.dev/174.png" group-title="Others", Romedy Now
 https://times-ott-live.akamaized.net/romedynow_wv_drm/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ==================================== D2H ==================================================
-#EXTINF:-1 tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/mHhlDCiL.png" group-title="Infotainment",Discovery Investigation
+#EXTINF:-1 tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/mHhlDCiL.png" group-title="Infotainment SD",Discovery Investigation
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=2828ea6f6a984505b0454da0c03f68b9:5d3b7195086544c2807aa8c1544e7379
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Investigationdiscovery2/default/manifest.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e48e7373d6be47ecab83a20849f6823e:513ce07a2ee24ffdbe667eff5a9d46a8
-#EXTINF:-1 tvg-id="tlc" tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/FOvFsIgt.png" group-title="Infotainment", TLC
+#EXTINF:-1 tvg-id="tlc" tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/FOvFsIgt.png" group-title="Infotainment SD", TLC
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Tlc2/default/manifest.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/vIA7TExn.png" group-title="Infotainment",Discovery Science
+#EXTINF:-1 tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/vIA7TExn.png" group-title="Infotainment SD",Discovery Science
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=5458f45efedb4d6f8aa6ac76c85b621b:dbf8a0a306a64525ba3012fd225370c0
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoveryscience2/default/manifest.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/6eCv1iuk.png" group-title="Infotainment",Discovery Turbo
+#EXTINF:-1 tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/6eCv1iuk.png" group-title="Infotainment SD",Discovery Turbo
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=c011525969e44b99a86059dbb3cdf4e8:6700a5d93203417b8585f7de7dd1a09b
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoveryturbo2/default/manifest.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="Shorts TV.in" tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/lcMc75Xr.png" group-title="Movies",Shorts Tv Active
+#EXTINF:-1 tvg-id="Shorts TV.in" tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/lcMc75Xr.png" group-title="Others",Shorts Tv Active
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=b994480f788d41ddbc805862ac469416:78a6a0fc1758483595da7113e58e4467
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Shortstv2/default/manifest.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -617,42 +614,42 @@ https://ml-pull-hwc.myco.io/stream1/hls/stream1.m3u8|User-Agent=Mozilla/5.0 (Win
 ==================================================================================================
 #EXTINF: -1 tvg-id="Disney Channel HD.in" tvg-chno="74" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/DISNHD_Thumbnail-v1/DISNHD_Thumbnail.png" group-title="Kids", Disney Channel HD
 https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/19741.ts|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://i.ibb.co.com/xX2dRh0/showcase.png" group-title="Movies",SHOWCASE
+#EXTINF:-1 tvg-logo="https://i.ibb.co.com/xX2dRh0/showcase.png" group-title="Others",SHOWCASE
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=c99d8404fee24f907870cbf212924967:03591856cc3dd05a1e297de8ecd422f8
 https://live.corusdigitaldev.com/groupd/live/376c96cd-193f-46d1-a2b6-7c2b78cb0aa5/corus-showcase.isml/.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1  tvg-name="Mango" group-title="Movies" tvg-logo="https://dvvlqr1rtlak3.cloudfront.net/Mango/MANGOTVLOGO.jpg",Mango Mobile TV
+#EXTINF: -1  tvg-name="Mango" group-title="Others" tvg-logo="https://dvvlqr1rtlak3.cloudfront.net/Mango/MANGOTVLOGO.jpg",Mango Mobile TV
 https://amg01911-mangotv-amg01911c1-xiaomi-in-1270.playouts.now.amagi.tv/playlist/amg01911-mangomassmedia-mangotv-xiaomiin/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1  tvg-name="South Flix" group-title="Movies" tvg-logo="https://d3bd0tgyk368z1.cloudfront.net/zeelg/LG%20logo%20artwork/400x200/zsouthflix.png",Zee South Flix
+#EXTINF: -1  tvg-name="South Flix" group-title="Others" tvg-logo="https://d3bd0tgyk368z1.cloudfront.net/zeelg/LG%20logo%20artwork/400x200/zsouthflix.png",Zee South Flix
 https://amg00862-amg00862c9-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c9-amgplt0173/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1  tvg-name="ZCinema" group-title="Movies" tvg-logo="https://i.postimg.cc/SsVLHrkc/z-cinema.jpg",Z Cinema
+#EXTINF: -1  tvg-name="ZCinema" group-title="Others" tvg-logo="https://i.postimg.cc/SsVLHrkc/z-cinema.jpg",Z Cinema
 https://amg17931-zee-amg17931c5-samsung-th-5696.playouts.now.amagi.tv/playlist/amg17931-asiatvusaltdfast-zeecinema-samsungth/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF: -1  tvg-name="Rasi Movies" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1518425091386983341611136.png",Rasi Movies
 https://rasinetworks.in/live/rasimovieshd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF: -1  tvg-name="Rasi Hollywood" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942518224615220455317164.png",Rasi Hollywood
 https://rasinetworks.in/live/rasihollywoodhd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ============================================= MUSIC =================================================
-#EXTINF:-1 tvg-id="ts400" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11583-j9jype8w-v3/imageContent-11583-j9jype8w-m3.png" group-title="Music",Mega Musiq
+#EXTINF:-1 tvg-id="ts400" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11583-j9jype8w-v3/imageContent-11583-j9jype8w-m3.png" group-title="Others",Mega Musiq
 http://iptvmedia.live:8080/F18115/068f009e/308442|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="377" tvg-logo="https://tatalogo.pages.dev/377.png" group-title="Music", Kappa TV
+#EXTINF:-1 tvg-id="377" tvg-logo="https://tatalogo.pages.dev/377.png" group-title="Others", Kappa TV
 https://cdn-3.pishow.tv/live/1123/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ts1284" group-title="Music" tvg-logo="hhttps://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SANPLTV_Thumbnail-v1/SANPLTV_Thumbnail.png",Sana Plus
+#EXTINF:-1 tvg-id="ts1284" group-title="Others" tvg-logo="hhttps://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SANPLTV_Thumbnail-v1/SANPLTV_Thumbnail.png",Sana Plus
 https://cable74tataplay.akamaized.net/dash/sanaplus.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/06/20240625_0713451452390300174130287.png" group-title="Music",SR Musix TV
+#EXTINF: -1 tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/06/20240625_0713451452390300174130287.png" group-title="Others",SR Musix TV
 http://srnet.bmlive.net:1935/srmusic/myStream/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1  group-title="Music" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png", Rasi Music
+#EXTINF: -1  group-title="Others" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png", Rasi Music
 https://rasinetworks.in/live/rasimusichd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1  tvg-name="MN Music" group-title="Music" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240315_0846274573125433222986374.png",MN Music
+#EXTINF: -1  tvg-name="MN Music" group-title="Others" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240315_0846274573125433222986374.png",MN Music
 http://mntv.livebox.co.in/musichls/live.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="96" tvg-logo="https://tatalogo.pages.dev/96.png" group-title="Music", Zoom
+#EXTINF: -1 tvg-id="96" tvg-logo="https://tatalogo.pages.dev/96.png" group-title="Others", Zoom
 https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/zoom-tv/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/kXTCYqg.png" group-title="Music", Music India
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/kXTCYqg.png" group-title="Others", Music India
 https://cdn-2.pishow.tv/live/226/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="139" tvg-logo="https://tatalogo.pages.dev/139.png" group-title="Music", 9xM
+#EXTINF: -1 tvg-id="139" tvg-logo="https://tatalogo.pages.dev/139.png" group-title="Others", 9xM
 https://d14c63magvk61v.cloudfront.net/strm/channels/9xm/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="39" tvg-logo="https://tatalogo.pages.dev/39.png" group-title="Music", 9x Jalwa
+#EXTINF: -1 tvg-id="39" tvg-logo="https://tatalogo.pages.dev/39.png" group-title="Others", 9x Jalwa
 https://d14c63magvk61v.cloudfront.net/strm/channels/9xjalwa/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/pvLQmQK7/itv.png" group-title="Music", iTV Indian Music
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/pvLQmQK7/itv.png" group-title="Others", iTV Indian Music
 https://ca1.buximedia.com/itv/indian/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 =============================================== NEWS =============================================================
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -675,21 +672,21 @@ https://live-cf-kalaignarnews.dailyhunt.in/master.m3u8|User-Agent=Mozilla/5.0 (W
 https://live-cf-sathiyamtv.dailyhunt.in/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="ts391" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/MAMUR_Thumbnail-v2/MAMUR_Thumbnail.png" group-title="Tamil News",MalaiMurasu Seithigal
 https://live-cf-malaimurasu.dailyhunt.in/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="TIMES.NOW.HD.in" tvg-name="" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/times-now-in.png" group-title="News",Times Now
+#EXTINF:-1 tvg-id="TIMES.NOW.HD.in" tvg-name="" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/times-now-in.png" group-title="English and Hindi News",Times Now
 https://d3pvf6sv7wsu07.cloudfront.net/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="WION.in" tvg-name="" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/india/wion-in.png" group-title="News",WION
+#EXTINF:-1 tvg-id="WION.in" tvg-name="" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/india/wion-in.png" group-title="English and Hindi News",WION
 https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="NDTV24x7.mv" tvg-name="NDTV 24x7" tvg-logo="https://8upload.com/image/67da280876f6c/38-ndtv.png" group-title="News",NDTV 24x7
+#EXTINF:-1 tvg-id="NDTV24x7.mv" tvg-name="NDTV 24x7" tvg-logo="https://8upload.com/image/67da280876f6c/38-ndtv.png" group-title="English and Hindi News",NDTV 24x7
 https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="INDIA.TODAY.in" tvg-name="" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/india-today-in.png" group-title="News",INDIA TODAY
+#EXTINF:-1 tvg-id="INDIA.TODAY.in" tvg-name="" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/india-today-in.png" group-title="English and Hindi News",INDIA TODAY
 https://feeds.intoday.in/hltapps/api/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-chno="1045" tvg-name="Republic TV" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/INBA4900020A5_20240131T032253SQUARE.png_20240131032254.png" group-title="News",Republic TV
+#EXTINF:-1 tvg-chno="1045" tvg-name="Republic TV" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/INBA4900020A5_20240131T032253SQUARE.png_20240131032254.png" group-title="English and Hindi News",Republic TV
 https://jmp2.uk/stvp-INBA4900020A5|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="RT.mv" tvg-name="RT International" tvg-logo="https://8upload.com/image/67da28088c759/40-rt.png" group-title="News",RT International
+#EXTINF:-1 tvg-id="RT.mv" tvg-name="RT International" tvg-logo="https://8upload.com/image/67da28088c759/40-rt.png" group-title="English and Hindi News",RT International
 https://rt-glb.rttv.com/live/rtnews/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-chno="1045" tvg-name="news9" tvg-logo="https://yt3.googleusercontent.com/59qbEgr7rhhe4at1KqExuPKL7wo-zT1NpI7QX36kn6Dmg1VnGmgq56xJKwQA3cKR7Lkgng9CT58=s900-c-k-c0x00ffffff-no-rj" group-title="News",News9
+#EXTINF:-1 tvg-chno="1045" tvg-name="news9" tvg-logo="https://yt3.googleusercontent.com/59qbEgr7rhhe4at1KqExuPKL7wo-zT1NpI7QX36kn6Dmg1VnGmgq56xJKwQA3cKR7Lkgng9CT58=s900-c-k-c0x00ffffff-no-rj" group-title="English and Hindi News",News9
 https://vg-tv9live.akamaized.net/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-573213/095065d4-c49a-4154-a484-98140cd27b24/0.m3u8?ads.partner=dailyhunt&sessionId=66f62228-ed83-47e5-8fa3-c3843e060207|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-name="CNN News18" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/INBD1300009QZ_20240131T032448SQUARE.png_20240131032449.png" group-title="News",CNN News18
+#EXTINF:-1 tvg-name="CNN News18" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/INBD1300009QZ_20240131T032448SQUARE.png_20240131032449.png" group-title="English and Hindi News",CNN News18
 https://amg01448-samsungin-cnnnewsnw18-samsungin-ad-gv.amagi.tv/playlist/amg01448-samsungin-cnnnewsnw18-samsungin/playlist.m3u8?ads.did=%7BPSID%7D&ads.dnt=%7BTARGETOPT%7D&ads.app_domain=%7BAPP_DOMAIN%7D&ads.app_name=%7BAPP_NAME%7D&ads.coppa=0|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ================================= SUNNXT ==================================================
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -720,7 +717,7 @@ https://live.catvod.com/live.php?id=Vasantham|User-Agent=Mozilla/5.0 (Windows NT
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=9c44af8b594b6157f55d3c31bd679c10:c128bbe41e94d15a7f8cc2f6253a54b2
 https://converse.nathcreqtives.com/astro/5073/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY3NDUwNjg3LCJleHAiOjE3Njc4Njk4NjEsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2Nzg2OTg2MX0.9puUPiDaydWR5UrF3UH3V1m2ZecC_eJgR9b3o9qZZQI|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="SunMusic" ch-number="212" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Sun_Music_v1.png" group-title="Music",Sun Music
+#EXTINF:-1 tvg-id="SunMusic" ch-number="212" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Sun_Music_v1.png" group-title="Others",Sun Music
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=beaca9461f7ca0d58ba529fed2e7b610:da0a70148e126eb40cce02665753896d
 https://converse.nathcreqtives.com/astro/5011/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY3NDUwNjg3LCJleHAiOjE3Njc4Njk4NjEsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2Nzg2OTg2MX0.9puUPiDaydWR5UrF3UH3V1m2ZecC_eJgR9b3o9qZZQI|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -796,7 +793,7 @@ https://stream.snexus.co/live/SN_WILDLIFE/main_stream.m3u8|User-Agent=Mozilla/5.
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=9872e439f21f4a299cab249c6554daa3:0cdfcfe0d0f1fbe100554ce3ef4c4665
 ================================= OVERSEAS ==========================================
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="News",JJ News
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="English and Hindi News",JJ News
 https://live.skystream.in/live/jjnewstamil/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ================================LOCAL CHANNELS================================
 #EXTINF:-1  tvg-name="Rasi TV" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240407_1437564760907591116562534.png",Rasi TV HD
@@ -819,7 +816,7 @@ https://app.ashokadigital.net/app/9f53ea36/index.m3u8|User-Agent=Mozilla/5.0 (Wi
 https://live.maxtn.in/maxhd/maxhd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="MAXMOVIES" tvg-name="MAX MOVIES HD" tvg-logo="https://i.ibb.co/wNG1GF9Z/icon.jpg" group-title="Tamil Extra", MAX MOVIES HD
 https://live.maxtn.in/maxmovies/maxmovies/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="MAXMUSIC" tvg-name="MAX MUSIC" tvg-logo="https://i.ibb.co/My6N3CMv/mhm.jpg" group-title="Music", MAX MUSIC
+#EXTINF:-1 tvg-id="MAXMUSIC" tvg-name="MAX MUSIC" tvg-logo="https://i.ibb.co/My6N3CMv/mhm.jpg" group-title="Others", MAX MUSIC
 https://live.maxtn.in/maxmusic/maxmusic/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="VANITV" tvg-name="VANI TV HD" tvg-logo="https://i.ibb.co/jvKb71Xr/Whats-App-Image-2025-02-22-at-17-05-18-65d6fd32-removebg-preview.png" group-title="Tamil Extra", VANI TV HD
 https://live.maxtn.in/vanitv/vanitv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -851,7 +848,7 @@ https://cable91tataplay.akamaized.net/live/dharshantv/index.mpd|User-Agent=Mozil
 IPCLOUD
 #EXTINF:-1 tvg-logo="http://tnm3u.live/icon/tamil/local/mullaitv.png" group-title="Tamil Extra", Mullai TV
 https://ipcloud.live/mullaitv/mullaitv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="http://tnm3u.live/icon/tamil/local/aadhvik.png" group-title="Music", Aadhvik TV
+#EXTINF:-1 tvg-logo="http://tnm3u.live/icon/tamil/local/aadhvik.png" group-title="Others", Aadhvik TV
 http://ipcloud.live:8080/sachintv/aadviktv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="http://tnm3u.live/icon/tamil/local/mmtv.png" group-title="Tamil Extra", MM TV HD
 https://ipcloud.live/mmtv/mmtvhd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -878,7 +875,7 @@ https://fucking-tv-ott.keralive.workers.dev/mumt02/ABITV/index.m3u8|User-Agent=M
 https://fucking-tv-ott.keralive.workers.dev/mumt02/UTVANANDAM/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="ThirumalaiTV" tvg-logo="" group-title="Tamil Extra",Thirumalai TV Vadipatti
 https://ipcloud.live/thirumalaitv/madurai/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1  tvg-name="Sachin Music" group-title="Music" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240417_221843171827643876355363.png",Sachin Music
+#EXTINF:-1  tvg-name="Sachin Music" group-title="Others" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240417_221843171827643876355363.png",Sachin Music
 https://ipcloud.live/sachintv/musichd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240417_2219106701280619230998159.png" group-title="Tamil Extra",Dhoni TV
 https://ipcloud.live/sachintv/dhonitv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -957,13 +954,13 @@ https://app.ashokadigital.net/app/68b001a0/index.m3u8|User-Agent=Mozilla/5.0 (Wi
 https://app.ashokadigital.net/app/ad04b02c/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="AmmanPlus" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1764597422_WhatsApp%2520Image%25202025-12-01%2520at%25206.44.54%2520PM.png&w=1080&q=75" group-title="Tamil Extra",Amman Plus
 https://app.ashokadigital.net/app/e39f503a/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="7StarMusic" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1764994908_7SM%2520Still%25202.png&w=1080&q=75" group-title="Music",7Star Music
+#EXTINF:-1 tvg-id="7StarMusic" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1764994908_7SM%2520Still%25202.png&w=1080&q=75" group-title="Others",7Star Music
 https://app.ashokadigital.net/app/9346e98d/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="JawaharChannel" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1731775837_JAWAHAR%2520TV%2520LOGO%2520PNG.png&w=1920&q=75" group-title="Tamil Extra",Jawahar Channel
 https://app.ashokadigital.net/app/6a01fb97/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="AmmanTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1754665306_amman%2520tv%2520png%2520logo.png&w=1920&q=75" group-title="Tamil Extra",Amman TV
 https://app.ashokadigital.net/app/78b1bc36/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="" group-title="Music", V Musiq
+#EXTINF:-1 tvg-logo="" group-title="Others", V Musiq
 https://app.ashokadigital.net/vmusic/vmusic/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736940221_SAVE_20250115_162418.jpg&w=1920&q=75" group-title="Tamil Extra",Ragam TV
 https://app.ashokadigital.net/app/408a1120/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -984,7 +981,7 @@ https://stream.onecloudlive.in/tcn/tcntv/index.m3u8|User-Agent=Mozilla/5.0 (Wind
 http://phoenixtv.stream.onecloudlive.in:8080/phoenixtv/phoenixtv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="" group-title="Tamil Extra", AK TV
 https://stream.onecloudlive.in/aktvhd/aktv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="JPMusicTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1763572153_JP%2520music%2520tv.png&w=1080&q=75" group-title="Music",JP Music TV
+#EXTINF:-1 tvg-id="JPMusicTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1763572153_JP%2520music%2520tv.png&w=1080&q=75" group-title="Others",JP Music TV
 https://stream.onecloudlive.in/sachintv/jpmusichd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="DeltaTV" group-title="Tamil Extra",Delta TV
 https://stream.onecloudlive.in/deltatv/deltatvhd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1151,7 +1148,7 @@ https://rtmp.bmlive.net/bms/pcn/stream.m3u8|User-Agent=Mozilla/5.0 (Windows NT 1
 https://rtmp.bmlive.net/kingtv/kingtv/stream.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="https://i.ibb.co/whpDXpp1/ctn-removebg-preview.png" group-title="Tamil Extra",CTN
 https://rtmp.bmlive.net/ctn/ctntn/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-name="Isai Saaral" group-title="Music" tvg-logo="https://i.ibb.co/4RCVPdb5/1000136628.jpg",Isai Saaral
+#EXTINF:-1 tvg-name="Isai Saaral" group-title="Others" tvg-logo="https://i.ibb.co/4RCVPdb5/1000136628.jpg",Isai Saaral
 http://srnet.bmlive.net:1935/isaisaral/mystream/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-name="We Baduga Tv" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/msBGprc/1000145103.jpg",We Baduga Tv
 https://rtmp.bmlive.net/webaduga/webaduga/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1188,7 +1185,7 @@ http://198.144.149.206:8080/NOTV/YAALTV/index.m3u8?token=GTR|User-Agent=Mozilla/
 http://notvstream.in/tirupurvoicetv/tirupurvoicetv.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1  tvg-name="Aarthi TV" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/02/20240224_0832155366153724501071724.png",Aarthi Tv
 http://198.144.149.206:8080/NOTV/AARTHITV/index.m3u8?token=GTR|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1tvg-id="" tvg-logo="" group-title="Music",TSNMUSIC
+#EXTINF:-1tvg-id="" tvg-logo="" group-title="Others",TSNMUSIC
 http://198.144.149.206:8080/NOTV/VAAGAI/index.m3u8?token=GTR|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-name="SNR Tv" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/xt6mtWj5/1000136482.png",SNR Tv
 http://198.144.149.206:8080/NOTV/ASOSACHENNAI/index.m3u8?token=GTR|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1241,7 +1238,7 @@ https://live.applelive.in/enthirantv/enthirantv/index.m3u8|User-Agent=Mozilla/5.
 http://garudatv.applelive.in/hls/garudantv.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1  tvg-name="Win Vision" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240309_0118467600566896372655832.png",Win Vision
 http://applelive.in/winvisiontv/winvisiontv.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-name="JCV Musix" group-title="Music" tvg-logo="https://i.ibb.co/7t9gdB1v/1000145833.gif",JCV Musix
+#EXTINF:-1 tvg-name="JCV Musix" group-title="Others" tvg-logo="https://i.ibb.co/7t9gdB1v/1000145833.gif",JCV Musix
 https://play.applelive.in/jcvtv/jcvmusix.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-name="JC TV" tvg-logo="https://play-lh.googleusercontent.com/CINl0i_yvq46zIk8evr5sgKDI60qGFQDbFRoKqMwtlOXDDuXzd9ou9UwT46enxSc3P0=w240-h480-rw" group-title="Tamil Extra",jcv
 https://play.applelive.in/jcvtvhd/jcvtvhd.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1269,7 +1266,7 @@ http://applelive.in/haitv/haitv.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Wi
 http://applelive.in/jctv/jctv.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1  tvg-name="G Media" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240308_1346371023231073137635248.png",G Media
 http://applelive.in/gmedia/gmedia.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="GMusic" group-title="Music",G Music
+#EXTINF:-1 tvg-id="GMusic" group-title="Others",G Music
 https://rtmp.applelive.in/gmusic/gmusic/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="https://play-lh.googleusercontent.com/5BbVPm_jHSHPVY3XLhfYjpJJtXi1qVV3jlJ9i-cTE0gckC_LSEBKftLgU6uX_UMXgQ=w240-h480-rw" group-title="Tamil Extra", Kumari TV
 https://rtmp.applelive.in/gvkumaritv/gvkumaritv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1417,7 +1414,7 @@ https://amigofx.com:1936/easontv/easontv/playlist.m3u8|User-Agent=Mozilla/5.0 (W
 https://view.rcserver.in/tmp_hls10/jayamtvkarur/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="KCNTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1739890766_WhatsApp_Image_2025-02-18_at_8.28.50_PM-removebg-preview.png&w=1920&q=75" group-title="Tamil Extra",KCN TV
 https://view.rcserver.in/tmp_hls12/kcntv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="RCMusic" group-title="Music",RC Music
+#EXTINF:-1 tvg-id="RCMusic" group-title="Others",RC Music
 https://view.rcserver.in/tmp_hls2/stream/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="KaalaiTV" group-title="Tamil Extra",Kaalai TV
 https://view.rcserver.in/tmp_hls22/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1445,7 +1442,7 @@ https://view.rcserver.in/tmp_hls19/ammavision/index.m3u8|User-Agent=Mozilla/5.0 
 https://view.rcserver.in/tmp_hls21/qmaxtv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="ThiraiTV" group-title="Tamil Extra",Thirai TV
 https://view.apserver.in/tmp_hls2/thiraitv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ThiraiIsai" group-title="Music",Thirai Isai
+#EXTINF:-1 tvg-id="ThiraiIsai" group-title="Others",Thirai Isai
 https://view.apserver.in/tmp_hls1/thiraitvplus/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="BKTV" group-title="Tamil Extra",BK TV
 https://view.apserver.in/tmp_hls3/bktv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1607,15 +1604,15 @@ http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734159&e
 #EXTINF:-1  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 10
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734185&extension=ts|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/KFHXF5F/images.jpg",Tamil Cinema HD 11
-#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Music" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 1
+#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Others" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 1
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481200|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Music" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 2
+#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Others" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 2
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481199|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Music" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 3
+#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Others" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 3
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481201|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Music" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 4
+#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Others" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 4
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481314|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Music" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 5
+#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Others" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 5
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481315|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ========================================= FM RADIO ====================================================
 #EXTINF:-1 group-title="Tamil FM Radio" tvg-logo="https://raw.githubusercontent.com/pdeepakcwa/logos/main/radiomirchi.jpg",Radio Mirchi 98.3
@@ -2098,19 +2095,19 @@ https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=e
 https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767699005~acl=%2f*~data=hdntl~hmac=58760db1e46a37c26cca31ebb0b14e9687ec484ed80fdca5f40f0a044263e5b1|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list59756f68ca794d42aff28ad8a21988ddb34cee9b4f854c8a987b1447a3eba328.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767699008~acl=%2f*~data=hdntl~hmac=d2c60273a3855ec58c3a286a852fa9dac85c6fc55e446c033de7db08461e0064|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_Sports_logo.svg/1200px-Fox_Sports_logo.svg.png",Fox 501
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/83/Willow_TV_logo.png",Willow Sports
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Willow Sports
 https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/cb573e1e657764909bc33778d1f84582e75939d91374942a6bb45d8975d30b0ad0e9f0c5ee18e975099d18dc7c0b6c075d7ac21fd87c1cc6d82efa5766294471989eb51978a828218a09f4e71899487b32ec33708e7c1777dda9291c8429b06a776b826b4077424039949f5c6fbbdf48cf2739faf08823602e0b75be659e6a346c81c5860c068035ffe65817cb3d66df629004e63e89e6a571a625df34a64dc3cba191e42ab7849364ad50b07e61d0450c70a17916796795fae3a7ef9e6e91af2df5a63cf0b43e1d8b425155fbfe849160e82cf786378a5a45d16c97448c249e7be55de9b800f0dfdba5224b5af59d0981465d5b7a209d270e78d37b0c113b71cfb1b2c034ef20/192/1920x1080_5859480/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_Sports_logo.svg/1200px-Fox_Sports_logo.svg.png",Fox 505
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 505
 http://51.89.148.37:8080/catena-9-15390503-streamer-_fox_sports_505_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_Sports_logo.svg/1200px-Fox_Sports_logo.svg.png",Fox 502
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 502
 http://51.89.148.37:8080/catena-9-94-streamer-fox_sports_502_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617b|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_Sports_logo.svg/1200px-Fox_Sports_logo.svg.png",Fox 501
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 501
 http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/83/Willow_TV_logo.png",Willow Sports 2
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Willow Sports 2
 https://aps32.playlist.live-video.net/v1/playlist/CrkFPA0wAtrho7iChuzsoGMxOZpA0BqV550E3bIlOIHkCgVRYjJ_u8aW92tRxpiS_jGJbKTX5hBF_fReryfJnRw6O394aghxr5mPv-CTTcx7IIFoG71pPhPE1E_SZHypAl47lIqxbmVcaSNeA-TtO6sDF0OTjWtIqRVSvUba0g8b6LGJyc6fZvGbUdPOGXiSsBJYvcVLo0zwt5PnYq9dLdzi46izUwMKYyh4udau9K7zizlgWAAfDi7BZYc7zn3KnmN1v1ItD-tiLANRJWTQwrJSotH4ZgYbGq52Dd7twoT7IIjyY7W4g1t19ybUcIeHWHTBKyXSbGmE6JBPe7GAlJcqeDBbP9n4khrBDQTMwZwRuKIPkBXLjB9pqkZaYgeJrjDfgiZ8xqi-ofZnyxnE36XTWCL-EqHSyF4OlVo_zKVdV29ic0fQskLrbZ7VbKr4DkJ4sCghUtaIuv7TWYzSVKjCnQbqecAQPQ8r1rS5A-EV1_QvGXF5iJwi3mClk9XYeYVT-Ynnq41sXoz04M-A9sUtGH95T_p_FphjKfEDTsG7e4ZgC-gkRvdgo_zB_R_Alk7UenuHJ0olW1yMrMg1U_T3-Zx78_CVS6NSsQQ0PCcBHe0NQ2Cn2WgE7L-idRBO8Lu4E3fShNxhx608Om8CxJe6XfAxKh69SQdBWmJGI8Ho0PAxDrm3XUh4oeZfzIrlJu_W_ZB6KJvV8s_h2vvNnZiQll_Fx08-Zdyao0248EDzuT8zOgOCzn0aGfZYlTuL02pOhSIX9tNOUC5Bz9EyIFkKVvmmxQJRnXLH5WiyOD4nCtOBkj7hBs14w_9OA_hNbF7RNQQuQKR2wOHzVLwKL6CYAk0rwABdBFEoQTgsY9HkYDYH60EBZ0b3I0pRoXqL4t1TL01dBC8BbH42Oosz7fnu_qGFk0YQSegTKhoMVZNLwN_nPZfyphaDIAEqCXVzLXdlc3QtMjCJDg.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/83/Willow_TV_logo.png",Willow
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Willow
 https://dj-tm-srvr1.vercel.app/title/WILLOW_CA-HD(720p60)@DJ-TM.m3u8?data=BcHLDkQwFADQD7K4yAxricekqF6k2GpcJalIvOfrnQOV-VxxSD_edoO_NUXs2lqKFGcv4H8gxFxcunKyOtejcr9Jgw8B828xp2dtYIInWcytsp60kgduXSuJWWWIHHfei2hc8QU|Telegram=@links_macha_official&Creator=@DJ-TM
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/83/Willow_TV_logo.png",Willow
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Willow
 https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/cb543e1e786c648798d43d63d1ef41a5f9591fde1d6988693eb5518975d1073edce2a59caa08ff16388f1ede7f0a66413a3e951fda77118fd87eb141453c5728cfffe729a2c05616b7db083429b56a062a866a68ac39437ed0e21f48a238b6720a5aa82a66443d80b846ac7250db80148b61299bce8c37683f03409a5e5afba358b1ebb358178d6fa8b61455c02640e59f43c8821ca688d15fcb5e8227a31d94c1a1d98617d386f32493688aa2d675581fb0ae3bf6e053b2d39b1b56f61309756e9e623ef1842a1d954e422697973e24488d7aec8c2b86613bae128d0df7581fa4877bc5ca6fdac490de504f38b0c550606dc88fc6dfad6563ed34a9e18175120d3578bddb654424f85bfdab0d49d311b7e35ffa97308cb5263637cc9a448f9c884e8eda8267933fc3cbf89972170033444ab154ac9e62cc3a9d569c8e4271121d1fedad5ccad08d05707a19d2c91ef5030bb5debc86dd2532de2f4e09bf2e8a0d4524e71c5851c961b99635678c662d803636f41175a34aeeb721f0e88ab15475e590970caf2fdcb40cd3e40be6386f0e4ce0a45e2a2f264ad9e06202276a8314b4a1adcf434951bcb99d8483395e20361855008e989753939ccf2418568c1311697a14188117940efb055a0b3ac60ed9ce5d276567fca26e0d595c506f77f3564d4df31da048d796c0b2/43/1920x1080_5859480/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
