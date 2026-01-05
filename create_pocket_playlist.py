@@ -46,7 +46,8 @@ INFOTAINMENT_KEYWORDS = [
     "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
 ]
 
-# 6. FILTERS (Global Deletions)
+# 6. FILTERS (Only delete these)
+# Added "fashion" to delete Fashion TV
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac", "fashion"]
 
 # 7. ASTRO KEEP LIST
@@ -75,7 +76,7 @@ LOGO_MAP = {
     "history": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/History_Logo.svg/800px-History_Logo.svg.png"
 }
 
-# HEADERS (Basic User-Agent only)
+# HEADERS
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_group_and_name(line):
@@ -127,55 +128,35 @@ def get_auto_logo(channel_name):
 
 def parse_youtube_txt():
     temp_channels = []
-    if not os.path.exists(YOUTUBE_FILE): 
-        print("⚠️ youtube.txt not found")
-        return []
-    
-    print("📥 Processing youtube.txt...")
+    if not os.path.exists(YOUTUBE_FILE): return []
     try:
         with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
             lines = f.readlines()
-        
-        current_title = ""
-        current_logo = ""
-        
+        current_title, current_logo = "", ""
         for line in lines:
             line = line.strip()
             if not line: continue
-            
             if line.lower().startswith("title"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_title = parts[1].strip()
-            
             elif line.lower().startswith("logo"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_logo = parts[1].strip()
-
             elif line.lower().startswith("link") or line.startswith("http"):
                 url = line
                 if line.lower().startswith("link"):
                     parts = line.split(":", 1)
                     if len(parts) > 1: url = parts[1].strip()
-                
                 if url.startswith("http") or url.startswith("rtmp"):
                     if not current_title: current_title = "Temporary Channel"
-                    
                     if not current_logo or len(current_logo) < 5:
                         current_logo = get_auto_logo(current_title)
-
                     entry = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}'
                     temp_channels.append(entry)
-                    
-                    # LINK FIXES
-                    if "http" in url and "|" not in url:
-                        url += f"|User-Agent={UA_HEADER}"
+                    if "http" in url and "|" not in url: url += f"|User-Agent={UA_HEADER}"
                     temp_channels.append(url)
-                    
-                    current_title = ""
-                    current_logo = ""
-
-    except Exception as e:
-        print(f"⚠️ Error parsing youtube.txt: {e}")
+                    current_title, current_logo = "", ""
+    except: pass
     return temp_channels
 
 def main():
@@ -194,7 +175,6 @@ def main():
     final_lines.append("http://0.0.0.0")
 
     # TRACKING VARIABLES
-    seen_channels = set()
     zee_zest_count = 0 
     
     # PROCESS CHANNELS
@@ -216,29 +196,18 @@ def main():
             clean_name = name.lower().strip()
             group_lower = group.lower()
             
-            # --- ZEE TAMIL HD FIX ---
-            # Kept separate to ensure NO deletion happens. All copies pass through.
-            if "zee tamil hd" in clean_name:
-                pass 
-            
-            # --- ZEE ZEST HD FIX ---
-            elif "zee zest hd" in clean_name:
+            # --- ZEE ZEST HD FIX ONLY ---
+            # Skips the first copy (broken), keeps the 2nd
+            if "zee zest hd" in clean_name:
                 zee_zest_count += 1
-                if zee_zest_count == 2: pass 
+                if zee_zest_count == 2: pass
                 else:
                     skip_this_channel = True
                     continue
 
-            # --- STANDARD DEDUPLICATION ---
-            else:
-                clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
-                if clean_id in seen_channels:
-                    skip_this_channel = True
-                    continue
-                else:
-                    seen_channels.add(clean_id)
+            # --- NO OTHER DEDUPLICATION (All channels kept) ---
             
-            # --- FILTERS ---
+            # --- FILTERS (Only Fashion TV deleted) ---
             if not should_keep_channel(group, name):
                 skip_this_channel = True
                 continue
@@ -292,7 +261,7 @@ def main():
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]):
                 new_group = "Tamil News"
 
-            # 10. Tamil HD (Overrides Others/Music renames for Sun Music HD etc)
+            # 10. Tamil HD
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
                 new_group = "Tamil HD"
 
@@ -306,8 +275,7 @@ def main():
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # --- GLOBAL PLAYBACK FIX (Standard) ---
-            # Removed the Colors Tamil specific fix to match the first script.
+            # --- GLOBAL PLAYBACK FIX ---
             if "http" in line and "|" not in line:
                 line += f"|User-Agent={UA_HEADER}"
             
@@ -318,19 +286,15 @@ def main():
             current_buffer = []
             skip_this_channel = False
 
-    # ADD LIVE EVENTS
+    # ADD LIVE EVENTS & TEMP
     print("📥 Adding Live Events...")
     final_lines.extend(fetch_live_events(FANCODE_URL))
     final_lines.extend(fetch_live_events(SONY_LIVE_URL))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
-
-    # ADD TEMPORARY CHANNELS
     final_lines.extend(parse_youtube_txt())
 
-    # SAVE
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
-    
     print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
