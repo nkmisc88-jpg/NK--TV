@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-05 19:26:20 IST
+# Last Updated: 2026-01-05 20:16:41 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -23,6 +23,9 @@ https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://jkey.playlivtvlinks.workers.dev/?id=429
 https://keys.vodep39240327.workers.dev/?id=429.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Content-Type=application/dash+xml
+#EXTINF:-1 tvg-id="608" group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
+https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=b5a2c6d13b9748de9ceebc0a8adc8af3:e806fec1bf1c8a844216118c94bad020
 #EXTINF:-1 tvg-id="ts511" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11954-j9lu45o8-v1/imageContent-11954-j9lu45o8-m1.png" group-title="Tamil HD",Sun Music HD
@@ -33,10 +36,6 @@ https://livestream.sunnxt.com/d434796d90fa4dc9b7ecfacedbe683f1/SunMusicHDB_IN_in
 https://livestream.sunnxt.com/61477b4c8d8d45d5a49e044cc1dffc60/KTVHDB_IN_index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ============================== JIOTV ============================================
 # >>> JIO_AUTO_START
-#EXTINF:-1 tvg-id="0-9-zeetamil" group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
-#EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767682622~acl=%2f*~id=512e82bb-5cdc-41e7-85ad-a0fd359e274e~data=hdntl~hmac=965b657f73cfb12492576fad7f58dac37c63dfc48139441edb432aac110de6eb|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="1209" group-title="Tamil SD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-819-j5m8fsfs-v1/imageContent-819-j5m8fsfs-m1.png",Kalaignar TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=75dfe3fa680c58d6bc94815950c7d4f0&key=480cd1106bfb291a5735b0f9dc71bded
@@ -161,19 +160,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Movies_HD_BTS/output/index.mpd?__hdn
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Movies_Select_HD_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="748" group-title="Music" tvg-logo="https://tatalogo.pages.dev/425.png",Raj Musix
+#EXTINF:-1 tvg-id="748" group-title="Others" tvg-logo="https://tatalogo.pages.dev/425.png",Raj Musix
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=7fbca27f1de95241963dbf8ad9c85ade&key=7f71987978c403c7d78fd4ae92990496
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_Musix_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="420" group-title="Music" tvg-logo="https://tatalogo.pages.dev/199.png",Jaya Max
+#EXTINF:-1 tvg-id="420" group-title="Others" tvg-logo="https://tatalogo.pages.dev/199.png",Jaya Max
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=fac51ad9458958668729ddf5ac67a9ae&key=39fe92ea06365c6f01987739a48e9798
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_Max_BTS/output/index.mpd?__hdnea__=st=1767616451~exp=1767702851~acl=/*~hmac=1909ddaa9c91eaf312a6d3db3649ec0914b1881e460276ff2463c86731344fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="803" group-title="Music" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Tunes_6.png",Tunes 6
+#EXTINF:-1 tvg-id="803" group-title="Others" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Tunes_6.png",Tunes 6
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b0c237a374cd57bb80afeec16f6ab680&key=08dab9f7242dbd95f1e494a96f6fdad8
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
@@ -443,7 +442,7 @@ https://keys.vodep39240327.workers.dev/?id=300.mpd|User-Agent=Mozilla/5.0 (Windo
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
 https://keys.vodep39240327.workers.dev/?id=301.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ================================ TAMIL M3U ==========================================================
-#EXTINF:-1 tvg-id="ts647" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/isai-aruvi-black.png" group-title="Music", Isai Aruvi
+#EXTINF:-1 tvg-id="ts647" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/isai-aruvi-black.png" group-title="Others", Isai Aruvi
 https://edge2-moblive.yuppcdn.net/drm1/smil:isaiaruvitvdrm.smil/manifest.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="ts611" tvg-name="Sirippoli" tvg-logo="https://tatalogo.pages.dev/611.png" group-title="Tamil SD", Sirippoli
 https://edge2-moblive.yuppcdn.net/drm1/smil:sirippolitvdrm.smil/manifest.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -463,7 +462,7 @@ https://live.we2live.in/dheerantv/dheerantv/playlist.m3u8|User-Agent=Mozilla/5.0
 https://d2lk5u59tns74c.cloudfront.net/out/v1/abf46b14847e45499f4a47f3a9afe93d/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF: -1 tvg-id="1518" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240313_0159072608720790962587693.png" group-title="Tamil SD",Moon TV
 https://player.mslivestream.net/mslive/e10bb900976df9177b9a080314f26f86.sdp/chunks.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="7S.MUSIC.in" tvg-logo="https://tataprime.files.wordpress.com/2024/03/wp-17097527414494923868850942693233.png" group-title="Music", 7S Music
+#EXTINF:-1 tvg-id="7S.MUSIC.in" tvg-logo="https://tataprime.files.wordpress.com/2024/03/wp-17097527414494923868850942693233.png" group-title="Others", 7S Music
 https://mumt03.tangotv.in/7SMUSIC/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF: -1 tvg-id="971" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240315_0856271246595482699747248.png" group-title="Tamil SD", Vaanavil TV
 https://6n3yope4d9ok-hls-live.5centscdn.com/vaanavil/TV.stream/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -504,8 +503,6 @@ https://rpn3.bozztv.com/dvrfl07/ushba-t10/index.m3u8|User-Agent=Mozilla/5.0 (Win
 https://jmp2.uk/stvp-IN3000003QJ|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="ts117" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-384-j5jpj9hc-v1/imageContent-384-j5jpj9hc-m1.png" group-title="Infotainment SD",Food Food
 http://iptvmedia.live:8080/F18115/068f009e/1362|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ts227" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-959-j5mipsnk-v1/imageContent-959-j5mipsnk-m1.png" group-title="Infotainment HD",Fashion TV
-https://ftv1.b-cdn.net/bfdbb576-83f7-11f0-9f89-0200170e3e04_1000028043_HLS/video_10801920_p_0.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ======================================= TIMES PLAY ====================================================
 #EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/wthfwe.jpeg" group-title="Others",Movies Now HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -628,27 +625,27 @@ https://rasinetworks.in/live/rasimovieshd/index.mpd|User-Agent=Mozilla/5.0 (Wind
 #EXTINF: -1  tvg-name="Rasi Hollywood" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942518224615220455317164.png",Rasi Hollywood
 https://rasinetworks.in/live/rasihollywoodhd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ============================================= MUSIC =================================================
-#EXTINF:-1 tvg-id="ts400" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11583-j9jype8w-v3/imageContent-11583-j9jype8w-m3.png" group-title="Music",Mega Musiq
+#EXTINF:-1 tvg-id="ts400" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11583-j9jype8w-v3/imageContent-11583-j9jype8w-m3.png" group-title="Others",Mega Musiq
 http://iptvmedia.live:8080/F18115/068f009e/308442|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="377" tvg-logo="https://tatalogo.pages.dev/377.png" group-title="Music", Kappa TV
+#EXTINF:-1 tvg-id="377" tvg-logo="https://tatalogo.pages.dev/377.png" group-title="Others", Kappa TV
 https://cdn-3.pishow.tv/live/1123/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ts1284" group-title="Music" tvg-logo="hhttps://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SANPLTV_Thumbnail-v1/SANPLTV_Thumbnail.png",Sana Plus
+#EXTINF:-1 tvg-id="ts1284" group-title="Others" tvg-logo="hhttps://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SANPLTV_Thumbnail-v1/SANPLTV_Thumbnail.png",Sana Plus
 https://cable74tataplay.akamaized.net/dash/sanaplus.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/06/20240625_0713451452390300174130287.png" group-title="Music",SR Musix TV
+#EXTINF: -1 tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/06/20240625_0713451452390300174130287.png" group-title="Others",SR Musix TV
 http://srnet.bmlive.net:1935/srmusic/myStream/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1  group-title="Music" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png", Rasi Music
+#EXTINF: -1  group-title="Others" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240408_0942331739649577038058207.png", Rasi Music
 https://rasinetworks.in/live/rasimusichd/index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1  tvg-name="MN Music" group-title="Music" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240315_0846274573125433222986374.png",MN Music
+#EXTINF: -1  tvg-name="MN Music" group-title="Others" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240315_0846274573125433222986374.png",MN Music
 http://mntv.livebox.co.in/musichls/live.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="96" tvg-logo="https://tatalogo.pages.dev/96.png" group-title="Music", Zoom
+#EXTINF: -1 tvg-id="96" tvg-logo="https://tatalogo.pages.dev/96.png" group-title="Others", Zoom
 https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/zoom-tv/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/kXTCYqg.png" group-title="Music", Music India
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/kXTCYqg.png" group-title="Others", Music India
 https://cdn-2.pishow.tv/live/226/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="139" tvg-logo="https://tatalogo.pages.dev/139.png" group-title="Music", 9xM
+#EXTINF: -1 tvg-id="139" tvg-logo="https://tatalogo.pages.dev/139.png" group-title="Others", 9xM
 https://d14c63magvk61v.cloudfront.net/strm/channels/9xm/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="39" tvg-logo="https://tatalogo.pages.dev/39.png" group-title="Music", 9x Jalwa
+#EXTINF: -1 tvg-id="39" tvg-logo="https://tatalogo.pages.dev/39.png" group-title="Others", 9x Jalwa
 https://d14c63magvk61v.cloudfront.net/strm/channels/9xjalwa/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/pvLQmQK7/itv.png" group-title="Music", iTV Indian Music
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/pvLQmQK7/itv.png" group-title="Others", iTV Indian Music
 https://ca1.buximedia.com/itv/indian/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 =============================================== NEWS =============================================================
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -716,7 +713,7 @@ https://live.catvod.com/live.php?id=Vasantham|User-Agent=Mozilla/5.0 (Windows NT
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=9c44af8b594b6157f55d3c31bd679c10:c128bbe41e94d15a7f8cc2f6253a54b2
 https://converse.nathcreqtives.com/astro/5073/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY3NDUwNjg3LCJleHAiOjE3Njc4Njk4NjEsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2Nzg2OTg2MX0.9puUPiDaydWR5UrF3UH3V1m2ZecC_eJgR9b3o9qZZQI|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="SunMusic" ch-number="212" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Sun_Music_v1.png" group-title="Music",Sun Music
+#EXTINF:-1 tvg-id="SunMusic" ch-number="212" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Sun_Music_v1.png" group-title="Others",Sun Music
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=beaca9461f7ca0d58ba529fed2e7b610:da0a70148e126eb40cce02665753896d
 https://converse.nathcreqtives.com/astro/5011/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY3NDUwNjg3LCJleHAiOjE3Njc4Njk4NjEsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2Nzg2OTg2MX0.9puUPiDaydWR5UrF3UH3V1m2ZecC_eJgR9b3o9qZZQI|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -815,7 +812,7 @@ https://app.ashokadigital.net/app/9f53ea36/index.m3u8|User-Agent=Mozilla/5.0 (Wi
 https://live.maxtn.in/maxhd/maxhd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="MAXMOVIES" tvg-name="MAX MOVIES HD" tvg-logo="https://i.ibb.co/wNG1GF9Z/icon.jpg" group-title="Tamil Extra", MAX MOVIES HD
 https://live.maxtn.in/maxmovies/maxmovies/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="MAXMUSIC" tvg-name="MAX MUSIC" tvg-logo="https://i.ibb.co/My6N3CMv/mhm.jpg" group-title="Music", MAX MUSIC
+#EXTINF:-1 tvg-id="MAXMUSIC" tvg-name="MAX MUSIC" tvg-logo="https://i.ibb.co/My6N3CMv/mhm.jpg" group-title="Others", MAX MUSIC
 https://live.maxtn.in/maxmusic/maxmusic/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="VANITV" tvg-name="VANI TV HD" tvg-logo="https://i.ibb.co/jvKb71Xr/Whats-App-Image-2025-02-22-at-17-05-18-65d6fd32-removebg-preview.png" group-title="Tamil Extra", VANI TV HD
 https://live.maxtn.in/vanitv/vanitv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -847,7 +844,7 @@ https://cable91tataplay.akamaized.net/live/dharshantv/index.mpd|User-Agent=Mozil
 IPCLOUD
 #EXTINF:-1 tvg-logo="http://tnm3u.live/icon/tamil/local/mullaitv.png" group-title="Tamil Extra", Mullai TV
 https://ipcloud.live/mullaitv/mullaitv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="http://tnm3u.live/icon/tamil/local/aadhvik.png" group-title="Music", Aadhvik TV
+#EXTINF:-1 tvg-logo="http://tnm3u.live/icon/tamil/local/aadhvik.png" group-title="Others", Aadhvik TV
 http://ipcloud.live:8080/sachintv/aadviktv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="http://tnm3u.live/icon/tamil/local/mmtv.png" group-title="Tamil Extra", MM TV HD
 https://ipcloud.live/mmtv/mmtvhd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -874,7 +871,7 @@ https://fucking-tv-ott.keralive.workers.dev/mumt02/ABITV/index.m3u8|User-Agent=M
 https://fucking-tv-ott.keralive.workers.dev/mumt02/UTVANANDAM/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="ThirumalaiTV" tvg-logo="" group-title="Tamil Extra",Thirumalai TV Vadipatti
 https://ipcloud.live/thirumalaitv/madurai/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1  tvg-name="Sachin Music" group-title="Music" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240417_221843171827643876355363.png",Sachin Music
+#EXTINF:-1  tvg-name="Sachin Music" group-title="Others" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240417_221843171827643876355363.png",Sachin Music
 https://ipcloud.live/sachintv/musichd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240417_2219106701280619230998159.png" group-title="Tamil Extra",Dhoni TV
 https://ipcloud.live/sachintv/dhonitv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -953,13 +950,13 @@ https://app.ashokadigital.net/app/68b001a0/index.m3u8|User-Agent=Mozilla/5.0 (Wi
 https://app.ashokadigital.net/app/ad04b02c/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="AmmanPlus" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1764597422_WhatsApp%2520Image%25202025-12-01%2520at%25206.44.54%2520PM.png&w=1080&q=75" group-title="Tamil Extra",Amman Plus
 https://app.ashokadigital.net/app/e39f503a/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="7StarMusic" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1764994908_7SM%2520Still%25202.png&w=1080&q=75" group-title="Music",7Star Music
+#EXTINF:-1 tvg-id="7StarMusic" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1764994908_7SM%2520Still%25202.png&w=1080&q=75" group-title="Others",7Star Music
 https://app.ashokadigital.net/app/9346e98d/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="JawaharChannel" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1731775837_JAWAHAR%2520TV%2520LOGO%2520PNG.png&w=1920&q=75" group-title="Tamil Extra",Jawahar Channel
 https://app.ashokadigital.net/app/6a01fb97/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="AmmanTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1754665306_amman%2520tv%2520png%2520logo.png&w=1920&q=75" group-title="Tamil Extra",Amman TV
 https://app.ashokadigital.net/app/78b1bc36/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="" group-title="Music", V Musiq
+#EXTINF:-1 tvg-logo="" group-title="Others", V Musiq
 https://app.ashokadigital.net/vmusic/vmusic/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1736940221_SAVE_20250115_162418.jpg&w=1920&q=75" group-title="Tamil Extra",Ragam TV
 https://app.ashokadigital.net/app/408a1120/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -980,7 +977,7 @@ https://stream.onecloudlive.in/tcn/tcntv/index.m3u8|User-Agent=Mozilla/5.0 (Wind
 http://phoenixtv.stream.onecloudlive.in:8080/phoenixtv/phoenixtv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="" group-title="Tamil Extra", AK TV
 https://stream.onecloudlive.in/aktvhd/aktv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="JPMusicTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1763572153_JP%2520music%2520tv.png&w=1080&q=75" group-title="Music",JP Music TV
+#EXTINF:-1 tvg-id="JPMusicTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1763572153_JP%2520music%2520tv.png&w=1080&q=75" group-title="Others",JP Music TV
 https://stream.onecloudlive.in/sachintv/jpmusichd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="DeltaTV" group-title="Tamil Extra",Delta TV
 https://stream.onecloudlive.in/deltatv/deltatvhd/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1147,7 +1144,7 @@ https://rtmp.bmlive.net/bms/pcn/stream.m3u8|User-Agent=Mozilla/5.0 (Windows NT 1
 https://rtmp.bmlive.net/kingtv/kingtv/stream.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="https://i.ibb.co/whpDXpp1/ctn-removebg-preview.png" group-title="Tamil Extra",CTN
 https://rtmp.bmlive.net/ctn/ctntn/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-name="Isai Saaral" group-title="Music" tvg-logo="https://i.ibb.co/4RCVPdb5/1000136628.jpg",Isai Saaral
+#EXTINF:-1 tvg-name="Isai Saaral" group-title="Others" tvg-logo="https://i.ibb.co/4RCVPdb5/1000136628.jpg",Isai Saaral
 http://srnet.bmlive.net:1935/isaisaral/mystream/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-name="We Baduga Tv" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/msBGprc/1000145103.jpg",We Baduga Tv
 https://rtmp.bmlive.net/webaduga/webaduga/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1184,7 +1181,7 @@ http://198.144.149.206:8080/NOTV/YAALTV/index.m3u8?token=GTR|User-Agent=Mozilla/
 http://notvstream.in/tirupurvoicetv/tirupurvoicetv.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1  tvg-name="Aarthi TV" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/02/20240224_0832155366153724501071724.png",Aarthi Tv
 http://198.144.149.206:8080/NOTV/AARTHITV/index.m3u8?token=GTR|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1tvg-id="" tvg-logo="" group-title="Music",TSNMUSIC
+#EXTINF:-1tvg-id="" tvg-logo="" group-title="Others",TSNMUSIC
 http://198.144.149.206:8080/NOTV/VAAGAI/index.m3u8?token=GTR|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-name="SNR Tv" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/xt6mtWj5/1000136482.png",SNR Tv
 http://198.144.149.206:8080/NOTV/ASOSACHENNAI/index.m3u8?token=GTR|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1237,7 +1234,7 @@ https://live.applelive.in/enthirantv/enthirantv/index.m3u8|User-Agent=Mozilla/5.
 http://garudatv.applelive.in/hls/garudantv.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1  tvg-name="Win Vision" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240309_0118467600566896372655832.png",Win Vision
 http://applelive.in/winvisiontv/winvisiontv.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-name="JCV Musix" group-title="Music" tvg-logo="https://i.ibb.co/7t9gdB1v/1000145833.gif",JCV Musix
+#EXTINF:-1 tvg-name="JCV Musix" group-title="Others" tvg-logo="https://i.ibb.co/7t9gdB1v/1000145833.gif",JCV Musix
 https://play.applelive.in/jcvtv/jcvmusix.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-name="JC TV" tvg-logo="https://play-lh.googleusercontent.com/CINl0i_yvq46zIk8evr5sgKDI60qGFQDbFRoKqMwtlOXDDuXzd9ou9UwT46enxSc3P0=w240-h480-rw" group-title="Tamil Extra",jcv
 https://play.applelive.in/jcvtvhd/jcvtvhd.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1265,7 +1262,7 @@ http://applelive.in/haitv/haitv.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Wi
 http://applelive.in/jctv/jctv.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1  tvg-name="G Media" group-title="Tamil Extra" tvg-logo="https://tataprime.files.wordpress.com/2024/03/20240308_1346371023231073137635248.png",G Media
 http://applelive.in/gmedia/gmedia.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="GMusic" group-title="Music",G Music
+#EXTINF:-1 tvg-id="GMusic" group-title="Others",G Music
 https://rtmp.applelive.in/gmusic/gmusic/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-logo="https://play-lh.googleusercontent.com/5BbVPm_jHSHPVY3XLhfYjpJJtXi1qVV3jlJ9i-cTE0gckC_LSEBKftLgU6uX_UMXgQ=w240-h480-rw" group-title="Tamil Extra", Kumari TV
 https://rtmp.applelive.in/gvkumaritv/gvkumaritv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1413,7 +1410,7 @@ https://amigofx.com:1936/easontv/easontv/playlist.m3u8|User-Agent=Mozilla/5.0 (W
 https://view.rcserver.in/tmp_hls10/jayamtvkarur/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="KCNTV" tvg-logo="https://www.ashokadigital.net/_next/image?url=https%3A%2F%2Flivetv.ashokadigital.net%2Fupload%2Flogo%2F1739890766_WhatsApp_Image_2025-02-18_at_8.28.50_PM-removebg-preview.png&w=1920&q=75" group-title="Tamil Extra",KCN TV
 https://view.rcserver.in/tmp_hls12/kcntv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="RCMusic" group-title="Music",RC Music
+#EXTINF:-1 tvg-id="RCMusic" group-title="Others",RC Music
 https://view.rcserver.in/tmp_hls2/stream/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="KaalaiTV" group-title="Tamil Extra",Kaalai TV
 https://view.rcserver.in/tmp_hls22/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1441,7 +1438,7 @@ https://view.rcserver.in/tmp_hls19/ammavision/index.m3u8|User-Agent=Mozilla/5.0 
 https://view.rcserver.in/tmp_hls21/qmaxtv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="ThiraiTV" group-title="Tamil Extra",Thirai TV
 https://view.apserver.in/tmp_hls2/thiraitv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ThiraiIsai" group-title="Music",Thirai Isai
+#EXTINF:-1 tvg-id="ThiraiIsai" group-title="Others",Thirai Isai
 https://view.apserver.in/tmp_hls1/thiraitvplus/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="BKTV" group-title="Tamil Extra",BK TV
 https://view.apserver.in/tmp_hls3/bktv/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1603,15 +1600,15 @@ http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734159&e
 #EXTINF:-1  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/YcKWQVq/IMG-20241103-191826.jpg",Tamil Cinema HD 10
 http://main.light-ott.net:80/play/live.php?mac=00:1A:79:3A:93:FD&stream=734185&extension=ts|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1  tvg-name="Tamil cinema" tvg-id="24.7.Dummy.us" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/KFHXF5F/images.jpg",Tamil Cinema HD 11
-#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Music" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 1
+#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Others" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 1
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481200|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Music" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 2
+#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Others" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 2
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481199|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Music" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 3
+#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Others" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 3
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481201|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Music" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 4
+#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Others" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 4
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481314|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Music" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 5
+#EXTINF:-1  tvg-name="Tamil Songs" tvg-id="Music.Dummy.us" group-title="Others" tvg-logo="https://i.postimg.cc/3RxbPVdD/cropped-image.png",Tamil Songs 5
 https://uxplaylists-portalizer.stevosure123.workers.dev/?c=eyJtb2RlIjoic3RhbGtlciIsInN0YWxrZXJfdXJsIjoiaHR0cDovL3R2LnN0cmVhbTRrLmNjL3N0YWxrZXJfcG9ydGFsLyIsIm1hYyI6IjAwOjFBOjc5Ojk3OjFDOjFCIiwic24iOiIwMDoxQTo3OTo5NzoxQzoxQiIsImRldmljZV9pZDEiOiIwODdGQzNEMkY4NzEyOUU4MUUwMzYyREQ1NURFMTg1MTA4QTdBNDg5MDYzNTFBRkZDODc3MjgzREY4ODFDOEQzIiwiZGV2aWNlX2lkMiI6IjA4N0ZDM0QyRjg3MTI5RTgxRTAzNjJERDU1REUxODUxMDhBN0E0ODkwNjM1MUFGRkM4NzcyODNERjg4MUM4RDMiLCJzaWciOiIifQ%3D%3D&id=481315|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 ========================================= FM RADIO ====================================================
 #EXTINF:-1 group-title="Tamil FM Radio" tvg-logo="https://raw.githubusercontent.com/pdeepakcwa/logos/main/radiomirchi.jpg",Radio Mirchi 98.3
@@ -2088,13 +2085,11 @@ https://stream.zeno.fm/nzi27fhhwv3tv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Wi
 https://stream.zeno.fm/5csru2np4bruv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Live Events" tvg-id="138931" tvg-name="Chattogram Royals Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138931_5808_CCH_RAN_fc-web_1766733054166.jpg" tvg-language="ENGLISH" ,ENG | Chattogram Royals Vs Rangpur Riders
 https://in-mc-fdlive.fancode.com/mumbai/138931_english_hls_cf91c4037e70925_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139283" tvg-name="Centre Court   Day 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 1
-https://in-mc-fdlive.fancode.com/mumbai/139283_english_hls_ea5c6b725a48855_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498866" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767426294128238_UC26_Great-Britain-vs-Greece_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Great Britain vs Greece - 5 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767659401~acl=/*~id=7bf09c07689ebe1ac2d9dd4a3aad9d09-1767616200145~hmac=2935e76d7129bed5ef2bed987cc519a8ba7c94cd59f15bedeff5dc50bcb4c4d6|User-Agent=com.sonyliv/6.22.4 (Android 6; en_GB; SM-A500F; Build/MMB29M)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=93d337a9025e8c59c999a20a6ee5e87e-1767621013280
-#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list675b8ef264834d209f66cca87421a145349a679bf8c74855ac780257a4d01764.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767659401~acl=/*~id=7bf09c07689ebe1ac2d9dd4a3aad9d09-1767616200145~hmac=2935e76d7129bed5ef2bed987cc519a8ba7c94cd59f15bedeff5dc50bcb4c4d6|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; HK1RBOX-X4; Build/RQ3A.210805.001.A1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=36bb194c73b0b96ff131397d0c93e2ba-1767623411751
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list59756f68ca794d42aff28ad8a21988ddb34cee9b4f854c8a987b1447a3eba328.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767699005~acl=%2f*~data=hdntl~hmac=58760db1e46a37c26cca31ebb0b14e9687ec484ed80fdca5f40f0a044263e5b1|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
-#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list675b8ef264834d209f66cca87421a145349a679bf8c74855ac780257a4d01764.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list59756f68ca794d42aff28ad8a21988ddb34cee9b4f854c8a987b1447a3eba328.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767699008~acl=%2f*~data=hdntl~hmac=d2c60273a3855ec58c3a286a852fa9dac85c6fc55e446c033de7db08461e0064|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
