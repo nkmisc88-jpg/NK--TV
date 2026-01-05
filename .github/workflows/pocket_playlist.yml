@@ -26,7 +26,8 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests selenium webdriver-manager
+          pip install requests
+          # No selenium needed (We removed it to fix crashes)
 
       - name: Run Playlist Generator Script
         run: python create_pocket_playlist.py
@@ -36,13 +37,13 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           
-          # 1. Add the new playlist
+          # 1. Add changes
           git add pocket_playlist.m3u
           
-          # 2. COMMIT FIRST (This prevents the 128 error)
+          # 2. COMMIT FIRST (Fixes the 128 error)
           git commit -m "Auto-update Playlist" || echo "No changes to commit"
           
-          # 3. PULL updates from server (Rebase)
+          # 3. PULL (Rebase)
           git pull origin main --rebase
           
           # 4. PUSH
