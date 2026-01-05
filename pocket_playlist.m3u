@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-05 21:12:37 IST
+# Last Updated: 2026-01-05 21:21:00 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3292,15 +3292,15 @@ https://stream.zeno.fm/nzi27fhhwv3tv
 #EXTINF:-1 group-title="Tamil FM Radio",Anbu FM
 https://stream.zeno.fm/5csru2np4bruv
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 5 January 2026 at 9:07:05 pm
+#DATE:- Monday, 5 January 2026 at 9:14:05 pm
 #EXTINF:-1 tvg-id="138931" tvg-name="Chattogram Royals Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138931_5808_CCH_RAN_fc-web_1766733054166.jpg" tvg-language="ENGLISH" group-title="Cricket",ENG | Chattogram Royals Vs Rangpur Riders
 https://in-mc-fdlive.fancode.com/mumbai/138931_english_hls_cf91c4037e70925_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 05-01-2026 21:00
+#DATE:- 05-01-2026 21:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 tvg-id="1090498703" tvg-name="MasterChef India - Hindi" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012988/1767619329396530_MCI_S4_5jan_simulcast_landscape_thumb.jpg" tvg-language="Hindi" group-title="Reality, Cookery",HIN | MasterChef India - Hindi
-https://sonymtmnew.akamaized.net/hls/live/2037142/DAI22ME-MCI/master.m3u8?hdnea=exp=1767659401~acl=/*~id=7bf09c07689ebe1ac2d9dd4a3aad9d09-1767616200145~hmac=2935e76d7129bed5ef2bed987cc519a8ba7c94cd59f15bedeff5dc50bcb4c4d6|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; moto e32(s); Build/STBS32.36-102-14)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=78331817f3d5fd756681b32d2da49a6e-1767627009760
+https://sonymtmnew.akamaized.net/hls/live/2037142/DAI22ME-MCI/master.m3u8?hdnea=exp=1767659401~acl=/*~id=7bf09c07689ebe1ac2d9dd4a3aad9d09-1767616200145~hmac=2935e76d7129bed5ef2bed987cc519a8ba7c94cd59f15bedeff5dc50bcb4c4d6|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; DTP9731; Build/RT)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=8fc976d69a853c035567d5751ffec476-1767628211528
 #EXTINF:-1 tvg-id="1090498866" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767426294128238_UC26_Great-Britain-vs-Greece_3jan_landscape_thumb.jpg" tvg-language="English" group-title="Tennis",ENG | Great Britain vs Greece - 5 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767659401~acl=/*~id=7bf09c07689ebe1ac2d9dd4a3aad9d09-1767616200145~hmac=2935e76d7129bed5ef2bed987cc519a8ba7c94cd59f15bedeff5dc50bcb4c4d6|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; SM-T225; Build/UP1A.231005.007)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=78331817f3d5fd756681b32d2da49a6e-1767627009760
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767659401~acl=/*~id=7bf09c07689ebe1ac2d9dd4a3aad9d09-1767616200145~hmac=2935e76d7129bed5ef2bed987cc519a8ba7c94cd59f15bedeff5dc50bcb4c4d6|User-Agent=com.sonyliv/6.22.4 (Android 8; en_GB; BND-AL10; Build/HONORBND-AL10)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=8fc976d69a853c035567d5751ffec476-1767628211528
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Monday, 5 January 2026 at 9:00:10 pm
 #EXTINF:-1 tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list59756f68ca794d42aff28ad8a21988ddb34cee9b4f854c8a987b1447a3eba328.jpg" tvg-language="hindi" group-title="Kabbadi",HIN | Uttar Pradesh Kabaddi League Season 2
