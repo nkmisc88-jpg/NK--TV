@@ -11,7 +11,7 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# 1. MOVE TO TAMIL HD (Specific HD Channels)
+# 1. MOVE TO TAMIL HD
 MOVE_TO_TAMIL_HD = [
     "Sun TV HD", "Star Vijay HD", "Colors Tamil HD", 
     "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD",
@@ -31,6 +31,20 @@ ASTRO_KEEP = [
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
+
+# 5. AUTO LOGO MAP (For Temporary Channels)
+# If the name contains the KEY, it assigns the VALUE as the logo.
+LOGO_MAP = {
+    "willow": "https://upload.wikimedia.org/wikipedia/commons/8/83/Willow_TV_logo.png",
+    "fox": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_Sports_logo.svg/2048px-Fox_Sports_logo.svg.png",
+    "star sports": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Star_Sports_network.svg/1200px-Star_Sports_network.svg.png",
+    "sony": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Sony_LIV_logo.svg/1200px-Sony_LIV_logo.svg.png",
+    "zee": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Zee5_logo.svg/1200px-Zee5_logo.svg.png",
+    "sun": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Sun_TV_Network_Logo.png/220px-Sun_TV_Network_Logo.png",
+    "colors": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Colors_TV_Logo.png/1200px-Colors_TV_Logo.png",
+    "astro": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Astro_logo.svg/1200px-Astro_logo.svg.png",
+    "fancode": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/FanCode_Logo.png/1200px-FanCode_Logo.png"
+}
 
 def get_group_and_name(line):
     grp_match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
@@ -71,6 +85,14 @@ def fetch_live_events(url):
     except: pass
     return events
 
+def get_auto_logo(channel_name):
+    """Guesses a logo URL based on the channel name."""
+    name_lower = channel_name.lower()
+    for key, url in LOGO_MAP.items():
+        if key in name_lower:
+            return url
+    return "" # No match found
+
 def parse_youtube_txt():
     temp_channels = []
     if not os.path.exists(YOUTUBE_FILE): 
@@ -105,9 +127,17 @@ def parse_youtube_txt():
                 
                 if url.startswith("http") or url.startswith("rtmp"):
                     if not current_title: current_title = "Temporary Channel"
+                    
+                    # --- AUTO LOGO LOGIC ---
+                    # If user didn't provide a logo, try to guess it
+                    if not current_logo:
+                        current_logo = get_auto_logo(current_title)
+
                     entry = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}'
                     temp_channels.append(entry)
                     temp_channels.append(url)
+                    
+                    # Reset
                     current_title = ""
                     current_logo = ""
 
@@ -130,9 +160,7 @@ def main():
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # FORCE GROUP PLACEHOLDERS (Optional visual aid)
-    final_lines.append('#EXTINF:-1 group-title="Temporary Channels" tvg-logo="", ------------------')
-    final_lines.append("http://0.0.0.0")
+    # (REMOVED THE PLACEHOLDER DASHED LINE HERE)
 
     # TRACKING VARIABLES
     seen_channels = set()
@@ -180,28 +208,22 @@ def main():
                 continue
 
             # --- GROUP MOVING LOGIC ---
-            # 1. Default Mappings
             new_group = group 
             if group_lower == "tamil": new_group = "Tamil SD"
             if group_lower == "local channels": new_group = "Tamil Extra"
             if "premium 24/7" in group_lower: new_group = "Tamil Extra"
             if "astro go" in group_lower: new_group = "Tamil Extra"
 
-            # 2. SPECIFIC CHANNEL MOVES (Overrides above)
-            
-            # Move to Tamil SD
+            # SPECIFIC MOVES
             if "j movies" in clean_name or "raj digital plus" in clean_name:
                 new_group = "Tamil SD"
 
-            # Move to Tamil Extra
             if "rasi movies" in clean_name or "rasi hollywood" in clean_name:
                 new_group = "Tamil Extra"
 
-            # Move to Sports SD
             if "dd sports" in clean_name:
                 new_group = "Sports SD"
 
-            # Move to Tamil HD (Matches list at top)
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
                 new_group = "Tamil HD"
 
