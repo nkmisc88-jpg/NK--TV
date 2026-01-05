@@ -1,16 +1,11 @@
 name: Pocket Playlist Generator
 
 on:
-  # 1. Automatic Timer (Runs every 15 minutes)
   schedule:
     - cron: '*/15 * * * *'
-  
-  # 2. Manual Trigger (Runs when you save ANY file, including youtube.txt)
   push:
     paths:
       - '**'
-      
-  # 3. Manual Button
   workflow_dispatch:
 
 jobs:
@@ -22,8 +17,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Important: Fetches full history to prevent merge conflicts
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -33,28 +26,24 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          # We install Selenium just in case you use the advanced scraper later
           pip install requests selenium webdriver-manager
 
       - name: Run Playlist Generator Script
         run: python create_pocket_playlist.py
 
-      - name: Commit and Push Changes (Conflict Safe Mode)
+      - name: Commit and Push Changes
         run: |
-          # 1. Configure Git
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           
-          # 2. Stage the new playlist file
+          # 1. Add the new playlist
           git add pocket_playlist.m3u
           
-          # 3. CRITICAL STEP: Commit BEFORE Pulling
-          # This saves the playlist locally so it doesn't get overwritten
+          # 2. COMMIT FIRST (This prevents the 128 error)
           git commit -m "Auto-update Playlist" || echo "No changes to commit"
           
-          # 4. Pull latest changes (e.g. your youtube.txt edits) from server
-          # --rebase puts your changes ON TOP of the server's changes
+          # 3. PULL updates from server (Rebase)
           git pull origin main --rebase
           
-          # 5. Push the final result
+          # 4. PUSH
           git push origin main
