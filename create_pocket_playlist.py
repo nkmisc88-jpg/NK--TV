@@ -11,34 +11,22 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# 1. CHANNELS TO MOVE TO "Tamil HD"
+# 1. MOVE TO TAMIL HD
 MOVE_TO_TAMIL_HD = [
-    "Sun TV HD",
-    "Star Vijay HD",
-    "Colors Tamil HD",
-    "Zee Tamil HD",
-    "KTV HD",
-    "Sun Music HD",
-    "Jaya TV HD"
+    "Sun TV HD", "Star Vijay HD", "Colors Tamil HD", 
+    "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD"
 ]
 
-# 2. CHANNELS TO KEEP DUPLICATES FOR (Fix for broken links)
-# If a channel is listed here, the script will NOT delete its duplicates.
-# This lets you see all versions to find the working one.
-ALLOW_DUPLICATES = [
-    "Zee Tamil HD"
-]
-
-# 3. FILTERS (Global Deletions)
+# 2. FILTERS
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac"]
 
-# 4. ASTRO GO ALLOW LIST
+# 3. ASTRO KEEP LIST
 ASTRO_KEEP = [
     "vinmeen", "thangathirai", "vaanavil", 
     "vasantham", "vellithirai", "sports plus"
 ]
 
-# 5. LIVE EVENT SOURCES
+# 4. LIVE EVENTS
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
@@ -80,6 +68,63 @@ def fetch_live_events(url):
     except: pass
     return events
 
+# --- NEW FUNCTION: PARSE YOUR SPECIFIC YOUTUBE.TXT FORMAT ---
+def parse_youtube_txt():
+    temp_channels = []
+    if not os.path.exists(YOUTUBE_FILE): return []
+    
+    print("📥 Processing youtube.txt (Title/Link Format)...")
+    try:
+        with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+        
+        current_title = ""
+        current_logo = ""
+        
+        for line in lines:
+            line = line.strip()
+            if not line: continue
+            
+            # 1. Capture Title
+            if line.lower().startswith("title"):
+                # Split by first colon only
+                parts = line.split(":", 1)
+                if len(parts) > 1: current_title = parts[1].strip()
+            
+            # 2. Capture Logo
+            elif line.lower().startswith("logo"):
+                parts = line.split(":", 1)
+                if len(parts) > 1: current_logo = parts[1].strip()
+
+            # 3. Capture Link (And save channel)
+            elif line.lower().startswith("link") or line.startswith("http"):
+                link = ""
+                if line.lower().startswith("link"):
+                    parts = line.split(":", 1)
+                    if len(parts) > 1: link = parts[1].strip()
+                else:
+                    link = line # Direct http link
+                
+                # If we have a link, save the entry
+                if link and current_title:
+                    # Construct valid M3U entry
+                    entry = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}'
+                    temp_channels.append(entry)
+                    temp_channels.append(link)
+                    
+                    # Reset for next block
+                    current_title = ""
+                    current_logo = ""
+                elif link:
+                     # Link found but no title? Use generic
+                     temp_channels.append('#EXTINF:-1 group-title="Temporary Channels",Temporary Channel')
+                     temp_channels.append(link)
+
+    except Exception as e:
+        print(f"⚠️ Error parsing youtube.txt: {e}")
+        
+    return temp_channels
+
 def main():
     print("📥 Downloading Source Playlist...")
     try:
@@ -95,8 +140,9 @@ def main():
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # TRACKING
+    # TRACKING VARIABLES
     seen_channels = set()
+    zee_tamil_count = 0 # Counter for Zee Tamil HD
     
     # PROCESS CHANNELS
     current_buffer = []
@@ -115,23 +161,28 @@ def main():
             
             group, name = get_group_and_name(line)
             
-            # --- DEDUPLICATION LOGIC ---
+            # --- ZEE TAMIL HD FIX (Skip First, Keep Second) ---
+            if "zee tamil hd" in name.lower():
+                if zee_tamil_count == 0:
+                    print("   🚫 Skipping broken Zee Tamil HD (1st copy)")
+                    zee_tamil_count += 1
+                    skip_this_channel = True
+                    continue # Skip first one
+                else:
+                    print("   ✅ Keeping working Zee Tamil HD (2nd copy)")
+                    zee_tamil_count += 1 
+                    # Don't skip, let it proceed to filters
+            
+            # --- STANDARD DEDUPLICATION (For everything else) ---
             clean_id = re.sub(r'[^a-z0-9]', '', name.lower())
             
-            # Check if this channel is in our "Allow Duplicates" list
-            is_exception = False
-            for allowed in ALLOW_DUPLICATES:
-                if allowed.lower() in name.lower():
-                    is_exception = True
-                    break
-            
-            if clean_id in seen_channels and not is_exception:
-                # Duplicate found, AND it's not an exception -> DELETE
-                skip_this_channel = True
-                continue
-            else:
-                # First time seeing it OR it is an exception -> KEEP
-                seen_channels.add(clean_id)
+            # Only deduplicate if it's NOT Zee Tamil (we handle that above)
+            if "zee tamil hd" not in name.lower():
+                if clean_id in seen_channels:
+                    skip_this_channel = True
+                    continue
+                else:
+                    seen_channels.add(clean_id)
             
             # --- FILTERS ---
             if not should_keep_channel(group, name):
@@ -170,32 +221,8 @@ def main():
     final_lines.extend(fetch_live_events(SONY_LIVE_URL))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
 
-    # ADD TEMPORARY CHANNELS
-    if os.path.exists(YOUTUBE_FILE):
-        print("📥 Processing youtube.txt...")
-        with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
-            yt_lines = f.read().splitlines()
-        pending_extinf = ""
-        for line in yt_lines:
-            line = line.strip()
-            if not line: continue
-            if line.startswith("#EXTINF"):
-                if 'group-title="' in line:
-                    line = re.sub(r'group-title="[^"]*"', 'group-title="Temporary Channels"', line)
-                else:
-                    if "," in line:
-                         parts = line.split(",", 1)
-                         line = f'{parts[0]} group-title="Temporary Channels",{parts[1]}'
-                    else:
-                         line += ' group-title="Temporary Channels"'
-                pending_extinf = line
-            elif line.startswith("http") or line.startswith("rtmp"):
-                if pending_extinf: final_lines.append(pending_extinf)
-                else: final_lines.append('#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Temporary Channel')
-                final_lines.append(line)
-                pending_extinf = "" 
-            elif not line.startswith("#"):
-                 pending_extinf = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",{line}'
+    # ADD TEMPORARY CHANNELS (Using New Parser)
+    final_lines.extend(parse_youtube_txt())
 
     # SAVE
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
