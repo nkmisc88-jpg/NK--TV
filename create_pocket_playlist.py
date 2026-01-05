@@ -11,7 +11,7 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# 1. GROUP MAPPING (For the 1st copy of the channel)
+# 1. GROUP MAPPING
 MOVE_TO_TAMIL_HD = [
     "Sun TV HD", "Star Vijay HD", "Colors Tamil HD", 
     "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD",
@@ -42,9 +42,9 @@ INFOTAINMENT_KEYWORDS = [
     "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
 ]
 
-# 2. DELETE LIST (Groups/Channels to remove)
-# Added "sun nxt" and "jio specials hd"
-BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "jio specials hd"]
+# 2. DELETE LIST
+# Added "sunnxt" specifically for the group name
+BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
 
 # 3. LIVE EVENTS
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
@@ -67,11 +67,15 @@ def get_group_and_name(line):
     return group, name
 
 def should_keep_channel(group, name):
-    # Check both Group Name and Channel Name
     check_str = (group + " " + name).lower()
     for bad in BAD_KEYWORDS:
         if bad in check_str: return False 
     return True
+
+def get_clean_id(name):
+    """Normalize name for HD comparison (remove spaces, symbols, and 'hd')"""
+    name = name.lower().replace("hd", "").replace(" ", "").strip()
+    return re.sub(r'[^a-z0-9]', '', name)
 
 def fetch_live_events(url):
     lines = []
@@ -86,9 +90,7 @@ def fetch_live_events(url):
                 
                 # FORCE GROUP TO "Live Events"
                 if line.startswith("#EXTINF"):
-                    # Remove existing group-title if any
                     line = re.sub(r'group-title="([^"]*)"', '', line)
-                    # Add new group-title
                     line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
                     lines.append(line)
                 elif not line.startswith("#"):
@@ -150,6 +152,17 @@ def main():
         print(f"❌ Failed: {e}")
         sys.exit(1)
 
+    # --- STEP 1: SCAN FOR HD CHANNELS ---
+    # We create a set of "base names" that have an HD version.
+    # e.g., if "Sun TV HD" exists, we add "suntv" to the set.
+    hd_channels_exist = set()
+    for line in source_lines:
+        if line.startswith("#EXTINF"):
+            _, name = get_group_and_name(line)
+            if "hd" in name.lower():
+                hd_channels_exist.add(get_clean_id(name))
+
+    # --- STEP 2: PROCESS CHANNELS ---
     seen_channels = set()
     current_buffer = []
     zee_tamil_count = 0
@@ -167,40 +180,49 @@ def main():
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             
-            # --- 1. FILTER CHECK ---
+            # 1. FILTER CHECK (Fashion, SunNXT, etc.)
             if not should_keep_channel(group, name):
                 current_buffer = [] 
                 continue
 
-            # --- 2. IDENTIFY DUPLICATES ---
-            clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
+            # 2. SD DELETION CHECK
+            # If this is SD, check if an HD version exists in our set
+            if "hd" not in clean_name:
+                base_id = get_clean_id(name)
+                if base_id in hd_channels_exist:
+                    # HD version exists, so DELETE this SD version
+                    current_buffer = []
+                    continue
+
+            # 3. IDENTIFY DUPLICATES
+            # (Note: we use a different ID for duplication to keep exact matches distinct from SD/HD matches)
+            exact_clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
             is_duplicate = False
-            if clean_id in seen_channels:
+            if exact_clean_id in seen_channels:
                 is_duplicate = True
             else:
-                seen_channels.add(clean_id)
+                seen_channels.add(exact_clean_id)
 
-            # --- 3. GROUP RENAMING LOGIC ---
+            # 4. GROUP RENAMING LOGIC
             new_group = group 
             
             # === SPECIAL LOGIC: ZEE TAMIL HD SWAP ===
             if "zee tamil hd" in clean_name:
                 zee_tamil_count += 1
                 if zee_tamil_count == 1:
-                    new_group = "Backup"   # 1st copy (broken) -> Backup
-                    is_duplicate = True    # Treat as backup
+                    new_group = "Backup"   # 1st copy -> Backup
+                    is_duplicate = True
                 elif zee_tamil_count == 2:
-                    new_group = "Tamil HD" # 2nd copy (working) -> Main Group
-                    is_duplicate = False   # Treat as main
+                    new_group = "Tamil HD" # 2nd copy -> Main Group
+                    is_duplicate = False
                 else:
                     new_group = "Backup"
             
             # === STANDARD LOGIC ===
             elif is_duplicate:
-                # All other duplicates go to Backup
                 new_group = "Backup"
             else:
-                # Main renaming for non-duplicates (and the good Zee Tamil)
+                # Main renaming for non-duplicates
                 group_lower = group.lower()
 
                 if group_lower == "tamil": new_group = "Tamil SD"
