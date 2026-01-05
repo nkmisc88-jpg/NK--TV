@@ -217,7 +217,7 @@ def main():
             else:
                 group_lower = group.lower()
 
-                # TAMIL -> TAMIL EXTRA (Changed from Tamil SD)
+                # TAMIL -> TAMIL EXTRA
                 if group_lower == "tamil": new_group = "Tamil Extra"
                 if group_lower == "local channels": new_group = "Tamil Extra"
                 if "premium 24/7" in group_lower: new_group = "Tamil Extra"
@@ -225,7 +225,7 @@ def main():
                 
                 # OTHER GROUPS
                 if group_lower == "sports": new_group = "Sports Extra"
-                if "extras" in group_lower: new_group = "Others" # Added Extras -> Others
+                if "extras" in group_lower: new_group = "Others" 
                 if "entertainment" in group_lower: new_group = "Others"
                 if "movies" in group_lower: new_group = "Others"
                 if "music" in group_lower: new_group = "Others"
@@ -241,7 +241,10 @@ def main():
                 if new_group == "Tamil Extra" and "sports" in clean_name:
                     new_group = "Sports Extra"
 
-                if "j movies" in clean_name or "raj digital plus" in clean_name: new_group = "Tamil SD" # Force these to SD if needed, or leave as Extra
+                # 2. Raj Digital Plus & J Movies -> Tamil Extra
+                if "j movies" in clean_name or "raj digital plus" in clean_name: 
+                    new_group = "Tamil Extra"
+
                 if "rasi movies" in clean_name or "rasi hollywood" in clean_name: new_group = "Tamil Extra"
                 if "dd sports" in clean_name: new_group = "Sports Extra"
                     
