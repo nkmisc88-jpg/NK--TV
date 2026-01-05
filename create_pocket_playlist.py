@@ -62,25 +62,46 @@ def get_clean_id(name):
     name = name.lower().replace("hd", "").replace(" ", "").strip()
     return re.sub(r'[^a-z0-9]', '', name)
 
-# --- IMPROVED WEBPAGE SCANNER ---
+# --- DEEP WEB SCRAPER (Improved) ---
 def extract_m3u8_from_webpage(url):
-    print(f"   🔎 Scanning Webpage: {url}")
+    print(f"   🔎 Deep Scanning Webpage: {url}")
     try:
-        # 1. Fetch the page
-        r = requests.get(url, headers={'User-Agent': UA_HEADER}, timeout=15)
-        
-        # 2. DEEP SEARCH: Look for any string that looks like a URL ending in .m3u8
-        # This regex catches: "https://...m3u8" or 'https://...m3u8?token=...'
-        match = re.search(r'["\'](https?://[^"\']+\.m3u8[^"\']*)["\']', r.text)
-        
+        session = requests.Session()
+        session.headers.update({'User-Agent': UA_HEADER, 'Referer': url})
+        r = session.get(url, timeout=20)
+        text = r.text
+
+        # 1. DIRECT SEARCH: Look for http...m3u8
+        match = re.search(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', text)
         if match:
-            found_link = match.group(1)
-            # Add Referer (Most sports sites require this)
-            final_link = f"{found_link}|Referer={url}&User-Agent={UA_HEADER}"
-            return final_link
+            found = match.group(1).replace('\\/', '/')
+            return f"{found}|Referer={url}&User-Agent={UA_HEADER}"
+
+        # 2. IFRAME SEARCH: Look for embedded players (common in sports sites)
+        iframe_match = re.search(r'<iframe[^>]+src=["\']([^"\']+)["\']', text)
+        if iframe_match:
+            iframe_url = iframe_match.group(1)
+            if iframe_url.startswith("//"): iframe_url = "https:" + iframe_url
+            print(f"      ↳ Found Iframe, scanning: {iframe_url}")
             
+            # Scan the Iframe content
+            r2 = session.get(iframe_url, timeout=15)
+            match2 = re.search(r'(https?://[^\s"\'<>]+\.m3u8[^\s"\'<>]*)', r2.text)
+            if match2:
+                found = match2.group(1).replace('\\/', '/')
+                return f"{found}|Referer={url}&User-Agent={UA_HEADER}"
+
+        # 3. CLAPPR PLAYER SEARCH (Common in .pages.dev sites)
+        # Look for source: '...'
+        clappr_match = re.search(r'source\s*:\s*["\']([^"\']+)["\']', text)
+        if clappr_match:
+            found = clappr_match.group(1)
+            if ".m3u8" in found or ".mpd" in found:
+                return f"{found}|Referer={url}&User-Agent={UA_HEADER}"
+
     except Exception as e:
-        print(f"   ⚠️ Webpage Scan Error: {e}")
+        print(f"   ⚠️ Scan Error: {e}")
+    
     return None
 
 def fetch_live_events(url):
@@ -133,23 +154,26 @@ def parse_youtube_txt():
                 url_start = lower_line.find("http")
                 url = line[url_start:].strip()
                 
-                # A. IS IT A DIRECT M3U8?
-                if ".m3u8" in url or ".ts" in url:
-                     lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
-                     if "|" not in url: url += f"|User-Agent={UA_HEADER}"
-                     lines.append(url)
-                     print(f"   ✅ Added Direct: {current_title}")
+                # Clean up the URL (Remove trailing slashes or junk)
+                url = url.split(" ")[0]
 
-                # B. IS IT A WEBPAGE? (Try to scan it)
-                else:
+                # A. IS IT A WEBPAGE? (Scan it)
+                if "youtube" not in lower_line and not url.endswith(".m3u8") and not url.endswith(".ts"):
                     final_link = extract_m3u8_from_webpage(url)
                     if final_link:
                         lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
                         lines.append(final_link)
                         print(f"   ✅ Found Hidden Stream: {current_title}")
                     else:
-                        print(f"   ❌ Could not find stream in: {url}")
-                        # We do NOT add the broken link to the playlist to avoid "Unknown Channel" errors
+                        print(f"   ❌ FAILED: Could not auto-scrape {current_title}. Site requires JS/Browser.")
+                        # DO NOT add broken link to avoid errors in player
+
+                # B. IS IT A DIRECT LINK?
+                else:
+                     lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
+                     if "|" not in url: url += f"|User-Agent={UA_HEADER}"
+                     lines.append(url)
+                     print(f"   ✅ Added Direct: {current_title}")
 
                 current_title = "Unknown Channel"
                 current_logo = DEFAULT_LOGO
