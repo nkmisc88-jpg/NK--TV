@@ -18,7 +18,7 @@ MOVE_TO_TAMIL_HD = [
     "Zee Thirai HD", "Vijay Super HD"
 ]
 
-# 2. MOVE TO TAMIL NEWS (New Group)
+# 2. MOVE TO TAMIL NEWS
 MOVE_TO_TAMIL_NEWS = [
     "Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", 
     "Tamil Janam", "Jaya Plus", "M Nadu", "News J", 
@@ -27,7 +27,12 @@ MOVE_TO_TAMIL_NEWS = [
     "Seithigal TV", "Sathiyam TV", "MalaiMurasu Seithigal"
 ]
 
-# 3. SPORTS HD LIST (Strict Keep List)
+# 3. MOVE TO INFOTAINMENT SD
+MOVE_TO_INFOTAINMENT_SD = [
+    "GOOD TiMES", "Food Food"
+]
+
+# 4. SPORTS HD LIST
 SPORTS_HD_KEEP = [
     "Star Sports 1 HD", "Star Sports 2 HD", 
     "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", 
@@ -35,31 +40,39 @@ SPORTS_HD_KEEP = [
     "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"
 ]
 
-# 4. FILTERS (Global Deletions)
-BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac"]
+# 5. INFOTAINMENT KEYWORDS (For SD Group)
+INFOTAINMENT_KEYWORDS = [
+    "discovery", "animal planet", "nat geo", "history tv", 
+    "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
+]
 
-# 5. ASTRO KEEP LIST
+# 6. FILTERS (Global Deletions)
+BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac", "fashion"]
+
+# 7. ASTRO KEEP LIST
 ASTRO_KEEP = [
     "vinmeen", "thangathirai", "vaanavil", 
     "vasantham", "vellithirai", "sports plus"
 ]
 
-# 6. LIVE EVENTS SOURCES
+# 8. LIVE EVENTS
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# 7. AUTO LOGO MAP
+# 9. AUTO LOGO MAP
 LOGO_MAP = {
-    "willow": "https://upload.wikimedia.org/wikipedia/commons/8/83/Willow_TV_logo.png",
-    "fox": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_Sports_logo.svg/1200px-Fox_Sports_logo.svg.png",
+    "willow": "https://i.imgur.com/39s1fL3.png",
+    "fox": "https://i.imgur.com/39s1fL3.png",
     "star sports": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Star_Sports_network.svg/1200px-Star_Sports_network.svg.png",
-    "sony": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Sony_LIV_logo.svg/1200px-Sony_LIV_logo.svg.png",
-    "zee": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Zee5_logo.svg/1200px-Zee5_logo.svg.png",
+    "sony": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Sony_LIV_logo.svg/512px-Sony_LIV_logo.svg.png",
+    "zee": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Zee5_logo.svg/512px-Zee5_logo.svg.png",
     "sun": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Sun_TV_Network_Logo.png/220px-Sun_TV_Network_Logo.png",
-    "colors": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Colors_TV_Logo.png/1200px-Colors_TV_Logo.png",
-    "astro": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Astro_logo.svg/1200px-Astro_logo.svg.png",
-    "fancode": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/FanCode_Logo.png/1200px-FanCode_Logo.png"
+    "colors": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Colors_TV_Logo.png/800px-Colors_TV_Logo.png",
+    "astro": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Astro_logo.svg/800px-Astro_logo.svg.png",
+    "fancode": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/FanCode_Logo.png/800px-FanCode_Logo.png",
+    "discovery": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Discovery_Channel_logo.svg/800px-Discovery_Channel_logo.svg.png",
+    "history": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/History_Logo.svg/800px-History_Logo.svg.png"
 }
 
 # HEADERS
@@ -77,7 +90,7 @@ def should_keep_channel(group, name):
     
     clean_group = group.lower().replace(" ", "")
     for bad in BAD_KEYWORDS:
-        if bad in clean_group: return False 
+        if bad in clean_group or bad in name.lower(): return False 
             
     if "astro go" in group.lower():
         is_allowed = False
@@ -147,12 +160,14 @@ def parse_youtube_txt():
                 if url.startswith("http") or url.startswith("rtmp"):
                     if not current_title: current_title = "Temporary Channel"
                     
-                    if not current_logo.strip():
+                    # AUTO LOGO LOGIC
+                    if not current_logo or len(current_logo) < 5:
                         current_logo = get_auto_logo(current_title)
 
                     entry = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}'
                     temp_channels.append(entry)
                     
+                    # LINK FIXES
                     if "http" in url and "|" not in url:
                         url += f"|User-Agent={UA_HEADER}"
                     temp_channels.append(url)
@@ -181,7 +196,7 @@ def main():
 
     # TRACKING VARIABLES
     seen_channels = set()
-    zee_tamil_count = 0 
+    zee_zest_count = 0 
     
     # PROCESS CHANNELS
     current_buffer = []
@@ -202,14 +217,19 @@ def main():
             clean_name = name.lower().strip()
             group_lower = group.lower()
             
-            # --- ZEE TAMIL HD FIX ---
+            # --- ZEE TAMIL HD EXCEPTION ---
+            # We skip deduplication for Zee Tamil HD to keep ALL copies
             if "zee tamil hd" in clean_name:
-                zee_tamil_count += 1
-                if zee_tamil_count == 2: pass 
+                pass 
+            
+            # --- ZEE ZEST HD FIX ---
+            elif "zee zest hd" in clean_name:
+                zee_zest_count += 1
+                if zee_zest_count == 2: pass 
                 else:
                     skip_this_channel = True
-                    continue 
-            
+                    continue
+
             # --- STANDARD DEDUPLICATION ---
             else:
                 clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
@@ -233,28 +253,47 @@ def main():
             if "premium 24/7" in group_lower: new_group = "Tamil Extra"
             if "astro go" in group_lower: new_group = "Tamil Extra"
             if group_lower == "sports": new_group = "Sports Extra"
+            
+            # 2. RENAME: Entertainment & Movies & Music -> Others
+            if "entertainment" in group_lower: new_group = "Others"
+            if "movies" in group_lower: new_group = "Others"
+            if "music" in group_lower: new_group = "Others"
 
-            # 2. Specific Moves
+            # 3. RENAME: Infotainment -> Infotainment HD
+            if "infotainment" in group_lower: new_group = "Infotainment HD"
+
+            # 4. RENAME: News -> English and Hindi News
+            if "news" in group_lower and "tamil" not in group_lower and "malayalam" not in group_lower:
+                new_group = "English and Hindi News"
+
+            # 5. Specific Moves
             if "j movies" in clean_name or "raj digital plus" in clean_name:
                 new_group = "Tamil SD"
             if "rasi movies" in clean_name or "rasi hollywood" in clean_name:
                 new_group = "Tamil Extra"
             if "dd sports" in clean_name:
                 new_group = "Sports Extra"
+                
+            # 6. Move to Infotainment SD (Specific List)
+            if any(target.lower() in clean_name for target in [x.lower() for x in MOVE_TO_INFOTAINMENT_SD]):
+                 new_group = "Infotainment SD"
 
-            # 3. Sports HD
-            is_sports_hd = False
+            # 7. Infotainment SD Logic (Keywords + Not HD)
+            if any(k in clean_name for k in INFOTAINMENT_KEYWORDS):
+                if "hd" not in clean_name:
+                    new_group = "Infotainment SD"
+
+            # 8. Sports HD (Strict)
             for target in SPORTS_HD_KEEP:
                 if target.lower() in clean_name:
                     new_group = "Sports HD"
-                    is_sports_hd = True
                     break
             
-            # 4. Tamil News (New Logic)
+            # 9. Tamil News
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]):
                 new_group = "Tamil News"
 
-            # 5. Tamil HD
+            # 10. Tamil HD (Overrides Others/Music renames for Sun Music HD etc)
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
                 new_group = "Tamil HD"
 
@@ -271,7 +310,13 @@ def main():
             # --- GLOBAL PLAYBACK FIX ---
             if "http" in line and "|" not in line:
                 line += f"|User-Agent={UA_HEADER}"
-                current_buffer[-1] = line
+                
+            # --- COLORS TAMIL HD SPECIFIC FIX ---
+            if "colors tamil hd" in current_buffer[0].lower():
+                 if "|Content-Type=" not in line:
+                     line += "&Content-Type=application/dash+xml"
+            
+            current_buffer[-1] = line
             
             if not skip_this_channel:
                 final_lines.extend(current_buffer)
