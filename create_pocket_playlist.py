@@ -18,8 +18,16 @@ MOVE_TO_TAMIL_HD = [
     "Zee Thirai HD", "Vijay Super HD"
 ]
 
-# 2. SPORTS HD LIST (Strict Keep List)
-# Only these go to "Sports HD". All other sports go to "Sports Extra".
+# 2. MOVE TO TAMIL NEWS (New Group)
+MOVE_TO_TAMIL_NEWS = [
+    "Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", 
+    "Tamil Janam", "Jaya Plus", "M Nadu", "News J", 
+    "News18 Tamil Nadu", "News Tamil 24x7", "Win TV", 
+    "Zee Tamil News", "Polimer News", "Puthiya Thalaimurai", 
+    "Seithigal TV", "Sathiyam TV", "MalaiMurasu Seithigal"
+]
+
+# 3. SPORTS HD LIST (Strict Keep List)
 SPORTS_HD_KEEP = [
     "Star Sports 1 HD", "Star Sports 2 HD", 
     "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", 
@@ -27,21 +35,21 @@ SPORTS_HD_KEEP = [
     "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"
 ]
 
-# 3. FILTERS (Global Deletions)
+# 4. FILTERS (Global Deletions)
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac"]
 
-# 4. ASTRO KEEP LIST
+# 5. ASTRO KEEP LIST
 ASTRO_KEEP = [
     "vinmeen", "thangathirai", "vaanavil", 
     "vasantham", "vellithirai", "sports plus"
 ]
 
-# 5. LIVE EVENTS SOURCES
+# 6. LIVE EVENTS SOURCES
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# 6. AUTO LOGO MAP (Updated URLs)
+# 7. AUTO LOGO MAP
 LOGO_MAP = {
     "willow": "https://upload.wikimedia.org/wikipedia/commons/8/83/Willow_TV_logo.png",
     "fox": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_Sports_logo.svg/1200px-Fox_Sports_logo.svg.png",
@@ -54,7 +62,7 @@ LOGO_MAP = {
     "fancode": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/FanCode_Logo.png/1200px-FanCode_Logo.png"
 }
 
-# HEADERS (Fixes Playback)
+# HEADERS
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_group_and_name(line):
@@ -139,14 +147,12 @@ def parse_youtube_txt():
                 if url.startswith("http") or url.startswith("rtmp"):
                     if not current_title: current_title = "Temporary Channel"
                     
-                    # AUTO LOGO
                     if not current_logo.strip():
                         current_logo = get_auto_logo(current_title)
 
                     entry = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}'
                     temp_channels.append(entry)
                     
-                    # LINK FIX
                     if "http" in url and "|" not in url:
                         url += f"|User-Agent={UA_HEADER}"
                     temp_channels.append(url)
@@ -226,7 +232,7 @@ def main():
             if group_lower == "local channels": new_group = "Tamil Extra"
             if "premium 24/7" in group_lower: new_group = "Tamil Extra"
             if "astro go" in group_lower: new_group = "Tamil Extra"
-            if group_lower == "sports": new_group = "Sports Extra" # Default Sports -> Extra
+            if group_lower == "sports": new_group = "Sports Extra"
 
             # 2. Specific Moves
             if "j movies" in clean_name or "raj digital plus" in clean_name:
@@ -236,9 +242,7 @@ def main():
             if "dd sports" in clean_name:
                 new_group = "Sports Extra"
 
-            # 3. Sports HD (Strict List)
-            # Checks if the channel is in our SPORTS_HD_KEEP list
-            # We use loose matching (if "Star Sports 1 HD" is inside the name)
+            # 3. Sports HD
             is_sports_hd = False
             for target in SPORTS_HD_KEEP:
                 if target.lower() in clean_name:
@@ -246,7 +250,11 @@ def main():
                     is_sports_hd = True
                     break
             
-            # 4. Tamil HD
+            # 4. Tamil News (New Logic)
+            if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]):
+                new_group = "Tamil News"
+
+            # 5. Tamil HD
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
                 new_group = "Tamil HD"
 
@@ -261,7 +269,6 @@ def main():
 
         if not line.startswith("#"):
             # --- GLOBAL PLAYBACK FIX ---
-            # Append User-Agent to ALL http links if missing
             if "http" in line and "|" not in line:
                 line += f"|User-Agent={UA_HEADER}"
                 current_buffer[-1] = line
