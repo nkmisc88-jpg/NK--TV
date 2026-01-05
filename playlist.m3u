@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-05 10:54:05
+# Updated on: 2026-01-05 11:03:09
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,9 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58&xxx=||cookie=__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 5 January 2026 at 4:14:05 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="139186" tvg-name="Pat Rafter Arena   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 2
-https://in-mc-fdlive.fancode.com/mumbai/139186_english_hls_0cc21fa7cf61944_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Monday, 5 January 2026 at 4:28:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139204" tvg-name="Center Court   Day 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 1
 https://in-mc-fdlive.fancode.com/mumbai/139204_english_hls_1ebe611e3851403_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139283" tvg-name="Centre Court   Day 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 1
@@ -860,7 +858,7 @@ https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=e
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498866" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767426294128238_UC26_Great-Britain-vs-Greece_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Great Britain vs Greece - 5 Jan 2026
 https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767637801~acl=/*~id=fc02ae0b86f2a94ca8bfe0251fbfa862-1767594600154~hmac=41d593988c3639e772658a78195d1e543874640f92257595732d53dbbd76510e|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; V2151; Build/TP1A.220624.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=b4b94a2c2022fe432c4c03a909fa629e-1767610210958
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 5 January 2026 at 4:15:15 pm
+#DATE:- Monday, 5 January 2026 at 4:30:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873754" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873754/list/1920x1080listd969dfa7b58d47cb9c3f3d0f3fe9ab938b73ae701d00406184ee79a15872ac88.jpg" tvg-language="bengali" ,BEN | Northbengal United Fc Vs Burdwan Blasters
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M02/master.m3u8?hdntl=exp=1767695407~acl=%2f*~data=hdntl~hmac=f8c5516ac9671682fb51310a664fdb1b15d034957318f0af09c9833b0c598256|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873754" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873754/list/1920x1080listd969dfa7b58d47cb9c3f3d0f3fe9ab938b73ae701d00406184ee79a15872ac88.jpg" tvg-language="english" ,ENG | Northbengal United Fc Vs Burdwan Blasters
