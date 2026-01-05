@@ -50,11 +50,8 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# 4. AUTO LOGO (Fixed Dead Links)
-# Using a generic transparent logo for sports if needed, or keeping empty to let player decide
+# 4. AUTO LOGO
 DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/512px-YouTube_full-color_icon_%282017%29.svg.png"
-
-# Standard User Agent
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_group_and_name(line):
@@ -73,30 +70,35 @@ def get_clean_id(name):
     name = name.lower().replace("hd", "").replace(" ", "").strip()
     return re.sub(r'[^a-z0-9]', '', name)
 
+# --- YOUTUBE LOGIC ---
 def get_raw_m3u8_from_youtube(url):
-    """
-    Scrapes the raw HLS Manifest URL from YouTube (Victorlish Logic).
-    """
-    print(f"   🔎 Scraping YouTube: {url}")
     try:
         session = requests.Session()
         session.headers.update({'User-Agent': UA_HEADER})
-        
-        # 1. Handle @ChannelName/live format
         if "/live" not in url and "@" in url and "watch?v=" not in url:
             url = url.rstrip("/") + "/live"
-
         response = session.get(url, timeout=15, cookies={'CONSENT': 'YES+cb.20210328-17-p0.en+FX+479'})
-        
-        # 2. Look for hlsManifestUrl in the page source
-        # This is the "Raw" stream link
         match = re.search(r'hlsManifestUrl":"(.*?)"', response.text)
+        if match: return match.group(1).replace('\\/', '/')
+    except: pass
+    return None
+
+# --- GENERIC WEBPAGE LOGIC (For skcricweb, etc.) ---
+def extract_m3u8_from_webpage(url):
+    """Scrapes a webpage to find the first .m3u8 link hidden inside."""
+    print(f"   🔎 Scanning Webpage: {url}")
+    try:
+        r = requests.get(url, headers={'User-Agent': UA_HEADER}, timeout=15)
+        # Regex to find https://.....m3u8
+        # We look for the pattern that starts with http and ends with .m3u8
+        match = re.search(r'(https?://[^\s"\']+\.m3u8)', r.text)
         if match:
-            hls_url = match.group(1).replace('\\/', '/')
-            return hls_url
-            
+            found_link = match.group(1)
+            # Add Referer to prevent blocking (Most sites require this)
+            final_link = f"{found_link}|Referer={url}&User-Agent={UA_HEADER}"
+            return final_link
     except Exception as e:
-        print(f"   ⚠️ Error scraping: {e}")
+        print(f"   ⚠️ Webpage Scan Error: {e}")
     return None
 
 def fetch_live_events(url):
@@ -122,8 +124,7 @@ def fetch_live_events(url):
 def parse_youtube_txt():
     print("   ...Reading youtube.txt")
     lines = []
-    if not os.path.exists(YOUTUBE_FILE): 
-        return []
+    if not os.path.exists(YOUTUBE_FILE): return []
         
     try:
         with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
@@ -136,48 +137,49 @@ def parse_youtube_txt():
             line = line.strip()
             if not line: continue
             
-            # --- PARSE TEXT FILE ---
             lower_line = line.lower()
             
-            # 1. Capture Title
             if lower_line.startswith("title"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_title = parts[1].strip()
             
-            # 2. Capture Logo
             elif lower_line.startswith("logo"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_logo = parts[1].strip()
             
-            # 3. Capture Link (Even if broken on new line)
-            # We look for 'http' anywhere in the line
             elif "http" in lower_line:
-                # Find the URL part
                 url_start = lower_line.find("http")
                 url = line[url_start:].strip()
                 
-                final_link = None
-                
-                # A. IS IT YOUTUBE?
+                # A. YOUTUBE
                 if "youtube" in url or "youtu.be" in url:
-                    # Use the SCRAPER logic
                     final_link = get_raw_m3u8_from_youtube(url)
-                    
                     if final_link:
                         lines.append(f'#EXTINF:-1 group-title="YouTube Live" tvg-logo="{current_logo}",{current_title}')
                         lines.append(final_link)
-                        print(f"   ✅ Added: {current_title}")
-                    else:
-                        print(f"   ❌ Failed to find stream for: {current_title}")
+                        print(f"   ✅ Added YouTube: {current_title}")
 
-                # B. IS IT NORMAL LINK?
+                # B. GENERIC WEBPAGE SCANNER (e.g. skcricweb)
+                # If it DOES NOT end in .m3u8 or .ts, assume it's a webpage and scan it
+                elif not url.endswith(".m3u8") and not url.endswith(".ts") and not url.endswith(".mpd"):
+                    final_link = extract_m3u8_from_webpage(url)
+                    if final_link:
+                        lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
+                        lines.append(final_link)
+                        print(f"   ✅ Added Web Stream: {current_title}")
+                    else:
+                        # Fallback: Just add the link if scan fails (might not work)
+                        lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
+                        if "|" not in url: url += f"|User-Agent={UA_HEADER}"
+                        lines.append(url)
+
+                # C. DIRECT M3U8 LINKS
                 else:
                     lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
                     if "|" not in url: url += f"|User-Agent={UA_HEADER}"
                     lines.append(url)
-                    print(f"   ✅ Added Temp: {current_title}")
+                    print(f"   ✅ Added Direct Link: {current_title}")
 
-                # Reset for next entry
                 current_title = "Unknown Channel"
                 current_logo = DEFAULT_LOGO
 
@@ -200,7 +202,6 @@ def main():
         print(f"❌ Failed: {e}")
         sys.exit(1)
 
-    # --- STEP 1: SCAN FOR HD CHANNELS ---
     hd_channels_exist = set()
     for line in source_lines:
         if line.startswith("#EXTINF"):
@@ -208,7 +209,6 @@ def main():
             if "hd" in name.lower():
                 hd_channels_exist.add(get_clean_id(name))
 
-    # --- STEP 2: PROCESS CHANNELS ---
     seen_channels = set()
     current_buffer = []
     zee_tamil_count = 0
@@ -226,19 +226,16 @@ def main():
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             
-            # 1. FILTER CHECK
             if not should_keep_channel(group, name):
                 current_buffer = [] 
                 continue
 
-            # 2. SD DELETION CHECK
             if "hd" not in clean_name:
                 base_id = get_clean_id(name)
                 if base_id in hd_channels_exist:
                     current_buffer = []
                     continue
 
-            # 3. IDENTIFY DUPLICATES
             exact_clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
             is_duplicate = False
             if exact_clean_id in seen_channels:
@@ -246,7 +243,6 @@ def main():
             else:
                 seen_channels.add(exact_clean_id)
 
-            # 4. GROUP RENAMING LOGIC
             new_group = group 
             
             if "zee tamil hd" in clean_name:
@@ -309,7 +305,7 @@ def main():
     final_lines.extend(fetch_live_events(SONY_LIVE_URL))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
     
-    print("📥 Adding YouTube...")
+    print("📥 Adding Custom Links...")
     final_lines.extend(parse_youtube_txt())
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
