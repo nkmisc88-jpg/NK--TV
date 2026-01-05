@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-05 07:20:11
+# Updated on: 2026-01-05 07:54:34
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,23 +846,29 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58&xxx=||cookie=__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 5 January 2026 at 12:49:05 pm
+#DATE:- Monday, 5 January 2026 at 1:21:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138930" tvg-name="Noakhali Express Vs Sylhet Titans" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138930_5808_NOE_SYL_fc-web_1766733054379.jpg" tvg-language="ENGLISH" ,ENG | Noakhali Express Vs Sylhet Titans
 https://in-mc-fdlive.fancode.com/mumbai/138930_english_hls_57b78a095b30592_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139296" tvg-name="Macarthur Vs Auckland" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/FC_Sports_Default_Football-old-copy.jpg" tvg-language="ENGLISH" ,ENG | Macarthur Vs Auckland
+https://in-mc-fdlive.fancode.com/mumbai/139296_english_hls_75a262b85778831_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139187" tvg-name="Show Court 1   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139187_english_hls_1f1ff8471c36119_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139186" tvg-name="Pat Rafter Arena   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139186_english_hls_0cc21fa7cf61944_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139204" tvg-name="Center Court   Day 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 1
 https://in-mc-fdlive.fancode.com/mumbai/139204_english_hls_1ebe611e3851403_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 05-01-2026 12:40
+#DATE:- 05-01-2026 13:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498865" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767425512224238_UC26_Germany-vs-Poland_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Germany vs Poland - 5 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767637801~acl=/*~id=fc02ae0b86f2a94ca8bfe0251fbfa862-1767594600154~hmac=41d593988c3639e772658a78195d1e543874640f92257595732d53dbbd76510e|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; CPH2667; Build/UP1A.231005.007)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c38fd27b8835f87d66d2526021a37dd4-1767597010650
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767637801~acl=/*~id=fc02ae0b86f2a94ca8bfe0251fbfa862-1767594600154~hmac=41d593988c3639e772658a78195d1e543874640f92257595732d53dbbd76510e|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; moto g45 5G; Build/V1UG35H.75-14)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=0e87fd940311c38e4b2eeb8b7fe60a56-1767599412480
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498866" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012911/1767425229366632_UnitedCup26_USA_vs_SPAIN_Landscape_thumb.jpg" tvg-language="English" ,ENG | USA vs Spain - 5 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767637801~acl=/*~id=fc02ae0b86f2a94ca8bfe0251fbfa862-1767594600154~hmac=41d593988c3639e772658a78195d1e543874640f92257595732d53dbbd76510e|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; Apollo Premium4K TV; Build/RTM8.240401.212)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c38fd27b8835f87d66d2526021a37dd4-1767597010650
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767637801~acl=/*~id=fc02ae0b86f2a94ca8bfe0251fbfa862-1767594600154~hmac=41d593988c3639e772658a78195d1e543874640f92257595732d53dbbd76510e|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; LAVA LXX521; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=0e87fd940311c38e4b2eeb8b7fe60a56-1767599412480
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-# Last Checked: 5/1/2026, 01:30:03
+#DATE:- Monday, 5 January 2026 at 1:15:08 pm
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873753" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873753/list/1920x1080listc96670edffab4e788f79d11417bd0f19aa17209e3b4a481f9a5185023a18b8c4.jpg" tvg-language="bengali" ,BEN | North 24 Parganas Fc Vs Jhr Royal City Fc Malda
+https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1767684604~acl=%2f*~data=hdntl~hmac=afb88c4bd6d5ef55831d265c521955e6dc2a85c70867dfc571901571d38cdd3e|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873753" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873753/list/1920x1080listc96670edffab4e788f79d11417bd0f19aa17209e3b4a481f9a5185023a18b8c4.jpg" tvg-language="english" ,ENG | North 24 Parganas Fc Vs Jhr Royal City Fc Malda
+https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M01/master.m3u8?hdntl=exp=1767684606~acl=%2f*~data=hdntl~hmac=1adfa32713eba915f365d58b1a986be507700b0f04c2e1f3c30e9d27a7eb2850|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767639362~acl=%2f*~id=2fc190bc-3863-4c31-9e48-63eb788f944c~data=hdntl~hmac=f5c4845675a2953e6d907224813b221d01049b308d2911884f49acb1b81fed38|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
