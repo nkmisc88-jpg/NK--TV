@@ -46,8 +46,7 @@ INFOTAINMENT_KEYWORDS = [
     "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
 ]
 
-# 6. FILTERS (Global Deletions)
-# Added "fashion"
+# 6. FILTERS
 BAD_KEYWORDS = ["pluto", "usa", "yupp", "sunnxt", "overseas", "extras", "apac", "fashion"]
 
 # 7. ASTRO KEEP LIST
@@ -189,128 +188,134 @@ def main():
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
+    # TRACKING VARIABLES
     seen_channels = set()
-    duplicate_buffer = {} 
+    zee_tamil_count = 0 
+    zee_zest_count = 0
     
-    # 1. FIRST PASS: Collect safe channel blocks
-    raw_channels = []
+    # PROCESS CHANNELS
     current_buffer = []
+    skip_this_channel = False
     
     for line in source_lines:
         line = line.strip()
         if not line: continue
         if line.startswith("#EXTM3U"): continue
+
         if line.startswith("#EXTINF"):
-            if current_buffer: raw_channels.append(current_buffer)
+            # --- PROCESS PREVIOUS BUFFER ---
+            if current_buffer and not skip_this_channel:
+                # CRITICAL FIX: Ensure buffer has a link before adding
+                if len(current_buffer) >= 2:
+                    final_lines.extend(current_buffer)
+            
             current_buffer = []
-        current_buffer.append(line)
-    if current_buffer: raw_channels.append(current_buffer)
+            skip_this_channel = False
+            
+            group, name = get_group_and_name(line)
+            clean_name = name.lower().strip()
+            
+            # --- LOGO AUTO-FIX ---
+            new_logo = get_auto_logo(clean_name)
+            if new_logo:
+                if 'tvg-logo="' in line:
+                    line = re.sub(r'tvg-logo="[^"]*"', f'tvg-logo="{new_logo}"', line)
+                else:
+                    line = line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{new_logo}"')
+            
+            # --- ZEE FIX (Count duplicates) ---
+            if "zee tamil hd" in clean_name:
+                zee_tamil_count += 1
+                if zee_tamil_count != 2: 
+                    skip_this_channel = True; continue # Delete 1st, 3rd
+            
+            elif "zee zest hd" in clean_name:
+                zee_zest_count += 1
+                if zee_zest_count != 2: 
+                    skip_this_channel = True; continue # Delete 1st
 
-    # 2. SECOND PASS: Deduplication and Logo Fix
-    for channel_data in raw_channels:
-        # SAFETY CHECK: Fixes IndexError
-        if len(channel_data) < 2: continue
-
-        extinf = channel_data[0]
-        group, name = get_group_and_name(extinf)
-        clean_name = name.lower().strip()
-        
-        # LOGO OVERWRITE
-        new_logo = get_auto_logo(clean_name)
-        if new_logo:
-            if 'tvg-logo="' in extinf:
-                extinf = re.sub(r'tvg-logo="[^"]*"', f'tvg-logo="{new_logo}"', extinf)
+            # --- STANDARD DEDUPLICATION ---
             else:
-                extinf = extinf.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-logo="{new_logo}"')
-            channel_data[0] = extinf
+                clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
+                if clean_id in seen_channels:
+                    skip_this_channel = True
+                    continue
+                else:
+                    seen_channels.add(clean_id)
+            
+            # --- FILTERS ---
+            if not should_keep_channel(group, name):
+                skip_this_channel = True
+                continue
 
-        # ZEE BUFFER
-        if "zee tamil hd" in clean_name or "zee zest hd" in clean_name:
-            if clean_name not in duplicate_buffer: duplicate_buffer[clean_name] = []
-            duplicate_buffer[clean_name].append(channel_data)
-            continue 
+            # --- GROUP MOVING LOGIC ---
+            group_lower = group.lower()
+            new_group = group 
+            
+            # Base Renames
+            if group_lower == "tamil": new_group = "Tamil SD"
+            if group_lower == "local channels": new_group = "Tamil Extra"
+            if "premium 24/7" in group_lower: new_group = "Tamil Extra"
+            if "astro go" in group_lower: new_group = "Tamil Extra"
+            if group_lower == "sports": new_group = "Sports Extra"
+            
+            # RENAME: Entertainment -> Others
+            if "entertainment" in group_lower: new_group = "Others"
 
-        # STANDARD DEDUPE
-        clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
-        if clean_id in seen_channels: continue
-        seen_channels.add(clean_id)
+            if "news" in group_lower and "tamil" not in group_lower: new_group = "English and Hindi News"
+            if "infotainment" in group_lower: new_group = "Infotainment HD"
 
-        process_single_channel(channel_data, final_lines, group, name, clean_name)
+            # Specific Moves
+            if "j movies" in clean_name or "raj digital plus" in clean_name: new_group = "Tamil SD"
+            if "rasi movies" in clean_name or "rasi hollywood" in clean_name: new_group = "Tamil Extra"
+            if "dd sports" in clean_name: new_group = "Sports Extra"
+            if any(target.lower() in clean_name for target in MOVE_TO_INFOTAINMENT_SD): new_group = "Infotainment SD"
+            
+            if any(k in clean_name for k in INFOTAINMENT_KEYWORDS):
+                if "hd" not in clean_name: new_group = "Infotainment SD"
 
-    # 3. HANDLE ZEE (Last Copy Rule)
-    # This keeps the last available link if duplicates exist
-    for name_key, channel_list in duplicate_buffer.items():
-        if not channel_list: continue
-        # Safely pick the last one (Index -1)
-        data = channel_list[-1]
-        
-        g, n = get_group_and_name(data[0])
-        process_single_channel(data, final_lines, g, n, n.lower().strip())
+            for target in SPORTS_HD_KEEP:
+                if target.lower() in clean_name: new_group = "Sports HD"; break
+            
+            if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]): new_group = "Tamil News"
+            if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): new_group = "Tamil HD"
 
-    # ADD LIVE & TEMP
+            # Apply New Group
+            if new_group != group:
+                if 'group-title="' in line:
+                    line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
+                else:
+                    line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
+
+        current_buffer.append(line)
+
+        if not line.startswith("#"):
+            # --- GLOBAL PLAYBACK FIX ---
+            if "http" in line and "|" not in line:
+                line += f"|User-Agent={UA_HEADER}"
+                current_buffer[-1] = line
+            
+            if not skip_this_channel:
+                # Final check before adding
+                if len(current_buffer) >= 2:
+                    final_lines.extend(current_buffer)
+            current_buffer = []
+            skip_this_channel = False
+
+    # ADD LIVE EVENTS
+    print("📥 Adding Live Events...")
     final_lines.extend(fetch_live_events(FANCODE_URL))
     final_lines.extend(fetch_live_events(SONY_LIVE_URL))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
+
+    # ADD TEMPORARY CHANNELS
     final_lines.extend(parse_youtube_txt())
 
     # SAVE
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
+    
     print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
-
-def process_single_channel(channel_lines, final_lines, group, name, clean_name):
-    # Safety Check
-    if len(channel_lines) < 2: return
-
-    # Filters
-    if not should_keep_channel(group, name): return
-
-    # Grouping
-    group_lower = group.lower()
-    new_group = group 
-    
-    if group_lower == "tamil": new_group = "Tamil SD"
-    if group_lower == "local channels": new_group = "Tamil Extra"
-    if "premium 24/7" in group_lower: new_group = "Tamil Extra"
-    if "astro go" in group_lower: new_group = "Tamil Extra"
-    if group_lower == "sports": new_group = "Sports Extra"
-    
-    # NEW: Entertainment -> Others
-    if "entertainment" in group_lower: new_group = "Others"
-
-    if "news" in group_lower and "tamil" not in group_lower: new_group = "English and Hindi News"
-    if "infotainment" in group_lower: new_group = "Infotainment HD"
-
-    if "j movies" in clean_name or "raj digital plus" in clean_name: new_group = "Tamil SD"
-    if "rasi movies" in clean_name or "rasi hollywood" in clean_name: new_group = "Tamil Extra"
-    if "dd sports" in clean_name: new_group = "Sports Extra"
-    
-    if any(target.lower() in clean_name for target in MOVE_TO_INFOTAINMENT_SD): new_group = "Infotainment SD"
-    if any(k in clean_name for k in INFOTAINMENT_KEYWORDS):
-        if "hd" not in clean_name: new_group = "Infotainment SD"
-
-    for target in SPORTS_HD_KEEP:
-        if target.lower() in clean_name: new_group = "Sports HD"; break
-    
-    if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]): new_group = "Tamil News"
-    if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): new_group = "Tamil HD"
-
-    # Apply Group
-    extinf = channel_lines[0]
-    if new_group != group:
-        if 'group-title="' in extinf:
-            extinf = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', extinf)
-        else:
-            extinf = extinf.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
-    
-    final_lines.append(extinf)
-
-    # Link Fixes
-    link = channel_lines[1]
-    if "http" in link and "|" not in link:
-        link += f"|User-Agent={UA_HEADER}"
-    
-    final_lines.append(link)
 
 if __name__ == "__main__":
     main()
