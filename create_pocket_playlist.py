@@ -11,7 +11,7 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# 1. MOVE TO TAMIL HD
+# 1. MOVE TO TAMIL HD (Specific HD Channels)
 MOVE_TO_TAMIL_HD = [
     "Sun TV HD", "Star Vijay HD", "Colors Tamil HD", 
     "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD"
@@ -33,16 +33,21 @@ ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/he
 
 def get_group_and_name(line):
     grp_match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
-    group = grp_match.group(1).lower() if grp_match else ""
+    group = grp_match.group(1).strip() if grp_match else ""
     name = line.split(",")[-1].strip()
     return group, name
 
 def should_keep_channel(group, name):
+    # Filter APAC
     if "apac" in name.lower(): return False
-    clean_group = group.replace(" ", "")
+    
+    # Filter Bad Groups
+    clean_group = group.lower().replace(" ", "")
     for bad in BAD_KEYWORDS:
         if bad in clean_group: return False 
-    if "astro go" in group:
+            
+    # Filter Astro (Keep only the 6 allowed)
+    if "astro go" in group.lower():
         is_allowed = False
         for allowed in ASTRO_KEEP:
             if allowed in name.lower():
@@ -68,7 +73,7 @@ def fetch_live_events(url):
     except: pass
     return events
 
-# --- FIX: PARSE YOUTUBE.TXT WITH "LINK :" FORMAT ---
+# --- PARSER FOR YOUR TITLE/LINK FORMAT ---
 def parse_youtube_txt():
     temp_channels = []
     if not os.path.exists(YOUTUBE_FILE): 
@@ -87,41 +92,30 @@ def parse_youtube_txt():
             line = line.strip()
             if not line: continue
             
-            # Check for "Title:"
             if line.lower().startswith("title"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_title = parts[1].strip()
             
-            # Check for "Logo:"
             elif line.lower().startswith("logo"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_logo = parts[1].strip()
 
-            # Check for "Link:" OR "http"
             elif line.lower().startswith("link") or line.startswith("http"):
-                # Extract clean URL
                 url = line
                 if line.lower().startswith("link"):
                     parts = line.split(":", 1)
                     if len(parts) > 1: url = parts[1].strip()
                 
-                # If valid URL found
                 if url.startswith("http") or url.startswith("rtmp"):
-                    if not current_title: 
-                        current_title = "Temporary Channel"
-                    
-                    # Create Entry
+                    if not current_title: current_title = "Temporary Channel"
                     entry = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}'
                     temp_channels.append(entry)
                     temp_channels.append(url)
-                    
-                    # Reset
                     current_title = ""
                     current_logo = ""
 
     except Exception as e:
         print(f"⚠️ Error parsing youtube.txt: {e}")
-        
     return temp_channels
 
 def main():
@@ -139,7 +133,7 @@ def main():
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # FORCE TEMPORARY CHANNELS GROUP TO APPEAR (Placeholder)
+    # FORCE TEMPORARY CHANNELS GROUP PLACEHOLDER
     final_lines.append('#EXTINF:-1 group-title="Temporary Channels" tvg-logo="", ------------------')
     final_lines.append("http://0.0.0.0")
 
@@ -164,20 +158,17 @@ def main():
             
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
+            group_lower = group.lower()
             
-            # --- ZEE TAMIL HD FIX ---
-            # Strictly counts instances of "Zee Tamil HD"
+            # --- ZEE TAMIL HD FIX (Keep 2nd only) ---
             if "zee tamil hd" in clean_name:
                 zee_tamil_count += 1
-                if zee_tamil_count == 2:
-                    # KEEP THIS ONE (The 2nd one)
-                    pass 
+                if zee_tamil_count == 2: pass # Keep this one
                 else:
-                    # DELETE ALL OTHERS (1st, 3rd, 4th...)
                     skip_this_channel = True
                     continue 
             
-            # --- STANDARD DEDUPLICATION (For everything else) ---
+            # --- STANDARD DEDUPLICATION ---
             else:
                 clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
                 if clean_id in seen_channels:
@@ -191,12 +182,31 @@ def main():
                 skip_this_channel = True
                 continue
 
-            # --- GROUP MOVING ---
+            # --- GROUP MOVING LOGIC ---
             new_group = group 
-            if group == "tamil": new_group = "Tamil SD"
-            if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): new_group = "Tamil HD"
-            if "astro go" in group: new_group = "Tamil HD"
+            
+            # 1. Rename Tamil -> Tamil SD
+            if group_lower == "tamil": 
+                new_group = "Tamil SD"
 
+            # 2. Local Channels -> Tamil Extra
+            if group_lower == "local channels": 
+                new_group = "Tamil Extra"
+
+            # 3. Premium 24/7 -> Tamil Extra
+            if "premium 24/7" in group_lower: 
+                new_group = "Tamil Extra"
+
+            # 4. Astro GO -> Tamil Extra
+            if "astro go" in group_lower: 
+                new_group = "Tamil Extra"
+
+            # 5. Move Specific HD Channels -> Tamil HD (Overrides previous)
+            # This ensures Sun TV HD etc go to Tamil HD, not Tamil Extra
+            if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
+                new_group = "Tamil HD"
+
+            # Apply New Group
             if new_group != group:
                 if 'group-title="' in line:
                     line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
@@ -206,6 +216,7 @@ def main():
         current_buffer.append(line)
 
         if not line.startswith("#"):
+            # Astro Fix Logic
             if "astro" in current_buffer[0].lower() and "http" in line:
                  if "User-Agent" not in line:
                      if "|" in line: line = line.split("|")[0]
