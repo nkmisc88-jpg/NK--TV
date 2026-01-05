@@ -75,7 +75,7 @@ LOGO_MAP = {
     "history": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/History_Logo.svg/800px-History_Logo.svg.png"
 }
 
-# HEADERS
+# HEADERS (Basic User-Agent only)
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_group_and_name(line):
@@ -160,7 +160,6 @@ def parse_youtube_txt():
                 if url.startswith("http") or url.startswith("rtmp"):
                     if not current_title: current_title = "Temporary Channel"
                     
-                    # AUTO LOGO LOGIC
                     if not current_logo or len(current_logo) < 5:
                         current_logo = get_auto_logo(current_title)
 
@@ -217,8 +216,8 @@ def main():
             clean_name = name.lower().strip()
             group_lower = group.lower()
             
-            # --- ZEE TAMIL HD EXCEPTION ---
-            # We skip deduplication for Zee Tamil HD to keep ALL copies
+            # --- ZEE TAMIL HD FIX ---
+            # Kept separate to ensure NO deletion happens. All copies pass through.
             if "zee tamil hd" in clean_name:
                 pass 
             
@@ -307,14 +306,10 @@ def main():
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # --- GLOBAL PLAYBACK FIX ---
+            # --- GLOBAL PLAYBACK FIX (Standard) ---
+            # Removed the Colors Tamil specific fix to match the first script.
             if "http" in line and "|" not in line:
                 line += f"|User-Agent={UA_HEADER}"
-                
-            # --- COLORS TAMIL HD SPECIFIC FIX ---
-            if "colors tamil hd" in current_buffer[0].lower():
-                 if "|Content-Type=" not in line:
-                     line += "&Content-Type=application/dash+xml"
             
             current_buffer[-1] = line
             
