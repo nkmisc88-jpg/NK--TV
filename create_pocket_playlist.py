@@ -95,7 +95,6 @@ def fetch_live_events(url):
                 if not line: continue
                 if line.startswith("#EXTM3U"): continue
                 
-                # FORCE GROUP TO "Live Events"
                 if line.startswith("#EXTINF"):
                     line = re.sub(r'group-title="([^"]*)"', '', line)
                     line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
@@ -113,7 +112,7 @@ def get_auto_logo(channel_name):
     return ""
 
 def parse_youtube_txt():
-    """Reads youtube.txt and formats links for OTT Navigator."""
+    """Reads youtube.txt and formats links for Internal OTT Navigator Playback."""
     lines = []
     if not os.path.exists(YOUTUBE_FILE): return []
     try:
@@ -136,7 +135,7 @@ def parse_youtube_txt():
                     parts = line.split(":", 1)
                     if len(parts) > 1: url = parts[1].strip()
                 
-                # --- YOUTUBE LOGIC ---
+                # --- YOUTUBE LOGIC (INTERNAL PLAYBACK) ---
                 if "youtube.com" in url or "youtu.be" in url:
                     video_id = extract_youtube_id(url)
                     if video_id:
@@ -145,11 +144,11 @@ def parse_youtube_txt():
                         if not current_title: 
                             current_title = f"YouTube Live {video_id}"
                         
-                        # Use Clean Direct Link (OTT Navigator handles this internally)
-                        clean_url = f"https://www.youtube.com/watch?v={video_id}"
+                        # Use 'plugin://' scheme to force internal playback in OTT Nav/TiviMate
+                        plugin_url = f"plugin://plugin.video.youtube/play/?video_id={video_id}"
                         
                         lines.append(f'#EXTINF:-1 group-title="YouTube Live" tvg-logo="{current_logo}",{current_title}')
-                        lines.append(clean_url)
+                        lines.append(plugin_url)
 
                 # --- NORMAL LINKS ---
                 elif url.startswith("http") or url.startswith("rtmp"):
@@ -232,10 +231,10 @@ def main():
             if "zee tamil hd" in clean_name:
                 zee_tamil_count += 1
                 if zee_tamil_count == 1:
-                    new_group = "Backup"   # 1st copy -> Backup
+                    new_group = "Backup"
                     is_duplicate = True
                 elif zee_tamil_count == 2:
-                    new_group = "Tamil HD" # 2nd copy -> Main Group
+                    new_group = "Tamil HD"
                     is_duplicate = False
                 else:
                     new_group = "Backup"
@@ -265,12 +264,9 @@ def main():
                     new_group = "English and Hindi News"
 
                 # === SPECIFIC MOVES ===
-                
-                # 1. Sports inside Tamil Extra -> Sports Extra
                 if new_group == "Tamil Extra" and "sports" in clean_name:
                     new_group = "Sports Extra"
 
-                # 2. Raj Digital Plus & J Movies -> Tamil Extra
                 if "j movies" in clean_name or "raj digital plus" in clean_name: 
                     new_group = "Tamil Extra"
 
