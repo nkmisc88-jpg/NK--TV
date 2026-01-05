@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-05 20:39:22 IST
+# Last Updated: 2026-01-05 20:44:49 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@ https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://jkey.playlivtvlinks.workers.dev/?id=429
-https://keys.vodep39240327.workers.dev/?id=429.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Content-Type=application/dash+xml
+https://keys.vodep39240327.workers.dev/?id=429.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="608" group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -2089,8 +2089,10 @@ https://stream.zeno.fm/nzi27fhhwv3tv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Wi
 https://stream.zeno.fm/5csru2np4bruv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Live Events" tvg-id="138931" tvg-name="Chattogram Royals Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138931_5808_CCH_RAN_fc-web_1766733054166.jpg" tvg-language="ENGLISH" ,ENG | Chattogram Royals Vs Rangpur Riders
 https://in-mc-fdlive.fancode.com/mumbai/138931_english_hls_cf91c4037e70925_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498703" tvg-name="MasterChef India - Hindi" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012988/1767619329396530_MCI_S4_5jan_simulcast_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | MasterChef India - Hindi
+https://sonymtmnew.akamaized.net/hls/live/2037142/DAI22ME-MCI/master.m3u8?hdnea=exp=1767659401~acl=/*~id=7bf09c07689ebe1ac2d9dd4a3aad9d09-1767616200145~hmac=2935e76d7129bed5ef2bed987cc519a8ba7c94cd59f15bedeff5dc50bcb4c4d6|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; moto g15; Build/VVTA35.51-137)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=67959e733d771eb186c49f12b42fdcd7-1767625812696
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498866" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767426294128238_UC26_Great-Britain-vs-Greece_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Great Britain vs Greece - 5 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767659401~acl=/*~id=7bf09c07689ebe1ac2d9dd4a3aad9d09-1767616200145~hmac=2935e76d7129bed5ef2bed987cc519a8ba7c94cd59f15bedeff5dc50bcb4c4d6|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; RMX3750; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=00dbe5dd9adbcb7128f7d77c780b5652-1767624610397
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767659401~acl=/*~id=7bf09c07689ebe1ac2d9dd4a3aad9d09-1767616200145~hmac=2935e76d7129bed5ef2bed987cc519a8ba7c94cd59f15bedeff5dc50bcb4c4d6|User-Agent=com.sonyliv/6.22.4 (Android 6; en_GB; VST648W; Build/MRA58K)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=67959e733d771eb186c49f12b42fdcd7-1767625812696
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list59756f68ca794d42aff28ad8a21988ddb34cee9b4f854c8a987b1447a3eba328.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767699005~acl=%2f*~data=hdntl~hmac=58760db1e46a37c26cca31ebb0b14e9687ec484ed80fdca5f40f0a044263e5b1|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list59756f68ca794d42aff28ad8a21988ddb34cee9b4f854c8a987b1447a3eba328.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
