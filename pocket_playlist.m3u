@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-05 16:47:04 IST
+# Last Updated: 2026-01-05 16:54:03 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -36,6 +36,10 @@ https://livestream.sunnxt.com/d434796d90fa4dc9b7ecfacedbe683f1/SunMusicHDB_IN_in
 https://livestream.sunnxt.com/61477b4c8d8d45d5a49e044cc1dffc60/KTVHDB_IN_index.mpd
 ============================== JIOTV ============================================
 # >>> JIO_AUTO_START
+#EXTINF:-1 tvg-id="0-9-zeetamil" group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
+#EXTHTTP:{"Referer":"https://www.zee5.com/"}
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767682622~acl=%2f*~id=512e82bb-5cdc-41e7-85ad-a0fd359e274e~data=hdntl~hmac=965b657f73cfb12492576fad7f58dac37c63dfc48139441edb432aac110de6eb
 #EXTINF:-1 tvg-id="1209" group-title="Tamil SD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-819-j5m8fsfs-v1/imageContent-819-j5m8fsfs-m1.png",Kalaignar TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=75dfe3fa680c58d6bc94815950c7d4f0&key=480cd1106bfb291a5735b0f9dc71bded
@@ -2089,12 +2093,12 @@ https://stream.zeno.fm/nka8zm9x1oouv
 https://stream.zeno.fm/nzi27fhhwv3tv
 #EXTINF:-1 group-title="Tamil FM Radio",Anbu FM
 https://stream.zeno.fm/5csru2np4bruv
+#EXTINF:-1 group-title="Live Events" tvg-id="138931" tvg-name="Chattogram Royals Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138931_5808_CCH_RAN_fc-web_1766733054166.jpg" tvg-language="ENGLISH" ,ENG | Chattogram Royals Vs Rangpur Riders
+https://in-mc-fdlive.fancode.com/mumbai/138931_english_hls_cf91c4037e70925_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139204" tvg-name="Center Court   Day 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 1
 https://in-mc-fdlive.fancode.com/mumbai/139204_english_hls_1ebe611e3851403_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139283" tvg-name="Centre Court   Day 1" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 1
 https://in-mc-fdlive.fancode.com/mumbai/139283_english_hls_ea5c6b725a48855_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="138931" tvg-name="Chattogram Royals Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138931_5808_CCH_RAN_fc-web_1766733054166.jpg" tvg-language="ENGLISH" ,ENG | Chattogram Royals Vs Rangpur Riders
-https://in-mc-fdlive.fancode.com/mumbai/138931_english_hls_cf91c4037e70925_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498865" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767425512224238_UC26_Germany-vs-Poland_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Germany vs Poland - 5 Jan 2026
 https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767637801~acl=/*~id=fc02ae0b86f2a94ca8bfe0251fbfa862-1767594600154~hmac=41d593988c3639e772658a78195d1e543874640f92257595732d53dbbd76510e|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; SM-A107F; Build/QP1A.190711.020)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=bbc94f9b4d23ad0c6ea2bf5bc17d43eb-1767611411971
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498866" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767426294128238_UC26_Great-Britain-vs-Greece_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Great Britain vs Greece - 5 Jan 2026
