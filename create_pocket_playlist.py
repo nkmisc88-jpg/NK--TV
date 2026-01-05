@@ -27,16 +27,15 @@ ASTRO_KEEP = [
     "vasantham", "vellithirai", "sports plus"
 ]
 
-# 4. LIVE EVENTS SOURCES
+# 4. LIVE EVENTS
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# 5. AUTO LOGO MAP (For Temporary Channels)
-# If the name contains the KEY, it assigns the VALUE as the logo.
+# 5. AUTO LOGO MAP (Updated with reliable URLs)
 LOGO_MAP = {
     "willow": "https://upload.wikimedia.org/wikipedia/commons/8/83/Willow_TV_logo.png",
-    "fox": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_Sports_logo.svg/2048px-Fox_Sports_logo.svg.png",
+    "fox": "https://i.imgur.com/39s1fL3.png", 
     "star sports": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Star_Sports_network.svg/1200px-Star_Sports_network.svg.png",
     "sony": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Sony_LIV_logo.svg/1200px-Sony_LIV_logo.svg.png",
     "zee": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Zee5_logo.svg/1200px-Zee5_logo.svg.png",
@@ -46,6 +45,9 @@ LOGO_MAP = {
     "fancode": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/FanCode_Logo.png/1200px-FanCode_Logo.png"
 }
 
+# BROWSER HEADER (Fixes Playback Errors)
+UA_HEADER = "|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
 def get_group_and_name(line):
     grp_match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
     group = grp_match.group(1).strip() if grp_match else ""
@@ -53,6 +55,9 @@ def get_group_and_name(line):
     return group, name
 
 def should_keep_channel(group, name):
+    # Remove Placeholder Dashed Lines
+    if "----" in name: return False
+    
     if "apac" in name.lower(): return False
     
     clean_group = group.lower().replace(" ", "")
@@ -86,12 +91,11 @@ def fetch_live_events(url):
     return events
 
 def get_auto_logo(channel_name):
-    """Guesses a logo URL based on the channel name."""
     name_lower = channel_name.lower()
     for key, url in LOGO_MAP.items():
         if key in name_lower:
             return url
-    return "" # No match found
+    return ""
 
 def parse_youtube_txt():
     temp_channels = []
@@ -128,13 +132,18 @@ def parse_youtube_txt():
                 if url.startswith("http") or url.startswith("rtmp"):
                     if not current_title: current_title = "Temporary Channel"
                     
-                    # --- AUTO LOGO LOGIC ---
-                    # If user didn't provide a logo, try to guess it
-                    if not current_logo:
+                    # --- AUTO LOGO LOGIC (Aggressive) ---
+                    # If logo is empty OR just spaces, guess it
+                    if not current_logo.strip():
                         current_logo = get_auto_logo(current_title)
 
                     entry = f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}'
                     temp_channels.append(entry)
+                    
+                    # FIX PLAYBACK: Add User-Agent to temp channels too
+                    if "http" in url and "|" not in url:
+                        url += UA_HEADER
+                        
                     temp_channels.append(url)
                     
                     # Reset
@@ -160,7 +169,7 @@ def main():
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # (REMOVED THE PLACEHOLDER DASHED LINE HERE)
+    # (REMOVED PLACEHOLDER - CLEANER WILL CATCH ANY RESIDUE)
 
     # TRACKING VARIABLES
     seen_channels = set()
@@ -185,6 +194,11 @@ def main():
             clean_name = name.lower().strip()
             group_lower = group.lower()
             
+            # --- CLEANER: Remove Placeholder Lines ---
+            if "----" in name:
+                skip_this_channel = True
+                continue
+
             # --- ZEE TAMIL HD FIX ---
             if "zee tamil hd" in clean_name:
                 zee_tamil_count += 1
@@ -207,7 +221,7 @@ def main():
                 skip_this_channel = True
                 continue
 
-            # --- GROUP MOVING LOGIC ---
+            # --- GROUP MOVING ---
             new_group = group 
             if group_lower == "tamil": new_group = "Tamil SD"
             if group_lower == "local channels": new_group = "Tamil Extra"
@@ -217,13 +231,10 @@ def main():
             # SPECIFIC MOVES
             if "j movies" in clean_name or "raj digital plus" in clean_name:
                 new_group = "Tamil SD"
-
             if "rasi movies" in clean_name or "rasi hollywood" in clean_name:
                 new_group = "Tamil Extra"
-
             if "dd sports" in clean_name:
                 new_group = "Sports SD"
-
             if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
                 new_group = "Tamil HD"
 
@@ -237,12 +248,17 @@ def main():
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # Astro Fix Logic
-            if "astro" in current_buffer[0].lower() and "http" in line:
-                 if "User-Agent" not in line:
-                     if "|" in line: line = line.split("|")[0]
-                     line += "|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-                     current_buffer[-1] = line
+            # --- GLOBAL PLAYBACK FIX ---
+            # Automatically attach User-Agent to ALL http links if missing.
+            # This fixes the "None of the available extractors" error.
+            if "http" in line and "|" not in line:
+                line += UA_HEADER
+                current_buffer[-1] = line
+            
+            # Specific check for Astro (just in case)
+            if "astro" in current_buffer[0].lower() and "http" in line and "User-Agent" not in line:
+                 line += UA_HEADER
+                 current_buffer[-1] = line
             
             if not skip_this_channel:
                 final_lines.extend(current_buffer)
