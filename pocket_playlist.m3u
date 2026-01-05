@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-05 17:47:09 IST
+# Last Updated: 2026-01-05 17:53:56 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -215,49 +215,49 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Disney_International_HD_BTS/output/index.
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Nick_HD_Plus_BTS/output/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="676" group-title="News" tvg-logo="https://i.postimg.cc/k5KdQRFN/image-Content-11734-j9kw60rc-m1.webp",Sun News
+#EXTINF:-1 tvg-id="676" group-title="Tamil News" tvg-logo="https://i.postimg.cc/k5KdQRFN/image-Content-11734-j9kw60rc-m1.webp",Sun News
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=e8b0b960d29658969d74da596e2787e1&key=9b4051847231c9e1fd717df5aa5e0eea
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_News_MOB/WDVLive/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="673" group-title="News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/news7tamil-black.png",News7 Tamil
+#EXTINF:-1 tvg-id="673" group-title="Tamil News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/news7tamil-black.png",News7 Tamil
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ec09137d33685441840a6a203fb997f1&key=1f4fa4c7d54765cc7cc68b6f139aaae8
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/News7_Tamil_BTS/output/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="830" group-title="News" tvg-logo="https://img.media.jio.com/tvpimages/72/24/300151_1733311025163_l_high.jpg",Thanthi TV
+#EXTINF:-1 tvg-id="830" group-title="Tamil News" tvg-logo="https://img.media.jio.com/tvpimages/72/24/300151_1733311025163_l_high.jpg",Thanthi TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=d1e67bdbd4cf5f7c902b52d30e5c01e8&key=850f909b3cbdba1084f393b7990f81f6
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Thanthi_TV_BTS/output/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="767" group-title="News" tvg-logo="https://tatalogo.pages.dev/525.png",Raj News 24x7
+#EXTINF:-1 tvg-id="767" group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/525.png",Raj News 24x7
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=dbf09ac3d0f45b4ab418d62d206b4865&key=f440838bdffa36d041e405dc2734dab2
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_News_24x7_BTS/output/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="3045" group-title="News" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/TAMILJNM_Thumbnail-v6/TAMILJNM_Thumbnail.png",Tamil Janam
+#EXTINF:-1 tvg-id="3045" group-title="Tamil News" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/TAMILJNM_Thumbnail-v6/TAMILJNM_Thumbnail.png",Tamil Janam
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4de4a5c05118507d8e7e81390addc2a7&key=f80ec85f9713e4e28616d77179d414ce
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Janam_Tamil_BTS/output/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="418" group-title="News" tvg-logo="https://tatalogo.pages.dev/198.png",Jaya Plus
+#EXTINF:-1 tvg-id="418" group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/198.png",Jaya Plus
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=8f05deb695d2502a9cdcddc66efe0c8b&key=ac0f164b3bd469067f91ab3cd20823ef
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_Plus_BTS/output/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="2434" group-title="News" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240404_2024254898682553893825274.png",M Nadu
+#EXTINF:-1 tvg-id="2434" group-title="Tamil News" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240404_2024254898682553893825274.png",M Nadu
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=8277ecaa8b0256daafda95d85dffd5b1&key=c6170249384b6216e90730025bc37842
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/M_Nadu_BTS/output/index.mpd?__hdnea__=st=1767575990~exp=1767662390~acl=/*~hmac=4fa045f79d5d0acddc099b462f62bdff99efd746a7b97cb571d386de39a30a58|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="1515" group-title="News" tvg-logo="https://tatalogo.pages.dev/702.png",News J
+#EXTINF:-1 tvg-id="1515" group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/702.png",News J
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=581216f915e35e2e9b55ac3d55b64b5b&key=cd1fa817bf27268fb120defbd91944cc
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
@@ -657,23 +657,23 @@ https://ca1.buximedia.com/itv/indian/index.m3u8|User-Agent=Mozilla/5.0 (Windows 
 =============================================== NEWS =============================================================
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=4df8f920386e4346ba6b7d7ae935d668:c5fcaa8df5663365d938a50987f71b84
-#EXTINF:-1 tvg-id="58" tvg-chno="193" tvg-logo="https://tatalogo.pages.dev/58.png" group-title="News", News18 Tamil Nadu
+#EXTINF:-1 tvg-id="58" tvg-chno="193" tvg-logo="https://tatalogo.pages.dev/58.png" group-title="Tamil News", News18 Tamil Nadu
 https://nw18live.cdn.jio.com/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ts968" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-69018-kzo65wi0-v1/imageContent-69018-kzo65wi0-m2.png" group-title="News",News Tamil 24x7
+#EXTINF:-1 tvg-id="ts968" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-69018-kzo65wi0-v1/imageContent-69018-kzo65wi0-m2.png" group-title="Tamil News",News Tamil 24x7
 https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/news-tamil-24x7/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="968" tvg-chno="198" tvg-logo="https://i.ibb.co/09X3DwC/1000156347-removebg-preview.jpg" group-title="News", Win TV
+#EXTINF: -1 tvg-id="968" tvg-chno="198" tvg-logo="https://i.ibb.co/09X3DwC/1000156347-removebg-preview.jpg" group-title="Tamil News", Win TV
 https://cdn-4.pishow.tv/live/1531/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF: -1 tvg-id="ZeeTamil.in" tvg-chno="197" tvg-logo="https://yt3.googleusercontent.com/GJVGgzRXxK1FDoUpC8ztBHPu81PMnhc8inodKtEckH-rykiYLzg93HUQIoTIirwORynozMkR=s900-c-k-c0x00ffffff-no-rj" group-title="News", Zee Tamil News
+#EXTINF: -1 tvg-id="ZeeTamil.in" tvg-chno="197" tvg-logo="https://yt3.googleusercontent.com/GJVGgzRXxK1FDoUpC8ztBHPu81PMnhc8inodKtEckH-rykiYLzg93HUQIoTIirwORynozMkR=s900-c-k-c0x00ffffff-no-rj" group-title="Tamil News", Zee Tamil News
 https://dpkvdnzbeen1l.cloudfront.net/index_4.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/polimer-news-black.png"group-logo="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/YuppTV_logo.svg/2560px-YuppTV_logo.svg.png" group-title="News" , Polimer News
+#EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/polimer-news-black.png"group-logo="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/YuppTV_logo.svg/2560px-YuppTV_logo.svg.png" group-title="Tamil News" , Polimer News
 https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/puthiyathalaimurai-black.png" group-logo="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/YuppTV_logo.svg/2560px-YuppTV_logo.svg.png" group-title="News" , Puthiya Thalaimurai
+#EXTINF:-1 tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/puthiyathalaimurai-black.png" group-logo="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/YuppTV_logo.svg/2560px-YuppTV_logo.svg.png" group-title="Tamil News" , Puthiya Thalaimurai
 https://segment.yuppcdn.net/240122/puthiya/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ts44" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-126-j5fnf4ig-v2/imageContent-126-j5fnf4ig-m2.png" group-title="News",Seithigal TV
+#EXTINF:-1 tvg-id="ts44" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-126-j5fnf4ig-v2/imageContent-126-j5fnf4ig-m2.png" group-title="Tamil News",Seithigal TV
 https://live-cf-kalaignarnews.dailyhunt.in/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ts455" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11764-j9kwqj6o-v1/imageContent-11764-j9kwqj6o-m1.png" group-title="News",Sathiyam TV
+#EXTINF:-1 tvg-id="ts455" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11764-j9kwqj6o-v1/imageContent-11764-j9kwqj6o-m1.png" group-title="Tamil News",Sathiyam TV
 https://live-cf-sathiyamtv.dailyhunt.in/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="ts391" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/MAMUR_Thumbnail-v2/MAMUR_Thumbnail.png" group-title="News",MalaiMurasu Seithigal
+#EXTINF:-1 tvg-id="ts391" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/MAMUR_Thumbnail-v2/MAMUR_Thumbnail.png" group-title="Tamil News",MalaiMurasu Seithigal
 https://live-cf-malaimurasu.dailyhunt.in/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="TIMES.NOW.HD.in" tvg-name="" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/times-now-in.png" group-title="News",Times Now
 https://d3pvf6sv7wsu07.cloudfront.net/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
