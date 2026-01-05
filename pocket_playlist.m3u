@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-05 22:26:34 IST
+# Last Updated: 2026-01-05 22:31:10 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3091,7 +3091,9 @@ https://aps32.playlist.live-video.net/v1/playlist/CrkFPA0wAtrho7iChuzsoGMxOZpA0B
 https://dj-tm-srvr1.vercel.app/title/WILLOW_CA-HD(720p60)@DJ-TM.m3u8?data=BcHLDkQwFADQD7K4yAxricekqF6k2GpcJalIvOfrnQOV-VxxSD_edoO_NUXs2lqKFGcv4H8gxFxcunKyOtejcr9Jgw8B828xp2dtYIInWcytsp60kgduXSuJWWWIHHfei2hc8QU|Telegram=@links_macha_official&Creator=@DJ-TM
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Willow
 https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/cb543e1e786c648798d43d63d1ef41a5f9591fde1d6988693eb5518975d1073edce2a59caa08ff16388f1ede7f0a66413a3e951fda77118fd87eb141453c5728cfffe729a2c05616b7db083429b56a062a866a68ac39437ed0e21f48a238b6720a5aa82a66443d80b846ac7250db80148b61299bce8c37683f03409a5e5afba358b1ebb358178d6fa8b61455c02640e59f43c8821ca688d15fcb5e8227a31d94c1a1d98617d386f32493688aa2d675581fb0ae3bf6e053b2d39b1b56f61309756e9e623ef1842a1d954e422697973e24488d7aec8c2b86613bae128d0df7581fa4877bc5ca6fdac490de504f38b0c550606dc88fc6dfad6563ed34a9e18175120d3578bddb654424f85bfdab0d49d311b7e35ffa97308cb5263637cc9a448f9c884e8eda8267933fc3cbf89972170033444ab154ac9e62cc3a9d569c8e4271121d1fedad5ccad08d05707a19d2c91ef5030bb5debc86dd2532de2f4e09bf2e8a0d4524e71c5851c961b99635678c662d803636f41175a34aeeb721f0e88ab15475e590970caf2fdcb40cd3e40be6386f0e4ce0a45e2a2f264ad9e06202276a8314b4a1adcf434951bcb99d8483395e20361855008e989753939ccf2418568c1311697a14188117940efb055a0b3ac60ed9ce5d276567fca26e0d595c506f77f3564d4df31da048d796c0b2/43/1920x1080_5859480/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="YouTube Live" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png",Sun News Live
-plugin://plugin.video.youtube/play/?video_id=dhHnlcL8HaM
-#EXTINF:-1 group-title="YouTube Live" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png",Polimer News
-plugin://plugin.video.youtube/play/?video_id=9M02G5c6x6w
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Sun News Live
+https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=NBKw41QTTY4vtqrq|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Polimer News
+https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=9M02G5c6x6w&pp=uAQw|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",YT Test
+https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id=Nq2wYlWFucg|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
