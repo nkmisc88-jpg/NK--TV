@@ -50,13 +50,11 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# 4. AUTO LOGO
-LOGO_MAP = {
-    "willow": "https://i.imgur.com/39s1fL3.png",
-    "fox": "https://i.imgur.com/39s1fL3.png"
-}
+# 4. AUTO LOGO (Fixed Dead Links)
+# Using a generic transparent logo for sports if needed, or keeping empty to let player decide
+DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/512px-YouTube_full-color_icon_%282017%29.svg.png"
 
-# Standard User Agent (Only for YouTube/Temp channels)
+# Standard User Agent
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_group_and_name(line):
@@ -75,48 +73,30 @@ def get_clean_id(name):
     name = name.lower().replace("hd", "").replace(" ", "").strip()
     return re.sub(r'[^a-z0-9]', '', name)
 
-def extract_youtube_id(url):
-    """Extracts the 11-char Video ID from a YouTube URL."""
-    regex = r"(?:v=|\/)([0-9A-Za-z_-]{11}).*"
-    match = re.search(regex, url)
-    if match:
-        return match.group(1)
-    return None
-
-def get_live_video_id(channel_url):
+def get_raw_m3u8_from_youtube(url):
     """
-    Scrapes the YouTube Channel's 'Live' page to find the current active Video ID.
-    Works for links like: https://www.youtube.com/@ChannelName/live
+    Scrapes the raw HLS Manifest URL from YouTube (Victorlish Logic).
     """
+    print(f"   🔎 Scraping YouTube: {url}")
     try:
-        # We need a browser-like User-Agent or YouTube will block the request
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            "Accept-Language": "en-US,en;q=0.9"
-        }
+        session = requests.Session()
+        session.headers.update({'User-Agent': UA_HEADER})
         
-        # 1. If user provided a /live link, use it. If not, try to append /live (basic guess)
-        target_url = channel_url
-        if "/live" not in target_url and "@" in target_url:
-            target_url = target_url.rstrip("/") + "/live"
+        # 1. Handle @ChannelName/live format
+        if "/live" not in url and "@" in url and "watch?v=" not in url:
+            url = url.rstrip("/") + "/live"
 
-        # 2. Fetch the page
-        r = requests.get(target_url, headers=headers, timeout=15)
+        response = session.get(url, timeout=15, cookies={'CONSENT': 'YES+cb.20210328-17-p0.en+FX+479'})
         
-        # 3. Use Regex to find the "canonical" video ID hidden in the HTML
-        # YouTube usually puts: <link rel="canonical" href="https://www.youtube.com/watch?v=VIDEO_ID">
-        match = re.search(r'rel="canonical"\s+href="https://www.youtube.com/watch\?v=([a-zA-Z0-9_-]{11})"', r.text)
-        
+        # 2. Look for hlsManifestUrl in the page source
+        # This is the "Raw" stream link
+        match = re.search(r'hlsManifestUrl":"(.*?)"', response.text)
         if match:
-            return match.group(1)
-        
-        # Fallback: Look for "videoId":"..." pattern
-        match_json = re.search(r'"videoId":"([a-zA-Z0-9_-]{11})"', r.text)
-        if match_json:
-            return match_json.group(1)
-
-    except:
-        pass
+            hls_url = match.group(1).replace('\\/', '/')
+            return hls_url
+            
+    except Exception as e:
+        print(f"   ⚠️ Error scraping: {e}")
     return None
 
 def fetch_live_events(url):
@@ -139,76 +119,70 @@ def fetch_live_events(url):
     except: pass
     return lines
 
-def get_auto_logo(channel_name):
-    name_lower = channel_name.lower()
-    for key, url in LOGO_MAP.items():
-        if key in name_lower:
-            return url
-    return ""
-
 def parse_youtube_txt():
-    """Reads youtube.txt, finds LIVE IDs automatically, and formats for OTT Navigator."""
+    print("   ...Reading youtube.txt")
     lines = []
-    if not os.path.exists(YOUTUBE_FILE): return []
+    if not os.path.exists(YOUTUBE_FILE): 
+        return []
+        
     try:
         with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
             file_lines = f.readlines()
-        current_title, current_logo = "", ""
+        
+        current_title = "Unknown Channel"
+        current_logo = DEFAULT_LOGO
+        
         for line in file_lines:
             line = line.strip()
             if not line: continue
             
-            if line.lower().startswith("title"):
+            # --- PARSE TEXT FILE ---
+            lower_line = line.lower()
+            
+            # 1. Capture Title
+            if lower_line.startswith("title"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_title = parts[1].strip()
-            elif line.lower().startswith("logo"):
+            
+            # 2. Capture Logo
+            elif lower_line.startswith("logo"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_logo = parts[1].strip()
-            elif line.lower().startswith("link") or line.startswith("http"):
-                url = line
-                if line.lower().startswith("link"):
-                    parts = line.split(":", 1)
-                    if len(parts) > 1: url = parts[1].strip()
+            
+            # 3. Capture Link (Even if broken on new line)
+            # We look for 'http' anywhere in the line
+            elif "http" in lower_line:
+                # Find the URL part
+                url_start = lower_line.find("http")
+                url = line[url_start:].strip()
                 
-                video_id = None
+                final_link = None
                 
-                # --- CASE 1: CHANNEL LIVE URL (Auto-Grabber) ---
-                # e.g. https://www.youtube.com/@AajTak/live
-                if "/live" in url or ("@" in url and "watch?v=" not in url):
-                    print(f"   🔎 Scanning Live Channel: {current_title}...")
-                    video_id = get_live_video_id(url)
-                    if not video_id:
-                        print(f"   ⚠️ No Live Stream found for {current_title}")
-
-                # --- CASE 2: DIRECT VIDEO LINK ---
-                # e.g. https://www.youtube.com/watch?v=Nq2wYlWFucg
-                elif "watch?v=" in url or "youtu.be" in url:
-                    video_id = extract_youtube_id(url)
-
-                # --- ADD TO PLAYLIST ---
-                if video_id:
-                    if not current_logo: 
-                        current_logo = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"
-                    if not current_title: 
-                        current_title = f"YouTube Live {video_id}"
+                # A. IS IT YOUTUBE?
+                if "youtube" in url or "youtu.be" in url:
+                    # Use the SCRAPER logic
+                    final_link = get_raw_m3u8_from_youtube(url)
                     
-                    # Internal Plugin Playback (No ads, no browser)
-                    plugin_url = f"plugin://plugin.video.youtube/play/?video_id={video_id}"
-                    
-                    lines.append(f'#EXTINF:-1 group-title="YouTube Live" tvg-logo="{current_logo}",{current_title}')
-                    lines.append(plugin_url)
+                    if final_link:
+                        lines.append(f'#EXTINF:-1 group-title="YouTube Live" tvg-logo="{current_logo}",{current_title}')
+                        lines.append(final_link)
+                        print(f"   ✅ Added: {current_title}")
+                    else:
+                        print(f"   ❌ Failed to find stream for: {current_title}")
 
-                # --- NON-YOUTUBE LINKS ---
-                elif "youtube" not in url and (url.startswith("http") or url.startswith("rtmp")):
-                    if not current_title: current_title = "Temporary Channel"
-                    if not current_logo or len(current_logo) < 5:
-                        current_logo = get_auto_logo(current_title)
+                # B. IS IT NORMAL LINK?
+                else:
                     lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
-                    if "http" in url and "|" not in url: url += f"|User-Agent={UA_HEADER}"
+                    if "|" not in url: url += f"|User-Agent={UA_HEADER}"
                     lines.append(url)
-                    
-                current_title, current_logo = "", ""
-    except: pass
+                    print(f"   ✅ Added Temp: {current_title}")
+
+                # Reset for next entry
+                current_title = "Unknown Channel"
+                current_logo = DEFAULT_LOGO
+
+    except Exception as e:
+        print(f"   ❌ Error reading youtube.txt: {e}")
     return lines
 
 def main():
@@ -275,31 +249,23 @@ def main():
             # 4. GROUP RENAMING LOGIC
             new_group = group 
             
-            # === SPECIAL LOGIC: ZEE TAMIL HD SWAP ===
             if "zee tamil hd" in clean_name:
                 zee_tamil_count += 1
                 if zee_tamil_count == 1:
-                    new_group = "Backup"
-                    is_duplicate = True
+                    new_group = "Backup"; is_duplicate = True
                 elif zee_tamil_count == 2:
-                    new_group = "Tamil HD"
-                    is_duplicate = False
+                    new_group = "Tamil HD"; is_duplicate = False
                 else:
                     new_group = "Backup"
-            
-            # === STANDARD LOGIC ===
             elif is_duplicate:
                 new_group = "Backup"
             else:
                 group_lower = group.lower()
-
-                # TAMIL -> TAMIL EXTRA
                 if group_lower == "tamil": new_group = "Tamil Extra"
                 if group_lower == "local channels": new_group = "Tamil Extra"
                 if "premium 24/7" in group_lower: new_group = "Tamil Extra"
                 if "astro go" in group_lower: new_group = "Tamil Extra"
                 
-                # OTHER GROUPS
                 if group_lower == "sports": new_group = "Sports Extra"
                 if "extras" in group_lower: new_group = "Others" 
                 if "entertainment" in group_lower: new_group = "Others"
@@ -307,36 +273,22 @@ def main():
                 if "music" in group_lower: new_group = "Others"
                 if "infotainment" in group_lower: new_group = "Infotainment HD"
 
-                # NEWS
                 if "news" in group_lower and "tamil" not in group_lower and "malayalam" not in group_lower:
                     new_group = "English and Hindi News"
 
-                # === SPECIFIC MOVES ===
-                if new_group == "Tamil Extra" and "sports" in clean_name:
-                    new_group = "Sports Extra"
-
-                if "j movies" in clean_name or "raj digital plus" in clean_name: 
-                    new_group = "Tamil Extra"
-
+                if new_group == "Tamil Extra" and "sports" in clean_name: new_group = "Sports Extra"
+                if "j movies" in clean_name or "raj digital plus" in clean_name: new_group = "Tamil Extra"
                 if "rasi movies" in clean_name or "rasi hollywood" in clean_name: new_group = "Tamil Extra"
                 if "dd sports" in clean_name: new_group = "Sports Extra"
-                    
-                if any(target.lower() in clean_name for target in MOVE_TO_INFOTAINMENT_SD):
-                     new_group = "Infotainment SD"
-
+                if any(target.lower() in clean_name for target in MOVE_TO_INFOTAINMENT_SD): new_group = "Infotainment SD"
                 if any(k in clean_name for k in INFOTAINMENT_KEYWORDS):
                     if "hd" not in clean_name: new_group = "Infotainment SD"
 
                 for target in SPORTS_HD_KEEP:
                     if target.lower() in clean_name: new_group = "Sports HD"; break
-                
-                if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]):
-                    new_group = "Tamil News"
+                if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]): new_group = "Tamil News"
+                if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): new_group = "Tamil HD"
 
-                if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
-                    new_group = "Tamil HD"
-
-            # Apply New Group Name
             if new_group != group:
                 if 'group-title="' in line:
                     line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
@@ -346,28 +298,22 @@ def main():
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # RAW COPY
             current_buffer[-1] = line
-            
             final_lines.extend(current_buffer)
             current_buffer = []
 
-    if current_buffer:
-        final_lines.extend(current_buffer)
+    if current_buffer: final_lines.extend(current_buffer)
 
-    # ADD LIVE EVENTS
     print("📥 Adding Live Events...")
     final_lines.extend(fetch_live_events(FANCODE_URL))
     final_lines.extend(fetch_live_events(SONY_LIVE_URL))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
     
-    # ADD YOUTUBE
     print("📥 Adding YouTube...")
     final_lines.extend(parse_youtube_txt())
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
-    
     print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
