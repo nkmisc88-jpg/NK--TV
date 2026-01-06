@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-06 05:37:36
+# Updated on: 2026-01-06 05:51:57
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,10 +846,10 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab&xxx=||cookie=__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 6 January 2026 at 11:07:06 am
+#DATE:- Tuesday, 6 January 2026 at 11:21:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138773" tvg-name="Auckland Hearts Vs Otago Sparks" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138773_5801_AH-W_OS-W_fc-web_1766596522145.jpg" tvg-language="ENGLISH" ,ENG | Auckland Hearts Vs Otago Sparks
 https://in-mc-fdlive.fancode.com/mumbai/138773_english_hls_323b5b2c2527016_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="133965" tvg-name="Queensland Fire Vs Tasmania Women" tvg-logo="https://images.fancode.com/aig/match/v1/133965_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Queensland Fire Vs Tasmania Women
+#EXTINF:-1 group-title="Live Events" tvg-id="133965" tvg-name="Queensland Fire Vs Tasmania Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Women's-National-Cricket-League_old_v3_1758034980120.jpg" tvg-language="ENGLISH" ,ENG | Queensland Fire Vs Tasmania Women
 https://in-mc-fdlive.fancode.com/mumbai/133965_english_hls_6f58f9021288256_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139189" tvg-name="Show Court 1   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 3
 https://in-mc-fdlive.fancode.com/mumbai/139189_english_hls_113052468285825_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
@@ -859,14 +859,14 @@ https://in-mc-fdlive.fancode.com/mumbai/139188_english_hls_6b8f42fb4d72441_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139205_english_hls_2d73b606da56886_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139284" tvg-name="Centre Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139284_english_hls_7a28b3ff2d36797_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 06-01-2026 11:00
+#DATE:- 06-01-2026 11:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498904" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012911/1767426438011632_UnitedCup26_Italy_vs_France_landscape_thumb.jpg" tvg-language="English" ,ENG | Italy vs France - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; moto g75 5G; Build/V1UQS35H.103-16-8)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=50b51f8512b621c690cdf7178ed868dc-1767677410804
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; 4K-Smart; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e8e4038f203bd077777ebd28101261c3-1767678612622
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498903" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767427703499238_UC26_Canada-vs-Belgium_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Canada vs Belgium - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; 2K D5STV; Build/UKR9.250708.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=50b51f8512b621c690cdf7178ed868dc-1767677410804
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 8; en_GB; vivo 1812; Build/O11019)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e8e4038f203bd077777ebd28101261c3-1767678612622
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498832" tvg-name="Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012758/1766819124741385_SuperSmash2526_womens_Auckland-Hearts-vs-Otago-Sparks_27dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Auckland Hearts vs Otago Sparks - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; V2437; Build/AP3A.240905.015.A2_V000L1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=50b51f8512b621c690cdf7178ed868dc-1767677410804
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 8; en_GB; RNE-L21; Build/HUAWEIRNE-L21)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e8e4038f203bd077777ebd28101261c3-1767678612622
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 5/1/2026, 22:15:18
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
