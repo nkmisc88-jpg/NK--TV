@@ -3,7 +3,6 @@ import re
 import datetime
 import os
 import sys
-import yt_dlp # Importing the pro tool
 
 # ==========================================
 # CONFIGURATION
@@ -57,6 +56,7 @@ def fetch_live_events(url):
                 line = line.strip()
                 if not line: continue
                 if line.startswith("#EXTM3U"): continue
+                
                 if line.startswith("#EXTINF"):
                     line = re.sub(r'group-title="[^"]*"', '', line)
                     line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
@@ -65,26 +65,6 @@ def fetch_live_events(url):
                     lines.append(line)
     except: pass
     return lines
-
-# --- THE PRO YOUTUBE EXTRACTOR (yt-dlp) ---
-def get_youtube_live_url(youtube_url):
-    print(f"      🔎 Deep Scanning YouTube: {youtube_url}")
-    ydl_opts = {
-        'format': 'best',
-        'quiet': True,
-        'no_warnings': True,
-        'user_agent': UA_HEADER,
-    }
-    try:
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(youtube_url, download=False)
-            if 'url' in info:
-                print("         ✅ Found Raw Live Stream (M3U8)!")
-                return info['url']
-    except Exception as e:
-        print(f"         ❌ yt-dlp failed: {e}")
-    
-    return youtube_url 
 
 def parse_youtube_txt():
     print("   ...Reading youtube.txt")
@@ -121,19 +101,16 @@ def parse_youtube_txt():
                 url_start = lower_line.find("http")
                 url = line[url_start:].strip()
                 
-                # --- USE PRO EXTRACTOR ---
-                if "youtube.com" in url or "youtu.be" in url:
-                    url = get_youtube_live_url(url)
-                # -------------------------
-
+                # Write Tags first
                 if current_props:
                     lines.extend(current_props)
                     current_props = [] 
                 
                 lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
                 
-                # Do NOT add headers to the raw youtube link (yt-dlp handles it)
-                if "googlevideo.com" not in url and "|" not in url and "http" in url:
+                # Simple Logic: Just add the link. 
+                # (Use youtube.txt manually for Headers if needed)
+                if "|" not in url and "http" in url:
                      url += f"|User-Agent={UA_HEADER}"
                 
                 lines.append(url)
@@ -193,10 +170,12 @@ def main():
 
             new_group = group 
             
+            # --- STABLE ZEE TAMIL LOGIC ---
             if "zee tamil hd" in clean_name:
                 new_group = "Tamil HD"; is_duplicate = False 
             elif "zee thirai hd" in clean_name:
                 new_group = "Tamil HD"; is_duplicate = False
+            # ------------------------------
             
             elif is_duplicate:
                 new_group = "Backup"
