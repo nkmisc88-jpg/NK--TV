@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-06 07:52:44 IST
+# Last Updated: 2026-01-06 08:36:51 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3069,20 +3069,18 @@ https://stream.zeno.fm/nka8zm9x1oouv
 https://stream.zeno.fm/nzi27fhhwv3tv
 #EXTINF:-1 group-title="Tamil FM Radio",Anbu FM
 https://stream.zeno.fm/5csru2np4bruv
-#EXTINF:-1 group-title="Live Events" tvg-id="138741" tvg-name="Auckland Aces Vs Otago Volts" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138741_5800_AA_OV_fc-web_1766641250967.jpg" tvg-language="ENGLISH" ,ENG | Auckland Aces Vs Otago Volts
-https://in-mc-fdlive.fancode.com/mumbai/138741_english_hls_b36cd39d8d7465_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="133963" tvg-name="Victoria Women Vs Act Meteors" tvg-logo="https://images.fancode.com/aig/match/v1/133963_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Victoria Women Vs Act Meteors
 https://in-mc-fdlive.fancode.com/mumbai/133963_english_hls_7ca9b4a79566659_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="133965" tvg-name="Queensland Fire Vs Tasmania Women" tvg-logo="https://images.fancode.com/aig/match/v1/133965_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Queensland Fire Vs Tasmania Women
 https://in-mc-fdlive.fancode.com/mumbai/133965_english_hls_6f58f9021288256_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139189" tvg-name="Show Court 1   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 3
 https://in-mc-fdlive.fancode.com/mumbai/139189_english_hls_113052468285825_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="138741" tvg-name="Auckland Aces Vs Otago Volts" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138741_5800_AA_OV_fc-web_1766641250967.jpg" tvg-language="ENGLISH" ,ENG | Auckland Aces Vs Otago Volts
+https://in-mc-fdlive.fancode.com/mumbai/138741_english_hls_b36cd39d8d7465_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498904" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012911/1767426438011632_UnitedCup26_Italy_vs_France_landscape_thumb.jpg" tvg-language="English" ,ENG | Italy vs France - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; SM-J720F; Build/QP1A.190711.020)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=59ef0924be690066b430407b50feb3c1-1767665410315
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; HY320; Build/RP1A.201005.006)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c28aa922f93cd187ac65986e6bd51bf5-1767667811420
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498903" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767427703499238_UC26_Canada-vs-Belgium_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Canada vs Belgium - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; SM-T505N; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=59ef0924be690066b430407b50feb3c1-1767665410315
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498833" tvg-name="Super Smash 2025/26 Men's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012967/1767596813484377_SuperSmash2526_mens_Auckland_Aces_vs_Otago_Volts_5jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Auckland Aces vs Otago Volts - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 7; en_GB; ASUS_I001DE; Build/QKQ1.190825.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=59ef0924be690066b430407b50feb3c1-1767665410315
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; SM-M166P; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c28aa922f93cd187ac65986e6bd51bf5-1767667811420
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 505
@@ -3095,5 +3093,7 @@ http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3
 https://dj-tm-srvr1.vercel.app/title/WILLOW_CA-HD(720p60)@DJ-TM.m3u8?data=BcHLDkQwFADQD7K4yAxricekqF6k2GpcJalIvOfrnQOV-VxxSD_edoO_NUXs2lqKFGcv4H8gxFxcunKyOtejcr9Jgw8B828xp2dtYIInWcytsp60kgduXSuJWWWIHHfei2hc8QU|Telegram=@links_macha_official&Creator=@DJ-TM
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 4k
 https://joker-verse.vercel.app/ptv/itv /3059303.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Test
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lang=eng&uid=706298993&pass=ef2678f2|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Test 1
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lang=eng&uid=706298993&pass=ef2678f2&.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Test 2
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lang=eng&uid=706298993&pass=ef2678f2|User-Agent=Mozilla/5.0
