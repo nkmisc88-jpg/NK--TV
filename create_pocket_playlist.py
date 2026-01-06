@@ -3,7 +3,7 @@ import re
 import datetime
 import os
 import sys
-import json
+import yt_dlp # Importing the pro tool
 
 # ==========================================
 # CONFIGURATION
@@ -26,7 +26,6 @@ INFOTAINMENT_KEYWORDS = ["discovery", "animal planet", "nat geo", "history tv", 
 BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
 
 DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
-# Standard User Agent for regular requests
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # ==========================================
@@ -58,7 +57,6 @@ def fetch_live_events(url):
                 line = line.strip()
                 if not line: continue
                 if line.startswith("#EXTM3U"): continue
-                
                 if line.startswith("#EXTINF"):
                     line = re.sub(r'group-title="[^"]*"', '', line)
                     line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
@@ -68,61 +66,24 @@ def fetch_live_events(url):
     except: pass
     return lines
 
-# --- DEEP THINKING: ANDROID API SCANNER ---
+# --- THE PRO YOUTUBE EXTRACTOR (yt-dlp) ---
 def get_youtube_live_url(youtube_url):
-    print(f"      🔎 Scanning YouTube (API Mode): {youtube_url}")
+    print(f"      🔎 Deep Scanning YouTube: {youtube_url}")
+    ydl_opts = {
+        'format': 'best',
+        'quiet': True,
+        'no_warnings': True,
+        'user_agent': UA_HEADER,
+    }
     try:
-        # 1. Extract Video ID intelligently
-        video_id = None
-        if "v=" in youtube_url:
-            video_id = youtube_url.split("v=")[1].split("&")[0]
-        elif "youtu.be/" in youtube_url:
-            video_id = youtube_url.split("youtu.be/")[1].split("?")[0]
-        elif "/live/" in youtube_url:
-            video_id = youtube_url.split("/live/")[1].split("?")[0]
-            
-        if not video_id:
-            print("         ❌ Could not find Video ID.")
-            return youtube_url
-
-        # 2. Call YouTube Internal API (Imitating Android App)
-        # This bypasses the HTML scraping issues
-        api_url = "https://www.youtube.com/youtubei/v1/player"
-        payload = {
-            "videoId": video_id,
-            "context": {
-                "client": {
-                    "clientName": "ANDROID",
-                    "clientVersion": "17.31.35",
-                    "androidSdkVersion": 30,
-                    "hl": "en",
-                    "gl": "US",
-                    "utcOffsetMinutes": 0
-                }
-            }
-        }
-        
-        # Headers specifically for the API
-        headers = {
-            "Content-Type": "application/json",
-            "User-Agent": "com.google.android.youtube/17.31.35 (Linux; U; Android 11) gzip"
-        }
-        
-        r = requests.post(api_url, json=payload, headers=headers, timeout=10)
-        data = r.json()
-        
-        # 3. Extract the HLS Manifest URL
-        if "streamingData" in data and "hlsManifestUrl" in data["streamingData"]:
-            m3u8_url = data["streamingData"]["hlsManifestUrl"]
-            print("         ✅ Found Raw Live Stream (API)!")
-            return m3u8_url
-            
-        print("         ❌ Live stream not found in API response (Is it offline?)")
-    
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(youtube_url, download=False)
+            if 'url' in info:
+                print("         ✅ Found Raw Live Stream (M3U8)!")
+                return info['url']
     except Exception as e:
-        print(f"         ❌ Error scanning YouTube: {e}")
+        print(f"         ❌ yt-dlp failed: {e}")
     
-    # Fallback: Return original URL if API fails, so at least something exists
     return youtube_url 
 
 def parse_youtube_txt():
@@ -160,10 +121,10 @@ def parse_youtube_txt():
                 url_start = lower_line.find("http")
                 url = line[url_start:].strip()
                 
-                # --- AUTO-CONVERT YOUTUBE LINKS ---
+                # --- USE PRO EXTRACTOR ---
                 if "youtube.com" in url or "youtu.be" in url:
                     url = get_youtube_live_url(url)
-                # ----------------------------------
+                # -------------------------
 
                 if current_props:
                     lines.extend(current_props)
@@ -171,10 +132,9 @@ def parse_youtube_txt():
                 
                 lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
                 
-                # Only add User-Agent if it's NOT a raw YouTube HLS link (YouTube HLS hates headers)
-                if "googlevideo.com" not in url:
-                    if "|" not in url and "http" in url:
-                        url += f"|User-Agent={UA_HEADER}"
+                # Do NOT add headers to the raw youtube link (yt-dlp handles it)
+                if "googlevideo.com" not in url and "|" not in url and "http" in url:
+                     url += f"|User-Agent={UA_HEADER}"
                 
                 lines.append(url)
                 
@@ -233,7 +193,6 @@ def main():
 
             new_group = group 
             
-            # FORCE KEEP ZEE TAMIL/THIRAI HD
             if "zee tamil hd" in clean_name:
                 new_group = "Tamil HD"; is_duplicate = False 
             elif "zee thirai hd" in clean_name:
