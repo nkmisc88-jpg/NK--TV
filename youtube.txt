@@ -40,8 +40,7 @@ Link : https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lan
 
 Title: JioHotstar English
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
-Link: https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lang=eng&uid=706298993&pass=ef2678f2
-
+Link: https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059100&lang=eng&uid=706298993&pass=ef2678f2
 
 
 
