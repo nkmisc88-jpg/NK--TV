@@ -1,13 +1,13 @@
-name: Auto Update Playlist
+name: Update Playlist Script
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # Changed to run every 15 minutes
+    - cron: '*/15 * * * *' # Runs every 15 minutes
   push:
     paths:
-      - 'youtube.txt'     # Trigger when youtube.txt changes
-      - 'auto_update.py'  # Trigger when the script changes
-  workflow_dispatch:      # Manual trigger button
+      - 'youtube.txt'        # Trigger when youtube.txt changes
+      - 'update_playlist.py' # Trigger when the script changes
+  workflow_dispatch:         # Manual trigger button
 
 jobs:
   build:
@@ -29,15 +29,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Run Auto Update Script
-        run: python auto_update.py
+      # CORRECTED: Runs 'update_playlist.py'
+      - name: Run Update Playlist Script
+        run: python update_playlist.py
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           
-          # 1. Stage the output file
+          # 1. Stage the output file (playlist.m3u)
           git add playlist.m3u
           
           # 2. Check for changes (Exit smoothly if none)
