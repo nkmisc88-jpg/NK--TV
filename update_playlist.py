@@ -23,7 +23,7 @@ zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/m
 # POCKET TV SOURCE (Arunjunan20)
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# REMOVAL LIST (Skips broken template versions so working Extras take over)
+# REMOVAL LIST 
 REMOVE_KEYWORDS = ["zee thirai", "zee tamil"]
 
 # MAPPING
@@ -38,6 +38,10 @@ NAME_OVERRIDES = {
     "nat geo hd": "National Geographic HD",
     "nat geo wild hd": "Nat Geo Wild HD",
 }
+
+# CONSTANTS
+DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
+UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # ==========================================
 # 1. HELPER FUNCTIONS
@@ -93,43 +97,73 @@ def fetch_backup_map(url):
 # ==========================================
 # 2. SMART PARSER & FETCHERS
 # ==========================================
+
+# --- FIXED FUNCTION: SUPPORTS #KODIPROP TAGS ---
 def parse_youtube_txt():
-    new_entries = []
+    print("   ...Reading youtube.txt")
+    lines = []
     if not os.path.exists(youtube_file): return []
-    with open(youtube_file, "r", encoding="utf-8") as f: lines = f.readlines()
+    
+    try:
+        with open(youtube_file, "r", encoding="utf-8", errors="ignore") as f:
+            file_lines = f.readlines()
+        
+        current_title = "Unknown Channel"
+        current_logo = DEFAULT_LOGO
+        current_props = [] 
+        
+        for line in file_lines:
+            line = line.strip()
+            if not line: continue
+            if len(line) > 300: continue
 
-    current_entry = {}
-    for line in lines:
-        line = line.strip()
-        if not line: continue 
-        if line.lower().startswith("title") and ":" in line:
-            if 'link' in current_entry: new_entries.append(process_entry(current_entry))
-            current_entry = {} 
-        if ':' in line:
-            parts = line.split(':', 1)
-            current_entry[parts[0].strip().lower()] = parts[1].strip()
-    if 'link' in current_entry: new_entries.append(process_entry(current_entry))
-    return new_entries
+            lower_line = line.lower()
 
-def process_entry(data):
-    title = data.get('title', 'Unknown Channel')
-    logo = data.get('logo', '')
-    link = data.get('link', '')
-    if "youtube.com" in link or "youtu.be" in link:
-        vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
-        if vid_match:
-            link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
-            print(f"   ✨ Converted: {title}")
-    else:
-        print(f"   ▶️  Media Link: {title}")
-    return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
+            if lower_line.startswith("title"):
+                parts = line.split(":", 1)
+                if len(parts) > 1: current_title = parts[1].strip()
+            
+            elif lower_line.startswith("logo"):
+                parts = line.split(":", 1)
+                if len(parts) > 1: current_logo = parts[1].strip()
+
+            # CAPTURE TAGS (The Fix)
+            elif line.startswith("#"):
+                current_props.append(line)
+            
+            elif "http" in lower_line:
+                url_start = lower_line.find("http")
+                url = line[url_start:].strip()
+                
+                # Write Tags first
+                if current_props:
+                    lines.extend(current_props)
+                    current_props = [] 
+                
+                # Write Entry
+                lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
+                
+                # Append User-Agent only if missing (and logic allows)
+                # Note: We keep your original logic here, but for DASH links we usually don't want to force UA.
+                # Since your other script removed forced UA, we will be careful here.
+                if "|" not in url and "http" in url:
+                     url += f"|User-Agent={UA_HEADER}"
+                
+                lines.append(url)
+                
+                current_title = "Unknown Channel"
+                current_logo = DEFAULT_LOGO
+                current_props = []
+
+    except Exception as e:
+        print(f"   ❌ Error reading youtube.txt: {e}")
+    return lines
 
 def fetch_and_group(url, group_name):
     entries = []
     print(f"🌍 Fetching into '{group_name}'...")
     try:
-        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        r = requests.get(url, headers={"User-Agent": ua}, timeout=15)
+        r = requests.get(url, headers={"User-Agent": UA_HEADER}, timeout=15)
         if r.status_code == 200:
             lines = r.text.splitlines()
             for line in lines:
@@ -144,16 +178,11 @@ def fetch_and_group(url, group_name):
         print(f"❌ Error fetching: {e}")
     return entries
 
-# --- MODIFIED FUNCTION: POCKET TV (ARUNJUNAN) EXTRACTION ---
-# Adds ALL Sports and ALL Tamil channels. No Deduplication.
 def fetch_pocket_extras():
     entries = []
     print(f"🌍 Fetching & Filtering Pocket TV...")
     try:
-        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        r = requests.get(pocket_url, headers={"User-Agent": ua}, timeout=15)
-        
-        # KEYWORDS for fallback
+        r = requests.get(pocket_url, headers={"User-Agent": UA_HEADER}, timeout=15)
         SPECIFIC_WANTED = ["rasi", "astro", "vijay takkar"]
         
         if r.status_code == 200:
@@ -165,31 +194,21 @@ def fetch_pocket_extras():
                 if "#EXTINF" in line:
                     name = line.split(",")[-1].strip()
                     name_lower = name.lower()
-                    
                     target_group = None
                     
-                    # 1. DETECT GROUPS FROM SOURCE
-                    # Sports
                     if 'group-title="Sports"' in line or 'group-title="Sports HD"' in line:
                         target_group = "Sports Extra"
-                    # Tamil
                     elif 'group-title="Tamil"' in line or 'group-title="Tamil HD"' in line:
                         target_group = "Tamil Extra"
-                    
-                    # 2. CHECK KEYWORDS (For specific requests not grouped correctly)
                     elif any(x in name_lower for x in SPECIFIC_WANTED):
-                         if "cricket" in name_lower or "sport" in name_lower:
-                             target_group = "Sports Extra"
-                         else:
-                             target_group = "Tamil Extra"
+                         if "cricket" in name_lower or "sport" in name_lower: target_group = "Sports Extra"
+                         else: target_group = "Tamil Extra"
                     
                     if target_group:
-                        # Grab logo
                         logo = ""
                         logo_match = re.search(r'tvg-logo="([^"]*)"', line)
                         if logo_match: logo = logo_match.group(1)
                         
-                        # Find link
                         link = ""
                         for j in range(i + 1, min(i + 5, len(lines))):
                             potential = lines[j].strip()
@@ -197,18 +216,12 @@ def fetch_pocket_extras():
                                 link = potential; break
                         
                         if link:
-                            # FIX PLAYBACK: Append User-Agent if missing
-                            if "http" in link and "|" not in link:
-                                link += f"|User-Agent={ua}"
-                                
-                            # Rebuild Clean Line
+                            if "http" in link and "|" not in link: link += f"|User-Agent={UA_HEADER}"
                             meta = f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{logo}",{name}'
                             entries.append(meta)
                             entries.append(link)
                             count += 1
-                            
             print(f"✅ Extracted {count} Requested Channels.")
-            
     except Exception as e: print(f"❌ Error Pocket TV: {e}")
     return entries
 
@@ -250,7 +263,6 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # 1. TRY LOCAL (Preferred for everything)
                     mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
                     if clean_key in local_map:
                          final_lines.append(line)
@@ -263,7 +275,6 @@ def update_playlist():
                          skip_next_url = True
                          stats["local"] += 1
                     else:
-                         # 2. BACKUP
                          found_block = find_best_backup_link(original_name, backup_map)
                          if found_block:
                              final_lines.append(line); final_lines.extend(found_block)
@@ -281,16 +292,13 @@ def update_playlist():
 
     except FileNotFoundError: pass
 
-    # 1. LIVE EVENTS
     print("🎥 Appending Live Events...")
     final_lines.extend(fetch_and_group(fancode_url, "Live Events"))
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
 
-    # 2. POCKET TV EXTRAS (ALL Sports + ALL Tamil)
     final_lines.extend(fetch_pocket_extras())
 
-    # 3. MANUAL / YOUTUBE
     print("🎥 Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
 
