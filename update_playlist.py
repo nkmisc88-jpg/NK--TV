@@ -16,20 +16,15 @@ base_url = "http://192.168.0.146:5350/live"
 backup_url = "https://raw.githubusercontent.com/fakeall12398-sketch/JIO_TV/refs/heads/main/jstar.m3u"
 fancode_url = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 
-# NEW LIVE EVENT SOURCES
+# LIVE EVENT SOURCES
 sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# REMOVAL LIST
-REMOVE_KEYWORDS = ["zee thirai"]
+# POCKET TV SOURCE (Arunjunan20)
+pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# FORCE BACKUP LIST
-FORCE_BACKUP_KEYWORDS = [
-    "zee", "vijay", "asianet", "suvarna", "maa", "hotstar", "sony", "set", "sab",
-    "nick", "cartoon", "pogo", "disney", "hungama", "sonic", "discovery", 
-    "history", "tlc", "animal planet", "travelxp", "bbc earth", "movies now", "mnx", "romedy", "mn+", "pix",
-    "&pictures", "ten"
-]
+# REMOVAL LIST 
+REMOVE_KEYWORDS = ["zee thirai", "zee tamil"]
 
 # MAPPING
 NAME_OVERRIDES = {
@@ -42,10 +37,11 @@ NAME_OVERRIDES = {
     "star sports 2 tamil hd": "Star Sports 2 Tamil HD",
     "nat geo hd": "National Geographic HD",
     "nat geo wild hd": "Nat Geo Wild HD",
-    "sony sports ten 1 hd": "Sony Sports Ten 1 HD",
-    "sony sports ten 2 hd": "Sony Sports Ten 2 HD",
-    "sony sports ten 5 hd": "Sony Sports Ten 5 HD",
 }
+
+# CONSTANTS
+DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
+UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # ==========================================
 # 1. HELPER FUNCTIONS
@@ -54,12 +50,6 @@ def clean_name_key(name):
     name = re.sub(r'\[.*?\]|\(.*?\)', '', name)
     name = re.sub(r'[^a-zA-Z0-9]', '', name)
     return name.lower().strip()
-
-def should_force_backup(name):
-    norm = name.lower()
-    for k in FORCE_BACKUP_KEYWORDS:
-        if k in norm: return True
-    return False
 
 def find_best_backup_link(original_name, backup_map):
     clean_orig = clean_name_key(original_name)
@@ -105,62 +95,132 @@ def fetch_backup_map(url):
     return block_map
 
 # ==========================================
-# 2. SMART PARSER
+# 2. SMART PARSER & FETCHERS
 # ==========================================
+
+# --- NEW SMART READER FOR YOUTUBE.TXT ---
 def parse_youtube_txt():
-    new_entries = []
+    print("   ...Reading youtube.txt")
+    lines = []
     if not os.path.exists(youtube_file): return []
-    with open(youtube_file, "r", encoding="utf-8") as f: lines = f.readlines()
+    
+    try:
+        with open(youtube_file, "r", encoding="utf-8", errors="ignore") as f:
+            file_lines = f.readlines()
+        
+        current_title = "Unknown Channel"
+        current_logo = DEFAULT_LOGO
+        current_props = [] 
+        
+        for line in file_lines:
+            line = line.strip()
+            if not line: continue
+            if len(line) > 400: continue
 
-    current_entry = {}
-    for line in lines:
-        line = line.strip()
-        if not line: continue 
-        if line.lower().startswith("title") and ":" in line:
-            if 'link' in current_entry: new_entries.append(process_entry(current_entry))
-            current_entry = {} 
-        if ':' in line:
-            parts = line.split(':', 1)
-            current_entry[parts[0].strip().lower()] = parts[1].strip()
-    if 'link' in current_entry: new_entries.append(process_entry(current_entry))
-    return new_entries
+            lower_line = line.lower()
 
-def process_entry(data):
-    title = data.get('title', 'Unknown Channel')
-    logo = data.get('logo', '')
-    link = data.get('link', '')
-    if "youtube.com" in link or "youtu.be" in link:
-        vid_match = re.search(r'(?:v=|\/live\/|\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]{11})', link)
-        if vid_match:
-            link = f"https://youtube.jitendraunatti.workers.dev/wanda.m3u8?id={vid_match.group(1)}"
-            print(f"   ✨ Converted: {title}")
-    else:
-        print(f"   ▶️  Media Link: {title}")
-    return f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}\n{link}'
+            if lower_line.startswith("title"):
+                parts = line.split(":", 1)
+                if len(parts) > 1: current_title = parts[1].strip()
+            
+            elif lower_line.startswith("logo"):
+                parts = line.split(":", 1)
+                if len(parts) > 1: current_logo = parts[1].strip()
 
-# --- NEW HELPER: FETCH AND GROUP ---
+            # CAPTURE TAGS (Critical for your #KODIPROP tags)
+            elif line.startswith("#"):
+                current_props.append(line)
+            
+            elif "http" in lower_line:
+                url_start = lower_line.find("http")
+                url = line[url_start:].strip()
+                
+                # Write Tags first
+                if current_props:
+                    lines.extend(current_props)
+                    current_props = [] 
+                
+                # Write Entry
+                lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
+                
+                # Add User-Agent ONLY if not present and usually standard
+                if "|" not in url and "http" in url:
+                     url += f"|User-Agent={UA_HEADER}"
+                
+                lines.append(url)
+                
+                current_title = "Unknown Channel"
+                current_logo = DEFAULT_LOGO
+                current_props = []
+
+    except Exception as e:
+        print(f"   ❌ Error reading youtube.txt: {e}")
+    return lines
+
 def fetch_and_group(url, group_name):
     entries = []
     print(f"🌍 Fetching into '{group_name}'...")
     try:
-        ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        r = requests.get(url, headers={"User-Agent": ua}, timeout=15)
+        r = requests.get(url, headers={"User-Agent": UA_HEADER}, timeout=15)
         if r.status_code == 200:
             lines = r.text.splitlines()
             for line in lines:
                 line = line.strip()
                 if not line or line.startswith("#EXTM3U"): continue
-                
                 if line.startswith("#EXTINF"):
-                    # Remove existing group
                     line = re.sub(r'group-title="[^"]*"', '', line)
-                    # Force new group (Regex allows it to work on any format)
                     line = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{group_name}"', line)
-                
                 entries.append(line)
             print(f"✅ Merged {len(entries)//2} channels into {group_name}.")
     except Exception as e:
         print(f"❌ Error fetching: {e}")
+    return entries
+
+def fetch_pocket_extras():
+    entries = []
+    print(f"🌍 Fetching & Filtering Pocket TV...")
+    try:
+        r = requests.get(pocket_url, headers={"User-Agent": UA_HEADER}, timeout=15)
+        SPECIFIC_WANTED = ["rasi", "astro", "vijay takkar"]
+        
+        if r.status_code == 200:
+            lines = r.text.splitlines()
+            count = 0
+            for i in range(len(lines)):
+                line = lines[i].strip()
+                
+                if "#EXTINF" in line:
+                    name = line.split(",")[-1].strip()
+                    name_lower = name.lower()
+                    target_group = None
+                    
+                    if 'group-title="Sports"' in line or 'group-title="Sports HD"' in line:
+                        target_group = "Sports Extra"
+                    elif 'group-title="Tamil"' in line or 'group-title="Tamil HD"' in line:
+                        target_group = "Tamil Extra"
+                    elif any(x in name_lower for x in SPECIFIC_WANTED):
+                         if "cricket" in name_lower or "sport" in name_lower: target_group = "Sports Extra"
+                         else: target_group = "Tamil Extra"
+                    
+                    if target_group:
+                        logo = ""
+                        logo_match = re.search(r'tvg-logo="([^"]*)"', line)
+                        if logo_match: logo = logo_match.group(1)
+                        
+                        link = ""
+                        for j in range(i + 1, min(i + 5, len(lines))):
+                            potential = lines[j].strip()
+                            if potential and not potential.startswith("#"):
+                                link = potential; break
+                        
+                        if link:
+                            if "http" in link and "|" not in link: link += f"|User-Agent={UA_HEADER}"
+                            meta = f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{logo}",{name}'
+                            entries.append(meta)
+                            entries.append(link)
+                            count += 1
+            print(f"✅ Extracted {count} Requested Channels.")
+    except Exception as e: print(f"❌ Error Pocket TV: {e}")
     return entries
 
 # ==========================================
@@ -168,13 +228,17 @@ def fetch_and_group(url, group_name):
 # ==========================================
 def update_playlist():
     print("--- STARTING UPDATE ---")
-    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # --- TIMEZONE FIX: Convert UTC to IST ---
+    ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
+    current_time = ist_now.strftime("%Y-%m-%d %H:%M:%S IST")
+    
     final_lines = ["#EXTM3U", f"# Updated on: {current_time}"]
     
     local_map = load_local_map(reference_file)
     backup_map = fetch_backup_map(backup_url)
     stats = {"local": 0, "backup": 0, "missing": 0}
-
+    
     try:
         with open(template_file, "r", encoding="utf-8") as f: lines = f.readlines()
         skip_next_url = False 
@@ -190,7 +254,7 @@ def update_playlist():
                 skip_next_url = False
                 original_name = line.split(",")[-1].strip()
                 ch_name_lower = original_name.lower()
-
+                
                 should_remove = False
                 for rm in REMOVE_KEYWORDS:
                     if rm in ch_name_lower: should_remove = True; break
@@ -201,56 +265,44 @@ def update_playlist():
                     clean_key = clean_name_key(original_name)
                     found_block = None
                     
-                    # 1. FORCE BACKUP (Only for Zee/Sony/etc)
-                    if should_force_backup(original_name):
-                        found_block = find_best_backup_link(original_name, backup_map)
-                    
-                    if found_block:
-                         final_lines.append(line); final_lines.extend(found_block)
+                    mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
+                    if clean_key in local_map:
+                         final_lines.append(line)
+                         final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
                          skip_next_url = True
-                         stats["backup"] += 1
+                         stats["local"] += 1
+                    elif mapped_key and mapped_key in local_map:
+                         final_lines.append(line)
+                         final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
+                         skip_next_url = True
+                         stats["local"] += 1
                     else:
-                         # 2. TRY LOCAL (Preferred for Star Sports/Nat Geo)
-                         mapped_key = clean_name_key(NAME_OVERRIDES.get(ch_name_lower, ""))
-                         
-                         if clean_key in local_map:
-                             final_lines.append(line)
-                             final_lines.append(f"{base_url}/{local_map[clean_key]}.m3u8")
+                         found_block = find_best_backup_link(original_name, backup_map)
+                         if found_block:
+                             final_lines.append(line); final_lines.extend(found_block)
                              skip_next_url = True
-                             stats["local"] += 1
-                         elif mapped_key and mapped_key in local_map:
-                             final_lines.append(line)
-                             final_lines.append(f"{base_url}/{local_map[mapped_key]}.m3u8")
-                             skip_next_url = True
-                             stats["local"] += 1
+                             stats["backup"] += 1
                          else:
-                             # 3. LAST RESORT: Try Backup if Local failed
-                             found_block = find_best_backup_link(original_name, backup_map)
-                             if found_block:
-                                 final_lines.append(line); final_lines.extend(found_block)
-                                 skip_next_url = True
-                                 stats["backup"] += 1
-                             else:
-                                 final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
-                                 skip_next_url = True
-                                 stats["missing"] += 1
+                             final_lines.append(line); final_lines.append(f"{base_url}/000.m3u8")
+                             skip_next_url = True
+                             stats["missing"] += 1
                 else:
                     final_lines.append(line)
-
             elif not line.startswith("#"):
                 if skip_next_url: skip_next_url = False
                 else: final_lines.append(line)
 
     except FileNotFoundError: pass
 
-    print("🎥 Appending Temporary Channels...")
-    final_lines.extend(parse_youtube_txt())
-
-    # --- CHANGED: Grouping everything into "Live Events" ---
-    print("🎥 Appending Live Events (Fancode, Sony, Zee)...")
+    print("🎥 Appending Live Events...")
     final_lines.extend(fetch_and_group(fancode_url, "Live Events"))
     final_lines.extend(fetch_and_group(sony_m3u, "Live Events"))
     final_lines.extend(fetch_and_group(zee_m3u, "Live Events"))
+
+    final_lines.extend(fetch_pocket_extras())
+
+    print("🎥 Appending Temporary Channels...")
+    final_lines.extend(parse_youtube_txt())
 
     with open(output_file, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
     print(f"🎉 DONE. Local: {stats['local']} | Backup: {stats['backup']} | Missing: {stats['missing']}")
