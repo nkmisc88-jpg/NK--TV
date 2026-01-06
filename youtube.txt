@@ -34,9 +34,17 @@ Title : Fox 4k
 Logo : 
 https://joker-verse.vercel.app/ptv/itv /3059303.m3u8
 
-Title : Test 
+Title : Test 1
 Logo : 
-Link : https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lang=eng&uid=706298993&pass=ef2678f2
+Link : https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lang=eng&uid=706298993&pass=ef2678f2&.mpd
+
+Title : Test 2
+Logo : 
+Link : Title: JioHotstar English
+Link: https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lang=eng&uid=706298993&pass=ef2678f2|User-Agent=Mozilla/5.0
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+
+
 
 
 
