@@ -73,9 +73,14 @@ def fetch_live_events(url):
     return lines
 
 def parse_youtube_txt():
+    """
+    Reads youtube.txt and captures Title, Logo, Link, AND custom tags like #KODIPROP
+    """
     print("   ...Reading youtube.txt")
     lines = []
-    if not os.path.exists(YOUTUBE_FILE): return []
+    if not os.path.exists(YOUTUBE_FILE): 
+        print("      ⚠️ youtube.txt not found!")
+        return []
     
     try:
         with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
@@ -83,6 +88,7 @@ def parse_youtube_txt():
         
         current_title = "Unknown Channel"
         current_logo = DEFAULT_LOGO
+        current_props = [] # Buffer for tags like #KODIPROP
         
         for line in file_lines:
             line = line.strip()
@@ -93,26 +99,41 @@ def parse_youtube_txt():
 
             lower_line = line.lower()
 
+            # 1. Capture Title
             if lower_line.startswith("title"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_title = parts[1].strip()
             
+            # 2. Capture Logo
             elif lower_line.startswith("logo"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_logo = parts[1].strip()
+
+            # 3. Capture Custom Tags (The Fix for DASH/MPD)
+            elif line.startswith("#"):
+                current_props.append(line)
             
+            # 4. Capture Link
             elif "http" in lower_line:
                 url_start = lower_line.find("http")
                 url = line[url_start:].strip()
                 
-                # Add to Temporary Channels
+                # A. Write any custom props found (e.g., #KODIPROP)
+                if current_props:
+                    lines.extend(current_props)
+                    current_props = [] # Clear buffer
+                
+                # B. Write the standard EXTINF line
                 lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
                 
+                # C. Write the Link
                 if "|" not in url: url += f"|User-Agent={UA_HEADER}"
                 lines.append(url)
                 
+                # Reset for next channel
                 current_title = "Unknown Channel"
                 current_logo = DEFAULT_LOGO
+                current_props = []
 
     except Exception as e:
         print(f"   ❌ Error reading youtube.txt: {e}")
