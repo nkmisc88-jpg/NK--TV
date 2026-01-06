@@ -3,6 +3,7 @@ import re
 import datetime
 import os
 import sys
+import json
 
 # ==========================================
 # CONFIGURATION
@@ -25,6 +26,7 @@ INFOTAINMENT_KEYWORDS = ["discovery", "animal planet", "nat geo", "history tv", 
 BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
 
 DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
+# Standard User Agent for regular requests
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # ==========================================
@@ -66,22 +68,61 @@ def fetch_live_events(url):
     except: pass
     return lines
 
-# --- NEW: YOUTUBE SCANNER ---
+# --- DEEP THINKING: ANDROID API SCANNER ---
 def get_youtube_live_url(youtube_url):
-    print(f"      🔎 Scanning YouTube: {youtube_url}")
+    print(f"      🔎 Scanning YouTube (API Mode): {youtube_url}")
     try:
-        session = requests.Session()
-        session.headers.update({'User-Agent': UA_HEADER})
-        response = session.get(youtube_url, allow_redirects=True)
+        # 1. Extract Video ID intelligently
+        video_id = None
+        if "v=" in youtube_url:
+            video_id = youtube_url.split("v=")[1].split("&")[0]
+        elif "youtu.be/" in youtube_url:
+            video_id = youtube_url.split("youtu.be/")[1].split("?")[0]
+        elif "/live/" in youtube_url:
+            video_id = youtube_url.split("/live/")[1].split("?")[0]
+            
+        if not video_id:
+            print("         ❌ Could not find Video ID.")
+            return youtube_url
+
+        # 2. Call YouTube Internal API (Imitating Android App)
+        # This bypasses the HTML scraping issues
+        api_url = "https://www.youtube.com/youtubei/v1/player"
+        payload = {
+            "videoId": video_id,
+            "context": {
+                "client": {
+                    "clientName": "ANDROID",
+                    "clientVersion": "17.31.35",
+                    "androidSdkVersion": 30,
+                    "hl": "en",
+                    "gl": "US",
+                    "utcOffsetMinutes": 0
+                }
+            }
+        }
         
-        if 'hlsManifestUrl' in response.text:
-            match = re.search(r'"hlsManifestUrl":"(https://[^"]+)"', response.text)
-            if match:
-                print("         ✅ Found Raw Live Stream!")
-                return match.group(1)
-        print("         ❌ Could not find live stream (Is it live?)")
+        # Headers specifically for the API
+        headers = {
+            "Content-Type": "application/json",
+            "User-Agent": "com.google.android.youtube/17.31.35 (Linux; U; Android 11) gzip"
+        }
+        
+        r = requests.post(api_url, json=payload, headers=headers, timeout=10)
+        data = r.json()
+        
+        # 3. Extract the HLS Manifest URL
+        if "streamingData" in data and "hlsManifestUrl" in data["streamingData"]:
+            m3u8_url = data["streamingData"]["hlsManifestUrl"]
+            print("         ✅ Found Raw Live Stream (API)!")
+            return m3u8_url
+            
+        print("         ❌ Live stream not found in API response (Is it offline?)")
+    
     except Exception as e:
         print(f"         ❌ Error scanning YouTube: {e}")
+    
+    # Fallback: Return original URL if API fails, so at least something exists
     return youtube_url 
 
 def parse_youtube_txt():
@@ -130,8 +171,10 @@ def parse_youtube_txt():
                 
                 lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
                 
-                if "|" not in url and "http" in url:
-                     url += f"|User-Agent={UA_HEADER}"
+                # Only add User-Agent if it's NOT a raw YouTube HLS link (YouTube HLS hates headers)
+                if "googlevideo.com" not in url:
+                    if "|" not in url and "http" in url:
+                        url += f"|User-Agent={UA_HEADER}"
                 
                 lines.append(url)
                 
