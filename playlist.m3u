@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-06 08:30:04
+# Updated on: 2026-01-06 08:33:23
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,25 +846,23 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab&xxx=||cookie=__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 6 January 2026 at 1:56:07 pm
+#DATE:- Tuesday, 6 January 2026 at 2:00:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139297" tvg-name="Melbourne City Vs Brisbane Roar" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139297_5802_MLC_BRB_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Melbourne City Vs Brisbane Roar
 https://in-mc-fdlive.fancode.com/mumbai/139297_english_hls_f36047abdf47496_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139189" tvg-name="Show Court 1   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 3
-https://in-mc-fdlive.fancode.com/mumbai/139189_english_hls_113052468285825_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139188" tvg-name="Pat Rafter Arena   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 3
 https://in-mc-fdlive.fancode.com/mumbai/139188_english_hls_6b8f42fb4d72441_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139205" tvg-name="Center Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139205_english_hls_2d73b606da56886_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139284" tvg-name="Centre Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139284_english_hls_7a28b3ff2d36797_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 06-01-2026 13:40
+#DATE:- 06-01-2026 14:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498903" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012911/1767426670814632_UnitedCup26_Australia_vs_Czechia__landscape_thumb.jpg" tvg-language="English" ,ENG | Australia vs Czechia - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767724201~acl=/*~id=e600f575f656091ae83d0fe580f40bbe-1767681000144~hmac=5590e61dded1ed22e81942780ca750a89eb506010c0e94e94a7d856b3ea797e8|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; PJJ110; Build/PQ3A.190705.08061357)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f5e182c4a22fa005569cd83329a3c98a-1767687010806
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767724201~acl=/*~id=e600f575f656091ae83d0fe580f40bbe-1767681000144~hmac=5590e61dded1ed22e81942780ca750a89eb506010c0e94e94a7d856b3ea797e8|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; Redmi K20 Pro; Build/SKQ1.211006.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=6d93d4f8df3cc5ac80d7e5c5e1dfc730-1767688211134
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498904" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012911/1767426438011632_UnitedCup26_Italy_vs_France_landscape_thumb.jpg" tvg-language="English" ,ENG | Italy vs France - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767724201~acl=/*~id=e600f575f656091ae83d0fe580f40bbe-1767681000144~hmac=5590e61dded1ed22e81942780ca750a89eb506010c0e94e94a7d856b3ea797e8|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; 25057PC09I; Build/AQ3A.250226.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f5e182c4a22fa005569cd83329a3c98a-1767687010806
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767724201~acl=/*~id=e600f575f656091ae83d0fe580f40bbe-1767681000144~hmac=5590e61dded1ed22e81942780ca750a89eb506010c0e94e94a7d856b3ea797e8|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; MiTV-AESP0; Build/QT)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=6d93d4f8df3cc5ac80d7e5c5e1dfc730-1767688211134
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 6 January 2026 at 1:45:07 pm
+#DATE:- Tuesday, 6 January 2026 at 2:00:15 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873779" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873779/list/1920x1080list11f647ac56294eaaafabbeb8a74a1c5709ee238f13d44e2da5d35471701ddfb0.jpg" tvg-language="bengali" ,BEN | Fc Medinipur Vs Howrah Hooghly Warriors
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1767771006~acl=%2f*~data=hdntl~hmac=39c86996ee710e1e52813615bf50478b1debd3039e5b572ded2a1f837b97cb81|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873779" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873779/list/1920x1080list11f647ac56294eaaafabbeb8a74a1c5709ee238f13d44e2da5d35471701ddfb0.jpg" tvg-language="english" ,ENG | Fc Medinipur Vs Howrah Hooghly Warriors
