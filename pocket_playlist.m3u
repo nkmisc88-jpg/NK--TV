@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-06 10:48:34 IST
+# Last Updated: 2026-01-06 10:49:18 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3077,6 +3077,10 @@ https://in-mc-fdlive.fancode.com/mumbai/133965_english_hls_6f58f9021288256_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139189_english_hls_113052468285825_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139188" tvg-name="Pat Rafter Arena   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 3
 https://in-mc-fdlive.fancode.com/mumbai/139188_english_hls_6b8f42fb4d72441_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139205" tvg-name="Center Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 2
+https://in-mc-fdlive.fancode.com/mumbai/139205_english_hls_2d73b606da56886_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139284" tvg-name="Centre Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 2
+https://in-mc-fdlive.fancode.com/mumbai/139284_english_hls_7a28b3ff2d36797_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498904" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012911/1767426438011632_UnitedCup26_Italy_vs_France_landscape_thumb.jpg" tvg-language="English" ,ENG | Italy vs France - 6 Jan 2026
 https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767702601~acl=/*~id=dae3df7b34adcb65b17d912c5165416d-1767659400158~hmac=b0ae7dcd2c54bce9d5efddd5ce355b35cd424928244f86cd431d8beba996088a|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; RMX1971; Build/RKQ1.201217.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=563f1990762941a99fdda7dd7be2036f-1767676210754
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498903" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012913/1767427703499238_UC26_Canada-vs-Belgium_3jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Canada vs Belgium - 6 Jan 2026
