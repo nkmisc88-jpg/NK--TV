@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-06 17:20:23 IST
+# Updated on: 2026-01-06 17:25:09 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,17 +846,15 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab&xxx=||cookie=__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 6 January 2026 at 5:17:01 pm
+#DATE:- Tuesday, 6 January 2026 at 5:22:02 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139251" tvg-name="Vietnam U23 Vs Jordan U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139251_5822_VIE-U23_JOR-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Vietnam U23 Vs Jordan U23
 https://in-mc-fdlive.fancode.com/mumbai/139251_english_hls_06a0584b3f96296_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139205" tvg-name="Center Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139205_english_hls_2d73b606da56886_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139284" tvg-name="Centre Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139284_english_hls_7a28b3ff2d36797_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 06-01-2026 17:02
-#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498903" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012911/1767426670814632_UnitedCup26_Australia_vs_Czechia__landscape_thumb.jpg" tvg-language="English" ,ENG | Australia vs Czechia - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767724201~acl=/*~id=e600f575f656091ae83d0fe580f40bbe-1767681000144~hmac=5590e61dded1ed22e81942780ca750a89eb506010c0e94e94a7d856b3ea797e8|User-Agent=com.sonyliv/6.22.4 (Android 16; en_GB; CPH2381; Build/BP2A.250605.031.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=63357396a54b954741bdb750be0b4808-1767699123663
+#DATE:- 06-01-2026 17:22
+#No live matches.
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #DATE:- Tuesday, 6 January 2026 at 5:17:01 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list2441c26007a148aeb3494f9fab5b40b7ab88702215274490aff3e54f3e71882a.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
@@ -1031,8 +1029,8 @@ https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/mrskysvotx/
 https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/irtfdsri14/out/v1/165128c314e944faa3d79e107974b323/cenc.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/TSN5.svg/640px-TSN5.svg.png",TSN 5
 http://otte.live.fly.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/mttgh1c4ei/out/v1/9cc664b146744e2ba23066aa048efbc5/cenc.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 4k
-https://joker-verse.vercel.app/ptv/itv /3059303.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",JioHotstar English
+https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 505
