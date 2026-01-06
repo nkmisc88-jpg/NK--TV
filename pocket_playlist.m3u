@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-06 22:30:13 IST
+# Updated on: 2026-01-06 23:19:42 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3074,11 +3074,7 @@ https://in-mc-fdlive.fancode.com/mumbai/138385_english_hls_661a51027281776_1ta-d
 #EXTINF:-1 group-title="Live Events" tvg-id="139252" tvg-name="Saudi Arabia U23 Vs Kyrgyz Republic U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139252_5822_SU-U23_KYG-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Saudi Arabia U23 Vs Kyrgyz Republic U23
 https://in-mc-fdlive.fancode.com/mumbai/139252_english_hls_400082b1c226677_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
-https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1767745802~acl=/*~id=9ea35535ff909200bb476d058091e128-1767702600119~hmac=b954ce18a703b5af73f892320444e0f6f7bc73e251567878eac5e5a7a14eac6d|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; A065; Build/AQ3A.240929.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=b2b4a8faac26d7a97732658ca10cbac9-1767718211987
-#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list67b88bc6a7714058b32b24c2f128b752674875fadc174b71b4815e107e31cf4f.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
-https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767801604~acl=%2f*~data=hdntl~hmac=8cb4f2cd8e36262b32282cefd89e997748569fad3259a3acd5b1291d27a6dba0|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
-#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list67b88bc6a7714058b32b24c2f128b752674875fadc174b71b4815e107e31cf4f.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
-https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767801606~acl=%2f*~data=hdntl~hmac=6ec3ff7263a7d95442e2ae572ab2d6a541559d3a7c104dbab739ae0c68b3b832|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1767745802~acl=/*~id=9ea35535ff909200bb476d058091e128-1767702600119~hmac=b954ce18a703b5af73f892320444e0f6f7bc73e251567878eac5e5a7a14eac6d|User-Agent=com.sonyliv/6.22.4 (Android 8; en_GB; MStar Android TV; Build/OPR5.170623.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=8138a0ca412eb20cdec7ca904a03995f-1767720613756
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 4k
 https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
