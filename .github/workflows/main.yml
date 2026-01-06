@@ -1,12 +1,13 @@
-name: Pocket Playlist Generator
+name: Auto Update Playlist
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # Runs every 30 minutes
+    - cron: '*/15 * * * *' # Changed to run every 15 minutes
   push:
     paths:
-      - '**'
-  workflow_dispatch:
+      - 'youtube.txt'     # Trigger when youtube.txt changes
+      - 'auto_update.py'  # Trigger when the script changes
+  workflow_dispatch:      # Manual trigger button
 
 jobs:
   build:
@@ -28,25 +29,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Run Playlist Generator Script
-        run: python create_pocket_playlist.py
+      - name: Run Auto Update Script
+        run: python auto_update.py
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           
-          # 1. Stage the file
-          git add pocket_playlist.m3u
+          # 1. Stage the output file
+          git add playlist.m3u
           
-          # 2. Check for changes
-          # If no changes, print message and exit successfully (don't error out)
+          # 2. Check for changes (Exit smoothly if none)
           if git diff --staged --quiet; then
             echo "No changes to commit. Workflow finished."
             exit 0
           fi
           
-          # 3. Commit and Push if changes exist
+          # 3. Commit and Push
           git commit -m "Auto-update Playlist"
           git pull origin main --rebase
           git push origin main
