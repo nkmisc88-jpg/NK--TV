@@ -1,12 +1,12 @@
-name: Update Playlist Script
+name: Auto Update Playlist
 
 on:
   schedule:
     - cron: '*/15 * * * *' # Runs every 15 minutes
   push:
     paths:
-      - 'youtube.txt'        # Trigger when youtube.txt changes
-      - 'update_playlist.py' # Trigger when the script changes
+      - 'youtube.txt'        # Runs if you change youtube.txt
+      - 'update_playlist.py' # Runs if you change the script
   workflow_dispatch:         # Manual trigger button
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      # CORRECTED: Runs 'update_playlist.py'
+      # This runs your specific script
       - name: Run Update Playlist Script
         run: python update_playlist.py
 
@@ -41,7 +41,7 @@ jobs:
           # 1. Stage the output file (playlist.m3u)
           git add playlist.m3u
           
-          # 2. Check for changes (Exit smoothly if none)
+          # 2. Check for changes (Fixes the Red Error)
           if git diff --staged --quiet; then
             echo "No changes to commit. Workflow finished."
             exit 0
