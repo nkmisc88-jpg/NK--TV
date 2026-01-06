@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-06 08:52:32 IST
+# Last Updated: 2026-01-06 08:53:02 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3093,5 +3093,6 @@ https://dj-tm-srvr1.vercel.app/title/WILLOW_CA-HD(720p60)@DJ-TM.m3u8?data=BcHLDk
 https://joker-verse.vercel.app/ptv/itv /3059303.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Test 1
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lang=eng&uid=706298993&pass=ef2678f2&.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",JioHotstar English
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lang=eng&uid=706298993&pass=ef2678f2|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
