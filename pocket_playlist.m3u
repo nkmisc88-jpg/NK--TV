@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-07 02:14:26 IST
+# Updated on: 2026-01-07 03:09:48 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3069,8 +3069,6 @@ https://stream.zeno.fm/nka8zm9x1oouv
 https://stream.zeno.fm/nzi27fhhwv3tv
 #EXTINF:-1 group-title="Tamil FM Radio",Anbu FM
 https://stream.zeno.fm/5csru2np4bruv
-#EXTINF:-1 group-title="Live Events" tvg-id="138382" tvg-name="Ivory Coast Vs Burkina Faso" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Ivory-Coast-vs-Burkina-Faso_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Ivory Coast Vs Burkina Faso
-https://in-mc-fdlive.fancode.com/mumbai/138382_english_hls_0ed4026f7a8462_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 4k
 https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
