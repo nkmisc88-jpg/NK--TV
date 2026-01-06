@@ -16,38 +16,34 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# 2. GROUP MAPPING LISTS
-MOVE_TO_TAMIL_HD = [
-    "Sun TV HD", "Star Vijay HD", "Colors Tamil HD", 
-    "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD",
-    "Zee Thirai HD", "Vijay Super HD"
-]
-
-MOVE_TO_TAMIL_NEWS = [
-    "Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", 
-    "Tamil Janam", "Jaya Plus", "M Nadu", "News J", 
-    "News18 Tamil Nadu", "News Tamil 24x7", "Win TV", 
-    "Zee Tamil News", "Polimer News", "Puthiya Thalaimurai", 
-    "Seithigal TV", "Sathiyam TV", "MalaiMurasu Seithigal"
-]
-
+# 2. GROUP MAPPINGS
+MOVE_TO_TAMIL_HD = ["Sun TV HD", "Star Vijay HD", "Colors Tamil HD", "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD", "Zee Thirai HD", "Vijay Super HD"]
+MOVE_TO_TAMIL_NEWS = ["Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", "Tamil Janam", "Jaya Plus", "M Nadu", "News J", "News18 Tamil Nadu", "News Tamil 24x7", "Win TV", "Zee Tamil News", "Polimer News", "Puthiya Thalaimurai", "Seithigal TV", "Sathiyam TV", "MalaiMurasu Seithigal"]
 MOVE_TO_INFOTAINMENT_SD = ["GOOD TiMES", "Food Food"]
-
-SPORTS_HD_KEEP = [
-    "Star Sports 1 HD", "Star Sports 2 HD", 
-    "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", 
-    "Star Sports Select 1 HD", "Star Sports Select 2 HD", 
-    "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"
-]
-
+SPORTS_HD_KEEP = ["Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", "Star Sports Select 1 HD", "Star Sports Select 2 HD", "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"]
 INFOTAINMENT_KEYWORDS = ["discovery", "animal planet", "nat geo", "history tv", "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"]
 BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
 
 DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
 
 # ==========================================
-# FUNCTIONS
+# HELPER FUNCTIONS
 # ==========================================
+def get_group_and_name(line):
+    grp_match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
+    group = grp_match.group(1).strip() if grp_match else ""
+    name = line.split(",")[-1].strip()
+    return group, name
+
+def get_clean_id(name):
+    # Removes "HD", spaces, and special chars to check for duplicates
+    return re.sub(r'[^a-z0-9]', '', name.lower().replace("hd", "").replace(" ", "").strip())
+
+def should_keep_channel(group, name):
+    check_str = (group + " " + name).lower()
+    for bad in BAD_KEYWORDS:
+        if bad in check_str: return False 
+    return True
 
 def fetch_live_events(url):
     print(f"   📥 Fetching M3U: {url}...")
@@ -99,6 +95,7 @@ def parse_youtube_txt():
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_logo = parts[1].strip()
 
+            # Capture KODIPROP or other tags
             elif line.startswith("#"):
                 current_props.append(line)
             
@@ -106,11 +103,14 @@ def parse_youtube_txt():
                 url_start = lower_line.find("http")
                 url = line[url_start:].strip()
                 
+                # Add properties first
                 if current_props:
                     lines.extend(current_props)
                     current_props = [] 
                 
+                # Add Metadata
                 lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
+                # Add Link (No User-Agent forcing, per your request)
                 lines.append(url)
                 
                 current_title = "Unknown Channel"
@@ -122,7 +122,7 @@ def parse_youtube_txt():
     return lines
 
 # ==========================================
-# MAIN SCRIPT
+# MAIN LOGIC
 # ==========================================
 def main():
     print("📥 Downloading Source Playlist...")
@@ -131,21 +131,6 @@ def main():
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    def get_group_and_name(line):
-        grp_match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
-        group = grp_match.group(1).strip() if grp_match else ""
-        name = line.split(",")[-1].strip()
-        return group, name
-
-    def get_clean_id(name):
-        return re.sub(r'[^a-z0-9]', '', name.lower().replace("hd", "").replace(" ", "").strip())
-
-    def should_keep_channel(group, name):
-        check_str = (group + " " + name).lower()
-        for bad in BAD_KEYWORDS:
-            if bad in check_str: return False 
-        return True
-
     try:
         r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
         source_lines = r.text.splitlines()
@@ -153,12 +138,14 @@ def main():
         print(f"❌ Failed: {e}")
         sys.exit(1)
 
+    # 1. Pre-scan for HD Channels
     hd_channels_exist = set()
     for line in source_lines:
         if line.startswith("#EXTINF"):
             _, name = get_group_and_name(line)
             if "hd" in name.lower(): hd_channels_exist.add(get_clean_id(name))
 
+    # 2. Process Channels
     seen_channels = set()
     current_buffer = []
 
@@ -174,26 +161,32 @@ def main():
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             
-            if not should_keep_channel(group, name): current_buffer = []; continue
-            if "hd" not in clean_name and get_clean_id(name) in hd_channels_exist: current_buffer = []; continue
+            # --- FILTERING ---
+            if not should_keep_channel(group, name): 
+                current_buffer = []
+                continue
 
-            # DUPLICATE CHECK
+            if "hd" not in clean_name and get_clean_id(name) in hd_channels_exist:
+                current_buffer = []
+                continue
+            # ----------------
+
+            # --- DUPLICATE LOGIC ---
             exact_id = get_clean_id(name)
             is_duplicate = exact_id in seen_channels
             if not is_duplicate: seen_channels.add(exact_id)
 
-            # GROUP MAPPING
             new_group = group 
             
-            # --- FIXED LOGIC: DIRECT MAPPING (Removed the Count Logic) ---
+            # --- ZEE TAMIL / THIRAI FIX ---
+            # Explicitly force these into Tamil HD, ignoring duplicate rules
             if "zee tamil hd" in clean_name:
                 new_group = "Tamil HD"
-                # Force it to keep even if seen before (in case duplicate check killed it)
                 is_duplicate = False 
             elif "zee thirai hd" in clean_name:
                 new_group = "Tamil HD"
                 is_duplicate = False
-            # -------------------------------------------------------------
+            # ------------------------------
             
             elif is_duplicate:
                 new_group = "Backup"
@@ -218,7 +211,7 @@ def main():
 
     if current_buffer: final_lines.extend(current_buffer)
 
-    print("📥 Adding Live Events (M3U)...")
+    print("📥 Adding Live Events...")
     final_lines.extend(fetch_live_events(FANCODE_URL))
     final_lines.extend(fetch_live_events(SONY_LIVE_URL))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
