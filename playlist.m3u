@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-07 05:08:38 IST
+# Updated on: 2026-01-07 05:18:29 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767702744~exp=1767789144~acl=/*~hmac=1a9c021340daa4f14f8ab2e5ee171165a693f60b47264abe4c206eb8c337ebe1"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767702744~exp=1767789144~acl=/*~hmac=1a9c021340daa4f14f8ab2e5ee171165a693f60b47264abe4c206eb8c337ebe1&xxx=||cookie=__hdnea__=st=1767702744~exp=1767789144~acl=/*~hmac=1a9c021340daa4f14f8ab2e5ee171165a693f60b47264abe4c206eb8c337ebe1
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 7 January 2026 at 5:07:05 am
+#DATE:- Wednesday, 7 January 2026 at 5:14:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138774" tvg-name="Central Hinds Vs Wellington Blaze" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138774_5801_WB-W_CH-W_fc-web_1766596522150.jpg" tvg-language="ENGLISH" ,ENG | Central Hinds Vs Wellington Blaze
 https://in-mc-fdlive.fancode.com/mumbai/138774_english_hls_84bd2b394a42375_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139165" tvg-name="The Bay Vs Atlanta" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png" tvg-language="ENGLISH" ,ENG | The Bay Vs Atlanta
