@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-06 23:18:32 IST
+# Updated on: 2026-01-07 00:25:18 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,15 +846,15 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab&xxx=||cookie=__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 6 January 2026 at 11:14:06 pm
+#DATE:- Wednesday, 7 January 2026 at 12:21:07 am
+#EXTINF:-1 group-title="Live Events" tvg-id="138909" tvg-name="Granada Vs Rayo Vallecano" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138909_5806_GRD_RVL_FC-Web_1767677416823.jpg" tvg-language="ENGLISH" ,ENG | Granada Vs Rayo Vallecano
+https://in-mc-fdlive.fancode.com/mumbai/138909_english_hls_a06e4ac05a52513_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="138382" tvg-name="Ivory Coast Vs Burkina Faso" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Ivory-Coast-vs-Burkina-Faso_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Ivory Coast Vs Burkina Faso
+https://in-mc-fdlive.fancode.com/mumbai/138382_english_hls_0ed4026f7a8462_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="138385" tvg-name="Algeria Vs Dr Congo" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Algeria-vs-DR-Congo_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Algeria Vs Dr Congo
 https://in-mc-fdlive.fancode.com/mumbai/138385_english_hls_661a51027281776_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139252" tvg-name="Saudi Arabia U23 Vs Kyrgyz Republic U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139252_5822_SU-U23_KYG-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Saudi Arabia U23 Vs Kyrgyz Republic U23
-https://in-mc-fdlive.fancode.com/mumbai/139252_english_hls_400082b1c226677_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 06-01-2026 23:00
-#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
-https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1767745802~acl=/*~id=9ea35535ff909200bb476d058091e128-1767702600119~hmac=b954ce18a703b5af73f892320444e0f6f7bc73e251567878eac5e5a7a14eac6d|User-Agent=com.sonyliv/6.22.4 (Android 8; en_GB; MStar Android TV; Build/OPR5.170623.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=8138a0ca412eb20cdec7ca904a03995f-1767720613756
+#DATE:- 07-01-2026 00:00
+#No live matches.
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 6/1/2026, 23:15:13
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
