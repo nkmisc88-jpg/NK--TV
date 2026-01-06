@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-06 19:25:31 IST
+# Updated on: 2026-01-06 20:22:20 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,16 +846,18 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab&xxx=||cookie=__hdnea__=st=1767662033~exp=1767748433~acl=/*~hmac=0a803508be00f757d753fe35716445fee11dcc4f32f75e14f51b371aed37e8ab
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 6 January 2026 at 7:21:05 pm
+#DATE:- Tuesday, 6 January 2026 at 8:21:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139284" tvg-name="Centre Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139284_english_hls_7a28b3ff2d36797_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 06-01-2026 17:22
-#No live matches.
+#DATE:- 06-01-2026 20:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 6 January 2026 at 7:15:06 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list2441c26007a148aeb3494f9fab5b40b7ab88702215274490aff3e54f3e71882a.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
+https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1767745802~acl=/*~id=9ea35535ff909200bb476d058091e128-1767702600119~hmac=b954ce18a703b5af73f892320444e0f6f7bc73e251567878eac5e5a7a14eac6d|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; ASUS_Z01RD; Build/QKQ1.191008.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=b83297ba373174fba6a240d72aad6e71-1767711011744
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#DATE:- Tuesday, 6 January 2026 at 8:15:10 pm
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list67b88bc6a7714058b32b24c2f128b752674875fadc174b71b4815e107e31cf4f.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767785522~acl=%2f*~data=hdntl~hmac=500b1f7e4f432c42eb25b9d12ef1459856cec814a05ab09f7293efba86e88fd9|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
-#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list2441c26007a148aeb3494f9fab5b40b7ab88702215274490aff3e54f3e71882a.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list67b88bc6a7714058b32b24c2f128b752674875fadc174b71b4815e107e31cf4f.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2122015/UPKL-ENG/master.m3u8?hdntl=exp=1767785525~acl=%2f*~data=hdntl~hmac=813dd6db06689d967bec7f1d99b80655414b57f2e849c9857ec1b6c4c5e7958f|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767769142~acl=%2f*~id=330d426a-c326-4118-9b3d-270d1f9d1ca8~data=hdntl~hmac=bbda25ac0c6147049d743bee90099738fd313ad9ecc735183d8ba8acf98c7a1a|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
