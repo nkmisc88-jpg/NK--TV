@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-07 04:16:39 IST
+# Updated on: 2026-01-07 05:08:19 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3069,8 +3069,14 @@ https://stream.zeno.fm/nka8zm9x1oouv
 https://stream.zeno.fm/nzi27fhhwv3tv
 #EXTINF:-1 group-title="Tamil FM Radio",Anbu FM
 https://stream.zeno.fm/5csru2np4bruv
+#EXTINF:-1 group-title="Live Events" tvg-id="138774" tvg-name="Central Hinds Vs Wellington Blaze" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138774_5801_WB-W_CH-W_fc-web_1766596522150.jpg" tvg-language="ENGLISH" ,ENG | Central Hinds Vs Wellington Blaze
+https://in-mc-fdlive.fancode.com/mumbai/138774_english_hls_84bd2b394a42375_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139165" tvg-name="The Bay Vs Atlanta" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png" tvg-language="ENGLISH" ,ENG | The Bay Vs Atlanta
 https://in-mc-fdlive.fancode.com/mumbai/139165_english_hls_b04d47724517739_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499006" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012941/1767503753535728_UnitedCup26_Poland_vs_Netherlands_4jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Poland vs Netherlands - 7 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767767518~acl=/*~id=19b71afdc163c7dbebd9cdc2d79bc2d3-1767724316556~hmac=0143f491094241d60ee6a6b4a18116d8122e9ea7b5b8e2f808ae1993fdcd3058|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; SM-T220; Build/RP1A.200720.012)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=896c70c5fe0d758af494010a1ccabc53-1767742212779
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498838" tvg-name="Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012758/1766836424934385_SuperSmash2526_womens_Wellington-Blaze-vs-Central-Hinds_27dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Wellington Blaze vs Central Hinds- 7 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767767518~acl=/*~id=19b71afdc163c7dbebd9cdc2d79bc2d3-1767724316556~hmac=0143f491094241d60ee6a6b4a18116d8122e9ea7b5b8e2f808ae1993fdcd3058|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; AFTSS; Build/PS7679.4292N)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=896c70c5fe0d758af494010a1ccabc53-1767742212779
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 4k
 https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
