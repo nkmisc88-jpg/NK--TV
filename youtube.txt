@@ -31,8 +31,8 @@ Logo :
 Link : https://joker-verse.vercel.app/opplex/live/167583.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 
 Title: JioHotstar English
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-Link:  https://jiohotstar.joker-verse.workers.dev/joker.m3u8?id=1271460362|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
+Link: https://jiohotstar.joker-verse.workers.dev/joker.m3u8?id=1271460362|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
+
 
 Title : Willow 2
 Logo : 
