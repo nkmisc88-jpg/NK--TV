@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-06 12:45:46 IST
+# Last Updated: 2026-01-06 13:08:49 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3077,12 +3077,16 @@ https://in-mc-fdlive.fancode.com/mumbai/139188_english_hls_6b8f42fb4d72441_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139205_english_hls_2d73b606da56886_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139284" tvg-name="Centre Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139284_english_hls_7a28b3ff2d36797_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="138773" tvg-name="Auckland Hearts Vs Otago Sparks" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138773_5801_AH-W_OS-W_fc-web_1766596522145.jpg" tvg-language="ENGLISH" ,ENG | Auckland Hearts Vs Otago Sparks
-https://in-mc-fdlive.fancode.com/mumbai/138773_english_hls_323b5b2c2527016_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498903" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012911/1767426670814632_UnitedCup26_Australia_vs_Czechia__landscape_thumb.jpg" tvg-language="English" ,ENG | Australia vs Czechia - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767724201~acl=/*~id=e600f575f656091ae83d0fe580f40bbe-1767681000144~hmac=5590e61dded1ed22e81942780ca750a89eb506010c0e94e94a7d856b3ea797e8|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; AFTSS; Build/PS7664.3772N)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=297192e0486f3e96164191f15a62d102-1767683410588
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767724201~acl=/*~id=e600f575f656091ae83d0fe580f40bbe-1767681000144~hmac=5590e61dded1ed22e81942780ca750a89eb506010c0e94e94a7d856b3ea797e8|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; V00L936821210003000; Build/PPR2.180905.006.A1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c396b721353688b044876809dc19f284-1767684611282
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498904" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012911/1767426438011632_UnitedCup26_Italy_vs_France_landscape_thumb.jpg" tvg-language="English" ,ENG | Italy vs France - 6 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767724201~acl=/*~id=e600f575f656091ae83d0fe580f40bbe-1767681000144~hmac=5590e61dded1ed22e81942780ca750a89eb506010c0e94e94a7d856b3ea797e8|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; V2241A; Build/PQ3A.190605.09261140)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=297192e0486f3e96164191f15a62d102-1767683410588
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767724201~acl=/*~id=e600f575f656091ae83d0fe580f40bbe-1767681000144~hmac=5590e61dded1ed22e81942780ca750a89eb506010c0e94e94a7d856b3ea797e8|User-Agent=com.sonyliv/6.22.4 (Android 16; en_GB; SM-S918B; Build/BP2A.250605.031.A3)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c396b721353688b044876809dc19f284-1767684611282
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873779" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873779/list/1920x1080list11f647ac56294eaaafabbeb8a74a1c5709ee238f13d44e2da5d35471701ddfb0.jpg" tvg-language="bengali" ,BEN | Fc Medinipur Vs Howrah Hooghly Warriors
+https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1767771006~acl=%2f*~data=hdntl~hmac=39c86996ee710e1e52813615bf50478b1debd3039e5b572ded2a1f837b97cb81|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873779" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873779/list/1920x1080list11f647ac56294eaaafabbeb8a74a1c5709ee238f13d44e2da5d35471701ddfb0.jpg" tvg-language="english" ,ENG | Fc Medinipur Vs Howrah Hooghly Warriors
+https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M01/master.m3u8?hdntl=exp=1767771009~acl=%2f*~data=hdntl~hmac=cf46bbfaf00ee6e7501c0fa7741e3bdf2c555d9f0a5b46c27666b2bb0ec0a1af|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 4k
+https://joker-verse.vercel.app/ptv/itv /3059303.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 505
@@ -3093,9 +3097,9 @@ http://51.89.148.37:8080/catena-9-94-streamer-fox_sports_502_fhd/tracks-v1a1a2a3
 http://51.89.148.37:8080/catena-9-93-streamer-fox_sports_501_fhd/tracks-v1a1a2a3l1l2/mono.m3u8?token=ef1c6f27da4b04de8c97b52b9255617|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow
 https://dj-tm-srvr1.vercel.app/title/WILLOW_CA-HD(720p60)@DJ-TM.m3u8?data=BcHLDkQwFADQD7K4yAxricekqF6k2GpcJalIvOfrnQOV-VxxSD_edoO_NUXs2lqKFGcv4H8gxFxcunKyOtejcr9Jgw8B828xp2dtYIInWcytsp60kgduXSuJWWWIHHfei2hc8QU|Telegram=@links_macha_official&Creator=@DJ-TM
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 4k
-https://joker-verse.vercel.app/ptv/itv /3059303.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Test 1
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540056727&lang=eng&uid=706298993&pass=ef2678f2&.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow 1
+https://joker-verse.vercel.app/opplex/live/167583.m3u8?uid=706298993&pass=ef2678f2|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",JioHotstar English
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059100&lang=eng&uid=706298993&pass=ef2678f2|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow 2
+https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
