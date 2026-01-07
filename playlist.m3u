@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-07 11:22:08 IST
+# Updated on: 2026-01-07 11:40:03 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -49,6 +49,8 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_TV_HD_BTS/output/index.mpd?__hdnea__
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Super_HD_BTS/output/index.mpd?__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848&xxx=||cookie=__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Thirai_HD.png",Vijay Super HD
+https://public.kliv.fun/Share5JON/play.php?id=181966
 #EXTINF:-1 group-title="Tamil SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_TV.png",Polimer TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +848,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848&xxx=||cookie=__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 7 January 2026 at 11:21:05 am
+#DATE:- Wednesday, 7 January 2026 at 11:35:06 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138742" tvg-name="Central Stags Vs Wellington Firebirds" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138742_5800_WF_CS_fc-web_1766641251042.jpg" tvg-language="ENGLISH" ,ENG | Central Stags Vs Wellington Firebirds
 https://in-mc-fdlive.fancode.com/mumbai/138742_english_hls_abe2a9963978817_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139191" tvg-name="Show Court 1   Day 4" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 4
@@ -855,12 +857,12 @@ https://in-mc-fdlive.fancode.com/mumbai/139191_english_hls_078c776f8b1233_1ta-di
 https://in-mc-fdlive.fancode.com/mumbai/139190_english_hls_e3450c9bd795754_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139206" tvg-name="Center Court   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 3
 https://in-mc-fdlive.fancode.com/mumbai/139206_english_hls_a7689c2f3e19261_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 07-01-2026 11:00
+#DATE:- 07-01-2026 11:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499000" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013030/1767696632540902_UC26_QF_USA_vs_greece_6jan_landscape_thumb.jpg" tvg-language="English" ,ENG | USA vs Greece - Quarter-final - 7 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767789001~acl=/*~id=db7fd822715c7316bd4af653686e33ae-1767745800135~hmac=86affd5cb90da7885d0c7e303e862cdf31f491d65d550a03d3c1f0299160ae7a|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; LM-F100; Build/TKQ1.220829.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=525d1dd4e0e744c0119b4fcbead159d0-1767763810982
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767789001~acl=/*~id=db7fd822715c7316bd4af653686e33ae-1767745800135~hmac=86affd5cb90da7885d0c7e303e862cdf31f491d65d550a03d3c1f0299160ae7a|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; HY300pro-A; Build/SP1A.210812.015-1733560011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=238502846df284c863bc286cd63872b0-1767765014711
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498834" tvg-name="Super Smash 2025/26 Men's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012758/1766837945135385_SuperSmash2526_mens_Wellington-Firebirds-vs-Central-Stags_27dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Wellington Firebirds vs Central Stags - 7 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767789001~acl=/*~id=db7fd822715c7316bd4af653686e33ae-1767745800135~hmac=86affd5cb90da7885d0c7e303e862cdf31f491d65d550a03d3c1f0299160ae7a|User-Agent=com.sonyliv/6.22.4 (Android 8; en_GB; iBall Slide Cleo S9; Build/OPM2.1710)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=525d1dd4e0e744c0119b4fcbead159d0-1767763810982
+https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767789001~acl=/*~id=db7fd822715c7316bd4af653686e33ae-1767745800135~hmac=86affd5cb90da7885d0c7e303e862cdf31f491d65d550a03d3c1f0299160ae7a|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; 23116PN5BC; Build/PQ3A.190705.08061357)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=238502846df284c863bc286cd63872b0-1767765014711
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 6/1/2026, 23:15:13
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
