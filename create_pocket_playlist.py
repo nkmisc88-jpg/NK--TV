@@ -21,7 +21,9 @@ MOVE_TO_TAMIL_HD = ["Sun TV HD", "Star Vijay HD", "Colors Tamil HD", "Zee Tamil 
 MOVE_TO_TAMIL_NEWS = ["Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", "Tamil Janam", "Jaya Plus", "M Nadu", "News J", "News18 Tamil Nadu", "News Tamil 24x7", "Win TV", "Zee Tamil News", "Polimer News", "Puthiya Thalaimurai", "Seithigal TV", "Sathiyam TV", "MalaiMurasu Seithigal"]
 MOVE_TO_INFOTAINMENT_SD = ["GOOD TiMES", "Food Food"]
 SPORTS_HD_KEEP = ["Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", "Star Sports Select 1 HD", "Star Sports Select 2 HD", "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"]
-BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
+
+# 3. REMOVAL LIST
+BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd", "apac", "zee tamil hd apac"]
 
 DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -71,17 +73,23 @@ def parse_youtube_txt():
     try:
         with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
             file_lines = f.readlines()
+        
         current_title = "Unknown Channel"; current_logo = DEFAULT_LOGO; current_props = [] 
+        
         for line in file_lines:
             line = line.strip()
             if not line: continue
             if len(line) > 600: continue
+
             lower_line = line.lower()
             if lower_line.startswith("title"):
-                parts = line.split(":", 1); current_title = parts[1].strip() if len(parts)>1 else "Unknown"
+                parts = line.split(":", 1)
+                current_title = parts[1].strip() if len(parts) > 1 else "Unknown"
             elif lower_line.startswith("logo"):
-                parts = line.split(":", 1); current_logo = parts[1].strip() if len(parts)>1 else DEFAULT_LOGO
-            elif line.startswith("#"): current_props.append(line)
+                parts = line.split(":", 1)
+                current_logo = parts[1].strip() if len(parts) > 1 else DEFAULT_LOGO
+            elif line.startswith("#"):
+                current_props.append(line)
             elif "http" in lower_line:
                 url = line[line.lower().find("http"):].strip()
                 if current_props: lines.extend(current_props); current_props = [] 
@@ -89,7 +97,8 @@ def parse_youtube_txt():
                 if "|" not in url and "http" in url: url += f"|User-Agent={UA_HEADER}"
                 lines.append(url)
                 current_title = "Unknown Channel"; current_logo = DEFAULT_LOGO; current_props = []
-    except Exception as e: print(f"   ❌ Error reading youtube.txt: {e}")
+    except Exception as e:
+        print(f"   ❌ Error reading youtube.txt: {e}")
     return lines
 
 # ==========================================
@@ -103,38 +112,81 @@ def main():
     try:
         r = requests.get(POCKET_URL, headers={"User-Agent": UA_HEADER}, timeout=30)
         source_lines = r.text.splitlines()
-    except Exception as e: print(f"❌ Failed: {e}"); sys.exit(1)
+    except Exception as e:
+        print(f"❌ Failed: {e}")
+        sys.exit(1)
 
+    # 1. SCAN FOR HD CHANNELS FIRST
     hd_channels_exist = set()
     for line in source_lines:
         if line.startswith("#EXTINF"):
             _, name = get_group_and_name(line)
             if "hd" in name.lower(): hd_channels_exist.add(get_clean_id(name))
 
-    seen_channels = set(); current_buffer = []
-
-    for line in source_lines:
-        line = line.strip()
-        if not line or line.startswith("#EXTM3U"): continue
-
+    seen_channels = set()
+    
+    # 2. ROBUST PROCESSING LOOP
+    # We iterate by index to ensure we always handle (Metadata + URL) as a pair.
+    i = 0
+    while i < len(source_lines):
+        line = source_lines[i].strip()
+        
+        # If empty or header, skip
+        if not line or line.startswith("#EXTM3U"):
+            i += 1
+            continue
+            
+        # If we find Metadata
         if line.startswith("#EXTINF"):
-            if current_buffer: final_lines.extend(current_buffer)
-            current_buffer = []
+            # Grab the URL (next line) immediately
+            url_line = ""
+            if i + 1 < len(source_lines):
+                url_line = source_lines[i+1].strip()
+            
+            # If no URL exists after metadata, stop
+            if not url_line or url_line.startswith("#EXTINF"):
+                i += 1
+                continue
+
+            # Process the Channel
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
-            
-            if not should_keep_channel(group, name): current_buffer = []; continue
-            if "hd" not in clean_name and get_clean_id(name) in hd_channels_exist: current_buffer = []; continue
 
+            # --- DECISION: KEEP OR SKIP? ---
+            keep_this = True
+            
+            # Filter 1: Bad Keywords (like 'apac')
+            if not should_keep_channel(group, name): keep_this = False
+            
+            # Filter 2: Hide SD if HD exists
+            if keep_this and "hd" not in clean_name and get_clean_id(name) in hd_channels_exist:
+                keep_this = False
+
+            # --- ZEE TAMIL / THIRAI SPECIAL FORCE ---
+            # Even if filters say 'no' (duplicate), we force 'yes' for these
+            is_zee_special = "zee tamil hd" in clean_name or "zee thirai hd" in clean_name
+            if is_zee_special and "apac" not in clean_name:
+                keep_this = True
+
+            # If we decided to skip, Move index past metadata AND url
+            if not keep_this:
+                i += 2
+                continue
+
+            # --- GROUPING & DUPLICATES ---
             exact_id = get_clean_id(name)
             is_duplicate = exact_id in seen_channels
-            if not is_duplicate: seen_channels.add(exact_id)
+            
+            if not is_duplicate:
+                seen_channels.add(exact_id)
 
             new_group = group 
-            # --- ZEE TAMIL / THIRAI FIX ---
-            if "zee tamil hd" in clean_name: new_group = "Tamil HD"; is_duplicate = False 
-            elif "zee thirai hd" in clean_name: new_group = "Tamil HD"; is_duplicate = False
-            elif is_duplicate: new_group = "Backup"
+            
+            if is_zee_special:
+                new_group = "Tamil HD"
+                is_duplicate = False # Allow duplicates for Zee (Backup links)
+            elif is_duplicate:
+                new_group = "Backup"
             else:
                 group_lower = group.lower()
                 if group_lower in ["tamil", "local channels"] or "astro" in group_lower: new_group = "Tamil Extra"
@@ -144,18 +196,33 @@ def main():
                 if any(t in clean_name for t in SPORTS_HD_KEEP): new_group = "Sports HD"
                 if any(t in clean_name for t in MOVE_TO_INFOTAINMENT_SD): new_group = "Infotainment SD"
 
+            # Modify Group in Line
             if new_group != group:
-                if 'group-title="' in line: line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
-                else: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
+                if 'group-title="' in line:
+                    line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
+                else:
+                    line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
+            
+            # Write to Playlist
+            final_lines.append(line)
+            final_lines.append(url_line)
+            
+            # Jump forward 2 steps (Metadata + URL processed)
+            i += 2
+        else:
+            # If line is not EXTINF and not processed above, just skip (garbage safety)
+            i += 1
 
-        current_buffer.append(line)
-        if not line.startswith("#"): current_buffer[-1] = line; final_lines.extend(current_buffer); current_buffer = []
+    print("📥 Adding Live Events...")
+    final_lines.extend(fetch_live_events(FANCODE_URL))
+    final_lines.extend(fetch_live_events(SONY_LIVE_URL))
+    final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
+    
+    print("📥 Adding Temporary Channels...")
+    final_lines.extend(parse_youtube_txt())
 
-    if current_buffer: final_lines.extend(current_buffer)
-    print("📥 Adding Live Events..."); final_lines.extend(fetch_live_events(FANCODE_URL)); final_lines.extend(fetch_live_events(SONY_LIVE_URL)); final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
-    print("📥 Adding Temporary Channels..."); final_lines.extend(parse_youtube_txt())
-
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        f.write("\n".join(final_lines))
     print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
