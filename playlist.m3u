@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-07 06:41:04 IST
+# Updated on: 2026-01-07 06:53:40 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767702744~exp=1767789144~acl=/*~hmac=1a9c021340daa4f14f8ab2e5ee171165a693f60b47264abe4c206eb8c337ebe1"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767702744~exp=1767789144~acl=/*~hmac=1a9c021340daa4f14f8ab2e5ee171165a693f60b47264abe4c206eb8c337ebe1&xxx=||cookie=__hdnea__=st=1767702744~exp=1767789144~acl=/*~hmac=1a9c021340daa4f14f8ab2e5ee171165a693f60b47264abe4c206eb8c337ebe1
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 7 January 2026 at 6:35:06 am
+#DATE:- Wednesday, 7 January 2026 at 6:49:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138774" tvg-name="Central Hinds Vs Wellington Blaze" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138774_5801_WB-W_CH-W_fc-web_1766596522150.jpg" tvg-language="ENGLISH" ,ENG | Central Hinds Vs Wellington Blaze
 https://in-mc-fdlive.fancode.com/mumbai/138774_english_hls_84bd2b394a42375_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139165" tvg-name="The Bay Vs Atlanta" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png" tvg-language="ENGLISH" ,ENG | The Bay Vs Atlanta
@@ -867,8 +867,6 @@ https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8|User-Agent=Mozil
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767812409~acl=%2f*~id=bb0010a6-f215-4c99-bf40-58eae4efd405~data=hdntl~hmac=f0bf9817ac684199f30d1c250248f9b3a74e8a49a34ff8af85e68ab1b8f445a6|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105172/ZeeThiraiHDELE/index-connected.m3u8?hdntl=exp=1767812409~acl=%2f*~id=bb0010a6-f215-4c99-bf40-58eae4efd405~data=hdntl~hmac=f0bf9817ac684199f30d1c250248f9b3a74e8a49a34ff8af85e68ab1b8f445a6|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-360/channel_list/360x2031c866f9b15d44e38b077973e3ab37e89",Zee Tamil HD APAC
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1767812409~acl=%2f*~id=bb0010a6-f215-4c99-bf40-58eae4efd405~data=hdntl~hmac=f0bf9817ac684199f30d1c250248f9b3a74e8a49a34ff8af85e68ab1b8f445a6|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
 https://keys.vodep39240327.workers.dev/?id=300.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png",Star Sports Select 2 HD
