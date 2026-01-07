@@ -131,10 +131,21 @@ def main():
             if not is_duplicate: seen_channels.add(exact_id)
 
             new_group = group 
+            
             # --- ZEE TAMIL / THIRAI FIX ---
-            if "zee tamil hd" in clean_name: new_group = "Tamil HD"; is_duplicate = False 
-            elif "zee thirai hd" in clean_name: new_group = "Tamil HD"; is_duplicate = False
-            elif is_duplicate: new_group = "Backup"
+            # IF IT IS ZEE TAMIL/THIRAI: 
+            # 1. Force it to "Tamil HD"
+            # 2. IGNORE the duplicate check (so ALL versions appear)
+            if "zee tamil hd" in clean_name:
+                new_group = "Tamil HD"
+                # This line ensures we keep duplicates (including the working backup)
+                seen_channels.discard(exact_id) 
+            elif "zee thirai hd" in clean_name:
+                new_group = "Tamil HD"
+                seen_channels.discard(exact_id)
+            
+            elif is_duplicate:
+                new_group = "Backup"
             else:
                 group_lower = group.lower()
                 if group_lower in ["tamil", "local channels"] or "astro" in group_lower: new_group = "Tamil Extra"
