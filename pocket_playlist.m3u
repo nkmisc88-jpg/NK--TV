@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-08 00:30:24 IST
+# Updated on: 2026-01-08 01:07:41 IST
 #EXTINF: -1 tvg-id="521" group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png", Sun TV HD
 https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF: -1 tvg-id="ts496" tvg-name="Star Vijay HD" tvg-logo="https://tatalogo.pages.dev/496.png" group-title="Tamil HD", Star Vijay HD
@@ -2336,5 +2336,3 @@ https://stream.zeno.fm/nzi27fhhwv3tv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Wi
 https://stream.zeno.fm/5csru2np4bruv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Live Events" tvg-id="138957" tvg-name="Fc Barcelona Vs Athletic Club" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Barcelona-vs-Athletic-Club_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Fc Barcelona Vs Athletic Club
 https://in-mc-fdlive.fancode.com/mumbai/138957_english_hls_e20fc0f05482600_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139256" tvg-name="Qatar U23 Vs United Arab Emirates U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139256_5822_QAT-U23_UAE-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Qatar U23 Vs United Arab Emirates U23
-https://in-mc-fdlive.fancode.com/mumbai/139256_english_hls_a78ab4d7eb41061_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
