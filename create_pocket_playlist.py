@@ -36,6 +36,7 @@ def get_group_and_name(line):
     return group, name
 
 def get_clean_id(name):
+    # Standardize name for duplicate checking
     return re.sub(r'[^a-z0-9]', '', name.lower().replace("hd", "").replace(" ", "").strip())
 
 def should_keep_channel(group, name):
@@ -55,6 +56,7 @@ def fetch_live_events(url):
                 line = line.strip()
                 if not line: continue
                 if line.startswith("#EXTM3U"): continue
+                
                 if line.startswith("#EXTINF"):
                     line = re.sub(r'group-title="[^"]*"', '', line)
                     line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
@@ -71,25 +73,40 @@ def parse_youtube_txt():
     try:
         with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
             file_lines = f.readlines()
+        
         current_title = "Unknown Channel"; current_logo = DEFAULT_LOGO; current_props = [] 
+        
         for line in file_lines:
             line = line.strip()
             if not line: continue
             if len(line) > 600: continue
+
             lower_line = line.lower()
             if lower_line.startswith("title"):
-                parts = line.split(":", 1); current_title = parts[1].strip() if len(parts)>1 else "Unknown"
+                parts = line.split(":", 1)
+                current_title = parts[1].strip() if len(parts) > 1 else "Unknown"
+            
             elif lower_line.startswith("logo"):
-                parts = line.split(":", 1); current_logo = parts[1].strip() if len(parts)>1 else DEFAULT_LOGO
-            elif line.startswith("#"): current_props.append(line)
+                parts = line.split(":", 1)
+                current_logo = parts[1].strip() if len(parts) > 1 else DEFAULT_LOGO
+
+            elif line.startswith("#"):
+                current_props.append(line)
+            
             elif "http" in lower_line:
                 url = line[line.lower().find("http"):].strip()
+                
                 if current_props: lines.extend(current_props); current_props = [] 
                 lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
+                
+                # Add Header if missing and standard link
                 if "|" not in url and "http" in url: url += f"|User-Agent={UA_HEADER}"
                 lines.append(url)
+                
                 current_title = "Unknown Channel"; current_logo = DEFAULT_LOGO; current_props = []
-    except Exception as e: print(f"   ❌ Error reading youtube.txt: {e}")
+
+    except Exception as e:
+        print(f"   ❌ Error reading youtube.txt: {e}")
     return lines
 
 # ==========================================
@@ -97,56 +114,69 @@ def parse_youtube_txt():
 # ==========================================
 def main():
     print("📥 Downloading Source Playlist...")
+    # IST TIME CALCULATION
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U", f"# Updated on: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}", "http://0.0.0.0"]
 
     try:
         r = requests.get(POCKET_URL, headers={"User-Agent": UA_HEADER}, timeout=30)
         source_lines = r.text.splitlines()
-    except Exception as e: print(f"❌ Failed: {e}"); sys.exit(1)
+    except Exception as e:
+        print(f"❌ Failed: {e}")
+        sys.exit(1)
 
+    # 1. Pre-scan for HD channels to help filter SD duplicates later
     hd_channels_exist = set()
     for line in source_lines:
         if line.startswith("#EXTINF"):
             _, name = get_group_and_name(line)
             if "hd" in name.lower(): hd_channels_exist.add(get_clean_id(name))
 
-    seen_channels = set(); current_buffer = []
+    seen_channels = set()
+    current_buffer = []
 
     for line in source_lines:
         line = line.strip()
         if not line or line.startswith("#EXTM3U"): continue
 
         if line.startswith("#EXTINF"):
+            # Write previous channel to list
             if current_buffer: final_lines.extend(current_buffer)
             current_buffer = []
+
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             
+            # --- FILTERING ---
             if not should_keep_channel(group, name): current_buffer = []; continue
+            # If SD version exists but we have HD version, skip SD
             if "hd" not in clean_name and get_clean_id(name) in hd_channels_exist: current_buffer = []; continue
 
+            # --- DUPLICATE LOGIC ---
             exact_id = get_clean_id(name)
             is_duplicate = exact_id in seen_channels
-            if not is_duplicate: seen_channels.add(exact_id)
+            
+            if not is_duplicate:
+                seen_channels.add(exact_id)
 
             new_group = group 
             
-            # --- ZEE TAMIL / THIRAI FIX ---
-            # IF IT IS ZEE TAMIL/THIRAI: 
-            # 1. Force it to "Tamil HD"
-            # 2. IGNORE the duplicate check (so ALL versions appear)
+            # === THE SPECIAL ZEE FIX ===
+            # If Zee Tamil HD or Zee Thirai HD:
+            # 1. Force Group to "Tamil HD"
+            # 2. MARK AS NOT DUPLICATE (So both links get added to Tamil HD)
             if "zee tamil hd" in clean_name:
                 new_group = "Tamil HD"
-                # This line ensures we keep duplicates (including the working backup)
-                seen_channels.discard(exact_id) 
+                is_duplicate = False 
             elif "zee thirai hd" in clean_name:
                 new_group = "Tamil HD"
-                seen_channels.discard(exact_id)
-            
+                is_duplicate = False
+            # ============================
+
             elif is_duplicate:
                 new_group = "Backup"
             else:
+                # Standard Group Moving Logic
                 group_lower = group.lower()
                 if group_lower in ["tamil", "local channels"] or "astro" in group_lower: new_group = "Tamil Extra"
                 if "news" in group_lower and "tamil" not in group_lower: new_group = "English and Hindi News"
@@ -155,18 +185,33 @@ def main():
                 if any(t in clean_name for t in SPORTS_HD_KEEP): new_group = "Sports HD"
                 if any(t in clean_name for t in MOVE_TO_INFOTAINMENT_SD): new_group = "Infotainment SD"
 
+            # Apply Group Change
             if new_group != group:
-                if 'group-title="' in line: line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
-                else: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
+                if 'group-title="' in line:
+                    line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
+                else:
+                    line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
 
         current_buffer.append(line)
-        if not line.startswith("#"): current_buffer[-1] = line; final_lines.extend(current_buffer); current_buffer = []
+        # If it's a URL line (doesn't start with #), write the buffer immediately
+        if not line.startswith("#"):
+            current_buffer[-1] = line
+            final_lines.extend(current_buffer)
+            current_buffer = []
 
+    # Catch any remaining buffer
     if current_buffer: final_lines.extend(current_buffer)
-    print("📥 Adding Live Events..."); final_lines.extend(fetch_live_events(FANCODE_URL)); final_lines.extend(fetch_live_events(SONY_LIVE_URL)); final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
-    print("📥 Adding Temporary Channels..."); final_lines.extend(parse_youtube_txt())
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
+    print("📥 Adding Live Events...")
+    final_lines.extend(fetch_live_events(FANCODE_URL))
+    final_lines.extend(fetch_live_events(SONY_LIVE_URL))
+    final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
+    
+    print("📥 Adding Temporary Channels...")
+    final_lines.extend(parse_youtube_txt())
+
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        f.write("\n".join(final_lines))
     print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
