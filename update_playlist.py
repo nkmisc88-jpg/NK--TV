@@ -19,7 +19,7 @@ sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# REMOVAL LIST (Added "apac" to remove the unwanted channel)
+# REMOVAL LIST (Cleaned up)
 REMOVE_KEYWORDS = ["zee tamil hd", "zee thirai hd", "apac", "zee tamil hd apac"]
 
 NAME_OVERRIDES = {
@@ -137,7 +137,6 @@ def fetch_pocket_extras():
     print(f"🌍 Fetching & Filtering Pocket TV...")
     try:
         r = requests.get(pocket_url, headers={"User-Agent": UA_HEADER}, timeout=15)
-        # We explicitly ask for these channels
         SPECIFIC_WANTED = ["rasi", "astro", "vijay takkar", "zee tamil hd", "zee thirai hd"]
         
         if r.status_code == 200:
@@ -149,14 +148,12 @@ def fetch_pocket_extras():
                     name = line.split(",")[-1].strip()
                     name_lower = name.lower()
                     
-                    # 1. SKIP APAC CHANNELS
-                    if "apac" in name_lower: continue
+                    if "apac" in name_lower: continue 
 
                     target_group = None
                     if 'group-title="Sports"' in line or 'group-title="Sports HD"' in line: target_group = "Sports Extra"
                     elif 'group-title="Tamil"' in line or 'group-title="Tamil HD"' in line: target_group = "Tamil Extra"
                     elif any(x in name_lower for x in SPECIFIC_WANTED):
-                         # Force Zee Tamil/Thirai into Tamil HD
                          if "zee tamil hd" in name_lower or "zee thirai hd" in name_lower:
                              target_group = "Tamil HD" 
                          elif "cricket" in name_lower or "sport" in name_lower: target_group = "Sports Extra"
