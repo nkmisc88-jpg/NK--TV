@@ -19,8 +19,7 @@ sony_m3u = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/
 zee_m3u = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 pocket_url = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 
-# REMOVAL LIST 
-# Removed "zee tamil/thirai" so the original source stays (even if broken)
+# REMOVAL LIST
 REMOVE_KEYWORDS = ["apac", "zee tamil hd apac"]
 
 NAME_OVERRIDES = {
@@ -138,8 +137,8 @@ def fetch_pocket_extras():
     print(f"🌍 Fetching & Filtering Pocket TV...")
     try:
         r = requests.get(pocket_url, headers={"User-Agent": UA_HEADER}, timeout=15)
-        # Added ZEE channels here to fetch them as BACKUPS
-        SPECIFIC_WANTED = ["rasi", "astro", "vijay takkar", "zee tamil hd", "zee thirai hd"]
+        # REMOVED ZEE TAMIL from here. Only standard extras remain.
+        SPECIFIC_WANTED = ["rasi", "astro", "vijay takkar"]
         
         if r.status_code == 200:
             lines = r.text.splitlines()
@@ -156,14 +155,7 @@ def fetch_pocket_extras():
                     if 'group-title="Sports"' in line or 'group-title="Sports HD"' in line: target_group = "Sports Extra"
                     elif 'group-title="Tamil"' in line or 'group-title="Tamil HD"' in line: target_group = "Tamil Extra"
                     elif any(x in name_lower for x in SPECIFIC_WANTED):
-                         # Logic: Keep name but add (Backup), force to Tamil HD
-                         if "zee tamil hd" in name_lower:
-                             target_group = "Tamil HD"
-                             name = "Zee Tamil HD (Backup)"
-                         elif "zee thirai hd" in name_lower:
-                             target_group = "Tamil HD"
-                             name = "Zee Thirai HD (Backup)"
-                         elif "cricket" in name_lower or "sport" in name_lower: target_group = "Sports Extra"
+                         if "cricket" in name_lower or "sport" in name_lower: target_group = "Sports Extra"
                          else: target_group = "Tamil Extra"
                     
                     if target_group:
