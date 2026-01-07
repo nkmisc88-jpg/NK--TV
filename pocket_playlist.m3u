@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-07 07:00:56 IST
+# Updated on: 2026-01-07 07:03:55 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -212,6 +212,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_Max_BTS/output/index.mpd?__hdnea__=s
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Tunes_6_BTS/output/index.mpd?__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848
+#EXTINF:-1 tvg-id="0-9-360" group-title="Tamil HD" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-360/channel_list/360x2031c866f9b15d44e38b077973e3ab37e89",Zee Tamil HD APAC
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1767812409~acl=%2f*~id=bb0010a6-f215-4c99-bf40-58eae4efd405~data=hdntl~hmac=f0bf9817ac684199f30d1c250248f9b3a74e8a49a34ff8af85e68ab1b8f445a6
