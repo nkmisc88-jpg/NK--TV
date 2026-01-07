@@ -17,7 +17,7 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# Headers to mimic a browser
+# HEADER (Crucial for playback)
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # ==========================================
@@ -37,17 +37,23 @@ def extract_live_events(url):
     """Fetches a playlist and forces all channels into the 'Live Events' group."""
     raw_lines = fetch_content(url)
     cleaned_lines = []
+    
+    current_meta = ""
     for line in raw_lines:
         line = line.strip()
         if not line or line.startswith("#EXTM3U"): continue
         
         if line.startswith("#EXTINF"):
-            # Remove existing group info and force 'Live Events'
+            # Force 'Live Events' group
             line = re.sub(r'group-title="[^"]*"', '', line)
             line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
+            current_meta = line
+        elif not line.startswith("#") and current_meta:
+            # Add URL
+            cleaned_lines.append(current_meta)
             cleaned_lines.append(line)
-        elif not line.startswith("#"):
-            cleaned_lines.append(line)
+            current_meta = ""
+            
     return cleaned_lines
 
 def parse_youtube_txt():
@@ -55,12 +61,10 @@ def parse_youtube_txt():
     print("   Reading youtube.txt...")
     lines = []
     if not os.path.exists(YOUTUBE_FILE): return []
-    
     try:
         with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
             content = f.readlines()
         
-        # Default values
         title = "Unknown Channel"
         logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
         
@@ -68,21 +72,14 @@ def parse_youtube_txt():
             line = line.strip()
             if not line: continue
             
-            # Simple Key:Value parser
             if line.lower().startswith("title:"):
                 title = line.split(":", 1)[1].strip()
             elif line.lower().startswith("link:"):
-                url = line.split("link:", 1)[1].strip() # Fix: Handle "Link:" case insensitive
-                # Add entry
+                url = line.split("link:", 1)[1].strip()
                 lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{logo}",{title}')
-                # Add UA if missing
                 if "|" not in url and "http" in url: url += f"|User-Agent={UA_HEADER}"
                 lines.append(url)
-                # Reset defaults
                 title = "Unknown Channel"
-            elif line.lower().startswith("http"): # Handle raw links if any
-                 # Fallback if someone pasted just a link
-                 pass 
     except Exception as e:
         print(f"   ❌ Error reading youtube.txt: {e}")
     return lines
@@ -91,59 +88,60 @@ def parse_youtube_txt():
 # 3. MAIN SCRIPT
 # ==========================================
 def main():
-    print("🚀 Starting Fresh Playlist Generation...")
+    print("🚀 Starting Playlist Generation (With Header Fix)...")
     
-    # 1. Start the Playlist
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U", f"# Updated on: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}"]
 
-    # 2. Process Main Source (Arunjunan20)
+    # 1. Process Main Source
     source_lines = fetch_content(MAIN_SOURCE_URL)
     
-    # Define Tamil HD Channels for grouping fix (Case Insensitive)
+    # Tamil HD List (For Group Correction)
     TAMIL_HD_LIST = ["sun tv hd", "ktv hd", "sun music hd", "star vijay hd", "vijay super hd", "zee tamil hd", "zee thirai hd", "colors tamil hd", "jaya tv hd"]
 
     print("   Processing main channels...")
-    i = 0
-    while i < len(source_lines):
-        line = source_lines[i].strip()
+    
+    # Robust Line-by-Line Parsing
+    current_meta = ""
+    
+    for line in source_lines:
+        line = line.strip()
+        if not line or line.startswith("#EXTM3U"): continue
         
         if line.startswith("#EXTINF"):
-            # Get the URL line immediately
-            if i + 1 < len(source_lines):
-                url_line = source_lines[i+1].strip()
-            else:
-                break # End of file
-
-            # --- LOGIC START ---
-            # 1. Check Name
-            name_match = line.split(",")[-1].strip()
-            name_lower = name_match.lower()
-            
-            # 2. Fix Tamil HD Grouping
-            # (If name contains any of our Tamil HD list, force group to 'Tamil HD')
+            # 1. Modify Group if it's a Tamil HD channel
+            name_check = line.lower()
             is_tamil_hd = False
             for thd in TAMIL_HD_LIST:
-                if thd in name_lower:
+                if thd in name_check:
                     is_tamil_hd = True
                     break
             
             if is_tamil_hd:
-                # Force replace group-title logic
                 if 'group-title="' in line:
-                    line = re.sub(r'group-title="[^"]*"', 'group-title="Tamil HD"', line)
+                    line = re.sub(r'group-title="([^"]*)"', 'group-title="Tamil HD"', line)
                 else:
                     line = line.replace("#EXTINF:-1", '#EXTINF:-1 group-title="Tamil HD"')
-
-            # 3. Add to List (We keep EVERYTHING else as is)
-            final_lines.append(line)
-            final_lines.append(url_line)
             
-            i += 2 # Move past metadata & url
-        else:
-            i += 1 # Skip random text
+            # Store metadata and wait for URL
+            current_meta = line
+            
+        elif not line.startswith("#") and current_meta:
+            # 2. This is the URL line.
+            url = line
+            
+            # --- THE FIX: ADD HEADERS ---
+            # Most of these links fail without a User-Agent.
+            # We check if it already has headers (contains '|'). If not, we add ours.
+            if "http" in url and "|" not in url:
+                url += f"|User-Agent={UA_HEADER}"
+            
+            # Add to final list
+            final_lines.append(current_meta)
+            final_lines.append(url)
+            current_meta = "" # Reset
 
-    # 3. Append Extra Content
+    # 2. Append Extra Content
     print("   Appending Live Events...")
     final_lines.extend(extract_live_events(FANCODE_URL))
     final_lines.extend(extract_live_events(SONY_LIVE_URL))
@@ -152,7 +150,7 @@ def main():
     print("   Appending Temporary Channels...")
     final_lines.extend(parse_youtube_txt())
 
-    # 4. Save
+    # 3. Save
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
     
