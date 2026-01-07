@@ -22,8 +22,12 @@ MOVE_TO_TAMIL_NEWS = ["Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", 
 MOVE_TO_INFOTAINMENT_SD = ["GOOD TiMES", "Food Food"]
 SPORTS_HD_KEEP = ["Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", "Star Sports Select 1 HD", "Star Sports Select 2 HD", "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"]
 
-# 3. REMOVAL LIST (Only remove APAC and unwanted stuff)
+# 3. REMOVAL SETTINGS
+# Keywords to remove specific channels
 BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd", "apac", "zee tamil hd apac"]
+
+# Groups to REMOVE COMPLETELY (Restored this list based on your request)
+BAD_GROUPS = ["premium 24/7", "extras", "movies", "music", "kids", "devotional", "spiritual"]
 
 DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -38,13 +42,18 @@ def get_group_and_name(line):
     return group, name
 
 def get_clean_id(name):
-    # Removes "HD", spaces, and special chars to check for duplicates
     return re.sub(r'[^a-z0-9]', '', name.lower().replace("hd", "").replace(" ", "").strip())
 
 def should_keep_channel(group, name):
-    check_str = (group + " " + name).lower()
+    check_name = name.lower()
     for bad in BAD_KEYWORDS:
-        if bad in check_str: return False 
+        if bad in check_name: return False 
+        
+    # Remove unwanted groups (Movies, Music, Premium, etc.)
+    check_group = group.lower()
+    for bad_g in BAD_GROUPS:
+        if bad_g in check_group: return False
+
     return True
 
 def fetch_live_events(url):
@@ -58,7 +67,6 @@ def fetch_live_events(url):
                 line = line.strip()
                 if not line: continue
                 if line.startswith("#EXTM3U"): continue
-                
                 if line.startswith("#EXTINF"):
                     line = re.sub(r'group-title="[^"]*"', '', line)
                     line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
@@ -123,7 +131,7 @@ def main():
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             
-            # --- FILTERING ---
+            # --- FILTERING (Removes unwanted groups) ---
             if not should_keep_channel(group, name): current_buffer = []; continue
 
             # --- DUPLICATE LOGIC ---
@@ -136,25 +144,25 @@ def main():
             new_group = group 
             
             # --- ZEE TAMIL / THIRAI FIX ---
-            # Move to Tamil HD, and UN-MARK as duplicate so they get added
-            if "zee tamil hd" in clean_name:
+            if "zee tamil hd" in clean_name or "zee thirai hd" in clean_name:
                 new_group = "Tamil HD"
                 is_duplicate = False 
-            elif "zee thirai hd" in clean_name:
-                new_group = "Tamil HD"
-                is_duplicate = False
-            
             elif is_duplicate:
                 new_group = "Backup"
             else:
                 group_lower = group.lower()
-                if group_lower in ["tamil", "local channels"] or "astro" in group_lower: new_group = "Tamil Extra"
-                if "news" in group_lower and "tamil" not in group_lower: new_group = "English and Hindi News"
-                if any(t in clean_name for t in MOVE_TO_TAMIL_NEWS): new_group = "Tamil News"
-                if any(t in clean_name for t in MOVE_TO_TAMIL_HD): new_group = "Tamil HD"
-                if any(t in clean_name for t in SPORTS_HD_KEEP): new_group = "Sports HD"
-                if any(t in clean_name for t in MOVE_TO_INFOTAINMENT_SD): new_group = "Infotainment SD"
+                
+                # --- MAPPING (Case Insensitive Fix) ---
+                if any(t.lower() in clean_name for t in MOVE_TO_TAMIL_HD): new_group = "Tamil HD"
+                elif any(t.lower() in clean_name for t in MOVE_TO_TAMIL_NEWS): new_group = "Tamil News"
+                elif any(t.lower() in clean_name for t in SPORTS_HD_KEEP): new_group = "Sports HD"
+                elif any(t.lower() in clean_name for t in MOVE_TO_INFOTAINMENT_SD): new_group = "Infotainment SD"
+                
+                # Broad Fallbacks
+                elif "tamil" in group_lower or "local channels" in group_lower: new_group = "Tamil Extra"
+                elif "news" in group_lower and "tamil" not in group_lower: new_group = "English and Hindi News"
 
+            # Apply Group Change
             if new_group != group:
                 if 'group-title="' in line: line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
                 else: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
