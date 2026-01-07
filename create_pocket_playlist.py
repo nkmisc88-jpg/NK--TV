@@ -11,56 +11,30 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# 1. LIVE EVENT LINKS
+# 1. LIVE EVENT LINKS (Stable M3U Only)
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# 2. GROUP MAPPINGS
+# 2. GROUP MAPPING LISTS
 MOVE_TO_TAMIL_HD = ["Sun TV HD", "Star Vijay HD", "Colors Tamil HD", "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD", "Zee Thirai HD", "Vijay Super HD"]
 MOVE_TO_TAMIL_NEWS = ["Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", "Tamil Janam", "Jaya Plus", "M Nadu", "News J", "News18 Tamil Nadu", "News Tamil 24x7", "Win TV", "Zee Tamil News", "Polimer News", "Puthiya Thalaimurai", "Seithigal TV", "Sathiyam TV", "MalaiMurasu Seithigal"]
 MOVE_TO_INFOTAINMENT_SD = ["GOOD TiMES", "Food Food"]
 SPORTS_HD_KEEP = ["Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", "Star Sports Select 1 HD", "Star Sports Select 2 HD", "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"]
-
-# 3. REMOVAL SETTINGS
-# Keywords to remove specific channels
-BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd", "apac", "zee tamil hd apac"]
-
-# Groups to REMOVE COMPLETELY (Restored this list based on your request)
-BAD_GROUPS = ["premium 24/7", "extras", "movies", "music", "kids", "devotional", "spiritual"]
+INFOTAINMENT_KEYWORDS = ["discovery", "animal planet", "nat geo", "history tv", "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"]
+BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
 
 DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
-UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # ==========================================
-# HELPER FUNCTIONS
+# FUNCTIONS
 # ==========================================
-def get_group_and_name(line):
-    grp_match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
-    group = grp_match.group(1).strip() if grp_match else ""
-    name = line.split(",")[-1].strip()
-    return group, name
-
-def get_clean_id(name):
-    return re.sub(r'[^a-z0-9]', '', name.lower().replace("hd", "").replace(" ", "").strip())
-
-def should_keep_channel(group, name):
-    check_name = name.lower()
-    for bad in BAD_KEYWORDS:
-        if bad in check_name: return False 
-        
-    # Remove unwanted groups (Movies, Music, Premium, etc.)
-    check_group = group.lower()
-    for bad_g in BAD_GROUPS:
-        if bad_g in check_group: return False
-
-    return True
 
 def fetch_live_events(url):
     print(f"   📥 Fetching M3U: {url}...")
     lines = []
     try:
-        r = requests.get(url, headers={"User-Agent": UA_HEADER}, timeout=15)
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
         if r.status_code == 200:
             content = r.text.splitlines()
             for line in content:
@@ -68,7 +42,7 @@ def fetch_live_events(url):
                 if not line: continue
                 if line.startswith("#EXTM3U"): continue
                 if line.startswith("#EXTINF"):
-                    line = re.sub(r'group-title="[^"]*"', '', line)
+                    line = re.sub(r'group-title="([^"]*)"', '', line)
                     line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
                     lines.append(line)
                 elif not line.startswith("#"):
@@ -77,104 +51,170 @@ def fetch_live_events(url):
     return lines
 
 def parse_youtube_txt():
-    print("   ...Reading youtube.txt")
+    print("\n   🔎 LOOKING FOR YOUTUBE.TXT...")
     lines = []
-    if not os.path.exists(YOUTUBE_FILE): return []
+    
+    if not os.path.exists(YOUTUBE_FILE): 
+        print("      ❌ FATAL: youtube.txt file NOT FOUND in repository!")
+        return []
+    
     try:
         with open(YOUTUBE_FILE, "r", encoding="utf-8", errors="ignore") as f:
             file_lines = f.readlines()
-        current_title = "Unknown Channel"; current_logo = DEFAULT_LOGO; current_props = [] 
+        
+        print(f"      ✅ File found. Total lines: {len(file_lines)}")
+        
+        current_title = "Unknown Channel"
+        current_logo = DEFAULT_LOGO
+        current_props = [] 
+        
+        count = 0
         for line in file_lines:
             line = line.strip()
             if not line: continue
-            if len(line) > 600: continue
+            
+            # Simple check to skip massive junk lines
+            if len(line) > 400: continue
+
             lower_line = line.lower()
+
             if lower_line.startswith("title"):
-                parts = line.split(":", 1); current_title = parts[1].strip() if len(parts)>1 else "Unknown"
+                parts = line.split(":", 1)
+                if len(parts) > 1: current_title = parts[1].strip()
+            
             elif lower_line.startswith("logo"):
-                parts = line.split(":", 1); current_logo = parts[1].strip() if len(parts)>1 else DEFAULT_LOGO
-            elif line.startswith("#"): current_props.append(line)
+                parts = line.split(":", 1)
+                if len(parts) > 1: current_logo = parts[1].strip()
+
+            # KEEP TAGS (Important for your Jio Link)
+            elif line.startswith("#"):
+                current_props.append(line)
+            
+            # FOUND A LINK
             elif "http" in lower_line:
-                url = line[line.lower().find("http"):].strip()
-                if current_props: lines.extend(current_props); current_props = [] 
+                count += 1
+                url_start = lower_line.find("http")
+                url = line[url_start:].strip()
+                
+                # Write Tags first (if any)
+                if current_props:
+                    lines.extend(current_props)
+                    current_props = [] 
+                
+                # Write Entry
                 lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
-                if "|" not in url and "http" in url: url += f"|User-Agent={UA_HEADER}"
                 lines.append(url)
-                current_title = "Unknown Channel"; current_logo = DEFAULT_LOGO; current_props = []
-    except Exception as e: print(f"   ❌ Error reading youtube.txt: {e}")
+                
+                print(f"      ---> Added: {current_title}")
+                current_title = "Unknown Channel"
+                current_logo = DEFAULT_LOGO
+                current_props = []
+        
+        if count == 0:
+            print("      ⚠️ WARNING: youtube.txt exists but NO 'http' links were found!")
+
+    except Exception as e:
+        print(f"   ❌ Error reading youtube.txt: {e}")
     return lines
 
 # ==========================================
-# MAIN LOGIC
+# MAIN SCRIPT
 # ==========================================
 def main():
     print("📥 Downloading Source Playlist...")
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
-    final_lines = ["#EXTM3U", f"# Updated on: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}", "http://0.0.0.0"]
+    final_lines = ["#EXTM3U"]
+    final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
+    final_lines.append("http://0.0.0.0")
+
+    def get_group_and_name(line):
+        grp_match = re.search(r'group-title="([^"]*)"', line, re.IGNORECASE)
+        group = grp_match.group(1).strip() if grp_match else ""
+        name = line.split(",")[-1].strip()
+        return group, name
+
+    def get_clean_id(name):
+        return re.sub(r'[^a-z0-9]', '', name.lower().replace("hd", "").replace(" ", "").strip())
+
+    def should_keep_channel(group, name):
+        check_str = (group + " " + name).lower()
+        for bad in BAD_KEYWORDS:
+            if bad in check_str: return False 
+        return True
 
     try:
-        r = requests.get(POCKET_URL, headers={"User-Agent": UA_HEADER}, timeout=30)
+        r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
         source_lines = r.text.splitlines()
-    except Exception as e: print(f"❌ Failed: {e}"); sys.exit(1)
+    except Exception as e:
+        print(f"❌ Failed: {e}")
+        sys.exit(1)
+
+    hd_channels_exist = set()
+    for line in source_lines:
+        if line.startswith("#EXTINF"):
+            _, name = get_group_and_name(line)
+            if "hd" in name.lower(): hd_channels_exist.add(get_clean_id(name))
 
     seen_channels = set()
     current_buffer = []
+    zee_tamil_count = 0
 
     for line in source_lines:
         line = line.strip()
-        if not line or line.startswith("#EXTM3U"): continue
+        if not line: continue
+        if line.startswith("#EXTM3U"): continue
 
         if line.startswith("#EXTINF"):
             if current_buffer: final_lines.extend(current_buffer)
             current_buffer = []
-
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             
-            # --- FILTERING (Removes unwanted groups) ---
             if not should_keep_channel(group, name): current_buffer = []; continue
+            if "hd" not in clean_name and get_clean_id(name) in hd_channels_exist: current_buffer = []; continue
 
-            # --- DUPLICATE LOGIC ---
             exact_id = get_clean_id(name)
             is_duplicate = exact_id in seen_channels
-            
-            if not is_duplicate:
-                seen_channels.add(exact_id)
+            if not is_duplicate: seen_channels.add(exact_id)
 
             new_group = group 
-            
-            # --- ZEE TAMIL / THIRAI FIX ---
-            if "zee tamil hd" in clean_name or "zee thirai hd" in clean_name:
-                new_group = "Tamil HD"
-                is_duplicate = False 
+            if "zee tamil hd" in clean_name:
+                zee_tamil_count += 1
+                new_group = "Backup" if zee_tamil_count != 2 else "Tamil HD"
             elif is_duplicate:
                 new_group = "Backup"
             else:
                 group_lower = group.lower()
-                
-                # --- MAPPING (Case Insensitive Fix) ---
-                if any(t.lower() in clean_name for t in MOVE_TO_TAMIL_HD): new_group = "Tamil HD"
-                elif any(t.lower() in clean_name for t in MOVE_TO_TAMIL_NEWS): new_group = "Tamil News"
-                elif any(t.lower() in clean_name for t in SPORTS_HD_KEEP): new_group = "Sports HD"
-                elif any(t.lower() in clean_name for t in MOVE_TO_INFOTAINMENT_SD): new_group = "Infotainment SD"
-                
-                # Broad Fallbacks
-                elif "tamil" in group_lower or "local channels" in group_lower: new_group = "Tamil Extra"
-                elif "news" in group_lower and "tamil" not in group_lower: new_group = "English and Hindi News"
+                if group_lower in ["tamil", "local channels"] or "astro" in group_lower: new_group = "Tamil Extra"
+                if "news" in group_lower and "tamil" not in group_lower: new_group = "English and Hindi News"
+                if any(t in clean_name for t in MOVE_TO_TAMIL_NEWS): new_group = "Tamil News"
+                if any(t in clean_name for t in MOVE_TO_TAMIL_HD): new_group = "Tamil HD"
+                if any(t in clean_name for t in SPORTS_HD_KEEP): new_group = "Sports HD"
+                if any(t in clean_name for t in MOVE_TO_INFOTAINMENT_SD): new_group = "Infotainment SD"
 
-            # Apply Group Change
             if new_group != group:
-                if 'group-title="' in line: line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
-                else: line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
+                if 'group-title="' in line:
+                    line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
+                else:
+                    line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
 
         current_buffer.append(line)
-        if not line.startswith("#"): current_buffer[-1] = line; final_lines.extend(current_buffer); current_buffer = []
+        if not line.startswith("#"):
+            current_buffer[-1] = line; final_lines.extend(current_buffer); current_buffer = []
 
     if current_buffer: final_lines.extend(current_buffer)
-    print("📥 Adding Live Events..."); final_lines.extend(fetch_live_events(FANCODE_URL)); final_lines.extend(fetch_live_events(SONY_LIVE_URL)); final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
-    print("📥 Adding Temporary Channels..."); final_lines.extend(parse_youtube_txt())
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f: f.write("\n".join(final_lines))
+    print("📥 Adding Live Events (M3U)...")
+    final_lines.extend(fetch_live_events(FANCODE_URL))
+    final_lines.extend(fetch_live_events(SONY_LIVE_URL))
+    final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
+    
+    # CALLING THE FUNCTION HERE
+    print("📥 Adding Temporary Channels...")
+    final_lines.extend(parse_youtube_txt())
+
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        f.write("\n".join(final_lines))
     print(f"\n✅ DONE. Saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
