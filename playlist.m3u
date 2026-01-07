@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-07 13:18:03 IST
+# Updated on: 2026-01-07 14:30:28 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848&xxx=||cookie=__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 7 January 2026 at 1:14:05 pm
+#DATE:- Wednesday, 7 January 2026 at 2:28:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138940" tvg-name="Noakhali Express Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138940_5808_DC_NOE_fc-web_1766733054889.jpg" tvg-language="ENGLISH" ,ENG | Noakhali Express Vs Dhaka Capitals
 https://in-mc-fdlive.fancode.com/mumbai/138940_english_hls_a8879097a196658_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139191" tvg-name="Show Court 1   Day 4" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 4
@@ -857,14 +857,14 @@ https://in-mc-fdlive.fancode.com/mumbai/139190_english_hls_e3450c9bd795754_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139206_english_hls_a7689c2f3e19261_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139285" tvg-name="Centre Court   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 3
 https://in-mc-fdlive.fancode.com/mumbai/139285_english_hls_b93736c6a4488_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 07-01-2026 13:00
+#DATE:- 07-01-2026 14:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090499000" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013030/1767696632540902_UC26_QF_USA_vs_greece_6jan_landscape_thumb.jpg" tvg-language="English" ,ENG | USA vs Greece - Quarter-final - 7 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767810601~acl=/*~id=744d8aaaf2ef7010ab5ba49ee0be08f5-1767767400146~hmac=696d4ca8e9a1743b083052566c4145c4b1ccab2e2eeedb149ec6e9e599a64e76|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; M2010J19SI; Build/SKQ1.211202.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=86231531248b14d201879b09ec4e121f-1767771012522
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499000" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013030/1767697177599902_UC26_QF_Switzerland_vs_Argentina_6jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Switzerland vs Argentina - Quarter-final - 7 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1767810601~acl=/*~id=744d8aaaf2ef7010ab5ba49ee0be08f5-1767767400146~hmac=696d4ca8e9a1743b083052566c4145c4b1ccab2e2eeedb149ec6e9e599a64e76|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; 0JTTXY; Build/RSV1.210329.052)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c4dd50988a46ed4b2ee7af47ca26ba14-1767775812319
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 6/1/2026, 23:15:13
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767812409~acl=%2f*~id=bb0010a6-f215-4c99-bf40-58eae4efd405~data=hdntl~hmac=f0bf9817ac684199f30d1c250248f9b3a74e8a49a34ff8af85e68ab1b8f445a6|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767855662~acl=%2f*~id=02bb3b4f-933d-4177-912a-963ecfc10029~data=hdntl~hmac=a22856c74c647a13cda418cc870e33f0059227a7aac93bd0918a6bfb2ef9ed50|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
 https://keys.vodep39240327.workers.dev/?id=300.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png",Star Sports Select 2 HD
