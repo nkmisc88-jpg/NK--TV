@@ -21,7 +21,8 @@ MOVE_TO_TAMIL_HD = ["Sun TV HD", "Star Vijay HD", "Colors Tamil HD", "Zee Tamil 
 MOVE_TO_TAMIL_NEWS = ["Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", "Tamil Janam", "Jaya Plus", "M Nadu", "News J", "News18 Tamil Nadu", "News Tamil 24x7", "Win TV", "Zee Tamil News", "Polimer News", "Puthiya Thalaimurai", "Seithigal TV", "Sathiyam TV", "MalaiMurasu Seithigal"]
 MOVE_TO_INFOTAINMENT_SD = ["GOOD TiMES", "Food Food"]
 SPORTS_HD_KEEP = ["Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", "Star Sports Select 1 HD", "Star Sports Select 2 HD", "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"]
-BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
+# ADDED 'apac' HERE TO REMOVE THE UNWANTED CHANNEL
+BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd", "apac"]
 
 DEFAULT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png"
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -114,7 +115,6 @@ def parse_youtube_txt():
 # ==========================================
 def main():
     print("📥 Downloading Source Playlist...")
-    # IST TIME CALCULATION
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U", f"# Updated on: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}", "http://0.0.0.0"]
 
@@ -125,7 +125,6 @@ def main():
         print(f"❌ Failed: {e}")
         sys.exit(1)
 
-    # 1. Pre-scan for HD channels to help filter SD duplicates later
     hd_channels_exist = set()
     for line in source_lines:
         if line.startswith("#EXTINF"):
@@ -149,7 +148,6 @@ def main():
             
             # --- FILTERING ---
             if not should_keep_channel(group, name): current_buffer = []; continue
-            # If SD version exists but we have HD version, skip SD
             if "hd" not in clean_name and get_clean_id(name) in hd_channels_exist: current_buffer = []; continue
 
             # --- DUPLICATE LOGIC ---
@@ -161,18 +159,12 @@ def main():
 
             new_group = group 
             
-            # === THE SPECIAL ZEE FIX ===
-            # If Zee Tamil HD or Zee Thirai HD:
-            # 1. Force Group to "Tamil HD"
-            # 2. MARK AS NOT DUPLICATE (So both links get added to Tamil HD)
+            # Force Zee Tamil/Thirai to Tamil HD (and ensure it's not hidden in backup)
             if "zee tamil hd" in clean_name:
                 new_group = "Tamil HD"
-                is_duplicate = False 
             elif "zee thirai hd" in clean_name:
                 new_group = "Tamil HD"
-                is_duplicate = False
-            # ============================
-
+            
             elif is_duplicate:
                 new_group = "Backup"
             else:
@@ -193,7 +185,6 @@ def main():
                     line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{new_group}"')
 
         current_buffer.append(line)
-        # If it's a URL line (doesn't start with #), write the buffer immediately
         if not line.startswith("#"):
             current_buffer[-1] = line
             final_lines.extend(current_buffer)
