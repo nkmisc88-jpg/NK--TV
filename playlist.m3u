@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-07 21:21:38 IST
+# Updated on: 2026-01-07 22:31:08 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,25 +846,21 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848&xxx=||cookie=__hdnea__=st=1767748447~exp=1767834847~acl=/*~hmac=e0346bc41540415ef0585d25f38fbabfdeaee624c0f61e56b3475884b69cb848
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 7 January 2026 at 9:21:07 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="138941" tvg-name="Chattogram Royals Vs Sylhet Titans" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138941_5808_CCH_SYL_fc-web_1766733054205.jpg" tvg-language="ENGLISH" ,ENG | Chattogram Royals Vs Sylhet Titans
-https://in-mc-fdlive.fancode.com/mumbai/138941_english_hls_48ed6eee9983049_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Wednesday, 7 January 2026 at 10:28:07 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139215" tvg-name="Sri Lanka Vs Pakistan" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Pakistan-Tour-of-Sri-Lanka,-2026-match-card-old-.png" tvg-language="ENGLISH" ,ENG | Sri Lanka Vs Pakistan
 https://sonypartnersdaimenew.akamaized.net/hls/live/2018457/DAI35ME-PAKvsSL/master.m3u8?hdnea=exp=1767832201~acl=/*~id=fddc13e0e61d91a0435d9ea660d6eaa8-1767789000165~hmac=b351bb33655064f41d24a80574a67e48166e62eb232248956cb93a005250b523|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139255" tvg-name="Uzbekistan U23 Vs Lebanon U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139255_5822_UZB-U23_LEB-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Uzbekistan U23 Vs Lebanon U23
-https://in-mc-fdlive.fancode.com/mumbai/139255_english_hls_7e14811ef061786_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139256" tvg-name="Qatar U23 Vs United Arab Emirates U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139256_5822_QAT-U23_UAE-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Qatar U23 Vs United Arab Emirates U23
+https://in-mc-fdlive.fancode.com/mumbai/139256_english_hls_a78ab4d7eb41061_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139285" tvg-name="Centre Court   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 3
 https://in-mc-fdlive.fancode.com/mumbai/139285_english_hls_b93736c6a4488_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 07-01-2026 21:20
+#DATE:- 07-01-2026 22:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498703" tvg-name="MasterChef India - Hindi" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012988/1767619329396530_MCI_S4_5jan_simulcast_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | MasterChef India - Hindi
-https://sonymtmnew.akamaized.net/hls/live/2037142/DAI22ME-MCI/master.m3u8?hdnea=exp=1767832201~acl=/*~id=fddc13e0e61d91a0435d9ea660d6eaa8-1767789000165~hmac=b351bb33655064f41d24a80574a67e48166e62eb232248956cb93a005250b523|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; Nokia 5.3; Build/SKQ1.211230.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=412c0381903600f22fc11b5b44dbc441-1767801012432
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
-https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1767832201~acl=/*~id=fddc13e0e61d91a0435d9ea660d6eaa8-1767789000165~hmac=b351bb33655064f41d24a80574a67e48166e62eb232248956cb93a005250b523|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; RMX3938; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=412c0381903600f22fc11b5b44dbc441-1767801012432
+https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1767832201~acl=/*~id=fddc13e0e61d91a0435d9ea660d6eaa8-1767789000165~hmac=b351bb33655064f41d24a80574a67e48166e62eb232248956cb93a005250b523|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; Slate; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e256b88f0b94254167dcf8513a6f6a4c-1767804612641
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499042" tvg-name="Pakistan Tour of Sri Lanka 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013032/1767698961481649_SLvsPAK26_1t20i_6jan_landscape_thumb.jpg" tvg-language="English" ,ENG | 1st T20I - 7 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2018457/DAI35-criclive/master.m3u8?hdnea=exp=1767832201~acl=/*~id=fddc13e0e61d91a0435d9ea660d6eaa8-1767789000165~hmac=b351bb33655064f41d24a80574a67e48166e62eb232248956cb93a005250b523|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; SM-F721B; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=412c0381903600f22fc11b5b44dbc441-1767801012432
+https://sonymtmnew.akamaized.net/hls/live/2018457/DAI35-criclive/master.m3u8?hdnea=exp=1767832201~acl=/*~id=fddc13e0e61d91a0435d9ea660d6eaa8-1767789000165~hmac=b351bb33655064f41d24a80574a67e48166e62eb232248956cb93a005250b523|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; MI; Build/MI)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e256b88f0b94254167dcf8513a6f6a4c-1767804612641
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 7 January 2026 at 9:15:12 pm
+#DATE:- Wednesday, 7 January 2026 at 10:15:16 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list3961f7eec6bb434c9ff3687a83ffcf158f82ecdd6d4e449fa2b341c27af7e5d4.jpg" tvg-language="hindi" ,HIN | Uttar Pradesh Kabaddi League Season 2
 https://falconstream.zee5.com/cmaf/live/2109039/UPKL-HIN/master.m3u8?hdntl=exp=1767887103~acl=%2f*~data=hdntl~hmac=526f78fdc6d053c95578984331bb558a839061eba18c8e4fc4278cc9517e53bc|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5882427" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5882427/list/1920x1080list3961f7eec6bb434c9ff3687a83ffcf158f82ecdd6d4e449fa2b341c27af7e5d4.jpg" tvg-language="english" ,ENG | Uttar Pradesh Kabaddi League Season 2
