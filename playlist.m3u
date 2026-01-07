@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-07 05:18:29 IST
+# Updated on: 2026-01-07 06:41:04 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,17 +846,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767702744~exp=1767789144~acl=/*~hmac=1a9c021340daa4f14f8ab2e5ee171165a693f60b47264abe4c206eb8c337ebe1"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767702744~exp=1767789144~acl=/*~hmac=1a9c021340daa4f14f8ab2e5ee171165a693f60b47264abe4c206eb8c337ebe1&xxx=||cookie=__hdnea__=st=1767702744~exp=1767789144~acl=/*~hmac=1a9c021340daa4f14f8ab2e5ee171165a693f60b47264abe4c206eb8c337ebe1
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 7 January 2026 at 5:14:05 am
+#DATE:- Wednesday, 7 January 2026 at 6:35:06 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138774" tvg-name="Central Hinds Vs Wellington Blaze" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138774_5801_WB-W_CH-W_fc-web_1766596522150.jpg" tvg-language="ENGLISH" ,ENG | Central Hinds Vs Wellington Blaze
 https://in-mc-fdlive.fancode.com/mumbai/138774_english_hls_84bd2b394a42375_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139165" tvg-name="The Bay Vs Atlanta" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/TGL_Mini-Match-Card-(1080x810).png" tvg-language="ENGLISH" ,ENG | The Bay Vs Atlanta
 https://in-mc-fdlive.fancode.com/mumbai/139165_english_hls_b04d47724517739_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 07-01-2026 05:00
+#EXTINF:-1 group-title="Live Events" tvg-id="139191" tvg-name="Show Court 1   Day 4" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 4
+https://in-mc-fdlive.fancode.com/mumbai/139191_english_hls_078c776f8b1233_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 07-01-2026 06:40
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090499006" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012941/1767503753535728_UnitedCup26_Poland_vs_Netherlands_4jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Poland vs Netherlands - 7 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767767518~acl=/*~id=19b71afdc163c7dbebd9cdc2d79bc2d3-1767724316556~hmac=0143f491094241d60ee6a6b4a18116d8122e9ea7b5b8e2f808ae1993fdcd3058|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; SM-T220; Build/RP1A.200720.012)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=896c70c5fe0d758af494010a1ccabc53-1767742212779
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498838" tvg-name="Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012758/1766836424934385_SuperSmash2526_womens_Wellington-Blaze-vs-Central-Hinds_27dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Wellington Blaze vs Central Hinds- 7 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767767518~acl=/*~id=19b71afdc163c7dbebd9cdc2d79bc2d3-1767724316556~hmac=0143f491094241d60ee6a6b4a18116d8122e9ea7b5b8e2f808ae1993fdcd3058|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; AFTSS; Build/PS7679.4292N)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=896c70c5fe0d758af494010a1ccabc53-1767742212779
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767789001~acl=/*~id=db7fd822715c7316bd4af653686e33ae-1767745800135~hmac=86affd5cb90da7885d0c7e303e862cdf31f491d65d550a03d3c1f0299160ae7a|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; SCV45; Build/RP1A.200720.012)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=54380caf35109e4a824b1f6faa04382c-1767748211201
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499006" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012941/1767503753535728_UnitedCup26_Poland_vs_Netherlands_4jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Poland vs Netherlands - 7 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767789001~acl=/*~id=db7fd822715c7316bd4af653686e33ae-1767745800135~hmac=86affd5cb90da7885d0c7e303e862cdf31f491d65d550a03d3c1f0299160ae7a|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; BRAVIA 4K VH22; Build/QTG3.200305.006.S362)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=54380caf35109e4a824b1f6faa04382c-1767748211201
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 6/1/2026, 23:15:13
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
