@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-09 02:15:30 IST
+# Updated on: 2026-01-09 03:10:14 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -845,10 +845,8 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767834875~exp=1767921275~acl=/*~hmac=49f177614b05d4e5e776712ec6d732a93db9d1cfd8fa92f2dbd740c5ff999129"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767834875~exp=1767921275~acl=/*~hmac=49f177614b05d4e5e776712ec6d732a93db9d1cfd8fa92f2dbd740c5ff999129&xxx=||cookie=__hdnea__=st=1767834875~exp=1767921275~acl=/*~hmac=49f177614b05d4e5e776712ec6d732a93db9d1cfd8fa92f2dbd740c5ff999129
-#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 9 January 2026 at 2:14:05 am
-#EXTINF:-1 group-title="Live Events" tvg-id="138958" tvg-name="Atletico De Madrid Vs Real Madrid" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Atletico-de-Madrid-vs-Real-Madrid_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Atletico De Madrid Vs Real Madrid
-https://in-mc-fdlive.fancode.com/mumbai/138958_english_hls_ab1c93afac37538_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+##Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+# Last Checked: 9/1/2026, 02:56:06
 #DATE:- 08-01-2026 23:40
 #No live matches.
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
