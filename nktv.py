@@ -13,200 +13,198 @@ TEMP_CHANNELS_FILE = "temporary_channels.txt"
 SRC_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
 SRC_FAKEALL = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
 SRC_YOUTUBE_PLAYLIST = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
+
+# Live Events
 SRC_FANCODE = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SRC_SONY = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 SRC_ZEE = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# MAGIC HEADER (Crucial for Playback)
-# This mimics a standard TV player app, which servers usually accept.
-STREAM_USER_AGENT = "plaYtv/7.0.8 (Linux;Android 9) ExoPlayerLib/2.11.7"
-DL_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"}
+# HEADERS
+# Fakeall/Direct links usually need this. Arunjunan often does NOT.
+BACKUP_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+DL_HEADERS = {"User-Agent": BACKUP_USER_AGENT}
 
 # ==========================================
-# 2. MASTER CHANNEL LIST
+# 2. MASTER CHANNEL LIST (Keys are Search Tokens)
 # ==========================================
+# We use simple keywords. If a channel has these words, we grab it.
 MASTER_CHANNELS = {
     # 1. TAMIL HD
-    "suntvhd": ("Sun TV HD", "Tamil HD"),
-    "ktvhd": ("KTV HD", "Tamil HD"),
-    "sunmusichd": ("Sun Music HD", "Tamil HD"),
-    "starvijayhd": ("Star Vijay HD", "Tamil HD"),
-    "vijaysuperhd": ("Vijay Super HD", "Tamil HD"),
-    "zeetamilhd": ("Zee Tamil HD", "Tamil HD"),
-    "zeethiraihd": ("Zee Thirai HD", "Tamil HD"),
-    "colorstamilhd": ("Colors Tamil HD", "Tamil HD"),
-    "jayatvhd": ("Jaya TV HD", "Tamil HD"),
+    "sun tv hd": ("Sun TV HD", "Tamil HD"),
+    "ktv hd": ("KTV HD", "Tamil HD"),
+    "sun music hd": ("Sun Music HD", "Tamil HD"),
+    "star vijay hd": ("Star Vijay HD", "Tamil HD"),
+    "vijay super hd": ("Vijay Super HD", "Tamil HD"),
+    "zee tamil hd": ("Zee Tamil HD", "Tamil HD"),
+    "zee thirai hd": ("Zee Thirai HD", "Tamil HD"),
+    "colors tamil hd": ("Colors Tamil HD", "Tamil HD"),
+    "jaya tv hd": ("Jaya TV HD", "Tamil HD"),
 
     # 2. TAMIL SD
-    "suntv": ("Sun TV", "Tamil - Others"),
+    "sun tv": ("Sun TV", "Tamil - Others"),
     "ktv": ("KTV", "Tamil - Others"),
-    "sunmusic": ("Sun Music", "Tamil - Others"),
-    "starvijay": ("Star Vijay", "Tamil - Others"),
-    "vijaysuper": ("Vijay Super", "Tamil - Others"),
-    "vijaytakkar": ("Vijay Takkar", "Tamil - Others"),
-    "zeetamil": ("Zee Tamil", "Tamil - Others"),
-    "zeethirai": ("Zee Thirai", "Tamil - Others"),
-    "colorstamil": ("Colors Tamil", "Tamil - Others"),
-    "jayatv": ("Jaya TV", "Tamil - Others"),
-    "jmovies": ("J Movies", "Tamil - Others"),
-    "jayamax": ("Jaya Max", "Tamil - Others"),
-    "adithyatv": ("Adithya TV", "Tamil - Others"),
-    "chuttitv": ("Chutti TV", "Tamil - Others"),
-    "sunlife": ("Sun Life", "Tamil - Others"),
-    "rajtv": ("Raj TV", "Tamil - Others"),
-    "rajdigitalplus": ("Raj Digital Plus", "Tamil - Others"),
-    "rajmusix": ("Raj Musix", "Tamil - Others"),
-    "kalaignartv": ("Kalaignar TV", "Tamil - Others"),
-    "murasutv": ("Murasu TV", "Tamil - Others"),
+    "sun music": ("Sun Music", "Tamil - Others"),
+    "star vijay": ("Star Vijay", "Tamil - Others"),
+    "vijay super": ("Vijay Super", "Tamil - Others"),
+    "vijay takkar": ("Vijay Takkar", "Tamil - Others"),
+    "zee tamil": ("Zee Tamil", "Tamil - Others"),
+    "zee thirai": ("Zee Thirai", "Tamil - Others"),
+    "colors tamil": ("Colors Tamil", "Tamil - Others"),
+    "jaya tv": ("Jaya TV", "Tamil - Others"),
+    "j movies": ("J Movies", "Tamil - Others"),
+    "jaya max": ("Jaya Max", "Tamil - Others"),
+    "adithya": ("Adithya TV", "Tamil - Others"),
+    "chutti": ("Chutti TV", "Tamil - Others"),
+    "sun life": ("Sun Life", "Tamil - Others"),
+    "raj tv": ("Raj TV", "Tamil - Others"),
+    "raj digital": ("Raj Digital Plus", "Tamil - Others"),
+    "raj musix": ("Raj Musix", "Tamil - Others"),
+    "kalaignar": ("Kalaignar TV", "Tamil - Others"),
+    "murasu": ("Murasu TV", "Tamil - Others"),
     "isaiaruvi": ("Isaiaruvi", "Tamil - Others"),
     "sirippoli": ("Sirippoli", "Tamil - Others"),
-    "polimertv": ("Polimer TV", "Tamil - Others"),
-    "vasanthtv": ("Vasanth TV", "Tamil - Others"),
-    "megatv": ("Mega TV", "Tamil - Others"),
-    "makkaltv": ("Makkal TV", "Tamil - Others"),
-    "vendhartv": ("Vendhar TV", "Tamil - Others"),
-    "captaintv": ("Captain TV", "Tamil - Others"),
+    "polimer tv": ("Polimer TV", "Tamil - Others"),
+    "vasanth": ("Vasanth TV", "Tamil - Others"),
+    "mega tv": ("Mega TV", "Tamil - Others"),
+    "makkal": ("Makkal TV", "Tamil - Others"),
+    "vendhar": ("Vendhar TV", "Tamil - Others"),
+    "captain tv": ("Captain TV", "Tamil - Others"),
     "mktv": ("MKTV", "Tamil - Others"),
-    "pepperstv": ("Peppers TV", "Tamil - Others"),
-    "blacksheeptv": ("Blacksheep TV", "Tamil - Others"),
-    "ddpodhigai": ("DD Podhigai", "Tamil - Others"),
+    "peppers": ("Peppers TV", "Tamil - Others"),
+    "blacksheep": ("Blacksheep TV", "Tamil - Others"),
+    "podhigai": ("DD Podhigai", "Tamil - Others"),
 
     # 3. TAMIL NEWS
-    "sunnews": ("Sun News", "Tamil News"),
-    "polimernews": ("Polimer News", "Tamil News"),
-    "puthiyathalaimurai": ("Puthiya Thalaimurai", "Tamil News"),
-    "news7tamil": ("News7 Tamil", "Tamil News"),
-    "thanthitv": ("Thanthi TV", "Tamil News"),
-    "news18tamilnadu": ("News18 Tamil Nadu", "Tamil News"),
-    "kalaignarseithigal": ("Kalaignar Seithigal", "Tamil News"),
-    "jayaplus": ("Jaya Plus", "Tamil News"),
-    "newsj": ("News J", "Tamil News"),
-    "sathiyamtv": ("Sathiyam TV", "Tamil News"),
-    "rajnews24x7": ("Raj News 24x7", "Tamil News"),
-    "captainnews": ("Captain News", "Tamil News"),
-    "malaimurasuseithigal": ("Malai Murasu Seithigal", "Tamil News"),
-    "newstamil24x7": ("News Tamil 24x7", "Tamil News"),
-    "lotusnews": ("Lotus News", "Tamil News"),
+    "sun news": ("Sun News", "Tamil News"),
+    "polimer news": ("Polimer News", "Tamil News"),
+    "puthiya": ("Puthiya Thalaimurai", "Tamil News"),
+    "news7 tamil": ("News7 Tamil", "Tamil News"),
+    "thanthi": ("Thanthi TV", "Tamil News"),
+    "news18 tamil": ("News18 Tamil Nadu", "Tamil News"),
+    "kalaignar seithigal": ("Kalaignar Seithigal", "Tamil News"),
+    "jaya plus": ("Jaya Plus", "Tamil News"),
+    "news j": ("News J", "Tamil News"),
+    "sathiyam": ("Sathiyam TV", "Tamil News"),
+    "raj news": ("Raj News 24x7", "Tamil News"),
+    "captain news": ("Captain News", "Tamil News"),
+    "malai murasu": ("Malai Murasu Seithigal", "Tamil News"),
+    "news tamil 24": ("News Tamil 24x7", "Tamil News"),
+    "lotus": ("Lotus News", "Tamil News"),
 
     # 4. SPORTS HD
-    "starsports1tamilhd": ("Star Sports 1 Tamil HD", "Sports HD"),
-    "starsports2tamilhd": ("Star Sports 2 Tamil HD", "Sports HD"),
-    "starsports1hindihd": ("Star Sports 1 Hindi HD", "Sports HD"),
-    "starsports2hindihd": ("Star Sports 2 Hindi HD", "Sports HD"),
-    "starsports1hd": ("Star Sports 1 HD", "Sports HD"),
-    "starsports2hd": ("Star Sports 2 HD", "Sports HD"),
-    "starsportsselect1hd": ("Star Sports Select 1 HD", "Sports HD"),
-    "starsportsselect2hd": ("Star Sports Select 2 HD", "Sports HD"),
-    "sonysportsten1hd": ("Sony Sports Ten 1 HD", "Sports HD"),
-    "sonysportsten2hd": ("Sony Sports Ten 2 HD", "Sports HD"),
-    "sonysportsten3hd": ("Sony Sports Ten 3 HD", "Sports HD"),
-    "sonysportsten4hd": ("Sony Sports Ten 4 HD", "Sports HD"),
-    "sonysportsten5hd": ("Sony Sports Ten 5 HD", "Sports HD"),
-    "sports181hd": ("Sports18 1 HD", "Sports HD"),
-    "eurosporthd": ("Eurosport HD", "Sports HD"),
+    "star sports 1 tamil hd": ("Star Sports 1 Tamil HD", "Sports HD"),
+    "star sports 2 tamil hd": ("Star Sports 2 Tamil HD", "Sports HD"),
+    "star sports 1 hindi hd": ("Star Sports 1 Hindi HD", "Sports HD"),
+    "star sports 2 hindi hd": ("Star Sports 2 Hindi HD", "Sports HD"),
+    "star sports 1 hd": ("Star Sports 1 HD", "Sports HD"),
+    "star sports 2 hd": ("Star Sports 2 HD", "Sports HD"),
+    "select 1 hd": ("Star Sports Select 1 HD", "Sports HD"),
+    "select 2 hd": ("Star Sports Select 2 HD", "Sports HD"),
+    "ten 1 hd": ("Sony Sports Ten 1 HD", "Sports HD"),
+    "ten 2 hd": ("Sony Sports Ten 2 HD", "Sports HD"),
+    "ten 3 hd": ("Sony Sports Ten 3 HD", "Sports HD"),
+    "ten 4 hd": ("Sony Sports Ten 4 HD", "Sports HD"),
+    "ten 5 hd": ("Sony Sports Ten 5 HD", "Sports HD"),
+    "sports18 1 hd": ("Sports18 1 HD", "Sports HD"),
+    "eurosport hd": ("Eurosport HD", "Sports HD"),
 
     # 5. SPORTS SD
-    "starsports1tamil": ("Star Sports 1 Tamil", "Sports - Others"),
-    "starsports2tamil": ("Star Sports 2 Tamil", "Sports - Others"),
-    "starsports1hindi": ("Star Sports 1 Hindi", "Sports - Others"),
-    "starsports2hindi": ("Star Sports 2 Hindi", "Sports - Others"),
-    "starsports1kannada": ("Star Sports 1 Kannada", "Sports - Others"),
-    "starsports1telugu": ("Star Sports 1 Telugu", "Sports - Others"),
-    "starsports2telugu": ("Star Sports 2 Telugu", "Sports - Others"),
-    "starsports1": ("Star Sports 1", "Sports - Others"),
-    "starsports2": ("Star Sports 2", "Sports - Others"),
-    "starsports3": ("Star Sports 3", "Sports - Others"),
-    "starsportsfirst": ("Star Sports First", "Sports - Others"),
-    "starsportskhel": ("Star Sports Khel", "Sports - Others"),
-    "ddsports": ("DD Sports", "Sports - Others"),
+    "star sports 1 tamil": ("Star Sports 1 Tamil", "Sports - Others"),
+    "star sports 2 tamil": ("Star Sports 2 Tamil", "Sports - Others"),
+    "star sports 1 hindi": ("Star Sports 1 Hindi", "Sports - Others"),
+    "star sports 2 hindi": ("Star Sports 2 Hindi", "Sports - Others"),
+    "star sports 1 kannada": ("Star Sports 1 Kannada", "Sports - Others"),
+    "star sports 1 telugu": ("Star Sports 1 Telugu", "Sports - Others"),
+    "star sports 2 telugu": ("Star Sports 2 Telugu", "Sports - Others"),
+    "star sports 1": ("Star Sports 1", "Sports - Others"),
+    "star sports 2": ("Star Sports 2", "Sports - Others"),
+    "star sports 3": ("Star Sports 3", "Sports - Others"),
+    "star sports first": ("Star Sports First", "Sports - Others"),
+    "star sports khel": ("Star Sports Khel", "Sports - Others"),
+    "dd sports": ("DD Sports", "Sports - Others"),
 
     # 6. GLOBAL SPORTS
-    "astrocricket": ("Astro Cricket", "Global Sports"),
-    "foxcricket": ("Fox Cricket 501", "Global Sports"),
-    "foxsports505": ("Fox Sports 505", "Global Sports"),
+    "astro cricket": ("Astro Cricket", "Global Sports"),
+    "fox cricket": ("Fox Cricket 501", "Global Sports"),
+    "fox 501": ("Fox Cricket 501", "Global Sports"),
+    "fox sports 505": ("Fox Sports 505", "Global Sports"),
+    "fox 505": ("Fox Sports 505", "Global Sports"),
     "willow": ("Willow Sports", "Global Sports"),
-    "skysportscricket": ("Sky Sports Cricket", "Global Sports"),
-    "tntsports1": ("TNT Sports 1", "Global Sports"),
-    "tntsports2": ("TNT Sports 2", "Global Sports"),
-    "tntsports3": ("TNT Sports 3", "Global Sports"),
-    "tntsports4": ("TNT Sports 4", "Global Sports"),
-    "tntsportsultimate": ("TNT Sports Ultimate", "Global Sports"),
+    "sky sports cricket": ("Sky Sports Cricket", "Global Sports"),
+    "tnt sports 1": ("TNT Sports 1", "Global Sports"),
+    "tnt sports 2": ("TNT Sports 2", "Global Sports"),
+    "tnt sports 3": ("TNT Sports 3", "Global Sports"),
+    "tnt sports 4": ("TNT Sports 4", "Global Sports"),
+    "tnt sports ultimate": ("TNT Sports Ultimate", "Global Sports"),
 
     # 7. INFOTAINMENT HD
-    "discoveryhd": ("Discovery HD", "Infotainment HD"),
-    "animalplanethd": ("Animal Planet HD", "Infotainment HD"),
-    "tlchd": ("TLC HD", "Infotainment HD"),
-    "natgeohd": ("Nat Geo HD", "Infotainment HD"),
-    "natgeowildhd": ("Nat Geo Wild HD", "Infotainment HD"),
-    "sonybbcearthhd": ("Sony BBC Earth HD", "Infotainment HD"),
-    "historytv18hd": ("History TV18 HD", "Infotainment HD"),
-    "zeezesthd": ("Zee Zest HD", "Infotainment HD"),
+    "discovery hd": ("Discovery HD", "Infotainment HD"),
+    "animal planet hd": ("Animal Planet HD", "Infotainment HD"),
+    "tlc hd": ("TLC HD", "Infotainment HD"),
+    "nat geo hd": ("Nat Geo HD", "Infotainment HD"),
+    "nat geo wild hd": ("Nat Geo Wild HD", "Infotainment HD"),
+    "sony bbc earth hd": ("Sony BBC Earth HD", "Infotainment HD"),
+    "history tv18 hd": ("History TV18 HD", "Infotainment HD"),
+    "zee zest hd": ("Zee Zest HD", "Infotainment HD"),
 
     # 8. INFOTAINMENT SD
-    "discoveryscience": ("Discovery Science", "Infotainment SD"),
-    "discoveryturbo": ("Discovery Turbo", "Infotainment SD"),
+    "discovery science": ("Discovery Science", "Infotainment SD"),
+    "discovery turbo": ("Discovery Turbo", "Infotainment SD"),
     "dtamil": ("DTamil", "Infotainment SD"),
-    "foxlife": ("Fox Life", "Infotainment SD"),
+    "fox life": ("Fox Life", "Infotainment SD"),
     "travelxp": ("TravelXP", "Infotainment SD"),
-    "foodfood": ("Food Food", "Infotainment SD"),
-    "goodtimes": ("Good Times", "Infotainment SD"),
+    "food food": ("Food Food", "Infotainment SD"),
+    "good times": ("Good Times", "Infotainment SD"),
 
     # 9. NEWS (ENG/HIN)
-    "ndtv24x7": ("NDTV 24x7", "English and Hindi News"),
-    "republictv": ("Republic TV", "English and Hindi News"),
-    "timesnow": ("Times Now", "English and Hindi News"),
-    "indiatoday": ("India Today", "English and Hindi News"),
-    "cnnnews18": ("CNN News18", "English and Hindi News"),
+    "ndtv 24x7": ("NDTV 24x7", "English and Hindi News"),
+    "republic tv": ("Republic TV", "English and Hindi News"),
+    "times now": ("Times Now", "English and Hindi News"),
+    "india today": ("India Today", "English and Hindi News"),
+    "cnn news18": ("CNN News18", "English and Hindi News"),
     "wion": ("WION", "English and Hindi News"),
-    "mirrornow": ("Mirror Now", "English and Hindi News"),
-    "aajtak": ("Aaj Tak", "English and Hindi News"),
-    "zeenews": ("Zee News", "English and Hindi News"),
-    "abpnews": ("ABP News", "English and Hindi News"),
-    "indiatv": ("India TV", "English and Hindi News"),
-    "news18india": ("News18 India", "English and Hindi News"),
-    "tv9bharatvarsh": ("TV9 Bharatvarsh", "English and Hindi News"),
-    "republicbharat": ("Republic Bharat", "English and Hindi News"),
-    "ddnews": ("DD News", "English and Hindi News"),
+    "mirror now": ("Mirror Now", "English and Hindi News"),
+    "aaj tak": ("Aaj Tak", "English and Hindi News"),
+    "zee news": ("Zee News", "English and Hindi News"),
+    "abp news": ("ABP News", "English and Hindi News"),
+    "india tv": ("India TV", "English and Hindi News"),
+    "news18 india": ("News18 India", "English and Hindi News"),
+    "tv9 bharatvarsh": ("TV9 Bharatvarsh", "English and Hindi News"),
+    "republic bharat": ("Republic Bharat", "English and Hindi News"),
+    "dd news": ("DD News", "English and Hindi News"),
 
     # 10. OTHERS
-    "starmaahd": ("Star Maa HD", "Others"),
-    "geminitvhd": ("Gemini TV HD", "Others"),
-    "etvhd": ("ETV HD", "Others"),
-    "zeeteluguhd": ("Zee Telugu HD", "Others"),
-    "asianethd": ("Asianet HD", "Others"),
-    "suryatvhd": ("Surya TV HD", "Others"),
-    "zeekeralamhd": ("Zee Keralam HD", "Others"),
-    "mazhavilmanoramahd": ("Mazhavil Manorama HD", "Others"),
-    "colorskannadahd": ("Colors Kannada HD", "Others"),
-    "zeekannadahd": ("Zee Kannada HD", "Others"),
-    "starsuvarnahd": ("Star Suvarna HD", "Others"),
-    "udayatvhd": ("Udaya TV HD", "Others"),
-    "starplushd": ("Star Plus HD", "Others"),
-    "sonytvhd": ("Sony TV HD", "Others"),
-    "zeetvhd": ("Zee TV HD", "Others"),
-    "colorshd": ("Colors HD", "Others"),
-    "stargoldhd": ("Star Gold HD", "Others"),
-    "zeecinemahd": ("Zee Cinema HD", "Others"),
-    "sonymaxhd": ("Sony Max HD", "Others"),
-    "starmovieshd": ("Star Movies HD", "Others"),
-    "sonypixhd": ("Sony PIX HD", "Others"),
-    "ddnational": ("DD National", "Others"),
-    "ddmalayalam": ("DD Malayalam", "Others"),
-    "ddchandana": ("DD Chandana", "Others"),
-    "ddyadagiri": ("DD Yadagiri", "Others"),
-    "ddsaptagiri": ("DD Saptagiri", "Others")
+    "star maa hd": ("Star Maa HD", "Others"),
+    "gemini tv hd": ("Gemini TV HD", "Others"),
+    "etv hd": ("ETV HD", "Others"),
+    "zee telugu hd": ("Zee Telugu HD", "Others"),
+    "asianet hd": ("Asianet HD", "Others"),
+    "surya tv hd": ("Surya TV HD", "Others"),
+    "zee keralam hd": ("Zee Keralam HD", "Others"),
+    "mazhavil manorama hd": ("Mazhavil Manorama HD", "Others"),
+    "colors kannada hd": ("Colors Kannada HD", "Others"),
+    "zee kannada hd": ("Zee Kannada HD", "Others"),
+    "star suvarna hd": ("Star Suvarna HD", "Others"),
+    "udaya tv hd": ("Udaya TV HD", "Others"),
+    "star plus hd": ("Star Plus HD", "Others"),
+    "sony tv hd": ("Sony TV HD", "Others"),
+    "zee tv hd": ("Zee TV HD", "Others"),
+    "colors hd": ("Colors HD", "Others"),
+    "star gold hd": ("Star Gold HD", "Others"),
+    "zee cinema hd": ("Zee Cinema HD", "Others"),
+    "sony max hd": ("Sony Max HD", "Others"),
+    "star movies hd": ("Star Movies HD", "Others"),
+    "sony pix hd": ("Sony PIX HD", "Others"),
+    "dd national": ("DD National", "Others"),
+    "dd malayalam": ("DD Malayalam", "Others"),
+    "dd chandana": ("DD Chandana", "Others"),
+    "dd yadagiri": ("DD Yadagiri", "Others"),
+    "dd saptagiri": ("DD Saptagiri", "Others")
 }
 
 # ==========================================
 # 3. HELPER FUNCTIONS
 # ==========================================
-
-def clean_name(name):
-    """Normalize name: lowercase, remove special chars, remove confusing suffixes"""
-    name = name.lower()
-    # Remove common suffixes that break strict matching
-    name = name.replace(" in ", "").replace(" 4k", "").replace(" fhd", "").replace(" hevc", "").replace(" backup", "")
-    return re.sub(r'[^a-z0-9]', '', name)
 
 def fetch_m3u_entries(url):
     print(f"   Downloading: {url}...")
@@ -234,12 +232,31 @@ def fetch_m3u_entries(url):
         print(f"   ❌ Error: {e}")
     return entries
 
-def search_source(search_key, source_data):
-    """Fuzzy Search: Returns entry if search_key is IN the channel name"""
+def search_source(search_tokens, source_data):
+    """
+    Smart Search:
+    Checks if ALL distinct words in the search_tokens exist in the source name.
+    Example: 'star sports 1 kannada' matches 'Star Sports 1 Kan' or 'Star Sports 1 Kannada HD'
+    """
+    required_words = search_tokens.split()
+    
     for entry in source_data:
-        entry_clean = clean_name(entry['name'])
-        # Check if the Master Key is inside the Source Name (e.g., 'suntvhd' inside 'viaplaysuntvhd')
-        if search_key in entry_clean:
+        target_name = entry['name'].lower()
+        # Clean target slightly
+        target_name = target_name.replace("  ", " ")
+
+        # Check if ALL required words are present in the target name
+        match = True
+        for word in required_words:
+            if word not in target_name:
+                match = False
+                break
+        
+        # Additional Logic: If searching for SD (no "hd" in tokens), ignore results with "hd"
+        if "hd" not in search_tokens and "hd" in target_name:
+             match = False
+
+        if match:
             return entry
     return None
 
@@ -250,9 +267,11 @@ def fetch_extra_group(url, group_name):
         meta = re.sub(r'group-title="[^"]*"', '', e['raw_meta'])
         meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
         url = e['url']
-        # Playback Fix: Add the magic header if missing
+        
+        # PLAYBACK FIX: Add User-Agent ONLY for non-Arunjunan links
         if "http" in url and "|" not in url:
-            url += f"|User-Agent={STREAM_USER_AGENT}"
+            url += f"|User-Agent={BACKUP_USER_AGENT}"
+            
         lines.append(meta)
         lines.append(url)
     return lines
@@ -270,7 +289,11 @@ def parse_txt_file(filename, group_name):
         elif line.lower().startswith("logo:"): logo = line.split(":", 1)[1].strip()
         elif line.lower().startswith("link:") or line.startswith("http"):
             url = line.split("link:", 1)[1].strip() if "link:" in line.lower() else line
-            if "http" in url and "|" not in url: url += f"|User-Agent={STREAM_USER_AGENT}"
+            
+            # Txt files usually need Headers
+            if "http" in url and "|" not in url: 
+                url += f"|User-Agent={BACKUP_USER_AGENT}"
+                
             lines.append(f'#EXTINF:-1 group-title="{group_name}" tvg-logo="{logo}",{title}')
             lines.append(url)
             title = "Unknown"; logo = ""
@@ -280,7 +303,7 @@ def parse_txt_file(filename, group_name):
 # 4. MAIN EXECUTION
 # ==========================================
 def main():
-    print("🚀 Starting NKTV Playlist Generation (Fix v2)...")
+    print("🚀 Starting NKTV Playlist Generation (Smart Match)...")
     
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U", f"# Updated on: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}"]
@@ -293,30 +316,37 @@ def main():
     print("   Processing Master List...")
     found_count = 0
     
-    for search_key, (display_name, group) in MASTER_CHANNELS.items():
+    for search_tokens, (display_name, group) in MASTER_CHANNELS.items():
         entry = None
+        source_used = ""
         
         # Priority 1: Arunjunan
-        entry = search_source(search_key, src1_data)
+        entry = search_source(search_tokens, src1_data)
+        if entry: source_used = "Arunjunan"
         
-        # Priority 2: Fakeall (if not found in 1)
+        # Priority 2: Fakeall
         if not entry:
-            entry = search_source(search_key, src2_data)
+            entry = search_source(search_tokens, src2_data)
+            if entry: source_used = "Fakeall"
 
         if entry:
             found_count += 1
             logo = entry['logo']
             url = entry['url']
             
-            # --- PLAYBACK FIX: Add Specific Mobile User-Agent ---
-            if "http" in url and "|" not in url:
-                url += f"|User-Agent={STREAM_USER_AGENT}"
+            # --- PLAYBACK LOGIC ---
+            # If Source is Arunjunan -> DO NOT ADD HEADER (Usually breaks it)
+            # If Source is Fakeall   -> ADD HEADER (Usually requires it)
+            if source_used == "Fakeall" and "http" in url and "|" not in url:
+                url += f"|User-Agent={BACKUP_USER_AGENT}"
+            
+            # Note: We leave Arunjunan URLs purely RAW.
 
             meta = f'#EXTINF:-1 group-title="{group}" tvg-logo="{logo}",{display_name}'
             final_lines.append(meta)
             final_lines.append(url)
         else:
-            print(f"   ⚠️ Missing Channel: {display_name} (Key: {search_key})")
+            print(f"   ⚠️ Missing Channel: {display_name} (Tokens: {search_tokens})")
 
     print(f"   ✅ Total Main Channels Found: {found_count} / {len(MASTER_CHANNELS)}")
 
