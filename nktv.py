@@ -9,10 +9,10 @@ import datetime
 OUTPUT_FILE = "nktv.m3u"
 TEMP_CHANNELS_FILE = "temporary_channels.txt"
 
-# SOURCES (Priority Swapped for better playback stability)
-# Priority 1: Fakeall (Usually Raw Links, easier to play)
+# SOURCES
+# Priority 1: Fakeall (Better for playback if available)
 SRC_FAKEALL = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
-# Priority 2: Arunjunan (High quality but sometimes complex headers)
+# Priority 2: Arunjunan (High quality, but often tokenized)
 SRC_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
 
 # Extra Groups
@@ -22,27 +22,26 @@ SRC_SONY = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/
 SRC_ZEE = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
 # HEADERS
-# Standard Browser Header (Works best for Fakeall/ForceGT)
 STD_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 DL_HEADERS = {"User-Agent": STD_USER_AGENT}
 
 # ==========================================
-# 2. MASTER CHANNEL LIST (With ALIASES)
-# ==========================================
+# 2. MASTER CHANNEL LIST (Keys = Unique ID)
 # Format: "UniqueKey": (["Alias1", "Alias2", "Alias3"], "Display Name", "Group")
+# ==========================================
 MASTER_CHANNELS = {
     # --- TAMIL HD ---
     "suntvhd": (["sun tv hd", "suntv hd", "sun tv hd in"], "Sun TV HD", "Tamil HD"),
     "ktvhd": (["ktv hd", "ktv hd in"], "KTV HD", "Tamil HD"),
     "sunmusichd": (["sun music hd", "sunmusic hd"], "Sun Music HD", "Tamil HD"),
-    "starvijayhd": (["star vijay hd", "vijay hd"], "Star Vijay HD", "Tamil HD"),
+    "starvijayhd": (["star vijay hd", "vijay hd", "vijay tv hd"], "Star Vijay HD", "Tamil HD"),
     "vijaysuperhd": (["vijay super hd", "super hd"], "Vijay Super HD", "Tamil HD"),
     "zeetamilhd": (["zee tamil hd", "zeetamil hd"], "Zee Tamil HD", "Tamil HD"),
     "zeethiraihd": (["zee thirai hd", "zeethirai hd"], "Zee Thirai HD", "Tamil HD"),
     "colorstamilhd": (["colors tamil hd", "colorstamil hd"], "Colors Tamil HD", "Tamil HD"),
     "jayatvhd": (["jaya tv hd", "jayatv hd"], "Jaya TV HD", "Tamil HD"),
 
-    # --- TAMIL SD (Ensure we don't match HD) ---
+    # --- TAMIL SD ---
     "suntv": (["sun tv", "suntv"], "Sun TV", "Tamil - Others"),
     "ktv": (["ktv", "ktv sd"], "KTV", "Tamil - Others"),
     "sunmusic": (["sun music", "sunmusic"], "Sun Music", "Tamil - Others"),
@@ -71,9 +70,9 @@ MASTER_CHANNELS = {
     "makkal": (["makkal", "makkaltv"], "Makkal TV", "Tamil - Others"),
     "vendhar": (["vendhar", "vendhartv"], "Vendhar TV", "Tamil - Others"),
     "captain": (["captain tv", "captaintv"], "Captain TV", "Tamil - Others"),
-    "mktv": (["mktv"], "MKTV", "Tamil - Others"),
-    "peppers": (["peppers"], "Peppers TV", "Tamil - Others"),
-    "blacksheep": (["blacksheep"], "Blacksheep TV", "Tamil - Others"),
+    "mktv": (["mktv", "mk tv"], "MKTV", "Tamil - Others"),
+    "peppers": (["peppers", "peppers tv"], "Peppers TV", "Tamil - Others"),
+    "blacksheep": (["blacksheep", "black sheep"], "Blacksheep TV", "Tamil - Others"),
     "podhigai": (["podhigai", "dd podhigai"], "DD Podhigai", "Tamil - Others"),
 
     # --- TAMIL NEWS ---
@@ -93,11 +92,10 @@ MASTER_CHANNELS = {
     "newstamil24": (["news tamil 24"], "News Tamil 24x7", "Tamil News"),
     "lotus": (["lotus"], "Lotus News", "Tamil News"),
 
-    # --- SPORTS HD ---
-    "ss1tamilhd": (["star sports 1 tamil hd", "ss1 tamil hd"], "Star Sports 1 Tamil HD", "Sports HD"),
-    "ss2tamilhd": (["star sports 2 tamil hd", "ss2 tamil hd"], "Star Sports 2 Tamil HD", "Sports HD"),
-    "ss1hindihd": (["star sports 1 hindi hd", "ss1 hindi hd"], "Star Sports 1 Hindi HD", "Sports HD"),
-    "ss2hindihd": (["star sports 2 hindi hd", "ss2 hindi hd"], "Star Sports 2 Hindi HD", "Sports HD"),
+    # --- SPORTS HD (Includes Sports18 Rebranding) ---
+    "ss1tamilhd": (["star sports 1 tamil hd", "ss1 tamil hd", "sports18 1 hd"], "Star Sports 1 Tamil HD", "Sports HD"), 
+    "ss2tamilhd": (["star sports 2 tamil hd", "ss2 tamil hd", "sports18 3"], "Star Sports 2 Tamil HD", "Sports HD"),     
+    "ss1hindihd": (["star sports 1 hindi hd", "ss1 hindi hd", "sports18 1"], "Star Sports 1 Hindi HD", "Sports HD"),    
     "ss1hd": (["star sports 1 hd", "ss1 hd"], "Star Sports 1 HD", "Sports HD"),
     "ss2hd": (["star sports 2 hd", "ss2 hd"], "Star Sports 2 HD", "Sports HD"),
     "select1hd": (["select 1 hd", "select1 hd"], "Star Sports Select 1 HD", "Sports HD"),
@@ -107,25 +105,20 @@ MASTER_CHANNELS = {
     "ten3hd": (["ten 3 hd", "ten3 hd"], "Sony Sports Ten 3 HD", "Sports HD"),
     "ten4hd": (["ten 4 hd", "ten4 hd"], "Sony Sports Ten 4 HD", "Sports HD"),
     "ten5hd": (["ten 5 hd", "ten5 hd"], "Sony Sports Ten 5 HD", "Sports HD"),
-    "sports181hd": (["sports18 1 hd"], "Sports18 1 HD", "Sports HD"),
     "eurosport": (["eurosport hd"], "Eurosport HD", "Sports HD"),
 
     # --- SPORTS SD ---
     "ss1tamil": (["star sports 1 tamil", "ss1 tamil"], "Star Sports 1 Tamil", "Sports - Others"),
-    "ss2tamil": (["star sports 2 tamil", "ss2 tamil"], "Star Sports 2 Tamil", "Sports - Others"),
-    "ss1hindi": (["star sports 1 hindi", "ss1 hindi"], "Star Sports 1 Hindi", "Sports - Others"),
-    "ss2hindi": (["star sports 2 hindi", "ss2 hindi"], "Star Sports 2 Hindi", "Sports - Others"),
     "ss1kannada": (["star sports 1 kannada", "ss1 kannada"], "Star Sports 1 Kannada", "Sports - Others"),
     "ss1telugu": (["star sports 1 telugu", "ss1 telugu"], "Star Sports 1 Telugu", "Sports - Others"),
-    "ss2telugu": (["star sports 2 telugu", "ss2 telugu"], "Star Sports 2 Telugu", "Sports - Others"),
+    "ss1hindi": (["star sports 1 hindi", "ss1 hindi"], "Star Sports 1 Hindi", "Sports - Others"),
     "ss1": (["star sports 1", "ss1"], "Star Sports 1", "Sports - Others"),
     "ss2": (["star sports 2", "ss2"], "Star Sports 2", "Sports - Others"),
     "ss3": (["star sports 3", "ss3"], "Star Sports 3", "Sports - Others"),
     "ssfirst": (["star sports first"], "Star Sports First", "Sports - Others"),
-    "sskhel": (["star sports khel"], "Star Sports Khel", "Sports - Others"),
     "ddsports": (["dd sports"], "DD Sports", "Sports - Others"),
 
-    # --- GLOBAL ---
+    # --- GLOBAL (Likely not in Indian sources - Check Temporary Channels) ---
     "astro": (["astro cricket"], "Astro Cricket", "Global Sports"),
     "fox501": (["fox cricket", "fox 501"], "Fox Cricket 501", "Global Sports"),
     "fox505": (["fox sports 505", "fox 505"], "Fox Sports 505", "Global Sports"),
@@ -133,9 +126,6 @@ MASTER_CHANNELS = {
     "skycricket": (["sky sports cricket"], "Sky Sports Cricket", "Global Sports"),
     "tnt1": (["tnt sports 1"], "TNT Sports 1", "Global Sports"),
     "tnt2": (["tnt sports 2"], "TNT Sports 2", "Global Sports"),
-    "tnt3": (["tnt sports 3"], "TNT Sports 3", "Global Sports"),
-    "tnt4": (["tnt sports 4"], "TNT Sports 4", "Global Sports"),
-    "tntult": (["tnt sports ultimate"], "TNT Sports Ultimate", "Global Sports"),
 
     # --- INFOTAINMENT HD ---
     "dischd": (["discovery hd"], "Discovery HD", "Infotainment HD"),
@@ -270,7 +260,7 @@ def fetch_extra_group(url, group_name):
 def parse_txt_file(filename, group_name):
     print(f"   Reading {filename}...")
     if not os.path.exists(filename):
-        print("   ⚠️ Temporary Channels file NOT found. Creating empty group.")
+        print("   ⚠️ Temporary Channels file NOT found.")
         return []
         
     lines = []
@@ -280,11 +270,15 @@ def parse_txt_file(filename, group_name):
     title = "Unknown"; logo = ""
     for line in content:
         line = line.strip()
+        if not line: continue
+        
         if line.lower().startswith("title:"): title = line.split(":", 1)[1].strip()
         elif line.lower().startswith("logo:"): logo = line.split(":", 1)[1].strip()
         elif line.lower().startswith("link:") or line.startswith("http"):
             url = line.split("link:", 1)[1].strip() if "link:" in line.lower() else line
             if "http" in url and "|" not in url: url += f"|User-Agent={STD_USER_AGENT}"
+            
+            # Create entry
             lines.append(f'#EXTINF:-1 group-title="{group_name}" tvg-logo="{logo}",{title}')
             lines.append(url)
             title = "Unknown"; logo = ""
@@ -294,10 +288,9 @@ def parse_txt_file(filename, group_name):
 # 4. MAIN EXECUTION
 # ==========================================
 def main():
-    print("🚀 Starting NKTV Playlist Generation (Fix v4)...")
+    print("🚀 Starting NKTV Playlist Generation (Fix v5)...")
     
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
-    # Adding timestamp to first line ensures Git always detects a change
     final_lines = ["#EXTM3U", f"# Updated on: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}"]
 
     # 1. Fetch Sources
@@ -314,11 +307,11 @@ def main():
         source_used = ""
         is_sd = "Others" in group or "SD" in group
         
-        # Priority 1: Fakeall (Better Playback)
+        # Priority 1: Fakeall (Header needed)
         entry = search_source(aliases, src_fakeall, is_sd_search=is_sd)
         if entry: source_used = "Fakeall"
         
-        # Priority 2: Arunjunan
+        # Priority 2: Arunjunan (NO Header)
         if not entry:
             entry = search_source(aliases, src_arunjunan, is_sd_search=is_sd)
             if entry: source_used = "Arunjunan"
@@ -329,21 +322,24 @@ def main():
             url = entry['url']
             
             # --- HEADER LOGIC ---
-            # Fakeall -> Needs Header
+            # Fakeall -> NEEDS Header
             if source_used == "Fakeall" and "http" in url and "|" not in url:
                 url += f"|User-Agent={STD_USER_AGENT}"
-            # Arunjunan -> RAW (Do not touch)
+            
+            # Arunjunan -> RAW (DO NOT TOUCH)
+            # Most Arunjunan links fail if you add a user-agent.
 
             meta = f'#EXTINF:-1 group-title="{group}" tvg-logo="{logo}",{display_name}'
             final_lines.append(meta)
             final_lines.append(url)
         else:
             missing_list.append(display_name)
-            print(f"   ❌ MISSING: {display_name}")
+            # Log specifically so you can debug
+            # print(f"   ❌ MISSING: {display_name} (Tried aliases: {aliases})")
 
     print(f"\n   📊 SUMMARY: Found {found_count} / {len(MASTER_CHANNELS)}")
     if missing_list:
-        print("   ⚠️  Channels not found in any source:")
+        print("   ⚠️  Channels not found (Add these to temporary_channels.txt):")
         for m in missing_list: print(f"      - {m}")
 
     # 3. Add Extra Groups
