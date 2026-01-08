@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-08 11:22:32 IST
+# Updated on: 2026-01-08 12:30:22 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,25 +846,25 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767834875~exp=1767921275~acl=/*~hmac=49f177614b05d4e5e776712ec6d732a93db9d1cfd8fa92f2dbd740c5ff999129"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767834875~exp=1767921275~acl=/*~hmac=49f177614b05d4e5e776712ec6d732a93db9d1cfd8fa92f2dbd740c5ff999129&xxx=||cookie=__hdnea__=st=1767834875~exp=1767921275~acl=/*~hmac=49f177614b05d4e5e776712ec6d732a93db9d1cfd8fa92f2dbd740c5ff999129
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 8 January 2026 at 11:21:06 am
+#DATE:- Thursday, 8 January 2026 at 12:28:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138775" tvg-name="Northern Brave Women Vs Canterbury Magicians" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138775_5801_NB-W_CM-W_fc-web_1766596522081.jpg" tvg-language="ENGLISH" ,ENG | Northern Brave Women Vs Canterbury Magicians
 https://in-mc-fdlive.fancode.com/mumbai/138775_english_hls_c78ed37c3f20696_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="133964" tvg-name="Act Meteors Vs Victoria Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Women's-National-Cricket-League_old_v1_1758034980139.jpg" tvg-language="ENGLISH" ,ENG | Act Meteors Vs Victoria Women
-https://in-mc-fdlive.fancode.com/mumbai/133964_english_hls_c8232439ed41862_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="138942" tvg-name="Noakhali Express Vs Rajshahi Warriors" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138942_5808_NOE_DBR_fc-web_1766733054198.jpg" tvg-language="ENGLISH" ,ENG | Noakhali Express Vs Rajshahi Warriors
+https://in-mc-fdlive.fancode.com/mumbai/138942_english_hls_736f816f2a16580_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="133966" tvg-name="Western Australia Women Vs South Australian Scorpions" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Women's-National-Cricket-League_old_v2_1758034980092.jpg" tvg-language="ENGLISH" ,ENG | Western Australia Women Vs South Australian Scorpions
 https://in-mc-fdlive.fancode.com/mumbai/133966_english_hls_bfeaaf7a1032942_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139193" tvg-name="Show Court 1   Day 5" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 5
-https://in-mc-fdlive.fancode.com/mumbai/139193_english_hls_09e280c73c54400_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139192" tvg-name="Pat Rafter Arena   Day 5" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 5
 https://in-mc-fdlive.fancode.com/mumbai/139192_english_hls_e98641726f75876_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139207" tvg-name="Center Court   Day 4" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 4
 https://in-mc-fdlive.fancode.com/mumbai/139207_english_hls_98c1615b9493405_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139286" tvg-name="Centre Court   Day 4" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 4
 https://in-mc-fdlive.fancode.com/mumbai/139286_english_hls_cde3a41cb797754_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 08-01-2026 11:20
+#DATE:- 08-01-2026 12:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499075" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013066/1767772964809351_UC26_QF_Belgium_vs_Czechia_7jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Belgium vs Czechia - Quarter-final - 8 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767897001~acl=/*~id=76de6a1ed1f1c342b43b98f6f0b0a8c6-1767853800130~hmac=9921104d55b2edd544e311fdcb2ccbe0f5436adbfdd062993f8de26c1c4eb7b7|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; CPH2629; Build/AP3A.240617.008)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=b9455c9f1af1a3ccd785292d41946046-1767853810770
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498844" tvg-name=" Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012825/1766989413323768_SuperSmash2526_womens_Northern-Brave-vs-Canterbury-Magicians_29dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Northern Brave vs Canterbury Magicians- 8 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767875401~acl=/*~id=f8d56c9cf91f9255cc400a2c30666d16-1767832200142~hmac=0c60cdfb87be3f13003a7428f83971681c4f6998e2c2d934963ffe5a2a647aec|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; V2127; Build/UP1A.231005.007)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d2b4f35646caf67bfe68e6d099ee8b28-1767851414474
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767897001~acl=/*~id=76de6a1ed1f1c342b43b98f6f0b0a8c6-1767853800130~hmac=9921104d55b2edd544e311fdcb2ccbe0f5436adbfdd062993f8de26c1c4eb7b7|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; V2035; Build/RP1A.200720.012)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=b9455c9f1af1a3ccd785292d41946046-1767853810770
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 7/1/2026, 23:45:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
