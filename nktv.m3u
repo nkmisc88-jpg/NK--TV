@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-09 02:28:45 IST
+# Updated on: 2026-01-09 03:11:35 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
 https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/380.png",KTV HD
@@ -178,7 +178,5 @@ https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
 https://livestream15.sunnxt.com/d719fad367614ee5baad747822767ad8/SuryaTVHDB_IN_index.mpd
 #EXTINF:-1 group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12086-j9od8wxc-v1/imageContent-12086-j9od8wxc-m1.png",Star Movies HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Movies_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Live Events" tvg-id="138958" tvg-name="Atletico De Madrid Vs Real Madrid" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Atletico-de-Madrid-vs-Real-Madrid_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Atletico De Madrid Vs Real Madrid
-https://in-mc-fdlive.fancode.com/mumbai/138958_english_hls_ab1c93afac37538_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="YouTube" tvg-id="cricket.com.au" tvg-logo="https://i.ytimg.com/vi/MwGcDkj3nRw/hqdefault.jpg", cricket.com.au
 https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1767926959/ei/TxhgabvhMYKUsfIPp_OsmAw/ip/172.182.224.118/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr4---sn-2imern76.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AYUSA3AR-_ycOtTB1uKf-4imLCLkxgMB_iltIksGDScqYQz0JwB8_1Jr8CNLn9o6zGNQ-D898Q/spc/wH4Qq0XJ96XU_YSlaONH/vprv/1/ns/9-tss0KXQPX69dCGXHCcz6IR/playlist_type/DVR/met/1767905360,/mh/Uh/mm/44/mn/sn-2imern76/ms/lva/mv/u/mvi/4/pl/14/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/1ln7O5EzCQjljCDZbAz/mt/1767904568/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIhAPV7i-Jgmg12fjSqQ9bHsuYv_62yZTG6XjbSzzW1_u-MAiABszuTwvmwUPW4Pn6Y6BY4YPfL2XKPlfAFNZQQOw-vww%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRgIhAOCaHfaPqkgZ0cFE0ymSb56OCyT_f9emvMm8iMrkcI1AAiEAsEXvD-cE5qWn7g2q38v5V4Pclx9j-fLbKGktG2pJg5g%3D/playlist/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
