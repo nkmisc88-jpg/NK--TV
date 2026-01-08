@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-08 23:28:46 IST
+# Updated on: 2026-01-08 23:38:20 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
 https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/380.png",KTV HD
@@ -54,8 +54,8 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_Musix_BTS/output/index.mpd?__hdnea__=
 https://jiotvpllive.cdn.jio.com/bpk-tv/Kalaignar_TV_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
 #EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/murasu-white.png",Murasu TV
 https://segment.yuppcdn.net/050522/murasu/playlist.m3u8
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-24578-jgotgry0-v1/imageContent-24578-jgotgry0-m1.png",Isaiaruvi
-https://segment.yuppcdn.net/140622/isaiaruvi/playlist.m3u8
+#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/isai-aruvi-black.png",Isaiaruvi
+https://edge2-moblive.yuppcdn.net/drm1/smil:isaiaruvitvdrm.smil/manifest.m3u8
 #EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/611.png",Sirippoli
 https://edge2-moblive.yuppcdn.net/drm1/smil:sirippolitvdrm.smil/manifest.m3u8
 #EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/272.png",Polimer TV
@@ -86,8 +86,8 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Thanti_One_BTS/output/index.mpd?__hdnea__
 https://nw18live.cdn.jio.com/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/198.png",Jaya Plus
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_Plus_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/525.png",News J
-https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_News_24x7_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
+#EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/702.png",News J
+https://jiotvpllive.cdn.jio.com/bpk-tv/News_J_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11764-j9kwqj6o-v1/imageContent-11764-j9kwqj6o-m1.png",Sathiyam TV
 https://live-cf-sathiyamtv.dailyhunt.in/master.m3u8
 #EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/525.png",Raj News 24x7
@@ -148,8 +148,6 @@ https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/i2pcjr4pe5/out/v1/91
 https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_HD_World_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/130.png",Animal Planet HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/Animal_Planet_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/605.png",Nat Geo HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/National_Geographic_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/413.png",Nat Geo Wild HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/Nat_Geo_Wild_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SOBB_Thumbnail-v6/SOBB_Thumbnail.png",Sony BBC Earth HD
@@ -162,10 +160,12 @@ https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoveryscience2/default/manifest.mpd
 #EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/6eCv1iuk.png",Discovery Turbo
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoveryturbo2/default/manifest.mpd
+#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://tatalogo.pages.dev/99.png",DTamil
+https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_Channel_Tamil_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
 #EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://tatalogo.pages.dev/444.png",TravelXP
 https://jiotvpllive.cdn.jio.com/bpk-tv/Travel_XP_Tamil_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN3000003QJ_20240925T012639SQUARE.png",Food Food
-https://jmp2.uk/stvp-IN3000003QJ
+#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-384-j5jpj9hc-v1/imageContent-384-j5jpj9hc-m1.png",Food Food
+http://iptvmedia.live:8080/F18115/068f009e/1362
 #EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_GOOD_TIMES/images/LOGO_HD/image.png",Good Times
 https://amg01448-samsungin-ndtvgoodtimes-samsungin-ad-gp.amagi.tv/playlist/amg01448-samsungin-ndtvgoodtimes-samsungin/playlist.m3u8
 #EXTINF:-1 group-title="English and Hindi News" tvg-logo="https://8upload.com/image/67da280876f6c/38-ndtv.png",NDTV 24x7
@@ -180,21 +180,13 @@ https://feeds.intoday.in/hltapps/api/master.m3u8
 https://amg01448-samsungin-cnnnewsnw18-samsungin-ad-gv.amagi.tv/playlist/amg01448-samsungin-cnnnewsnw18-samsungin/playlist.m3u8?ads.did=%7BPSID%7D&ads.dnt=%7BTARGETOPT%7D&ads.app_domain=%7BAPP_DOMAIN%7D&ads.app_name=%7BAPP_NAME%7D&ads.coppa=0
 #EXTINF:-1 group-title="English and Hindi News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/india/wion-in.png",WION
 https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
-#EXTINF:-1 group-title="English and Hindi News" tvg-logo="https://yt3.googleusercontent.com/GJVGgzRXxK1FDoUpC8ztBHPu81PMnhc8inodKtEckH-rykiYLzg93HUQIoTIirwORynozMkR=s900-c-k-c0x00ffffff-no-rj",Zee News
-https://dpkvdnzbeen1l.cloudfront.net/index_4.m3u8
-#EXTINF:-1 group-title="English and Hindi News" tvg-logo="https://i.ibb.co/pvLQmQK7/itv.png",India TV
-https://ca1.buximedia.com/itv/indian/index.m3u8
 #EXTINF:-1 group-title="Others" tvg-logo="https://i.ibb.co/F4Jttj3S/Picsart-25-02-10-14-19-03-064.png",Surya TV HD
 https://livestream15.sunnxt.com/d719fad367614ee5baad747822767ad8/SuryaTVHDB_IN_index.mpd
-#EXTINF:-1 group-title="Others" tvg-logo="https://tatalogo.pages.dev/674.png",Colors HD
-https://keys.vodep39240327.workers.dev/?id=429.mpd
 #EXTINF:-1 group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12086-j9od8wxc-v1/imageContent-12086-j9od8wxc-m1.png",Star Movies HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Movies_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
 #EXTINF:-1 group-title="Live Events" tvg-id="139202" tvg-name="Al Nassr Fc Vs Al Qadsiah Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Nassr-FC-vs-Al-Qadsiah-FC_fc-web_1767365352741.jpg" tvg-language="ENGLISH" ,ENG | Al Nassr Fc Vs Al Qadsiah Fc
 https://in-mc-fdlive.fancode.com/mumbai/139202_english_hls_f49fe0a45242378_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
 https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1767918608~acl=/*~id=336b251a4dc37671de058a191ae56026-1767875400162~hmac=7542410dd3e3beae8c7cfe2ab22fbfbca9524114591ebfe6069672420d0d171e|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; SM-M215G; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2f44b4d64cefefe1e0aa1cff5c37272c-1767894611301
-#EXTINF:-1 group-title="YouTube" tvg-id="Cricket_South_Africa" tvg-logo="https://i.ytimg.com/vi/HPafIqr8Wjs/hqdefault.jpg", Cricket South Africa
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1767913434/ei/euNfaZvUL5mTsfIPgYCB0QU/ip/20.168.119.246/id/HPafIqr8Wjs.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr3---sn-2imern7d.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AYUSA3AroHbj_ngO2pmgTENmP9ayuIvYQJ09QvCNl4HOLF5ZPr6oImhntM9j67Q2ub7X4FFWzg/spc/wH4Qq0u16bpV4hIllPtj/vprv/1/ns/Q59aSqdlpdYBBG3hZjeSSTkR/playlist_type/DVR/met/1767891835,/mh/Oh/mm/44/mn/sn-2imern7d/ms/lva/mv/u/mvi/3/pl/15/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/O9Tuo9mYa3cRSaagUxv/mt/1767890733/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRAIgaCjJNJrXQWepTO56M_jdR7uI31Yf7lBz7P1hU7oZy1gCIH_soKIwM4cA8bV9IeOjSs1HCh2aFsNvrDjTcd5_586G/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRAIhAMoOhpSOQJ6Iwm0kuUo2PF9RqmyPFUZcQAKzVsIw7q3fAh8SQ9bHxYnU1gF2ts_TlnRaZ5QZ8_TWEpFY3N6LXGZQ/playlist/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="YouTube" tvg-id="cricket.com.au" tvg-logo="https://i.ytimg.com/vi/MwGcDkj3nRw/hqdefault.jpg", cricket.com.au
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1767913447/ei/h-NfaZKtItSVsfIP_NCM0AY/ip/20.168.119.246/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr4---sn-2imern76.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AYUSA3DQei4IuTJOhAg33NWvIk2y0nvtuJQbHfbNb55WJNaY9GC5SqSddpQ7a3e9yYHhS9zufQ/spc/wH4Qq82axGlBNtOj_Ygd/vprv/1/ns/RQ_NEaFoIDHEBIdJfOK-gIER/playlist_type/DVR/met/1767891847,/mh/Uh/mm/44/mn/sn-2imern76/ms/lva/mv/u/mvi/4/pl/15/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/G1Uiu2HVSGvyp1xjMXH/mt/1767890733/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIgf9Fv2KjA3djX3P9BiRy7tsgGnqneD4oLQqE_KsSO4hkCIQDMv96bR1ZkmndMbvQlNGe9JPlFUrG1n1pZLos8fPGDdw%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIhAM4TaLRdNla0_Xmj_2ZFD2-Sl4UqI_SsiAxA1tIasqJzAiBLB-e9JDMKJaligkcG9Kptd65m1dYwNpZVvQwRYMCCwA%3D%3D/playlist/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1767916758/ei/dvBfaeqnLKu2kucP9tLCqA0/ip/20.81.158.145/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr4---sn-p5qddn7r.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AYUSA3Dxwu7ocmByXpBxYXb1IxNDGfagvCOWmd8F9x0UuWIhDlyAKCOy8B7pSwFGOnbJhAr_ng/spc/wH4Qq0AI9HqwlmS45fmP/vprv/1/ns/Jyj-uNndjpIqUydAf74YmQgR/playlist_type/DVR/met/1767895158,/mh/Uh/mm/44/mn/sn-p5qddn7r/ms/lva/mv/u/mvi/4/pl/21/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/yAqI-mGgS3i4cYXq0I_/mt/1767893845/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhAPSc8ss8W0mj35baAHZSU5CN43S1Ruiheclr3Gd4mT99AiEAmaSQt8gpUBUodepbQhxX36PImHv2nraK7TQfiv74N1A%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIhAMU5RTaNsh07_XRMLgU86pm4-mP0XtS4n49fvPtjqWdGAiB8IhdhhfenMIt0Twa5UPfdHDiVYVi0mK6eL0wQcCOnrw%3D%3D/playlist/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
