@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-08 23:38:20 IST
+# Updated on: 2026-01-08 23:54:10 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
 https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/380.png",KTV HD
@@ -120,8 +120,6 @@ https://sl.vodep39240327.workers.dev/channel/SONY TEN 5 HD.m3u8
 https://jiotvpllive.cdn.jio.com/bpk-tv/Dsports_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
 #EXTINF:-1 group-title="Sports - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-249-j5fyl7tk-v1/imageContent-249-j5fyl7tk-m1.png",Star Sports 1 Tamil
 https://tv.vaanam24.com/live.m3u8?c=STARSPORTSTAMILHD
-#EXTINF:-1 group-title="Sports - Others" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/Star%20Sports%202%20Tamil_Thumbnail_a2144bc4-8953-4ca9-980b-86499353c0da.png",Star Sports 2 Tamil
-https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/379753.ts
 #EXTINF:-1 group-title="Sports - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-249-j5fyl7tk-v1/imageContent-249-j5fyl7tk-m1.png",Star Sports 1
 https://tv.vaanam24.com/live.m3u8?c=STARSPORTSTAMILHD
 #EXTINF:-1 group-title="Sports - Others" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/Star%20Sports%202%20Tamil_Thumbnail_a2144bc4-8953-4ca9-980b-86499353c0da.png",Star Sports 2
@@ -140,10 +138,6 @@ http://178.33.239.54:8080/503/index.m3u8
 https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/wf8usag51e/out/v1/bd3b0c314fff4bb1ab4693358f3cd2d3/cenc.mpd
 #EXTINF:-1 group-title="Global Sports" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/V2.0/new/tnt2.png",TNT Sports 2
 https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/f0qvkrra8j/out/v1/f8fa17f087564f51aa4d5c700be43ec4/cenc.mpd
-#EXTINF:-1 group-title="Global Sports" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/V2.0/new/tnt3.png",TNT Sports 3
-https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/lsdasbvglv/out/v1/bb548a3626cd4708afbb94a58d71dce9/cenc.mpd
-#EXTINF:-1 group-title="Global Sports" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/V2.0/new/tnt4.png",TNT Sports 4
-https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/i2pcjr4pe5/out/v1/912e9db56d75403b8a9ac0a719110f36/cenc.mpd
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/341.png",Discovery HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_HD_World_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/130.png",Animal Planet HD
@@ -186,7 +180,5 @@ https://livestream15.sunnxt.com/d719fad367614ee5baad747822767ad8/SuryaTVHDB_IN_i
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Movies_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
 #EXTINF:-1 group-title="Live Events" tvg-id="139202" tvg-name="Al Nassr Fc Vs Al Qadsiah Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Nassr-FC-vs-Al-Qadsiah-FC_fc-web_1767365352741.jpg" tvg-language="ENGLISH" ,ENG | Al Nassr Fc Vs Al Qadsiah Fc
 https://in-mc-fdlive.fancode.com/mumbai/139202_english_hls_f49fe0a45242378_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
-https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1767918608~acl=/*~id=336b251a4dc37671de058a191ae56026-1767875400162~hmac=7542410dd3e3beae8c7cfe2ab22fbfbca9524114591ebfe6069672420d0d171e|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; SM-M215G; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2f44b4d64cefefe1e0aa1cff5c37272c-1767894611301
 #EXTINF:-1 group-title="YouTube" tvg-id="cricket.com.au" tvg-logo="https://i.ytimg.com/vi/MwGcDkj3nRw/hqdefault.jpg", cricket.com.au
 https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1767916758/ei/dvBfaeqnLKu2kucP9tLCqA0/ip/20.81.158.145/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr4---sn-p5qddn7r.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AYUSA3Dxwu7ocmByXpBxYXb1IxNDGfagvCOWmd8F9x0UuWIhDlyAKCOy8B7pSwFGOnbJhAr_ng/spc/wH4Qq0AI9HqwlmS45fmP/vprv/1/ns/Jyj-uNndjpIqUydAf74YmQgR/playlist_type/DVR/met/1767895158,/mh/Uh/mm/44/mn/sn-p5qddn7r/ms/lva/mv/u/mvi/4/pl/21/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/yAqI-mGgS3i4cYXq0I_/mt/1767893845/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhAPSc8ss8W0mj35baAHZSU5CN43S1Ruiheclr3Gd4mT99AiEAmaSQt8gpUBUodepbQhxX36PImHv2nraK7TQfiv74N1A%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIhAMU5RTaNsh07_XRMLgU86pm4-mP0XtS4n49fvPtjqWdGAiB8IhdhhfenMIt0Twa5UPfdHDiVYVi0mK6eL0wQcCOnrw%3D%3D/playlist/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
