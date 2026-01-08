@@ -30,10 +30,3 @@ Link: https://jiohotstar.joker-verse.workers.dev/joker.m3u8?id=1271460362|Refere
 Title : Willow 2
 Logo : 
 Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
-
-Title : YouTube New 
-Logo : 
-Link : https://www.youtube.com/live/9M02G5c6x6w
-
-https://www.youtube.com/live/9M02G5c6x6w
-
