@@ -8,11 +8,10 @@ import datetime
 # ==========================================
 OUTPUT_FILE = "nktv.m3u"
 TEMP_CHANNELS_FILE = "temporary_channels.txt"
-JIOTV_REF_FILE = "jiotv_playlist.m3u" # Must exist in repo for Priority 3
 
 # Source URLs
 SRC_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
-SRC_FAKEALL = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u" # Standard Fakeall/Discord Source
+SRC_FAKEALL = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
 SRC_YOUTUBE_PLAYLIST = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
 
 # Live Event Sources
@@ -20,14 +19,15 @@ SRC_FANCODE = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SRC_SONY = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 SRC_ZEE = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# Headers
-HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+# Common Header for Players
+PLAYER_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+DL_HEADERS = {"User-Agent": PLAYER_USER_AGENT}
 
 # ==========================================
-# 2. MASTER CHANNEL LIST (The "Brain")
+# 2. MASTER CHANNEL LIST
 # ==========================================
-# Format: "Clean Name": ("Display Name", "Group")
-# We use a Dictionary for O(1) lookups and strict enforcement.
+# Keys are "Cleaned" substrings we look for. 
+# If the source channel contains this string, we take it.
 MASTER_CHANNELS = {
     # 1. TAMIL HD
     "suntvhd": ("Sun TV HD", "Tamil HD"),
@@ -40,7 +40,7 @@ MASTER_CHANNELS = {
     "colorstamilhd": ("Colors Tamil HD", "Tamil HD"),
     "jayatvhd": ("Jaya TV HD", "Tamil HD"),
 
-    # 2. TAMIL SD (Others)
+    # 2. TAMIL SD
     "suntv": ("Sun TV", "Tamil - Others"),
     "ktv": ("KTV", "Tamil - Others"),
     "sunmusic": ("Sun Music", "Tamil - Others"),
@@ -123,15 +123,11 @@ MASTER_CHANNELS = {
     "starsportskhel": ("Star Sports Khel", "Sports - Others"),
     "ddsports": ("DD Sports", "Sports - Others"),
 
-    # 6. GLOBAL SPORTS (NEW)
+    # 6. GLOBAL SPORTS
     "astrocricket": ("Astro Cricket", "Global Sports"),
-    "foxcricket501": ("Fox Cricket 501", "Global Sports"),
-    "fox501": ("Fox Cricket 501", "Global Sports"), # Alias
+    "foxcricket": ("Fox Cricket 501", "Global Sports"),
     "foxsports505": ("Fox Sports 505", "Global Sports"),
-    "fox505": ("Fox Sports 505", "Global Sports"), # Alias
-    "willowsports": ("Willow Sports", "Global Sports"),
-    "willowxtra": ("Willow Xtra", "Global Sports"),
-    "willowsportsextra": ("Willow Xtra", "Global Sports"), # Alias
+    "willow": ("Willow Sports", "Global Sports"), # broadened search
     "skysportscricket": ("Sky Sports Cricket", "Global Sports"),
     "tntsports1": ("TNT Sports 1", "Global Sports"),
     "tntsports2": ("TNT Sports 2", "Global Sports"),
@@ -217,7 +213,7 @@ def fetch_m3u_entries(url):
     print(f"   Downloading: {url}...")
     entries = []
     try:
-        r = requests.get(url, headers=HEADERS, timeout=15)
+        r = requests.get(url, headers=DL_HEADERS, timeout=15)
         if r.status_code != 200: return []
         
         lines = r.text.splitlines()
@@ -227,13 +223,9 @@ def fetch_m3u_entries(url):
             line = line.strip()
             if not line: continue
             if line.startswith("#EXTINF"):
-                # Extract Logo
                 logo_match = re.search(r'tvg-logo="([^"]*)"', line)
                 logo = logo_match.group(1) if logo_match else ""
-                
-                # Extract Name (last part after comma)
                 name = line.split(",")[-1].strip()
-                
                 current_entry = {"name": name, "logo": logo, "raw_meta": line}
             elif not line.startswith("#") and current_entry:
                 current_entry["url"] = line
@@ -243,48 +235,43 @@ def fetch_m3u_entries(url):
         print(f"   ❌ Error: {e}")
     return entries
 
-def get_jiotv_fallback(clean_id):
-    """Priority 3: Look in local reference file and generate 192.168 link"""
-    if not os.path.exists(JIOTV_REF_FILE): return None
-    
-    # We parse the local file manually to find the ID
-    try:
-        with open(JIOTV_REF_FILE, "r", encoding="utf-8") as f:
-            for line in f:
-                if "channel-id=" in line or "tvg-id=" in line:
-                     # This requires advanced parsing of your specific jiotv file format.
-                     # For now, we assume standard M3U structure.
-                     pass
-    except: pass
-    return None 
+def search_source(search_key, source_data):
+    """Fuzzy Search: Returns entry if search_key is IN the channel name"""
+    # 1. Try Strict "Contains" Match (High Accuracy)
+    for entry in source_data:
+        entry_clean = clean_name(entry['name'])
+        if search_key in entry_clean:
+            return entry
+    return None
 
 def fetch_extra_group(url, group_name):
-    """Fetches a playlist and forces a specific Group Name"""
     entries = fetch_m3u_entries(url)
     lines = []
     for e in entries:
-        # Replace Group Title
         meta = re.sub(r'group-title="[^"]*"', '', e['raw_meta'])
         meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
+        url = e['url']
+        # Fix: Add User-Agent if missing
+        if "http" in url and "|" not in url:
+            url += f"|User-Agent={PLAYER_USER_AGENT}"
         lines.append(meta)
-        lines.append(e['url'])
+        lines.append(url)
     return lines
 
 def parse_txt_file(filename, group_name):
-    """Reads simple txt file (Title: ... Link: ...)"""
     if not os.path.exists(filename): return []
     lines = []
     with open(filename, "r") as f:
         content = f.readlines()
     
-    title = "Unknown"
-    logo = ""
+    title = "Unknown"; logo = ""
     for line in content:
         line = line.strip()
         if line.lower().startswith("title:"): title = line.split(":", 1)[1].strip()
         elif line.lower().startswith("logo:"): logo = line.split(":", 1)[1].strip()
         elif line.lower().startswith("link:") or line.startswith("http"):
             url = line.split("link:", 1)[1].strip() if "link:" in line.lower() else line
+            if "http" in url and "|" not in url: url += f"|User-Agent={PLAYER_USER_AGENT}"
             lines.append(f'#EXTINF:-1 group-title="{group_name}" tvg-logo="{logo}",{title}')
             lines.append(url)
             title = "Unknown"; logo = ""
@@ -296,57 +283,51 @@ def parse_txt_file(filename, group_name):
 def main():
     print("🚀 Starting NKTV Playlist Generation...")
     
+    ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
+    final_lines = ["#EXTM3U", f"# Updated on: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}"]
+
     # 1. Fetch Sources
     src1_data = fetch_m3u_entries(SRC_ARUNJUNAN)
     src2_data = fetch_m3u_entries(SRC_FAKEALL)
-    # src3_data = [Read local file logic here if implemented]
-
-    # Create Lookup Dictionaries for Speed
-    # Key = Clean Name, Value = Entry Object
-    db_src1 = {clean_name(x['name']): x for x in src1_data}
-    db_src2 = {clean_name(x['name']): x for x in src2_data}
     
-    final_lines = ["#EXTM3U"]
-    
-    # 2. Iterate Master List (Strict Order)
+    # 2. Iterate Master List
     print("   Processing Master List...")
-    for clean_id, (display_name, group) in MASTER_CHANNELS.items():
+    found_count = 0
+    
+    for search_key, (display_name, group) in MASTER_CHANNELS.items():
         entry = None
         
         # Priority 1: Arunjunan
-        if clean_id in db_src1:
-            entry = db_src1[clean_id]
+        entry = search_source(search_key, src1_data)
         
-        # Priority 2: Fakeall
-        elif clean_id in db_src2:
-            entry = db_src2[clean_id]
-            
-        # Priority 3: JioTV (Placeholder for logic)
-        # elif clean_id in db_jiotv: ...
+        # Priority 2: Fakeall (if not found in 1)
+        if not entry:
+            entry = search_source(search_key, src2_data)
 
         if entry:
-            # Construct New Metadata with Correct Group & Display Name
-            # Use original logo if available
+            found_count += 1
             logo = entry['logo']
+            url = entry['url']
+            
+            # --- PLAYBACK FIX: Add User-Agent Header ---
+            # If the link is http/https and doesn't already have a pipe |
+            if "http" in url and "|" not in url:
+                url += f"|User-Agent={PLAYER_USER_AGENT}"
+
             meta = f'#EXTINF:-1 group-title="{group}" tvg-logo="{logo}",{display_name}'
             final_lines.append(meta)
-            final_lines.append(entry['url'])
+            final_lines.append(url)
         else:
-            print(f"   ⚠️ Missing Channel: {display_name}")
+            print(f"   ⚠️ Missing Channel: {display_name} (Key: {search_key})")
+
+    print(f"   ✅ Total Main Channels Found: {found_count} / {len(MASTER_CHANNELS)}")
 
     # 3. Add Extra Groups
-    print("   Adding Global Sports...") 
-    # (Global sports are already in Master List, so they are processed above if found in sources)
-    
-    print("   Adding Live Events...")
+    print("   Adding Live Events & Youtube...")
     final_lines.extend(fetch_extra_group(SRC_FANCODE, "Live Events"))
     final_lines.extend(fetch_extra_group(SRC_SONY, "Live Events"))
     final_lines.extend(fetch_extra_group(SRC_ZEE, "Live Events"))
-
-    print("   Adding YouTube Playlist...")
     final_lines.extend(fetch_extra_group(SRC_YOUTUBE_PLAYLIST, "YouTube"))
-
-    print("   Adding Temporary Channels...")
     final_lines.extend(parse_txt_file(TEMP_CHANNELS_FILE, "Temporary Channels"))
 
     # 4. Save
