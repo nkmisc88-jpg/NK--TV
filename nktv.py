@@ -4,30 +4,27 @@ import re
 import datetime
 
 # ==========================================
-# 1. CONFIGURATION & SOURCES
+# 1. CONFIGURATION
 # ==========================================
 OUTPUT_FILE = "nktv.m3u"
 TEMP_CHANNELS_FILE = "temporary_channels.txt"
 
-# Source URLs
+# SOURCES
 SRC_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
 SRC_FAKEALL = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
 SRC_YOUTUBE_PLAYLIST = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
-
-# Live Event Sources
 SRC_FANCODE = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SRC_SONY = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 SRC_ZEE = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# Common Header for Players
-PLAYER_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-DL_HEADERS = {"User-Agent": PLAYER_USER_AGENT}
+# MAGIC HEADER (Crucial for Playback)
+# This mimics a standard TV player app, which servers usually accept.
+STREAM_USER_AGENT = "plaYtv/7.0.8 (Linux;Android 9) ExoPlayerLib/2.11.7"
+DL_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"}
 
 # ==========================================
 # 2. MASTER CHANNEL LIST
 # ==========================================
-# Keys are "Cleaned" substrings we look for. 
-# If the source channel contains this string, we take it.
 MASTER_CHANNELS = {
     # 1. TAMIL HD
     "suntvhd": ("Sun TV HD", "Tamil HD"),
@@ -127,7 +124,7 @@ MASTER_CHANNELS = {
     "astrocricket": ("Astro Cricket", "Global Sports"),
     "foxcricket": ("Fox Cricket 501", "Global Sports"),
     "foxsports505": ("Fox Sports 505", "Global Sports"),
-    "willow": ("Willow Sports", "Global Sports"), # broadened search
+    "willow": ("Willow Sports", "Global Sports"),
     "skysportscricket": ("Sky Sports Cricket", "Global Sports"),
     "tntsports1": ("TNT Sports 1", "Global Sports"),
     "tntsports2": ("TNT Sports 2", "Global Sports"),
@@ -201,15 +198,17 @@ MASTER_CHANNELS = {
 }
 
 # ==========================================
-# 3. CORE LOGIC
+# 3. HELPER FUNCTIONS
 # ==========================================
 
 def clean_name(name):
-    """Normalize name: lowercase, remove spaces, remove symbols"""
-    return re.sub(r'[^a-z0-9]', '', name.lower())
+    """Normalize name: lowercase, remove special chars, remove confusing suffixes"""
+    name = name.lower()
+    # Remove common suffixes that break strict matching
+    name = name.replace(" in ", "").replace(" 4k", "").replace(" fhd", "").replace(" hevc", "").replace(" backup", "")
+    return re.sub(r'[^a-z0-9]', '', name)
 
 def fetch_m3u_entries(url):
-    """Download and parse M3U into a list of dicts"""
     print(f"   Downloading: {url}...")
     entries = []
     try:
@@ -237,9 +236,9 @@ def fetch_m3u_entries(url):
 
 def search_source(search_key, source_data):
     """Fuzzy Search: Returns entry if search_key is IN the channel name"""
-    # 1. Try Strict "Contains" Match (High Accuracy)
     for entry in source_data:
         entry_clean = clean_name(entry['name'])
+        # Check if the Master Key is inside the Source Name (e.g., 'suntvhd' inside 'viaplaysuntvhd')
         if search_key in entry_clean:
             return entry
     return None
@@ -251,9 +250,9 @@ def fetch_extra_group(url, group_name):
         meta = re.sub(r'group-title="[^"]*"', '', e['raw_meta'])
         meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
         url = e['url']
-        # Fix: Add User-Agent if missing
+        # Playback Fix: Add the magic header if missing
         if "http" in url and "|" not in url:
-            url += f"|User-Agent={PLAYER_USER_AGENT}"
+            url += f"|User-Agent={STREAM_USER_AGENT}"
         lines.append(meta)
         lines.append(url)
     return lines
@@ -271,7 +270,7 @@ def parse_txt_file(filename, group_name):
         elif line.lower().startswith("logo:"): logo = line.split(":", 1)[1].strip()
         elif line.lower().startswith("link:") or line.startswith("http"):
             url = line.split("link:", 1)[1].strip() if "link:" in line.lower() else line
-            if "http" in url and "|" not in url: url += f"|User-Agent={PLAYER_USER_AGENT}"
+            if "http" in url and "|" not in url: url += f"|User-Agent={STREAM_USER_AGENT}"
             lines.append(f'#EXTINF:-1 group-title="{group_name}" tvg-logo="{logo}",{title}')
             lines.append(url)
             title = "Unknown"; logo = ""
@@ -281,7 +280,7 @@ def parse_txt_file(filename, group_name):
 # 4. MAIN EXECUTION
 # ==========================================
 def main():
-    print("🚀 Starting NKTV Playlist Generation...")
+    print("🚀 Starting NKTV Playlist Generation (Fix v2)...")
     
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U", f"# Updated on: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}"]
@@ -309,10 +308,9 @@ def main():
             logo = entry['logo']
             url = entry['url']
             
-            # --- PLAYBACK FIX: Add User-Agent Header ---
-            # If the link is http/https and doesn't already have a pipe |
+            # --- PLAYBACK FIX: Add Specific Mobile User-Agent ---
             if "http" in url and "|" not in url:
-                url += f"|User-Agent={PLAYER_USER_AGENT}"
+                url += f"|User-Agent={STREAM_USER_AGENT}"
 
             meta = f'#EXTINF:-1 group-title="{group}" tvg-logo="{logo}",{display_name}'
             final_lines.append(meta)
