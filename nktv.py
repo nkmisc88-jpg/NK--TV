@@ -1,359 +1,226 @@
 import requests
-import os
 import re
-import datetime
+import difflib
 
-# ==========================================
-# 1. CONFIGURATION
-# ==========================================
-OUTPUT_FILE = "nktv.m3u"
-TEMP_CHANNELS_FILE = "temporary_channels.txt"
+# ==============================================================================
+# 1. CONFIGURATION: SOURCE URLs
+# ==============================================================================
+# Main Sources (Priority Order)
+URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/playlist.m3u"
+URL_FORCEGT   = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
 
-# SOURCES
-# Priority 1: Fakeall (Better for playback if available)
-SRC_FAKEALL = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
-# Priority 2: Arunjunan (High quality, but often tokenized)
-SRC_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
+# Pass-Through Sources
+URL_YOUTUBE   = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
+URL_FANCODE   = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
+URL_SONY      = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
+URL_ZEE5      = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# Extra Groups
-SRC_YOUTUBE_PLAYLIST = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
-SRC_FANCODE = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
-SRC_SONY = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
-SRC_ZEE = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
+# Temporary File
+FILE_TEMP     = "temp.txt"
+OUTPUT_FILE   = "nktv.m3u"
 
-# HEADERS
-STD_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-DL_HEADERS = {"User-Agent": STD_USER_AGENT}
-
-# ==========================================
-# 2. MASTER CHANNEL LIST (Keys = Unique ID)
-# Format: "UniqueKey": (["Alias1", "Alias2", "Alias3"], "Display Name", "Group")
-# ==========================================
-MASTER_CHANNELS = {
-    # --- TAMIL HD ---
-    "suntvhd": (["sun tv hd", "suntv hd", "sun tv hd in"], "Sun TV HD", "Tamil HD"),
-    "ktvhd": (["ktv hd", "ktv hd in"], "KTV HD", "Tamil HD"),
-    "sunmusichd": (["sun music hd", "sunmusic hd"], "Sun Music HD", "Tamil HD"),
-    "starvijayhd": (["star vijay hd", "vijay hd", "vijay tv hd"], "Star Vijay HD", "Tamil HD"),
-    "vijaysuperhd": (["vijay super hd", "super hd"], "Vijay Super HD", "Tamil HD"),
-    "zeetamilhd": (["zee tamil hd", "zeetamil hd"], "Zee Tamil HD", "Tamil HD"),
-    "zeethiraihd": (["zee thirai hd", "zeethirai hd"], "Zee Thirai HD", "Tamil HD"),
-    "colorstamilhd": (["colors tamil hd", "colorstamil hd"], "Colors Tamil HD", "Tamil HD"),
-    "jayatvhd": (["jaya tv hd", "jayatv hd"], "Jaya TV HD", "Tamil HD"),
-
-    # --- TAMIL SD ---
-    "suntv": (["sun tv", "suntv"], "Sun TV", "Tamil - Others"),
-    "ktv": (["ktv", "ktv sd"], "KTV", "Tamil - Others"),
-    "sunmusic": (["sun music", "sunmusic"], "Sun Music", "Tamil - Others"),
-    "starvijay": (["star vijay", "vijay tv"], "Star Vijay", "Tamil - Others"),
-    "vijaysuper": (["vijay super", "vijaysuper"], "Vijay Super", "Tamil - Others"),
-    "vijaytakkar": (["vijay takkar", "takkar"], "Vijay Takkar", "Tamil - Others"),
-    "zeetamil": (["zee tamil", "zeetamil"], "Zee Tamil", "Tamil - Others"),
-    "zeethirai": (["zee thirai", "zeethirai"], "Zee Thirai", "Tamil - Others"),
-    "colorstamil": (["colors tamil", "colorstamil"], "Colors Tamil", "Tamil - Others"),
-    "jayatv": (["jaya tv", "jayatv"], "Jaya TV", "Tamil - Others"),
-    "jmovies": (["j movies", "jmovies"], "J Movies", "Tamil - Others"),
-    "jayamax": (["jaya max", "jayamax"], "Jaya Max", "Tamil - Others"),
-    "adithya": (["adithya", "adithyatv"], "Adithya TV", "Tamil - Others"),
-    "chutti": (["chutti", "chuttitv"], "Chutti TV", "Tamil - Others"),
-    "sunlife": (["sun life", "sunlife"], "Sun Life", "Tamil - Others"),
-    "rajtv": (["raj tv", "rajtv"], "Raj TV", "Tamil - Others"),
-    "rajdigital": (["raj digital", "rajdigitalplus"], "Raj Digital Plus", "Tamil - Others"),
-    "rajmusix": (["raj musix", "rajmusix"], "Raj Musix", "Tamil - Others"),
-    "kalaignar": (["kalaignar", "kalaignartv"], "Kalaignar TV", "Tamil - Others"),
-    "murasu": (["murasu", "murasutv"], "Murasu TV", "Tamil - Others"),
-    "isaiaruvi": (["isaiaruvi"], "Isaiaruvi", "Tamil - Others"),
-    "sirippoli": (["sirippoli"], "Sirippoli", "Tamil - Others"),
-    "polimer": (["polimer tv", "polimertv"], "Polimer TV", "Tamil - Others"),
-    "vasanth": (["vasanth", "vasanthtv"], "Vasanth TV", "Tamil - Others"),
-    "mega": (["mega tv", "megatv"], "Mega TV", "Tamil - Others"),
-    "makkal": (["makkal", "makkaltv"], "Makkal TV", "Tamil - Others"),
-    "vendhar": (["vendhar", "vendhartv"], "Vendhar TV", "Tamil - Others"),
-    "captain": (["captain tv", "captaintv"], "Captain TV", "Tamil - Others"),
-    "mktv": (["mktv", "mk tv"], "MKTV", "Tamil - Others"),
-    "peppers": (["peppers", "peppers tv"], "Peppers TV", "Tamil - Others"),
-    "blacksheep": (["blacksheep", "black sheep"], "Blacksheep TV", "Tamil - Others"),
-    "podhigai": (["podhigai", "dd podhigai"], "DD Podhigai", "Tamil - Others"),
-
-    # --- TAMIL NEWS ---
-    "sunnews": (["sun news", "sunnews"], "Sun News", "Tamil News"),
-    "polimernews": (["polimer news", "polimernews"], "Polimer News", "Tamil News"),
-    "puthiya": (["puthiya", "puthiyathalaimurai"], "Puthiya Thalaimurai", "Tamil News"),
-    "news7": (["news7", "news 7"], "News7 Tamil", "Tamil News"),
-    "thanthi": (["thanthi", "thanthitv"], "Thanthi TV", "Tamil News"),
-    "news18tamil": (["news18 tamil", "news18 tamilnadu"], "News18 Tamil Nadu", "Tamil News"),
-    "kalaignarnews": (["kalaignar seithigal", "kalaignar news"], "Kalaignar Seithigal", "Tamil News"),
-    "jayaplus": (["jaya plus", "jayaplus"], "Jaya Plus", "Tamil News"),
-    "newsj": (["news j", "newsj"], "News J", "Tamil News"),
-    "sathiyam": (["sathiyam"], "Sathiyam TV", "Tamil News"),
-    "rajnews": (["raj news", "rajnews"], "Raj News 24x7", "Tamil News"),
-    "captainnews": (["captain news"], "Captain News", "Tamil News"),
-    "malaimurasu": (["malai murasu"], "Malai Murasu Seithigal", "Tamil News"),
-    "newstamil24": (["news tamil 24"], "News Tamil 24x7", "Tamil News"),
-    "lotus": (["lotus"], "Lotus News", "Tamil News"),
-
-    # --- SPORTS HD (Includes Sports18 Rebranding) ---
-    "ss1tamilhd": (["star sports 1 tamil hd", "ss1 tamil hd", "sports18 1 hd"], "Star Sports 1 Tamil HD", "Sports HD"), 
-    "ss2tamilhd": (["star sports 2 tamil hd", "ss2 tamil hd", "sports18 3"], "Star Sports 2 Tamil HD", "Sports HD"),     
-    "ss1hindihd": (["star sports 1 hindi hd", "ss1 hindi hd", "sports18 1"], "Star Sports 1 Hindi HD", "Sports HD"),    
-    "ss1hd": (["star sports 1 hd", "ss1 hd"], "Star Sports 1 HD", "Sports HD"),
-    "ss2hd": (["star sports 2 hd", "ss2 hd"], "Star Sports 2 HD", "Sports HD"),
-    "select1hd": (["select 1 hd", "select1 hd"], "Star Sports Select 1 HD", "Sports HD"),
-    "select2hd": (["select 2 hd", "select2 hd"], "Star Sports Select 2 HD", "Sports HD"),
-    "ten1hd": (["ten 1 hd", "ten1 hd"], "Sony Sports Ten 1 HD", "Sports HD"),
-    "ten2hd": (["ten 2 hd", "ten2 hd"], "Sony Sports Ten 2 HD", "Sports HD"),
-    "ten3hd": (["ten 3 hd", "ten3 hd"], "Sony Sports Ten 3 HD", "Sports HD"),
-    "ten4hd": (["ten 4 hd", "ten4 hd"], "Sony Sports Ten 4 HD", "Sports HD"),
-    "ten5hd": (["ten 5 hd", "ten5 hd"], "Sony Sports Ten 5 HD", "Sports HD"),
-    "eurosport": (["eurosport hd"], "Eurosport HD", "Sports HD"),
-
-    # --- SPORTS SD ---
-    "ss1tamil": (["star sports 1 tamil", "ss1 tamil"], "Star Sports 1 Tamil", "Sports - Others"),
-    "ss1kannada": (["star sports 1 kannada", "ss1 kannada"], "Star Sports 1 Kannada", "Sports - Others"),
-    "ss1telugu": (["star sports 1 telugu", "ss1 telugu"], "Star Sports 1 Telugu", "Sports - Others"),
-    "ss1hindi": (["star sports 1 hindi", "ss1 hindi"], "Star Sports 1 Hindi", "Sports - Others"),
-    "ss1": (["star sports 1", "ss1"], "Star Sports 1", "Sports - Others"),
-    "ss2": (["star sports 2", "ss2"], "Star Sports 2", "Sports - Others"),
-    "ss3": (["star sports 3", "ss3"], "Star Sports 3", "Sports - Others"),
-    "ssfirst": (["star sports first"], "Star Sports First", "Sports - Others"),
-    "ddsports": (["dd sports"], "DD Sports", "Sports - Others"),
-
-    # --- GLOBAL (Likely not in Indian sources - Check Temporary Channels) ---
-    "astro": (["astro cricket"], "Astro Cricket", "Global Sports"),
-    "fox501": (["fox cricket", "fox 501"], "Fox Cricket 501", "Global Sports"),
-    "fox505": (["fox sports 505", "fox 505"], "Fox Sports 505", "Global Sports"),
-    "willow": (["willow"], "Willow Sports", "Global Sports"),
-    "skycricket": (["sky sports cricket"], "Sky Sports Cricket", "Global Sports"),
-    "tnt1": (["tnt sports 1"], "TNT Sports 1", "Global Sports"),
-    "tnt2": (["tnt sports 2"], "TNT Sports 2", "Global Sports"),
-
-    # --- INFOTAINMENT HD ---
-    "dischd": (["discovery hd"], "Discovery HD", "Infotainment HD"),
-    "animhd": (["animal planet hd"], "Animal Planet HD", "Infotainment HD"),
-    "tlchd": (["tlc hd"], "TLC HD", "Infotainment HD"),
-    "natgeohd": (["nat geo hd", "nat geo hd"], "Nat Geo HD", "Infotainment HD"),
-    "natwildhd": (["nat geo wild hd"], "Nat Geo Wild HD", "Infotainment HD"),
-    "bbcearthhd": (["bbc earth hd"], "Sony BBC Earth HD", "Infotainment HD"),
-    "historyhd": (["history tv18 hd"], "History TV18 HD", "Infotainment HD"),
-    "zesthd": (["zee zest hd"], "Zee Zest HD", "Infotainment HD"),
-
-    # --- INFOTAINMENT SD ---
-    "discsci": (["discovery science"], "Discovery Science", "Infotainment SD"),
-    "discturbo": (["discovery turbo"], "Discovery Turbo", "Infotainment SD"),
-    "dtamil": (["dtamil"], "DTamil", "Infotainment SD"),
-    "foxlife": (["fox life"], "Fox Life", "Infotainment SD"),
-    "travelxp": (["travelxp"], "TravelXP", "Infotainment SD"),
-    "foodfood": (["food food"], "Food Food", "Infotainment SD"),
-    "goodtimes": (["good times"], "Good Times", "Infotainment SD"),
-
-    # --- NEWS ---
-    "ndtv247": (["ndtv 24x7"], "NDTV 24x7", "English and Hindi News"),
-    "republic": (["republic tv"], "Republic TV", "English and Hindi News"),
-    "timesnow": (["times now"], "Times Now", "English and Hindi News"),
-    "indiatoday": (["india today"], "India Today", "English and Hindi News"),
-    "cnn18": (["cnn news18"], "CNN News18", "English and Hindi News"),
-    "wion": (["wion"], "WION", "English and Hindi News"),
-    "mirror": (["mirror now"], "Mirror Now", "English and Hindi News"),
-    "aajtak": (["aaj tak"], "Aaj Tak", "English and Hindi News"),
-    "zeenews": (["zee news"], "Zee News", "English and Hindi News"),
-    "abp": (["abp news"], "ABP News", "English and Hindi News"),
-    "indiatv": (["india tv"], "India TV", "English and Hindi News"),
-    "news18in": (["news18 india"], "News18 India", "English and Hindi News"),
-    "tv9": (["tv9 bharatvarsh"], "TV9 Bharatvarsh", "English and Hindi News"),
-    "repbharat": (["republic bharat"], "Republic Bharat", "English and Hindi News"),
-    "ddnews": (["dd news"], "DD News", "English and Hindi News"),
-
-    # --- OTHERS ---
-    "starmaahd": (["star maa hd"], "Star Maa HD", "Others"),
-    "geminihd": (["gemini tv hd"], "Gemini TV HD", "Others"),
-    "etvhd": (["etv hd"], "ETV HD", "Others"),
-    "zeeteluguhd": (["zee telugu hd"], "Zee Telugu HD", "Others"),
-    "asianethd": (["asianet hd"], "Asianet HD", "Others"),
-    "suryahd": (["surya tv hd"], "Surya TV HD", "Others"),
-    "zeekeralamhd": (["zee keralam hd"], "Zee Keralam HD", "Others"),
-    "manoramahd": (["mazhavil manorama hd"], "Mazhavil Manorama HD", "Others"),
-    "colkannadahd": (["colors kannada hd"], "Colors Kannada HD", "Others"),
-    "zeekannadahd": (["zee kannada hd"], "Zee Kannada HD", "Others"),
-    "suvarnahd": (["star suvarna hd"], "Star Suvarna HD", "Others"),
-    "udayahd": (["udaya tv hd"], "Udaya TV HD", "Others"),
-    "starplushd": (["star plus hd"], "Star Plus HD", "Others"),
-    "sonytvhd": (["sony tv hd"], "Sony TV HD", "Others"),
-    "zeetvhd": (["zee tv hd"], "Zee TV HD", "Others"),
-    "colorshd": (["colors hd"], "Colors HD", "Others"),
-    "stargoldhd": (["star gold hd"], "Star Gold HD", "Others"),
-    "zeecinemahd": (["zee cinema hd"], "Zee Cinema HD", "Others"),
-    "sonymaxhd": (["sony max hd"], "Sony Max HD", "Others"),
-    "starmovieshd": (["star movies hd"], "Star Movies HD", "Others"),
-    "sonypixhd": (["sony pix hd"], "Sony PIX HD", "Others"),
-    "ddnat": (["dd national"], "DD National", "Others"),
-    "ddmal": (["dd malayalam"], "DD Malayalam", "Others"),
-    "ddchan": (["dd chandana"], "DD Chandana", "Others"),
-    "ddyad": (["dd yadagiri"], "DD Yadagiri", "Others"),
-    "ddsapt": (["dd saptagiri"], "DD Saptagiri", "Others")
+# ==============================================================================
+# 2. MASTER SKELETON (Your Fixed Channel List)
+# ==============================================================================
+MASTER_SKELETON = {
+    "Tamil HD": [
+        ("Sun TV HD", "ts1503", "https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png"),
+        ("Star Vijay HD", "ts1506", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Vijay_HD.png"),
+        ("Zee Tamil HD", "ts1509", "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png"),
+        ("Colors Tamil HD", "ts1515", "https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Tamil_HD.png"),
+        ("KTV HD", "ts1517", "https://jiotvimages.cdn.jio.com/dare_images/images/KTV_HD.png"),
+        ("Sun Music HD", "ts1527", "https://jiotvimages.cdn.jio.com/dare_images/images/Sun_Music_HD.png"),
+        ("Vijay Super HD", "ts1513", "https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Super_HD.png"),
+        ("Zee Thirai HD", "ts1545", "https://bit.ly/3Xj5QzL"),
+        ("Jaya TV HD", "ts1505", "https://jiotvimages.cdn.jio.com/dare_images/images/Jaya_TV_HD.png"),
+    ],
+    "Sports HD": [
+        ("Star Sports 1 Tamil HD", "ts1550", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil_HD.png"),
+        ("Star Sports 2 Tamil HD", "ts1551", "https://bit.ly/4dKjL2M"),
+        ("Star Sports 1 Telugu HD", "ts1445", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Telugu_HD.png"),
+        ("Star Sports 2 Telugu HD", "ts1446", "https://bit.ly/3Xk1L2M"),
+        ("Star Sports 1 HD", "ts454", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_HD.png"),
+        ("Star Sports 2 HD", "ts456", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_HD.png"),
+        ("Star Sports 1 Hindi HD", "ts459", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Hindi_HD.png"),
+        ("Star Sports 2 Hindi HD", "ts461", "https://bit.ly/4eM2P1K"),
+        ("Sony Sports Ten 1 HD", "ts470", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_1_HD.png"),
+        ("Sony Sports Ten 2 HD", "ts473", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_2_HD.png"),
+        ("Sony Sports Ten 3 HD", "ts476", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_3_HD.png"),
+        ("Sony Sports Ten 4 HD", "ts1552", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_4_HD.png"),
+        ("Sony Sports Ten 5 HD", "ts483", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_5_HD.png"),
+        ("Eurosport HD", "ts494", "https://jiotvimages.cdn.jio.com/dare_images/images/Eurosport_HD.png"),
+    ],
+    "Global Sports": [
+        ("Astro Cricket", "", "https://i.imgur.com/OpM4n4m.png"),
+        ("Fox Cricket 501", "", "https://i.imgur.com/712345.png"),
+        ("Fox Sports 505", "", "https://i.imgur.com/712346.png"),
+        ("Willow Sports", "", "https://i.imgur.com/willow1.png"),
+        ("Willow Sports Extra", "", "https://i.imgur.com/willow2.png"),
+        ("Sky Sports Cricket", "", "https://i.imgur.com/skycricket.png"),
+        ("TNT Sports 1", "", "https://i.imgur.com/tnt1.png"),
+        ("TNT Sports 2", "", "https://i.imgur.com/tnt2.png"),
+    ],
+    "Tamil News": [
+        ("Polimer News", "ts1562", "https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png"),
+        ("Puthiya Thalaimurai", "ts1558", "https://jiotvimages.cdn.jio.com/dare_images/images/Puthiya_Thalaimurai.png"),
+        ("Sun News", "ts1556", "https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png"),
+        ("Thanthi TV", "ts1560", "https://jiotvimages.cdn.jio.com/dare_images/images/Thanthi_TV.png"),
+        ("News18 Tamil Nadu", "ts1557", "https://jiotvimages.cdn.jio.com/dare_images/images/News18_Tamil_Nadu.png"),
+    ],
+    "Infotainment HD": [
+        ("Discovery HD", "ts713", "https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_HD_World.png"),
+        ("Animal Planet HD", "ts718", "https://jiotvimages.cdn.jio.com/dare_images/images/Animal_Planet_HD_World.png"),
+        ("Nat Geo HD", "ts724", "https://jiotvimages.cdn.jio.com/dare_images/images/Nat_Geo_HD.png"),
+        ("Sony BBC Earth HD", "ts733", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_BBC_Earth_HD.png"),
+        ("History TV18 HD", "ts728", "https://jiotvimages.cdn.jio.com/dare_images/images/History_TV18_HD.png"),
+        ("Zee Zest HD", "ts748", "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Zest_HD.png"),
+        ("TLC HD", "ts743", "https://jiotvimages.cdn.jio.com/dare_images/images/TLC_HD.png"),
+    ]
 }
 
-# ==========================================
+# ==============================================================================
 # 3. HELPER FUNCTIONS
-# ==========================================
+# ==============================================================================
 
-def clean_name(name):
-    """Normalize name for comparison"""
-    return re.sub(r'[^a-z0-9]', '', name.lower())
+def normalize(text):
+    return re.sub(r'[^a-zA-Z0-9]', '', text).lower()
 
-def fetch_m3u_entries(url):
-    print(f"   Downloading: {url}...")
+def fetch_m3u(url):
+    """Fetches M3U and returns a list of dicts: {'name': name, 'url': url}"""
+    print(f"Fetching: {url}")
     entries = []
     try:
-        r = requests.get(url, headers=DL_HEADERS, timeout=15)
-        if r.status_code != 200: return []
-        
-        lines = r.text.splitlines()
-        current_entry = {}
-        
+        resp = requests.get(url, timeout=15)
+        resp.raise_for_status()
+        lines = resp.text.splitlines()
+        name = ""
         for line in lines:
             line = line.strip()
-            if not line: continue
             if line.startswith("#EXTINF"):
-                logo_match = re.search(r'tvg-logo="([^"]*)"', line)
-                logo = logo_match.group(1) if logo_match else ""
-                name = line.split(",")[-1].strip()
-                current_entry = {"name": name, "logo": logo, "raw_meta": line}
-            elif not line.startswith("#") and current_entry:
-                current_entry["url"] = line
-                entries.append(current_entry)
-                current_entry = {}
+                if "," in line:
+                    name = line.split(",")[-1].strip()
+            elif line.startswith("http") and name:
+                entries.append({'name': name, 'url': line})
+                name = ""
     except Exception as e:
-        print(f"   ❌ Error: {e}")
+        print(f"Error fetching {url}: {e}")
     return entries
 
-def search_source(alias_list, source_data, is_sd_search=False):
+def get_mapped_streams(urls):
     """
-    Checks if ANY alias matches the source name.
+    Consolidates streams from multiple URLs into a dictionary:
+    { 'normalized_name': [url1, url2, ...] }
     """
-    for entry in source_data:
-        entry_clean = clean_name(entry['name'])
-        
-        for alias in alias_list:
-            alias_clean = clean_name(alias)
+    mapped = {}
+    source_names = []
+    
+    for url in urls:
+        items = fetch_m3u(url)
+        for item in items:
+            key = normalize(item['name'])
+            if key not in mapped:
+                mapped[key] = []
+                source_names.append(item['name'])
             
-            # Match Condition: Alias is inside Source Name
-            if alias_clean in entry_clean:
-                # Extra protection for SD channels (avoid matching "Sun TV HD" when looking for "Sun TV")
-                if is_sd_search and "hd" in entry_clean and "hd" not in alias_clean:
-                    continue 
-                return entry
+            # Avoid duplicate links
+            if item['url'] not in mapped[key]:
+                mapped[key].append(item['url'])
+                
+    return mapped, source_names
+
+def find_best_match(target, options):
+    target_clean = normalize(target)
+    # 1. Exact
+    for opt in options:
+        if normalize(opt) == target_clean: return normalize(opt)
+    # 2. Fuzzy
+    matches = difflib.get_close_matches(target, options, n=1, cutoff=0.6)
+    if matches: return normalize(matches[0])
     return None
 
-def fetch_extra_group(url, group_name):
-    entries = fetch_m3u_entries(url)
-    lines = []
-    for e in entries:
-        meta = re.sub(r'group-title="[^"]*"', '', e['raw_meta'])
-        meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{group_name}"')
-        url = e['url']
-        if "http" in url and "|" not in url:
-            url += f"|User-Agent={STD_USER_AGENT}"
-        lines.append(meta)
-        lines.append(url)
-    return lines
+def parse_temp_file(filename):
+    """Parses custom format: Title: X \n Logo: Y \n Link: Z"""
+    channels = []
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            content = f.read()
+            # Split by double newlines or based on "Title :" pattern
+            blocks = content.split("Title :")
+            for block in blocks:
+                if not block.strip(): continue
+                
+                title = re.search(r'(.*?)\n', block)
+                logo = re.search(r'Logo\s*:\s*(.*?)\n', block)
+                link = re.search(r'Link\s*:\s*(.*?)\n', block)
+                
+                if title and link:
+                    channels.append({
+                        'name': title.group(1).strip(),
+                        'logo': logo.group(1).strip() if logo else "",
+                        'url': link.group(1).strip()
+                    })
+    except FileNotFoundError:
+        print(f"Warning: {filename} not found.")
+    return channels
 
-def parse_txt_file(filename, group_name):
-    print(f"   Reading {filename}...")
-    if not os.path.exists(filename):
-        print("   ⚠️ Temporary Channels file NOT found.")
-        return []
-        
-    lines = []
-    with open(filename, "r") as f:
-        content = f.readlines()
-    
-    title = "Unknown"; logo = ""
-    for line in content:
-        line = line.strip()
-        if not line: continue
-        
-        if line.lower().startswith("title:"): title = line.split(":", 1)[1].strip()
-        elif line.lower().startswith("logo:"): logo = line.split(":", 1)[1].strip()
-        elif line.lower().startswith("link:") or line.startswith("http"):
-            url = line.split("link:", 1)[1].strip() if "link:" in line.lower() else line
-            if "http" in url and "|" not in url: url += f"|User-Agent={STD_USER_AGENT}"
-            
-            # Create entry
-            lines.append(f'#EXTINF:-1 group-title="{group_name}" tvg-logo="{logo}",{title}')
-            lines.append(url)
-            title = "Unknown"; logo = ""
-    return lines
+# ==============================================================================
+# 4. MAIN LOGIC
+# ==============================================================================
 
-# ==========================================
-# 4. MAIN EXECUTION
-# ==========================================
 def main():
-    print("🚀 Starting NKTV Playlist Generation (Fix v5)...")
+    final_lines = ['#EXTM3U x-tvg-url="https://avkb.short.gy/tsepg.xml.gz"']
     
-    ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
-    final_lines = ["#EXTM3U", f"# Updated on: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}"]
-
-    # 1. Fetch Sources
-    src_fakeall = fetch_m3u_entries(SRC_FAKEALL)
-    src_arunjunan = fetch_m3u_entries(SRC_ARUNJUNAN)
+    # --- PART A: MASTER CHANNELS (Skeleton Mode) ---
+    print("\n--- Processing Master Channels ---")
+    all_streams, source_names = get_mapped_streams([URL_ARUNJUNAN, URL_FORCEGT])
     
-    # 2. Iterate Master List
-    print("   Processing Master List...")
-    found_count = 0
-    missing_list = []
+    backup_lines = []
     
-    for unique_id, (aliases, display_name, group) in MASTER_CHANNELS.items():
-        entry = None
-        source_used = ""
-        is_sd = "Others" in group or "SD" in group
-        
-        # Priority 1: Fakeall (Header needed)
-        entry = search_source(aliases, src_fakeall, is_sd_search=is_sd)
-        if entry: source_used = "Fakeall"
-        
-        # Priority 2: Arunjunan (NO Header)
-        if not entry:
-            entry = search_source(aliases, src_arunjunan, is_sd_search=is_sd)
-            if entry: source_used = "Arunjunan"
-
-        if entry:
-            found_count += 1
-            logo = entry['logo']
-            url = entry['url']
+    for group, channels in MASTER_SKELETON.items():
+        for name, tvg_id, logo in channels:
+            key = find_best_match(name, source_names)
             
-            # --- HEADER LOGIC ---
-            # Fakeall -> NEEDS Header
-            if source_used == "Fakeall" and "http" in url and "|" not in url:
-                url += f"|User-Agent={STD_USER_AGENT}"
+            if key and key in all_streams:
+                urls = all_streams[key]
+                # Primary Link
+                final_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="{group}", {name}\n{urls[0]}')
+                
+                # Backup Links
+                for idx, url in enumerate(urls[1:], 1):
+                    backup_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="Backups", {name} [Backup {idx}]\n{url}')
+                print(f"[OK] {name}")
+            else:
+                print(f"[MISSING] {name}")
+    
+    # --- PART B: LIVE EVENTS (Pass-Through) ---
+    print("\n--- Processing Live Events ---")
+    live_sources = [URL_FANCODE, URL_SONY, URL_ZEE5]
+    for source in live_sources:
+        items = fetch_m3u(source)
+        for item in items:
+            # Force group-title to Live Events
+            final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="", {item["name"]}\n{item["url"]}')
             
-            # Arunjunan -> RAW (DO NOT TOUCH)
-            # Most Arunjunan links fail if you add a user-agent.
+    # --- PART C: YOUTUBE (Pass-Through) ---
+    print("\n--- Processing YouTube ---")
+    yt_items = fetch_m3u(URL_YOUTUBE)
+    for item in yt_items:
+         final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="https://i.imgur.com/MbCpK4X.png", {item["name"]}\n{item["url"]}')
+         
+    # --- PART D: TEMPORARY CHANNELS ---
+    print("\n--- Processing Temporary Channels ---")
+    temp_items = parse_temp_file(FILE_TEMP)
+    for item in temp_items:
+        final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="{item["logo"]}", {item["name"]}\n{item["url"]}')
 
-            meta = f'#EXTINF:-1 group-title="{group}" tvg-logo="{logo}",{display_name}'
-            final_lines.append(meta)
-            final_lines.append(url)
-        else:
-            missing_list.append(display_name)
-            # Log specifically so you can debug
-            # print(f"   ❌ MISSING: {display_name} (Tried aliases: {aliases})")
-
-    print(f"\n   📊 SUMMARY: Found {found_count} / {len(MASTER_CHANNELS)}")
-    if missing_list:
-        print("   ⚠️  Channels not found (Add these to temporary_channels.txt):")
-        for m in missing_list: print(f"      - {m}")
-
-    # 3. Add Extra Groups
-    print("\n   Adding Extras...")
-    final_lines.extend(fetch_extra_group(SRC_FANCODE, "Live Events"))
-    final_lines.extend(fetch_extra_group(SRC_SONY, "Live Events"))
-    final_lines.extend(fetch_extra_group(SRC_ZEE, "Live Events"))
-    final_lines.extend(fetch_extra_group(SRC_YOUTUBE_PLAYLIST, "YouTube"))
-    final_lines.extend(parse_txt_file(TEMP_CHANNELS_FILE, "Temporary Channels"))
-
-    # 4. Save
+    # --- WRITE FILE ---
+    # Append backups at the very end
+    final_lines.extend(backup_lines)
+    
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
-    print(f"✅ DONE. Saved to {OUTPUT_FILE}")
+        
+    print(f"\nSUCCESS: Generated {OUTPUT_FILE} with {len(final_lines)} entries.")
 
 if __name__ == "__main__":
     main()
