@@ -1,186 +1,21 @@
-#EXTM3U
-# Updated on: 2026-01-09 05:30:18 IST
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
-https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/380.png",KTV HD
-https://livestream.sunnxt.com/61477b4c8d8d45d5a49e044cc1dffc60/KTVHDB_IN_index.mpd
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11954-j9lu45o8-v1/imageContent-11954-j9lu45o8-m1.png",Sun Music HD
-https://livestream.sunnxt.com/d434796d90fa4dc9b7ecfacedbe683f1/SunMusicHDB_IN_index.mpd
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/496.png",Star Vijay HD
-https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer=https://m3u.8088y.fun/
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11197-j9i4fbbs-v2/imageContent-11197-j9i4fbbs-m4.png",Vijay Super HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Super_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Thirai-HD/index-connected/index-connected.m3u8?hdntl=exp=1767985442~acl=%2f*~id=d3af5910-bc79-456c-a0ec-362894bd47d8~data=hdntl~hmac=8564e3d5252833af45cfdcbc6ff3c079b9467514660712af558e91ada6496ad0
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/674.png",Colors Tamil HD
-https://keys.vodep39240327.workers.dev/?id=429.mpd
-#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/708.png",Jaya TV HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_TV_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Sun_TV_v1.png",Sun TV
-https://converse.nathcreqtives.com/astro/2310/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY3NDUwNjg3LCJleHAiOjE3Njc4Njk4NjEsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2Nzg2OTg2MX0.9puUPiDaydWR5UrF3UH3V1m2ZecC_eJgR9b3o9qZZQI
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://linear-poster.astro.com.my/prod/logo/KTV.png",KTV
-https://converse.nathcreqtives.com/astro/5088/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY3NDUwNjg3LCJleHAiOjE3Njc4Njk4NjEsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2Nzg2OTg2MX0.9puUPiDaydWR5UrF3UH3V1m2ZecC_eJgR9b3o9qZZQI
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Sun_Music_v1.png",Sun Music
-https://converse.nathcreqtives.com/astro/5011/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY3NDUwNjg3LCJleHAiOjE3Njc4Njk4NjEsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2Nzg2OTg2MX0.9puUPiDaydWR5UrF3UH3V1m2ZecC_eJgR9b3o9qZZQI
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://i.ibb.co/wNmB354M/Picsart-25-09-04-12-47-02-235.png",Star Vijay
-https://peaky.techcoder40.workers.dev/776.m3u8
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-73570-l91cvyrk-v1/imageContent-73570-l91cvyrk-m2.png",Vijay Takkar
-https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Takkar_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://yt3.googleusercontent.com/GJVGgzRXxK1FDoUpC8ztBHPu81PMnhc8inodKtEckH-rykiYLzg93HUQIoTIirwORynozMkR=s900-c-k-c0x00ffffff-no-rj",Zee Tamil
-https://dpkvdnzbeen1l.cloudfront.net/index_4.m3u8
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="http://linear-poster.astro.com.my/prod/logo/Colors-Tamil_v1.png",Colors Tamil
-https://converse.nathcreqtives.com/astro/2101/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY3NDUwNjg3LCJleHAiOjE3Njc4Njk4NjEsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2Nzg2OTg2MX0.9puUPiDaydWR5UrF3UH3V1m2ZecC_eJgR9b3o9qZZQI
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://mobond.yuppcdn.net/peotvgo/320/280/content/common/channel/logos/ppkeyw.png",Jaya TV
-https://edge3-moblive.yuppcdn.net/drm/smil:jayamagatvdrm.smil/playlist.m3u8
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/201.png",J Movies
-https://jiotvpllive.cdn.jio.com/bpk-tv/J_Movies_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/199.png",Jaya Max
-https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_Max_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://sund-images.sunnxt.com/194407/960x540_AdithyaTV_194407_b6f8fa30-255b-4f4a-8f8f-4264abda8b33.jpg",Adithya TV
-https://jiotvpllive.cdn.jio.com/bpk-tv/Adithya_TV_MOB/WDVLive/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://sund-images.sunnxt.com/194390/640x360_ChuttiTV_194390_61005292-313a-45b4-b6a8-3ac5128a513e.jpg",Chutti TV
-https://jiotvpllive.cdn.jio.com/bpk-tv/Chutti_TV_MOB/WDVLive/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://linear-poster.astro.com.my/prod/logo/Sun-Life.png",Sun Life
-https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_Life_MOB/WDVLive/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/439.png",Raj TV
-https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_TV_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11679-j9khnqag-v1/imageContent-11679-j9khnqag-m1.png",Raj Digital Plus
-https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_Digital_Plus_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/425.png",Raj Musix
-https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_Musix_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-819-j5m8fsfs-v1/imageContent-819-j5m8fsfs-m1.png",Kalaignar TV
-https://jiotvpllive.cdn.jio.com/bpk-tv/Kalaignar_TV_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/murasu-white.png",Murasu TV
-https://segment.yuppcdn.net/050522/murasu/playlist.m3u8
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/isai-aruvi-black.png",Isaiaruvi
-https://edge2-moblive.yuppcdn.net/drm1/smil:isaiaruvitvdrm.smil/manifest.m3u8
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/611.png",Sirippoli
-https://edge2-moblive.yuppcdn.net/drm1/smil:sirippolitvdrm.smil/manifest.m3u8
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/272.png",Polimer TV
-https://jiotvpllive.cdn.jio.com/bpk-tv/Polimer_TV_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/499.png",Vasanth TV
-https://vasanth.pc.cdn.bitgravity.com/vasanth/secure/live/feed03/playlist_108k.m3u8
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-111-j5fl5xo8-v1/imageContent-111-j5fl5xo8-m1.png",Mega TV
-http://iptvmedia.live:8080/F18115/068f009e/193209
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/392.png",Makkal TV
-http://5k8q87azdy4v-hls-live.wmncdn.net/MAKKAL/271ddf829afeece44d8732757fba1a66.sdp/index.m3u8
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-31187-jldgeg1k-v2/imageContent-31187-jldgeg1k-m2.png",Vendhar TV
-https://jiotvpllive.cdn.jio.com/bpk-tv/Vendhar_TV_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="https://tatalogo.pages.dev/421.png",Peppers TV
-https://cdn-2.pishow.tv/live/1383/master.m3u8
-#EXTINF:-1 group-title="Tamil - Others" tvg-logo="",Blacksheep TV
-https://stream.zeno.fm/v0zd6xmpgkovv
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://i.postimg.cc/k5KdQRFN/image-Content-11734-j9kw60rc-m1.webp",Sun News
-https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_News_MOB/WDVLive/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/polimer-news-black.png",Polimer News
-https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/puthiyathalaimurai-black.png",Puthiya Thalaimurai
-https://segment.yuppcdn.net/240122/puthiya/playlist.m3u8
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/news7tamil-black.png",News7 Tamil
-https://jiotvpllive.cdn.jio.com/bpk-tv/News7_Tamil_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/THANTIO_Thumbnail-v4/THANTIO_Thumbnail.png",Thanthi TV
-https://jiotvpllive.cdn.jio.com/bpk-tv/Thanti_One_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/58.png",News18 Tamil Nadu
-https://nw18live.cdn.jio.com/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/198.png",Jaya Plus
-https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_Plus_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/702.png",News J
-https://jiotvpllive.cdn.jio.com/bpk-tv/News_J_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11764-j9kwqj6o-v1/imageContent-11764-j9kwqj6o-m1.png",Sathiyam TV
-https://live-cf-sathiyamtv.dailyhunt.in/master.m3u8
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/525.png",Raj News 24x7
-https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_News_24x7_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/MAMUR_Thumbnail-v2/MAMUR_Thumbnail.png",Malai Murasu Seithigal
-https://live-cf-malaimurasu.dailyhunt.in/master.m3u8
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-69018-kzo65wi0-v1/imageContent-69018-kzo65wi0-m2.png",News Tamil 24x7
-https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/news-tamil-24x7/index.m3u8
-#EXTINF:-1 group-title="Tamil News" tvg-logo="https://play-lh.googleusercontent.com/zI2dPLwW9CojH8Gu2MQS70hEbGd8yJBZMwzFN1DS1YfGxsGeW7FZ3273SSbuSud179bqYg-FUE3ekmIwByNd2Q=w480-h960-rw",Lotus News
-http://lotustv.phoenixcreations.online/lotustv/lotustv/index.m3u8
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SS1TAMHD_Thumbnail-v1/SS1TAMHD_Thumbnail.png",Star Sports 1 Tamil HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_1_Tamil_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://img.media.jio.com/tvpimages/50/43/302120_1753202207980_l_high.jpg",Star Sports 2 Tamil HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/16-by-xfireflix.png",Star Sports 1 HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD1_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/V2.0/new/Star_Sports_2.png",Star Sports 2 HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD2_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
-https://keys.vodep39240327.workers.dev/?id=300.mpd
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png",Star Sports Select 2 HD
-https://keys.vodep39240327.workers.dev/?id=301.mpd
-#EXTINF:-1 group-title="Sports HD" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Ten_HD.png",Sony Sports Ten 1 HD
-https://sl.vodep39240327.workers.dev/channel/SONY TEN 1 HD.m3u8
-#EXTINF:-1 group-title="Sports HD" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Ten2_HD.png",Sony Sports Ten 2 HD
-https://sl.vodep39240327.workers.dev/channel/SONY TEN 2 HD.m3u8
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen5_HD_Logo_CLR.png",Sony Sports Ten 5 HD
-https://sl.vodep39240327.workers.dev/channel/SONY TEN 5 HD.m3u8
-#EXTINF:-1 group-title="Sports HD" tvg-logo="https://tatalogo.pages.dev/812.png",Eurosport HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Dsports_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Sports - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-249-j5fyl7tk-v1/imageContent-249-j5fyl7tk-m1.png",Star Sports 1 Tamil
-https://tv.vaanam24.com/live.m3u8?c=STARSPORTSTAMILHD
-#EXTINF:-1 group-title="Sports - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-249-j5fyl7tk-v1/imageContent-249-j5fyl7tk-m1.png",Star Sports 1
-https://tv.vaanam24.com/live.m3u8?c=STARSPORTSTAMILHD
-#EXTINF:-1 group-title="Sports - Others" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/Star%20Sports%202%20Tamil_Thumbnail_a2144bc4-8953-4ca9-980b-86499353c0da.png",Star Sports 2
-https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/379753.ts
-#EXTINF:-1 group-title="Sports - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-31405-jm2isen4-v1/imageContent-31405-jm2isen4-m1.png",Star Sports 3
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_3_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Sports - Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-941-j5mhk5fc-v1/imageContent-941-j5mhk5fc-m1.png",DD Sports
-https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8
-#EXTINF:-1 group-title="Global Sports" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png",Astro Cricket
-https://live.catvod.com/live.php?id=Acricket
-#EXTINF:-1 group-title="Global Sports" tvg-logo="https://i.postimg.cc/RFNMQVQM/j-Na-Ow-Lv-R-400x400-photoaidcom-cropped.png",Willow Sports
-https://fl1.moveonjoy.com/WILLOW_CRICKET/index.m3u8
-#EXTINF:-1 group-title="Global Sports" tvg-logo="https://tataprime.files.wordpress.com/2024/05/20240513_0718037281702601479724023.png",Sky Sports Cricket
-http://178.33.239.54:8080/503/index.m3u8
-#EXTINF:-1 group-title="Global Sports" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/V2.0/new/tnt1.png",TNT Sports 1
-https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/wf8usag51e/out/v1/bd3b0c314fff4bb1ab4693358f3cd2d3/cenc.mpd
-#EXTINF:-1 group-title="Global Sports" tvg-logo="https://abusaeeidx.github.io/Tv-Channel-Logo/CricHD/V2.0/new/tnt2.png",TNT Sports 2
-https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/f0qvkrra8j/out/v1/f8fa17f087564f51aa4d5c700be43ec4/cenc.mpd
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/341.png",Discovery HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_HD_World_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/130.png",Animal Planet HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Animal_Planet_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/413.png",Nat Geo Wild HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Nat_Geo_Wild_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SOBB_Thumbnail-v6/SOBB_Thumbnail.png",Sony BBC Earth HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/SonyBBCEarthHin_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/616.png",History TV18 HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/History_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-348/channel_list/360x20333fcf07b744341518375ae7ae35c08c7",Zee Zest HD
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1767985442~acl=%2f*~id=d3af5910-bc79-456c-a0ec-362894bd47d8~data=hdntl~hmac=8564e3d5252833af45cfdcbc6ff3c079b9467514660712af558e91ada6496ad0
-#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/vIA7TExn.png",Discovery Science
-https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoveryscience2/default/manifest.mpd
-#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://imagesdishtvd2h.whatsonindia.com/dasimages/channel/landscape/360x270/6eCv1iuk.png",Discovery Turbo
-https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoveryturbo2/default/manifest.mpd
-#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://tatalogo.pages.dev/99.png",DTamil
-https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_Channel_Tamil_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://tatalogo.pages.dev/444.png",TravelXP
-https://jiotvpllive.cdn.jio.com/bpk-tv/Travel_XP_Tamil_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-384-j5jpj9hc-v1/imageContent-384-j5jpj9hc-m1.png",Food Food
-http://iptvmedia.live:8080/F18115/068f009e/1362
-#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_GOOD_TIMES/images/LOGO_HD/image.png",Good Times
-https://amg01448-samsungin-ndtvgoodtimes-samsungin-ad-gp.amagi.tv/playlist/amg01448-samsungin-ndtvgoodtimes-samsungin/playlist.m3u8
-#EXTINF:-1 group-title="English and Hindi News" tvg-logo="https://8upload.com/image/67da280876f6c/38-ndtv.png",NDTV 24x7
-https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/master.m3u8
-#EXTINF:-1 group-title="English and Hindi News" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/INBA4900020A5_20240131T032253SQUARE.png_20240131032254.png",Republic TV
-https://jmp2.uk/stvp-INBA4900020A5
-#EXTINF:-1 group-title="English and Hindi News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/times-now-in.png",Times Now
-https://d3pvf6sv7wsu07.cloudfront.net/master.m3u8
-#EXTINF:-1 group-title="English and Hindi News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/india/india-today-in.png",India Today
-https://feeds.intoday.in/hltapps/api/master.m3u8
-#EXTINF:-1 group-title="English and Hindi News" tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/INBD1300009QZ_20240131T032448SQUARE.png_20240131032449.png",CNN News18
-https://amg01448-samsungin-cnnnewsnw18-samsungin-ad-gv.amagi.tv/playlist/amg01448-samsungin-cnnnewsnw18-samsungin/playlist.m3u8?ads.did=%7BPSID%7D&ads.dnt=%7BTARGETOPT%7D&ads.app_domain=%7BAPP_DOMAIN%7D&ads.app_name=%7BAPP_NAME%7D&ads.coppa=0
-#EXTINF:-1 group-title="English and Hindi News" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/india/wion-in.png",WION
-https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
-#EXTINF:-1 group-title="Others" tvg-logo="https://i.ibb.co/F4Jttj3S/Picsart-25-02-10-14-19-03-064.png",Surya TV HD
-https://livestream15.sunnxt.com/d719fad367614ee5baad747822767ad8/SuryaTVHDB_IN_index.mpd
-#EXTINF:-1 group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12086-j9od8wxc-v1/imageContent-12086-j9od8wxc-m1.png",Star Movies HD
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Movies_HD_BTS/output/index.mpd?__hdnea__=st=1767875607~exp=1767962007~acl=/*~hmac=ab0ce749a9f833041994789f0d616729d8c978cb563cfc2b5ea65ec867f91a1e
-#EXTINF:-1 group-title="Live Events" tvg-id="138776" tvg-name="Otago Sparks Vs Wellington Blaze" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138776_5801_WB-W_OS-W_fc-web_1766596522100.jpg" tvg-language="ENGLISH" ,ENG | Otago Sparks Vs Wellington Blaze
+#EXTM3U x-tvg-url="https://avkb.short.gy/tsepg.xml.gz"
+#EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Otago Sparks Vs Wellington Blaze
 https://in-mc-fdlive.fancode.com/mumbai/138776_english_hls_3addfb561b51825_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498847" tvg-name="Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012825/1766992956294768_SuperSmash2526_womens_Wellington-Blaze-vs-Otago-Sparks_29dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Wellington Blaze vs Otago Sparks - 9 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767940202~acl=/*~id=0cfe5bb3620b54c9123f4651573a412a-1767897000196~hmac=fd17ca96b55489104b29175742ad75827ae5af26c7119f1e8166d341c19c3de1|User-Agent=com.sonyliv/6.22.4 (Android 6; en_GB; ONE E1003; Build/MMB29M)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=23c82bf6fa3a27439cf9227c3eec32e8-1767916210955
-#EXTINF:-1 group-title="YouTube" tvg-id="cricket.com.au" tvg-logo="https://i.ytimg.com/vi/MwGcDkj3nRw/hqdefault.jpg", cricket.com.au
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1767938018/ei/gkNgaePtLq7AkucPg8iJqAE/ip/68.154.38.17/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr2---sn-p5qlsndr.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AYUSA3AfrF5PPVd_0CinfVx_7emgx1d6avxDc_kBEB6MVc_45gpwBeo7sryYGOH3S07X32KVZg/spc/wH4Qq_bKE6X_q3lCO4Ag/vprv/1/ns/xYhoMsijQO27OqNU3dQPzmoR/playlist_type/DVR/met/1767916418,/mh/Uh/mm/44/mn/sn-p5qlsndr/ms/lva/mv/u/mvi/2/pl/19/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/NpNjDfT_RyIrAlY6O7M/mt/1767913347/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIhANlNJ9FY5hZY6Wi3bmnf7r7oEXxsed5eFWIG9rVFDedeAiBqaJhc0jzYlrFE1qiNgCj9Eh5-5uv03h4hO52mEhazHg%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRgIhALvc7KkOKp6VpfGsk-BQnDwR0Wc2MZCpKJkFDm2ovZfWAiEA0egj1TsdNqaPfytPidyEWr-ajuxK40r_zpRR0LHYjSs%3D/playlist/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Show Court 1   Day 6
+https://in-mc-fdlive.fancode.com/mumbai/139195_english_hls_7bfdfb96f343630_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Pat Rafter Arena   Day 6
+https://in-mc-fdlive.fancode.com/mumbai/139194_english_hls_2011737c6424099_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Wellington Blaze vs Otago Sparks - 9 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1767961801~acl=/*~id=56030c79d3c1fca2efc0ff40d51c8cdc-1767918600103~hmac=ee5bb09c16a3d935cae7e6ddee444b813946f94fb4a94fe40dd99306f0f85a44|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; SM-A207F; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=a5d8586ffcbb659abfa07a2530ced66a-1767922210934
+#EXTINF:-1 group-title="YouTube" tvg-logo="https://i.imgur.com/MbCpK4X.png", cricket.com.au
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1767938018/ei/gkNgaePtLq7AkucPg8iJqAE/ip/68.154.38.17/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr2---sn-p5qlsndr.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AYUSA3AfrF5PPVd_0CinfVx_7emgx1d6avxDc_kBEB6MVc_45gpwBeo7sryYGOH3S07X32KVZg/spc/wH4Qq_bKE6X_q3lCO4Ag/vprv/1/ns/xYhoMsijQO27OqNU3dQPzmoR/playlist_type/DVR/met/1767916418,/mh/Uh/mm/44/mn/sn-p5qlsndr/ms/lva/mv/u/mvi/2/pl/19/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/NpNjDfT_RyIrAlY6O7M/mt/1767913347/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIhANlNJ9FY5hZY6Wi3bmnf7r7oEXxsed5eFWIG9rVFDedeAiBqaJhc0jzYlrFE1qiNgCj9Eh5-5uv03h4hO52mEhazHg%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRgIhALvc7KkOKp6VpfGsk-BQnDwR0Wc2MZCpKJkFDm2ovZfWAiEA0egj1TsdNqaPfytPidyEWr-ajuxK40r_zpRR0LHYjSs%3D/playlist/index.m3u8
+#EXTINF:-1 group-title="Temporary" tvg-logo="Link: https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0", Fox 4k
+https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
+#EXTINF:-1 group-title="Temporary" tvg-logo="Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/cb573e1e657764909bc33778d1f84582e75939d91374942a6bb45d8975d30b0ad0e9f0c5ee18e975099d18dc7c0b6c075d7ac21fd87c1cc6d82efa5766294471989eb51978a828218a09f4e71899487b32ec33708e7c1777dda9291c8429b06a776b826b4077424039949f5c6fbbdf48cf2739faf08823602e0b75be659e6a346c81c5860c068035ffe65817cb3d66df629004e63e89e6a571a625df34a64dc3cba191e42ab7849364ad50b07e61d0450c70a17916796795fae3a7ef9e6e91af2df5a63cf0b43e1d8b425155fbfe849160e82cf786378a5a45d16c97448c249e7be55de9b800f0dfdba5224b5af59d0981465d5b7a209d270e78d37b0c113b71cfb1b2c034ef20/192/1920x1080_5859480/index.m3u8", Willow Sports
+https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/cb573e1e657764909bc33778d1f84582e75939d91374942a6bb45d8975d30b0ad0e9f0c5ee18e975099d18dc7c0b6c075d7ac21fd87c1cc6d82efa5766294471989eb51978a828218a09f4e71899487b32ec33708e7c1777dda9291c8429b06a776b826b4077424039949f5c6fbbdf48cf2739faf08823602e0b75be659e6a346c81c5860c068035ffe65817cb3d66df629004e63e89e6a571a625df34a64dc3cba191e42ab7849364ad50b07e61d0450c70a17916796795fae3a7ef9e6e91af2df5a63cf0b43e1d8b425155fbfe849160e82cf786378a5a45d16c97448c249e7be55de9b800f0dfdba5224b5af59d0981465d5b7a209d270e78d37b0c113b71cfb1b2c034ef20/192/1920x1080_5859480/index.m3u8
+#EXTINF:-1 group-title="Temporary" tvg-logo="Link : https://aps32.playlist.live-video.net/v1/playlist/CrkFPA0wAtrho7iChuzsoGMxOZpA0BqV550E3bIlOIHkCgVRYjJ_u8aW92tRxpiS_jGJbKTX5hBF_fReryfJnRw6O394aghxr5mPv-CTTcx7IIFoG71pPhPE1E_SZHypAl47lIqxbmVcaSNeA-TtO6sDF0OTjWtIqRVSvUba0g8b6LGJyc6fZvGbUdPOGXiSsBJYvcVLo0zwt5PnYq9dLdzi46izUwMKYyh4udau9K7zizlgWAAfDi7BZYc7zn3KnmN1v1ItD-tiLANRJWTQwrJSotH4ZgYbGq52Dd7twoT7IIjyY7W4g1t19ybUcIeHWHTBKyXSbGmE6JBPe7GAlJcqeDBbP9n4khrBDQTMwZwRuKIPkBXLjB9pqkZaYgeJrjDfgiZ8xqi-ofZnyxnE36XTWCL-EqHSyF4OlVo_zKVdV29ic0fQskLrbZ7VbKr4DkJ4sCghUtaIuv7TWYzSVKjCnQbqecAQPQ8r1rS5A-EV1_QvGXF5iJwi3mClk9XYeYVT-Ynnq41sXoz04M-A9sUtGH95T_p_FphjKfEDTsG7e4ZgC-gkRvdgo_zB_R_Alk7UenuHJ0olW1yMrMg1U_T3-Zx78_CVS6NSsQQ0PCcBHe0NQ2Cn2WgE7L-idRBO8Lu4E3fShNxhx608Om8CxJe6XfAxKh69SQdBWmJGI8Ho0PAxDrm3XUh4oeZfzIrlJu_W_ZB6KJvV8s_h2vvNnZiQll_Fx08-Zdyao0248EDzuT8zOgOCzn0aGfZYlTuL02pOhSIX9tNOUC5Bz9EyIFkKVvmmxQJRnXLH5WiyOD4nCtOBkj7hBs14w_9OA_hNbF7RNQQuQKR2wOHzVLwKL6CYAk0rwABdBFEoQTgsY9HkYDYH60EBZ0b3I0pRoXqL4t1TL01dBC8BbH42Oosz7fnu_qGFk0YQSegTKhoMVZNLwN_nPZfyphaDIAEqCXVzLXdlc3QtMjCJDg.m3u8", Willow Sports 2
+https://aps32.playlist.live-video.net/v1/playlist/CrkFPA0wAtrho7iChuzsoGMxOZpA0BqV550E3bIlOIHkCgVRYjJ_u8aW92tRxpiS_jGJbKTX5hBF_fReryfJnRw6O394aghxr5mPv-CTTcx7IIFoG71pPhPE1E_SZHypAl47lIqxbmVcaSNeA-TtO6sDF0OTjWtIqRVSvUba0g8b6LGJyc6fZvGbUdPOGXiSsBJYvcVLo0zwt5PnYq9dLdzi46izUwMKYyh4udau9K7zizlgWAAfDi7BZYc7zn3KnmN1v1ItD-tiLANRJWTQwrJSotH4ZgYbGq52Dd7twoT7IIjyY7W4g1t19ybUcIeHWHTBKyXSbGmE6JBPe7GAlJcqeDBbP9n4khrBDQTMwZwRuKIPkBXLjB9pqkZaYgeJrjDfgiZ8xqi-ofZnyxnE36XTWCL-EqHSyF4OlVo_zKVdV29ic0fQskLrbZ7VbKr4DkJ4sCghUtaIuv7TWYzSVKjCnQbqecAQPQ8r1rS5A-EV1_QvGXF5iJwi3mClk9XYeYVT-Ynnq41sXoz04M-A9sUtGH95T_p_FphjKfEDTsG7e4ZgC-gkRvdgo_zB_R_Alk7UenuHJ0olW1yMrMg1U_T3-Zx78_CVS6NSsQQ0PCcBHe0NQ2Cn2WgE7L-idRBO8Lu4E3fShNxhx608Om8CxJe6XfAxKh69SQdBWmJGI8Ho0PAxDrm3XUh4oeZfzIrlJu_W_ZB6KJvV8s_h2vvNnZiQll_Fx08-Zdyao0248EDzuT8zOgOCzn0aGfZYlTuL02pOhSIX9tNOUC5Bz9EyIFkKVvmmxQJRnXLH5WiyOD4nCtOBkj7hBs14w_9OA_hNbF7RNQQuQKR2wOHzVLwKL6CYAk0rwABdBFEoQTgsY9HkYDYH60EBZ0b3I0pRoXqL4t1TL01dBC8BbH42Oosz7fnu_qGFk0YQSegTKhoMVZNLwN_nPZfyphaDIAEqCXVzLXdlc3QtMjCJDg.m3u8
+#EXTINF:-1 group-title="Temporary" tvg-logo="Link : https://joker-verse.vercel.app/opplex/live/167583.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0", Willow 1
+https://joker-verse.vercel.app/opplex/live/167583.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
+#EXTINF:-1 group-title="Temporary" tvg-logo="Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8", Willow 2
+https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
