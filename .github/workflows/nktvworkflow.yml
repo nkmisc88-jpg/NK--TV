@@ -1,203 +1,21 @@
-name: Auto-Generate Playlist
-
+name: NKTV Auto-Update
 on:
   schedule:
-    - cron: '*/15 * * * *' # Runs every 15 mins
+    - cron: '*/15 * * * *' # Every 15 mins
   workflow_dispatch:
-  push:
-    paths:
-      - 'temp_channels.txt'
-
-permissions:
-  contents: write
-
 jobs:
-  build-playlist:
+  update:
     runs-on: ubuntu-latest
+    permissions: { contents: write }
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Install Requests
-        run: pip install requests pytz
-
-      - name: Run Generator Script
-        run: |
-          cat <<EOF > generate.py
-          import requests
-          import json
-          import os
-          import re
-          from datetime import datetime, timedelta, timezone
-
-          # --- CONFIGURATION ---
-          OUTPUT_FILE = "index.html"
-          TEMP_FILE = "temp_channels.txt"
-
-          # 1. THE JSON SOURCES (Hotstar & Zee)
-          JSON_SOURCES = [
-              {"name": "Hotstar", "url": "https://livetv-cb7.pages.dev/hotstar", "type": "hotstar"},
-              {"name": "Zee5",    "url": "https://ztv.pfy.workers.dev",          "type": "zee"}
-          ]
-
-          # 2. MANUAL SOURCES (Live Events & YouTube)
-          YOUTUBE_SOURCE = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
-          EVENT_SOURCES = [
-              ("FanCode", "https://raw.githubusercontent.com/byte-capsule/FanCode-Hls-Fetcher/main/Fancode_Live.m3u"),
-              ("SonyLIV", "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"),
-              ("Zee5 Live", "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u")
-          ]
-
-          # 3. HELPER FUNCTIONS
-          def get_ist_time():
-              ist = timezone(timedelta(hours=5, minutes=30))
-              return datetime.now(ist).strftime("%Y-%m-%d %H:%M:%S IST")
-
-          def parse_m3u(content):
-              """Simple parser for standard M3U playlists"""
-              items = []
-              lines = content.splitlines()
-              current_item = {}
-              for line in lines:
-                  line = line.strip()
-                  if line.startswith("#EXTINF"):
-                      current_item = {}
-                      parts = line.split(',', 1)
-                      if len(parts) > 1: current_item['name'] = parts[1].strip()
-                      
-                      logo_match = re.search(r'tvg-logo="([^"]+)"', line)
-                      if logo_match: current_item['logo'] = logo_match.group(1)
-                      else: current_item['logo'] = ""
-
-                  elif line and not line.startswith("#"):
-                      if 'name' in current_item:
-                          current_item['url'] = line
-                          items.append(current_item)
-                          current_item = {}
-              return items
-
-          def fetch_json_channels(source):
-              """Parses the specific JSON format of your sources"""
-              channels = []
-              try:
-                  print(f"Fetching {source['name']}...")
-                  response = requests.get(source['url'], timeout=15)
-                  data = response.json()
-                  
-                  # Handle ZTV / Hotstar JSON list format
-                  # Usually returns a list like: [{"name": "Sun TV", "stream": "...", "logo": "..."}]
-                  items_list = []
-                  if isinstance(data, list):
-                      items_list = data
-                  elif isinstance(data, dict) and "channels" in data:
-                      items_list = data["channels"]
-
-                  for item in items_list:
-                      name = item.get("name") or item.get("channel_name") or item.get("title")
-                      url = item.get("stream") or item.get("url") or item.get("link") or item.get("stream_link")
-                      logo = item.get("logo") or item.get("tvg_logo") or ""
-                      
-                      if name and url:
-                          channels.append({
-                              "name": name.strip(),
-                              "url": url.strip(),
-                              "logo": logo.strip(),
-                              "group": source['name'] # Group by Source Name (Hotstar/Zee)
-                          })
-              except Exception as e:
-                  print(f"Error fetching {source['name']}: {e}")
-              
-              return channels
-
-          # --- MAIN GENERATOR ---
-          def main():
-              final_lines = ["#EXTM3U x-tvg-url=\"http://botallen.live/epg.xml.gz\""]
-              final_lines.append(f"# Playlist Updated: {get_ist_time()}")
-              final_lines.append("")
-
-              # ---------------------------------------------------------
-              # 1. TEMPORARY CHANNELS
-              # ---------------------------------------------------------
-              if os.path.exists(TEMP_FILE):
-                  print(">>> Processing Temporary Channels...")
-                  with open(TEMP_FILE, "r") as f:
-                      for line in f:
-                          parts = [p.strip() for p in line.split('|')]
-                          if len(parts) >= 3:
-                              name, logo, link = parts[0], parts[1], parts[2]
-                              final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="{logo}", {name}')
-                              final_lines.append(link)
-                  final_lines.append("")
-
-              # ---------------------------------------------------------
-              # 2. YOUTUBE & LIVE EVENTS
-              # ---------------------------------------------------------
-              print(">>> Processing YouTube...")
-              try:
-                  yt_content = requests.get(YOUTUBE_SOURCE).text
-                  yt_items = parse_m3u(yt_content)
-                  for item in yt_items:
-                      final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="{item["logo"]}", {item["name"]}')
-                      final_lines.append(item['url'])
-              except: pass
-
-              print(">>> Processing Live Events...")
-              for source_name, url in EVENT_SOURCES:
-                  try:
-                      content = requests.get(url).text
-                      items = parse_m3u(content)
-                      for item in items:
-                          clean_name = item["name"].replace("Live Event", "").strip()
-                          final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{item["logo"]}", {source_name}: {clean_name}')
-                          final_lines.append(item['url'])
-                  except: pass
-
-              # ---------------------------------------------------------
-              # 3. JSON SOURCES (Hotstar & Zee)
-              # ---------------------------------------------------------
-              print(">>> Converting JSON Sources...")
-              for source in JSON_SOURCES:
-                  channels = fetch_json_channels(source)
-                  if channels:
-                      final_lines.append(f"\n# === {source['name']} Channels ===")
-                      for ch in channels:
-                          # Create M3U entry
-                          final_lines.append(f'#EXTINF:-1 group-title="{ch["group"]}" tvg-logo="{ch["logo"]}", {ch["name"]}')
-                          
-                          # Add specific headers if needed (ZTV sometimes needs referrer)
-                          if source['type'] == 'zee':
-                              final_lines.append('#EXTHTTP:{"Referer":"https://www.zee5.com/"}')
-                          
-                          final_lines.append(ch['url'])
-                  else:
-                      print(f"Warning: No channels found for {source['name']}")
-
-              # ---------------------------------------------------------
-              # 4. WRITE FILE
-              # ---------------------------------------------------------
-              with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-                  f.write("\n".join(final_lines))
-              print(f"Success! Generated {OUTPUT_FILE} with {len(final_lines)//2} items.")
-
-          if __name__ == "__main__":
-              main()
-          EOF
-          
-          python generate.py
-
-      - name: Commit & Push
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          if git diff --cached --quiet; then
-            echo "➡️ No changes detected"
-            exit 0
-          fi
-          git commit -m "Updated Playlist from JSON Sources"
-          git push origin main
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with: { python-version: '3.9' }
+      - run: pip install requests
+      - run: python nktv.py
+      - run: |
+          git config user.name "Bot"
+          git config user.email "bot@bot.com"
+          git add nktv.m3u
+          git commit -m "Update Playlist" || exit 0
+          git push
