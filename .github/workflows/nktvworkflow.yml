@@ -1,49 +1,201 @@
-name: Update NKTV Playlist
+name: Auto-Generate Playlist
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Runs every 5 minutes
+    - cron: '*/15 * * * *' # Runs every 15 minutes
+  workflow_dispatch: # Manual Button
   push:
     paths:
-      - 'nktv.py'
-      - 'temp.txt'
-  workflow_dispatch:      # Allows manual run button
+      - 'temp_channels.txt' # Runs immediately when you edit temp channels
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  build-playlist:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.x'
 
-      - name: Install Dependencies
+      - name: Install Requests
+        run: pip install requests pytz
+
+      - name: Run Generator Script
         run: |
-          python -m pip install --upgrade pip
-          pip install requests
+          cat <<EOF > generate.py
+          import requests
+          import re
+          import os
+          from datetime import datetime, timedelta, timezone
 
-      - name: Run Script
-        run: python nktv.py
+          # --- CONFIGURATION ---
+          OUTPUT_FILE = "index.html"
+          TEMP_FILE = "temp_channels.txt"
+          
+          # 1. Main TV Sources (Prioritized)
+          TV_SOURCES = [
+              "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html",
+              "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u",
+              "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
+          ]
 
-      - name: Commit and Push
+          # 2. Live Event Sources
+          EVENT_SOURCES = [
+              ("FanCode", "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"),
+              ("SonyLIV", "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"),
+              ("Zee5 Live", "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u")
+          ]
+
+          # 3. YouTube Source
+          YOUTUBE_SOURCE = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
+
+          # 4. Master Channel List (Your Categories)
+          CATEGORIES = {
+              "Tamil": ["Sun TV HD", "Star Vijay HD", "Colors Tamil HD", "Zee Tamil HD", "KTV HD", "Sun Music HD", "Kalaignar TV", "Jaya TV HD", "Raj TV", "Adithya TV", "Thanthi One", "Sun life", "Polimer TV", "Vendhar TV", "Madhimugam TV", "MK Six", "D Tamil", "Jothi TV", "OM TV", "Puthu Yugam"],
+              "Movies": ["Zee Thirai HD", "Vijay Super HD", "Vijay Takkar", "J Movies", "Raj Digital Plus", "Star Movies HD", "Star Movies Select HD"],
+              "Music": ["Raj Musix", "Jaya Max", "Tunes 6"],
+              "Entertainment": ["Zee Tamil HD APAC", "Colors Infinity HD", "Zee Café HD", "&Flix HD", "&Prive HD", "MTV HD", "Disney International HD", "Nick HD+"],
+              "News": ["Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", "Tamil Janam", "Jaya Plus", "M Nadu", "News J"],
+              "Sports": ["Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 3", "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", "Eurosport HD", "Jio Sports HD"],
+              "Kids": ["Nick Tamil", "Sonic Tamil", "Pogo", "Cartoon Network", "CN HD+ Tamil", "Chutti TV", "Disney Channel", "Disney Junior", "Hungama", "Super Hungama", "Nick Jr", "Discovery Kids", "Sony Yay Hindi"],
+              "Infotainment": ["History TV18 HD", "Discovery HD World", "National Geographic HD", "Nat Geo Wild HD", "Animal Planet HD World", "Discovery Tamil", "Sony BBC Earth HD", "Travelxp Tamil", "Zee Zest HD", "Jio Specials HD"]
+          }
+
+          # --- HELPERS ---
+          def get_ist_time():
+              ist = timezone(timedelta(hours=5, minutes=30))
+              return datetime.now(ist).strftime("%Y-%m-%d %H:%M:%S IST")
+
+          def normalize(name):
+              if not name: return ""
+              return name.lower().replace(" ", "").replace("_", "").replace("-", "").strip()
+
+          def parse_m3u(content):
+              items = []
+              lines = content.splitlines()
+              current_item = {}
+              for line in lines:
+                  line = line.strip()
+                  if line.startswith("#EXTINF"):
+                      current_item = {}
+                      parts = line.split(',', 1)
+                      if len(parts) > 1: current_item['name'] = parts[1].strip()
+                      
+                      # Extract Props
+                      logo = re.search(r'tvg-logo="([^"]+)"', line)
+                      if logo: current_item['logo'] = logo.group(1)
+                      
+                      group = re.search(r'group-title="([^"]+)"', line)
+                      if group: current_item['group'] = group.group(1)
+                      
+                  elif line and not line.startswith("#"):
+                      if 'name' in current_item:
+                          current_item['url'] = line
+                          items.append(current_item)
+                          current_item = {}
+              return items
+
+          # --- MAIN BUILDER ---
+          def main():
+              final_lines = ["#EXTM3U x-tvg-url=\"http://botallen.live/epg.xml.gz\""]
+              final_lines.append(f"# Playlist Updated: {get_ist_time()}")
+              final_lines.append("")
+
+              # 1. PROCESS TEMP CHANNELS (From text file)
+              if os.path.exists(TEMP_FILE):
+                  print(">>> Processing Temporary Channels...")
+                  with open(TEMP_FILE, "r") as f:
+                      for line in f:
+                          parts = [p.strip() for p in line.split('|')]
+                          if len(parts) >= 3:
+                              name, logo, link = parts[0], parts[1], parts[2]
+                              final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="{logo}", {name}')
+                              final_lines.append(link)
+                  final_lines.append("")
+
+              # 2. PROCESS YOUTUBE
+              print(">>> Processing YouTube...")
+              try:
+                  yt_content = requests.get(YOUTUBE_SOURCE).text
+                  yt_items = parse_m3u(yt_content)
+                  for item in yt_items:
+                      final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="{item.get("logo","")}", {item["name"]}')
+                      final_lines.append(item['url'])
+              except: print("Error fetching YouTube")
+
+              # 3. PROCESS LIVE EVENTS
+              print(">>> Processing Live Events...")
+              for source_name, url in EVENT_SOURCES:
+                  try:
+                      content = requests.get(url).text
+                      items = parse_m3u(content)
+                      for item in items:
+                          # Force group title to "Live Events"
+                          final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{item.get("logo","")}", {source_name}: {item["name"]}')
+                          final_lines.append(item['url'])
+                  except: print(f"Error fetching {source_name}")
+              
+              # 4. PROCESS MAIN TV (The Skeleton Matcher)
+              print(">>> Processing Main TV Channels...")
+              
+              # Harvest all potential channels
+              all_harvested = []
+              for idx, url in enumerate(TV_SOURCES):
+                  try:
+                      print(f"Fetching Source {idx+1}...")
+                      content = requests.get(url).text
+                      items = parse_m3u(content)
+                      # Tag with priority (lower idx = higher priority)
+                      for item in items: item['prio'] = idx 
+                      all_harvested.extend(items)
+                  except: pass
+
+              # Match against Categories
+              seen_channels = set()
+              for cat, target_list in CATEGORIES.items():
+                  for target in target_list:
+                      if target.lower() in seen_channels: continue
+                      
+                      # Find matches
+                      matches = [
+                          i for i in all_harvested 
+                          if normalize(i.get('name')) == normalize(target)
+                      ]
+                      
+                      if matches:
+                          # Sort: 1. Source Priority, 2. Prefer Clean Links (no underscores)
+                          matches.sort(key=lambda x: (x['prio'], x['url'].count('_')))
+                          best = matches[0]
+                          
+                          seen_channels.add(target.lower())
+                          final_lines.append(f'#EXTINF:-1 group-title="{cat}" tvg-logo="{best.get("logo","")}", {target}')
+                          final_lines.append(best['url'])
+
+              # 5. WRITE OUTPUT
+              with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+                  f.write("\n".join(final_lines))
+              print(f"Success! Generated {OUTPUT_FILE}")
+
+          if __name__ == "__main__":
+              main()
+          EOF
+          
+          python generate.py
+
+      - name: Commit & Push
         run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
-          git add nktv.m3u
-          # Check if there are changes to commit
-          if git diff --staged --quiet; then
-            echo "No changes to commit."
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "➡️ No changes detected"
             exit 0
           fi
-          git commit -m "Auto-update playlist"
-          # THE FIX: Pull latest changes before pushing to avoid conflicts
-          git pull --rebase origin main
-          git push
+          git commit -m "playlist update"
+          git push origin main
