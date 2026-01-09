@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-10 00:32:51 IST
+# Updated on: 2026-01-10 01:04:06 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,21 +846,21 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4&xxx=||cookie=__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 10 January 2026 at 12:28:06 am
-#EXTINF:-1 group-title="Live Events" tvg-id="139573" tvg-name="Majees Titans Vs Oman Development Team" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Majees Titans Vs Oman Development Team
-https://in-mc-fdlive.fancode.com/mumbai/139573_english_hls_562482020234301_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Saturday, 10 January 2026 at 1:00:06 am
 #EXTINF:-1 group-title="Live Events" tvg-id="139203" tvg-name="Al Kholood Club Vs Al Ittihad" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Kholood-Club-vs-Al-Ittihad_fc-web_1767365352759.jpg" tvg-language="ENGLISH" ,ENG | Al Kholood Club Vs Al Ittihad
 https://in-mc-fdlive.fancode.com/mumbai/139203_english_hls_3a37c84ef261787_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="138388" tvg-name="Cameroon Vs Morocco" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Cameroon-vs-Morocco_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Cameroon Vs Morocco
 https://in-mc-fdlive.fancode.com/mumbai/138388_english_hls_b50450f5227461_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139260" tvg-name="Jordan U23 Vs Saudi Arabia U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139260_5822_JOR-U23_SU-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Jordan U23 Vs Saudi Arabia U23
-https://in-mc-fdlive.fancode.com/mumbai/139260_english_hls_5dd96706e371962_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 10-01-2026 00:20
+#EXTINF:-1 group-title="Live Events" tvg-id="131018" tvg-name="Getafe Cf Vs Real Sociedad" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131018_5427_GEF_RS_fc-Web.png" tvg-language="ENGLISH" ,ENG | Getafe Cf Vs Real Sociedad
+https://in-mc-fdlive.fancode.com/mumbai/131018_english_hls_8ed270d21f40954_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139247" tvg-name="Cádiz Vs Sporting De Gijón" tvg-logo="https://images.fancode.com/aig/match/v1/139247_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Cádiz Vs Sporting De Gijón
+https://in-mc-fdlive.fancode.com/mumbai/139247_english_hls_6f877cbffd3887_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 10-01-2026 01:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499144" tvg-name="The Emirates FA Cup 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013148/176793910790478_facup26_RD3_Wrexham_vs_Nottingham_Forest_9jan_Landscape_thumb.jpg" tvg-language="English" ,ENG | Wrexham vs Nottingham Forest - Round 3 - 10 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094587/DAI03ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 6; en_GB; X4-50Pro; Build/V2401RIN12C059057B06041S)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=4af3a65faa3425411805fb94d3b3a68d-1767984616325
+https://sonymtmnew.akamaized.net/hls/live/2094587/DAI03ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; BE2011; Build/RKQ1.201217.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f26317c58937efd6b6a3602c818f8695-1767987010753
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499141" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013116/1767854408912351_Bundesliga_MD16_Eintracht-Frankfurt-vs-Borussia-Dortmund_landscape_thumb.jpg" tvg-language="English" ,ENG | Eintracht Frankfurt vs Borussia Dortmund - MD 16 - 10 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; 22081212C; Build/PQ3A.190705.05211459)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=4af3a65faa3425411805fb94d3b3a68d-1767984616325
+https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; AR-5003MSB; Build/UKG3.241022.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f26317c58937efd6b6a3602c818f8695-1767987010753
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 9/1/2026, 22:30:05
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
