@@ -1,17 +1,16 @@
 import requests
 import re
-import difflib
 import datetime
 
 # ==============================================================================
 # 1. CONFIGURATION
 # ==============================================================================
-# SOURCES
+# SOURCES (Tiger/Joker First for best Zee links)
 URL_TIGER     = "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
 URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
 URL_FORCEGT   = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
 
-# Pass-Through Sources
+# LIVE & YOUTUBE SOURCES
 URL_YOUTUBE   = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
 URL_FANCODE   = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 URL_SONY      = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
@@ -21,63 +20,20 @@ FILE_TEMP     = "temp.txt"
 OUTPUT_FILE   = "nktv.m3u"
 
 # ==============================================================================
-# 2. MASTER SKELETON
+# 2. KEYWORDS TO SEARCH
 # ==============================================================================
-MASTER_SKELETON = {
-    "Tamil HD": [
-        ("Sun TV HD", "ts1503", "https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png"),
-        ("Star Vijay HD", "ts1506", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Vijay_HD.png"),
-        ("Zee Tamil HD", "ts1509", "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png"),
-        ("Colors Tamil HD", "ts1515", "https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Tamil_HD.png"),
-        ("KTV HD", "ts1517", "https://jiotvimages.cdn.jio.com/dare_images/images/KTV_HD.png"),
-        ("Sun Music HD", "ts1527", "https://jiotvimages.cdn.jio.com/dare_images/images/Sun_Music_HD.png"),
-        ("Vijay Super HD", "ts1513", "https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Super_HD.png"),
-        ("Zee Thirai HD", "ts1545", "https://bit.ly/3Xj5QzL"),
-        ("Jaya TV HD", "ts1505", "https://jiotvimages.cdn.jio.com/dare_images/images/Jaya_TV_HD.png"),
-    ],
-    "Sports HD": [
-        ("Star Sports 1 Tamil HD", "ts1550", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil_HD.png"),
-        ("Star Sports 2 Tamil HD", "ts1551", "https://bit.ly/4dKjL2M"),
-        ("Star Sports 1 Telugu HD", "ts1445", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Telugu_HD.png"),
-        ("Star Sports 2 Telugu HD", "ts1446", "https://bit.ly/3Xk1L2M"),
-        ("Star Sports 1 HD", "ts454", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_HD.png"),
-        ("Star Sports 2 HD", "ts456", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_HD.png"),
-        ("Star Sports 1 Hindi HD", "ts459", "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Hindi_HD.png"),
-        ("Star Sports 2 Hindi HD", "ts461", "https://bit.ly/4eM2P1K"),
-        ("Sony Sports Ten 1 HD", "ts470", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_1_HD.png"),
-        ("Sony Sports Ten 2 HD", "ts473", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_2_HD.png"),
-        ("Sony Sports Ten 3 HD", "ts476", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_3_HD.png"),
-        ("Sony Sports Ten 4 HD", "ts1552", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_4_HD.png"),
-        ("Sony Sports Ten 5 HD", "ts483", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_5_HD.png"),
-        ("Eurosport HD", "ts494", "https://jiotvimages.cdn.jio.com/dare_images/images/Eurosport_HD.png"),
-    ],
-    "Global Sports": [
-        ("Astro Cricket", "", "https://i.imgur.com/OpM4n4m.png"),
-        ("Fox Cricket 501", "", "https://i.imgur.com/712345.png"),
-        ("Fox Sports 505", "", "https://i.imgur.com/712346.png"),
-        ("Willow Sports", "", "https://i.imgur.com/willow1.png"),
-        ("Willow Sports Extra", "", "https://i.imgur.com/willow2.png"),
-        ("Sky Sports Cricket", "", "https://i.imgur.com/skycricket.png"),
-        ("TNT Sports 1", "", "https://i.imgur.com/tnt1.png"),
-        ("TNT Sports 2", "", "https://i.imgur.com/tnt2.png"),
-    ],
-    "Tamil News": [
-        ("Polimer News", "ts1562", "https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png"),
-        ("Puthiya Thalaimurai", "ts1558", "https://jiotvimages.cdn.jio.com/dare_images/images/Puthiya_Thalaimurai.png"),
-        ("Sun News", "ts1556", "https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png"),
-        ("Thanthi TV", "ts1560", "https://jiotvimages.cdn.jio.com/dare_images/images/Thanthi_TV.png"),
-        ("News18 Tamil Nadu", "ts1557", "https://jiotvimages.cdn.jio.com/dare_images/images/News18_Tamil_Nadu.png"),
-    ],
-    "Infotainment HD": [
-        ("Discovery HD", "ts713", "https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_HD_World.png"),
-        ("Animal Planet HD", "ts718", "https://jiotvimages.cdn.jio.com/dare_images/images/Animal_Planet_HD_World.png"),
-        ("Nat Geo HD", "ts724", "https://jiotvimages.cdn.jio.com/dare_images/images/Nat_Geo_HD.png"),
-        ("Sony BBC Earth HD", "ts733", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_BBC_Earth_HD.png"),
-        ("History TV18 HD", "ts728", "https://jiotvimages.cdn.jio.com/dare_images/images/History_TV18_HD.png"),
-        ("Zee Zest HD", "ts748", "https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Zest_HD.png"),
-        ("TLC HD", "ts743", "https://jiotvimages.cdn.jio.com/dare_images/images/TLC_HD.png"),
-    ]
-}
+# We only grab channels containing these words. Add more if needed.
+SEARCH_KEYWORDS = [
+    # Tamil HD
+    "Sun TV HD", "Star Vijay HD", "Zee Tamil HD", "Colors Tamil HD", "KTV HD", 
+    "Sun Music HD", "Vijay Super HD", "Zee Thirai HD", "Jaya TV HD",
+    # Sports
+    "Star Sports", "Sony Sports", "Eurosport", "Willow", "Astro Cricket", "Fox Cricket", "TNT Sports",
+    # Tamil News
+    "Polimer News", "Puthiya Thalaimurai", "Sun News", "Thanthi TV", "News18 Tamil",
+    # Infotainment
+    "Discovery", "Animal Planet", "Nat Geo", "Sony BBC", "History TV18", "Zee Zest", "TLC"
+]
 
 # ==============================================================================
 # 3. HELPER FUNCTIONS
@@ -88,79 +44,77 @@ def get_ist_time():
     ist_now = utc_now + datetime.timedelta(hours=5, minutes=30)
     return ist_now.strftime("%Y-%m-%d %H:%M:%S IST")
 
-def normalize(text):
-    return re.sub(r'[^a-zA-Z0-9]', '', text).lower()
-
 def clean_html_line(line):
     return re.sub(r'<[^>]+>', '', line).strip()
 
-def fetch_content(url):
-    print(f"Fetching: {url} ... ", end="")
+def fetch_and_filter(url):
+    print(f"Scanning: {url} ... ", end="")
     entries = []
     try:
-        resp = requests.get(url, timeout=25)
-        resp.raise_for_status()
-        
+        resp = requests.get(url, timeout=30)
         lines = resp.text.splitlines()
-        name = ""
+        
+        current_info = ""
         for line in lines:
             line = clean_html_line(line)
             if not line: continue
             
             if line.startswith("#EXTINF"):
-                if "," in line:
-                    name = line.split(",")[-1].strip()
-            elif line.startswith("http") and name:
-                # === THE FIX: Force User-Agent ===
-                # This fixes "None of the video tracks are playable"
-                final_url = line.strip()
+                current_info = line
+            elif line.startswith("http") and current_info:
+                # CHECK: Does this channel match our keywords?
+                # We normalize to lowercase for search
+                channel_name_lower = current_info.lower()
                 
-                # If the URL doesn't already have headers (|) and isn't YouTube
-                if "|" not in final_url and "googlevideo" not in final_url:
-                    final_url = f"{final_url}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                if any(keyword.lower() in channel_name_lower for keyword in SEARCH_KEYWORDS):
+                    # === PLAYBACK FIX: Force User-Agent ===
+                    final_url = line.strip()
+                    if "|" not in final_url and "googlevideo" not in final_url:
+                        final_url = f"{final_url}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+                    
+                    entries.append(f"{current_info}\n{final_url}")
                 
-                entries.append({'name': name, 'url': final_url})
-                name = ""
+                current_info = "" # Reset
         
-        print(f"Success ({len(entries)} channels)")
+        print(f"Found {len(entries)} matching channels")
         return entries
-        
     except Exception as e:
         print(f"Error: {e}")
         return []
 
-def get_mapped_streams(urls):
-    mapped = {}
-    source_names = []
-    
-    for url in urls:
-        items = fetch_content(url)
-        for item in items:
-            key = normalize(item['name'])
-            if key not in mapped:
-                mapped[key] = []
-                source_names.append(item['name'])
-            if item['url'] not in mapped[key]:
-                mapped[key].append(item['url'])
-                
-    return mapped, source_names
-
-def find_best_match(target, options):
-    target_clean = normalize(target)
-    for opt in options:
-        if normalize(opt) == target_clean: return normalize(opt)
-    
-    # Very loose matching to find channels like "SunTV HD IN"
-    matches = [opt for opt in options if target_clean in normalize(opt)]
-    if matches: return normalize(min(matches, key=len))
-    
-    # Lower cutoff to 0.3 to catch everything
-    matches = difflib.get_close_matches(target, options, n=1, cutoff=0.3)
-    if matches: return normalize(matches[0])
-    return None
+def fetch_pass_through(url, forced_group=None):
+    """Fetches everything from a source, optionally overriding group name"""
+    print(f"Fetching: {url} ... ", end="")
+    entries = []
+    try:
+        resp = requests.get(url, timeout=30)
+        lines = resp.text.splitlines()
+        
+        current_info = ""
+        for line in lines:
+            line = clean_html_line(line)
+            if not line: continue
+            
+            if line.startswith("#EXTINF"):
+                if forced_group:
+                    # Replace existing group-title with forced one
+                    if 'group-title="' in line:
+                        line = re.sub(r'group-title="[^"]*"', f'group-title="{forced_group}"', line)
+                    else:
+                        line = line.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{forced_group}"')
+                current_info = line
+            elif line.startswith("http") and current_info:
+                entries.append(f"{current_info}\n{line}")
+                current_info = ""
+        
+        print(f"Added {len(entries)} items")
+        return entries
+    except Exception as e:
+        print(f"Error: {e}")
+        return []
 
 def parse_temp_file(filename):
-    channels = []
+    entries = []
     try:
         with open(filename, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -176,69 +130,54 @@ def parse_temp_file(filename):
                     if line.startswith("Link"): link = line.split(":", 1)[1].strip()
                 
                 if name and link:
-                    # Apply User-Agent to temp links too
                     if "|" not in link:
                          link = f"{link}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-                    channels.append({'name': name, 'logo': logo, 'url': link})
-    except FileNotFoundError:
-        print(f"Warning: {filename} not found.")
-    return channels
+                    entries.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="{logo}", {name}\n{link}')
+    except:
+        pass
+    return entries
 
 # ==============================================================================
 # 4. MAIN LOGIC
 # ==============================================================================
 
 def main():
-    ist_time = get_ist_time()
     final_lines = [
-        '#EXTM3U x-tvg-url="https://avkb.short.gy/tsepg.xml.gz"',
-        f'#EXTINF:-1 group-title="System" tvg-logo="", Playlist Updated: {ist_time}',
+        '#EXTM3U',
+        f'#EXTINF:-1 group-title="System", Playlist Updated: {get_ist_time()}',
         'http://localhost/timestamp'
     ]
     
-    print("\n--- Processing Master Channels ---")
-    all_streams, source_names = get_mapped_streams([URL_TIGER, URL_ARUNJUNAN, URL_FORCEGT])
+    # 1. Main TV Channels (Filtered by Keyword)
+    print("\n--- Searching for TV Channels ---")
+    # Tiger first, then others
+    tv_entries = []
+    tv_entries.extend(fetch_and_filter(URL_TIGER))
+    tv_entries.extend(fetch_and_filter(URL_ARUNJUNAN))
+    tv_entries.extend(fetch_and_filter(URL_FORCEGT))
     
-    backup_lines = []
+    # Add to final list
+    final_lines.extend(tv_entries)
     
-    for group, channels in MASTER_SKELETON.items():
-        for name, tvg_id, logo in channels:
-            key = find_best_match(name, source_names)
-            
-            if key and key in all_streams:
-                urls = all_streams[key]
-                # Primary
-                final_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="{group}", {name}\n{urls[0]}')
-                # Backups
-                for idx, url in enumerate(urls[1:], 1):
-                    backup_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="Backups", {name} [Backup {idx}]\n{url}')
-                print(f"[OK] {name}")
-            else:
-                print(f"[MISSING] {name}")
+    # 2. Live Events (Copy All)
+    print("\n--- Fetching Live Events ---")
+    final_lines.extend(fetch_pass_through(URL_FANCODE, "Live Events"))
+    final_lines.extend(fetch_pass_through(URL_SONY, "Live Events"))
+    final_lines.extend(fetch_pass_through(URL_ZEE5, "Live Events"))
     
-    print("\n--- Processing Live Events ---")
-    live_sources = [URL_FANCODE, URL_SONY, URL_ZEE5]
-    for source in live_sources:
-        items = fetch_content(source)
-        for item in items:
-            final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="", {item["name"]}\n{item["url"]}')
-            
-    print("\n--- Processing YouTube ---")
-    yt_items = fetch_content(URL_YOUTUBE)
-    for item in yt_items:
-         final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="https://i.imgur.com/MbCpK4X.png", {item["name"]}\n{item["url"]}')
-         
-    print("\n--- Processing Temporary Channels ---")
-    temp_items = parse_temp_file(FILE_TEMP)
-    for item in temp_items:
-        final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="{item["logo"]}", {item["name"]}\n{item["url"]}')
-
-    final_lines.extend(backup_lines)
+    # 3. YouTube (Copy All)
+    print("\n--- Fetching YouTube ---")
+    final_lines.extend(fetch_pass_through(URL_YOUTUBE, "YouTube"))
     
+    # 4. Temporary
+    print("\n--- Fetching Temp ---")
+    final_lines.extend(parse_temp_file(FILE_TEMP))
+    
+    # Write File
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
         
-    print(f"\nSUCCESS: Generated {OUTPUT_FILE} with {len(final_lines)} entries.")
+    print(f"\nSUCCESS: Total {len(final_lines)} entries generated.")
 
 if __name__ == "__main__":
     main()
