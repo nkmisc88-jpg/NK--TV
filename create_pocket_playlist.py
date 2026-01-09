@@ -11,19 +11,13 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# --- NEW SOURCES ---
-# 1. Treated as MAIN SOURCE (Rules applied)
-ZEE_JOKER_URL = "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
-
-# 2. Treated as EXTERNAL GROUP (Forced Group Name)
-YOUTUBE_LIVE_URL = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
-
-# 3. LIVE EVENTS
+# 1. LIVE EVENT SOURCES
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
+JIO_WORKER_URL = "https://jiohotstar.joker-verse.workers.dev/joker.m3u8"
 
-# 4. GROUP MAPPING
+# 2. GROUP MAPPING
 MOVE_TO_TAMIL_HD = [
     "Sun TV HD", "Star Vijay HD", "Colors Tamil HD", 
     "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD",
@@ -54,16 +48,16 @@ INFOTAINMENT_KEYWORDS = [
     "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
 ]
 
-# 5. DELETE LIST
+# 3. DELETE LIST
 BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
 
-# 6. AUTO LOGO
+# 4. AUTO LOGO
 LOGO_MAP = {
     "willow": "https://i.imgur.com/39s1fL3.png",
     "fox": "https://i.imgur.com/39s1fL3.png"
 }
 
-# Standard User Agent (Only for YouTube/Temp channels)
+# Standard User Agent
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_group_and_name(line):
@@ -82,17 +76,7 @@ def get_clean_id(name):
     name = name.lower().replace("hd", "").replace(" ", "").strip()
     return re.sub(r'[^a-z0-9]', '', name)
 
-def fetch_playlist_lines(url):
-    try:
-        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
-        if r.status_code == 200:
-            return r.text.splitlines()
-    except Exception as e:
-        print(f"⚠️ Failed to fetch {url}: {e}")
-    return []
-
-# UPDATED: Flexible fetcher that accepts a target Group Name
-def fetch_external_playlist_with_group(url, target_group="Live Events"):
+def fetch_live_events(url, force_group="Live Events"):
     lines = []
     try:
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
@@ -103,15 +87,17 @@ def fetch_external_playlist_with_group(url, target_group="Live Events"):
                 if not line: continue
                 if line.startswith("#EXTM3U"): continue
                 
+                # FORCE GROUP 
                 if line.startswith("#EXTINF"):
-                    # Remove existing group
+                    # Remove existing group-title if present
                     line = re.sub(r'group-title="([^"]*)"', '', line)
-                    # Add forced target group
-                    line = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{target_group}"', line)
+                    # Insert new group title
+                    line = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{force_group}"', line)
                     lines.append(line)
                 elif not line.startswith("#"):
                     lines.append(line)
-    except: pass
+    except Exception as e:
+        print(f"⚠️ Error fetching {url}: {e}")
     return lines
 
 def get_auto_logo(channel_name):
@@ -154,24 +140,21 @@ def parse_youtube_txt():
     return lines
 
 def main():
-    print("📥 Downloading Source Playlists...")
+    print("📥 Downloading Source Playlist...")
     
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U"]
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # --- MERGE SOURCES ---
-    # We combine POCKET + ZEE_JOKER into one big list so they get processed equally
-    source_lines = []
-    source_lines.extend(fetch_playlist_lines(POCKET_URL))
-    source_lines.extend(fetch_playlist_lines(ZEE_JOKER_URL))
-
-    if not source_lines:
-        print("❌ No data found in sources.")
+    try:
+        r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+        source_lines = r.text.splitlines()
+    except Exception as e:
+        print(f"❌ Failed: {e}")
         sys.exit(1)
 
-    # --- STEP 1: SCAN FOR HD CHANNELS (Across ALL sources) ---
+    # --- STEP 1: SCAN FOR HD CHANNELS ---
     hd_channels_exist = set()
     for line in source_lines:
         if line.startswith("#EXTINF"):
@@ -303,18 +286,23 @@ def main():
     if current_buffer:
         final_lines.extend(current_buffer)
 
-    # ADD LIVE EVENTS
-    print("📥 Adding Live Events & External Sources...")
-    # Original 3
-    final_lines.extend(fetch_external_playlist_with_group(FANCODE_URL, "Live Events"))
-    final_lines.extend(fetch_external_playlist_with_group(SONY_LIVE_URL, "Live Events"))
-    final_lines.extend(fetch_external_playlist_with_group(ZEE_LIVE_URL, "Live Events"))
+    # --- STEP 3: ADD EXTERNAL SOURCES ---
+    print("📥 Adding Live Events...")
     
-    # NEW: YouTube Live (Added to its own group)
-    print("📥 Adding YouTube Live...")
-    final_lines.extend(fetch_external_playlist_with_group(YOUTUBE_LIVE_URL, "YouTube Live"))
+    # Add FanCode (Group: Live Events)
+    final_lines.extend(fetch_live_events(FANCODE_URL, "Live Events"))
     
-    # ADD YOUTUBE TEXT FILE
+    # Add Sony Live (Group: Sony Live) - Change "Sony Live" to "Live Events" if you want them mixed
+    final_lines.extend(fetch_live_events(SONY_LIVE_URL, "Live Events"))
+    
+    # Add Zee Live (Group: Zee Live)
+    final_lines.extend(fetch_live_events(ZEE_LIVE_URL, "Live Events"))
+    
+    # Add Jio Worker (Group: Jio Live)
+    print("📥 Adding JioHotstar Worker...")
+    final_lines.extend(fetch_live_events(JIO_WORKER_URL, "Jio Live"))
+
+    # Add YouTube (Group: Temporary Channels)
     final_lines.extend(parse_youtube_txt())
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
