@@ -30,102 +30,89 @@ jobs:
         run: |
           cat <<EOF > generate.py
           import requests
-          import re
+          import json
           import os
+          import re
           from datetime import datetime, timedelta, timezone
 
           # --- CONFIGURATION ---
           OUTPUT_FILE = "index.html"
           TEMP_FILE = "temp_channels.txt"
-          
-          # Priority 1: ARUNJUNAN (Main Source)
-          TV_SOURCES = [
-              "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html",
-              "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u",
-              "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
+
+          # 1. THE JSON SOURCES (Hotstar & Zee)
+          JSON_SOURCES = [
+              {"name": "Hotstar", "url": "https://livetv-cb7.pages.dev/hotstar", "type": "hotstar"},
+              {"name": "Zee5",    "url": "https://ztv.pfy.workers.dev",          "type": "zee"}
           ]
 
+          # 2. MANUAL SOURCES (Live Events & YouTube)
+          YOUTUBE_SOURCE = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
           EVENT_SOURCES = [
               ("FanCode", "https://raw.githubusercontent.com/byte-capsule/FanCode-Hls-Fetcher/main/Fancode_Live.m3u"),
               ("SonyLIV", "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"),
               ("Zee5 Live", "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u")
           ]
 
-          YOUTUBE_SOURCE = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
-
-          CATEGORIES = {
-              "Tamil": ["Sun TV HD", "Star Vijay HD", "Colors Tamil HD", "Zee Tamil HD", "KTV HD", "Sun Music HD", "Kalaignar TV", "Jaya TV HD", "Raj TV", "Adithya TV", "Thanthi One", "Sun life", "Polimer TV", "Vendhar TV", "Madhimugam TV", "MK Six", "D Tamil", "Jothi TV", "OM TV", "Puthu Yugam"],
-              "Movies": ["Zee Thirai HD", "Vijay Super HD", "Vijay Takkar", "J Movies", "Raj Digital Plus", "Star Movies HD", "Star Movies Select HD"],
-              "Music": ["Raj Musix", "Jaya Max", "Tunes 6"],
-              "Entertainment": ["Zee Tamil HD APAC", "Colors Infinity HD", "Zee Café HD", "&Flix HD", "&Prive HD", "MTV HD", "Disney International HD", "Nick HD+"],
-              "News": ["Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", "Tamil Janam", "Jaya Plus", "M Nadu", "News J"],
-              "Sports": ["Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 3", "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", "Eurosport HD", "Jio Sports HD"],
-              "Kids": ["Nick Tamil", "Sonic Tamil", "Pogo", "Cartoon Network", "CN HD+ Tamil", "Chutti TV", "Disney Channel", "Disney Junior", "Hungama", "Super Hungama", "Nick Jr", "Discovery Kids", "Sony Yay Hindi"],
-              "Infotainment": ["History TV18 HD", "Discovery HD World", "National Geographic HD", "Nat Geo Wild HD", "Animal Planet HD World", "Discovery Tamil", "Sony BBC Earth HD", "Travelxp Tamil", "Zee Zest HD", "Jio Specials HD"]
-          }
-
-          # --- PARSER WITH "PIPE FIXER" ---
-          def extract_and_fix(content):
-              items = []
-              # Split by #EXTINF to isolate blocks
-              raw_blocks = re.split(r'(?=#EXTINF)', content)
-              
-              for block in raw_blocks:
-                  if not block.strip(): continue
-                  
-                  # 1. Get Name
-                  name_match = re.search(r'#EXTINF:.*,(.+)', block)
-                  if not name_match: continue
-                  name = name_match.group(1).strip()
-                  
-                  # 2. Get Logo
-                  logo = ""
-                  logo_match = re.search(r'tvg-logo="([^"]+)"', block)
-                  if logo_match: logo = logo_match.group(1)
-                  
-                  # 3. Get URL (Last non-empty line)
-                  lines = [l.strip() for l in block.splitlines() if l.strip()]
-                  url = lines[-1]
-                  if url.startswith("#"): continue # Skip if no URL found
-                  
-                  # 4. CRITICAL FIX: Extract User-Agent and append with pipe (|)
-                  # Many players ignore #EXTVLCOPT but respect the pipe format
-                  ua = ""
-                  if "http-user-agent=" in block:
-                      ua_match = re.search(r'http-user-agent=([^\s]+)', block)
-                      if ua_match: ua = ua_match.group(1)
-                  elif "User-Agent" in block: # Check #EXTHTTP
-                      ua_match = re.search(r'"User-Agent"\s*:\s*"([^"]+)"', block)
-                      if ua_match: ua = ua_match.group(1)
-                  
-                  # If we found a UA but it's not already piped, add it
-                  if ua and "|User-Agent=" not in url:
-                      url = f"{url}|User-Agent={ua}"
-                  
-                  # 5. Extract Cookie/Referer if needed (For Zee/Sony)
-                  cookie = ""
-                  if "cookie" in block and "http-user-agent" not in block:
-                       cookie_match = re.search(r'"cookie"\s*:\s*"([^"]+)"', block)
-                       if cookie_match: cookie = cookie_match.group(1)
-                       
-                  if cookie:
-                      url = f"{url}|Cookie={cookie}"
-
-                  items.append({
-                      "name": name,
-                      "logo": logo,
-                      "url": url,
-                      "raw_block": block # Keep original just in case
-                  })
-              return items
-
-          def normalize(text):
-              if not text: return ""
-              return re.sub(r'[^a-z0-9]', '', text.lower())
-
+          # 3. HELPER FUNCTIONS
           def get_ist_time():
               ist = timezone(timedelta(hours=5, minutes=30))
               return datetime.now(ist).strftime("%Y-%m-%d %H:%M:%S IST")
+
+          def parse_m3u(content):
+              """Simple parser for standard M3U playlists"""
+              items = []
+              lines = content.splitlines()
+              current_item = {}
+              for line in lines:
+                  line = line.strip()
+                  if line.startswith("#EXTINF"):
+                      current_item = {}
+                      parts = line.split(',', 1)
+                      if len(parts) > 1: current_item['name'] = parts[1].strip()
+                      
+                      logo_match = re.search(r'tvg-logo="([^"]+)"', line)
+                      if logo_match: current_item['logo'] = logo_match.group(1)
+                      else: current_item['logo'] = ""
+
+                  elif line and not line.startswith("#"):
+                      if 'name' in current_item:
+                          current_item['url'] = line
+                          items.append(current_item)
+                          current_item = {}
+              return items
+
+          def fetch_json_channels(source):
+              """Parses the specific JSON format of your sources"""
+              channels = []
+              try:
+                  print(f"Fetching {source['name']}...")
+                  response = requests.get(source['url'], timeout=15)
+                  data = response.json()
+                  
+                  # Handle ZTV / Hotstar JSON list format
+                  # Usually returns a list like: [{"name": "Sun TV", "stream": "...", "logo": "..."}]
+                  items_list = []
+                  if isinstance(data, list):
+                      items_list = data
+                  elif isinstance(data, dict) and "channels" in data:
+                      items_list = data["channels"]
+
+                  for item in items_list:
+                      name = item.get("name") or item.get("channel_name") or item.get("title")
+                      url = item.get("stream") or item.get("url") or item.get("link") or item.get("stream_link")
+                      logo = item.get("logo") or item.get("tvg_logo") or ""
+                      
+                      if name and url:
+                          channels.append({
+                              "name": name.strip(),
+                              "url": url.strip(),
+                              "logo": logo.strip(),
+                              "group": source['name'] # Group by Source Name (Hotstar/Zee)
+                          })
+              except Exception as e:
+                  print(f"Error fetching {source['name']}: {e}")
+              
+              return channels
 
           # --- MAIN GENERATOR ---
           def main():
@@ -133,8 +120,11 @@ jobs:
               final_lines.append(f"# Playlist Updated: {get_ist_time()}")
               final_lines.append("")
 
-              # 1. TEMP CHANNELS
+              # ---------------------------------------------------------
+              # 1. TEMPORARY CHANNELS
+              # ---------------------------------------------------------
               if os.path.exists(TEMP_FILE):
+                  print(">>> Processing Temporary Channels...")
                   with open(TEMP_FILE, "r") as f:
                       for line in f:
                           parts = [p.strip() for p in line.split('|')]
@@ -144,57 +134,55 @@ jobs:
                               final_lines.append(link)
                   final_lines.append("")
 
-              # 2. YOUTUBE (Direct Copy)
+              # ---------------------------------------------------------
+              # 2. YOUTUBE & LIVE EVENTS
+              # ---------------------------------------------------------
+              print(">>> Processing YouTube...")
               try:
                   yt_content = requests.get(YOUTUBE_SOURCE).text
-                  yt_items = extract_and_fix(yt_content)
+                  yt_items = parse_m3u(yt_content)
                   for item in yt_items:
                       final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="{item["logo"]}", {item["name"]}')
                       final_lines.append(item['url'])
               except: pass
 
-              # 3. LIVE EVENTS
+              print(">>> Processing Live Events...")
               for source_name, url in EVENT_SOURCES:
                   try:
                       content = requests.get(url).text
-                      items = extract_and_fix(content)
+                      items = parse_m3u(content)
                       for item in items:
                           clean_name = item["name"].replace("Live Event", "").strip()
                           final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{item["logo"]}", {source_name}: {clean_name}')
                           final_lines.append(item['url'])
                   except: pass
 
-              # 4. MAIN TV (Prioritized & Fixed)
-              print(">>> Harvesting Main TV...")
-              all_items = []
-              
-              for idx, url in enumerate(TV_SOURCES):
-                  try:
-                      content = requests.get(url).text
-                      items = extract_and_fix(content)
-                      for item in items: item['prio'] = idx
-                      all_items.extend(items)
-                  except: pass
-
-              seen_channels = set()
-              for cat, target_list in CATEGORIES.items():
-                  for target in target_list:
-                      if target.lower() in seen_channels: continue
-                      
-                      matches = [i for i in all_items if normalize(i['name']) == normalize(target)]
-                      
-                      if matches:
-                          matches.sort(key=lambda x: x['prio'])
-                          best = matches[0]
-                          seen_channels.add(target.lower())
+              # ---------------------------------------------------------
+              # 3. JSON SOURCES (Hotstar & Zee)
+              # ---------------------------------------------------------
+              print(">>> Converting JSON Sources...")
+              for source in JSON_SOURCES:
+                  channels = fetch_json_channels(source)
+                  if channels:
+                      final_lines.append(f"\n# === {source['name']} Channels ===")
+                      for ch in channels:
+                          # Create M3U entry
+                          final_lines.append(f'#EXTINF:-1 group-title="{ch["group"]}" tvg-logo="{ch["logo"]}", {ch["name"]}')
                           
-                          # Write SIMPLE Entry (Player-friendly)
-                          final_lines.append(f'#EXTINF:-1 group-title="{cat}" tvg-logo="{best["logo"]}", {target}')
-                          final_lines.append(best['url'])
+                          # Add specific headers if needed (ZTV sometimes needs referrer)
+                          if source['type'] == 'zee':
+                              final_lines.append('#EXTHTTP:{"Referer":"https://www.zee5.com/"}')
+                          
+                          final_lines.append(ch['url'])
+                  else:
+                      print(f"Warning: No channels found for {source['name']}")
 
-              # 5. WRITE
+              # ---------------------------------------------------------
+              # 4. WRITE FILE
+              # ---------------------------------------------------------
               with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
                   f.write("\n".join(final_lines))
+              print(f"Success! Generated {OUTPUT_FILE} with {len(final_lines)//2} items.")
 
           if __name__ == "__main__":
               main()
@@ -211,5 +199,5 @@ jobs:
             echo "➡️ No changes detected"
             exit 0
           fi
-          git commit -m "playlist update"
+          git commit -m "Updated Playlist from JSON Sources"
           git push origin main
