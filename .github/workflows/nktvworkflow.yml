@@ -38,11 +38,12 @@ jobs:
           OUTPUT_FILE = "index.html"
           TEMP_FILE = "temp_channels.txt"
           
-          # 1. SOURCES (Arunjunan is Priority #1 because his links are pre-signed)
+          # Priority 1: ARUNJUNAN (We must CLONE these exactly)
+          # Priority 2: TIGER/JOKER (Backups)
           TV_SOURCES = [
               "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html",
-              "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u",
-              "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
+              "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u",
+              "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
           ]
 
           EVENT_SOURCES = [
@@ -53,7 +54,6 @@ jobs:
 
           YOUTUBE_SOURCE = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
 
-          # 2. YOUR CATEGORIES
           CATEGORIES = {
               "Tamil": ["Sun TV HD", "Star Vijay HD", "Colors Tamil HD", "Zee Tamil HD", "KTV HD", "Sun Music HD", "Kalaignar TV", "Jaya TV HD", "Raj TV", "Adithya TV", "Thanthi One", "Sun life", "Polimer TV", "Vendhar TV", "Madhimugam TV", "MK Six", "D Tamil", "Jothi TV", "OM TV", "Puthu Yugam"],
               "Movies": ["Zee Thirai HD", "Vijay Super HD", "Vijay Takkar", "J Movies", "Raj Digital Plus", "Star Movies HD", "Star Movies Select HD"],
@@ -65,57 +65,56 @@ jobs:
               "Infotainment": ["History TV18 HD", "Discovery HD World", "National Geographic HD", "Nat Geo Wild HD", "Animal Planet HD World", "Discovery Tamil", "Sony BBC Earth HD", "Travelxp Tamil", "Zee Zest HD", "Jio Specials HD"]
           }
 
-          # --- ADVANCED PARSER (PRESERVES KEYS) ---
-          def parse_m3u_deep(content):
-              items = []
-              lines = content.splitlines()
-              current_item = {"props": []} # Store metadata props here
+          # --- BLOCK CLONER (The Fix) ---
+          def extract_blocks(content):
+              """
+              Splits M3U into raw text blocks. 
+              Each block contains the #EXTINF, all properties (#KODIPROP, etc), and the URL.
+              """
+              blocks = []
+              current_block = []
               
+              lines = content.splitlines()
               for line in lines:
                   line = line.strip()
                   if not line: continue
                   
                   if line.startswith("#EXTINF"):
-                      # Start new item, but keep props accumulated if any (rare case)
-                      if 'name' in current_item: 
-                          items.append(current_item)
-                          current_item = {"props": []}
-                          
-                      parts = line.split(',', 1)
-                      if len(parts) > 1: current_item['name'] = parts[1].strip()
-                      
-                      # Extract Logo
-                      logo_match = re.search(r'tvg-logo="([^"]+)"', line)
-                      if logo_match: current_item['logo'] = logo_match.group(1)
-                      else: current_item['logo'] = ""
+                      if current_block:
+                          blocks.append("\n".join(current_block))
+                      current_block = [line]
+                  elif line.startswith("#"):
+                      current_block.append(line)
+                  else:
+                      # It's the URL, this ends the block
+                      current_block.append(line)
+                      blocks.append("\n".join(current_block))
+                      current_block = []
+              return blocks
 
-                  elif line.startswith("#KODIPROP") or line.startswith("#EXTVLCOPT") or line.startswith("#EXTHTTP"):
-                      # THIS WAS MISSING BEFORE: Save the DRM keys and User Agents
-                      current_item["props"].append(line)
-                  
-                  elif not line.startswith("#"):
-                      # It's a URL
-                      if 'name' in current_item:
-                          current_item['url'] = line
-                          items.append(current_item)
-                          current_item = {"props": []} # Reset for next
-              return items
+          def normalize(text):
+              if not text: return ""
+              # Remove special chars and lowercase
+              return re.sub(r'[^a-z0-9]', '', text.lower())
 
-          def normalize(name):
-              if not name: return ""
-              return name.lower().replace(" ", "").replace("_", "").replace("-", "").strip()
+          def get_name_from_block(block):
+              # Extract name from #EXTINF line
+              match = re.search(r'#EXTINF:.*,(.+)$', block.split('\n')[0])
+              if match:
+                  return match.group(1).strip()
+              return ""
 
           def get_ist_time():
               ist = timezone(timedelta(hours=5, minutes=30))
               return datetime.now(ist).strftime("%Y-%m-%d %H:%M:%S IST")
 
-          # --- MAIN GENERATOR ---
+          # --- MAIN LOGIC ---
           def main():
               final_lines = ["#EXTM3U x-tvg-url=\"http://botallen.live/epg.xml.gz\""]
               final_lines.append(f"# Playlist Updated: {get_ist_time()}")
               final_lines.append("")
 
-              # 1. PROCESS TEMP CHANNELS
+              # 1. TEMP CHANNELS
               if os.path.exists(TEMP_FILE):
                   with open(TEMP_FILE, "r") as f:
                       for line in f:
@@ -126,58 +125,66 @@ jobs:
                               final_lines.append(link)
                   final_lines.append("")
 
-              # 2. PROCESS YOUTUBE
+              # 2. YOUTUBE
               try:
                   yt_content = requests.get(YOUTUBE_SOURCE).text
-                  yt_items = parse_m3u_deep(yt_content)
-                  for item in yt_items:
-                      final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="{item["logo"]}", {item["name"]}')
-                      final_lines.append(item['url'])
+                  blocks = extract_blocks(yt_content)
+                  for block in blocks:
+                      # Force group title to YouTube
+                      block = re.sub(r'group-title="[^"]*"', 'group-title="YouTube"', block)
+                      final_lines.append(block)
               except: pass
 
-              # 3. PROCESS LIVE EVENTS
+              # 3. LIVE EVENTS
               for source_name, url in EVENT_SOURCES:
                   try:
                       content = requests.get(url).text
-                      items = parse_m3u_deep(content)
-                      for item in items:
-                          clean_name = item["name"].replace("Live Event", "").strip()
-                          final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{item["logo"]}", {source_name}: {clean_name}')
-                          # Write Props (Keys) first!
-                          for prop in item["props"]: final_lines.append(prop)
-                          final_lines.append(item['url'])
+                      blocks = extract_blocks(content)
+                      for block in blocks:
+                          # Force group title and Prefix Name
+                          block = re.sub(r'group-title="[^"]*"', 'group-title="Live Events"', block)
+                          name = get_name_from_block(block)
+                          if name:
+                              block = block.replace(name, f"{source_name}: {name}")
+                          final_lines.append(block)
                   except: pass
+
+              # 4. MAIN TV (CLONING MODE)
+              print(">>> Harvesting Channels (Cloning Mode)...")
               
-              # 4. PROCESS MAIN TV (Deep Copy)
-              print(">>> Harvesting Main TV...")
-              all_items = []
-              
+              all_blocks = []
+              # Download all blocks first
               for idx, url in enumerate(TV_SOURCES):
                   try:
                       content = requests.get(url).text
-                      items = parse_m3u_deep(content)
-                      for item in items: item['prio'] = idx
-                      all_items.extend(items)
+                      blocks = extract_blocks(content)
+                      # Tag blocks with priority
+                      for block in blocks:
+                          all_blocks.append({'prio': idx, 'block': block, 'name': get_name_from_block(block)})
                   except: pass
 
+              # Filter and Add
               seen_channels = set()
               for cat, target_list in CATEGORIES.items():
                   for target in target_list:
                       if target.lower() in seen_channels: continue
                       
-                      matches = [i for i in all_items if normalize(i.get('name')) == normalize(target)]
+                      # Find matches
+                      matches = [b for b in all_blocks if normalize(b['name']) == normalize(target)]
                       
                       if matches:
-                          matches.sort(key=lambda x: x['prio']) # Prioritize Source 0 (Arunjunan)
-                          best = matches[0]
-                          seen_channels.add(target.lower())
+                          matches.sort(key=lambda x: x['prio']) # Priority 0 = Arunjunan
+                          best_block = matches[0]['block']
                           
-                          # Write Header
-                          final_lines.append(f'#EXTINF:-1 group-title="{cat}" tvg-logo="{best["logo"]}", {target}')
-                          # Write Critical DRM/Agent Props
-                          for prop in best["props"]: final_lines.append(prop)
-                          # Write URL
-                          final_lines.append(best['url'])
+                          # SAFE EDIT: Only change the group-title, touch nothing else
+                          if 'group-title="' in best_block:
+                              best_block = re.sub(r'group-title="[^"]*"', f'group-title="{cat}"', best_block)
+                          else:
+                              # Insert group title if missing
+                              best_block = best_block.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{cat}"')
+                              
+                          seen_channels.add(target.lower())
+                          final_lines.append(best_block)
 
               # 5. WRITE
               with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
