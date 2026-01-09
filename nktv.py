@@ -3,14 +3,12 @@ import re
 import datetime
 
 # ==============================================================================
-# 1. CONFIGURATION
+# 1. SOURCES
 # ==============================================================================
-# SOURCES (We will harvest ALL channels from these)
 URL_TIGER     = "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
 URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
 URL_FORCEGT   = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
 
-# LIVE & YOUTUBE
 URL_YOUTUBE   = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
 URL_FANCODE   = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 URL_SONY      = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
@@ -20,44 +18,45 @@ FILE_TEMP     = "temp.txt"
 OUTPUT_FILE   = "nktv.m3u"
 
 # ==============================================================================
-# 2. FILTER RULES (The "Master List" Logic)
+# 2. MASTER LIST (The Filter)
 # ==============================================================================
-# Format: "Group Name": ["Keyword 1", "Keyword 2"]
-# The script will search for these exact phrases in the harvested list.
-GROUP_RULES = {
+# The script will only keep channels that contain these names.
+# It will assign them to the Group listed here.
+
+MASTER_FILTER = {
     "Tamil HD": [
         "Sun TV HD", "SunTV HD", "Star Vijay HD", "Vijay TV HD", "Zee Tamil HD", 
         "Colors Tamil HD", "KTV HD", "Sun Music HD", "Vijay Super HD", 
         "Zee Thirai HD", "Jaya TV HD"
     ],
-    "Sports HD": [
-        "Star Sports 1 Tamil HD", "Star Sports 1 Telugu HD", "Star Sports 1 Kannada",
-        "Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 1 Hindi HD",
-        "Sony Sports Ten 1 HD", "Sony Ten 1 HD", 
-        "Sony Sports Ten 2 HD", "Sony Ten 2 HD",
-        "Sony Sports Ten 3 HD", "Sony Ten 3 HD",
-        "Sony Sports Ten 4 HD", "Sony Ten 4 HD",
-        "Sony Sports Ten 5 HD", "Sony Ten 5 HD",
-        "Eurosport HD", "Sports18 1 HD"
-    ],
-    "Global Sports": [
-        "Astro Cricket", "Fox Cricket", "Fox Sports", "Willow", "Sky Sports Cricket", "TNT Sports"
-    ],
     "Tamil News": [
         "Polimer News", "Puthiya Thalaimurai", "Sun News", "Thanthi TV", 
         "News18 Tamil", "News7 Tamil", "Kalaignar Seithigal", "Captain News"
     ],
+    "Tamil Others": [
+        "Adithya TV", "Sirippoli", "Murasu", "Sun Life", "Kalaignar TV", "Jaya Max", "J Movies"
+    ],
+    "Sports HD": [
+        "Star Sports 1 Tamil", "Star Sports 1 Telugu", "Star Sports 1 Kannada",
+        "Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 1 Hindi",
+        "Sony Sports Ten 1", "Sony Ten 1 HD", 
+        "Sony Sports Ten 2", "Sony Ten 2 HD",
+        "Sony Sports Ten 3", "Sony Ten 3 HD",
+        "Sony Sports Ten 4", "Sony Ten 4 HD",
+        "Sony Sports Ten 5", "Sony Ten 5 HD",
+        "Eurosport", "Sports18 1"
+    ],
+    "Global Sports": [
+        "Astro Cricket", "Fox Cricket", "Fox Sports", "Willow", "Sky Sports", "TNT Sports"
+    ],
     "Infotainment HD": [
         "Discovery HD", "Animal Planet HD", "Nat Geo HD", "Nat Geo Wild", 
-        "Sony BBC Earth", "History TV18", "Zee Zest", "TLC"
-    ],
-    "Tamil Others": [
-        "Adithya TV", "Sirippoli", "Murasu", "Sun Life", "Kalaignar TV"
+        "Sony BBC", "History TV18", "Zee Zest", "TLC"
     ]
 }
 
 # ==============================================================================
-# 3. HELPER FUNCTIONS
+# 3. CORE LOGIC
 # ==============================================================================
 
 def get_ist_time():
@@ -65,21 +64,20 @@ def get_ist_time():
     ist_now = utc_now + datetime.timedelta(hours=5, minutes=30)
     return ist_now.strftime("%Y-%m-%d %H:%M:%S IST")
 
-def clean_line(line):
-    # Remove HTML tags and whitespace
-    return re.sub(r'<[^>]+>', '', line).strip()
+def clean_html(text):
+    """Removes HTML tags from Arunjunan source"""
+    return re.sub(r'<[^>]+>', '', text).strip()
 
-def fix_url(url):
-    """Applies the playback fix (User-Agent)"""
+def fix_playback_link(url):
+    """Adds User-Agent to ensure playback works"""
     url = url.strip()
     if "|" not in url and "googlevideo" not in url:
         return f"{url}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
     return url
 
-def harvest_all_channels(urls):
-    """Downloads EVERYTHING from all sources into a list of dicts"""
-    harvested = []
-    
+def fetch_all_channels(urls):
+    """Downloads EVERYTHING from given URLs into a raw list"""
+    pool = []
     for url in urls:
         print(f"Harvesting: {url} ... ", end="")
         try:
@@ -88,41 +86,31 @@ def harvest_all_channels(urls):
             
             name = ""
             logo = ""
-            group = ""
-            
             for line in lines:
-                line = clean_line(line)
+                line = clean_html(line)
                 if not line: continue
                 
                 if line.startswith("#EXTINF"):
                     # Extract Name
                     if "," in line:
                         name = line.split(",")[-1].strip()
-                    # Extract Logo (Optional)
+                    # Extract Logo
                     if 'tvg-logo="' in line:
-                        logo = line.split('tvg-logo="')[1].split('"')[0]
-                    # Extract existing group (Optional)
-                    if 'group-title="' in line:
-                        group = line.split('group-title="')[1].split('"')[0]
-                        
+                        parts = line.split('tvg-logo="')
+                        if len(parts) > 1:
+                            logo = parts[1].split('"')[0]
+                
                 elif line.startswith("http") and name:
-                    harvested.append({
-                        'name': name,
-                        'logo': logo,
-                        'url': line, # Keep original URL for now
-                        'orig_group': group
-                    })
-                    name = "" # Reset
+                    pool.append({'name': name, 'logo': logo, 'url': line})
+                    name = ""
                     logo = ""
-            print(f"Got {len(lines)} lines")
-            
+            print(f"Found {len(pool)} total channels so far.")
         except Exception as e:
             print(f"Error: {e}")
-            
-    print(f"Total Harvested Channels: {len(harvested)}")
-    return harvested
+    return pool
 
 def parse_temp_file(filename):
+    """Parses your temp.txt file"""
     entries = []
     try:
         with open(filename, 'r', encoding='utf-8') as f:
@@ -137,83 +125,79 @@ def parse_temp_file(filename):
                 for line in lines:
                     if line.startswith("Logo"): logo = line.split(":", 1)[1].strip()
                     if line.startswith("Link"): link = line.split(":", 1)[1].strip()
+                
                 if name and link:
-                    entries.append({'name': name, 'logo': logo, 'url': link, 'group': 'Temporary'})
+                    entries.append({'name': name, 'logo': logo, 'url': link})
     except: pass
     return entries
 
 # ==============================================================================
-# 4. MAIN LOGIC
+# 4. MAIN RUN
 # ==============================================================================
 
 def main():
-    final_lines = [
+    final_playlist = [
         '#EXTM3U x-tvg-url="https://avkb.short.gy/tsepg.xml.gz"',
         f'#EXTINF:-1 group-title="System" tvg-logo="", Playlist Updated: {get_ist_time()}',
         'http://localhost/timestamp'
     ]
+
+    # --- STEP 1: HARVEST MAIN SOURCES ---
+    print("\n1. Harvesting Sources...")
+    raw_channels = fetch_all_channels([URL_TIGER, URL_ARUNJUNAN, URL_FORCEGT])
     
-    # 1. HARVEST EVERYTHING
-    all_channels = harvest_all_channels([URL_TIGER, URL_ARUNJUNAN, URL_FORCEGT])
+    # --- STEP 2: FILTER & GROUP ---
+    print("\n2. Filtering & Grouping...")
+    added_links = set()
     
-    # 2. FILTER & GROUP (The "Master List" Step)
-    print("\n--- Filtering Channels ---")
-    
-    # Keep track of added URLs to avoid duplicates in the same group
-    added_urls = set()
-    
-    for target_group, keywords in GROUP_RULES.items():
+    for group_name, keywords in MASTER_FILTER.items():
         count = 0
         for keyword in keywords:
-            # Search our harvested pile
-            for ch in all_channels:
-                # Case-insensitive check: does channel name contain keyword?
-                # e.g. "Sun TV HD (Backup)" contains "Sun TV HD"
+            for ch in raw_channels:
+                # Check if keyword matches channel name (Case Insensitive)
                 if keyword.lower() in ch['name'].lower():
                     
-                    # Fix URL for playback
-                    playable_url = fix_url(ch['url'])
+                    # Fix Link
+                    link = fix_playback_link(ch['url'])
                     
-                    # Avoid exact duplicates
-                    if playable_url in added_urls:
-                        continue
-                        
-                    # Add to playlist
-                    final_lines.append(f'#EXTINF:-1 group-title="{target_group}" tvg-logo="{ch["logo"]}", {ch["name"]}')
-                    final_lines.append(playable_url)
+                    # Avoid duplicates
+                    if link in added_links: continue
                     
-                    added_urls.add(playable_url)
+                    # Add to Final
+                    final_playlist.append(f'#EXTINF:-1 group-title="{group_name}" tvg-logo="{ch["logo"]}", {ch["name"]}')
+                    final_playlist.append(link)
+                    
+                    added_links.add(link)
                     count += 1
-        print(f"Group '{target_group}': Added {count} channels")
+        print(f"   -> {group_name}: Added {count} channels")
 
-    # 3. ADD LIVE EVENTS (Pass-Through)
-    print("\n--- Adding Live Events ---")
-    live_sources = [URL_FANCODE, URL_SONY, URL_ZEE5]
-    for url in live_sources:
-        ch_list = harvest_all_channels([url])
-        for ch in ch_list:
-            final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{ch["logo"]}", {ch["name"]}')
-            final_lines.append(ch["url"]) # No fix needed usually for these, or add if needed
+    # --- STEP 3: LIVE EVENTS ---
+    print("\n3. Adding Live Events...")
+    live_channels = fetch_all_channels([URL_FANCODE, URL_SONY, URL_ZEE5])
+    for ch in live_channels:
+        final_playlist.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{ch["logo"]}", {ch["name"]}')
+        final_playlist.append(ch['url'])
 
-    # 4. ADD YOUTUBE
-    print("\n--- Adding YouTube ---")
-    yt_list = harvest_all_channels([URL_YOUTUBE])
-    for ch in yt_list:
-        final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="https://i.imgur.com/MbCpK4X.png", {ch["name"]}')
-        final_lines.append(ch["url"])
+    # --- STEP 4: YOUTUBE ---
+    print("\n4. Adding YouTube...")
+    yt_channels = fetch_all_channels([URL_YOUTUBE])
+    for ch in yt_channels:
+        final_playlist.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="https://i.imgur.com/MbCpK4X.png", {ch["name"]}')
+        final_playlist.append(ch['url'])
 
-    # 5. ADD TEMP
-    print("\n--- Adding Temp ---")
-    temp_list = parse_temp_file(FILE_TEMP)
-    for ch in temp_list:
-        final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="{ch["logo"]}", {ch["name"]}')
-        final_lines.append(fix_url(ch["url"]))
+    # --- STEP 5: TEMP ---
+    print("\n5. Adding Temp...")
+    temp_channels = parse_temp_file(FILE_TEMP)
+    for ch in temp_channels:
+        link = fix_playback_link(ch['url'])
+        final_playlist.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="{ch["logo"]}", {ch["name"]}')
+        final_playlist.append(link)
 
-    # 6. WRITE FILE
+    # --- STEP 6: SAVE ---
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        f.write("\n".join(final_lines))
+        f.write("\n".join(final_playlist))
     
-    print(f"\nSUCCESS: Playlist generated with {len(final_lines)//2} channels.")
+    print(f"\nDONE! Playlist generated with {len(final_playlist)//2} entries.")
 
 if __name__ == "__main__":
     main()
