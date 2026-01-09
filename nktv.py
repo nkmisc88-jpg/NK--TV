@@ -6,9 +6,10 @@ import datetime
 # ==============================================================================
 # 1. CONFIGURATION
 # ==============================================================================
-# MAIN SOURCE (HTML Format accepted now)
+# MAIN SOURCES (Added Tiger/Joker for Zee Group)
 URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
 URL_FORCEGT   = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
+URL_TIGER     = "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
 
 # Pass-Through Sources
 URL_YOUTUBE   = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
@@ -92,35 +93,28 @@ def normalize(text):
     return re.sub(r'[^a-zA-Z0-9]', '', text).lower()
 
 def clean_html_line(line):
-    """Removes HTML tags like <br>, <pre> from a line"""
-    # Remove HTML tags
-    clean = re.sub(r'<[^>]+>', '', line)
-    return clean.strip()
+    """Removes HTML tags like <br>, <pre>"""
+    return re.sub(r'<[^>]+>', '', line).strip()
 
 def fetch_content(url):
-    """Fetches content, handling both HTML and M3U"""
     print(f"Fetching: {url} ... ", end="")
     entries = []
     try:
-        resp = requests.get(url, timeout=20)
+        resp = requests.get(url, timeout=25) # Increased timeout
         resp.raise_for_status()
         
-        # Split by lines
         lines = resp.text.splitlines()
-        
         name = ""
         for line in lines:
             line = clean_html_line(line)
-            
             if not line: continue
             
             if line.startswith("#EXTINF"):
                 if "," in line:
                     name = line.split(",")[-1].strip()
-            # Check for HTTP link (basic check)
             elif line.startswith("http") and name:
                 entries.append({'name': name, 'url': line})
-                name = "" # Reset
+                name = ""
         
         print(f"Success ({len(entries)} channels)")
         return entries
@@ -195,9 +189,11 @@ def main():
         'http://localhost/timestamp'
     ]
     
-    # --- PART A: MASTER CHANNELS ---
+    # --- PART A: MASTER CHANNELS (Using 3 Sources Now) ---
     print("\n--- Processing Master Channels ---")
-    all_streams, source_names = get_mapped_streams([URL_ARUNJUNAN, URL_FORCEGT])
+    
+    # Added URL_TIGER to the list of sources below
+    all_streams, source_names = get_mapped_streams([URL_ARUNJUNAN, URL_FORCEGT, URL_TIGER])
     
     backup_lines = []
     
@@ -207,8 +203,10 @@ def main():
             
             if key and key in all_streams:
                 urls = all_streams[key]
+                # Primary
                 final_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="{group}", {name}\n{urls[0]}')
                 
+                # Backups
                 for idx, url in enumerate(urls[1:], 1):
                     backup_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="Backups", {name} [Backup {idx}]\n{url}')
                 print(f"[OK] {name}")
