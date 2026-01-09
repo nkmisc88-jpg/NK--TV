@@ -4,11 +4,10 @@ import difflib
 import datetime
 
 # ==============================================================================
-# CONFIGURATION
+# 1. CONFIGURATION
 # ==============================================================================
-# TIGER is First (Best for Zee/Sony)
+# SOURCES
 URL_TIGER     = "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
-# ARUNJUNAN is Second (Best for Star/Sun)
 URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
 URL_FORCEGT   = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
 
@@ -22,7 +21,7 @@ FILE_TEMP     = "temp.txt"
 OUTPUT_FILE   = "nktv.m3u"
 
 # ==============================================================================
-# MASTER SKELETON
+# 2. MASTER SKELETON
 # ==============================================================================
 MASTER_SKELETON = {
     "Tamil HD": [
@@ -52,7 +51,7 @@ MASTER_SKELETON = {
         ("Sony Sports Ten 5 HD", "ts483", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Sports_Ten_5_HD.png"),
         ("Eurosport HD", "ts494", "https://jiotvimages.cdn.jio.com/dare_images/images/Eurosport_HD.png"),
     ],
-     "Global Sports": [
+    "Global Sports": [
         ("Astro Cricket", "", "https://i.imgur.com/OpM4n4m.png"),
         ("Fox Cricket 501", "", "https://i.imgur.com/712345.png"),
         ("Fox Sports 505", "", "https://i.imgur.com/712346.png"),
@@ -81,7 +80,7 @@ MASTER_SKELETON = {
 }
 
 # ==============================================================================
-# HELPER FUNCTIONS
+# 3. HELPER FUNCTIONS
 # ==============================================================================
 
 def get_ist_time():
@@ -112,11 +111,13 @@ def fetch_content(url):
                 if "," in line:
                     name = line.split(",")[-1].strip()
             elif line.startswith("http") and name:
-                # FIX: Check if we need to append User-Agent
-                final_url = line
-                if "m3u8" in line and "|" not in line:
-                     # Add generic User-Agent to help playback
-                     final_url = f"{line}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+                # === THE FIX: Force User-Agent ===
+                # This fixes "None of the video tracks are playable"
+                final_url = line.strip()
+                
+                # If the URL doesn't already have headers (|) and isn't YouTube
+                if "|" not in final_url and "googlevideo" not in final_url:
+                    final_url = f"{final_url}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 
                 entries.append({'name': name, 'url': final_url})
                 name = ""
@@ -149,11 +150,12 @@ def find_best_match(target, options):
     for opt in options:
         if normalize(opt) == target_clean: return normalize(opt)
     
-    # Looser matching to find more channels
+    # Very loose matching to find channels like "SunTV HD IN"
     matches = [opt for opt in options if target_clean in normalize(opt)]
     if matches: return normalize(min(matches, key=len))
     
-    matches = difflib.get_close_matches(target, options, n=1, cutoff=0.4) # Lowered to 0.4
+    # Lower cutoff to 0.3 to catch everything
+    matches = difflib.get_close_matches(target, options, n=1, cutoff=0.3)
     if matches: return normalize(matches[0])
     return None
 
@@ -163,28 +165,27 @@ def parse_temp_file(filename):
         with open(filename, 'r', encoding='utf-8') as f:
             content = f.read()
             blocks = re.split(r'Title\s*:', content)
-            
             for block in blocks:
                 if not block.strip(): continue
                 lines = block.split('\n')
                 name = lines[0].strip()
                 logo = ""
                 link = ""
-                
                 for line in lines:
-                    if line.startswith("Logo"):
-                        logo = line.split(":", 1)[1].strip()
-                    if line.startswith("Link"):
-                        link = line.split(":", 1)[1].strip()
-                        
+                    if line.startswith("Logo"): logo = line.split(":", 1)[1].strip()
+                    if line.startswith("Link"): link = line.split(":", 1)[1].strip()
+                
                 if name and link:
+                    # Apply User-Agent to temp links too
+                    if "|" not in link:
+                         link = f"{link}|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
                     channels.append({'name': name, 'logo': logo, 'url': link})
     except FileNotFoundError:
         print(f"Warning: {filename} not found.")
     return channels
 
 # ==============================================================================
-# MAIN LOGIC
+# 4. MAIN LOGIC
 # ==============================================================================
 
 def main():
@@ -195,7 +196,6 @@ def main():
         'http://localhost/timestamp'
     ]
     
-    # --- PART A: MASTER CHANNELS ---
     print("\n--- Processing Master Channels ---")
     all_streams, source_names = get_mapped_streams([URL_TIGER, URL_ARUNJUNAN, URL_FORCEGT])
     
@@ -209,7 +209,6 @@ def main():
                 urls = all_streams[key]
                 # Primary
                 final_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="{group}", {name}\n{urls[0]}')
-                
                 # Backups
                 for idx, url in enumerate(urls[1:], 1):
                     backup_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="Backups", {name} [Backup {idx}]\n{url}')
@@ -217,27 +216,23 @@ def main():
             else:
                 print(f"[MISSING] {name}")
     
-    # --- PART B: LIVE EVENTS ---
     print("\n--- Processing Live Events ---")
     live_sources = [URL_FANCODE, URL_SONY, URL_ZEE5]
     for source in live_sources:
         items = fetch_content(source)
         for item in items:
-             final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="", {item["name"]}\n{item["url"]}')
+            final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="", {item["name"]}\n{item["url"]}')
             
-    # --- PART C: YOUTUBE ---
     print("\n--- Processing YouTube ---")
     yt_items = fetch_content(URL_YOUTUBE)
     for item in yt_items:
          final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="https://i.imgur.com/MbCpK4X.png", {item["name"]}\n{item["url"]}')
          
-    # --- PART D: TEMPORARY CHANNELS ---
     print("\n--- Processing Temporary Channels ---")
     temp_items = parse_temp_file(FILE_TEMP)
     for item in temp_items:
         final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="{item["logo"]}", {item["name"]}\n{item["url"]}')
 
-    # --- WRITE FILE ---
     final_lines.extend(backup_lines)
     
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
