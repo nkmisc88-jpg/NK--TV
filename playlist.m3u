@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-09 22:33:04 IST
+# Updated on: 2026-01-09 23:23:37 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,19 +846,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4&xxx=||cookie=__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 9 January 2026 at 10:28:05 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="138945" tvg-name="Noakhali Express Vs Rangpur Riders" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138945_5808_NOE_RAN_fc-web_1766733054323.jpg" tvg-language="ENGLISH" ,ENG | Noakhali Express Vs Rangpur Riders
-https://in-mc-fdlive.fancode.com/mumbai/138945_english_hls_425d16059e35160_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Friday, 9 January 2026 at 11:21:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139573" tvg-name="Majees Titans Vs Oman Development Team" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Majees Titans Vs Oman Development Team
 https://in-mc-fdlive.fancode.com/mumbai/139573_english_hls_562482020234301_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="138387" tvg-name="Mali Vs Senegal" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mali-vs-Senegal_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Mali Vs Senegal
 https://in-mc-fdlive.fancode.com/mumbai/138387_english_hls_a23068726030840_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139203" tvg-name="Al Kholood Club Vs Al Ittihad" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Kholood-Club-vs-Al-Ittihad_fc-web_1767365352759.jpg" tvg-language="ENGLISH" ,ENG | Al Kholood Club Vs Al Ittihad
+https://in-mc-fdlive.fancode.com/mumbai/139203_english_hls_3a37c84ef261787_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139260" tvg-name="Jordan U23 Vs Saudi Arabia U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139260_5822_JOR-U23_SU-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Jordan U23 Vs Saudi Arabia U23
 https://in-mc-fdlive.fancode.com/mumbai/139260_english_hls_5dd96706e371962_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 09-01-2026 22:20
+#DATE:- 09-01-2026 23:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
-https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768005001~acl=/*~id=93cfbeceb516ef1ad4e7c3b7b566eb34-1767961800121~hmac=7cfe5d33d4ffa19c4e092722bd57ca4ed67cc810e50d3b0580b1bfd0ed665eed|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; 22087RA4DI; Build/TP1A.220624.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=b89de1c100ff3f3f05885153377e5665-1767977413586
+https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768005001~acl=/*~id=93cfbeceb516ef1ad4e7c3b7b566eb34-1767961800121~hmac=7cfe5d33d4ffa19c4e092722bd57ca4ed67cc810e50d3b0580b1bfd0ed665eed|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; V2168; Build/UP1A.231005.007)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=50bf0659171ec3d4b01703157263cd84-1767981011060
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 9/1/2026, 22:30:05
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
