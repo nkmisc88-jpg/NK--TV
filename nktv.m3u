@@ -1,12 +1,12 @@
 #EXTM3U x-tvg-url="https://avkb.short.gy/tsepg.xml.gz"
-#EXTINF:-1 group-title="System" tvg-logo="", Playlist Updated: 2026-01-10 00:40:30 IST
+#EXTINF:-1 group-title="System" tvg-logo="", Playlist Updated: 2026-01-10 00:44:51 IST
 http://localhost/timestamp
 #EXTINF:-1 tvg-id="ts1503" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png" group-title="Tamil HD", Sun TV HD
 https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
 #EXTINF:-1 tvg-id="ts1506" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Vijay_HD.png" group-title="Tamil HD", Star Vijay HD
 https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer=https://m3u.8088y.fun/
 #EXTINF:-1 tvg-id="ts1509" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png" group-title="Tamil HD", Zee Tamil HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768071903~acl=%2f*~id=5fa64efb-4e06-4074-9c9c-17be835e2ad0~data=hdntl~hmac=9135052eb3923f207e3b6fc94a21f17187274e6cf859d3d7ce5d0f4ba2e9fe85
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768071903~acl=%2f*~id=5fa64efb-4e06-4074-9c9c-17be835e2ad0~data=hdntl~hmac=9135052eb3923f207e3b6fc94a21f17187274e6cf859d3d7ce5d0f4ba2e9fe85|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="ts1515" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Tamil_HD.png" group-title="Tamil HD", Colors Tamil HD
 https://keys.vodep39240327.workers.dev/?id=429.mpd
 #EXTINF:-1 tvg-id="ts1517" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/KTV_HD.png" group-title="Tamil HD", KTV HD
@@ -16,7 +16,7 @@ https://livestream.sunnxt.com/d434796d90fa4dc9b7ecfacedbe683f1/SunMusicHDB_IN_in
 #EXTINF:-1 tvg-id="ts1513" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Super_HD.png" group-title="Tamil HD", Vijay Super HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Super_HD_BTS/output/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
 #EXTINF:-1 tvg-id="ts1545" tvg-logo="https://bit.ly/3Xj5QzL" group-title="Tamil HD", Zee Thirai HD
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Thirai-HD/index-connected/index-connected.m3u8?hdntl=exp=1768071903~acl=%2f*~id=5fa64efb-4e06-4074-9c9c-17be835e2ad0~data=hdntl~hmac=9135052eb3923f207e3b6fc94a21f17187274e6cf859d3d7ce5d0f4ba2e9fe85
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Thirai-HD/index-connected/index-connected.m3u8?hdntl=exp=1768071903~acl=%2f*~id=5fa64efb-4e06-4074-9c9c-17be835e2ad0~data=hdntl~hmac=9135052eb3923f207e3b6fc94a21f17187274e6cf859d3d7ce5d0f4ba2e9fe85|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="ts1505" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jaya_TV_HD.png" group-title="Tamil HD", Jaya TV HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_TV_HD_BTS/output/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
 #EXTINF:-1 tvg-id="ts1550" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil_HD.png" group-title="Sports HD", Star Sports 1 Tamil HD
@@ -54,27 +54,27 @@ https://live.catvod.com/live.php?id=Acricket
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/712346.png" group-title="Global Sports", Fox Sports 505
 https://a1xs.vip/700001
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/willow1.png" group-title="Global Sports", Willow Sports
-https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
+https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/willow2.png" group-title="Global Sports", Willow Sports Extra
-https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
+https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/skycricket.png" group-title="Global Sports", Sky Sports Cricket
-http://178.33.239.54:8080/503/index.m3u8
+http://178.33.239.54:8080/503/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/tnt1.png" group-title="Global Sports", TNT Sports 1
 https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/wf8usag51e/out/v1/bd3b0c314fff4bb1ab4693358f3cd2d3/cenc.mpd
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/tnt2.png" group-title="Global Sports", TNT Sports 2
 https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/f0qvkrra8j/out/v1/f8fa17f087564f51aa4d5c700be43ec4/cenc.mpd
 #EXTINF:-1 tvg-id="ts1562" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png" group-title="Tamil News", Polimer News
-https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8
+https://segment.yuppcdn.net/110322/polimernews/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="ts1558" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Puthiya_Thalaimurai.png" group-title="Tamil News", Puthiya Thalaimurai
-https://segment.yuppcdn.net/240122/puthiya/playlist.m3u8
+https://segment.yuppcdn.net/240122/puthiya/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="ts1556" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png" group-title="Tamil News", Sun News
 https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_News_MOB/WDVLive/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
 #EXTINF:-1 tvg-id="ts1560" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Thanthi_TV.png" group-title="Tamil News", Thanthi TV
 https://jiotvpllive.cdn.jio.com/bpk-tv/Thanthi_TV_BTS/output/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
 #EXTINF:-1 tvg-id="ts1557" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/News18_Tamil_Nadu.png" group-title="Tamil News", News18 Tamil Nadu
-https://nw18live.cdn.jio.com/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8
+https://nw18live.cdn.jio.com/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="ts713" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Discovery_HD_World.png" group-title="Infotainment HD", Discovery HD
-https://zap-live1-ott.izzigo.tv/4/out/u/dash/DISCOVERY-TURBO-HD/default.mpd
+https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_HD_World_BTS/output/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
 #EXTINF:-1 tvg-id="ts718" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Animal_Planet_HD_World.png" group-title="Infotainment HD", Animal Planet HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/Animal_Planet_HD_BTS/output/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
 #EXTINF:-1 tvg-id="ts724" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Nat_Geo_HD.png" group-title="Infotainment HD", Nat Geo HD
@@ -84,23 +84,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/SonyBBCEarthHin_BTS/output/index.mpd?__hd
 #EXTINF:-1 tvg-id="ts728" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/History_TV18_HD.png" group-title="Infotainment HD", History TV18 HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/History_HD_BTS/output/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
 #EXTINF:-1 tvg-id="ts748" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Zest_HD.png" group-title="Infotainment HD", Zee Zest HD
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1768071903~acl=%2f*~id=5fa64efb-4e06-4074-9c9c-17be835e2ad0~data=hdntl~hmac=9135052eb3923f207e3b6fc94a21f17187274e6cf859d3d7ce5d0f4ba2e9fe85
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1768071903~acl=%2f*~id=5fa64efb-4e06-4074-9c9c-17be835e2ad0~data=hdntl~hmac=9135052eb3923f207e3b6fc94a21f17187274e6cf859d3d7ce5d0f4ba2e9fe85|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="ts743" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/TLC_HD.png" group-title="Infotainment HD", TLC HD
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Tlc2/default/manifest.mpd
-#EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Majees Titans Vs Oman Development Team
-https://in-mc-fdlive.fancode.com/mumbai/139573_english_hls_562482020234301_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Al Kholood Club Vs Al Ittihad
 https://in-mc-fdlive.fancode.com/mumbai/139203_english_hls_3a37c84ef261787_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Cameroon Vs Morocco
 https://in-mc-fdlive.fancode.com/mumbai/138388_english_hls_b50450f5227461_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Jordan U23 Vs Saudi Arabia U23
-https://in-mc-fdlive.fancode.com/mumbai/139260_english_hls_5dd96706e371962_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Wrexham vs Nottingham Forest - Round 3 - 10 Jan 2026
 https://sonymtmnew.akamaized.net/hls/live/2094587/DAI03ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 7; en_GB; CWT43SH04X; Build/NRD90M)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f98abf71c5695cabe4a5f6c843cf80d8-1767985811104
 #EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Eintracht Frankfurt vs Borussia Dortmund - MD 16 - 10 Jan 2026
 https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; AIN065; Build/UP1A.231005.007)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f98abf71c5695cabe4a5f6c843cf80d8-1767985811104
 #EXTINF:-1 group-title="YouTube" tvg-logo="https://i.imgur.com/MbCpK4X.png", cricket.com.au
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768007144/ei/iFFhaav5CYe-sfIPud2J0Aw/ip/172.184.210.58/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr19---sn-ojn4v5-5w.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AYUSA3DC5QJTUkBqZnsGFgpCrI1B6c9u9kSHEWUUwGfRkQR4yBism7P3Y-vTN2n2DK565lH8Pg/spc/wH4Qq0ZQf6GI7poAIFJ4/vprv/1/ns/iitYTQ_0BTPwd2FSjDSdOhcR/playlist_type/DVR/met/1767985544,/mh/Uh/mm/44/mn/sn-ojn4v5-5w/ms/lva/mv/u/mvi/19/pl/20/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/TQNz4HDQOyprJ8Ly6FG/mt/1767985375/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIhANMPld6prZTPAUCIRIE8mkln_yjMnjTOYaSAGRBwWAdlAiBzf5AnP6mKGyFNsz52Aq1bL60qsK_1xTT1_oNP_YdGdw%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRAIgCKFj20fd0LlUTxH8ON-lU_ez9nXdBxFHS4XwYIjbFJQCIF1zK7EVdf2PgOqeosP6EvMGrJ4LNIAXreEhqbGGKOO7/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768007144/ei/iFFhaav5CYe-sfIPud2J0Aw/ip/172.184.210.58/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr19---sn-ojn4v5-5w.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AYUSA3DC5QJTUkBqZnsGFgpCrI1B6c9u9kSHEWUUwGfRkQR4yBism7P3Y-vTN2n2DK565lH8Pg/spc/wH4Qq0ZQf6GI7poAIFJ4/vprv/1/ns/iitYTQ_0BTPwd2FSjDSdOhcR/playlist_type/DVR/met/1767985544,/mh/Uh/mm/44/mn/sn-ojn4v5-5w/ms/lva/mv/u/mvi/19/pl/20/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/TQNz4HDQOyprJ8Ly6FG/mt/1767985375/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIhANMPld6prZTPAUCIRIE8mkln_yjMnjTOYaSAGRBwWAdlAiBzf5AnP6mKGyFNsz52Aq1bL60qsK_1xTT1_oNP_YdGdw%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRAIgCKFj20fd0LlUTxH8ON-lU_ez9nXdBxFHS4XwYIjbFJQCIF1zK7EVdf2PgOqeosP6EvMGrJ4LNIAXreEhqbGGKOO7/playlist/index.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 group-title="Temporary" tvg-logo="", Fox 4k
 https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 #EXTINF:-1 group-title="Temporary" tvg-logo="", Fox 501
@@ -122,9 +118,9 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_TV_HD_MOB/WDVLive/index.mpd?__hdnea__
 #EXTINF:-1 tvg-id="ts1506" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Vijay_HD.png" group-title="Backups", Star Vijay HD [Backup 1]
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
 #EXTINF:-1 tvg-id="ts1509" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png" group-title="Backups", Zee Tamil HD [Backup 1]
-https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8
+https://ze5.vodep39240327.workers.dev/channel/Zee Tamil HD.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="ts1509" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png" group-title="Backups", Zee Tamil HD [Backup 2]
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768028643~acl=%2f*~id=11a35add-ef25-4dd9-8854-876110d8e3e6~data=hdntl~hmac=b32840310ca6dedc650dec68b8f9ca3bd5a9b497b2f055356e1ed67f257589ae
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768028643~acl=%2f*~id=11a35add-ef25-4dd9-8854-876110d8e3e6~data=hdntl~hmac=b32840310ca6dedc650dec68b8f9ca3bd5a9b497b2f055356e1ed67f257589ae|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="ts1515" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Tamil_HD.png" group-title="Backups", Colors Tamil HD [Backup 1]
 https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsTamilHD_BTS/output/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
 #EXTINF:-1 tvg-id="ts1517" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/KTV_HD.png" group-title="Backups", KTV HD [Backup 1]
@@ -132,7 +128,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/KTV_HD_MOB/WDVLive/index.mpd?__hdnea__=st
 #EXTINF:-1 tvg-id="ts1527" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_Music_HD.png" group-title="Backups", Sun Music HD [Backup 1]
 https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_Music_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
 #EXTINF:-1 tvg-id="ts1545" tvg-logo="https://bit.ly/3Xj5QzL" group-title="Backups", Zee Thirai HD [Backup 1]
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Thirai-HD/index-connected/index-connected.m3u8?hdntl=exp=1768028643~acl=%2f*~id=11a35add-ef25-4dd9-8854-876110d8e3e6~data=hdntl~hmac=b32840310ca6dedc650dec68b8f9ca3bd5a9b497b2f055356e1ed67f257589ae
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Thirai-HD/index-connected/index-connected.m3u8?hdntl=exp=1768028643~acl=%2f*~id=11a35add-ef25-4dd9-8854-876110d8e3e6~data=hdntl~hmac=b32840310ca6dedc650dec68b8f9ca3bd5a9b497b2f055356e1ed67f257589ae|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="ts454" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_HD.png" group-title="Backups", Star Sports 1 HD [Backup 1]
 https://star-sports-1.joker-verse.workers.dev/master.mpd
 #EXTINF:-1 tvg-id="ts456" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2_HD.png" group-title="Backups", Star Sports 2 HD [Backup 1]
@@ -152,6 +148,6 @@ https://converse.nathcreqtives.com/astro/2504/manifest.mpd?token=eyJhbGciOiJIUzI
 #EXTINF:-1 tvg-id="ts1556" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_News.png" group-title="Backups", Sun News [Backup 1]
 https://livestream3.sunnxt.com/491c99fb6d0c49e88e6349170d890a2f/SunNewsB_IN_index.mpd
 #EXTINF:-1 tvg-id="ts748" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Zest_HD.png" group-title="Backups", Zee Zest HD [Backup 1]
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1768028643~acl=%2f*~id=11a35add-ef25-4dd9-8854-876110d8e3e6~data=hdntl~hmac=b32840310ca6dedc650dec68b8f9ca3bd5a9b497b2f055356e1ed67f257589ae
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1768028643~acl=%2f*~id=11a35add-ef25-4dd9-8854-876110d8e3e6~data=hdntl~hmac=b32840310ca6dedc650dec68b8f9ca3bd5a9b497b2f055356e1ed67f257589ae|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTINF:-1 tvg-id="ts743" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/TLC_HD.png" group-title="Backups", TLC HD [Backup 1]
 https://converse.nathcreqtives.com/astro/2709/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY3NDUwNjg3LCJleHAiOjE3Njc4Njk4NjEsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2Nzg2OTg2MX0.9puUPiDaydWR5UrF3UH3V1m2ZecC_eJgR9b3o9qZZQI
