@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://avkb.short.gy/tsepg.xml.gz"
-#EXTINF:-1 group-title="System" tvg-logo="", Playlist Updated: 2026-01-09 13:17:40 IST
+#EXTINF:-1 group-title="System" tvg-logo="", Playlist Updated: 2026-01-09 14:30:32 IST
 http://localhost/timestamp
 #EXTINF:-1 tvg-id="ts1503" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png" group-title="Tamil HD", Sun TV HD
 https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_index.mpd
@@ -16,7 +16,7 @@ https://livestream.sunnxt.com/d434796d90fa4dc9b7ecfacedbe683f1/SunMusicHDB_IN_in
 #EXTINF:-1 tvg-id="ts1513" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Vijay_Super_HD.png" group-title="Tamil HD", Vijay Super HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Super_HD_BTS/output/index.mpd?__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4
 #EXTINF:-1 tvg-id="ts1545" tvg-logo="https://bit.ly/3Xj5QzL" group-title="Tamil HD", Zee Thirai HD
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Thirai-HD/index-connected/index-connected.m3u8?hdntl=exp=1767985442~acl=%2f*~id=d3af5910-bc79-456c-a0ec-362894bd47d8~data=hdntl~hmac=8564e3d5252833af45cfdcbc6ff3c079b9467514660712af558e91ada6496ad0
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Thirai-HD/index-connected/index-connected.m3u8?hdntl=exp=1768028643~acl=%2f*~id=11a35add-ef25-4dd9-8854-876110d8e3e6~data=hdntl~hmac=b32840310ca6dedc650dec68b8f9ca3bd5a9b497b2f055356e1ed67f257589ae
 #EXTINF:-1 tvg-id="ts1505" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Jaya_TV_HD.png" group-title="Tamil HD", Jaya TV HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_TV_HD_BTS/output/index.mpd?__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4
 #EXTINF:-1 tvg-id="ts1550" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil_HD.png" group-title="Sports HD", Star Sports 1 Tamil HD
@@ -84,19 +84,23 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/SonyBBCEarthHin_BTS/output/index.mpd?__hd
 #EXTINF:-1 tvg-id="ts728" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/History_TV18_HD.png" group-title="Infotainment HD", History TV18 HD
 https://jiotvpllive.cdn.jio.com/bpk-tv/History_HD_BTS/output/index.mpd?__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4
 #EXTINF:-1 tvg-id="ts748" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Zest_HD.png" group-title="Infotainment HD", Zee Zest HD
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1767985442~acl=%2f*~id=d3af5910-bc79-456c-a0ec-362894bd47d8~data=hdntl~hmac=8564e3d5252833af45cfdcbc6ff3c079b9467514660712af558e91ada6496ad0
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1768028643~acl=%2f*~id=11a35add-ef25-4dd9-8854-876110d8e3e6~data=hdntl~hmac=b32840310ca6dedc650dec68b8f9ca3bd5a9b497b2f055356e1ed67f257589ae
 #EXTINF:-1 tvg-id="ts743" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/TLC_HD.png" group-title="Infotainment HD", TLC HD
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Tlc2/default/manifest.mpd
 #EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Rajshahi Warriors Vs Chattogram Royals
 https://fancode-dlt-adns.airteledge.in/mum-airtel-origin/138944_english_hls_397d6af3aa50746_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Brisbane Roar Vs Auckland
+https://in-mc-fdlive.fancode.com/mumbai/138819_english_hls_0e8076fa1729415_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Show Court 1   Day 6
 https://in-mc-fdlive.fancode.com/mumbai/139195_english_hls_7bfdfb96f343630_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Pat Rafter Arena   Day 6
 https://in-mc-fdlive.fancode.com/mumbai/139194_english_hls_2011737c6424099_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Center Court   Day 5
 https://in-mc-fdlive.fancode.com/mumbai/139208_english_hls_ce83ebd80a67417_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Centre Court   Day 5
+https://in-mc-fdlive.fancode.com/mumbai/139287_english_hls_8139d864e751453_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Australia vs Poland - Quarter-final - 9 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767983401~acl=/*~id=68f41971771c3b207d6d971438277279-1767940200132~hmac=e0cecd2e70ebab8e7eddbe2c21bcf94b8de757c7010194fc9cf29e9cea30668a|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; AGS5-W09; Build/HUAWEIAGS5-W09)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=b8ef8d7baed7218fdc6987571081c2f1-1767943810789
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767983401~acl=/*~id=68f41971771c3b207d6d971438277279-1767940200132~hmac=e0cecd2e70ebab8e7eddbe2c21bcf94b8de757c7010194fc9cf29e9cea30668a|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; RMX3571; Build/UKQ1.230924.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c30458332620ceb4de7d4212fb7229cb-1767948611495
 #EXTINF:-1 group-title="Live Events" tvg-logo="", BEN | Howrah Hooghly Warriors Vs Kopa Tigers Birbhum
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1768031106~acl=%2f*~data=hdntl~hmac=e2e79324f23d41164fb225525f680a85d18337efb8f40c573ce4b7c2deb1313f|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-logo="", ENG | Howrah Hooghly Warriors Vs Kopa Tigers Birbhum
@@ -124,7 +128,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_TV_HD_MOB/WDVLive/index.mpd?__hdnea__
 #EXTINF:-1 tvg-id="ts1506" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Vijay_HD.png" group-title="Backups", Star Vijay HD [Backup 1]
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd?__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4
 #EXTINF:-1 tvg-id="ts1509" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png" group-title="Backups", Zee Tamil HD [Backup 1]
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767985442~acl=%2f*~id=d3af5910-bc79-456c-a0ec-362894bd47d8~data=hdntl~hmac=8564e3d5252833af45cfdcbc6ff3c079b9467514660712af558e91ada6496ad0
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768028643~acl=%2f*~id=11a35add-ef25-4dd9-8854-876110d8e3e6~data=hdntl~hmac=b32840310ca6dedc650dec68b8f9ca3bd5a9b497b2f055356e1ed67f257589ae
 #EXTINF:-1 tvg-id="ts1515" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Tamil_HD.png" group-title="Backups", Colors Tamil HD [Backup 1]
 https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsTamilHD_BTS/output/index.mpd?__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4
 #EXTINF:-1 tvg-id="ts1517" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/KTV_HD.png" group-title="Backups", KTV HD [Backup 1]
