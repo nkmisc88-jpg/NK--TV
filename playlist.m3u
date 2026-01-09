@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-09 10:32:35 IST
+# Updated on: 2026-01-09 11:22:44 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,17 +846,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4&xxx=||cookie=__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 9 January 2026 at 10:28:07 am
+#DATE:- Friday, 9 January 2026 at 11:21:06 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138744" tvg-name="Wellington Firebirds Vs Otago Volts" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138744_5800_WF_OV_fc-web_1766641251007.jpg" tvg-language="ENGLISH" ,ENG | Wellington Firebirds Vs Otago Volts
 https://in-mc-fdlive.fancode.com/mumbai/138744_english_hls_8010d2ef0246899_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139195" tvg-name="Show Court 1   Day 6" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 6
 https://in-mc-fdlive.fancode.com/mumbai/139195_english_hls_7bfdfb96f343630_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139194" tvg-name="Pat Rafter Arena   Day 6" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 6
 https://in-mc-fdlive.fancode.com/mumbai/139194_english_hls_2011737c6424099_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 09-01-2026 10:20
+#EXTINF:-1 group-title="Live Events" tvg-id="139208" tvg-name="Center Court   Day 5" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 5
+https://in-mc-fdlive.fancode.com/mumbai/139208_english_hls_ce83ebd80a67417_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 09-01-2026 11:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498845" tvg-name="Super Smash 2025/26 Men's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012825/1766993127014768_SuperSmash2526_mens_Wellington-Firebirds-vs-Otago-Volts_29dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Wellington Firebirds vs Otago Volts - 9 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767961801~acl=/*~id=56030c79d3c1fca2efc0ff40d51c8cdc-1767918600103~hmac=ee5bb09c16a3d935cae7e6ddee444b813946f94fb4a94fe40dd99306f0f85a44|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; viva; Build/RP1A.200720.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=1437de541556cc0d81ae98bb605c1887-1767934211266
+https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1767961801~acl=/*~id=56030c79d3c1fca2efc0ff40d51c8cdc-1767918600103~hmac=ee5bb09c16a3d935cae7e6ddee444b813946f94fb4a94fe40dd99306f0f85a44|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; AFTBTX4; Build/PS7678.4717N)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=027e8c7d44fead45633a5d9e21163efb-1767937812886
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 8/1/2026, 22:30:13
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
