@@ -3,10 +3,10 @@ name: Auto-Generate Playlist
 on:
   schedule:
     - cron: '*/15 * * * *' # Runs every 15 minutes
-  workflow_dispatch: # Manual Button
+  workflow_dispatch: # Allows manual run
   push:
     paths:
-      - 'temp_channels.txt' # Runs immediately when you edit temp channels
+      - 'temp_channels.txt' # Runs immediately on temp file change
 
 permissions:
   contents: write
@@ -30,6 +30,7 @@ jobs:
         run: |
           cat <<EOF > generate.py
           import requests
+          import json
           import re
           import os
           from datetime import datetime, timedelta, timezone
@@ -38,16 +39,16 @@ jobs:
           OUTPUT_FILE = "index.html"
           TEMP_FILE = "temp_channels.txt"
           
-          # 1. Main TV Sources (Prioritized)
+          # 1. THE SOURCES YOU REQUESTED (Mixed M3U & JSON)
           TV_SOURCES = [
-              "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html",
-              "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u",
-              "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
+              "https://livetv-cb7.pages.dev/hotstar",
+              "https://ztv.pfy.workers.dev",
+              "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
           ]
 
           # 2. Live Event Sources
           EVENT_SOURCES = [
-              ("FanCode", "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"),
+              ("FanCode", "https://raw.githubusercontent.com/byte-capsule/FanCode-Hls-Fetcher/main/Fancode_Live.m3u"),
               ("SonyLIV", "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"),
               ("Zee5 Live", "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u")
           ]
@@ -55,7 +56,7 @@ jobs:
           # 3. YouTube Source
           YOUTUBE_SOURCE = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
 
-          # 4. Master Channel List (Your Categories)
+          # 4. Master Channel List
           CATEGORIES = {
               "Tamil": ["Sun TV HD", "Star Vijay HD", "Colors Tamil HD", "Zee Tamil HD", "KTV HD", "Sun Music HD", "Kalaignar TV", "Jaya TV HD", "Raj TV", "Adithya TV", "Thanthi One", "Sun life", "Polimer TV", "Vendhar TV", "Madhimugam TV", "MK Six", "D Tamil", "Jothi TV", "OM TV", "Puthu Yugam"],
               "Movies": ["Zee Thirai HD", "Vijay Super HD", "Vijay Takkar", "J Movies", "Raj Digital Plus", "Star Movies HD", "Star Movies Select HD"],
@@ -67,7 +68,7 @@ jobs:
               "Infotainment": ["History TV18 HD", "Discovery HD World", "National Geographic HD", "Nat Geo Wild HD", "Animal Planet HD World", "Discovery Tamil", "Sony BBC Earth HD", "Travelxp Tamil", "Zee Zest HD", "Jio Specials HD"]
           }
 
-          # --- HELPERS ---
+          # --- HELPER FUNCTIONS ---
           def get_ist_time():
               ist = timezone(timedelta(hours=5, minutes=30))
               return datetime.now(ist).strftime("%Y-%m-%d %H:%M:%S IST")
@@ -76,8 +77,32 @@ jobs:
               if not name: return ""
               return name.lower().replace(" ", "").replace("_", "").replace("-", "").strip()
 
-          def parse_m3u(content):
+          # --- SMART PARSER (HANDLES JSON & M3U) ---
+          def extract_channels(content):
               items = []
+              # Try Parsing as JSON first (For ZTV / Hotstar sources)
+              try:
+                  data = json.loads(content)
+                  # Handle different JSON structures
+                  raw_list = []
+                  if isinstance(data, list): raw_list = data
+                  elif isinstance(data, dict):
+                      if "channels" in data: raw_list = data["channels"]
+                      elif "data" in data: raw_list = data["data"]
+                  
+                  for entry in raw_list:
+                      # Normalized JSON item to standard format
+                      items.append({
+                          'name': entry.get("name") or entry.get("title"),
+                          'logo': entry.get("logo") or entry.get("tvg_logo") or "",
+                          'url': entry.get("url") or entry.get("stream") or entry.get("link") or "",
+                          'group': entry.get("group_title") or ""
+                      })
+                  return items
+              except json.JSONDecodeError:
+                  pass # Not JSON, fall back to M3U
+
+              # M3U Parsing
               lines = content.splitlines()
               current_item = {}
               for line in lines:
@@ -87,7 +112,6 @@ jobs:
                       parts = line.split(',', 1)
                       if len(parts) > 1: current_item['name'] = parts[1].strip()
                       
-                      # Extract Props
                       logo = re.search(r'tvg-logo="([^"]+)"', line)
                       if logo: current_item['logo'] = logo.group(1)
                       
@@ -101,13 +125,13 @@ jobs:
                           current_item = {}
               return items
 
-          # --- MAIN BUILDER ---
+          # --- MAIN LOGIC ---
           def main():
               final_lines = ["#EXTM3U x-tvg-url=\"http://botallen.live/epg.xml.gz\""]
               final_lines.append(f"# Playlist Updated: {get_ist_time()}")
               final_lines.append("")
 
-              # 1. PROCESS TEMP CHANNELS (From text file)
+              # 1. PROCESS TEMP CHANNELS
               if os.path.exists(TEMP_FILE):
                   print(">>> Processing Temporary Channels...")
                   with open(TEMP_FILE, "r") as f:
@@ -123,7 +147,7 @@ jobs:
               print(">>> Processing YouTube...")
               try:
                   yt_content = requests.get(YOUTUBE_SOURCE).text
-                  yt_items = parse_m3u(yt_content)
+                  yt_items = extract_channels(yt_content)
                   for item in yt_items:
                       final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="{item.get("logo","")}", {item["name"]}')
                       final_lines.append(item['url'])
@@ -134,42 +158,40 @@ jobs:
               for source_name, url in EVENT_SOURCES:
                   try:
                       content = requests.get(url).text
-                      items = parse_m3u(content)
+                      items = extract_channels(content)
                       for item in items:
-                          # Force group title to "Live Events"
-                          final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{item.get("logo","")}", {source_name}: {item["name"]}')
+                          clean_name = item["name"].replace("Live Event", "").strip()
+                          final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{item.get("logo","")}", {source_name}: {clean_name}')
                           final_lines.append(item['url'])
                   except: print(f"Error fetching {source_name}")
               
-              # 4. PROCESS MAIN TV (The Skeleton Matcher)
+              # 4. PROCESS MAIN TV (Smart Filter)
               print(">>> Processing Main TV Channels...")
               
-              # Harvest all potential channels
               all_harvested = []
               for idx, url in enumerate(TV_SOURCES):
                   try:
                       print(f"Fetching Source {idx+1}...")
                       content = requests.get(url).text
-                      items = parse_m3u(content)
-                      # Tag with priority (lower idx = higher priority)
+                      items = extract_channels(content)
+                      # Tag with priority
                       for item in items: item['prio'] = idx 
                       all_harvested.extend(items)
-                  except: pass
+                  except Exception as e: 
+                      print(f"Error reading source {idx}: {e}")
 
-              # Match against Categories
               seen_channels = set()
               for cat, target_list in CATEGORIES.items():
                   for target in target_list:
                       if target.lower() in seen_channels: continue
                       
-                      # Find matches
                       matches = [
                           i for i in all_harvested 
                           if normalize(i.get('name')) == normalize(target)
                       ]
                       
                       if matches:
-                          # Sort: 1. Source Priority, 2. Prefer Clean Links (no underscores)
+                          # Sort: 1. Source Priority, 2. Clean URL
                           matches.sort(key=lambda x: (x['prio'], x['url'].count('_')))
                           best = matches[0]
                           
