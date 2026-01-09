@@ -6,10 +6,10 @@ import datetime
 # ==============================================================================
 # 1. CONFIGURATION
 # ==============================================================================
-# MAIN SOURCES (Added Tiger/Joker for Zee Group)
+# INDIVIDUAL SOURCES (We will load them separately now)
+URL_TIGER     = "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
 URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
 URL_FORCEGT   = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
-URL_TIGER     = "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
 
 # Pass-Through Sources
 URL_YOUTUBE   = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
@@ -84,7 +84,6 @@ MASTER_SKELETON = {
 # ==============================================================================
 
 def get_ist_time():
-    """Returns current IST time"""
     utc_now = datetime.datetime.utcnow()
     ist_now = utc_now + datetime.timedelta(hours=5, minutes=30)
     return ist_now.strftime("%Y-%m-%d %H:%M:%S IST")
@@ -93,14 +92,16 @@ def normalize(text):
     return re.sub(r'[^a-zA-Z0-9]', '', text).lower()
 
 def clean_html_line(line):
-    """Removes HTML tags like <br>, <pre>"""
     return re.sub(r'<[^>]+>', '', line).strip()
 
-def fetch_content(url):
+def fetch_content_to_dict(url):
+    """Fetches a URL and returns a Dict: { 'normalized_name': [list_of_urls] }"""
     print(f"Fetching: {url} ... ", end="")
-    entries = []
+    data = {}
+    names_list = []
+    
     try:
-        resp = requests.get(url, timeout=25) # Increased timeout
+        resp = requests.get(url, timeout=25)
         resp.raise_for_status()
         
         lines = resp.text.splitlines()
@@ -113,40 +114,45 @@ def fetch_content(url):
                 if "," in line:
                     name = line.split(",")[-1].strip()
             elif line.startswith("http") and name:
-                entries.append({'name': name, 'url': line})
+                key = normalize(name)
+                if key not in data:
+                    data[key] = []
+                    names_list.append(name)
+                
+                # Deduplicate
+                if line not in data[key]:
+                    data[key].append(line)
                 name = ""
-        
-        print(f"Success ({len(entries)} channels)")
-        return entries
+        print(f"Success ({len(names_list)} names)")
+        return data, names_list
         
     except Exception as e:
         print(f"Error: {e}")
-        return []
+        return {}, []
 
-def get_mapped_streams(urls):
-    mapped = {}
-    source_names = []
-    
-    for url in urls:
-        items = fetch_content(url)
-        for item in items:
-            key = normalize(item['name'])
-            if key not in mapped:
-                mapped[key] = []
-                source_names.append(item['name'])
-            if item['url'] not in mapped[key]:
-                mapped[key].append(item['url'])
-                
-    return mapped, source_names
+def fetch_content_simple(url):
+    """Simple list fetch for Pass-Through"""
+    print(f"Fetching (Pass-Through): {url}")
+    entries = []
+    try:
+        resp = requests.get(url, timeout=25)
+        resp.raise_for_status()
+        lines = resp.text.splitlines()
+        name = ""
+        for line in lines:
+            line = clean_html_line(line)
+            if line.startswith("#EXTINF") and "," in line:
+                name = line.split(",")[-1].strip()
+            elif line.startswith("http") and name:
+                entries.append({'name': name, 'url': line})
+                name = ""
+    except: pass
+    return entries
 
 def find_best_match(target, options):
     target_clean = normalize(target)
     for opt in options:
         if normalize(opt) == target_clean: return normalize(opt)
-    
-    matches = [opt for opt in options if target_clean in normalize(opt)]
-    if matches: return normalize(min(matches, key=len))
-    
     matches = difflib.get_close_matches(target, options, n=1, cutoff=0.5)
     if matches: return normalize(matches[0])
     return None
@@ -157,28 +163,22 @@ def parse_temp_file(filename):
         with open(filename, 'r', encoding='utf-8') as f:
             content = f.read()
             blocks = re.split(r'Title\s*:', content)
-            
             for block in blocks:
                 if not block.strip(): continue
                 lines = block.split('\n')
                 name = lines[0].strip()
                 logo = ""
                 link = ""
-                
                 for line in lines:
-                    if line.startswith("Logo"):
-                        logo = line.split(":", 1)[1].strip()
-                    if line.startswith("Link"):
-                        link = line.split(":", 1)[1].strip()
-                        
+                    if line.startswith("Logo"): logo = line.split(":", 1)[1].strip()
+                    if line.startswith("Link"): link = line.split(":", 1)[1].strip()
                 if name and link:
                     channels.append({'name': name, 'logo': logo, 'url': link})
-    except FileNotFoundError:
-        print(f"Warning: {filename} not found.")
+    except: pass
     return channels
 
 # ==============================================================================
-# 4. MAIN LOGIC
+# 4. MAIN LOGIC (HYBRID PRIORITY)
 # ==============================================================================
 
 def main():
@@ -189,53 +189,77 @@ def main():
         'http://localhost/timestamp'
     ]
     
-    # --- PART A: MASTER CHANNELS (Using 3 Sources Now) ---
-    print("\n--- Processing Master Channels ---")
+    print("\n--- 1. Fetching All Sources Separately ---")
+    # Fetch data into separate buckets
+    tiger_data, tiger_names = fetch_content_to_dict(URL_TIGER)
+    arun_data, arun_names   = fetch_content_to_dict(URL_ARUNJUNAN)
+    force_data, force_names = fetch_content_to_dict(URL_FORCEGT)
     
-    # Added URL_TIGER to the list of sources below
-    all_streams, source_names = get_mapped_streams([URL_ARUNJUNAN, URL_FORCEGT, URL_TIGER])
+    # Combined names list for fuzzy matching
+    all_known_names = list(set(tiger_names + arun_names + force_names))
+    
+    print("\n--- 2. Processing Master Channels with Smart Priority ---")
     
     backup_lines = []
     
     for group, channels in MASTER_SKELETON.items():
         for name, tvg_id, logo in channels:
-            key = find_best_match(name, source_names)
             
-            if key and key in all_streams:
-                urls = all_streams[key]
-                # Primary
-                final_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="{group}", {name}\n{urls[0]}')
+            # Find the normalized key (e.g. "Zee Tamil HD" -> "zeetamilhd")
+            best_key = find_best_match(name, all_known_names)
+            
+            final_urls = []
+            
+            if best_key:
+                # === SMART PRIORITY LOGIC ===
                 
-                # Backups
-                for idx, url in enumerate(urls[1:], 1):
+                # Priority List 1: ZEE CHANNELS
+                if "zee" in name.lower():
+                    # Look in Tiger FIRST, then Arunjunan, then ForceGT
+                    if best_key in tiger_data: final_urls.extend(tiger_data[best_key])
+                    if best_key in arun_data:  final_urls.extend(arun_data[best_key])
+                    if best_key in force_data: final_urls.extend(force_data[best_key])
+                    
+                # Priority List 2: EVERYTHING ELSE (Sun, Star, Sony, etc.)
+                else:
+                    # Look in Arunjunan FIRST, then ForceGT, then Tiger
+                    if best_key in arun_data:  final_urls.extend(arun_data[best_key])
+                    if best_key in force_data: final_urls.extend(force_data[best_key])
+                    if best_key in tiger_data: final_urls.extend(tiger_data[best_key])
+
+            # === ADD TO PLAYLIST ===
+            if final_urls:
+                # Add Main Channel (First URL found based on priority above)
+                final_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="{group}", {name}\n{final_urls[0]}')
+                
+                # Add Backups (Remaining URLs)
+                for idx, url in enumerate(final_urls[1:], 1):
                     backup_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="Backups", {name} [Backup {idx}]\n{url}')
                 print(f"[OK] {name}")
             else:
                 print(f"[MISSING] {name}")
-    
+
     # --- PART B: LIVE EVENTS ---
     print("\n--- Processing Live Events ---")
-    live_sources = [URL_FANCODE, URL_SONY, URL_ZEE5]
-    for source in live_sources:
-        items = fetch_content(source)
+    for source in [URL_FANCODE, URL_SONY, URL_ZEE5]:
+        items = fetch_content_simple(source)
         for item in items:
             final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="", {item["name"]}\n{item["url"]}')
-            
+
     # --- PART C: YOUTUBE ---
     print("\n--- Processing YouTube ---")
-    yt_items = fetch_content(URL_YOUTUBE)
-    for item in yt_items:
+    items = fetch_content_simple(URL_YOUTUBE)
+    for item in items:
          final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="https://i.imgur.com/MbCpK4X.png", {item["name"]}\n{item["url"]}')
-         
-    # --- PART D: TEMPORARY CHANNELS ---
-    print("\n--- Processing Temporary Channels ---")
-    temp_items = parse_temp_file(FILE_TEMP)
-    for item in temp_items:
+
+    # --- PART D: TEMPORARY ---
+    print("\n--- Processing Temporary ---")
+    items = parse_temp_file(FILE_TEMP)
+    for item in items:
         final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="{item["logo"]}", {item["name"]}\n{item["url"]}')
 
-    # --- WRITE FILE ---
+    # Write Final File
     final_lines.extend(backup_lines)
-    
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(final_lines))
         
