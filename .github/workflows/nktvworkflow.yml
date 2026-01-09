@@ -1,20 +1,18 @@
-name: NKTV Playlist Generator
+name: Update NKTV Playlist
 
 on:
   schedule:
     - cron: '*/5 * * * *'  # Runs every 5 minutes
-  workflow_dispatch:       # Allows manual run
   push:
     paths:
       - 'nktv.py'
-      - 'temporary_channels.txt'
+      - 'temp.txt'
+  workflow_dispatch:      # Allows manual run button
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
+    
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -25,7 +23,9 @@ jobs:
           python-version: '3.9'
 
       - name: Install Dependencies
-        run: pip install requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
 
       - name: Run Script
         run: python nktv.py
@@ -35,4 +35,5 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add nktv.m3u
-          git diff --staged --quiet || (git commit -m "Auto-Update NKTV Playlist" && git push)
+          git commit -m "Auto-update playlist" || exit 0
+          git push
