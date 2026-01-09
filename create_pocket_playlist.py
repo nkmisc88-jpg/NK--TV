@@ -75,15 +75,6 @@ def get_clean_id(name):
     name = name.lower().replace("hd", "").replace(" ", "").strip()
     return re.sub(r'[^a-z0-9]', '', name)
 
-def extract_youtube_id(url):
-    """Extracts the 11-char Video ID from a YouTube URL."""
-    # Matches: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/live/ID
-    regex = r"(?:v=|\/)([0-9A-Za-z_-]{11}).*"
-    match = re.search(regex, url)
-    if match:
-        return match.group(1)
-    return None
-
 def fetch_live_events(url):
     lines = []
     try:
@@ -113,7 +104,6 @@ def get_auto_logo(channel_name):
     return ""
 
 def parse_youtube_txt():
-    """Reads youtube.txt and formats links for OTT Navigator."""
     lines = []
     if not os.path.exists(YOUTUBE_FILE): return []
     try:
@@ -123,7 +113,6 @@ def parse_youtube_txt():
         for line in file_lines:
             line = line.strip()
             if not line: continue
-            
             if line.lower().startswith("title"):
                 parts = line.split(":", 1)
                 if len(parts) > 1: current_title = parts[1].strip()
@@ -135,32 +124,14 @@ def parse_youtube_txt():
                 if line.lower().startswith("link"):
                     parts = line.split(":", 1)
                     if len(parts) > 1: url = parts[1].strip()
-                
-                # --- YOUTUBE LOGIC ---
-                if "youtube.com" in url or "youtu.be" in url:
-                    video_id = extract_youtube_id(url)
-                    if video_id:
-                        if not current_logo: 
-                            current_logo = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"
-                        if not current_title: 
-                            current_title = f"YouTube Live {video_id}"
-                        
-                        # Use Clean Direct Link (OTT Navigator handles this internally)
-                        clean_url = f"https://www.youtube.com/watch?v={video_id}"
-                        
-                        lines.append(f'#EXTINF:-1 group-title="YouTube Live" tvg-logo="{current_logo}",{current_title}')
-                        lines.append(clean_url)
-
-                # --- NORMAL LINKS ---
-                elif url.startswith("http") or url.startswith("rtmp"):
+                if url.startswith("http") or url.startswith("rtmp"):
                     if not current_title: current_title = "Temporary Channel"
                     if not current_logo or len(current_logo) < 5:
                         current_logo = get_auto_logo(current_title)
                     lines.append(f'#EXTINF:-1 group-title="Temporary Channels" tvg-logo="{current_logo}",{current_title}')
                     if "http" in url and "|" not in url: url += f"|User-Agent={UA_HEADER}"
                     lines.append(url)
-                    
-                current_title, current_logo = "", ""
+                    current_title, current_logo = "", ""
     except: pass
     return lines
 
@@ -318,7 +289,6 @@ def main():
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
     
     # ADD YOUTUBE
-    print("📥 Adding YouTube...")
     final_lines.extend(parse_youtube_txt())
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
