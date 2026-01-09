@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-10 02:14:39 IST
+# Updated on: 2026-01-10 02:27:20 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,19 +846,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4&xxx=||cookie=__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 10 January 2026 at 2:14:07 am
+#DATE:- Saturday, 10 January 2026 at 2:21:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138388" tvg-name="Cameroon Vs Morocco" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Cameroon-vs-Morocco_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Cameroon Vs Morocco
 https://in-mc-fdlive.fancode.com/mumbai/138388_english_hls_b50450f5227461_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="131018" tvg-name="Getafe Cf Vs Real Sociedad" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131018_5427_GEF_RS_fc-Web.png" tvg-language="ENGLISH" ,ENG | Getafe Cf Vs Real Sociedad
 https://in-mc-fdlive.fancode.com/mumbai/131018_english_hls_8ed270d21f40954_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139247" tvg-name="Cádiz Vs Sporting De Gijón" tvg-logo="https://images.fancode.com/aig/match/v1/139247_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Cádiz Vs Sporting De Gijón
 https://in-mc-fdlive.fancode.com/mumbai/139247_english_hls_6f877cbffd3887_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 10-01-2026 02:00
+#DATE:- 10-01-2026 02:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499144" tvg-name="The Emirates FA Cup 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013148/176793910790478_facup26_RD3_Wrexham_vs_Nottingham_Forest_9jan_Landscape_thumb.jpg" tvg-language="English" ,ENG | Wrexham vs Nottingham Forest - Round 3 - 10 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094587/DAI03ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; HAKO Pro; Build/RT)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=0a5ccd6db3528947dbc5f24980368685-1767990612640
+https://sonymtmnew.akamaized.net/hls/live/2094587/DAI03ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 16; en_GB; SM-A366B; Build/BP2A.250605.031.A3)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=6b0a0da69a2e57b20fe705e64f355a7d-1767991810326
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499141" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013116/1767854408912351_Bundesliga_MD16_Eintracht-Frankfurt-vs-Borussia-Dortmund_landscape_thumb.jpg" tvg-language="English" ,ENG | Eintracht Frankfurt vs Borussia Dortmund - MD 16 - 10 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; SM-S908E; Build/UP1A.231005.007)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=0a5ccd6db3528947dbc5f24980368685-1767990612640
+https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; CPH2565; Build/UP1A.230620.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=6b0a0da69a2e57b20fe705e64f355a7d-1767991810326
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 9/1/2026, 22:30:05
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
