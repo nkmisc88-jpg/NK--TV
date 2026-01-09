@@ -5,7 +5,9 @@ import difflib
 # ==============================================================================
 # 1. CONFIGURATION: SOURCE URLs
 # ==============================================================================
-# Main Sources (Priority Order)
+
+# --- CORRECTED LINKS ---
+# FIXED: Changed 'index.html' to 'playlist.m3u' for Arunjunan
 URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/playlist.m3u"
 URL_FORCEGT   = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
 
@@ -86,12 +88,18 @@ def normalize(text):
     return re.sub(r'[^a-zA-Z0-9]', '', text).lower()
 
 def fetch_m3u(url):
-    """Fetches M3U and returns a list of dicts: {'name': name, 'url': url}"""
-    print(f"Fetching: {url}")
+    """Fetches M3U and returns a list of dicts"""
+    print(f"Fetching: {url} ... ", end="")
     entries = []
     try:
         resp = requests.get(url, timeout=15)
         resp.raise_for_status()
+        
+        # Check if we accidentally fetched HTML
+        if "<html" in resp.text[:500].lower():
+            print("FAILED! (URL returned HTML, not M3U)")
+            return []
+            
         lines = resp.text.splitlines()
         name = ""
         for line in lines:
@@ -102,15 +110,16 @@ def fetch_m3u(url):
             elif line.startswith("http") and name:
                 entries.append({'name': name, 'url': line})
                 name = ""
+        
+        print(f"Success ({len(entries)} channels found)")
+        return entries
+        
     except Exception as e:
-        print(f"Error fetching {url}: {e}")
-    return entries
+        print(f"Error: {e}")
+        return []
 
 def get_mapped_streams(urls):
-    """
-    Consolidates streams from multiple URLs into a dictionary:
-    { 'normalized_name': [url1, url2, ...] }
-    """
+    """Consolidates streams from multiple URLs"""
     mapped = {}
     source_names = []
     
@@ -139,12 +148,10 @@ def find_best_match(target, options):
     return None
 
 def parse_temp_file(filename):
-    """Parses custom format: Title: X \n Logo: Y \n Link: Z"""
     channels = []
     try:
         with open(filename, 'r', encoding='utf-8') as f:
             content = f.read()
-            # Split by double newlines or based on "Title :" pattern
             blocks = content.split("Title :")
             for block in blocks:
                 if not block.strip(): continue
@@ -174,6 +181,9 @@ def main():
     print("\n--- Processing Master Channels ---")
     all_streams, source_names = get_mapped_streams([URL_ARUNJUNAN, URL_FORCEGT])
     
+    if not all_streams:
+        print("CRITICAL WARNING: No channels were found in Arunjunan or ForceGT sources!")
+    
     backup_lines = []
     
     for group, channels in MASTER_SKELETON.items():
@@ -192,16 +202,15 @@ def main():
             else:
                 print(f"[MISSING] {name}")
     
-    # --- PART B: LIVE EVENTS (Pass-Through) ---
+    # --- PART B: LIVE EVENTS ---
     print("\n--- Processing Live Events ---")
     live_sources = [URL_FANCODE, URL_SONY, URL_ZEE5]
     for source in live_sources:
         items = fetch_m3u(source)
         for item in items:
-            # Force group-title to Live Events
             final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="", {item["name"]}\n{item["url"]}')
             
-    # --- PART C: YOUTUBE (Pass-Through) ---
+    # --- PART C: YOUTUBE ---
     print("\n--- Processing YouTube ---")
     yt_items = fetch_m3u(URL_YOUTUBE)
     for item in yt_items:
@@ -214,7 +223,6 @@ def main():
         final_lines.append(f'#EXTINF:-1 group-title="Temporary" tvg-logo="{item["logo"]}", {item["name"]}\n{item["url"]}')
 
     # --- WRITE FILE ---
-    # Append backups at the very end
     final_lines.extend(backup_lines)
     
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
