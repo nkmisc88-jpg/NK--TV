@@ -1,5 +1,5 @@
 #EXTM3U
-#EXTINF:-1 group-title="System", Playlist Updated: 2026-01-10 00:51:46 IST
+#EXTINF:-1 group-title="System", Playlist Updated: 2026-01-10 00:59:43 IST
 http://localhost/timestamp
 #EXTINF:-1 tvg-id="0-9-348" tvg-name="Zee Zest HD" tvg-language="en" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-348/channel_list/360x20333fcf07b744341518375ae7ae35c08c7" group-title="Zee Lifestyle" group-logo="https://upload.wikimedia.org/wikipedia/commons/5/5a/Zee5-official-logo.jpeg", Zee Zest HD
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1768071903~acl=%2f*~id=5fa64efb-4e06-4074-9c9c-17be835e2ad0~data=hdntl~hmac=9135052eb3923f207e3b6fc94a21f17187274e6cf859d3d7ce5d0f4ba2e9fe85|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
