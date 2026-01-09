@@ -11,7 +11,19 @@ OUTPUT_FILE = "pocket_playlist.m3u"
 YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
-# 1. GROUP MAPPING
+# --- NEW SOURCES ---
+# 1. Treated as MAIN SOURCE (Rules applied)
+ZEE_JOKER_URL = "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
+
+# 2. Treated as EXTERNAL GROUP (Forced Group Name)
+YOUTUBE_LIVE_URL = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
+
+# 3. LIVE EVENTS
+FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
+SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
+ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
+
+# 4. GROUP MAPPING
 MOVE_TO_TAMIL_HD = [
     "Sun TV HD", "Star Vijay HD", "Colors Tamil HD", 
     "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD",
@@ -42,15 +54,10 @@ INFOTAINMENT_KEYWORDS = [
     "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
 ]
 
-# 2. DELETE LIST
+# 5. DELETE LIST
 BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
 
-# 3. LIVE EVENTS
-FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
-SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
-ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
-
-# 4. AUTO LOGO
+# 6. AUTO LOGO
 LOGO_MAP = {
     "willow": "https://i.imgur.com/39s1fL3.png",
     "fox": "https://i.imgur.com/39s1fL3.png"
@@ -75,7 +82,17 @@ def get_clean_id(name):
     name = name.lower().replace("hd", "").replace(" ", "").strip()
     return re.sub(r'[^a-z0-9]', '', name)
 
-def fetch_live_events(url):
+def fetch_playlist_lines(url):
+    try:
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+        if r.status_code == 200:
+            return r.text.splitlines()
+    except Exception as e:
+        print(f"⚠️ Failed to fetch {url}: {e}")
+    return []
+
+# UPDATED: Flexible fetcher that accepts a target Group Name
+def fetch_external_playlist_with_group(url, target_group="Live Events"):
     lines = []
     try:
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
@@ -86,10 +103,11 @@ def fetch_live_events(url):
                 if not line: continue
                 if line.startswith("#EXTM3U"): continue
                 
-                # FORCE GROUP TO "Live Events"
                 if line.startswith("#EXTINF"):
+                    # Remove existing group
                     line = re.sub(r'group-title="([^"]*)"', '', line)
-                    line = re.sub(r'(#EXTINF:[-0-9]+)', r'\1 group-title="Live Events"', line)
+                    # Add forced target group
+                    line = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{target_group}"', line)
                     lines.append(line)
                 elif not line.startswith("#"):
                     lines.append(line)
@@ -136,21 +154,24 @@ def parse_youtube_txt():
     return lines
 
 def main():
-    print("📥 Downloading Source Playlist...")
+    print("📥 Downloading Source Playlists...")
     
     ist_now = datetime.datetime.utcnow() + datetime.timedelta(hours=5, minutes=30)
     final_lines = ["#EXTM3U"]
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    try:
-        r = requests.get(POCKET_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
-        source_lines = r.text.splitlines()
-    except Exception as e:
-        print(f"❌ Failed: {e}")
+    # --- MERGE SOURCES ---
+    # We combine POCKET + ZEE_JOKER into one big list so they get processed equally
+    source_lines = []
+    source_lines.extend(fetch_playlist_lines(POCKET_URL))
+    source_lines.extend(fetch_playlist_lines(ZEE_JOKER_URL))
+
+    if not source_lines:
+        print("❌ No data found in sources.")
         sys.exit(1)
 
-    # --- STEP 1: SCAN FOR HD CHANNELS ---
+    # --- STEP 1: SCAN FOR HD CHANNELS (Across ALL sources) ---
     hd_channels_exist = set()
     for line in source_lines:
         if line.startswith("#EXTINF"):
@@ -283,12 +304,17 @@ def main():
         final_lines.extend(current_buffer)
 
     # ADD LIVE EVENTS
-    print("📥 Adding Live Events...")
-    final_lines.extend(fetch_live_events(FANCODE_URL))
-    final_lines.extend(fetch_live_events(SONY_LIVE_URL))
-    final_lines.extend(fetch_live_events(ZEE_LIVE_URL))
+    print("📥 Adding Live Events & External Sources...")
+    # Original 3
+    final_lines.extend(fetch_external_playlist_with_group(FANCODE_URL, "Live Events"))
+    final_lines.extend(fetch_external_playlist_with_group(SONY_LIVE_URL, "Live Events"))
+    final_lines.extend(fetch_external_playlist_with_group(ZEE_LIVE_URL, "Live Events"))
     
-    # ADD YOUTUBE
+    # NEW: YouTube Live (Added to its own group)
+    print("📥 Adding YouTube Live...")
+    final_lines.extend(fetch_external_playlist_with_group(YOUTUBE_LIVE_URL, "YouTube Live"))
+    
+    # ADD YOUTUBE TEXT FILE
     final_lines.extend(parse_youtube_txt())
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
