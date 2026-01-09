@@ -1,14 +1,13 @@
 import requests
 import re
 import difflib
+import datetime
 
 # ==============================================================================
-# 1. CONFIGURATION: SOURCE URLs
+# 1. CONFIGURATION
 # ==============================================================================
-
-# --- CORRECTED LINKS ---
-# FIXED: Changed 'index.html' to 'playlist.m3u' for Arunjunan
-URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
+# MAIN SOURCE (HTML Format accepted now)
+URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html"
 URL_FORCEGT   = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
 
 # Pass-Through Sources
@@ -17,12 +16,11 @@ URL_FANCODE   = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/
 URL_SONY      = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 URL_ZEE5      = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 
-# Temporary File
 FILE_TEMP     = "temp.txt"
 OUTPUT_FILE   = "nktv.m3u"
 
 # ==============================================================================
-# 2. MASTER SKELETON (Your Fixed Channel List)
+# 2. MASTER SKELETON
 # ==============================================================================
 MASTER_SKELETON = {
     "Tamil HD": [
@@ -84,34 +82,47 @@ MASTER_SKELETON = {
 # 3. HELPER FUNCTIONS
 # ==============================================================================
 
+def get_ist_time():
+    """Returns current IST time"""
+    utc_now = datetime.datetime.utcnow()
+    ist_now = utc_now + datetime.timedelta(hours=5, minutes=30)
+    return ist_now.strftime("%Y-%m-%d %H:%M:%S IST")
+
 def normalize(text):
     return re.sub(r'[^a-zA-Z0-9]', '', text).lower()
 
-def fetch_m3u(url):
-    """Fetches M3U and returns a list of dicts"""
+def clean_html_line(line):
+    """Removes HTML tags like <br>, <pre> from a line"""
+    # Remove HTML tags
+    clean = re.sub(r'<[^>]+>', '', line)
+    return clean.strip()
+
+def fetch_content(url):
+    """Fetches content, handling both HTML and M3U"""
     print(f"Fetching: {url} ... ", end="")
     entries = []
     try:
-        resp = requests.get(url, timeout=15)
+        resp = requests.get(url, timeout=20)
         resp.raise_for_status()
         
-        # Check if we accidentally fetched HTML
-        if "<html" in resp.text[:500].lower():
-            print("FAILED! (URL returned HTML, not M3U)")
-            return []
-            
+        # Split by lines
         lines = resp.text.splitlines()
+        
         name = ""
         for line in lines:
-            line = line.strip()
+            line = clean_html_line(line)
+            
+            if not line: continue
+            
             if line.startswith("#EXTINF"):
                 if "," in line:
                     name = line.split(",")[-1].strip()
+            # Check for HTTP link (basic check)
             elif line.startswith("http") and name:
                 entries.append({'name': name, 'url': line})
-                name = ""
+                name = "" # Reset
         
-        print(f"Success ({len(entries)} channels found)")
+        print(f"Success ({len(entries)} channels)")
         return entries
         
     except Exception as e:
@@ -119,19 +130,16 @@ def fetch_m3u(url):
         return []
 
 def get_mapped_streams(urls):
-    """Consolidates streams from multiple URLs"""
     mapped = {}
     source_names = []
     
     for url in urls:
-        items = fetch_m3u(url)
+        items = fetch_content(url)
         for item in items:
             key = normalize(item['name'])
             if key not in mapped:
                 mapped[key] = []
                 source_names.append(item['name'])
-            
-            # Avoid duplicate links
             if item['url'] not in mapped[key]:
                 mapped[key].append(item['url'])
                 
@@ -139,11 +147,13 @@ def get_mapped_streams(urls):
 
 def find_best_match(target, options):
     target_clean = normalize(target)
-    # 1. Exact
     for opt in options:
         if normalize(opt) == target_clean: return normalize(opt)
-    # 2. Fuzzy
-    matches = difflib.get_close_matches(target, options, n=1, cutoff=0.6)
+    
+    matches = [opt for opt in options if target_clean in normalize(opt)]
+    if matches: return normalize(min(matches, key=len))
+    
+    matches = difflib.get_close_matches(target, options, n=1, cutoff=0.5)
     if matches: return normalize(matches[0])
     return None
 
@@ -152,20 +162,23 @@ def parse_temp_file(filename):
     try:
         with open(filename, 'r', encoding='utf-8') as f:
             content = f.read()
-            blocks = content.split("Title :")
+            blocks = re.split(r'Title\s*:', content)
+            
             for block in blocks:
                 if not block.strip(): continue
+                lines = block.split('\n')
+                name = lines[0].strip()
+                logo = ""
+                link = ""
                 
-                title = re.search(r'(.*?)\n', block)
-                logo = re.search(r'Logo\s*:\s*(.*?)\n', block)
-                link = re.search(r'Link\s*:\s*(.*?)\n', block)
-                
-                if title and link:
-                    channels.append({
-                        'name': title.group(1).strip(),
-                        'logo': logo.group(1).strip() if logo else "",
-                        'url': link.group(1).strip()
-                    })
+                for line in lines:
+                    if line.startswith("Logo"):
+                        logo = line.split(":", 1)[1].strip()
+                    if line.startswith("Link"):
+                        link = line.split(":", 1)[1].strip()
+                        
+                if name and link:
+                    channels.append({'name': name, 'logo': logo, 'url': link})
     except FileNotFoundError:
         print(f"Warning: {filename} not found.")
     return channels
@@ -175,14 +188,16 @@ def parse_temp_file(filename):
 # ==============================================================================
 
 def main():
-    final_lines = ['#EXTM3U x-tvg-url="https://avkb.short.gy/tsepg.xml.gz"']
+    ist_time = get_ist_time()
+    final_lines = [
+        '#EXTM3U x-tvg-url="https://avkb.short.gy/tsepg.xml.gz"',
+        f'#EXTINF:-1 group-title="System" tvg-logo="", Playlist Updated: {ist_time}',
+        'http://localhost/timestamp'
+    ]
     
-    # --- PART A: MASTER CHANNELS (Skeleton Mode) ---
+    # --- PART A: MASTER CHANNELS ---
     print("\n--- Processing Master Channels ---")
     all_streams, source_names = get_mapped_streams([URL_ARUNJUNAN, URL_FORCEGT])
-    
-    if not all_streams:
-        print("CRITICAL WARNING: No channels were found in Arunjunan or ForceGT sources!")
     
     backup_lines = []
     
@@ -192,10 +207,8 @@ def main():
             
             if key and key in all_streams:
                 urls = all_streams[key]
-                # Primary Link
                 final_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="{group}", {name}\n{urls[0]}')
                 
-                # Backup Links
                 for idx, url in enumerate(urls[1:], 1):
                     backup_lines.append(f'#EXTINF:-1 tvg-id="{tvg_id}" tvg-logo="{logo}" group-title="Backups", {name} [Backup {idx}]\n{url}')
                 print(f"[OK] {name}")
@@ -206,13 +219,13 @@ def main():
     print("\n--- Processing Live Events ---")
     live_sources = [URL_FANCODE, URL_SONY, URL_ZEE5]
     for source in live_sources:
-        items = fetch_m3u(source)
+        items = fetch_content(source)
         for item in items:
             final_lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="", {item["name"]}\n{item["url"]}')
             
     # --- PART C: YOUTUBE ---
     print("\n--- Processing YouTube ---")
-    yt_items = fetch_m3u(URL_YOUTUBE)
+    yt_items = fetch_content(URL_YOUTUBE)
     for item in yt_items:
          final_lines.append(f'#EXTINF:-1 group-title="YouTube" tvg-logo="https://i.imgur.com/MbCpK4X.png", {item["name"]}\n{item["url"]}')
          
