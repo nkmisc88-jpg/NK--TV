@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-09 13:17:16 IST
+# Updated on: 2026-01-09 14:29:20 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,27 +846,31 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4&xxx=||cookie=__hdnea__=st=1767921281~exp=1768007681~acl=/*~hmac=08a9b114d0e8eeb403e681aab0928bc94df532554bb6191dfe6966c1dd0631f4
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 9 January 2026 at 1:14:05 pm
+#DATE:- Friday, 9 January 2026 at 2:28:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138944" tvg-name="Rajshahi Warriors Vs Chattogram Royals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138944_5808_DBR_CCH_fc-web_1766733054162.jpg" tvg-language="ENGLISH" ,ENG | Rajshahi Warriors Vs Chattogram Royals
 https://fancode-dlt-adns.airteledge.in/mum-airtel-origin/138944_english_hls_397d6af3aa50746_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="138819" tvg-name="Brisbane Roar Vs Auckland" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138819_5802_BRB_AFC_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Brisbane Roar Vs Auckland
+https://in-mc-fdlive.fancode.com/mumbai/138819_english_hls_0e8076fa1729415_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139195" tvg-name="Show Court 1   Day 6" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 6
 https://in-mc-fdlive.fancode.com/mumbai/139195_english_hls_7bfdfb96f343630_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139194" tvg-name="Pat Rafter Arena   Day 6" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 6
 https://in-mc-fdlive.fancode.com/mumbai/139194_english_hls_2011737c6424099_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139208" tvg-name="Center Court   Day 5" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 5
 https://in-mc-fdlive.fancode.com/mumbai/139208_english_hls_ce83ebd80a67417_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 09-01-2026 13:00
+#EXTINF:-1 group-title="Live Events" tvg-id="139287" tvg-name="Centre Court   Day 5" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 5
+https://in-mc-fdlive.fancode.com/mumbai/139287_english_hls_8139d864e751453_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 09-01-2026 14:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499138" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013066/1767773302425351_UC26_QF_Australia_vs_Poland_7jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Australia vs Poland - Quarter-final - 9 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767983401~acl=/*~id=68f41971771c3b207d6d971438277279-1767940200132~hmac=e0cecd2e70ebab8e7eddbe2c21bcf94b8de757c7010194fc9cf29e9cea30668a|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; AGS5-W09; Build/HUAWEIAGS5-W09)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=b8ef8d7baed7218fdc6987571081c2f1-1767943810789
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1767983401~acl=/*~id=68f41971771c3b207d6d971438277279-1767940200132~hmac=e0cecd2e70ebab8e7eddbe2c21bcf94b8de757c7010194fc9cf29e9cea30668a|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; RMX3571; Build/UKQ1.230924.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c30458332620ceb4de7d4212fb7229cb-1767948611495
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 9 January 2026 at 1:15:14 pm
+#DATE:- Friday, 9 January 2026 at 2:15:08 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873768" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873768/list/1920x1080listccabf9dc6729475fad926da58bc59dbbf8de2b29a9fc4eb884926674c2b05988.jpg" tvg-language="bengali" ,BEN | Howrah Hooghly Warriors Vs Kopa Tigers Birbhum
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1768031106~acl=%2f*~data=hdntl~hmac=e2e79324f23d41164fb225525f680a85d18337efb8f40c573ce4b7c2deb1313f|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873768" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873768/list/1920x1080listccabf9dc6729475fad926da58bc59dbbf8de2b29a9fc4eb884926674c2b05988.jpg" tvg-language="english" ,ENG | Howrah Hooghly Warriors Vs Kopa Tigers Birbhum
 https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M01/master.m3u8?hdntl=exp=1768031109~acl=%2f*~data=hdntl~hmac=bf568444a78194af32449d3cadc517f50766c11c5b5effa01e958dfebcc2fb70|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1767985442~acl=%2f*~id=d3af5910-bc79-456c-a0ec-362894bd47d8~data=hdntl~hmac=8564e3d5252833af45cfdcbc6ff3c079b9467514660712af558e91ada6496ad0|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768028643~acl=%2f*~id=11a35add-ef25-4dd9-8854-876110d8e3e6~data=hdntl~hmac=b32840310ca6dedc650dec68b8f9ca3bd5a9b497b2f055356e1ed67f257589ae|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
 https://keys.vodep39240327.workers.dev/?id=300.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png",Star Sports Select 2 HD
