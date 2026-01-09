@@ -8,7 +8,7 @@ import difflib
 
 # --- CORRECTED LINKS ---
 # FIXED: Changed 'index.html' to 'playlist.m3u' for Arunjunan
-URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/playlist.m3u"
+URL_ARUNJUNAN = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/refs/heads/main/index.html"
 URL_FORCEGT   = "https://raw.githubusercontent.com/ForceGT/Discord-IPTV/master/playlist.m3u"
 
 # Pass-Through Sources
