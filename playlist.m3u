@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-10 05:21:20 IST
+# Updated on: 2026-01-10 07:04:31 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -845,12 +845,16 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572&xxx=||cookie=__hdnea__=st=1767961951~exp=1768048351~acl=/*~hmac=39c7ef4096b2d0e97e95370db9af15efc8b8370627b85e03a8adff57b97fd572
-##Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-# Last Checked: 10/1/2026, 04:00:06
-#DATE:- 10-01-2026 05:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#DATE:- Saturday, 10 January 2026 at 7:00:05 am
+#EXTINF:-1 group-title="Live Events" tvg-id="138777" tvg-name="Auckland Hearts Vs Canterbury Magicians" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138777_5801_CM-W_AH-W_fc-web_1766596522070.jpg" tvg-language="ENGLISH" ,ENG | Auckland Hearts Vs Canterbury Magicians
+https://in-mc-fdlive.fancode.com/mumbai/138777_english_hls_516c18a24482246_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 10-01-2026 07:00
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498878" tvg-name="Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012842/1767165771653275_SuperSmash2526_womens_Canterbury-Magicians-vs-Auckland-Hearts_31dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Canterbury Magicians vs Auckland Hearts- 10 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1768048201~acl=/*~id=33c55570c968e6dd8c79c15fbf2140fd-1768005000150~hmac=055d96883c541889a63c80dbc87612208d9a3c91f1a97a647ae4afe6f04b22fe|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; moto e(7) power; Build/QOLS30.288-52-23)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=15c6b0d53004797dec5be9376de2a950-1768008610285
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499151" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013171/1767959265113119_UC26_SF_Switzerland_vs_Belgium_9jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Switzerland vs Belgium - Semi-final - 10 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768026601~acl=/*~id=3e03652cf37577e02e16416e2955ca6c-1767983400215~hmac=ef8ad84c9bf1a93641ee2f8bf4075cffa5a0ad482cd85a760e76c6ced69fa1d9|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; TVBOX; Build/NHG47L)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=5e62a0e16b2ed0ce305a16c115a846b2-1768002611914
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768048201~acl=/*~id=33c55570c968e6dd8c79c15fbf2140fd-1768005000150~hmac=055d96883c541889a63c80dbc87612208d9a3c91f1a97a647ae4afe6f04b22fe|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; motorola edge 50 fusion; Build/U2UUIS34.40-108-3-2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=15c6b0d53004797dec5be9376de2a950-1768008610285
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 9/1/2026, 22:30:05
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
