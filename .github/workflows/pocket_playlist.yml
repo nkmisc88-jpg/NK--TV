@@ -1,16 +1,16 @@
 name: Pocket Playlist Generator
 
 on:
-  # 1. Run automatically every 15 minutes (Refreshes YouTube links)
+  # 1. Run automatically every 15 minutes
   schedule:
     - cron: '*/15 * * * *'
   
-  # 2. Run immediately when you save ANY file (like youtube.txt)
+  # 2. Run immediately when you push ANY file
   push:
     branches:
       - main
     paths:
-      - '**'  # <--- THIS is the fix. It watches ALL files.
+      - '**'
 
   # 3. Manual Run Button
   workflow_dispatch:
@@ -36,6 +36,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
+      # Make sure your Python file is named exactly this:
       - name: Run Playlist Generator Script
         run: python create_pocket_playlist.py
 
@@ -43,6 +44,18 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
+          
+          # --- THE FIX FOR YOUR ERROR ---
+          # Pull the latest changes first to ensure we are up to date
+          git pull --rebase origin main
+          # ------------------------------
+          
           git add pocket_playlist.m3u
-          # The part below prevents the script from failing if there are no changes
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Playlist" && git push)
+          
+          # Check if there are actually changes before committing
+          if [[ -n $(git status -s) ]]; then
+            git commit -m "Auto-update Playlist"
+            git push origin main
+          else
+            echo "No changes to commit."
+          fi
