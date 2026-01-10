@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-10 11:23:11 IST
+# Updated on: 2026-01-10 12:25:41 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,19 +846,21 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768007524~exp=1768093924~acl=/*~hmac=6448a200aefd8b5ff795c9ddc1d245a9d25a033570c0d61616320fe0242722a0"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768007524~exp=1768093924~acl=/*~hmac=6448a200aefd8b5ff795c9ddc1d245a9d25a033570c0d61616320fe0242722a0&xxx=||cookie=__hdnea__=st=1768007524~exp=1768093924~acl=/*~hmac=6448a200aefd8b5ff795c9ddc1d245a9d25a033570c0d61616320fe0242722a0
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 10 January 2026 at 11:21:08 am
+#DATE:- Saturday, 10 January 2026 at 12:21:07 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138745" tvg-name="Canterbury Vs Auckland Aces" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138745_5800_CTB_AA_fc-web_1766641251005.jpg" tvg-language="ENGLISH" ,ENG | Canterbury Vs Auckland Aces
 https://in-mc-fdlive.fancode.com/mumbai/138745_english_hls_8f03bdbe1325766_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="138820" tvg-name="Melbourne Victory Vs Western Sydney Wanderers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138820_5802_MLV_SYW_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Melbourne Victory Vs Western Sydney Wanderers
 https://in-mc-fdlive.fancode.com/mumbai/138820_english_hls_bbf241124447845_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139196" tvg-name="Pat Rafter Arena   Day 7" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 7
 https://in-mc-fdlive.fancode.com/mumbai/139196_english_hls_ec58c6bf0e63568_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 10-01-2026 11:20
+#EXTINF:-1 group-title="Live Events" tvg-id="139368" tvg-name="Alcaraz Vs Sinner" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Super_Match_2026_FC-Web_1767801213296.jpg" tvg-language="ENGLISH" ,ENG | Alcaraz Vs Sinner
+https://in-mc-fdlive.fancode.com/mumbai/139368_english_hls_de6880878b70277_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 10-01-2026 12:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498877" tvg-name="Super Smash 2025/26 Men's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012842/1767168385338275_SuperSmash2526_mens_Canterbury-Kings-vs-Auckland-Aces_31dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Canterbury Kings vs Auckland Aces - 10 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1768048201~acl=/*~id=33c55570c968e6dd8c79c15fbf2140fd-1768005000150~hmac=055d96883c541889a63c80dbc87612208d9a3c91f1a97a647ae4afe6f04b22fe|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; VISION GSMART 2KTV; Build/RTM6.230109.087)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=3d33bf8d339da8e807ef454c74bcfa97-1768024210528
+https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1768069801~acl=/*~id=95b422969da76549a2d3fcc0eb8e473f-1768026600199~hmac=eb091c16231915dff4ce95e2e8a96f00a3266eb89ac8789e43c64c1b20f91ef9|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; TECNO AD8; Build/UP1A.231005.007)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c0b78ceb61fa752258b8c66ef060a092-1768027810577
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499151" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013171/1767959265113119_UC26_SF_Switzerland_vs_Belgium_9jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Switzerland vs Belgium - Semi-final - 10 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768048201~acl=/*~id=33c55570c968e6dd8c79c15fbf2140fd-1768005000150~hmac=055d96883c541889a63c80dbc87612208d9a3c91f1a97a647ae4afe6f04b22fe|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; Nokia 8 V 5G UW; Build/QKQ1.200816.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=3d33bf8d339da8e807ef454c74bcfa97-1768024210528
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768069801~acl=/*~id=95b422969da76549a2d3fcc0eb8e473f-1768026600199~hmac=eb091c16231915dff4ce95e2e8a96f00a3266eb89ac8789e43c64c1b20f91ef9|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; moto g pure; Build/S3RHS32.20-42-13-3-12-4)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=c0b78ceb61fa752258b8c66ef060a092-1768027810577
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 9/1/2026, 22:30:05
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
