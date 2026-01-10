@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-10 15:25:01 IST
+# Updated on: 2026-01-10 16:17:30 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,21 +846,23 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768007524~exp=1768093924~acl=/*~hmac=6448a200aefd8b5ff795c9ddc1d245a9d25a033570c0d61616320fe0242722a0"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768007524~exp=1768093924~acl=/*~hmac=6448a200aefd8b5ff795c9ddc1d245a9d25a033570c0d61616320fe0242722a0&xxx=||cookie=__hdnea__=st=1768007524~exp=1768093924~acl=/*~hmac=6448a200aefd8b5ff795c9ddc1d245a9d25a033570c0d61616320fe0242722a0
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 10 January 2026 at 3:21:08 pm
+#DATE:- Saturday, 10 January 2026 at 4:14:15 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138821" tvg-name="Macarthur Vs Sydney Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138821_5802_MAC_SYD_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Macarthur Vs Sydney Fc
 https://in-mc-fdlive.fancode.com/mumbai/138821_english_hls_2072bc5cba47760_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139196" tvg-name="Pat Rafter Arena   Day 7" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP_Brisbane__FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Pat Rafter Arena   Day 7
-https://in-mc-fdlive.fancode.com/mumbai/139196_english_hls_ec58c6bf0e63568_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139368" tvg-name="Alcaraz Vs Sinner" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Super_Match_2026_FC-Web_1767801213296.jpg" tvg-language="ENGLISH" ,ENG | Alcaraz Vs Sinner
-https://in-mc-fdlive.fancode.com/mumbai/139368_english_hls_de6880878b70277_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="138822" tvg-name="Perth Glory Vs Central Coast Mariners" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138822_5802_PG_CCM_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Perth Glory Vs Central Coast Mariners
+https://in-mc-fdlive.fancode.com/mumbai/138822_english_hls_cfe5c38cc542363_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139209" tvg-name="Center Court   Day 6" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ATP-250---Hong-Kong_2026_Web_1080_x_810.jpg" tvg-language="ENGLISH" ,ENG | Center Court   Day 6
 https://in-mc-fdlive.fancode.com/mumbai/139209_english_hls_718840a7e222978_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 10-01-2026 15:20
+#EXTINF:-1 group-title="Live Events" tvg-id="139288" tvg-name="Centre Court   Day 6" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1767345135310.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 6
+https://in-mc-fdlive.fancode.com/mumbai/139288_english_hls_bd71635cff65201_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139574" tvg-name="Ias Invincibles Vs Yalla Shabab Giants" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Ias Invincibles Vs Yalla Shabab Giants
+https://in-mc-fdlive.fancode.com/mumbai/139574_english_hls_4f1227598c45864_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 10-01-2026 16:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499151" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013177/1767966837383634_UC26_SF_USA_vs_Poland_9jan_landscape_thumb.jpg" tvg-language="English" ,ENG | USA vs Poland - Semi-final - 10 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768069801~acl=/*~id=95b422969da76549a2d3fcc0eb8e473f-1768026600199~hmac=eb091c16231915dff4ce95e2e8a96f00a3266eb89ac8789e43c64c1b20f91ef9|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; SMART TV; Build/PPR2.180905.006.A1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=6d8f3e9ec5dbb450829b571a100f5ba9-1768038612086
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768069801~acl=/*~id=95b422969da76549a2d3fcc0eb8e473f-1768026600199~hmac=eb091c16231915dff4ce95e2e8a96f00a3266eb89ac8789e43c64c1b20f91ef9|User-Agent=com.sonyliv/6.22.4 (Android 7; en_GB; ASUS_Z01QD; Build/N2G48B)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e63c8fe0c13f534d7aeee136198da4ac-1768041013716
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 10 January 2026 at 3:15:05 pm
+#DATE:- Saturday, 10 January 2026 at 4:15:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873781" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873781/list/1920x1080list3f7d64fe25ff43ed9aac22470b4fd94ecbf3c5d4c91046e384c0243ea88bdec7.jpg" tvg-language="bengali" ,BEN | Northbengal United Fc Vs Fc Medinipur
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1768121105~acl=%2f*~data=hdntl~hmac=9581a5ca0737294fe8eb1e3559e47d14e4e393bb7c09c7cd330d3d972c3a6a35|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873781" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873781/list/1920x1080list3f7d64fe25ff43ed9aac22470b4fd94ecbf3c5d4c91046e384c0243ea88bdec7.jpg" tvg-language="english" ,ENG | Northbengal United Fc Vs Fc Medinipur
