@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-11 02:22:55 IST
+# Updated on: 2026-01-11 03:03:01 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,19 +846,17 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768007524~exp=1768093924~acl=/*~hmac=6448a200aefd8b5ff795c9ddc1d245a9d25a033570c0d61616320fe0242722a0"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768007524~exp=1768093924~acl=/*~hmac=6448a200aefd8b5ff795c9ddc1d245a9d25a033570c0d61616320fe0242722a0&xxx=||cookie=__hdnea__=st=1768007524~exp=1768093924~acl=/*~hmac=6448a200aefd8b5ff795c9ddc1d245a9d25a033570c0d61616320fe0242722a0
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 11 January 2026 at 2:21:05 am
-#EXTINF:-1 group-title="Live Events" tvg-id="138390" tvg-name="Egypt Vs Ivory Coast" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Egypt-vs-Ivory-Coast_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Egypt Vs Ivory Coast
-https://in-mc-fdlive.fancode.com/mumbai/138390_english_hls_9fe78d79a136280_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Sunday, 11 January 2026 at 3:00:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="131014" tvg-name="Valencia Cf Vs Elche Cf" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131014_5427_VAL_ELC_fc-Web.png" tvg-language="ENGLISH" ,ENG | Valencia Cf Vs Elche Cf
 https://in-mc-fdlive.fancode.com/mumbai/131014_english_hls_bfd56b4c1f36423_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139249" tvg-name="Racing Club Vs Real Zaragoza" tvg-logo="https://images.fancode.com/aig/match/v1/139249_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Racing Club Vs Real Zaragoza
 https://in-mc-fdlive.fancode.com/mumbai/139249_english_hls_27b9a905d037471_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 11-01-2026 02:20
+#DATE:- 11-01-2026 03:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499182" tvg-name="The Emirates FA Cup 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013167/1767949166351145_FA_CUP_26_RD3_Charlton-vs-Chelsea_9jan_Landscape_thumb.jpg" tvg-language="English" ,ENG | Charlton vs Chelsea - Round 3 - 11 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022322/DAI18ME-V3/std_lrh-800300010.m3u8?hdnea=exp=1768113001~acl=/*~id=aaae6fa9ca0a162083ebb16b20a2f978-1768069800182~hmac=379d010858d24b7bd48d8e30151ec95204bb8a86af16975434d9132fe1f28311|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; MBOX; Build/QP1A.190711.020)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d057a12a81a6827f861de79c95980bc7-1768078211654
+https://sonymtmnew.akamaized.net/hls/live/2022322/DAI18ME-V3/std_lrh-800300010.m3u8?hdnea=exp=1768113001~acl=/*~id=aaae6fa9ca0a162083ebb16b20a2f978-1768069800182~hmac=379d010858d24b7bd48d8e30151ec95204bb8a86af16975434d9132fe1f28311|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; SM-G991B; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=712106916b527e2bf6646afbb8ecab6a-1768080611370
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499221" tvg-name="ABB FIA Formula E World Championship" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013178/1767968640671941_ABB_FIA_FormulaE_WC2526_Round_2_Hankook_Mexico_City_EPRIX_final_Race_9jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Round 2 - Hankook Mexico City E-Prix - Final Race - 11 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1768113001~acl=/*~id=aaae6fa9ca0a162083ebb16b20a2f978-1768069800182~hmac=379d010858d24b7bd48d8e30151ec95204bb8a86af16975434d9132fe1f28311|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; LRN10; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d057a12a81a6827f861de79c95980bc7-1768078211654
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1768113001~acl=/*~id=aaae6fa9ca0a162083ebb16b20a2f978-1768069800182~hmac=379d010858d24b7bd48d8e30151ec95204bb8a86af16975434d9132fe1f28311|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; SM-A145R; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=712106916b527e2bf6646afbb8ecab6a-1768080611370
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 10/1/2026, 22:45:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
