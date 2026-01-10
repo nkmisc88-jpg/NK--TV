@@ -1,18 +1,13 @@
 name: Pocket Playlist Generator
 
 on:
-  # 1. Run automatically every 15 minutes
   schedule:
     - cron: '*/15 * * * *'
-  
-  # 2. Run immediately when you push ANY file
   push:
     branches:
       - main
     paths:
       - '**'
-
-  # 3. Manual Run Button
   workflow_dispatch:
 
 jobs:
@@ -36,7 +31,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      # Make sure your Python file is named exactly this:
       - name: Run Playlist Generator Script
         run: python create_pocket_playlist.py
 
@@ -45,16 +39,19 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           
-          # --- THE FIX FOR YOUR ERROR ---
-          # Pull the latest changes first to ensure we are up to date
-          git pull --rebase origin main
-          # ------------------------------
-          
+          # 1. Stage the new playlist FIRST
           git add pocket_playlist.m3u
           
-          # Check if there are actually changes before committing
+          # 2. Check if there are changes
           if [[ -n $(git status -s) ]]; then
+            # 3. Commit the changes locally
             git commit -m "Auto-update Playlist"
+            
+            # 4. NOW pull the latest updates (rebase on top of our commit)
+            # This fixes the "remote rejected" error safely
+            git pull --rebase origin main
+            
+            # 5. Finally, push everything
             git push origin main
           else
             echo "No changes to commit."
