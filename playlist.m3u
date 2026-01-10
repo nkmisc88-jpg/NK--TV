@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-11 04:21:53 IST
+# Updated on: 2026-01-11 05:03:44 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -845,10 +845,14 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1768048100~exp=1768134500~acl=/*~hmac=9b32690e47e5603a10e8cb8c2491988a6b310d25aba908da3003fbcdb1a4935e"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768048100~exp=1768134500~acl=/*~hmac=9b32690e47e5603a10e8cb8c2491988a6b310d25aba908da3003fbcdb1a4935e&xxx=||cookie=__hdnea__=st=1768048100~exp=1768134500~acl=/*~hmac=9b32690e47e5603a10e8cb8c2491988a6b310d25aba908da3003fbcdb1a4935e
-##Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-# Last Checked: 11/1/2026, 04:00:06
-#DATE:- 11-01-2026 03:40
-#No live matches.
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#DATE:- Sunday, 11 January 2026 at 5:00:07 am
+#EXTINF:-1 group-title="Live Events" tvg-id="138778" tvg-name="Wellington Blaze Vs Northern Brave Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138778_5801_WB-W_NB-W_fc-web_1766596522077.jpg" tvg-language="ENGLISH" ,ENG | Wellington Blaze Vs Northern Brave Women
+https://in-mc-fdlive.fancode.com/mumbai/138778_english_hls_3ef96e9a261392_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 11-01-2026 05:00
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498883" tvg-name="Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012842/1767188578192275_SuperSmash2526_womens_Wellington-Blaze-vs-Northern-Brave_31dec_landscape_thumb.jpg" tvg-language="English" ,ENG | Wellington Blaze vs Northern Brave - 11 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1768113001~acl=/*~id=aaae6fa9ca0a162083ebb16b20a2f978-1768069800182~hmac=379d010858d24b7bd48d8e30151ec95204bb8a86af16975434d9132fe1f28311|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; 24115RA8EI; Build/AQ3A.240912.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=074a67088d2db6196c3479e501d4619c-1768087811661
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 10/1/2026, 22:45:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
