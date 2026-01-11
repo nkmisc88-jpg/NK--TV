@@ -24,3 +24,8 @@ link:https://jiohotstar.joker-verse.workers.dev/joker.m3u8?id=1271450356&uid=706
 Title : Willow 2
 Logo : 
 Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
+
+
+Title : Criclife 2
+Logo : 
+Link : https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife2/DASH/CricLife2.mpd
