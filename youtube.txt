@@ -28,4 +28,4 @@ Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/
 
 Title : Criclife 2
 Logo : 
-Link : https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife2/DASH/CricLife2.mpd|User-Agent=Dalvik/2.1.0 (Linux; U; Android 9; AFTV)
+Link : https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife2/DASH/CricLife2.mpd|Referer=https://starzplay.com/&Origin=https://starzplay.com
