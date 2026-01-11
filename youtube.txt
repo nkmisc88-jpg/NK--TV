@@ -14,7 +14,10 @@ Title : Willow 1
 Logo : 
 Link : https://joker-verse.vercel.app/opplex/live/167583.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 
-Title: Jio Joker Live 2
+Title: Test Hotstar 
+Logo : 
+Link : https://livetv-push.hotstar.com/dash/live/2002464/sshd1livetvwv/master.mpd|Cookie=hdntl=exp=1768199749~acl=*sshd1livetv*~id=5da31ff74bbf7669388c8eba6dc9be41~data=hdntl~hmac=6609f2bb09987f10d7f181bfe1a6f57e3357dc11ad19fe1cdcfebfbd5826475a&Origin=https://www.hotstar.com&Referer=https://www.hotstar.com/&User-agent=Hotstar;in.startv.hotstar/25.02.24.8.11169 (Android/15)&KODIPROP:inputstream.adaptive.license_type=clearkey&KODIPROP:inputstream.adaptive.license_key=fe7718fbb3fb4ba78c07cc0f578744e6:624e24b1843b459fab0a949609416f0d
+
 link:https://jiohotstar.joker-verse.workers.dev/joker.m3u8?id=1271450356&uid=706298993&pass=ef2678f2|User-Agent=TiviMate/4.7.0
 
 Title: Jio Joker Live1
