@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-11 21:06:08 IST
+# Updated on: 2026-01-11 21:20:16 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d&xxx=||cookie=__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 11 January 2026 at 9:00:04 pm
+#DATE:- Sunday, 11 January 2026 at 9:14:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138939" tvg-name="Noakhali Express Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138939_5808_NOE_DC_fc-web_1766733054389.jpg" tvg-language="ENGLISH" ,ENG | Noakhali Express Vs Dhaka Capitals
 https://in-mc-fdlive.fancode.com/mumbai/138939_english_hls_6f7a40840186485_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139217" tvg-name="Sri Lanka Vs Pakistan" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Pakistan-Tour-of-Sri-Lanka,-2026-match-card-old-.png" tvg-language="ENGLISH" ,ENG | Sri Lanka Vs Pakistan
@@ -857,8 +857,6 @@ https://in-mc-fdlive.fancode.com/mumbai/139328_english_hls_d4dd6389ed9929_1ta-di
 https://in-mc-fdlive.fancode.com/mumbai/131015_english_hls_27d76e09c376425_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139266" tvg-name="Thailand U23 Vs Iraq U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139266_5822_THA-U23_IRQ-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Thailand U23 Vs Iraq U23
 https://in-mc-fdlive.fancode.com/mumbai/139266_english_hls_73633f62bb88096_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="131016" tvg-name="Rayo Vallecano Vs Rcd Mallorca" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131016_5427_RVL_MRC_fc-Web_1767595288796.png" tvg-language="ENGLISH" ,ENG | Rayo Vallecano Vs Rcd Mallorca
-https://in-mc-fdlive.fancode.com/mumbai/131016_english_hls_dba317f43c54625_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #DATE:- 11-01-2026 21:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499184" tvg-name="The Emirates FA Cup 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013167/1767950129267145_FA_CUP_26_RD3_Portsmouth-vs-Arsenal_9jan_Landscape_thumb.jpg" tvg-language="English" ,ENG | Portsmouth vs Arsenal - Round 3 - 11 Jan 2026
