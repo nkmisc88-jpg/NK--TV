@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-11 23:06:33 IST
+# Updated on: 2026-01-11 23:19:55 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,11 +846,9 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d&xxx=||cookie=__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 11 January 2026 at 11:00:05 pm
+#DATE:- Sunday, 11 January 2026 at 11:14:04 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139217" tvg-name="Sri Lanka Vs Pakistan" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Pakistan-Tour-of-Sri-Lanka,-2026-match-card-old-.png" tvg-language="ENGLISH" ,ENG | Sri Lanka Vs Pakistan
 https://sonypartnersdaimenew.akamaized.net/hls/live/2018457/DAI35ME-PAKvsSL/master.m3u8?hdnea=exp=1768177801~acl=/*~id=919275a26dd865ef13f978d4d8c164ef-1768134600179~hmac=2077ebce97982453b15dc4b790690045587f00c0d66c14960df056695f2cf44b|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="131015" tvg-name="Levante Vs Rcd Espanyol" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131015_5427_LE_ESL_fc-Web.png" tvg-language="ENGLISH" ,ENG | Levante Vs Rcd Espanyol
-https://in-mc-fdlive.fancode.com/mumbai/131015_english_hls_27d76e09c376425_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #DATE:- 11-01-2026 23:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499186" tvg-name="The Emirates FA Cup 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013192/1767983539075263_FA_CUP_26_RD3_Man-United-vs-Brighton_9jan_eng_landscape_thumb_re1.jpg" tvg-language="English" ,ENG | Manchester United vs Brighton & Hove Albion - Round 3 - 11 Jan 2026
