@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-12 01:19:54 IST
+# Updated on: 2026-01-12 02:10:42 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d&xxx=||cookie=__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 12 January 2026 at 1:14:08 am
+#DATE:- Monday, 12 January 2026 at 2:07:06 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138959" tvg-name="Fc Barcelona Vs Real Madrid" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/SuperCopa-ELCLaSICO_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Fc Barcelona Vs Real Madrid
 https://in-mc-fdlive.fancode.com/mumbai/138959_english_hls_7f18fa356218568_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #DATE:- 12-01-2026 00:20
@@ -854,7 +854,7 @@ https://in-mc-fdlive.fancode.com/mumbai/138959_english_hls_7f18fa356218568_1ta-d
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 11/1/2026, 20:15:03
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768201503~acl=%2f*~id=d283f280-4a2c-493d-999b-06fb08018b4c~data=hdntl~hmac=e97d5fdbeec100f0a8032dc1b4cd8c4ef58a933d2570074830e560119631080c|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768244762~acl=%2f*~id=4094bc21-be8f-4a73-bfc7-581d021b7c93~data=hdntl~hmac=49e1bf51af90289fd5e9e14d8ade5f58a4378aa9a09730858048b1a9690f915c|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
 https://keys.vodep39240327.workers.dev/?id=300.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png",Star Sports Select 2 HD
