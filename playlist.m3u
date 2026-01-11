@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-11 17:04:44 IST
+# Updated on: 2026-01-11 17:19:26 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,11 +846,13 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d&xxx=||cookie=__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 11 January 2026 at 5:00:07 pm
+#DATE:- Sunday, 11 January 2026 at 5:14:09 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138939" tvg-name="Noakhali Express Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138939_5808_NOE_DC_fc-web_1766733054389.jpg" tvg-language="ENGLISH" ,ENG | Noakhali Express Vs Dhaka Capitals
 https://in-mc-fdlive.fancode.com/mumbai/138939_english_hls_6f7a40840186485_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139265" tvg-name="China Pr U23 Vs Australia U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139265_5822_CHN-U23_AUS-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | China Pr U23 Vs Australia U23
 https://in-mc-fdlive.fancode.com/mumbai/139265_english_hls_b35ba6e44925291_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139303" tvg-name="Tottenham Hotspur Women Vs Leicester City Women" tvg-logo="https://images.fancode.com/aig/match/v1/139303_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Tottenham Hotspur Women Vs Leicester City Women
+https://in-mc-fdlive.fancode.com/mumbai/139303_english_hls_b466a7b32b36368_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #DATE:- 11-01-2026 17:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499183" tvg-name="The Emirates FA Cup 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013167/1767949530498145_FA_CUP_26_RD3_Derby-County-vs-Leeds-Utd_9jan_Landscape_thumb.jpg" tvg-language="English" ,ENG | Derby County vs Leeds United - Round 3 - 11 Jan 2026
@@ -858,7 +860,7 @@ https://sonymtmnew.akamaized.net/hls/live/2094587/DAI03ME-V3/std_lrh-800300010.m
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499229" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013204/1768038113639649_UC26_Final_Switzerland-vs-Poland_10jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Switzerland vs Poland - Final - 11 Jan 2026
 https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768156201~acl=/*~id=6cc678776a158f0fef0b55fce630334a-1768113000125~hmac=f7f4efb4a6527ff253827d6c4804f91966a6f9efe001543828376ed1d3502e60|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; motorola edge 40 neo; Build/U1TM34.107-34-3)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=91970c7f04cc244c81de97be7f436884-1768131024172
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 11 January 2026 at 5:00:07 pm
+#DATE:- Sunday, 11 January 2026 at 5:15:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873771" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873771/list/1920x1080list8dfc01481d0c478595d2a34858f7c6dda19af98aa0834af484ac62fa66ba8c52.jpg" tvg-language="bengali" ,BEN | Kopa Tigers Birbhum Vs Howrah Hooghly Warriors
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M02/master.m3u8?hdntl=exp=1768213806~acl=%2f*~data=hdntl~hmac=04057c213fead7f405109ed85d1de99e928cb209cbf921ef7bf12a4dc5f0eb25|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873771" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873771/list/1920x1080list8dfc01481d0c478595d2a34858f7c6dda19af98aa0834af484ac62fa66ba8c52.jpg" tvg-language="english" ,ENG | Kopa Tigers Birbhum Vs Howrah Hooghly Warriors
