@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-11 18:20:57 IST
+# Updated on: 2026-01-11 18:45:59 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d&xxx=||cookie=__hdnea__=st=1768094450~exp=1768180850~acl=/*~hmac=77a07189c68fb345c11e83fd1181421e18dc40c9ca083c76f73485efd07eb31d
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 11 January 2026 at 6:14:10 pm
+#DATE:- Sunday, 11 January 2026 at 6:42:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138939" tvg-name="Noakhali Express Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138939_5808_NOE_DC_fc-web_1766733054389.jpg" tvg-language="ENGLISH" ,ENG | Noakhali Express Vs Dhaka Capitals
 https://in-mc-fdlive.fancode.com/mumbai/138939_english_hls_6f7a40840186485_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139305" tvg-name="Manchester City Women Vs Everton Women" tvg-logo="https://images.fancode.com/aig/match/v1/139305_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Manchester City Women Vs Everton Women
@@ -863,16 +863,16 @@ https://in-mc-fdlive.fancode.com/mumbai/131016_english_hls_dba317f43c54625_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139265_english_hls_b35ba6e44925291_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139250" tvg-name="Leganés Vs Real Valladolid" tvg-logo="https://images.fancode.com/aig/match/v1/139250_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Leganés Vs Real Valladolid
 https://in-mc-fdlive.fancode.com/mumbai/139250_english_hls_d566f65c8e38359_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 11-01-2026 18:20
+#DATE:- 11-01-2026 18:40
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499226" tvg-name="Pakistan Tour of Sri Lanka 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013032/1767698953696649_SLvsPAK26_3t20i_6jan_landscape_thumb.jpg" tvg-language="English" ,ENG | 3rd T20I - 11 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2018457/DAI35-criclive/master.m3u8?hdnea=exp=1768177801~acl=/*~id=919275a26dd865ef13f978d4d8c164ef-1768134600179~hmac=2077ebce97982453b15dc4b790690045587f00c0d66c14960df056695f2cf44b|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; haierATV; Build/RTO5.250722.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2f0a8ce8483f6a90fbc4d05024609fb7-1768135813339
+https://sonymtmnew.akamaized.net/hls/live/2018457/DAI35-criclive/master.m3u8?hdnea=exp=1768177801~acl=/*~id=919275a26dd865ef13f978d4d8c164ef-1768134600179~hmac=2077ebce97982453b15dc4b790690045587f00c0d66c14960df056695f2cf44b|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; ATV R1; Build/PTT1.201001.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=bcf6b4c29f278db69a519e35da60936c-1768137015818
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499183" tvg-name="The Emirates FA Cup 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013167/1767949530498145_FA_CUP_26_RD3_Derby-County-vs-Leeds-Utd_9jan_Landscape_thumb.jpg" tvg-language="English" ,ENG | Derby County vs Leeds United - Round 3 - 11 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094587/DAI03ME-V3/std_lrh-800300010.m3u8?hdnea=exp=1768177801~acl=/*~id=919275a26dd865ef13f978d4d8c164ef-1768134600179~hmac=2077ebce97982453b15dc4b790690045587f00c0d66c14960df056695f2cf44b|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; V2242A; Build/PQ3B.190801.01161429)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2f0a8ce8483f6a90fbc4d05024609fb7-1768135813339
+https://sonymtmnew.akamaized.net/hls/live/2094587/DAI03ME-V3/std_lrh-800300010.m3u8?hdnea=exp=1768177801~acl=/*~id=919275a26dd865ef13f978d4d8c164ef-1768134600179~hmac=2077ebce97982453b15dc4b790690045587f00c0d66c14960df056695f2cf44b|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; Redmi Note 5 Pro; Build/TQ2A.230305.008.C1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=bcf6b4c29f278db69a519e35da60936c-1768137015818
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499229" tvg-name="United Cup 2026 " tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013204/1768038113639649_UC26_Final_Switzerland-vs-Poland_10jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Switzerland vs Poland - Final - 11 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768177801~acl=/*~id=919275a26dd865ef13f978d4d8c164ef-1768134600179~hmac=2077ebce97982453b15dc4b790690045587f00c0d66c14960df056695f2cf44b|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; NX769J; Build/AQ3A.240812.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2f0a8ce8483f6a90fbc4d05024609fb7-1768135813339
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768177801~acl=/*~id=919275a26dd865ef13f978d4d8c164ef-1768134600179~hmac=2077ebce97982453b15dc4b790690045587f00c0d66c14960df056695f2cf44b|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; E20G936821520006000; Build/PPR2.180905.006.A1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=bcf6b4c29f278db69a519e35da60936c-1768137015818
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Sunday, 11 January 2026 at 6:15:05 pm
+#DATE:- Sunday, 11 January 2026 at 6:45:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873771" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873771/list/1920x1080list8dfc01481d0c478595d2a34858f7c6dda19af98aa0834af484ac62fa66ba8c52.jpg" tvg-language="bengali" ,BEN | Kopa Tigers Birbhum Vs Howrah Hooghly Warriors
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M02/master.m3u8?hdntl=exp=1768213806~acl=%2f*~data=hdntl~hmac=04057c213fead7f405109ed85d1de99e928cb209cbf921ef7bf12a4dc5f0eb25|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873771" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873771/list/1920x1080list8dfc01481d0c478595d2a34858f7c6dda19af98aa0834af484ac62fa66ba8c52.jpg" tvg-language="english" ,ENG | Kopa Tigers Birbhum Vs Howrah Hooghly Warriors
@@ -1045,7 +1045,7 @@ https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/mrskysvotx/
 https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/irtfdsri14/out/v1/165128c314e944faa3d79e107974b323/cenc.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/TSN5.svg/640px-TSN5.svg.png",TSN 5
 http://otte.live.fly.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/mttgh1c4ei/out/v1/9cc664b146744e2ba23066aa048efbc5/cenc.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 4k
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Unknown Channel
 https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Fox 501
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
@@ -1058,4 +1058,4 @@ https://jiohotstar.joker-verse.workers.dev/joker.m3u8?id=1271450356&uid=70629899
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow 2
 https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Criclife 2
-https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife2/DASH/CricLife2.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife2/DASH/CricLife2.mpd|User-Agent=Dalvik/2.1.0 (Linux; U; Android 9; AFTV)
