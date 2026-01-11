@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-12 05:03:31 IST
+# Updated on: 2026-01-12 05:20:56 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768134573~exp=1768220973~acl=/*~hmac=7b66fc438bfb64f9edcc569e69641635bc3644a77f77613279c7b731b288dac5"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768134573~exp=1768220973~acl=/*~hmac=7b66fc438bfb64f9edcc569e69641635bc3644a77f77613279c7b731b288dac5&xxx=||cookie=__hdnea__=st=1768134573~exp=1768220973~acl=/*~hmac=7b66fc438bfb64f9edcc569e69641635bc3644a77f77613279c7b731b288dac5
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 12 January 2026 at 5:00:06 am
+#DATE:- Monday, 12 January 2026 at 5:14:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138779" tvg-name="Auckland Hearts Vs Otago Sparks" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138779_5801_OS-W_AH-W_fc-web_1766596522276.jpg" tvg-language="ENGLISH" ,ENG | Auckland Hearts Vs Otago Sparks
 https://in-mc-fdlive.fancode.com/mumbai/138779_english_hls_77ed9fc52439905_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139536" tvg-name="Atp 250   Asb Classic" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/ASB_Classic_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Atp 250   Asb Classic
