@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-12 17:08:11 IST
+# Updated on: 2026-01-12 17:22:18 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,8 +846,8 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443&xxx=||cookie=__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 12 January 2026 at 5:07:04 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="138933" tvg-name="Rajshahi Warriors Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138933_5808_DBR_DC_fc-web_1766733054150.jpg" tvg-language="ENGLISH" ,ENG | Rajshahi Warriors Vs Dhaka Capitals
+#DATE:- Monday, 12 January 2026 at 5:21:05 pm
+#EXTINF:-1 group-title="Live Events" tvg-id="138933" tvg-name="Dhaka Capitals Vs Rajshahi Warriors" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138933_5808_DBR_DC_fc-web_1766733054150.jpg" tvg-language="ENGLISH" ,ENG | Dhaka Capitals Vs Rajshahi Warriors
 https://in-mc-fdlive.fancode.com/mumbai/138933_english_hls_4a3b9a1b6c39851_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139576" tvg-name="Oman Development Team Vs Ias Invincibles" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Oman Development Team Vs Ias Invincibles
 https://in-mc-fdlive.fancode.com/mumbai/139576_english_hls_97f490d78e32434_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
@@ -858,7 +858,7 @@ https://in-mc-fdlive.fancode.com/mumbai/139533_english_hls_fe149482c026737_1ta-d
 #DATE:- 12-01-2026 12:20
 #No live matches.
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 12 January 2026 at 5:00:05 pm
+#DATE:- Monday, 12 January 2026 at 5:15:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873789" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873789/list/1920x1080list5f05778c133b4fc0a22a72c0266ba522faf703600089472a9f57fe0769a45515.jpg" tvg-language="bengali" ,BEN | Burdwan Blasters Vs North 24 Parganas Fc
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1768302004~acl=%2f*~data=hdntl~hmac=4736b2ec86c7005bf62c62612e086107feeb8ec51b51b4d52ac5e04daeb55788|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873789" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873789/list/1920x1080list5f05778c133b4fc0a22a72c0266ba522faf703600089472a9f57fe0769a45515.jpg" tvg-language="english" ,ENG | Burdwan Blasters Vs North 24 Parganas Fc
