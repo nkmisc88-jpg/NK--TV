@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-13 01:06:06 IST
+# Updated on: 2026-01-13 01:18:34 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,9 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443&xxx=||cookie=__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 13 January 2026 at 1:00:06 am
-#EXTINF:-1 group-title="Live Events" tvg-id="139357" tvg-name="Al Hilal Sfc Vs Al Nassr Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Hilal-SFC-vs-Al-Nassr-FC_fc-web-(1).jpg" tvg-language="ENGLISH" ,ENG | Al Hilal Sfc Vs Al Nassr Fc
-https://in-mc-fdlive.fancode.com/mumbai/139357_english_hls_2614494daf79038_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Tuesday, 13 January 2026 at 1:14:04 am
 #EXTINF:-1 group-title="Live Events" tvg-id="131013" tvg-name="Sevilla Fc Vs Rc Celta" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131019_5427_GIR_OSN_fc-Web_1768202652350.png" tvg-language="ENGLISH" ,ENG | Sevilla Fc Vs Rc Celta
 https://in-mc-fdlive.fancode.com/mumbai/131013_english_hls_c86fac976263808_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #DATE:- 13-01-2026 01:00
