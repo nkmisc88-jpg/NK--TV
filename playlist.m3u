@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-12 20:27:42 IST
+# Updated on: 2026-01-12 21:22:46 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,15 +846,15 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443&xxx=||cookie=__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 12 January 2026 at 8:21:11 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="138933" tvg-name="Dhaka Capitals Vs Rajshahi Warriors" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138933_5808_DBR_DC_fc-web_1766733054150.jpg" tvg-language="ENGLISH" ,ENG | Dhaka Capitals Vs Rajshahi Warriors
-https://in-mc-fdlive.fancode.com/mumbai/138933_english_hls_4a3b9a1b6c39851_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Monday, 12 January 2026 at 9:21:07 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139577" tvg-name="Yalla Shabab Giants Vs Majees Titans" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Yalla Shabab Giants Vs Majees Titans
 https://in-mc-fdlive.fancode.com/mumbai/139577_english_hls_c62064f93993299_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 12-01-2026 20:20
+#DATE:- 12-01-2026 21:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498703" tvg-name="MasterChef India - Hindi" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012988/1767619329396530_MCI_S4_5jan_simulcast_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | MasterChef India - Hindi
+https://sonymtmnew.akamaized.net/hls/live/2037142/DAI22ME-MCI/master.m3u8?hdnea=exp=1768264201~acl=/*~id=50b3d4f07170a6621ed27f7889763afa-1768221000167~hmac=012e29637224b656d3d4e8b3e0bab2ed0c821d1496484140043d8c90731dcfd0|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; SM-M017F; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=30d00396f6610a403d23661c1846e1ad-1768233011622
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
-https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768264201~acl=/*~id=50b3d4f07170a6621ed27f7889763afa-1768221000167~hmac=012e29637224b656d3d4e8b3e0bab2ed0c821d1496484140043d8c90731dcfd0|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; M2101K7AI; Build/RKQ1.201022.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=5994f33503fa4c040b67f008439ee3b0-1768229411158
+https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768264201~acl=/*~id=50b3d4f07170a6621ed27f7889763afa-1768221000167~hmac=012e29637224b656d3d4e8b3e0bab2ed0c821d1496484140043d8c90731dcfd0|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; V00L936821221006000; Build/PPR2.180905.006.A1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=30d00396f6610a403d23661c1846e1ad-1768233011622
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 12/1/2026, 19:00:05
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
