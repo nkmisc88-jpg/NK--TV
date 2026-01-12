@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-12 23:23:47 IST
+# Updated on: 2026-01-13 00:30:02 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,19 +846,11 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443&xxx=||cookie=__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Monday, 12 January 2026 at 11:21:05 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="139577" tvg-name="Yalla Shabab Giants Vs Majees Titans" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Yalla Shabab Giants Vs Majees Titans
-https://in-mc-fdlive.fancode.com/mumbai/139577_english_hls_c62064f93993299_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Tuesday, 13 January 2026 at 12:28:06 am
 #EXTINF:-1 group-title="Live Events" tvg-id="139357" tvg-name="Al Hilal Sfc Vs Al Nassr Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Hilal-SFC-vs-Al-Nassr-FC_fc-web-(1).jpg" tvg-language="ENGLISH" ,ENG | Al Hilal Sfc Vs Al Nassr Fc
 https://in-mc-fdlive.fancode.com/mumbai/139357_english_hls_2614494daf79038_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139268" tvg-name="Jordan U23 Vs Kyrgyz Republic U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139268_5822_JOR-U23_KYG-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Jordan U23 Vs Kyrgyz Republic U23
-https://in-mc-fdlive.fancode.com/mumbai/139268_english_hls_63b31d136a76601_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139267" tvg-name="Saudi Arabia U23 Vs Vietnam U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139267_5822_SU-U23_VIE-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Saudi Arabia U23 Vs Vietnam U23
-https://in-mc-fdlive.fancode.com/mumbai/139267_english_hls_e99d09524030874_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 12-01-2026 23:20
-#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
-https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768264201~acl=/*~id=50b3d4f07170a6621ed27f7889763afa-1768221000167~hmac=012e29637224b656d3d4e8b3e0bab2ed0c821d1496484140043d8c90731dcfd0|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; SO-41A; Build/59.2.B.0.426)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=0a79bc0d8c9c68ef59af558855e88c10-1768240210505
+#DATE:- 12-01-2026 23:40
+#No live matches.
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 12/1/2026, 19:00:05
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
