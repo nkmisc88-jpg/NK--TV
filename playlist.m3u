@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-13 02:17:12 IST
+# Updated on: 2026-01-13 03:09:09 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,13 +846,13 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443&xxx=||cookie=__hdnea__=st=1768180656~exp=1768267056~acl=/*~hmac=6e7cbdbbe75c9b4f23ebf7f735af8628b3651464d05ec8c9f508f3681c005443
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 13 January 2026 at 2:14:05 am
+#DATE:- Tuesday, 13 January 2026 at 3:07:06 am
 #EXTINF:-1 group-title="Live Events" tvg-id="131013" tvg-name="Sevilla Fc Vs Rc Celta" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131019_5427_GIR_OSN_fc-Web_1768202652350.png" tvg-language="ENGLISH" ,ENG | Sevilla Fc Vs Rc Celta
 https://in-mc-fdlive.fancode.com/mumbai/131013_english_hls_c86fac976263808_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 13-01-2026 02:00
+#DATE:- 13-01-2026 03:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499187" tvg-name="The Emirates FA Cup 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013167/1767951554437145_FA_CUP_26_RD3_Liverpool-vs-Barnsley_9jan_Landscape_thumb.jpg" tvg-language="English" ,ENG | Liverpool vs Barnsley - Round 3 - 13 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094587/DAI03ME-V3/master.m3u8?hdnea=exp=1768285801~acl=/*~id=2ff3e0b557a2b142b6ac059fca06dbb8-1768242600203~hmac=6048d5d533d774ae93119f2c9fa3c13c1940a22b4dcc8bb7c3ff3f9ea2634c12|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; Infinix X6821; Build/TP1A.220624.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=ab82fae0fbb241b36e7ddedbf52fba3c-1768249809036
+https://sonymtmnew.akamaized.net/hls/live/2094587/DAI03ME-V3/master.m3u8?hdnea=exp=1768285801~acl=/*~id=2ff3e0b557a2b142b6ac059fca06dbb8-1768242600203~hmac=6048d5d533d774ae93119f2c9fa3c13c1940a22b4dcc8bb7c3ff3f9ea2634c12|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; 22081283G; Build/TP1A.220624.014)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=03ba51f918c216a7717ba23464ad087b-1768253409634
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 12/1/2026, 19:00:05
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
