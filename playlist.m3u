@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-14 00:28:13 IST
+# Updated on: 2026-01-14 01:02:59 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,21 +846,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444&xxx=||cookie=__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 14 January 2026 at 12:28:05 am
+#DATE:- Wednesday, 14 January 2026 at 1:00:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="139358" tvg-name="Damac Vs Al Ittihad" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Damac-VS-Image-Al-Ittihad_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Damac Vs Al Ittihad
 https://in-mc-fdlive.fancode.com/mumbai/139358_english_hls_434953ab6540532_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139746" tvg-name="Jamaica Women Vs Leeward Islands Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/CWI-Women's-T20-Blaze_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Jamaica Women Vs Leeward Islands Women
 https://in-mc-fdlive.fancode.com/mumbai/139746_english_hls_9a8ce266ae19979_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 14-01-2026 00:20
+#DATE:- 14-01-2026 01:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499484" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768135144547648_bliga26_MD17_Dortmund_vs_Werder_Bremen_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Borussia Dortmund vs Werder Bremen - MD 17 - 14 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094589/DAI05ME-V3/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; AHD-1008; Build/QP1A.191105.004)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=34214e48b48f2643472499e02eb72f02-1768330200120
-#EXTINF:-1 group-title="Live Events" tvg-id="1090499485" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768136250489648_bliga26_MD17_Hamburg_SV_vs_Leverkusen_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Hamburger SV vs Bayer Leverkusen - MD 17 - 14 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105079/DAI08ME-V3/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 8; en_GB; UnionTV; Build/OPR6.170623.012)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=34214e48b48f2643472499e02eb72f02-1768330200120
+https://sonymtmnew.akamaized.net/hls/live/2094589/DAI05ME-V3/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; LE2115; Build/RKQ1.201105.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f3b4730898c8d613a9fd4343f2911729-1768332600151
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499481" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768134950567648_bliga26_MD17_VfB_Stuttgart_vs_Eintracht_Frankfurt_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | VfB Stuttgart vs Eintracht Frankfurt - MD 17 - 13 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; MiTV-MOOQ1; Build/QTG3.200305.006)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=34214e48b48f2643472499e02eb72f02-1768330200120
+https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; SM-G970U; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f3b4730898c8d613a9fd4343f2911729-1768332600151
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499486" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768136509863648_bliga26_MD17_Mainz_vs_Heidenheim_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Mainz vs Heidenheim - MD 17 - 14 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2018457/DAI09ME-V3/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; SM-A715F; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=34214e48b48f2643472499e02eb72f02-1768330200120
+https://sonymtmnew.akamaized.net/hls/live/2018457/DAI09ME-V3/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; Xperia Tablet Z; Build/UP1A.231105.003.A1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f3b4730898c8d613a9fd4343f2911729-1768332600151
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 13/1/2026, 16:00:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
