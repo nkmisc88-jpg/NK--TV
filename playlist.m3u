@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-13 22:31:46 IST
+# Updated on: 2026-01-13 22:47:19 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,21 +846,19 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444&xxx=||cookie=__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 13 January 2026 at 10:28:05 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="139745" tvg-name="Windward Islands Women Vs Guyana Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/CWI-Women's-T20-Blaze_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Windward Islands Women Vs Guyana Women
-https://in-mc-fdlive.fancode.com/mumbai/139745_english_hls_d1cc286a141232_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Tuesday, 13 January 2026 at 10:42:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139579" tvg-name="Ias Invincibles Vs Majees Titans" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Ias Invincibles Vs Majees Titans
 https://in-mc-fdlive.fancode.com/mumbai/139579_english_hls_e863ca214f34866_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139272" tvg-name="United Arab Emirates U23 Vs Syria U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139272_5822_UAE-U23_SYR-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | United Arab Emirates U23 Vs Syria U23
 https://in-mc-fdlive.fancode.com/mumbai/139272_english_hls_1e9a42a00f17476_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139271" tvg-name="Japan U23 Vs Qatar U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139271_5822_JP-U23_QAT-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Japan U23 Vs Qatar U23
 https://in-mc-fdlive.fancode.com/mumbai/139271_english_hls_b1cc996e8626896_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 13-01-2026 22:20
+#DATE:- 13-01-2026 22:40
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
-https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768350601~acl=/*~id=9f2f702c74fd98321911423e60d6c9df-1768307400114~hmac=64fd02fbfade2f4c8a842f2c4ea42f9a503d285f3d7af90dd0e71f95c58cf19a|User-Agent=com.sonyliv/6.22.4 (Android 16; en_GB; Pixel 7; Build/BP3A.251005.004.B1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d7de369722b19c579088f747b2acaa86-1768323000115
+https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768350601~acl=/*~id=9f2f702c74fd98321911423e60d6c9df-1768307400114~hmac=64fd02fbfade2f4c8a842f2c4ea42f9a503d285f3d7af90dd0e71f95c58cf19a|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; Q96MAX; Build/D9 PRO 5G)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=82d35e9ad5d5ebb5ef2945701e19b687-1768324200117
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499481" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768134950567648_bliga26_MD17_VfB_Stuttgart_vs_Eintracht_Frankfurt_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | VfB Stuttgart vs Eintracht Frankfurt - MD 17 - 13 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768350601~acl=/*~id=9f2f702c74fd98321911423e60d6c9df-1768307400114~hmac=64fd02fbfade2f4c8a842f2c4ea42f9a503d285f3d7af90dd0e71f95c58cf19a|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; 2203121C; Build/PQ3A.190605.03081104)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d7de369722b19c579088f747b2acaa86-1768323000115
+https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768350601~acl=/*~id=9f2f702c74fd98321911423e60d6c9df-1768307400114~hmac=64fd02fbfade2f4c8a842f2c4ea42f9a503d285f3d7af90dd0e71f95c58cf19a|User-Agent=com.sonyliv/6.22.4 (Android 6; en_GB; vivo 1609; Build/MRA58K)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=82d35e9ad5d5ebb5ef2945701e19b687-1768324200117
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 13/1/2026, 16:00:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
@@ -1045,30 +1043,11 @@ https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow 2
 https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_key=1e23e51b09a67b83813c17049870bcd4:c3d6288e378b0dc55320fd0e6fd2e55f
-#EXTINF:-1 tvg-logo="" group-title="nk",Criclife
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="",1
-https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife1/DASH/CricLife1.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=48bef83b4c6a3c5189b01b0126210da4:bd085230b7b09e50954fe0af111a8a9f
-#EXTINF:-1 tvg-logo="https://www.ooredoo.qa/web/wp-content/uploads/2025/08/cricbuzz-active.png" group-title="nk",CricBuzz 1
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",Unknown Channel
-https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife2/DASH/CricLife2.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=4e8b5ddac5332a4e66c002b4c0f22322:d06de29b0eacb81ac6e3f325849047e8
-#EXTINF:-1 tvg-logo="https://www.ooredoo.qa/web/wp-content/uploads/2025/10/Cricbuzz-2.jpg" group-title="nk",CricBuzz 2
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",Unknown Channel
-https://ev-fast-mpd.starzplayarabia.com/live/eds/Criclife_3/DASH/Criclife_3.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=9dc5ddd99e3c723bf109a504da715dac:d39d55e9ba386a86641ca9668abf2b0d
-#EXTINF:-1 tvg-logo="" group-title="nk",Criclife Women
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",Unknown Channel
-https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife_Women_27112025/DASH/CricLife_Women_27112025.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",Criclife
-https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife1/DASH/CricLife1.mpd|User-Agent=Mozilla/5.0&Referer=https://starzplayarabia.com/&clearkey=1e23e51b09a67b83813c17049870bcd4:c3d6288e378b0dc55320fd0e6fd2e55f
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://www.ooredoo.qa/web/wp-content/uploads/2025/08/cricbuzz-active.png",CricBuzz 1
-https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife2/DASH/CricLife2.mpd|User-Agent=Mozilla/5.0&Referer=https://starzplayarabia.com/&clearkey=48bef83b4c6a3c5189b01b0126210da4:bd085230b7b09e50954fe0af111a8a9f
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://www.ooredoo.qa/web/wp-content/uploads/2025/10/Cricbuzz-2.jpg",CricBuzz 2
-https://ev-fast-mpd.starzplayarabia.com/live/eds/Criclife_3/DASH/Criclife_3.mpd|User-Agent=Mozilla/5.0&Referer=https://starzplayarabia.com/&clearkey=4e8b5ddac5332a4e66c002b4c0f22322:d06de29b0eacb81ac6e3f325849047e8
+https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife1/DASH/CricLife1.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplayarabia.com/&clearkey=1e23e51b09a67b83813c17049870bcd4:c3d6288e378b0dc55320fd0e6fd2e55f
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://www.ooredoo.qa/web/wp-content/uploads/2025/08/cricbuzz-active.png",Cricbuzz 1
+https://www.ooredoo.qa/web/wp-content/uploads/2025/08/cricbuzz-active.png"|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplayarabia.com/&clearkey=48bef83b4c6a3c5189b01b0126210da4:bd085230b7b09e50954fe0af111a8a9f
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://www.ooredoo.qa/web/wp-content/uploads/2025/10/Cricbuzz-2.jpg",Cricbuzz 2
+https://www.ooredoo.qa/web/wp-content/uploads/2025/10/Cricbuzz-2.jpg"|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplayarabia.com/&clearkey=4e8b5ddac5332a4e66c002b4c0f22322:d06de29b0eacb81ac6e3f325849047e8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",Criclife Women
-https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife_Women_27112025/DASH/CricLife_Women_27112025.mpd|User-Agent=Mozilla/5.0&Referer=https://starzplayarabia.com/&clearkey=9dc5ddd99e3c723bf109a504da715dac:d39d55e9ba386a86641ca9668abf2b0d
+https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife_Women_27112025/DASH/CricLife_Women_27112025.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplayarabia.com/&clearkey=9dc5ddd99e3c723bf109a504da715dac:d39d55e9ba386a86641ca9668abf2b0d
