@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-13 19:24:03 IST
+# Updated on: 2026-01-13 20:26:12 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,11 +846,13 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444&xxx=||cookie=__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 13 January 2026 at 7:21:06 pm
+#DATE:- Tuesday, 13 January 2026 at 8:21:07 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139745" tvg-name="Windward Islands Women Vs Guyana Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/CWI-Women's-T20-Blaze_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Windward Islands Women Vs Guyana Women
 https://in-mc-fdlive.fancode.com/mumbai/139745_english_hls_d1cc286a141232_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 13-01-2026 15:40
-#No live matches.
+#DATE:- 13-01-2026 20:20
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
+https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768350601~acl=/*~id=9f2f702c74fd98321911423e60d6c9df-1768307400114~hmac=64fd02fbfade2f4c8a842f2c4ea42f9a503d285f3d7af90dd0e71f95c58cf19a|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; STK-L22; Build/HUAWEISTK-L22)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=bdd62189f3587ae0a85fa5ff0f503c71-1768315810980
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 13/1/2026, 16:00:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
