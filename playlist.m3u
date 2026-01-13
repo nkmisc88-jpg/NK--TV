@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-14 03:09:46 IST
+# Updated on: 2026-01-14 03:23:15 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444&xxx=||cookie=__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 14 January 2026 at 3:07:05 am
+#DATE:- Wednesday, 14 January 2026 at 3:21:06 am
 #EXTINF:-1 group-title="Live Events" tvg-id="139746" tvg-name="Jamaica Women Vs Leeward Islands Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/CWI-Women's-T20-Blaze_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Jamaica Women Vs Leeward Islands Women
 https://in-mc-fdlive.fancode.com/mumbai/139746_english_hls_9a8ce266ae19979_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139211" tvg-name="Newcastle United Vs Manchester City" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/01_Newcastle-United-vs-Manchester-City_1768301098208.png" tvg-language="ENGLISH" ,ENG | Newcastle United Vs Manchester City
@@ -857,10 +857,8 @@ https://in-mc-fdlive.fancode.com/mumbai/139671_english_hls_c19d2bb8e243669_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139670_english_hls_2b7e7ceeae50375_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139669" tvg-name="Real Sociedad Vs Ca Osasuna" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139669_5806_RS_OSN_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Real Sociedad Vs Ca Osasuna
 https://in-mc-fdlive.fancode.com/mumbai/139669_english_hls_ccaf31104e46425_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 14-01-2026 03:00
-#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090499486" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768136509863648_bliga26_MD17_Mainz_vs_Heidenheim_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Mainz vs Heidenheim - MD 17 - 14 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2018457/DAI09ME-V3/master.m3u8?hdnea=exp=1768372201~acl=/*~id=33723350539584457094352078000288~hmac=3b7dbad97c12c2cfed0ffc7d5a0809318fc63d81369445731b2c6ab3dd3e7f6a|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; 21051182G; Build/RKQ1.200826.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=2e01542c45acd439217a1746ec5518af-1768339800149
+#DATE:- 14-01-2026 03:20
+#No live matches.
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 13/1/2026, 16:00:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
