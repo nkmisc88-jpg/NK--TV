@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-13 12:31:39 IST
+# Last Updated: 2026-01-13 13:16:59 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -17,11 +17,11 @@ https://livestream2.sunnxt.com/19ee29194c4d4fc286c3e697362e60cd/SunTVHDB_IN_inde
 #KODIPROP:inputstream.adaptive.license_key=849d6b062b645abea937ec7f2b6b1686:1f65503420b88d11a16d4a4eacd95f0f
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.5 (Linux; Android 13) ExoPlayerLib/2.11.7
 #EXTINF: -1 tvg-id="ts496" tvg-name="Star Vijay HD" tvg-logo="https://tatalogo.pages.dev/496.png" group-title="Tamil HD", Star Vijay HD
-https://jtvp.8088y.workers.dev/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd|Referer=https://m3u.8088y.fun/
+https://keys.vodep39240327.workers.dev/?id=368.mpd
 #EXTINF:-1 tvg-id="674" tvg-logo="https://tatalogo.pages.dev/674.png" group-title="Tamil HD",Colors Tamil HD
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://jkey.playlivtvlinks.workers.dev/?id=429
+#KODIPROP:inputstream.adaptive.license_key=https://keys.vodep39240327.workers.dev/?key=429
 https://keys.vodep39240327.workers.dev/?id=429.mpd
 #EXTINF:-1 tvg-id="608" group-title="Backup" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
@@ -473,23 +473,23 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Jio_Specials_HD_BTS/output/index.mpd?__hd
 # >>> JIO_AUTO_END
 #EXTINF:-1 tvg-id="ts246" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG" group-title="Sports HD",Star Sports Select 1 HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://keys.vodep39240327.workers.dev/?key=300
+#KODIPROP:inputstream.adaptive.license_key=https://keys.vodep39240327.workers.dev/?key=460
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
-https://keys.vodep39240327.workers.dev/?id=300.mpd
+https://keys.vodep39240327.workers.dev/?id=460.mpd
 #EXTINF:-1 tvg-id="ts463" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png" group-title="Sports HD",Star Sports Select 2 HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://keys.vodep39240327.workers.dev/?key=301
+#KODIPROP:inputstream.adaptive.license_key=https://keys.vodep39240327.workers.dev/?key=461
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
-https://keys.vodep39240327.workers.dev/?id=301.mpd
+https://keys.vodep39240327.workers.dev/?id=461.mpd
 ================================ TAMIL M3U ==========================================================
 https://livestream10.sunnxt.com/DolbyVision/SunTV_HDR/SunTV_HDR_Endpoints/SunTV-HDR10-IN-index.m3u8
-https://edge2-moblive.yuppcdn.net:443/drm1/smil:kalaignartvdrm.smil/chunklist_b996000.m3u8
+https://segment.yuppcdn.net/240122/kalaignartv/playlist.m3u8
 #EXTINF:-1 tvg-id="439" tvg-logo="https://tatalogo.pages.dev/439.png" group-title="Backup", Raj TV
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/2839e3d1e0f84a2e821c1708d5fdfdf0/index.m3u8
-#EXTINF:-1 tvg-id="ts647" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/isai-aruvi-black.png" group-title="Others", Isai Aruvi
-https://edge2-moblive.yuppcdn.net/drm1/smil:isaiaruvitvdrm.smil/manifest.m3u8
+#EXTINF:-1 tvg-id="ts647" tvg-logo="https://tatalogo.pages.dev/647.png" group-title="Others", Isai Aruvi
+https://segment.yuppcdn.net/140622/isaiaruvi/playlist.m3u8
 #EXTINF:-1 tvg-id="ts611" tvg-name="Sirippoli" tvg-logo="https://tatalogo.pages.dev/611.png" group-title="Tamil Extra", Sirippoli
-https://edge2-moblive.yuppcdn.net/drm1/smil:sirippolitvdrm.smil/manifest.m3u8
+https://segment.yuppcdn.net/240122/siripoli/playlist.m3u8
 #EXTINF:-1  tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/CHIT_Thumbnail-v1/CHIT_Thumbnail.png" group-title="Tamil Extra", Chithiram
 https://cdn-6.pishow.tv/live/1243/master.m3u8
 #EXTINF: -1 tvg-id="392" tvg-chno="30" tvg-logo="https://tatalogo.pages.dev/392.png" group-title="Tamil Extra", Makkal TV
@@ -611,11 +611,11 @@ https://sl.vodep39240327.workers.dev/channel/SONY TEN 4.m3u8
 #EXTINF:-1 tvg-logo="https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen5_HD_Logo_CLR.png" group-title="Sports HD",SONY TEN 5 HD
 https://sl.vodep39240327.workers.dev/channel/SONY TEN 5 HD.m3u8
 #EXTINF: -1 tvg-id="1301" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/TP4K_Thumbnail-v2/TP4K_Thumbnail.png" group-title="Sports Extra", Star 4K
-https://webhop.live:443/live/tarangjisgpr/sonuiptv/333368.ts
+http://astv.life:8080/Irshad123456/Irshad654321/848770
 #EXTINF:-1 tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN270000230_20250514T004921SQUARE.png" group-title="Sports Extra",FIFA+
 https://jmp2.uk/stvp-IN270000230
 #EXTINF: -1 tvg-id="AstroCricket" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png" group-title="Sports Extra", Astro Cricket
-https://live.catvod.com/live.php?id=Acricket
+http://astv.life:8080/live/Irshad123456/Irshad654321/848829.ts
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=9872e439f21f4a299cab249c6554daa3:0cdfcfe0d0f1fbe100554ce3ef4c4665
 #EXTINF:-1 tvg-id="Ten Cricket" tvg-logo="https://img-cdn.publive.online/fit-in/640x430/filters:format(webp)/afaqs/media/post_attachments/84882a51b6c9326e4499dedbb089ca95bd82663084027217207edb964a9a89ad.jpg" group-title="Sports Extra",Ten Cricket
@@ -1037,8 +1037,6 @@ http://cors.tundracast.com:2000/https://fsly.stream.peacocktv.com/Content/CMAF_C
 #EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOubnAQ9B6YCoZ_UUVgO-m0IiuUHQNQcAFyQ&s" group-title="Sports Extra",Solh Sports
 https://stream.snexus.co/live/SN_WILDLIFE/main_stream.m3u8
 ================================= YUPPTV ===================================================
-https://segment.yuppcdn.net/240122/siripoli/playlist.m3u8
-https://segment.yuppcdn.net/140622/isaiaruvi/playlist.m3u8
 https://edge3-moblive.yuppcdn.net/transsd/smil:saktv10.smil/playlist.m3u8
 https://streams2.sofast.tv/ptnr-yupptv/title-THALAA-TV-TAM_yupptv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/2069c593-3c07-4d62-9d44-746be5c3a5d6/manifest.m3u8
 https://edge3-moblive.yuppcdn.net:443/drm/smil:nflixdrm.smil/chunklist_b996000.m3u8
@@ -2133,7 +2131,7 @@ https://jmp2.uk/rok-be3c81de355c56f89cbf99301735cfd2.m3u8
 https://jmp2.uk/rok-d6f71998860459eca1bed73db5988330.m3u8
 #EXTINF:-1  tvg-name="FilmRise Action" tvg-id="0abef49cfd6759b18f2ce64290cbdda3" tvg-logo="https://images.sr.roku.com/idType/roku/context/trc/id/0abef49cfd6759b18f2ce64290cbdda3/https%3A%2F%2Fimage.roku.com%2Fbh-uploads%2Fproduction%2FinfoHUDLogo%2F1673450513655_HUDidentifier_filmRiseAction.png" tvg-chno="288" group-title="Others",FilmRise Action
 https://jmp2.uk/rok-0abef49cfd6759b18f2ce64290cbdda3.m3u8
-#EXTINF: tvg-logo="https://i.ibb.co/RdzJRTF/image.png" group-title="Others",Blast Movies
+#EXTINF:-1 tvg-logo="https://i.ibb.co/RdzJRTF/image.png" group-title="Others",Blast Movies
 https://amg19223-amg19223c7-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c7-amgplt0351/playlist.m3u8
 #EXTINF:-1 tvg-name="AXN" group-title="Backup",AXN
 http://185.18.56.26:8888/axn/index.m3u8
@@ -2156,10 +2154,10 @@ https://amg00426-littledotstudio-realwildnz-samsungnz-wz0bm.amagi.tv/playlist/am
 http://cord-cutter.net:8080/23aEYt/109375/66407
 #EXTINF:-1 tvg-id="24.7.Dummy.us" tvg-logo="https://spoo.me/HIMYM" group-title="Tamil Extra", How I Met Your Mother
 http://wickediptv.xyz/live/7XnMWsx0CQOnRaOB/vjmLj63HPEEwoj4s/224210.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="24.7.Dummy.us" tvg-logo="https://picon-13398.kxcdn.com/thebigbangtheory247.jpg" group-title="Tamil Extra",The Big Bang Theory
-https://denver.riobucky17.workers.dev/?id=20620
+#EXTINF:-1 tvg-id="" tvg-name="24.7.Dummy.us" tvg-logo="http://x.playerlatino.live/thebigbangtheory.png" group-title="Tamil Extra",The Big Bang Theory
+http://amazing-prada.xyz/live/7XnMWsx0CQOnRaOB/vjmLj63HPEEwoj4s/224605.m3u8
 #EXTINF:-1 tvg-name="24.7.Dummy.us" tvg-logo="http://x.playerlatino.live/twoandhalfmen.png" group-title="Tamil Extra",Two And a Half Men
-https://denver.riobucky17.workers.dev/?id=20731
+http://alpha-2ott.me:80/play/live.php?mac=00:1B:79:33:64:37&stream=976576&extension=ts
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=be9caaa813c5305e761c66ac63645901:3d40f2990ec5362ca5be3a3c9bb8f8b4
@@ -2378,7 +2376,7 @@ https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/rckhgp0mdp/
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=bf813dc4a32e0e9bcbce4446a65f4b12:eb9973b1a30c76812aa7ca8864b6a3c1
 https://a181aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/zewdvsfpre/out/v1/d65e537877cc4112b8fd88c6210f39da/cenc.mpd
-EXTINF:-1 tvg-id="StarzKidsFamilyEast.us" tvg-logo="https://m.media-amazon.com/images/G/01/LCXO_Station_Logos/starz_kf._SL170_FMpng_.png" group-title="US Channels",Starz Kids & Family HD East
+#EXTINF:-1 tvg-id="StarzKidsFamilyEast.us" tvg-logo="https://m.media-amazon.com/images/G/01/LCXO_Station_Logos/starz_kf._SL170_FMpng_.png" group-title="US Channels",Starz Kids & Family HD East
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"0c6ca94e4d9cdcb8eb387e659ba00834":"0565f7a65c76833908647b4a4c382d26"}
 https://a202aivottlinear-a.akamaihd.net/OTTB/PDX/clients/dash/enc/6tayf6u2ws/out/v1/54ee39a134714248b735eb986bff786d/cenc.mpd
@@ -3356,12 +3354,16 @@ https://in-mc-fdlive.fancode.com/mumbai/139535_english_hls_ad9d8e1ce860874_1ta-d
 #EXTINF:-1 group-title="Live Events" tvg-id="139534" tvg-name="Centre Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(1)_1767942977104.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139534_english_hls_e518ffe26d111_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499498" tvg-name="Australian Open 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013313/1768285059261802_AO26_Rybakina_vs_Paolini_rev_landscape_thumb.jpg" tvg-language="English" ,ENG | Paolini vs Rybakina - 13 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022316/DAI12ME-V3/master.m3u8?hdnea=exp=1768329001~acl=/*~id=cfffb8e6484d788faadede5f98806eb0-1768285800161~hmac=93d2814a34d5f90ef7b09ba0a3728b6c8cbca65ec9321d3a8f0b2c74bc98a6fa|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; SWTV-21AE; Build/RTM9.241015.210)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=eb787d67a3d5d109be2cde8770582b72-1768287009644
+https://sonymtmnew.akamaized.net/hls/live/2022316/DAI12ME-V3/master.m3u8?hdnea=exp=1768329001~acl=/*~id=cfffb8e6484d788faadede5f98806eb0-1768285800161~hmac=93d2814a34d5f90ef7b09ba0a3728b6c8cbca65ec9321d3a8f0b2c74bc98a6fa|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; NS 2K SmartTV; Build/RTM5.220609.218)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=98ef548f2547c7101e8863543e4f2e30-1768289411329
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498893" tvg-name="Super Smash 2025/26 Men's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012853/1767248542948898_SuperSmash2526_mens_Central-Stags-vs-Northern-Brave_1jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Central Stags vs Northern Brave - 13 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1768329001~acl=/*~id=cfffb8e6484d788faadede5f98806eb0-1768285800161~hmac=93d2814a34d5f90ef7b09ba0a3728b6c8cbca65ec9321d3a8f0b2c74bc98a6fa|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; NE2215; Build/AP3A.240617.008)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=eb787d67a3d5d109be2cde8770582b72-1768287009644
+https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1768329001~acl=/*~id=cfffb8e6484d788faadede5f98806eb0-1768285800161~hmac=93d2814a34d5f90ef7b09ba0a3728b6c8cbca65ec9321d3a8f0b2c74bc98a6fa|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; LAVA LZG404; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=98ef548f2547c7101e8863543e4f2e30-1768289411329
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873783" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873783/list/1920x1080list867660ddddee47e7a78f134856521f6867d802b30f9a4853963bfd79c9bc7c51.jpg" tvg-language="bengali" ,BEN | Kopa Tigers Birbhum Vs Sundarban Bengal Auto Fc
+https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1768375805~acl=%2f*~data=hdntl~hmac=f49a15706d74c9605a0feeb052c3b998956f27b2482441e8f82b9a6822d207e0|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873783" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873783/list/1920x1080list867660ddddee47e7a78f134856521f6867d802b30f9a4853963bfd79c9bc7c51.jpg" tvg-language="english" ,ENG | Kopa Tigers Birbhum Vs Sundarban Bengal Auto Fc
+https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M01/master.m3u8?hdntl=exp=1768375807~acl=%2f*~data=hdntl~hmac=e2cdc55415ffea0c88ef2c20d6a69fadece41cca28e9c7871eeb879ab25d3d76|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 media-1/media.m3u8
 #EXTINF:-1 group-title="YouTube Live" tvg-id="cricket.com.au" tvg-logo="https://i.ytimg.com/vi/MwGcDkj3nRw/hqdefault.jpg", cricket.com.au
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768305144/ei/mN1lacX7ONek-coP7KDT8QE/ip/172.215.209.244/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr3---sn-2onajc-5x.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AW-iu_pMhqoZ7tkkXa2JHOC3NYXqtDmTZn3Nimn-rqfMz27dZ5SkSk4g_Xk6ymrDPLuSVbgN4Q/spc/q5xjPFioP8hfwNQl-eWT/vprv/1/ns/kiM43Z2OWk7SiauJN14fA_0R/playlist_type/DVR/met/1768283545,/mh/Uh/mm/44/mn/sn-2onajc-5x/ms/lva/mv/u/mvi/3/pl/18/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/4WG9W5I3rRG0R7_SkCd/mt/1768282243/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRAIgcq5PRPk6hbFA9inxbohL14VReEd6btd2AMkaADQR20oCIETYSihFN8PktbZXUXJ-_WMflPQaUZicFQClJCg-E4tX/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIgKdjPgZjx5588pzMk_OnpILmHWjOjZQKZVmNrnNcbm24CIQD1dp1e3Pv2YB7d4ueB-232h419GfTsCFON__JYQq22jw%3D%3D/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768309339/ei/--1lae-wHar4sfIPxYmhyAE/ip/52.159.247.49/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr3---sn-ojn4v5-5g.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AW-iu_og95jKB5G1b0_vtIaJ5TTqxXXPtTX1Z7cyAcW8_JcPRELUvBhZbc1vJrSOTDgUMZJ-rA/spc/q5xjPHNmnUAHMiQiBNUo/vprv/1/ns/P9x_Jmnm0g1WtLmY9PeKpr0R/playlist_type/DVR/met/1768287739,/mh/Uh/mm/44/mn/sn-ojn4v5-5g/ms/lva/mv/u/mvi/3/pl/17/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/67_tHOgAITpdWKexJEt/mt/1768286945/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRAIgeu-dk9zCXJ2mmQHfP0OfWpNfypW5AxuSgaqkj12iUzQCIAMPfnh8jgN4A0zZ4AjnGTP5XBmpGgnS_lG6PdI1YHU4/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIgQiL8t2oPgsYkRs66DZQOENww4MupKd8O5RV4VYCLB0MCIQDT2R4ETENl0-om_x6IC0svK7BT6Mx5Osn2coQHWdAefQ%3D%3D/playlist/index.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 4k
 https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 501
