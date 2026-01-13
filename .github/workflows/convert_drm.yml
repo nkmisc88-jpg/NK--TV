@@ -30,7 +30,7 @@ jobs:
           INPUT_FILE = 'drm.txt'
           OUTPUT_FILE = 'converted_drm.txt'
           
-          # Headers matching your WORKING snippet
+          # 1. EXACT HEADERS FROM YOUR WORKING SNIPPET
           REAL_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
           REAL_REF = 'https://starzplay.com/'
 
@@ -42,7 +42,7 @@ jobs:
               
               output_lines = []
               
-              # Buffers
+              # Buffer variables
               current_key = ''
               current_title = ''
               current_logo = ''
@@ -53,46 +53,53 @@ jobs:
                   line = line.strip()
                   if not line: continue
                   
-                  # 1. SCAN FOR LICENSE KEY (Anywhere in the line)
+                  # --- A. FIND KEY (Anywhere in the line) ---
+                  # We look for the 32-char hex string with a colon in the middle
                   if 'license_key=' in line:
                       parts = line.split('license_key=')
-                      # Grab the part after =, stop at next space or end of line
-                      potential_key = parts[1].split()[0].strip()
-                      # Clean it if it has quotes
-                      current_key = potential_key.replace('\"', '')
+                      # Grab the key part (e.g., c540...:3071...)
+                      raw_key = parts[1].split()[0].strip()
+                      # Clean quotes
+                      current_key = raw_key.replace('\"', '')
 
-                  # 2. SCAN FOR TITLE & LOGO (Anywhere in the line)
+                  # --- B. FIND TITLE & LOGO ---
                   if 'group-title' in line or 'tvg-logo' in line or '#EXTINF' in line:
                       # Extract Logo
                       logo_match = re.search(r'tvg-logo=\"([^\"]*)\"', line)
                       if logo_match: current_logo = logo_match.group(1)
                       
-                      # Extract Title (Find the LAST comma in the line)
+                      # Extract Title (Text after the last comma)
                       last_comma = line.rfind(',')
                       if last_comma != -1:
-                          # Title is usually text after comma, BUT before the http link
-                          # We'll split by http just to be safe
                           title_part = line[last_comma+1:]
+                          # If http link is on the same line, remove it from title
                           if 'http' in title_part:
                               title_part = title_part.split('http')[0]
                           current_title = title_part.strip().replace('\"', '')
 
-                  # 3. SCAN FOR URL (Anywhere in the line)
-                  # We look for http/https string
+                  # --- C. FIND URL (Starts with http) ---
                   url_match = re.search(r'(https?://[^\s|]+)', line)
                   if url_match:
+                      # Get the pure URL without previous headers
                       url = url_match.group(1)
                       
-                      # Safety: Default title
                       if not current_title: 
                           current_title = f'Channel {count+1}'
 
-                      # --- BUILD THE MAGIC LINE ---
+                      # --- D. BUILD THE "KITCHEN SINK" HEADERS ---
+                      # We add the key in THREE different formats to ensure compatibility
+                      
                       headers = f'User-Agent={REAL_UA}&Referer={REAL_REF}'
                       
                       if current_key:
+                          # 1. TiviMate / Standard format
                           headers += f'&clearkey={current_key}'
+                          # 2. OTT Navigator specific format
+                          headers += f'&drm_scheme=clearkey&drm_license_key={current_key}'
+                          # 3. Kodi / Inputstream format (Just in case)
+                          headers += f'&inputstream.adaptive.license_type=clearkey&inputstream.adaptive.license_key={current_key}'
                       
+                      # Save to output list
                       output_lines.append(f'Title: {current_title}')
                       if current_logo:
                           output_lines.append(f'Logo: {current_logo}')
@@ -104,7 +111,7 @@ jobs:
                       print(f'--> Converted: {current_title}')
                       count += 1
                       
-                      # Reset buffers after saving a link
+                      # Reset buffers
                       current_key = ''
                       current_title = ''
                       current_logo = ''
