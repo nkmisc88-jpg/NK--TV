@@ -30,7 +30,7 @@ jobs:
           INPUT_FILE = 'drm.txt'
           OUTPUT_FILE = 'converted_drm.txt'
           
-          # --- SETTINGS FROM YOUR WORKING SNIPPET ---
+          # Headers matching your WORKING snippet
           REAL_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
           REAL_REF = 'https://starzplay.com/'
 
@@ -53,39 +53,44 @@ jobs:
                   line = line.strip()
                   if not line: continue
                   
-                  # 1. FIND LICENSE KEY (in #KODIPROP)
+                  # 1. SCAN FOR LICENSE KEY (Anywhere in the line)
                   if 'license_key=' in line:
                       parts = line.split('license_key=')
-                      if len(parts) > 1:
-                          current_key = parts[1].strip()
+                      # Grab the part after =, stop at next space or end of line
+                      potential_key = parts[1].split()[0].strip()
+                      # Clean it if it has quotes
+                      current_key = potential_key.replace('\"', '')
 
-                  # 2. FIND TITLE & LOGO (in #EXTINF)
-                  elif line.startswith('#EXTINF'):
+                  # 2. SCAN FOR TITLE & LOGO (Anywhere in the line)
+                  if 'group-title' in line or 'tvg-logo' in line or '#EXTINF' in line:
                       # Extract Logo
                       logo_match = re.search(r'tvg-logo=\"([^\"]*)\"', line)
                       if logo_match: current_logo = logo_match.group(1)
                       
-                      # Extract Title (After the last comma)
-                      title_parts = line.split(',')
-                      if len(title_parts) > 1:
-                          current_title = title_parts[-1].strip()
-                          # Remove quotes if present
-                          current_title = current_title.replace('\"', '')
+                      # Extract Title (Find the LAST comma in the line)
+                      last_comma = line.rfind(',')
+                      if last_comma != -1:
+                          # Title is usually text after comma, BUT before the http link
+                          # We'll split by http just to be safe
+                          title_part = line[last_comma+1:]
+                          if 'http' in title_part:
+                              title_part = title_part.split('http')[0]
+                          current_title = title_part.strip().replace('\"', '')
 
-                  # 3. FIND URL (Starts with http, ignore comments)
-                  elif line.startswith('http') and not line.startswith('#'):
-                      url = line.split('|')[0] # Clean URL just in case
+                  # 3. SCAN FOR URL (Anywhere in the line)
+                  # We look for http/https string
+                  url_match = re.search(r'(https?://[^\s|]+)', line)
+                  if url_match:
+                      url = url_match.group(1)
                       
-                      # Default title if missing
+                      # Safety: Default title
                       if not current_title: 
                           current_title = f'Channel {count+1}'
 
                       # --- BUILD THE MAGIC LINE ---
-                      # This combines the URL + UA + Referer + ClearKey into one line
                       headers = f'User-Agent={REAL_UA}&Referer={REAL_REF}'
                       
                       if current_key:
-                          # We add both formats to be safe for all players
                           headers += f'&clearkey={current_key}'
                       
                       output_lines.append(f'Title: {current_title}')
@@ -99,7 +104,7 @@ jobs:
                       print(f'--> Converted: {current_title}')
                       count += 1
                       
-                      # Reset buffers
+                      # Reset buffers after saving a link
                       current_key = ''
                       current_title = ''
                       current_logo = ''
