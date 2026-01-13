@@ -3,8 +3,8 @@ name: DRM Link Converter
 on:
   push:
     paths:
-      - 'drm.txt'  # Runs only when you edit this file
-  workflow_dispatch: # Allows manual run
+      - 'drm.txt'
+  workflow_dispatch:
 
 jobs:
   convert:
@@ -29,61 +29,103 @@ jobs:
 
           INPUT_FILE = 'drm.txt'
           OUTPUT_FILE = 'converted_drm.txt'
+          
+          # Standard headers for StarzPlay
           DEFAULT_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
           DEFAULT_REF = 'https://starzplayarabia.com/'
+
+          print(f'Checking {INPUT_FILE}...')
 
           if os.path.exists(INPUT_FILE):
               with open(INPUT_FILE, 'r', encoding='utf-8') as f:
                   lines = f.readlines()
               
               output_lines = []
+              
+              # Buffer variables
               current_key = ''
               current_logo = ''
               current_title = ''
               
+              count = 0
+
               for line in lines:
                   line = line.strip()
                   if not line: continue
                   
+                  # 1. Catch License Key
                   if 'license_key=' in line:
                       parts = line.split('license_key=')
-                      if len(parts) > 1: current_key = parts[1].strip()
-                  
+                      if len(parts) > 1: 
+                          current_key = parts[1].strip()
+                          print(f'Found Key: {current_key[:10]}...')
+
+                  # 2. Catch Logo & Title
                   elif line.startswith('#EXTINF'):
+                      # Logo
                       logo_match = re.search(r'tvg-logo=\"([^\"]*)\"', line)
                       if logo_match: current_logo = logo_match.group(1)
                       
+                      # Title (everything after the last comma)
                       title_parts = line.split(',')
-                      if len(title_parts) > 1: current_title = title_parts[-1].strip()
-                  
-                  elif not line.startswith('#'):
-                      # This is the URL
-                      if current_title:
-                          headers = f'User-Agent={DEFAULT_UA}&Referer={DEFAULT_REF}'
-                          if current_key:
-                              headers += f'&clearkey={current_key}'
+                      if len(title_parts) > 1: 
+                          current_title = title_parts[-1].strip()
+                      else:
+                          current_title = 'Unknown Channel'
                           
-                          output_lines.append(f'Title: {current_title}')
-                          if current_logo:
-                              output_lines.append(f'Logo: {current_logo}')
-                          output_lines.append(f'Link: {line}|{headers}')
-                          output_lines.append('')
+                      print(f'Found Title: {current_title}')
+
+                  # 3. Catch URL (It starts with http and is NOT a comment)
+                  elif line.startswith('http') and not line.startswith('#'):
+                      count += 1
+                      url = line
                       
-                      # Reset
+                      # If no title was found, make one up
+                      if not current_title: 
+                          current_title = f'Converted Channel {count}'
+                      
+                      # Construct the magic link
+                      headers = f'User-Agent={DEFAULT_UA}&Referer={DEFAULT_REF}'
+                      if current_key:
+                          headers += f'&clearkey={current_key}'
+                      
+                      # Save to list
+                      output_lines.append(f'Title: {current_title}')
+                      if current_logo:
+                          output_lines.append(f'Logo: {current_logo}')
+                      
+                      final_link = f'{url}|{headers}'
+                      output_lines.append(f'Link: {final_link}')
+                      output_lines.append('') # Spacer
+                      
+                      print(f'--> Saved Channel: {current_title}')
+                      
+                      # Reset buffers for next channel
                       current_key = ''
                       current_logo = ''
                       current_title = ''
 
-              with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-                  f.write('\n'.join(output_lines))
-              print('Conversion complete.')
+              # WRITE THE FILE
+              if output_lines:
+                  with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+                      f.write('\n'.join(output_lines))
+                  print(f'SUCCESS: Converted {count} channels.')
+              else:
+                  print('WARNING: No channels found! Check drm.txt format.')
+                  # Create empty file so git doesn't complain
+                  open(OUTPUT_FILE, 'w').close()
+
           else:
-              print('No drm.txt file found.')
+              print('ERROR: drm.txt file not found.')
           "
 
       - name: Commit Converted File
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
+          
+          git pull origin main
           git add converted_drm.txt
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Converted DRM links" && git push)
+          
+          # Commit only if there are changes
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update converted links [skip ci]" && git push)
