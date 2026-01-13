@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-13 23:05:50 IST
+# Updated on: 2026-01-13 23:24:48 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444&xxx=||cookie=__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 13 January 2026 at 11:00:04 pm
+#DATE:- Tuesday, 13 January 2026 at 11:21:04 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139579" tvg-name="Ias Invincibles Vs Majees Titans" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Ias Invincibles Vs Majees Titans
 https://in-mc-fdlive.fancode.com/mumbai/139579_english_hls_e863ca214f34866_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139358" tvg-name="Damac Vs Al Ittihad" tvg-logo="https://images.fancode.com/aig/match/v1/139358_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Damac Vs Al Ittihad
@@ -855,12 +855,12 @@ https://in-mc-fdlive.fancode.com/mumbai/139358_english_hls_434953ab6540532_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139272_english_hls_1e9a42a00f17476_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139271" tvg-name="Japan U23 Vs Qatar U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139271_5822_JP-U23_QAT-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Japan U23 Vs Qatar U23
 https://in-mc-fdlive.fancode.com/mumbai/139271_english_hls_b1cc996e8626896_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 13-01-2026 23:00
+#DATE:- 13-01-2026 23:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
-https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; Acer One 10 T4-129LI; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=911a901e9d8e16147e89ab6e5d772672-1768325400136
+https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; TECNO CL6; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f2efcfcfd669bf112328b9503b89e2af-1768326600123
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499481" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768134950567648_bliga26_MD17_VfB_Stuttgart_vs_Eintracht_Frankfurt_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | VfB Stuttgart vs Eintracht Frankfurt - MD 17 - 13 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; RMX3660; Build/AP3A.240617.008)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=911a901e9d8e16147e89ab6e5d772672-1768325400136
+https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768362127~acl=/*~id=11051774559207323589304834443559~hmac=68f7aef9af37f1f53e6772b71a457ae97d988cd05e78ea4934174a85f7ac9b71|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; SM-F127G; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f2efcfcfd669bf112328b9503b89e2af-1768326600123
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 13/1/2026, 16:00:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
