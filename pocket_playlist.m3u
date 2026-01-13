@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-13 16:23:11 IST
+# Last Updated: 2026-01-13 17:08:29 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -614,7 +614,6 @@ https://sl.vodep39240327.workers.dev/channel/SONY TEN 5 HD.m3u8
 http://astv.life:8080/Irshad123456/Irshad654321/848770
 #EXTINF:-1 tvg-logo="https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN270000230_20250514T004921SQUARE.png" group-title="Sports Extra",FIFA+
 https://jmp2.uk/stvp-IN270000230
-#EXTINF: -1 tvg-id="AstroCricket" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png" group-title="Sports Extra", Astro Cricket
 http://astv.life:8080/live/Irshad123456/Irshad654321/848829.ts
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=9872e439f21f4a299cab249c6554daa3:0cdfcfe0d0f1fbe100554ce3ef4c4665
@@ -763,13 +762,13 @@ https://livestream.sunnxt.com/6505e922bf164423ad122f404747356a/SuryaComedyB_IN_i
 #KODIPROP:inputstream.adaptive.license_key=c7737edd1d67824fa70df73154bf8110:68c5db3b309fab5503a6fdb580ddf281
 #EXTINF:-1 tvg-id="AstroVinmeen" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroVinmeen_2024.png" group-logo="" group-title="Tamil Extra",Astro Vinmeen
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 11; Philips Google TV TA7 Build/RTM5.220609.199; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36
-https://live.catvod.com/live.php?id=Rusi
+https://linearjitp-playback.astro.com.my/dash-wv/linear/2105/default_ott.mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={"keys":[ { "kty":"oct", "k":"CE52Vhu6nU866VOs3Tez7Q", "kid":"kYrevhCphI1WfcbLWtzlEA" } ], "type":"temporary" }
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 14; TMRV075G Build/UKQ1.230924.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/132.0.6834.163 Mobile Safari/537.36
 #EXTINF:-1 tvg-id="AstroThangathirai" tvg-logo="http://linear-poster.astro.com.my/prod/logo/AstroThangathirai_2024.png" group-logo="" group-title="Tamil Extra",Thangathirai
 https://linearjitp-playback.astro.com.my/dash-wv/linear/2109/default_ott.mpd
-#EXTINF:-1  tvg-id="Vasantham" tvg-logo="https://prod98.togglestatic.com/shain/v1/dataservice/ResizeImage/$value?Format='png'&Quality=85&ImageId='6318746'&EntityType='Item'&EntityId='97096'&Width=885&Height=250" group-title="Tamil Extra", Vasantham
+#EXTINF:-1 tvg-id="Vasantham" tvg-logo="https://prod98.togglestatic.com/shain/v1/dataservice/ResizeImage/$value?Format='png'&Quality=85&ImageId='6318746'&EntityType='Item'&EntityId='97096'&Width=885&Height=250" group-title="Tamil Extra", Vasantham
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=fb3e1afa8ae545f5a99d40baefd8a8d8:6432f742cd17eb5aedc3d68a3a61079c
 https://tglmp01.akamaized.net/out/v1/8605c1013e3148aa809c296dd76c3fa5/manifest.mpd
@@ -795,21 +794,21 @@ https://linearjitp-playback.astro.com.my/dash-wv/linear/2707/default_ott.mpd
 https://linearjitp-playback.astro.com.my/dash-wv/linear/5011/default_ott.mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"699Wuko1YsyCBTopUpdUMg", "kid":"gwdv8vaNF2S1WcQyq0nKEA" } ], "type":"temporary" }
-#EXTVLCOPT:http-user-agent=User-Agent: Mozilla/5.0 (Linux; Android 11; Xper!a 5 Build/mFjLTNcIil8fCh0eXBlIT1cIn1cImF1ZGlvXCIpIn0.BkWDujdfuYgIuoHodsw1Kshx0h6BhW4egKD8ymY4e2s; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.7.1675.48 Safari/537.36
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; MiTV-AXSO0 Build/QTZCS200912.005) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36
 https://linearjitp-playback.astro.com.my/dash-wv/linear/2310/default_ott.mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"URkFvxkUdLQStOwRdRWnnA", "kid":"5GNU+znCjllWvJRqwqBQEA" } ], "type":"temporary" }
-#EXTVLCOPT:http-user-agent=User-Agent: Mozilla/5.0 (Linux; Android 11; Xper!a 5 Build/mFjLTNcIil8fCh0eXBlIT1cIn1cImF1ZGlvXCIpIn0.BkWDujdfuYgIuoHodsw1Kshx0h6BhW4egKD8ymY4e2s; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.7.1675.48 Safari/537.36
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; MiTV-AXSO0 Build/QTZCS200912.005) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36
 https://linearjitp-playback.astro.com.my/dash-wv/linear/2101/default_ott.mpd
-#EXTINF:-1 tvg-id="ZeeTamilHD" group-title="Backup" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"Znoz9NW7NYfy1SCYhoOerA", "kid":"DU4+fawtWLk7+BmnL+jVEA" } ], "type":"temporary" }
-#EXTVLCOPT:http-user-agent=User-Agent: Mozilla/5.0 (Linux; Android 11; Xper!a 5 Build/mFjLTNcIil8fCh0eXBlIT1cIn1cImF1ZGlvXCIpIn0.BkWDujdfuYgIuoHodsw1Kshx0h6BhW4egKD8ymY4e2s; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.7.1675.48 Safari/537.36
+#EXTINF:-1 tvg-id="ZeeTamilHD" tvg-name="ZEE TAMIL HD" tvg-logo="https://linear-poster.astro.com.my/prod/logo/ZeeTamil_v1.png" group-title="Backup" ch-number="223",223 Zee Tamil HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; MiTV-AXSO0 Build/QTZCS200912.005) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36
 https://linearjitp-playback.astro.com.my/dash-wv/linear/2311/default_ott.mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"c2SM66N1FkWSbUVCHIXZJw", "kid":"jnhjqOdwsNcuvkpoQ3tkEA" } ], "type":"temporary" }
-#EXTVLCOPT:http-user-agent=User-Agent: Mozilla/5.0 (Linux; Android 11; Xper!a 5 Build/mFjLTNcIil8fCh0eXBlIT1cIn1cImF1ZGlvXCIpIn0.BkWDujdfuYgIuoHodsw1Kshx0h6BhW4egKD8ymY4e2s; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.7.1675.48 Safari/537.36
-https://linearjitp-playback.astro.com.my/dash-wv/linear/5088/default_ott.mpd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; MiTV-AXSO0 Build/QTZCS200912.005) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36
+http://linearjitp-playback.astro.com.my/dash-wv/linear/5088/default_ott.mpd
 #EXTINF:-1 tvg-id="Adithya" tvg-name="Adithya" group-title="Tamil Extra" tvg-logo="https://user-images.githubusercontent.com/85995579/130947065-c352cfdd-f4eb-47e3-aec3-806e76cec321.png", Adithya
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"XrN2KxpGMaC5jiXiPO8Bkw", "kid":"hZ9bIFTEBz6PDaRj0gi5EA" } ], "type":"temporary" }
@@ -818,12 +817,12 @@ https://linearjitp-playback.astro.com.my/dash-wv/linear/915/default_ott.mpd
 #EXTINF:-1 tvg-id="SunNews" tvg-name="Sun News" group-title="Backup" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/478_144.png", Sun News
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"rAh5IEchjKKgHyu9EtkFAQ", "kid":"ChccwbuQ94ggzyXMVfDuEA" } ], "type":"temporary" }
-#EXTVLCOPT:http-user-agent=User-Agent: Mozilla/5.0 (Linux; Android 11; Xper!a 5 Build/mFjLTNcIil8fCh0eXBlIT1cIn1cImF1ZGlvXCIpIn0.BkWDujdfuYgIuoHodsw1Kshx0h6BhW4egKD8ymY4e2s; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.7.1675.48 Safari/537.36
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; MiTV-AXSO0 Build/QTZCS200912.005) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36
 https://linearjitp-playback.astro.com.my/dash-wv/linear/5087/default_ott.mpd
 #EXTINF:-1 tvg-id="SunLife" tvg-name="Sun Life" group-title="Backup" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/476_144.png",Sun Life
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"cmMEcIxCn2E+wtxTYZ1vdg", "kid":"4+G+lObBk/oheHzoQ122EA" } ], "type":"temporary" }
-#EXTVLCOPT:http-user-agent=User-Agent: Mozilla/5.0 (Linux; Android 11; Xper!a 5 Build/mFjLTNcIil8fCh0eXBlIT1cIn1cImF1ZGlvXCIpIn0.BkWDujdfuYgIuoHodsw1Kshx0h6BhW4egKD8ymY4e2s; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.7.1675.48 Safari/537.36
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; MiTV-AXSO0 Build/QTZCS200912.005) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36
 https://linearjitp-playback.astro.com.my/dash-wv/linear/5089/default_ott.mpd
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -834,7 +833,7 @@ https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_hbohd/default/index.mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=b04ae8017b5b4601a5a0c9060f6d5b7d:a8795f3bdb8a4778b7e888ee484cc7a1
 https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_hbohits/default1/index.mpd
-#EXTINF:-1 tvg-id="HBOFamily1" group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/HBO_Family.png",HBO Family
+#EXTINF:-1 tvg-id="HBOFamily" group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/HBO_Family.png",HBO Family
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=872910c843294319800d85f9a0940607:f79fd895b79c590708cf5e8b5c6263be
@@ -887,13 +886,8 @@ https://cdn10jtedge.indihometv.com/atm/DASH/rock_entertainment/manifest.mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=99e736f170b148ffb16d0ad6c8f93ef4:d1b4737ab41f0daae733f11a4b84fa02
 https://cdn10jtedge.indihometv.com/atm/DASH/ROCK_ACTION/manifest.mpd
-#EXTINF:-1 tvg-id="MTVAsia" group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/MTV_Live.png",MTV Live
-#KODIPROP:inputstream.adaptive.manifest_type=dash
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=3ac2542a4f7be746633db07647451710:22f964a6d6927ccdba482e775cdff190
-#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0 (Linux; Android 13; UltraBox Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/136.0.7103.61 Mobile Safari/537.36
-https://linearjitp-playback.astro.com.my/dash-wv/linear/5014/default_ott.mpd
 #EXTINF:-1 tvg-logo="https://mir-s3-cdn-cf.behance.net/projects/404/5539c052982045.Y3JvcCwyNDU4LDE5MjQsNzA0LDg0.png" group-title="Infotainment SD",Discovery Asia
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1 (Linux; Android 13) ExoPlayerLib/2.15.1
 https://cdn4.skygo.mn/live/disk1/Discovery_Asia/HLSv3-FTA/Discovery_Asia.m3u8
 #EXTINF:-1 tvg-id="DiscoveryChannel" group-title="Infotainment SD" .com.my/prod/logo/Discovery_NEW_v1.png",Discovery Channel
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -956,14 +950,27 @@ https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_foodnetwork_hd1/default
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=f0e3ab943318471abc8b47027f384f5a:13802a79b19cc3485d2257165a7ef62a
 https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/hgtv_hd1/default/index.mpd
-#EXTINF:-1 tvg-id="AstroCricket" tvg-logo="https://linear-poster.astro.com.my/prod/logo/AstroCricket_2024.png" group-title="Backup", Astro Cricket
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=03c2e0af2f8159f9f0ce9b5dbc865f10:cd84ed136b0cc71f8ab8cd4d4f6a2e4c
-#https://converse.nathcreqtives.com/astro/2504/manifest.mpd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ2ZW9zZXBoIiwiaWF0IjoxNzY3NDUwNjg3LCJleHAiOjE3Njc4Njk4NjEsImFjY291bnRFeHBpcmVkIjpmYWxzZSwiYWNjb3VudEV4cGlyZXNBdCI6MTc2Nzg2OTg2MX0.9puUPiDaydWR5UrF3UH3V1m2ZecC_eJgR9b3o9qZZQI
+#KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"zYTtE2sMxx+KuM1NT2ouTA", "kid":"A8Lgry+BWfnwzptdvIZfEA" } ], "type":"temporary" }
+#EXTINF:-1 tvg-id="AstroCricket" tvg-name="Astro Cricket HD" group-title="Sports Extra" tvg-logo="https://i.ibb.co/fYJ35KXn/Astro-Cricket-2024.png",Astro Cricket HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; U; Android 4.3; en-us; SM-N900T Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+#https://b500e47a210c49479f2313d1a124f855.mediatailor.ap-southeast-1.amazonaws.com/v1/dash/ceb8322ae2e84c32cb0fce196fdc60100025ab50/MT-CH31-dash/default_ott.mpd?astro=true&aws.sessionId=35e03e2b-470a-4563-a439-0f616424a47a
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/cb/PremierSports-ph.png" group-title="Sports Extra",Premier Sports
 https://amg19223-amg19223c3-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c3-amgplt0351/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/5/59/PremierSports2_logo.png/revision/latest?cb=20220528091432" group-title="Sports Extra",Premier Sports 2
 https://amg19223-amg19223c4-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c4-amgplt0351/playlist.m3u8
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"7hrhzQhvqb/AUF5tXp4n6Q", "kid":"isiy968FrYKYBTRaUXvBEA" } ], "type":"temporary" }
+#EXTINF:-1 tvg-id="AstroSportsUHD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/bf/Astro_Sports_UHD_1_%282024%29.png" group-title="Tamil Extra",SuperSport UHD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 11; Philips Google TV TA7 Build/RTM5.220609.199; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36
+#https://linearjitp-playback.astro.com.my/dash-wv/linear/1600/default_primary.mpd
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"yLiGFCAF1+UGfIcXd36qxA", "kid":"gTUrxH7BF3syHuZawb5/EA" } ], "type":"temporary" }
+#EXTINF:-1 group-title="Sports Extra" tvg-id="AstroSportsPlus" tvg-logo="https://i.ibb.co/bgJhyJCq/Astro-Sports-Plus-2024.png",Sports Plus HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 11; Philips Google TV TA7 Build/RTM5.220609.199; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36
+https://linearjitp-playback.astro.com.my/dash-wv/dashiso/5171/default_ott.mpd
 #EXTINF:-1 tvg-id="SPOTV" group-title="Tamil Extra" tvg-logo="https://linear-poster.astro.com.my/prod/logo/SPOTV.png",SPOTV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=ec7ee27d83764e4b845c48cca31c8eef:9c0e4191203fccb0fde34ee29999129e
@@ -3341,15 +3348,17 @@ https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/AND-PICTURES-SD/master/mast
 #EXTINF:-1 tvg-id="0-9-channel_2105335046" tvg-name="&flix HD" tvg-language="en" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-channel_2105335046/channel_list/360x203f04326926d5b45d1992f2a05e3f89f55" group-title="Backup" group-logo="https://upload.wikimedia.org/wikipedia/commons/5/5a/Zee5-official-logo.jpeg", &flix HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Flix-HD/index-connected/index-connected.m3u8?hdntl=exp=1768382523~acl=%2f*~id=4f10838a-9de9-4634-8dd9-6a98f0d6c3ae~data=hdntl~hmac=e08f2e983a6205b3c584775b94d026c037987b3032eae8a8508de634525f1fab
-#EXTINF:-1 group-title="Live Events" tvg-id="139666" tvg-name="V N Sule Vs Dyandeep Seva Mandal" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Giles_Shield_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | V N Sule Vs Dyandeep Seva Mandal
-https://in-mc-fdlive.fancode.com/mumbai/139666_english_hls_653eb329b995755_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139667" tvg-name="Swami Vivekanand Vs Rizvi" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Giles_Shield_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Swami Vivekanand Vs Rizvi
-https://in-mc-fdlive.fancode.com/mumbai/139667_english_hls_e061157e2f25978_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139578" tvg-name="Oman Development Team Vs Renaissance Challengers" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Oman Development Team Vs Renaissance Challengers
 https://in-mc-fdlive.fancode.com/mumbai/139578_english_hls_ec30856ae549689_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139270" tvg-name="Ir Iran U23 Vs Lebanon U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139270_5822_IRN-U23_LEB-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Ir Iran U23 Vs Lebanon U23
+https://in-mc-fdlive.fancode.com/mumbai/139270_english_hls_eb382f054113596_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139269" tvg-name="Uzbekistan U23 Vs Korea Republic U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139269_5822_UZB-U23_KR-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Uzbekistan U23 Vs Korea Republic U23
+https://in-mc-fdlive.fancode.com/mumbai/139269_english_hls_366306b3e325277_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 media-1/media.m3u8
+#EXTINF:-1 group-title="YouTube Live" tvg-id="Cricket_South_Africa" tvg-logo="https://i.ytimg.com/vi/_ZWIZrmtjTo/hqdefault.jpg", Cricket South Africa
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768323221/ei/NSRmaevfC9eglu8PzJXfwA4/ip/52.176.124.180/id/_ZWIZrmtjTo.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr3---sn-vgqsrnlk.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_oGMXhEYA2MQGW1Gbn3akUlD625GlgngcyEek1Rcqk0bQ8erIu9oHmdII2_DseTBJ3dsQ/spc/q5xjPDUE1IRYG4N1y5mD/vprv/1/ns/6tj4miPJjnm_SnBBM_RvEsER/playlist_type/DVR/met/1768301621,/mh/ii/mm/44/mn/sn-vgqsrnlk/ms/lva/mv/u/mvi/3/pl/22/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/PDA2YhZttQheD8RKrt6/mt/1768300718/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhALlIJZYiiv_eQ_BdA48NhfhR5jz7-nBgO_UBT8KDlij0AiEA_3O0_6dDMB0AhG8sANa4bmxsjr1lzUg5GdXlogSeXuk%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIgH2pPaQkDIyarbCcxbiiC-2Ip2tNS1fJCOqEungXSlQ0CIQCO_qwP380H-Zz7Jy1LLHLulXZae0jJfxKiBc5ZHGxAOw%3D%3D/playlist/index.m3u8
 #EXTINF:-1 group-title="YouTube Live" tvg-id="cricket.com.au" tvg-logo="https://i.ytimg.com/vi/MwGcDkj3nRw/hqdefault.jpg", cricket.com.au
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768319682/ei/YhZmacnSIavKybgPiZy86Qw/ip/135.232.201.242/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr3---sn-vgqskn66.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AW-iu_oW1vrPVbQO_EajP7Srk-NouU09KEtJkWwVVFp_OxLQ1nUEQp9_j7dVnes3hwxhH6X0KA/spc/q5xjPOtT9sCyz3VfOVKn/vprv/1/ns/eNtlMSWvJV0d9jEQlogMQLQR/playlist_type/DVR/met/1768298082,/mh/Uh/mm/44/mn/sn-vgqskn66/ms/lva/mv/u/mvi/3/pl/17/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/XskaeF-RM8GitaLXx3G/mt/1768297976/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhANJ0Dta9kmw4IOtOc-3Hi8AbN03lN9yK63UPb-in7nfOAiEAqXq-33NTTv6t8l_Xr_LIC0Ijz7mJMdR5Qjj1fh0aoE0%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIhAKxvaaaxaGJLZONdcvgzuwW9z6jcyV51wa8rOKED4zrRAiBTvwRKX8UaCFdbiFr1ezA5-Bd2wpHjzEiYDwnM24jaoA%3D%3D/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768323233/ei/QSRmabmaCPWR2_gPkMqr4Ak/ip/52.176.124.180/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr3---sn-vgqskn66.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AW-iu_o-9GslRJqeLqSCLAOpKPuHp0whx0bG3XXKKRlC6qg3I6RaFLe3DkUoJCSLLRMx4Qef3w/spc/q5xjPDKqa0aY_Xvkmofq/vprv/1/ns/fZToEWHmtFq8daOcDLww_K4R/playlist_type/DVR/met/1768301633,/mh/Uh/mm/44/mn/sn-vgqskn66/ms/lva/mv/u/mvi/3/pl/22/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/s9OMVUAYfhL83BnuRuF/mt/1768300298/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhAOX_yqwteZZR1xV4clEXF-FLqxWKgBaNV1Yl3CEfk3tjAiEAxCG51gdXRfi5rTsJa-Jg8Bf2xUvlmvmXTxqf3l11N-g%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIgZ0KIE3GWA73xv0WAGvz8eoYz0KVPMyweLW9j440MTCwCIQCGrwVl3q3Xujohp9V3hA_8a4Y9hpYyfQhMO4_ad5ISFg%3D%3D/playlist/index.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 4k
 https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 501
