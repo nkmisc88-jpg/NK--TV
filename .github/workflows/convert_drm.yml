@@ -29,8 +29,10 @@ jobs:
 
           INPUT_FILE = 'drm.txt'
           OUTPUT_FILE = 'converted_drm.txt'
-          DEFAULT_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-          DEFAULT_REF = 'https://starzplayarabia.com/'
+          
+          # --- SETTINGS FROM YOUR WORKING SNIPPET ---
+          REAL_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+          REAL_REF = 'https://starzplay.com/'
 
           print(f'Reading {INPUT_FILE}...')
           
@@ -39,77 +41,76 @@ jobs:
                   lines = f.readlines()
               
               output_lines = []
+              
+              # Buffers
+              current_key = ''
+              current_title = ''
+              current_logo = ''
+              
               count = 0
 
               for line in lines:
                   line = line.strip()
                   if not line: continue
                   
-                  # 1. FIND URL (Look for http/https)
-                  url_match = re.search(r'(https?://\S+)', line)
-                  if not url_match: 
-                      continue # Skip lines without links
-                  
-                  url = url_match.group(1)
-                  
-                  # 2. FIND LICENSE KEY
-                  key = ''
-                  # Regex looks for 'license_key=' followed by hex characters and colons
-                  key_match = re.search(r'license_key=([a-fA-F0-9:]+)', line)
-                  if key_match:
-                      key = key_match.group(1)
+                  # 1. FIND LICENSE KEY (in #KODIPROP)
+                  if 'license_key=' in line:
+                      parts = line.split('license_key=')
+                      if len(parts) > 1:
+                          current_key = parts[1].strip()
 
-                  # 3. FIND LOGO
-                  logo = ''
-                  logo_match = re.search(r'tvg-logo=\"([^\"]*)\"', line)
-                  if logo_match:
-                      logo = logo_match.group(1)
-
-                  # 4. FIND TITLE (Tricky part!)
-                  # Logic: The title is usually text between the last comma and the URL
-                  title = 'Unknown Channel'
-                  try:
-                      # Find where the URL starts
-                      url_start = line.find(url)
-                      # Take the text BEFORE the URL
-                      text_before_url = line[:url_start].strip()
-                      # Find the last comma in that text
-                      last_comma_index = text_before_url.rfind(',')
+                  # 2. FIND TITLE & LOGO (in #EXTINF)
+                  elif line.startswith('#EXTINF'):
+                      # Extract Logo
+                      logo_match = re.search(r'tvg-logo=\"([^\"]*)\"', line)
+                      if logo_match: current_logo = logo_match.group(1)
                       
-                      if last_comma_index != -1:
-                          # The title is everything after that comma
-                          title = text_before_url[last_comma_index+1:].strip()
-                          # Clean up quotes if present
-                          title = title.replace('\"', '')
-                  except:
-                      pass
-                  
-                  # 5. BUILD OUTPUT
-                  headers = f'User-Agent={DEFAULT_UA}&Referer={DEFAULT_REF}'
-                  if key:
-                      headers += f'&clearkey={key}'
-                  
-                  output_lines.append(f'Title: {title}')
-                  if logo:
-                      output_lines.append(f'Logo: {logo}')
-                  
-                  # Combine Link | Headers
-                  output_lines.append(f'Link: {url}|{headers}')
-                  output_lines.append('') # Empty line for spacing
-                  
-                  count += 1
-                  print(f'--> Converted: {title}')
+                      # Extract Title (After the last comma)
+                      title_parts = line.split(',')
+                      if len(title_parts) > 1:
+                          current_title = title_parts[-1].strip()
+                          # Remove quotes if present
+                          current_title = current_title.replace('\"', '')
 
-              # SAVE FILE
+                  # 3. FIND URL (Starts with http, ignore comments)
+                  elif line.startswith('http') and not line.startswith('#'):
+                      url = line.split('|')[0] # Clean URL just in case
+                      
+                      # Default title if missing
+                      if not current_title: 
+                          current_title = f'Channel {count+1}'
+
+                      # --- BUILD THE MAGIC LINE ---
+                      # This combines the URL + UA + Referer + ClearKey into one line
+                      headers = f'User-Agent={REAL_UA}&Referer={REAL_REF}'
+                      
+                      if current_key:
+                          # We add both formats to be safe for all players
+                          headers += f'&clearkey={current_key}'
+                      
+                      output_lines.append(f'Title: {current_title}')
+                      if current_logo:
+                          output_lines.append(f'Logo: {current_logo}')
+                      
+                      final_link = f'{url}|{headers}'
+                      output_lines.append(f'Link: {final_link}')
+                      output_lines.append('') # Spacer
+                      
+                      print(f'--> Converted: {current_title}')
+                      count += 1
+                      
+                      # Reset buffers
+                      current_key = ''
+                      current_title = ''
+                      current_logo = ''
+
               if count > 0:
                   with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
                       f.write('\n'.join(output_lines))
-                  print(f'SUCCESS: Saved {count} channels to {OUTPUT_FILE}')
+                  print(f'SUCCESS: Saved {count} channels.')
               else:
-                  print('WARNING: No valid links found. Check if lines start with http or contain urls.')
-                  # Create empty file
                   open(OUTPUT_FILE, 'w').close()
-                  
+                  print('WARNING: No links found.')
           else:
               print('ERROR: drm.txt not found')
           "
