@@ -1,0 +1,89 @@
+name: DRM Link Converter
+
+on:
+  push:
+    paths:
+      - 'drm.txt'  # Runs only when you edit this file
+  workflow_dispatch: # Allows manual run
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Run Conversion Script
+        run: |
+          python -c "
+          import re
+          import os
+
+          INPUT_FILE = 'drm.txt'
+          OUTPUT_FILE = 'converted_drm.txt'
+          DEFAULT_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+          DEFAULT_REF = 'https://starzplayarabia.com/'
+
+          if os.path.exists(INPUT_FILE):
+              with open(INPUT_FILE, 'r', encoding='utf-8') as f:
+                  lines = f.readlines()
+              
+              output_lines = []
+              current_key = ''
+              current_logo = ''
+              current_title = ''
+              
+              for line in lines:
+                  line = line.strip()
+                  if not line: continue
+                  
+                  if 'license_key=' in line:
+                      parts = line.split('license_key=')
+                      if len(parts) > 1: current_key = parts[1].strip()
+                  
+                  elif line.startswith('#EXTINF'):
+                      logo_match = re.search(r'tvg-logo=\"([^\"]*)\"', line)
+                      if logo_match: current_logo = logo_match.group(1)
+                      
+                      title_parts = line.split(',')
+                      if len(title_parts) > 1: current_title = title_parts[-1].strip()
+                  
+                  elif not line.startswith('#'):
+                      # This is the URL
+                      if current_title:
+                          headers = f'User-Agent={DEFAULT_UA}&Referer={DEFAULT_REF}'
+                          if current_key:
+                              headers += f'&clearkey={current_key}'
+                          
+                          output_lines.append(f'Title: {current_title}')
+                          if current_logo:
+                              output_lines.append(f'Logo: {current_logo}')
+                          output_lines.append(f'Link: {line}|{headers}')
+                          output_lines.append('')
+                      
+                      # Reset
+                      current_key = ''
+                      current_logo = ''
+                      current_title = ''
+
+              with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+                  f.write('\n'.join(output_lines))
+              print('Conversion complete.')
+          else:
+              print('No drm.txt file found.')
+          "
+
+      - name: Commit Converted File
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add converted_drm.txt
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Converted DRM links" && git push)
