@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-13 22:35:02 IST
+# Last Updated: 2026-01-13 22:35:36 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3359,8 +3359,6 @@ https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/AND-PICTURES-SD/master/mast
 #EXTINF:-1 tvg-id="0-9-channel_2105335046" tvg-name="&flix HD" tvg-language="en" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-channel_2105335046/channel_list/360x203f04326926d5b45d1992f2a05e3f89f55" group-title="Backup" group-logo="https://upload.wikimedia.org/wikipedia/commons/5/5a/Zee5-official-logo.jpeg", &flix HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Flix-HD/index-connected/index-connected.m3u8?hdntl=exp=1768382523~acl=%2f*~id=4f10838a-9de9-4634-8dd9-6a98f0d6c3ae~data=hdntl~hmac=e08f2e983a6205b3c584775b94d026c037987b3032eae8a8508de634525f1fab
-#EXTINF:-1 group-title="Live Events" tvg-id="139745" tvg-name="Windward Islands Women Vs Guyana Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/CWI-Women's-T20-Blaze_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Windward Islands Women Vs Guyana Women
-https://in-mc-fdlive.fancode.com/mumbai/139745_english_hls_d1cc286a141232_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139579" tvg-name="Ias Invincibles Vs Majees Titans" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Ias Invincibles Vs Majees Titans
 https://in-mc-fdlive.fancode.com/mumbai/139579_english_hls_e863ca214f34866_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139272" tvg-name="United Arab Emirates U23 Vs Syria U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139272_5822_UAE-U23_SYR-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | United Arab Emirates U23 Vs Syria U23
