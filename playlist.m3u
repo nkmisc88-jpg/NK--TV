@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-13 14:29:38 IST
+# Updated on: 2026-01-13 15:22:34 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444&xxx=||cookie=__hdnea__=st=1768266662~exp=1768353062~acl=/*~hmac=6a5fa6130a515c6437c0b1afc1a5284a02edebd99ee63a1ef16c6c15d578f444
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 13 January 2026 at 2:28:05 pm
+#DATE:- Tuesday, 13 January 2026 at 3:21:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139666" tvg-name="V N Sule Vs Dyandeep Seva Mandal" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Giles_Shield_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | V N Sule Vs Dyandeep Seva Mandal
 https://in-mc-fdlive.fancode.com/mumbai/139666_english_hls_653eb329b995755_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139667" tvg-name="Swami Vivekanand Vs Rizvi" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Giles_Shield_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Swami Vivekanand Vs Rizvi
@@ -855,12 +855,12 @@ https://in-mc-fdlive.fancode.com/mumbai/139667_english_hls_e061157e2f25978_1ta-d
 https://in-mc-fdlive.fancode.com/s3/53d0a95d-be66-44b8-b9ef-71a778a8b56e/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139534" tvg-name="Centre Court   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(1)_1767942977104.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139534_english_hls_e518ffe26d111_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 13-01-2026 14:20
+#DATE:- 13-01-2026 15:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499498" tvg-name="Australian Open 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013308/1768241336769463_AO26_Zverev_vs_Musetti_12jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Zverev vs Musetti - 13 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022316/DAI12ME-V3/master.m3u8?hdnea=exp=1768329001~acl=/*~id=cfffb8e6484d788faadede5f98806eb0-1768285800161~hmac=93d2814a34d5f90ef7b09ba0a3728b6c8cbca65ec9321d3a8f0b2c74bc98a6fa|User-Agent=com.sonyliv/6.22.4 (Android 20; en_GB; TX20 PRO; Build/QP1A.191105.004)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d395c476250434176451e4aef5a5b3f9-1768294212328
+https://sonymtmnew.akamaized.net/hls/live/2022316/DAI12ME-V3/master.m3u8?hdnea=exp=1768329001~acl=/*~id=cfffb8e6484d788faadede5f98806eb0-1768285800161~hmac=93d2814a34d5f90ef7b09ba0a3728b6c8cbca65ec9321d3a8f0b2c74bc98a6fa|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; HY300; Build/SP1A.210812.015)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=ce833423805e316135c0c2efc870d947-1768297813481
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Tuesday, 13 January 2026 at 2:15:06 pm
+#DATE:- Tuesday, 13 January 2026 at 3:15:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873783" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873783/list/1920x1080list867660ddddee47e7a78f134856521f6867d802b30f9a4853963bfd79c9bc7c51.jpg" tvg-language="bengali" ,BEN | Kopa Tigers Birbhum Vs Sundarban Bengal Auto Fc
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1768375805~acl=%2f*~data=hdntl~hmac=f49a15706d74c9605a0feeb052c3b998956f27b2482441e8f82b9a6822d207e0|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873783" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873783/list/1920x1080list867660ddddee47e7a78f134856521f6867d802b30f9a4853963bfd79c9bc7c51.jpg" tvg-language="english" ,ENG | Kopa Tigers Birbhum Vs Sundarban Bengal Auto Fc
