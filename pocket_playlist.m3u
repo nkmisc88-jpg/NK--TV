@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-15 01:24:45 IST
+# Last Updated: 2026-01-15 02:15:35 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -57,7 +57,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsTamilHD_BTS/output/index.mpd?__hdne
 #EXTINF:-1 tvg-id="0-9-zeetamil" group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768459142~acl=%2f*~id=1a21427b-4887-408c-932e-8b41c855aa4c~data=hdntl~hmac=7bd734d691eacf5a6ee1a3268d00c7c97aed6b973e7bf304d0dc1585afae4c16
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768502405~acl=%2f*~id=f62e14bd-9eac-47cf-a98a-e7864fb38e18~data=hdntl~hmac=9074ce26331947122079bfda51a587f818c68576fd02fc7f6714cf7add4188ec
 #EXTINF:-1 tvg-id="894" group-title="Backup" tvg-logo="https://tatalogo.pages.dev/380.png",KTV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ba9bfe750a56514e9c63c456fad1e428&key=e0ca0ee9dbaac2942753d928b92824c5
@@ -157,7 +157,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Puthu_Yugam_BTS/output/index.mpd?__hdnea_
 #EXTINF:-1 tvg-id="0-9-224" group-title="Tamil HD" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Thirai-HD/index-connected/index-connected.m3u8?hdntl=exp=1768459142~acl=%2f*~id=1a21427b-4887-408c-932e-8b41c855aa4c~data=hdntl~hmac=7bd734d691eacf5a6ee1a3268d00c7c97aed6b973e7bf304d0dc1585afae4c16
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Thirai-HD/index-connected/index-connected.m3u8?hdntl=exp=1768502405~acl=%2f*~id=f62e14bd-9eac-47cf-a98a-e7864fb38e18~data=hdntl~hmac=9074ce26331947122079bfda51a587f818c68576fd02fc7f6714cf7add4188ec
 #EXTINF:-1 tvg-id="3266" group-title="Tamil HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11197-j9i4fbbs-v2/imageContent-11197-j9i4fbbs-m4.png",Vijay Super HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4058ba890768578093e4d30bc957b85c&key=42d335cfebf7292487522ac572d706a8
@@ -215,7 +215,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Tunes_6_BTS/output/index.mpd?__hdnea__=st
 #EXTINF:-1 tvg-id="0-9-360" group-title="Backup" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-360/channel_list/360x2031c866f9b15d44e38b077973e3ab37e89",Zee Tamil HD APAC
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1768459142~acl=%2f*~id=1a21427b-4887-408c-932e-8b41c855aa4c~data=hdntl~hmac=7bd734d691eacf5a6ee1a3268d00c7c97aed6b973e7bf304d0dc1585afae4c16
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1768502405~acl=%2f*~id=f62e14bd-9eac-47cf-a98a-e7864fb38e18~data=hdntl~hmac=9074ce26331947122079bfda51a587f818c68576fd02fc7f6714cf7add4188ec
 #EXTINF:-1 tvg-id="1158" group-title="Others" tvg-logo="https://tatalogo.pages.dev/187.png",Colors Infinity HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=509216860f8e594aaf7e921296f53851&key=536df1e35e2bb055be0117b51db8139c
@@ -225,15 +225,15 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Infinity_HD_BTS/output/index.mpd?_
 #EXTINF:-1 tvg-id="0-9-zeecafehd" group-title="Others" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/ZeeCafeHD_Thumbnail_ceda2afa-65e4-4d25-98c0-750f82a0a2fc.png",Zee Café HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-cafe-HD/index-connected/index-connected.m3u8?hdntl=exp=1768459142~acl=%2f*~id=1a21427b-4887-408c-932e-8b41c855aa4c~data=hdntl~hmac=7bd734d691eacf5a6ee1a3268d00c7c97aed6b973e7bf304d0dc1585afae4c16
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-cafe-HD/index-connected/index-connected.m3u8?hdntl=exp=1768502405~acl=%2f*~id=f62e14bd-9eac-47cf-a98a-e7864fb38e18~data=hdntl~hmac=9074ce26331947122079bfda51a587f818c68576fd02fc7f6714cf7add4188ec
 #EXTINF:-1 tvg-id="0-9-channel_2105335046" group-title="Others" tvg-logo="https://i.ibb.co/rRnZvRNk/1000192802-modified.png",&Flix HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Flix-HD/index-connected/index-connected.m3u8?hdntl=exp=1768459142~acl=%2f*~id=1a21427b-4887-408c-932e-8b41c855aa4c~data=hdntl~hmac=7bd734d691eacf5a6ee1a3268d00c7c97aed6b973e7bf304d0dc1585afae4c16
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Flix-HD/index-connected/index-connected.m3u8?hdntl=exp=1768502405~acl=%2f*~id=f62e14bd-9eac-47cf-a98a-e7864fb38e18~data=hdntl~hmac=9074ce26331947122079bfda51a587f818c68576fd02fc7f6714cf7add4188ec
 #EXTINF:-1 tvg-id="0-9-9z5543514" group-title="Others" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/&PriveHD_Thumbnail_8fe4510f-be7c-475c-8f5f-85b5fe6f52ab.png",&Prive HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Prive-HD/index-connected/index-connected.m3u8?hdntl=exp=1768459142~acl=%2f*~id=1a21427b-4887-408c-932e-8b41c855aa4c~data=hdntl~hmac=7bd734d691eacf5a6ee1a3268d00c7c97aed6b973e7bf304d0dc1585afae4c16
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Prive-HD/index-connected/index-connected.m3u8?hdntl=exp=1768502405~acl=%2f*~id=f62e14bd-9eac-47cf-a98a-e7864fb38e18~data=hdntl~hmac=9074ce26331947122079bfda51a587f818c68576fd02fc7f6714cf7add4188ec
 #EXTINF:-1 tvg-id="1145" group-title="Others" tvg-logo="https://tatalogo.pages.dev/406.png",MTV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=90d8713ba5e85d779d005b1f14a5bc8d&key=33650314fe1e945017640ba9878c5de9
@@ -464,7 +464,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Travel_XP_Tamil_BTS/output/index.mpd?__hd
 #EXTINF:-1 tvg-id="0-9-348" group-title="Infotainment HD" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-348/channel_list/360x20333fcf07b744341518375ae7ae35c08c7",Zee Zest HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
-https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1768459142~acl=%2f*~id=1a21427b-4887-408c-932e-8b41c855aa4c~data=hdntl~hmac=7bd734d691eacf5a6ee1a3268d00c7c97aed6b973e7bf304d0dc1585afae4c16
+https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1768502405~acl=%2f*~id=f62e14bd-9eac-47cf-a98a-e7864fb38e18~data=hdntl~hmac=9074ce26331947122079bfda51a587f818c68576fd02fc7f6714cf7add4188ec
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=6017d0514d425fa38f6e80ba6dcc852f&key=0018944b00adf2078f62386f30c68b74
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
@@ -3343,14 +3343,14 @@ https://in-mc-fdlive.fancode.com/mumbai/139673_english_hls_1ed6b9f5df56643_1ta-d
 #EXTINF:-1 group-title="Live Events" tvg-id="139672" tvg-name="Deportivo Alaves Vs Rayo Vallecano" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139672_5806_ALA_RVL_FC-Web_1768374096260.jpg" tvg-language="ENGLISH" ,ENG | Deportivo Alaves Vs Rayo Vallecano
 https://in-mc-fdlive.fancode.com/mumbai/139672_english_hls_6f8e7c298457850_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499542" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768137339842648_bliga26_MD17_FC_Koln_vs_Bayern_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | FC Koln vs Bayern Munich - MD 17 - 15 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105079/DAI08ME-V3/master.m3u8?hdnea=exp=1768458604~acl=/*~id=48120876677726330162604365216205~hmac=3f47ac3ff21dd46dac1f60b3ba627494fbfe766638d017d132651a213ab98a79|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; IN1; Build/QP1A.190711.020)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=36e5f9fff2aaace91a1febac8ba6476a-1768420200141
+https://sonymtmnew.akamaized.net/hls/live/2105079/DAI08ME-V3/master.m3u8?hdnea=exp=1768458604~acl=/*~id=48120876677726330162604365216205~hmac=3f47ac3ff21dd46dac1f60b3ba627494fbfe766638d017d132651a213ab98a79|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; SM-N950U1; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=5d1ea65e551768aa539cddae57d9b8b1-1768422600127
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499549" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768138728674648_bliga26_MD17_RB_Leipzig_vs_SC_Freiburg_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | RB Leipzig vs SC Freiburg - MD 17 - 15 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2018457/DAI09ME-V3/master.m3u8?hdnea=exp=1768458604~acl=/*~id=48120876677726330162604365216205~hmac=3f47ac3ff21dd46dac1f60b3ba627494fbfe766638d017d132651a213ab98a79|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; SM-G998B; Build/SP1A.210812.016)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=36e5f9fff2aaace91a1febac8ba6476a-1768420200141
+https://sonymtmnew.akamaized.net/hls/live/2018457/DAI09ME-V3/master.m3u8?hdnea=exp=1768458604~acl=/*~id=48120876677726330162604365216205~hmac=3f47ac3ff21dd46dac1f60b3ba627494fbfe766638d017d132651a213ab98a79|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; CLK-NX2; Build/HONORCLK-N32)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=5d1ea65e551768aa539cddae57d9b8b1-1768422600127
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499550" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768138926583648_bliga26_MD17_Hoffenheim_vs_Borussia_Mgladbach_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Hoffenheim vs Borussia M'gladbach - MD 17 - 15 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022315/DAI11ME-V3/master.m3u8?hdnea=exp=1768458604~acl=/*~id=48120876677726330162604365216205~hmac=3f47ac3ff21dd46dac1f60b3ba627494fbfe766638d017d132651a213ab98a79|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; V2240; Build/AP3A.240905.015.A2_CS)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=36e5f9fff2aaace91a1febac8ba6476a-1768420200141
+https://sonymtmnew.akamaized.net/hls/live/2022315/DAI11ME-V3/master.m3u8?hdnea=exp=1768458604~acl=/*~id=48120876677726330162604365216205~hmac=3f47ac3ff21dd46dac1f60b3ba627494fbfe766638d017d132651a213ab98a79|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; HY300; Build/RP1A.201005.006)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=5d1ea65e551768aa539cddae57d9b8b1-1768422600127
 media-1/media.m3u8
 #EXTINF:-1 group-title="YouTube Live" tvg-id="cricket.com.au" tvg-logo="https://i.ytimg.com/vi/MwGcDkj3nRw/hqdefault.jpg", cricket.com.au
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768442042/ei/WvRnabHrNZLRsfIPmoajmAg/ip/20.172.6.70/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr5---sn-2imeyn7k.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AW-iu_qp1HEHMXymaovgnQfAULCT39XE3TrIFxsmMb5kf3BvJp10IT83FsHcTqGCIo53HXgFyA/spc/q5xjPMuIcNUe99O2ESFQ/vprv/1/ns/YLal-PSmp2840ntDYG5eFsQR/playlist_type/DVR/met/1768420443,/mh/Uh/mm/44/mn/sn-2imeyn7k/ms/lva/mv/u/mvi/5/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/toFgKXLh7XWzqiRbxMx/mt/1768417475/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIhAIRgPbtHIBdBd1BRFK8M2-hSBBfuMxF4srJLe76jlfDgAiBNlySLZhUyRX6eAPd1J9Mt_2FHsNc-C5sk3_Gbmf5DvA%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIgcuX2rpVHuM7gWuAXqm4hD4EL9BBhY4vgPX1QMngieMwCIQCCnW-bvrPG6XMnBoIdvfbiLWXc-6aYfnq0DwtMJaMRDA%3D%3D/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768445078/ei/NgBoafimBvmWsfIP1uv1iAI/ip/68.220.57.107/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr3---sn-ojn4v5-5g.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AW-iu_rt5b_34Y5vVHxJJfWqQZgAIgPHJZhSyR5bN8NiAR3qX7a9qsGma7l4AZz0eax5OrvBSA/spc/q5xjPLUBOSybYitFj2lZ/vprv/1/ns/lQauVZ_8aWRVDTTSv8emaWcR/playlist_type/DVR/met/1768423478,/mh/Uh/mm/44/mn/sn-ojn4v5-5g/ms/lva/mv/u/mvi/3/pl/19/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/TdKiMZGwlKHYYVq48xi/mt/1768423018/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhAKe-qVGHTCJe_T8AUid0OKB7R_RHuOumsoQuhPUvY44MAiEA-wiPPZuk8Unoqs-Dnb9hpU-mzc24gq1VUGMWZIc6uDU%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRAIgff-zRpE7pW9pYCWhUBEkbeTCAp8m_BVMPAHObxEJYoYCIDPMrn8IQFrGaxsp89K7c2itpLGD09PDG7efAX1WT2n9/playlist/index.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 4k
 https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 501
