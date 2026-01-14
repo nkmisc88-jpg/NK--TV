@@ -3,6 +3,7 @@ import re
 import datetime
 import os
 import sys
+import json
 
 # ==========================================
 # CONFIGURATION
@@ -23,6 +24,14 @@ FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/da
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 JIO_WORKER_URL = "https://jiohotstar.joker-verse.workers.dev/joker.m3u8"
+
+# --- JIO HOTSTAR CUSTOM CONFIG ---
+JIO_EVENTS_JSON = "https://raw.githubusercontent.com/DebugDyno/yo_events/refs/heads/main/jiohotstar.json"
+JIO_COOKIE_JSON = "https://raw.githubusercontent.com/kajju027/Jiohotstar-Events-Json/refs/heads/main/jiotv.json"
+JIO_BASE_STREAM = "https://jiohotstar.joker-verse.workers.dev/joker/stream"
+JIO_UID_PASS = "uid=706298993&pass=ef2678f2"
+JIO_UA = "Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"
+JIO_REF = "https://www.hotstar.com/"
 
 # 2. GROUP MAPPING
 MOVE_TO_TAMIL_HD = [
@@ -116,6 +125,79 @@ def fetch_live_events(url, force_group="Live Events"):
                     lines.append(line)
     except Exception as e:
         print(f"⚠️ Error fetching {url}: {e}")
+    return lines
+
+# === NEW JIO HOTSTAR FETCHER ===
+def fetch_jio_hotstar_live():
+    lines = []
+    print("📥 Fetching JioHotstar Live Events (JSON Mode)...")
+    try:
+        # 1. Fetch Cookie
+        cookie_val = ""
+        try:
+            c_resp = requests.get(JIO_COOKIE_JSON, headers={"User-Agent": UA_HEADER}, timeout=10)
+            if c_resp.status_code == 200:
+                c_data = c_resp.json()
+                # Extract cookie string, handling potential extra quotes
+                raw_cookie = c_data.get("cookie", "")
+                # Some JSONs have escaped quotes, clean them
+                cookie_val = raw_cookie.replace('"', '') 
+        except Exception as e:
+            print(f"⚠️ Error fetching Jio Cookie: {e}")
+            return [] # Cannot proceed without cookie
+
+        if not cookie_val:
+            print("⚠️ No cookie found in JSON.")
+            return []
+
+        # 2. Fetch Events
+        e_resp = requests.get(JIO_EVENTS_JSON, headers={"User-Agent": UA_HEADER}, timeout=10)
+        if e_resp.status_code != 200:
+            print("⚠️ Failed to fetch Jio Events JSON")
+            return []
+        
+        events = e_resp.json() # Assuming it's a list or dict
+        
+        # If the root is a dict with a key like 'events', adjust here. 
+        # Based on "yo_events" typically being a list:
+        if isinstance(events, dict):
+            # Fallback if structure is {"items": [...]}
+            events = events.get("items", []) or events.get("events", [])
+
+        for event in events:
+            # Extract basic info
+            vid_id = str(event.get("id", ""))
+            title = event.get("name", "") or event.get("title", "Jio Event")
+            logo = event.get("logo", "") or event.get("image", "")
+            
+            # Extract languages (handle list or string)
+            langs = event.get("language", []) or event.get("lang", [])
+            if isinstance(langs, str):
+                langs = [x.strip() for x in langs.split(",")]
+            
+            # If no lang specified, default to English/Unknown
+            if not langs:
+                langs = ["eng"]
+
+            # Create an entry for EACH language
+            for lang in langs:
+                lang_code = lang.lower()[:3] # Ensure 3 char code if possible
+                
+                # Construct the Complex URL
+                # Format: BASE?id=..&lang=..&uid=..&pass=..|Cookie=""&User-Agent=""&Referer=""
+                stream_url = (
+                    f'{JIO_BASE_STREAM}?id={vid_id}&lang={lang_code}&{JIO_UID_PASS}'
+                    f'|Cookie="{cookie_val}"&User-Agent="{JIO_UA}"&Referer="{JIO_REF}"'
+                )
+                
+                display_name = f"JioHotstar: {title} [{lang.upper()}]"
+                
+                lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{logo}",{display_name}')
+                lines.append(stream_url)
+
+    except Exception as e:
+        print(f"⚠️ Critical Error in JioHotstar Fetcher: {e}")
+    
     return lines
 
 def get_auto_logo(channel_name):
@@ -309,16 +391,21 @@ def main():
     # --- STEP 3: ADD EXTERNAL SOURCES ---
     print("📥 Adding Live Events...")
     
-    # Add FanCode (Group: Live Events)
+    # 1. NEW JIO HOTSTAR LOGIC (Added Here)
+    final_lines.extend(fetch_jio_hotstar_live())
+    
+    # 2. Add FanCode (Group: Live Events)
     final_lines.extend(fetch_live_events(FANCODE_URL, "Live Events"))
     
-    # Add Sony Live
+    # 3. Add Sony Live
     final_lines.extend(fetch_live_events(SONY_LIVE_URL, "Live Events"))
     
-    # Add Zee Live
+    # 4. Add Zee Live
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL, "Live Events"))
     
-    # Add Jio Worker
+    # 5. Add Jio Worker (Legacy)
+    # Note: If the new JSON logic replaces this, you can comment this out.
+    # For now, keeping it as requested to "not mess up existing".
     print("📥 Adding JioHotstar Worker...")
     final_lines.extend(fetch_live_events(JIO_WORKER_URL, "Jio Live"))
 
