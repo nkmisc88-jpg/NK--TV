@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-14 09:43:48 IST
+# Updated on: 2026-01-14 10:35:13 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c&xxx=||cookie=__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 14 January 2026 at 9:42:13 am
+#DATE:- Wednesday, 14 January 2026 at 10:35:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138781" tvg-name="Canterbury Magicians Vs Auckland Hearts" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138781_5801_AH-W_CM-W_fc-web_1766596522091.jpg" tvg-language="ENGLISH" ,ENG | Canterbury Magicians Vs Auckland Hearts
 https://in-mc-fdlive.fancode.com/mumbai/138781_english_hls_960565f4f325901_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139666" tvg-name="V N Sule Vs Dyandeep Seva Mandal" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Giles_Shield_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | V N Sule Vs Dyandeep Seva Mandal
@@ -857,10 +857,12 @@ https://in-mc-fdlive.fancode.com/mumbai/139667_english_hls_e061157e2f95075_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139538_english_hls_c6f5ec0eb789572_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139565" tvg-name="Show Court 1   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(1)_1767943452407.png" tvg-language="ENGLISH" ,ENG | Show Court 1   Day 3
 https://in-mc-fdlive.fancode.com/mumbai/139565_english_hls_a0240f661f82860_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 14-01-2026 09:40
+#EXTINF:-1 group-title="Live Events" tvg-id="139564" tvg-name="Centre Court   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(1)_1767943452407.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 3
+https://in-mc-fdlive.fancode.com/mumbai/139564_english_hls_2b2cc4717a48829_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 14-01-2026 10:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090498898" tvg-name="Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012915/1767421300004881_SuperSmash2526_womens_Auckland-Hearts-vs-Canterbury-Magicians_1jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Auckland Hearts vs Canterbury Magicians - 14 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1768393801~acl=/*~id=19749441244777562204763207873414~hmac=2dc5fd2b814ec926133e55b2353dfd1c366d2bb23fe814a6e570f7f79d79ad2e|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; X96Q_PRO1; Build/QP1A.191105.004)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=42dab60fd1b3063d50b86ace8a39082b-1768363800131
+https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1768393801~acl=/*~id=19749441244777562204763207873414~hmac=2dc5fd2b814ec926133e55b2353dfd1c366d2bb23fe814a6e570f7f79d79ad2e|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; Pixel 6a; Build/BP1A.250505.005)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=89198a169d21a19d5d94e19f2323890f-1768366200179
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 13/1/2026, 16:00:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
@@ -1045,11 +1047,11 @@ https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.
 https://vt-ip.vodep39240327.workers.dev/1972.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="",Willow 2
 https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",Criclife
-https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife1/DASH/CricLife1.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&clearkey=1e23e51b09a67b83813c17049870bcd4:c3d6288e378b0dc55320fd0e6fd2e55f
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://www.ooredoo.qa/web/wp-content/uploads/2025/08/cricbuzz-active.png",CricBuzz 1
-https://www.ooredoo.qa/web/wp-content/uploads/2025/08/cricbuzz-active.png"|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&clearkey=48bef83b4c6a3c5189b01b0126210da4:bd085230b7b09e50954fe0af111a8a9f
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://www.ooredoo.qa/web/wp-content/uploads/2025/10/Cricbuzz-2.jpg",CricBuzz 2
-https://www.ooredoo.qa/web/wp-content/uploads/2025/10/Cricbuzz-2.jpg"|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&clearkey=4e8b5ddac5332a4e66c002b4c0f22322:d06de29b0eacb81ac6e3f325849047e8
-#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",Criclife Women
-https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife_Women_27112025/DASH/CricLife_Women_27112025.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&clearkey=9dc5ddd99e3c723bf109a504da715dac:d39d55e9ba386a86641ca9668abf2b0d
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",CricLife 1
+https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife/DASH/CricLife.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&drm_scheme=clearkey&drm_license_key=c540134469084705971488c0399f9065:30713753760431441753745330685366
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",CricLife 2
+https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife2/DASH/CricLife2.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&drm_scheme=clearkey&drm_license_key=48bef83b4c6a3c5189b01b0126210da4:bd085230b7b09e50954fe0af111a8a9f
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",CricLife 3
+https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife3/DASH/CricLife3.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&drm_scheme=clearkey&drm_license_key=05477d612984443997c4132030043817:66870020610344585187747716616216
+#EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Globe_icon.svg/1200px-Globe_icon.svg.png",CricLife Women
+https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife_Women_27112025/DASH/CricLife_Women_27112025.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&drm_scheme=clearkey&drm_license_key=9dc5ddd99e3c723bf109a504da715dac:d39d55e9ba386a86641ca9668abf2b0d
