@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-14 17:22:40 IST
+# Updated on: 2026-01-14 19:23:10 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -845,12 +845,8 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
 #EXTHTTP:{"cookie":"__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c&xxx=||cookie=__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c
-#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 14 January 2026 at 5:21:11 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="139274" tvg-name="Thailand U23 Vs China Pr U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139274_5822_THA-U23_CHN-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Thailand U23 Vs China Pr U23
-https://video.twimg.com/amplify_video/1869037412439261184/pl/th-SCwIUMtNo-PsU.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139273" tvg-name="Iraq U23 Vs Australia U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/139273_5822_IRQ-U23_AUS-U23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Iraq U23 Vs Australia U23
-https://video.twimg.com/amplify_video/1869037412439261184/pl/th-SCwIUMtNo-PsU.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+##Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+# Last Checked: 14/1/2026, 19:21:05
 #DATE:- 14-01-2026 17:02
 #No live matches.
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
