@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-14 23:11:37 IST
+# Last Updated: 2026-01-14 23:14:47 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3322,6 +3322,20 @@ https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/AND-PICTURES-SD/master/mast
 #EXTINF:-1 tvg-id="0-9-channel_2105335046" tvg-name="&flix HD" tvg-language="en" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-channel_2105335046/channel_list/360x203f04326926d5b45d1992f2a05e3f89f55" group-title="Backup" group-logo="https://upload.wikimedia.org/wikipedia/commons/5/5a/Zee5-official-logo.jpeg", &flix HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Flix-HD/index-connected/index-connected.m3u8?hdntl=exp=1768459142~acl=%2f*~id=1a21427b-4887-408c-932e-8b41c855aa4c~data=hdntl~hmac=7bd734d691eacf5a6ee1a3268d00c7c97aed6b973e7bf304d0dc1585afae4c16
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/7063/1768304857063-h",JioHotstar: UPW vs DC [ENG]
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059613&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/8027/1768305628027-h",JioHotstar: Majhi Mumbai vs Falcon Risers Hyderabad [ENG]
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059530&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/2375/1768366972375-h",JioHotstar: Sunrisers Eastern Cape vs Joburg Super Kings [ENG]
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540058748&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5745/1750779565745-h",JioHotstar: Star Sports Cricket Classics [ENG]
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540040039&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/1441/1762934631441-h",JioHotstar: Follow The Blues [ENG]
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540045533&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/2214/1750777602214-h",JioHotstar: TATA IPL TV [ENG]
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540044879&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5232/1768356935232-h",JioHotstar: International Skating Union: Sheffield, Day 1 [ENG]
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540054897&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
 #EXTINF:-1 group-title="Live Events" tvg-id="138391" tvg-name="Senegal Vs Egypt" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Senegal-vs-Egypt_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Senegal Vs Egypt
 https://in-mc-fdlive.fancode.com/mumbai/138391_english_hls_468a4aabcc41921_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139359" tvg-name="Al Ahli Saudi Fc Vs Al Taawoun" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Ahli-Saudi-vs-Al-Taawoun_Web.jpg" tvg-language="ENGLISH" ,ENG | Al Ahli Saudi Fc Vs Al Taawoun
