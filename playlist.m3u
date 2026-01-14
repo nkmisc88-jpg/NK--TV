@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-14 12:30:20 IST
+# Updated on: 2026-01-14 13:18:02 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c&xxx=||cookie=__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 14 January 2026 at 12:28:08 pm
+#DATE:- Wednesday, 14 January 2026 at 1:14:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139666" tvg-name="V N Sule Vs Dyandeep Seva Mandal" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Giles_Shield_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | V N Sule Vs Dyandeep Seva Mandal
 https://in-mc-fdlive.fancode.com/mumbai/139666_english_hls_653eb329b973182_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139667" tvg-name="Swami Vivekanand Vs Rizvi" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Giles_Shield_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Swami Vivekanand Vs Rizvi
@@ -855,16 +855,16 @@ https://in-mc-fdlive.fancode.com/mumbai/139667_english_hls_e061157e2f95075_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139538_english_hls_c6f5ec0eb789572_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139564" tvg-name="Centre Court   Day 3" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(1)_1767943452407.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 3
 https://in-mc-fdlive.fancode.com/mumbai/139564_english_hls_2b2cc4717a48829_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="138781" tvg-name="Canterbury Magicians Vs Auckland Hearts" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138781_5801_AH-W_CM-W_fc-web_1766596522091.jpg" tvg-language="ENGLISH" ,ENG | Canterbury Magicians Vs Auckland Hearts
-https://in-mc-fdlive.fancode.com/mumbai/138781_english_hls_960565f4f325901_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 14-01-2026 12:20
+#DATE:- 14-01-2026 13:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499540" tvg-name="Australian Open 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013332/1768305435222693_AO26_Opening_week_Svitolina_vs_Anisimova_13jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Svitolina vs Anisimova - 14 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022316/DAI12ME-V3/master.m3u8?hdnea=exp=1768415401~acl=/*~id=22894289474933717267054253444399~hmac=337840793f0bac251423ccb86fe79c2e538da6d0799b0758a57accbcbd625112|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; 2311DRN14I; Build/UP1A.231005.007)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d06458074080c35c9cc00fce10f68b7e-1768373400125
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498898" tvg-name="Super Smash 2025/26 Women's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012915/1767421300004881_SuperSmash2526_womens_Auckland-Hearts-vs-Canterbury-Magicians_1jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Auckland Hearts vs Canterbury Magicians - 14 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2105080/DAI24ME-V3/master.m3u8?hdnea=exp=1768415401~acl=/*~id=22894289474933717267054253444399~hmac=337840793f0bac251423ccb86fe79c2e538da6d0799b0758a57accbcbd625112|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; moto g(6) plus; Build/PPW29.116-16-30)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=d06458074080c35c9cc00fce10f68b7e-1768373400125
+https://sonymtmnew.akamaized.net/hls/live/2022316/DAI12ME-V3/master.m3u8?hdnea=exp=1768415401~acl=/*~id=22894289474933717267054253444399~hmac=337840793f0bac251423ccb86fe79c2e538da6d0799b0758a57accbcbd625112|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; 2109119DI; Build/UKQ1.240624.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=e367da366a5d8c1f384775f57f30d927-1768375800124
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-# Last Checked: 13/1/2026, 16:00:04
+#DATE:- Wednesday, 14 January 2026 at 1:15:07 pm
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873788" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873788/list/1920x1080lista2ab82804ae64b80a58baf4dd25021c87e6f9a7b9d5d4b4a89f07d1f78dfe892.jpg" tvg-language="bengali" ,BEN | Jhr Royal City Fc Malda | Murshidabad Vs Howrah Hooghly Warriors
+https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1768462204~acl=%2f*~data=hdntl~hmac=6dc07dac45ecbaa552ded17413769d8b500f9179f5fb1db882b1c1e566f75ae5|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873788" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873788/list/1920x1080lista2ab82804ae64b80a58baf4dd25021c87e6f9a7b9d5d4b4a89f07d1f78dfe892.jpg" tvg-language="english" ,ENG | Jhr Royal City Fc Malda | Murshidabad Vs Howrah Hooghly Warriors
+https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M01/master.m3u8?hdntl=exp=1768462208~acl=%2f*~data=hdntl~hmac=8470770d53ce84897fcae000caaf17624162b77b31314d2bdd14064d2f767218|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768382523~acl=%2f*~id=4f10838a-9de9-4634-8dd9-6a98f0d6c3ae~data=hdntl~hmac=e08f2e983a6205b3c584775b94d026c037987b3032eae8a8508de634525f1fab|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
