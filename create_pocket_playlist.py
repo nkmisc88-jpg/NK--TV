@@ -127,14 +127,45 @@ def fetch_live_events(url, force_group="Live Events"):
         print(f"⚠️ Error fetching {url}: {e}")
     return lines
 
-# === NEW JIO HOTSTAR FETCHER (FINAL FIXED MODE) ===
+# === RECURSIVE SEARCH FUNCTION ===
+def find_cookie_recursive(data):
+    """
+    Recursively searches for a string containing '__hdnea__' in any
+    nested combination of Lists or Dictionaries.
+    """
+    # 1. If it's a DICT, search keys and values
+    if isinstance(data, dict):
+        # First check simple keys
+        for k in ["cookie", "Cookie", "token", "Token"]:
+            if k in data and isinstance(data[k], str):
+                return data[k]
+        
+        # If not found, dive into values
+        for v in data.values():
+            found = find_cookie_recursive(v)
+            if found: return found
+
+    # 2. If it's a LIST, dive into items
+    elif isinstance(data, list):
+        for item in data:
+            found = find_cookie_recursive(item)
+            if found: return found
+    
+    # 3. If it's a STRING, check content
+    elif isinstance(data, str):
+        if "__hdnea__" in data:
+            return data
+            
+    return None
+
+# === NEW JIO HOTSTAR FETCHER (RECURSIVE MODE) ===
 def fetch_jio_hotstar_live():
     lines = []
-    print("📥 Fetching JioHotstar Live Events (Deep Clean Mode)...")
+    print("📥 Fetching JioHotstar Live Events (Recursive Search Mode)...")
     try:
         # 1. Fetch Cookie JSON
         cookie_val = ""
-        c_data = {}
+        c_data = None
         try:
             c_resp = requests.get(JIO_COOKIE_JSON, headers={"User-Agent": UA_HEADER}, timeout=10)
             if c_resp.status_code == 200:
@@ -143,24 +174,24 @@ def fetch_jio_hotstar_live():
             print(f"⚠️ Error fetching Jio Cookie: {e}")
             return []
 
-        # 2. Deep Search for Cookie (Scans ALL values for 'hdnea')
-        for key, value in c_data.items():
-            if isinstance(value, str) and "hdnea" in value:
-                cookie_val = value.strip()
-                print(f"   --> ✅ Cookie Found in key: '{key}'")
-                break
-        
-        # Fallback
-        if not cookie_val:
-             cookie_val = c_data.get("cookie") or c_data.get("Cookie") or c_data.get("token") or ""
+        if c_data is None:
+            print("⚠️ Cookie JSON is empty or invalid.")
+            return []
 
-        if not cookie_val:
-            print("⚠️ FATAL: No cookie found in JSON.")
+        # 2. Use Recursive Search to find the cookie ANYWHERE
+        raw_cookie = find_cookie_recursive(c_data)
+        
+        if not raw_cookie:
+            print("⚠️ FATAL: No cookie found (Deep recursive search failed).")
+            # Fallback debug to see what we got (first 100 chars)
+            print(f"   Debug: Data type received: {type(c_data)}")
             return []
             
-        # 3. DEEP CLEANING (Fixes the issue in your screenshot)
-        # Removes escaped quotes \" and the trailing }
-        cookie_val = cookie_val.replace('"', '').replace('\\"', '').replace('}', '').strip()
+        print("   --> ✅ Cookie Found!")
+        
+        # 3. DEEP CLEANING 
+        # Removes escaped quotes \" and the trailing } or {
+        cookie_val = raw_cookie.replace('"', '').replace('\\"', '').replace('}', '').replace('{', '').strip()
 
         # 4. Fetch Events
         e_resp = requests.get(JIO_EVENTS_JSON, headers={"User-Agent": UA_HEADER}, timeout=10)
@@ -409,7 +440,7 @@ def main():
     # --- STEP 3: ADD EXTERNAL SOURCES ---
     print("📥 Adding Live Events...")
     
-    # 1. NEW JIO HOTSTAR LOGIC
+    # 1. NEW JIO HOTSTAR LOGIC (Recursive)
     final_lines.extend(fetch_jio_hotstar_live())
     
     # 2. Add FanCode
@@ -422,7 +453,6 @@ def main():
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL, "Live Events"))
     
     # 5. Add Jio Worker (Legacy)
-    # Keeping this as fallback per your request
     print("📥 Adding JioHotstar Worker...")
     final_lines.extend(fetch_live_events(JIO_WORKER_URL, "Jio Live"))
 
