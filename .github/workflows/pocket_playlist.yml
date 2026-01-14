@@ -2,7 +2,9 @@ name: Pocket Playlist Generator
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    # Run at minutes 7, 22, 37, and 52 of every hour
+    # This avoids the "quarter-hour traffic jam" on GitHub servers
+    - cron: '7,22,37,52 * * * *'
   push:
     branches:
       - main
@@ -39,19 +41,11 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           
-          # 1. Stage the new playlist FIRST
           git add pocket_playlist.m3u
           
-          # 2. Check if there are changes
           if [[ -n $(git status -s) ]]; then
-            # 3. Commit the changes locally
             git commit -m "Auto-update Playlist"
-            
-            # 4. NOW pull the latest updates (rebase on top of our commit)
-            # This fixes the "remote rejected" error safely
             git pull --rebase origin main
-            
-            # 5. Finally, push everything
             git push origin main
           else
             echo "No changes to commit."
