@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-14 23:24:04 IST
+# Updated on: 2026-01-15 00:29:13 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,17 +846,21 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c&xxx=||cookie=__hdnea__=st=1768353430~exp=1768439830~acl=/*~hmac=161ff10717b0e4167f72b72fa0321e075eb6d3efcd8b34ed1e624ef66ebc335c
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Wednesday, 14 January 2026 at 11:21:05 pm
+#DATE:- Thursday, 15 January 2026 at 12:28:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="138391" tvg-name="Senegal Vs Egypt" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Senegal-vs-Egypt_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Senegal Vs Egypt
 https://in-mc-fdlive.fancode.com/mumbai/138391_english_hls_468a4aabcc41921_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139359" tvg-name="Al Ahli Saudi Fc Vs Al Taawoun" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Al-Ahli-Saudi-vs-Al-Taawoun_Web.jpg" tvg-language="ENGLISH" ,ENG | Al Ahli Saudi Fc Vs Al Taawoun
 https://in-mc-fdlive.fancode.com/mumbai/139359_english_hls_7a1b5dc1bf4570_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 14-01-2026 23:20
+#DATE:- 15-01-2026 00:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
-https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768437001~acl=/*~id=87044440843244184772040370236330~hmac=79661e7eaee8ec3778fd0f29ab5b0e251d45a70a7334d5cb9e608bb9eb5188ac|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; 24108PCE2I; Build/AQ3A.241213.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=a7dc82d8affab0a10404fbccda0403d4-1768413000132
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499542" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768137339842648_bliga26_MD17_FC_Koln_vs_Bayern_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | FC Koln vs Bayern Munich - MD 17 - 15 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2105079/DAI08ME-V3/master.m3u8?hdnea=exp=1768458604~acl=/*~id=48120876677726330162604365216205~hmac=3f47ac3ff21dd46dac1f60b3ba627494fbfe766638d017d132651a213ab98a79|User-Agent=com.sonyliv/6.22.4 (Android 14; en_GB; moto g84 5G; Build/U1TCS34.22-64-18-3)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=326de058d285d0b89668e2b32c052f99-1768416600129
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499549" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768138728674648_bliga26_MD17_RB_Leipzig_vs_SC_Freiburg_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | RB Leipzig vs SC Freiburg - MD 17 - 15 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2018457/DAI09ME-V3/master.m3u8?hdnea=exp=1768458604~acl=/*~id=48120876677726330162604365216205~hmac=3f47ac3ff21dd46dac1f60b3ba627494fbfe766638d017d132651a213ab98a79|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; Redmi K20 Pro; Build/RKQ1.200826.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=326de058d285d0b89668e2b32c052f99-1768416600129
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499550" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768138926583648_bliga26_MD17_Hoffenheim_vs_Borussia_Mgladbach_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Hoffenheim vs Borussia M'gladbach - MD 17 - 15 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022315/DAI11ME-V3/master.m3u8?hdnea=exp=1768458604~acl=/*~id=48120876677726330162604365216205~hmac=3f47ac3ff21dd46dac1f60b3ba627494fbfe766638d017d132651a213ab98a79|User-Agent=com.sonyliv/6.22.4 (Android 7; en_GB; SM-G570F; Build/NRD90M)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=326de058d285d0b89668e2b32c052f99-1768416600129
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499541" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013251/1768136708974648_bliga26_MD17_VfL_Wolfsburg_vs_St_Pauli_11jan_landscape_thumb.jpg" tvg-language="English" ,ENG | VfL Wolfsburg vs St. Pauli - MD 17 - 14 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094589/DAI05ME-V3/master.m3u8?hdnea=exp=1768437001~acl=/*~id=87044440843244184772040370236330~hmac=79661e7eaee8ec3778fd0f29ab5b0e251d45a70a7334d5cb9e608bb9eb5188ac|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; MiTiVi Box; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=a7dc82d8affab0a10404fbccda0403d4-1768413000132
+https://sonymtmnew.akamaized.net/hls/live/2094589/DAI05ME-V3/master.m3u8?hdnea=exp=1768458604~acl=/*~id=48120876677726330162604365216205~hmac=3f47ac3ff21dd46dac1f60b3ba627494fbfe766638d017d132651a213ab98a79|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; PHB110; Build/PQ3A.190705.09121607)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=326de058d285d0b89668e2b32c052f99-1768416600129
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 14/1/2026, 16:00:02
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
