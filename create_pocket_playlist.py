@@ -127,7 +127,7 @@ def fetch_live_events(url, force_group="Live Events"):
         print(f"⚠️ Error fetching {url}: {e}")
     return lines
 
-# === NEW JIO HOTSTAR FETCHER ===
+# === NEW JIO HOTSTAR FETCHER (DEBUG MODE) ===
 def fetch_jio_hotstar_live():
     lines = []
     print("📥 Fetching JioHotstar Live Events (JSON Mode)...")
@@ -138,16 +138,17 @@ def fetch_jio_hotstar_live():
             c_resp = requests.get(JIO_COOKIE_JSON, headers={"User-Agent": UA_HEADER}, timeout=10)
             if c_resp.status_code == 200:
                 c_data = c_resp.json()
-                # Extract cookie string, handling potential extra quotes
-                raw_cookie = c_data.get("cookie", "")
-                # Some JSONs have escaped quotes, clean them
-                cookie_val = raw_cookie.replace('"', '') 
+                # Try common keys for cookie
+                raw_cookie = c_data.get("cookie") or c_data.get("Cookie") or c_data.get("token") or ""
+                # Clean up quotes if they are escaped inside the string
+                cookie_val = raw_cookie.replace('"', '').replace('\\"', '').strip()
+                print(f"   --> Cookie fetched: {cookie_val[:15]}...") 
         except Exception as e:
             print(f"⚠️ Error fetching Jio Cookie: {e}")
-            return [] # Cannot proceed without cookie
+            return [] 
 
         if not cookie_val:
-            print("⚠️ No cookie found in JSON.")
+            print("⚠️ No cookie found in JSON! Skipping JioHotstar.")
             return []
 
         # 2. Fetch Events
@@ -156,35 +157,50 @@ def fetch_jio_hotstar_live():
             print("⚠️ Failed to fetch Jio Events JSON")
             return []
         
-        events = e_resp.json() # Assuming it's a list or dict
+        events = e_resp.json()
         
-        # If the root is a dict with a key like 'events', adjust here. 
-        # Based on "yo_events" typically being a list:
-        if isinstance(events, dict):
-            # Fallback if structure is {"items": [...]}
-            events = events.get("items", []) or events.get("events", [])
+        # Helper to safely get keys
+        def safe_get(d, keys, default=None):
+            for k in keys:
+                if k in d: return d[k]
+            return default
 
+        # Handle List vs Dict structure
+        if isinstance(events, dict):
+            events = events.get("items", []) or events.get("events", []) or events.get("data", [])
+        
+        if not events:
+            print("⚠️ Jio Events list is empty or structure mismatch.")
+            return []
+
+        # DEBUG: Print keys of first event to help troubleshooting
+        if len(events) > 0:
+            print(f"   --> First Event Keys: {list(events[0].keys())}")
+
+        count = 0
         for event in events:
-            # Extract basic info
-            vid_id = str(event.get("id", ""))
-            title = event.get("name", "") or event.get("title", "Jio Event")
-            logo = event.get("logo", "") or event.get("image", "")
+            # Flexible Key Search
+            vid_id = safe_get(event, ["id", "ID", "Id", "contentId", "content_id"])
+            title = safe_get(event, ["name", "Name", "title", "Title", "eventName"]) or "Jio Event"
+            logo = safe_get(event, ["logo", "image", "img", "thumbnail"]) or ""
             
-            # Extract languages (handle list or string)
-            langs = event.get("language", []) or event.get("lang", [])
+            if not vid_id:
+                continue
+
+            # Handle Languages
+            langs = safe_get(event, ["language", "Language", "lang", "Lang"])
+            
+            # If lang is a comma-separated string, split it
             if isinstance(langs, str):
                 langs = [x.strip() for x in langs.split(",")]
-            
-            # If no lang specified, default to English/Unknown
-            if not langs:
+            elif not langs:
                 langs = ["eng"]
 
             # Create an entry for EACH language
             for lang in langs:
-                lang_code = lang.lower()[:3] # Ensure 3 char code if possible
+                lang_code = lang.lower()[:3] # Ensure 3 char code
                 
                 # Construct the Complex URL
-                # Format: BASE?id=..&lang=..&uid=..&pass=..|Cookie=""&User-Agent=""&Referer=""
                 stream_url = (
                     f'{JIO_BASE_STREAM}?id={vid_id}&lang={lang_code}&{JIO_UID_PASS}'
                     f'|Cookie="{cookie_val}"&User-Agent="{JIO_UA}"&Referer="{JIO_REF}"'
@@ -194,6 +210,9 @@ def fetch_jio_hotstar_live():
                 
                 lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{logo}",{display_name}')
                 lines.append(stream_url)
+                count += 1
+        
+        print(f"   --> Generated {count} JioHotstar lines.")
 
     except Exception as e:
         print(f"⚠️ Critical Error in JioHotstar Fetcher: {e}")
@@ -391,10 +410,10 @@ def main():
     # --- STEP 3: ADD EXTERNAL SOURCES ---
     print("📥 Adding Live Events...")
     
-    # 1. NEW JIO HOTSTAR LOGIC (Added Here)
+    # 1. NEW JIO HOTSTAR LOGIC (Improved)
     final_lines.extend(fetch_jio_hotstar_live())
     
-    # 2. Add FanCode (Group: Live Events)
+    # 2. Add FanCode
     final_lines.extend(fetch_live_events(FANCODE_URL, "Live Events"))
     
     # 3. Add Sony Live
@@ -404,8 +423,7 @@ def main():
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL, "Live Events"))
     
     # 5. Add Jio Worker (Legacy)
-    # Note: If the new JSON logic replaces this, you can comment this out.
-    # For now, keeping it as requested to "not mess up existing".
+    # If the JSON logic is meant to replace this completely, comment next two lines out.
     print("📥 Adding JioHotstar Worker...")
     final_lines.extend(fetch_live_events(JIO_WORKER_URL, "Jio Live"))
 
