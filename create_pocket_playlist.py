@@ -149,10 +149,10 @@ def find_cookie_recursive(data):
             return data
     return None
 
-# === NEW JIO HOTSTAR FETCHER (FIXED TITLES & SPEED) ===
+# === NEW JIO HOTSTAR FETCHER (QUOTES + PREFIX FIX) ===
 def fetch_jio_hotstar_live():
     lines = []
-    print("📥 Fetching JioHotstar Live Events (Fixed Mode)...")
+    print("📥 Fetching JioHotstar Live Events (Quote Mode)...")
     try:
         # 1. Fetch Cookie JSON
         cookie_val = ""
@@ -175,8 +175,9 @@ def fetch_jio_hotstar_live():
             print("⚠️ FATAL: No cookie found.")
             return []
             
-        # 3. Clean Cookie
-        cookie_val = raw_cookie.replace('"', '').replace('\\"', '').replace('}', '').replace('{', '').strip()
+        # 3. Clean Cookie - BUT KEEP IT RAW for the quoted string
+        # Just remove leading/trailing quotes from the value itself if doubled
+        cookie_val = raw_cookie.strip().strip('"')
 
         # 4. Fetch Events
         e_resp = requests.get(JIO_EVENTS_JSON, headers={"User-Agent": UA_HEADER}, timeout=10)
@@ -198,20 +199,17 @@ def fetch_jio_hotstar_live():
                 continue
 
             # === LANGUAGE PARSING LOGIC ===
-            # Ensure we get the Name (Key) and Code (Value)
             langs_data = event.get("languages") or event.get("language") or event.get("lang")
             
-            # List of tuples: (Code, DisplayName)
             processed_langs = []
 
             if isinstance(langs_data, dict):
-                # DICTIONARY MODE: {"Hindi": "hin", "English": "eng"}
-                # Key = Name (Title), Value = Code (URL)
+                # Dict: {"Hindi": "hin"} -> Name=Hindi, Code=hin
                 for name, code in langs_data.items():
                     processed_langs.append((code, name))
             
             elif isinstance(langs_data, list):
-                # LIST MODE: ["eng", "hin"]
+                # List: ["hin"] -> Code=hin, Name=HIN
                 for code in langs_data:
                     processed_langs.append((code, code.upper()))
             
@@ -223,20 +221,20 @@ def fetch_jio_hotstar_live():
             else:
                 processed_langs.append(("eng", "English"))
 
-            # Create entry for EACH extracted language
             for lang_code, lang_name in processed_langs:
                 
-                # SPEED FIX: Headers must be INSIDE the URL for players to use them
+                # SPEED FIX: Restore QUOTES around the headers
+                # This ensures spaces in User-Agent don't break the URL
                 stream_url = (
                     f'{JIO_BASE_STREAM}?id={vid_id}&lang={lang_code}&{JIO_UID_PASS}'
-                    f'|Cookie={cookie_val}&User-Agent={JIO_UA}&Referer={JIO_REF}'
+                    f'|Cookie="{cookie_val}"&User-Agent="{JIO_UA}"&Referer="{JIO_REF}"'
                 )
                 
-                # TITLE FIX: Explicitly add [Lang Name] to title
-                display_name = f"JioHotstar: {title} [{lang_name}]"
+                # VISIBILITY FIX: Put Language at the START of the title
+                display_name = f"JioHotstar: [{lang_name}] {title}"
                 
                 lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{logo}",{display_name}')
-                # Also keep props for Kodi, but pipe syntax handles TiviMate
+                # Keep Kodi props for stability
                 lines.append('#KODIPROP:inputstream.adaptive.manifest_type=hls')
                 lines.append(stream_url)
                 count += 1
