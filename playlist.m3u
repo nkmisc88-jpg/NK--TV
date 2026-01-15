@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-15 19:23:01 IST
+# Updated on: 2026-01-15 20:23:38 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,11 +846,17 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&xxx=||cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Thursday, 15 January 2026 at 7:21:05 pm
+#DATE:- Thursday, 15 January 2026 at 8:21:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139748" tvg-name="Barbados Women Vs Jamaica Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/CWI-Women's-T20-Blaze_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Barbados Women Vs Jamaica Women
 https://in-mc-fdlive.fancode.com/mumbai/139748_english_hls_3e659c1eb598132_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 15-01-2026 15:40
-#No live matches.
+#DATE:- 15-01-2026 20:20
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#EXTINF:-1 group-title="Live Events" tvg-id="1090498688" tvg-name="Shark Tank India" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012990/1767619918818921_sti26_simulcast_5jan26_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Shark Tank India
+https://sonymtmnew.akamaized.net/hls/live/2094590/DAI25ME-STI/master.m3u8?hdnea=exp=1768523401~acl=/*~id=81174484288704559371647235527962~hmac=72f7ee6affeb1634cb8ab229dcc2a04797d1e394a5e1d6d0e039b7345622ab98|User-Agent=com.sonyliv/6.22.4 (Android 16; en_GB; Pixel 7; Build/BP41.250916.009.A1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=cc75f3b65ee401b8320e42d4a8418341-1768488600102
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499614" tvg-name="Pro Wrestling League 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013387/1768403052642345_PWL_26_Punjab-Royals-vs-UP-Dominators_14jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Punjab Royals vs UP Dominators - 15 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768523401~acl=/*~id=81174484288704559371647235527962~hmac=72f7ee6affeb1634cb8ab229dcc2a04797d1e394a5e1d6d0e039b7345622ab98|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; BRAVIA 4K VH2; Build/QTG3.200305.006.S96)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=cc75f3b65ee401b8320e42d4a8418341-1768488600102
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499614" tvg-name="Pro Wrestling League 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013387/1768403052642345_PWL_26_Punjab-Royals-vs-UP-Dominators_14jan_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Punjab Royals vs UP Dominators - 15 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1768523401~acl=/*~id=81174484288704559371647235527962~hmac=72f7ee6affeb1634cb8ab229dcc2a04797d1e394a5e1d6d0e039b7345622ab98|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; BRAVIA 4K VH2; Build/QTG3.200305.006.S96)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=cc75f3b65ee401b8320e42d4a8418341-1768488600102
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 15/1/2026, 16:00:06
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
