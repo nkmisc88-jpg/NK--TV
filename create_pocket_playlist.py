@@ -56,7 +56,11 @@ INFOTAINMENT_KEYWORDS = [
 ]
 
 # 3. DELETE LIST
-BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
+# UPDATED: Added "zee devotional" to remove that group
+BAD_KEYWORDS = [
+    "fashion", "overseas", "yupp", "usa", "pluto", 
+    "sun nxt", "sunnxt", "jio specials hd", "zee devotional"
+]
 
 # 4. AUTO LOGO
 LOGO_MAP = {
@@ -251,8 +255,12 @@ def main():
                 if group_lower == "sports": new_group = "Sports Extra"
                 if "extras" in group_lower: new_group = "Others" 
                 if "entertainment" in group_lower: new_group = "Others"
-                if "movies" in group_lower: new_group = "Others"
                 if "music" in group_lower: new_group = "Others"
+                
+                # UPDATED: Explicitly move "Zee Movie" to "Others"
+                if "zee movie" in group_lower: new_group = "Others"
+                elif "movies" in group_lower: new_group = "Others"
+                
                 if "infotainment" in group_lower: new_group = "Infotainment HD"
 
                 # NEWS
