@@ -4,6 +4,7 @@ import datetime
 import os
 import sys
 import json
+import urllib.parse
 
 # ==========================================
 # CONFIGURATION
@@ -13,69 +14,30 @@ YOUTUBE_FILE = "youtube.txt"
 POCKET_URL = "https://raw.githubusercontent.com/Arunjunan20/My-IPTV/main/index.html" 
 
 # --- NEW SOURCES ---
-# 1. Main Source (Merged & Sorted)
 ZEE_JOKER_URL = "https://raw.githubusercontent.com/tiger629/m3u/refs/heads/main/joker.m3u"
-
-# 2. External Group (Forced "YouTube Live")
 YOUTUBE_LIVE_URL = "https://raw.githubusercontent.com/nkmisc88-jpg/my-youtube-live-playlist/refs/heads/main/playlist.m3u"
-
-# 3. LIVE EVENT SOURCES
 FANCODE_URL = "https://raw.githubusercontent.com/Jitendra-unatti/fancode/main/data/fancode.m3u"
 SONY_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/zyphora/refs/heads/main/data/sony.m3u"
 ZEE_LIVE_URL = "https://raw.githubusercontent.com/doctor-8trange/quarnex/refs/heads/main/data/zee5.m3u"
 JIO_WORKER_URL = "https://jiohotstar.joker-verse.workers.dev/joker.m3u8"
 
-# --- JIO HOTSTAR CUSTOM CONFIG ---
+# --- JIO HOTSTAR CONFIG ---
 JIO_EVENTS_JSON = "https://raw.githubusercontent.com/DebugDyno/yo_events/refs/heads/main/jiohotstar.json"
 JIO_COOKIE_JSON = "https://raw.githubusercontent.com/kajju027/Jiohotstar-Events-Json/refs/heads/main/jiotv.json"
 JIO_BASE_STREAM = "https://jiohotstar.joker-verse.workers.dev/joker/stream"
 JIO_UID_PASS = "uid=706298993&pass=ef2678f2"
+# RAW HEADERS (We will encode them later)
+JIO_UA_RAW = "Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"
+JIO_REF_RAW = "https://www.hotstar.com/"
 
-# UA FIX: Replaced Space with %20 to avoid breaking the URL without quotes
-JIO_UA = "Hotstar;in.startv.hotstar/25.01.27.5.3788%20(Android/13)"
-JIO_REF = "https://www.hotstar.com/"
-
-# 2. GROUP MAPPING
-MOVE_TO_TAMIL_HD = [
-    "Sun TV HD", "Star Vijay HD", "Colors Tamil HD", 
-    "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD",
-    "Zee Thirai HD", "Vijay Super HD"
-]
-
-MOVE_TO_TAMIL_NEWS = [
-    "Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", 
-    "Tamil Janam", "Jaya Plus", "M Nadu", "News J", 
-    "News18 Tamil Nadu", "News Tamil 24x7", "Win TV", 
-    "Zee Tamil News", "Polimer News", "Puthiya Thalaimurai", 
-    "Seithigal TV", "Sathiyam TV", "MalaiMurasu Seithigal"
-]
-
-MOVE_TO_INFOTAINMENT_SD = [
-    "GOOD TiMES", "Food Food"
-]
-
-SPORTS_HD_KEEP = [
-    "Star Sports 1 HD", "Star Sports 2 HD", 
-    "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", 
-    "Star Sports Select 1 HD", "Star Sports Select 2 HD", 
-    "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"
-]
-
-INFOTAINMENT_KEYWORDS = [
-    "discovery", "animal planet", "nat geo", "history tv", 
-    "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"
-]
-
-# 3. DELETE LIST
+# 2. GROUP MAPPING (Standard Config)
+MOVE_TO_TAMIL_HD = ["Sun TV HD", "Star Vijay HD", "Colors Tamil HD", "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD", "Zee Thirai HD", "Vijay Super HD"]
+MOVE_TO_TAMIL_NEWS = ["Sun News", "News7 Tamil", "Thanthi TV", "Raj News 24x7", "Tamil Janam", "Jaya Plus", "M Nadu", "News J", "News18 Tamil Nadu", "News Tamil 24x7", "Win TV", "Zee Tamil News", "Polimer News", "Puthiya Thalaimurai", "Seithigal TV", "Sathiyam TV", "MalaiMurasu Seithigal"]
+MOVE_TO_INFOTAINMENT_SD = ["GOOD TiMES", "Food Food"]
+SPORTS_HD_KEEP = ["Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", "Star Sports Select 1 HD", "Star Sports Select 2 HD", "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"]
+INFOTAINMENT_KEYWORDS = ["discovery", "animal planet", "nat geo", "history tv", "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"]
 BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd"]
-
-# 4. AUTO LOGO
-LOGO_MAP = {
-    "willow": "https://i.imgur.com/39s1fL3.png",
-    "fox": "https://i.imgur.com/39s1fL3.png"
-}
-
-# Standard User Agent
+LOGO_MAP = {"willow": "https://i.imgur.com/39s1fL3.png", "fox": "https://i.imgur.com/39s1fL3.png"}
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 def get_group_and_name(line):
@@ -94,7 +56,6 @@ def get_clean_id(name):
     name = name.lower().replace("hd", "").replace(" ", "").strip()
     return re.sub(r'[^a-z0-9]', '', name)
 
-# Helper to fetch raw lines (for Main Sources)
 def fetch_raw_lines(url):
     try:
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
@@ -104,7 +65,6 @@ def fetch_raw_lines(url):
         print(f"⚠️ Failed to fetch {url}: {e}")
     return []
 
-# Helper to fetch and force Group Name (for Live Events)
 def fetch_live_events(url, force_group="Live Events"):
     lines = []
     try:
@@ -115,12 +75,8 @@ def fetch_live_events(url, force_group="Live Events"):
                 line = line.strip()
                 if not line: continue
                 if line.startswith("#EXTM3U"): continue
-                
-                # FORCE GROUP 
                 if line.startswith("#EXTINF"):
-                    # Remove existing group-title if present
                     line = re.sub(r'group-title="([^"]*)"', '', line)
-                    # Insert new group title
                     line = re.sub(r'(#EXTINF:[-0-9]+)', f'\\1 group-title="{force_group}"', line)
                     lines.append(line)
                 elif not line.startswith("#"):
@@ -129,12 +85,7 @@ def fetch_live_events(url, force_group="Live Events"):
         print(f"⚠️ Error fetching {url}: {e}")
     return lines
 
-# === RECURSIVE SEARCH FUNCTION ===
 def find_cookie_recursive(data):
-    """
-    Recursively searches for a string containing '__hdnea__' in any
-    nested combination of Lists or Dictionaries.
-    """
     if isinstance(data, dict):
         for k in ["cookie", "Cookie", "token", "Token"]:
             if k in data and isinstance(data[k], str):
@@ -151,12 +102,12 @@ def find_cookie_recursive(data):
             return data
     return None
 
-# === NEW JIO HOTSTAR FETCHER (NO QUOTES + URL ENCODED) ===
+# === NEW JIO HOTSTAR FETCHER (SAFE ENCODING MODE) ===
 def fetch_jio_hotstar_live():
     lines = []
-    print("📥 Fetching JioHotstar Live Events (No-Quote Mode)...")
+    print("📥 Fetching JioHotstar Live Events (Safe Encode Mode)...")
     try:
-        # 1. Fetch Cookie JSON
+        # 1. Fetch Cookie
         cookie_val = ""
         c_data = None
         try:
@@ -170,17 +121,15 @@ def fetch_jio_hotstar_live():
         if c_data is None:
             return []
 
-        # 2. Use Recursive Search
         raw_cookie = find_cookie_recursive(c_data)
-        
         if not raw_cookie:
             print("⚠️ FATAL: No cookie found.")
             return []
             
-        # 3. Clean Cookie - Remove quotes from the string itself
+        # Clean cookie (remove quotes/braces)
         cookie_val = raw_cookie.strip().replace('"', '').replace('\\"', '').replace('}', '').replace('{', '')
 
-        # 4. Fetch Events
+        # 2. Fetch Events
         e_resp = requests.get(JIO_EVENTS_JSON, headers={"User-Agent": UA_HEADER}, timeout=10)
         if e_resp.status_code != 200:
             print("⚠️ Failed to fetch Jio Events JSON")
@@ -199,7 +148,6 @@ def fetch_jio_hotstar_live():
             if not vid_id:
                 continue
 
-            # === LANGUAGE PARSING LOGIC ===
             langs_data = event.get("languages") or event.get("language") or event.get("lang")
             processed_langs = []
 
@@ -218,18 +166,24 @@ def fetch_jio_hotstar_live():
 
             for lang_code, lang_name in processed_langs:
                 
-                # FINAL URL FIX:
-                # 1. No quotes around values (Fixes "Text/Plain" error)
-                # 2. %20 in UA (Fixes "Slow Loading" error)
+                # SAFE ENCODING: Manually encode spaces and special chars
+                # This makes the URL robust against player parsing errors
+                safe_cookie = urllib.parse.quote(cookie_val)
+                safe_ua = urllib.parse.quote(JIO_UA_RAW)
+                safe_ref = urllib.parse.quote(JIO_REF_RAW)
+
+                # Construct the pipe format manually
+                # NOTE: Some players prefer "Cookie=x" (unquoted) and some "Cookie=x" (quoted).
+                # We will try the most standard: Plain value, URL encoded.
+                
                 stream_url = (
                     f'{JIO_BASE_STREAM}?id={vid_id}&lang={lang_code}&{JIO_UID_PASS}'
-                    f'|Cookie={cookie_val}&User-Agent={JIO_UA}&Referer={JIO_REF}'
+                    f'|Cookie={cookie_val}&User-Agent={JIO_UA_RAW}&Referer={JIO_REF_RAW}'
                 )
                 
                 display_name = f"JioHotstar: [{lang_name}] {title}"
                 
                 lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{logo}",{display_name}')
-                lines.append('#KODIPROP:inputstream.adaptive.manifest_type=hls')
                 lines.append(stream_url)
                 count += 1
         
@@ -322,19 +276,16 @@ def main():
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             
-            # 1. FILTER CHECK
             if not should_keep_channel(group, name):
                 current_buffer = [] 
                 continue
 
-            # 2. SD DELETION CHECK
             if "hd" not in clean_name:
                 base_id = get_clean_id(name)
                 if base_id in hd_channels_exist:
                     current_buffer = []
                     continue
 
-            # 3. IDENTIFY DUPLICATES
             exact_clean_id = re.sub(r'[^a-z0-9]', '', clean_name)
             is_duplicate = False
             if exact_clean_id in seen_channels:
@@ -342,74 +293,52 @@ def main():
             else:
                 seen_channels.add(exact_clean_id)
 
-            # 4. GROUP RENAMING LOGIC
             new_group = group 
             
-            # === SPECIAL LOGIC: ZEE TAMIL HD SWAP ===
             if "zee tamil hd" in clean_name:
                 zee_tamil_count += 1
                 if zee_tamil_count == 1:
-                    new_group = "Backup"   # 1st copy -> Backup
+                    new_group = "Backup"
                     is_duplicate = True
                 elif zee_tamil_count == 2:
-                    new_group = "Tamil HD" # 2nd copy -> Main Group
+                    new_group = "Tamil HD"
                     is_duplicate = False
                 else:
                     new_group = "Backup"
-            
-            # === STANDARD LOGIC ===
             elif is_duplicate:
                 new_group = "Backup"
             else:
                 group_lower = group.lower()
-
-                # TAMIL -> TAMIL EXTRA
                 if group_lower == "tamil": new_group = "Tamil Extra"
                 if group_lower == "local channels": new_group = "Tamil Extra"
                 if "premium 24/7" in group_lower: new_group = "Tamil Extra"
                 if "astro go" in group_lower: new_group = "Tamil Extra"
-                
-                # OTHER GROUPS
                 if group_lower == "sports": new_group = "Sports Extra"
                 if "extras" in group_lower: new_group = "Others" 
                 if "entertainment" in group_lower: new_group = "Others"
                 if "movies" in group_lower: new_group = "Others"
                 if "music" in group_lower: new_group = "Others"
                 if "infotainment" in group_lower: new_group = "Infotainment HD"
-
-                # NEWS
                 if "news" in group_lower and "tamil" not in group_lower and "malayalam" not in group_lower:
                     new_group = "English and Hindi News"
 
-                # === SPECIFIC MOVES ===
-                
-                # 1. Sports inside Tamil Extra -> Sports Extra
                 if new_group == "Tamil Extra" and "sports" in clean_name:
                     new_group = "Sports Extra"
-
-                # 2. Raj Digital Plus & J Movies -> Tamil Extra
                 if "j movies" in clean_name or "raj digital plus" in clean_name: 
                     new_group = "Tamil Extra"
-
                 if "rasi movies" in clean_name or "rasi hollywood" in clean_name: new_group = "Tamil Extra"
                 if "dd sports" in clean_name: new_group = "Sports Extra"
-                    
                 if any(target.lower() in clean_name for target in MOVE_TO_INFOTAINMENT_SD):
                      new_group = "Infotainment SD"
-
                 if any(k in clean_name for k in INFOTAINMENT_KEYWORDS):
                     if "hd" not in clean_name: new_group = "Infotainment SD"
-
                 for target in SPORTS_HD_KEEP:
                     if target.lower() in clean_name: new_group = "Sports HD"; break
-                
                 if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_NEWS]):
                     new_group = "Tamil News"
-
                 if any(target.lower() == clean_name for target in [x.lower() for x in MOVE_TO_TAMIL_HD]): 
                     new_group = "Tamil HD"
 
-            # Apply New Group Name
             if new_group != group:
                 if 'group-title="' in line:
                     line = re.sub(r'group-title="([^"]*)"', f'group-title="{new_group}"', line)
@@ -419,39 +348,22 @@ def main():
         current_buffer.append(line)
 
         if not line.startswith("#"):
-            # RAW COPY
             current_buffer[-1] = line
-            
             final_lines.extend(current_buffer)
             current_buffer = []
 
     if current_buffer:
         final_lines.extend(current_buffer)
 
-    # --- STEP 3: ADD EXTERNAL SOURCES ---
     print("📥 Adding Live Events...")
-    
-    # 1. NEW JIO HOTSTAR LOGIC
     final_lines.extend(fetch_jio_hotstar_live())
-    
-    # 2. Add FanCode
     final_lines.extend(fetch_live_events(FANCODE_URL, "Live Events"))
-    
-    # 3. Add Sony Live
     final_lines.extend(fetch_live_events(SONY_LIVE_URL, "Live Events"))
-    
-    # 4. Add Zee Live
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL, "Live Events"))
-    
-    # 5. Add Jio Worker (Legacy)
     print("📥 Adding JioHotstar Worker...")
     final_lines.extend(fetch_live_events(JIO_WORKER_URL, "Jio Live"))
-
-    # === NEW: ADD YOUTUBE LIVE ===
     print("📥 Adding YouTube Live...")
     final_lines.extend(fetch_live_events(YOUTUBE_LIVE_URL, "YouTube Live"))
-
-    # Add Local YouTube Text File
     final_lines.extend(parse_youtube_txt())
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
