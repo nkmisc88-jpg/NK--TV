@@ -149,10 +149,10 @@ def find_cookie_recursive(data):
             return data
     return None
 
-# === NEW JIO HOTSTAR FETCHER (MULTI-LANG SUPPORT) ===
+# === NEW JIO HOTSTAR FETCHER (OPTIMIZED & FAST) ===
 def fetch_jio_hotstar_live():
     lines = []
-    print("📥 Fetching JioHotstar Live Events (Multi-Lang Mode)...")
+    print("📥 Fetching JioHotstar Live Events (Fast Mode)...")
     try:
         # 1. Fetch Cookie JSON
         cookie_val = ""
@@ -198,10 +198,9 @@ def fetch_jio_hotstar_live():
                 continue
 
             # === LANGUAGE PARSING LOGIC ===
-            # Detects if 'languages' is a Dictionary (Key=Name, Val=Code) or List
+            # Checks for Dictionary or List
             langs_data = event.get("languages") or event.get("language") or event.get("lang")
             
-            # List of tuples: (Code, DisplayName)
             processed_langs = []
 
             if isinstance(langs_data, dict):
@@ -215,27 +214,32 @@ def fetch_jio_hotstar_live():
                     processed_langs.append((code, code.upper()))
             
             elif isinstance(langs_data, str):
-                # Format: "eng, hin"
                 parts = [x.strip() for x in langs_data.split(",")]
                 for p in parts:
                     processed_langs.append((p, p.upper()))
             
             else:
-                # Fallback
                 processed_langs.append(("eng", "English"))
 
-            # Create entry for EACH extracted language/camera
+            # Create entry for EACH extracted language
             for lang_code, lang_name in processed_langs:
+                
+                # SPEED FIX: KODIPROP tags help the player load faster (skips probing)
+                kodi_props = (
+                    f'#KODIPROP:inputstream.adaptive.manifest_type=hls\n'
+                    f'#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha'
+                )
+                
                 # Construct URL
                 stream_url = (
                     f'{JIO_BASE_STREAM}?id={vid_id}&lang={lang_code}&{JIO_UID_PASS}'
                     f'|Cookie="{cookie_val}"&User-Agent="{JIO_UA}"&Referer="{JIO_REF}"'
                 )
                 
-                # Format: JioHotstar: MI vs RCB [Hindi] or [Batter Cam]
                 display_name = f"JioHotstar: {title} [{lang_name}]"
                 
                 lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{logo}",{display_name}')
+                lines.append(kodi_props) # Add Speed Props
                 lines.append(stream_url)
                 count += 1
         
@@ -437,7 +441,7 @@ def main():
     # --- STEP 3: ADD EXTERNAL SOURCES ---
     print("📥 Adding Live Events...")
     
-    # 1. NEW JIO HOTSTAR LOGIC (Multi-Lang)
+    # 1. NEW JIO HOTSTAR LOGIC
     final_lines.extend(fetch_jio_hotstar_live())
     
     # 2. Add FanCode
