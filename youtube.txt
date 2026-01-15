@@ -15,15 +15,3 @@ Logo :
 Link : https://amg01269-amg01269c1-sportstribal-emea-5204.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01269-willowtvfast-willowplus-sportstribalemea/playlist.m3u8
 
 
-Title: CricLife 1
-Link: https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife/DASH/CricLife.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&drm_scheme=clearkey&drm_license_key=c540134469084705971488c0399f9065:30713753760431441753745330685366
-
-Title: CricLife 2
-Link: https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife2/DASH/CricLife2.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&drm_scheme=clearkey&drm_license_key=48bef83b4c6a3c5189b01b0126210da4:bd085230b7b09e50954fe0af111a8a9f
-
-Title: CricLife 3
-Link: https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife3/DASH/CricLife3.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&drm_scheme=clearkey&drm_license_key=05477d612984443997c4132030043817:66870020610344585187747716616216
-
-Title: CricLife Women
-Link: https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife_Women_27112025/DASH/CricLife_Women_27112025.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&Referer=https://starzplay.com/&drm_scheme=clearkey&drm_license_key=9dc5ddd99e3c723bf109a504da715dac:d39d55e9ba386a86641ca9668abf2b0d
-
