@@ -133,35 +133,26 @@ def find_cookie_recursive(data):
     Recursively searches for a string containing '__hdnea__' in any
     nested combination of Lists or Dictionaries.
     """
-    # 1. If it's a DICT, search keys and values
     if isinstance(data, dict):
-        # First check simple keys
         for k in ["cookie", "Cookie", "token", "Token"]:
             if k in data and isinstance(data[k], str):
                 return data[k]
-        
-        # If not found, dive into values
         for v in data.values():
             found = find_cookie_recursive(v)
             if found: return found
-
-    # 2. If it's a LIST, dive into items
     elif isinstance(data, list):
         for item in data:
             found = find_cookie_recursive(item)
             if found: return found
-    
-    # 3. If it's a STRING, check content
     elif isinstance(data, str):
         if "__hdnea__" in data:
             return data
-            
     return None
 
-# === NEW JIO HOTSTAR FETCHER (RECURSIVE MODE) ===
+# === NEW JIO HOTSTAR FETCHER (MULTI-LANG SUPPORT) ===
 def fetch_jio_hotstar_live():
     lines = []
-    print("📥 Fetching JioHotstar Live Events (Recursive Search Mode)...")
+    print("📥 Fetching JioHotstar Live Events (Multi-Lang Mode)...")
     try:
         # 1. Fetch Cookie JSON
         cookie_val = ""
@@ -175,22 +166,16 @@ def fetch_jio_hotstar_live():
             return []
 
         if c_data is None:
-            print("⚠️ Cookie JSON is empty or invalid.")
             return []
 
-        # 2. Use Recursive Search to find the cookie ANYWHERE
+        # 2. Use Recursive Search
         raw_cookie = find_cookie_recursive(c_data)
         
         if not raw_cookie:
-            print("⚠️ FATAL: No cookie found (Deep recursive search failed).")
-            # Fallback debug to see what we got (first 100 chars)
-            print(f"   Debug: Data type received: {type(c_data)}")
+            print("⚠️ FATAL: No cookie found.")
             return []
             
-        print("   --> ✅ Cookie Found!")
-        
-        # 3. DEEP CLEANING 
-        # Removes escaped quotes \" and the trailing } or {
+        # 3. Clean Cookie
         cookie_val = raw_cookie.replace('"', '').replace('\\"', '').replace('}', '').replace('{', '').strip()
 
         # 4. Fetch Events
@@ -200,18 +185,11 @@ def fetch_jio_hotstar_live():
             return []
         
         events = e_resp.json()
-        
-        # Handle List vs Dict structure
         if isinstance(events, dict):
             events = events.get("items", []) or events.get("events", []) or events.get("data", [])
-        
-        if not events:
-            print("⚠️ Jio Events list is empty.")
-            return []
 
         count = 0
         for event in events:
-            # Flexible Key Search
             vid_id = event.get("id") or event.get("contentId") or event.get("ID")
             title = event.get("name") or event.get("title") or event.get("eventName") or "Jio Event"
             logo = event.get("logo") or event.get("image") or event.get("thumbnail") or ""
@@ -219,30 +197,49 @@ def fetch_jio_hotstar_live():
             if not vid_id:
                 continue
 
-            # Handle Languages
-            langs = event.get("language") or event.get("lang") or event.get("Language")
+            # === LANGUAGE PARSING LOGIC ===
+            # Detects if 'languages' is a Dictionary (Key=Name, Val=Code) or List
+            langs_data = event.get("languages") or event.get("language") or event.get("lang")
             
-            if isinstance(langs, str):
-                langs = [x.strip() for x in langs.split(",")]
-            elif not langs:
-                langs = ["eng"]
+            # List of tuples: (Code, DisplayName)
+            processed_langs = []
 
-            for lang in langs:
-                lang_code = lang.lower()[:3] 
-                
+            if isinstance(langs_data, dict):
+                # Format: {"Hindi": "hin", "Batter Cam": "mc_batter"}
+                for name, code in langs_data.items():
+                    processed_langs.append((code, name))
+            
+            elif isinstance(langs_data, list):
+                # Format: ["eng", "hin"]
+                for code in langs_data:
+                    processed_langs.append((code, code.upper()))
+            
+            elif isinstance(langs_data, str):
+                # Format: "eng, hin"
+                parts = [x.strip() for x in langs_data.split(",")]
+                for p in parts:
+                    processed_langs.append((p, p.upper()))
+            
+            else:
+                # Fallback
+                processed_langs.append(("eng", "English"))
+
+            # Create entry for EACH extracted language/camera
+            for lang_code, lang_name in processed_langs:
                 # Construct URL
                 stream_url = (
                     f'{JIO_BASE_STREAM}?id={vid_id}&lang={lang_code}&{JIO_UID_PASS}'
                     f'|Cookie="{cookie_val}"&User-Agent="{JIO_UA}"&Referer="{JIO_REF}"'
                 )
                 
-                display_name = f"JioHotstar: {title} [{lang.upper()}]"
+                # Format: JioHotstar: MI vs RCB [Hindi] or [Batter Cam]
+                display_name = f"JioHotstar: {title} [{lang_name}]"
                 
                 lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{logo}",{display_name}')
                 lines.append(stream_url)
                 count += 1
         
-        print(f"   --> Generated {count} JioHotstar lines.")
+        print(f"   --> Generated {count} JioHotstar lines (All Languages).")
 
     except Exception as e:
         print(f"⚠️ Critical Error in JioHotstar Fetcher: {e}")
@@ -440,7 +437,7 @@ def main():
     # --- STEP 3: ADD EXTERNAL SOURCES ---
     print("📥 Adding Live Events...")
     
-    # 1. NEW JIO HOTSTAR LOGIC (Recursive)
+    # 1. NEW JIO HOTSTAR LOGIC (Multi-Lang)
     final_lines.extend(fetch_jio_hotstar_live())
     
     # 2. Add FanCode
