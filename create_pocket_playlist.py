@@ -4,6 +4,7 @@ import datetime
 import os
 import sys
 import json
+import urllib.parse
 
 # ==========================================
 # CONFIGURATION
@@ -25,8 +26,8 @@ JIO_EVENTS_JSON = "https://raw.githubusercontent.com/DebugDyno/yo_events/refs/he
 JIO_COOKIE_JSON = "https://raw.githubusercontent.com/kajju027/Jiohotstar-Events-Json/refs/heads/main/jiotv.json"
 JIO_BASE_STREAM = "https://jiohotstar.joker-verse.workers.dev/joker/stream"
 JIO_UID_PASS = "uid=706298993&pass=ef2678f2"
-JIO_UA = "Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"
-JIO_REF = "https://www.hotstar.com/"
+JIO_UA_RAW = "Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"
+JIO_REF_RAW = "https://www.hotstar.com/"
 
 # 2. GROUP MAPPING
 MOVE_TO_TAMIL_HD = ["Sun TV HD", "Star Vijay HD", "Colors Tamil HD", "Zee Tamil HD", "KTV HD", "Sun Music HD", "Jaya TV HD", "Zee Thirai HD", "Vijay Super HD"]
@@ -35,10 +36,14 @@ MOVE_TO_INFOTAINMENT_SD = ["GOOD TiMES", "Food Food"]
 SPORTS_HD_KEEP = ["Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 1 Tamil HD", "Star Sports 2 Tamil HD", "Star Sports Select 1 HD", "Star Sports Select 2 HD", "SONY TEN 1 HD", "SONY TEN 2 HD", "SONY TEN 5 HD"]
 INFOTAINMENT_KEYWORDS = ["discovery", "animal planet", "nat geo", "history tv", "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"]
 
-# 3. DELETE LIST (Including your specific request)
-BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd", "zee devotional"]
+# 3. DELETE LIST
+# UPDATED: Added "local channels" to this list to delete them.
+BAD_KEYWORDS = [
+    "fashion", "overseas", "yupp", "usa", "pluto", 
+    "sun nxt", "sunnxt", "jio specials hd", "zee devotional", 
+    "local channels"
+]
 
-# 4. AUTO LOGO
 LOGO_MAP = {"willow": "https://i.imgur.com/39s1fL3.png", "fox": "https://i.imgur.com/39s1fL3.png"}
 UA_HEADER = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
@@ -87,7 +92,6 @@ def fetch_live_events(url, force_group="Live Events"):
         print(f"⚠️ Error fetching {url}: {e}")
     return lines
 
-# === RECURSIVE COOKIE FINDER (Proven to work) ===
 def find_cookie_recursive(data):
     if isinstance(data, dict):
         for k in ["cookie", "Cookie", "token", "Token"]:
@@ -105,12 +109,10 @@ def find_cookie_recursive(data):
             return data
     return None
 
-# === JIO HOTSTAR FETCHER (Multi-Lang + Clean Titles) ===
 def fetch_jio_hotstar_live():
     lines = []
     print("📥 Fetching JioHotstar Live Events...")
     try:
-        # 1. Fetch Cookie
         cookie_val = ""
         c_data = None
         try:
@@ -128,10 +130,8 @@ def fetch_jio_hotstar_live():
             print("⚠️ FATAL: No cookie found.")
             return []
             
-        # Clean cookie: remove quotes and braces so it is a raw string
         cookie_val = raw_cookie.strip().replace('"', '').replace('\\"', '').replace('}', '').replace('{', '')
 
-        # 2. Fetch Events
         e_resp = requests.get(JIO_EVENTS_JSON, headers={"User-Agent": UA_HEADER}, timeout=10)
         if e_resp.status_code != 200:
             print("⚠️ Failed to fetch Jio Events JSON")
@@ -149,16 +149,13 @@ def fetch_jio_hotstar_live():
             
             if not vid_id: continue
 
-            # === LANGUAGE PARSING ===
             langs_data = event.get("languages") or event.get("language") or event.get("lang")
             processed_langs = []
 
             if isinstance(langs_data, dict):
-                # Dict: {"Hindi": "hin", "English": "eng"}
                 for name, code in langs_data.items():
                     processed_langs.append((code, name))
             elif isinstance(langs_data, list):
-                # List: ["hin"] -> Code=hin, Name=HIN
                 for code in langs_data:
                     processed_langs.append((code, code.upper()))
             elif isinstance(langs_data, str):
@@ -169,14 +166,11 @@ def fetch_jio_hotstar_live():
                 processed_langs.append(("eng", "English"))
 
             for lang_code, lang_name in processed_langs:
-                # Construct URL with Pipe | syntax
-                # Using QUOTES for headers as originally requested
                 stream_url = (
                     f'{JIO_BASE_STREAM}?id={vid_id}&lang={lang_code}&{JIO_UID_PASS}'
-                    f'|Cookie="{cookie_val}"&User-Agent="{JIO_UA}"&Referer="{JIO_REF}"'
+                    f'|Cookie="{cookie_val}"&User-Agent="{JIO_UA_RAW}"&Referer="{JIO_REF_RAW}"'
                 )
                 
-                # Title: Put [Language] at the start for visibility
                 display_name = f"JioHotstar: [{lang_name}] {title}"
                 
                 lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{logo}",{display_name}')
@@ -236,7 +230,6 @@ def main():
     final_lines.append(f"# Last Updated: {ist_now.strftime('%Y-%m-%d %H:%M:%S IST')}")
     final_lines.append("http://0.0.0.0")
 
-    # --- COMBINE POCKET + ZEE JOKER ---
     source_lines = []
     source_lines.extend(fetch_raw_lines(POCKET_URL))
     source_lines.extend(fetch_raw_lines(ZEE_JOKER_URL))
@@ -269,6 +262,7 @@ def main():
             group, name = get_group_and_name(line)
             clean_name = name.lower().strip()
             
+            # This will now delete "local channels" group as well
             if not should_keep_channel(group, name):
                 current_buffer = [] 
                 continue
@@ -303,7 +297,7 @@ def main():
             else:
                 group_lower = group.lower()
                 if group_lower == "tamil": new_group = "Tamil Extra"
-                if group_lower == "local channels": new_group = "Tamil Extra"
+                # Removed "local channels" mapping line since it's now deleted above
                 if "premium 24/7" in group_lower: new_group = "Tamil Extra"
                 if "astro go" in group_lower: new_group = "Tamil Extra"
                 if group_lower == "sports": new_group = "Sports Extra"
@@ -311,7 +305,6 @@ def main():
                 if "entertainment" in group_lower: new_group = "Others"
                 if "music" in group_lower: new_group = "Others"
                 
-                # MOVED: Zee Movies to Others
                 if "zee movie" in group_lower: new_group = "Others"
                 elif "movies" in group_lower: new_group = "Others"
                 
@@ -354,15 +347,11 @@ def main():
         final_lines.extend(current_buffer)
 
     print("📥 Adding Live Events...")
-    # 1. Add NEW JioHotstar (Integrated)
     final_lines.extend(fetch_jio_hotstar_live())
-    
-    # 2. Add other sources
     final_lines.extend(fetch_live_events(FANCODE_URL, "Live Events"))
     final_lines.extend(fetch_live_events(SONY_LIVE_URL, "Live Events"))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL, "Live Events"))
     
-    # 3. Add Jio Worker (Legacy backup)
     print("📥 Adding JioHotstar Worker...")
     final_lines.extend(fetch_live_events(JIO_WORKER_URL, "Jio Live"))
     
