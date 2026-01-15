@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-15 20:53:37 IST
+# Last Updated: 2026-01-15 20:59:32 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -3324,76 +3324,58 @@ https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/AND-PICTURES-SD/master/mast
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Flix-HD/index-connected/index-connected.m3u8?hdntl=exp=1768545662~acl=%2f*~id=0125c876-8892-45c0-a0b0-6c381cd686fe~data=hdntl~hmac=4d9d3400bba0ad5931e64e617d221db8feac7678115b692a17e01f9a8b6e622c
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [English]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=eng&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [Hindi]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=hin&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [Kannada]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=kan&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=kan&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [Tamil]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=tam&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=tam&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [Telugu]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=tel&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=tel&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [Batter Cam]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=mc_batter&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=mc_batter&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [Birdseye]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=mc_bird&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=mc_bird&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [Hero Cam]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=mc_hero&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=mc_hero&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [Stump Cam]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=mc_stump&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=mc_stump&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [English Vertical]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=eng_vlc&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=eng_vlc&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4080/1768396674080-h",JioHotstar: Mumbai Indians vs UP Warriorz [Hindi Vertical]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=hin_vlc&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059616&lang=hin_vlc&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/9367/1768398699367-h",JioHotstar: Chennai Singams vs Falcon Risers Hyderabad [English]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059536&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059536&lang=eng&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5745/1750779565745-h",JioHotstar: Star Sports Cricket Classics [Hindi]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540040039&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540040039&lang=hin&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/9492/1768418619492-h",JioHotstar: SF: Karnataka vs Vidarbha [English]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059121&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059121&lang=eng&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/1441/1762934631441-h",JioHotstar: Follow The Blues [Hindi]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540045533&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540045533&lang=hin&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4959/1768397704959-h",JioHotstar: International Skating Union: Sheffield, Day 2 [English]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540054900&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540054900&lang=eng&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/2214/1750777602214-h",JioHotstar: TATA IPL TV [Hindi]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540044879&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540044879&lang=hin&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/3639/1756796893639-h",JioHotstar: T20s TV [Hindi]
 #KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540044897&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540044897&lang=hin&uid=706298993&pass=ef2678f2|Cookie=__hdnea__=st=1768439564~exp=1768525964~acl=/*~hmac=afde4dcae6ba21435a5b0544e784294573591eaababbb07adfacadc7e0120b7c&User-Agent=Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)&Referer=https://www.hotstar.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139748" tvg-name="Barbados Women Vs Jamaica Women" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/CWI-Women's-T20-Blaze_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Barbados Women Vs Jamaica Women
 https://in-mc-fdlive.fancode.com/mumbai/139748_english_hls_3e659c1eb598132_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139581" tvg-name="Renaissance Challengers Vs Ias Invincibles" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Renaissance Challengers Vs Ias Invincibles
