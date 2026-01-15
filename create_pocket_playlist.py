@@ -35,8 +35,8 @@ SPORTS_HD_KEEP = ["Star Sports 1 HD", "Star Sports 2 HD", "Star Sports 1 Tamil H
 INFOTAINMENT_KEYWORDS = ["discovery", "animal planet", "nat geo", "history tv", "tlc", "bbc earth", "sony bbc", "fox life", "travelxp"]
 
 # 3. DELETE LIST
-# UPDATED: Added "extras" to delete that group
-BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd", "zee devotional", "extras"]
+# UPDATED: Added "local channels" to delete list
+BAD_KEYWORDS = ["fashion", "overseas", "yupp", "usa", "pluto", "sun nxt", "sunnxt", "jio specials hd", "zee devotional", "extras", "local channels"]
 
 # 4. AUTO LOGO
 LOGO_MAP = {"willow": "https://i.imgur.com/39s1fL3.png", "fox": "https://i.imgur.com/39s1fL3.png"}
@@ -295,15 +295,13 @@ def main():
             else:
                 group_lower = group.lower()
                 if group_lower == "tamil": new_group = "Tamil Extra"
-                if group_lower == "local channels": new_group = "Tamil Extra"
+                # DELETED: if group_lower == "local channels": new_group = "Tamil Extra" (Now deleted via BAD_KEYWORDS)
                 if "premium 24/7" in group_lower: new_group = "Tamil Extra"
                 if "astro go" in group_lower: new_group = "Tamil Extra"
                 if group_lower == "sports": new_group = "Sports Extra"
-                if "extras" in group_lower: new_group = "Others" 
                 if "entertainment" in group_lower: new_group = "Others"
                 if "music" in group_lower: new_group = "Others"
                 
-                # MOVED: Zee Movies to Others
                 if "zee movie" in group_lower: new_group = "Others"
                 elif "movies" in group_lower: new_group = "Others"
                 
@@ -346,18 +344,12 @@ def main():
         final_lines.extend(current_buffer)
 
     print("📥 Adding Live Events...")
-    # 1. Add NEW JioHotstar (Integrated)
     final_lines.extend(fetch_jio_hotstar_live())
-    
-    # 2. Add other sources
     final_lines.extend(fetch_live_events(FANCODE_URL, "Live Events"))
     final_lines.extend(fetch_live_events(SONY_LIVE_URL, "Live Events"))
     final_lines.extend(fetch_live_events(ZEE_LIVE_URL, "Live Events"))
-    
-    # 3. Add Jio Worker (Legacy backup)
     print("📥 Adding JioHotstar Worker...")
     final_lines.extend(fetch_live_events(JIO_WORKER_URL, "Jio Live"))
-    
     print("📥 Adding YouTube Live...")
     final_lines.extend(fetch_live_events(YOUTUBE_LIVE_URL, "YouTube Live"))
     final_lines.extend(parse_youtube_txt())
