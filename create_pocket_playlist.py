@@ -30,7 +30,9 @@ JIO_EVENTS_JSON = "https://raw.githubusercontent.com/DebugDyno/yo_events/refs/he
 JIO_COOKIE_JSON = "https://raw.githubusercontent.com/kajju027/Jiohotstar-Events-Json/refs/heads/main/jiotv.json"
 JIO_BASE_STREAM = "https://jiohotstar.joker-verse.workers.dev/joker/stream"
 JIO_UID_PASS = "uid=706298993&pass=ef2678f2"
-JIO_UA = "Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"
+
+# UA FIX: Replaced Space with %20 to avoid breaking the URL without quotes
+JIO_UA = "Hotstar;in.startv.hotstar/25.01.27.5.3788%20(Android/13)"
 JIO_REF = "https://www.hotstar.com/"
 
 # 2. GROUP MAPPING
@@ -149,10 +151,10 @@ def find_cookie_recursive(data):
             return data
     return None
 
-# === NEW JIO HOTSTAR FETCHER (QUOTES + PREFIX FIX) ===
+# === NEW JIO HOTSTAR FETCHER (NO QUOTES + URL ENCODED) ===
 def fetch_jio_hotstar_live():
     lines = []
-    print("📥 Fetching JioHotstar Live Events (Quote Mode)...")
+    print("📥 Fetching JioHotstar Live Events (No-Quote Mode)...")
     try:
         # 1. Fetch Cookie JSON
         cookie_val = ""
@@ -175,9 +177,8 @@ def fetch_jio_hotstar_live():
             print("⚠️ FATAL: No cookie found.")
             return []
             
-        # 3. Clean Cookie - BUT KEEP IT RAW for the quoted string
-        # Just remove leading/trailing quotes from the value itself if doubled
-        cookie_val = raw_cookie.strip().strip('"')
+        # 3. Clean Cookie - Remove quotes from the string itself
+        cookie_val = raw_cookie.strip().replace('"', '').replace('\\"', '').replace('}', '').replace('{', '')
 
         # 4. Fetch Events
         e_resp = requests.get(JIO_EVENTS_JSON, headers={"User-Agent": UA_HEADER}, timeout=10)
@@ -200,41 +201,34 @@ def fetch_jio_hotstar_live():
 
             # === LANGUAGE PARSING LOGIC ===
             langs_data = event.get("languages") or event.get("language") or event.get("lang")
-            
             processed_langs = []
 
             if isinstance(langs_data, dict):
-                # Dict: {"Hindi": "hin"} -> Name=Hindi, Code=hin
                 for name, code in langs_data.items():
                     processed_langs.append((code, name))
-            
             elif isinstance(langs_data, list):
-                # List: ["hin"] -> Code=hin, Name=HIN
                 for code in langs_data:
                     processed_langs.append((code, code.upper()))
-            
             elif isinstance(langs_data, str):
                 parts = [x.strip() for x in langs_data.split(",")]
                 for p in parts:
                     processed_langs.append((p, p.upper()))
-            
             else:
                 processed_langs.append(("eng", "English"))
 
             for lang_code, lang_name in processed_langs:
                 
-                # SPEED FIX: Restore QUOTES around the headers
-                # This ensures spaces in User-Agent don't break the URL
+                # FINAL URL FIX:
+                # 1. No quotes around values (Fixes "Text/Plain" error)
+                # 2. %20 in UA (Fixes "Slow Loading" error)
                 stream_url = (
                     f'{JIO_BASE_STREAM}?id={vid_id}&lang={lang_code}&{JIO_UID_PASS}'
-                    f'|Cookie="{cookie_val}"&User-Agent="{JIO_UA}"&Referer="{JIO_REF}"'
+                    f'|Cookie={cookie_val}&User-Agent={JIO_UA}&Referer={JIO_REF}'
                 )
                 
-                # VISIBILITY FIX: Put Language at the START of the title
                 display_name = f"JioHotstar: [{lang_name}] {title}"
                 
                 lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{logo}",{display_name}')
-                # Keep Kodi props for stability
                 lines.append('#KODIPROP:inputstream.adaptive.manifest_type=hls')
                 lines.append(stream_url)
                 count += 1
