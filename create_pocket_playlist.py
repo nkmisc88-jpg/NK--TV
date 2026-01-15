@@ -149,10 +149,10 @@ def find_cookie_recursive(data):
             return data
     return None
 
-# === NEW JIO HOTSTAR FETCHER (OPTIMIZED & FAST) ===
+# === NEW JIO HOTSTAR FETCHER (FIXED TITLES & SPEED) ===
 def fetch_jio_hotstar_live():
     lines = []
-    print("📥 Fetching JioHotstar Live Events (Fast Mode)...")
+    print("📥 Fetching JioHotstar Live Events (Fixed Mode)...")
     try:
         # 1. Fetch Cookie JSON
         cookie_val = ""
@@ -198,18 +198,20 @@ def fetch_jio_hotstar_live():
                 continue
 
             # === LANGUAGE PARSING LOGIC ===
-            # Checks for Dictionary or List
+            # Ensure we get the Name (Key) and Code (Value)
             langs_data = event.get("languages") or event.get("language") or event.get("lang")
             
+            # List of tuples: (Code, DisplayName)
             processed_langs = []
 
             if isinstance(langs_data, dict):
-                # Format: {"Hindi": "hin", "Batter Cam": "mc_batter"}
+                # DICTIONARY MODE: {"Hindi": "hin", "English": "eng"}
+                # Key = Name (Title), Value = Code (URL)
                 for name, code in langs_data.items():
                     processed_langs.append((code, name))
             
             elif isinstance(langs_data, list):
-                # Format: ["eng", "hin"]
+                # LIST MODE: ["eng", "hin"]
                 for code in langs_data:
                     processed_langs.append((code, code.upper()))
             
@@ -224,26 +226,22 @@ def fetch_jio_hotstar_live():
             # Create entry for EACH extracted language
             for lang_code, lang_name in processed_langs:
                 
-                # SPEED FIX: KODIPROP tags help the player load faster (skips probing)
-                kodi_props = (
-                    f'#KODIPROP:inputstream.adaptive.manifest_type=hls\n'
-                    f'#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha'
-                )
-                
-                # Construct URL
+                # SPEED FIX: Headers must be INSIDE the URL for players to use them
                 stream_url = (
                     f'{JIO_BASE_STREAM}?id={vid_id}&lang={lang_code}&{JIO_UID_PASS}'
-                    f'|Cookie="{cookie_val}"&User-Agent="{JIO_UA}"&Referer="{JIO_REF}"'
+                    f'|Cookie={cookie_val}&User-Agent={JIO_UA}&Referer={JIO_REF}'
                 )
                 
+                # TITLE FIX: Explicitly add [Lang Name] to title
                 display_name = f"JioHotstar: {title} [{lang_name}]"
                 
                 lines.append(f'#EXTINF:-1 group-title="Live Events" tvg-logo="{logo}",{display_name}')
-                lines.append(kodi_props) # Add Speed Props
+                # Also keep props for Kodi, but pipe syntax handles TiviMate
+                lines.append('#KODIPROP:inputstream.adaptive.manifest_type=hls')
                 lines.append(stream_url)
                 count += 1
         
-        print(f"   --> Generated {count} JioHotstar lines (All Languages).")
+        print(f"   --> Generated {count} JioHotstar lines.")
 
     except Exception as e:
         print(f"⚠️ Critical Error in JioHotstar Fetcher: {e}")
