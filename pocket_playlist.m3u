@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-16 17:24:56 IST
+# Last Updated: 2026-01-16 19:21:53 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -36,190 +36,184 @@ https://livestream.sunnxt.com/d434796d90fa4dc9b7ecfacedbe683f1/SunMusicHDB_IN_in
 https://livestream.sunnxt.com/61477b4c8d8d45d5a49e044cc1dffc60/KTVHDB_IN_index.mpd
 ============================== JIOTV ============================================
 # >>> JIO_AUTO_START
-#EXTINF:-1 tvg-id="896" group-title="Backup" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
+#EXTINF:-1 group-title="Backup" tvg-logo="https://tatalogo.pages.dev/521.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=f415c124a07c595b97c43cc9a96ded30&key=59e6c93d4fe43353b34a71eb87185aaa
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=f415c124a07c595b97c43cc9a96ded30:59e6c93d4fe43353b34a71eb87185aaa
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_TV_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="368" group-title="Backup" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/357_144.png",Star Vijay HD
+#EXTINF:-1 group-title="Backup" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/357_144.png",Star Vijay HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=849d6b062b645abea937ec7f2b6b1686&key=1f65503420b88d11a16d4a4eacd95f0f
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=849d6b062b645abea937ec7f2b6b1686:1f65503420b88d11a16d4a4eacd95f0f
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Vijay_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="429" group-title="Backup" tvg-logo="https://tatalogo.pages.dev/674.png",Colors Tamil HD
+#EXTINF:-1 group-title="Backup" tvg-logo="https://tatalogo.pages.dev/674.png",Colors Tamil HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=94d31d976768554b892f7037db09e0c9&key=08c5154b6cdcb6e0fc99d9d4e6298cb3
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=94d31d976768554b892f7037db09e0c9:08c5154b6cdcb6e0fc99d9d4e6298cb3
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
-https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsTamilHD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
+https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Tamil_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #EXTINF:-1 tvg-id="0-9-zeetamil" group-title="Tamil HD" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768632182~acl=%2f*~id=258952c8-88d9-4b9a-8dc1-1b2cb817f2c4~data=hdntl~hmac=a66f2b3d07c688aa2b3b14efded43f66dd511e89963c8a641b92295f4055ef74
-#EXTINF:-1 tvg-id="894" group-title="Backup" tvg-logo="https://tatalogo.pages.dev/380.png",KTV HD
+#EXTINF:-1 group-title="Backup" tvg-logo="https://tatalogo.pages.dev/380.png",KTV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ba9bfe750a56514e9c63c456fad1e428&key=e0ca0ee9dbaac2942753d928b92824c5
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=ba9bfe750a56514e9c63c456fad1e428:e0ca0ee9dbaac2942753d928b92824c5
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/KTV_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="895" group-title="Backup" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/417_144.png",Sun Music HD
+#EXTINF:-1 group-title="Backup" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/417_144.png",Sun Music HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=fa0c0f2dd6ce50208b77e16976e38d90&key=7f83a8e5178b6562d81968886fc3fe8a
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=fa0c0f2dd6ce50208b77e16976e38d90:7f83a8e5178b6562d81968886fc3fe8a
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_Music_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1209" group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-819-j5m8fsfs-v1/imageContent-819-j5m8fsfs-m1.png",Kalaignar TV
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-819-j5m8fsfs-v1/imageContent-819-j5m8fsfs-m1.png",Kalaignar TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=75dfe3fa680c58d6bc94815950c7d4f0&key=480cd1106bfb291a5735b0f9dc71bded
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=75dfe3fa680c58d6bc94815950c7d4f0:480cd1106bfb291a5735b0f9dc71bded
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Kalaignar_TV_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="419" group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/708.png",Jaya TV HD
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://tatalogo.pages.dev/708.png",Jaya TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b53a72551ecd5f5a93785ab2eea2c04a&key=91c08ce0ece5d6c8c167b104a7c9ab00
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=b53a72551ecd5f5a93785ab2eea2c04a:91c08ce0ece5d6c8c167b104a7c9ab00
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_TV_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="707" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/439.png",Raj TV
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/439.png",Raj TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=3b214e599f3f5fb3abd92164fa152caf&key=ec6050021a558cd31511717e1c0912e6
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=3b214e599f3f5fb3abd92164fa152caf:ec6050021a558cd31511717e1c0912e6
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_TV_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="709" group-title="Tamil Extra" tvg-logo="https://sund-images.sunnxt.com/194407/960x540_AdithyaTV_194407_b6f8fa30-255b-4f4a-8f8f-4264abda8b33.jpg",Adithya TV
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://sund-images.sunnxt.com/194407/960x540_AdithyaTV_194407_b6f8fa30-255b-4f4a-8f8f-4264abda8b33.jpg",Adithya TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b7d2d1228b275e219c9cdb282038d4c3&key=d75d95afc4a181803d2188456a052477
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=b7d2d1228b275e219c9cdb282038d4c3:d75d95afc4a181803d2188456a052477
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Adithya_TV_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="3059" group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/THANTIO_Thumbnail-v4/THANTIO_Thumbnail.png",Thanthi One
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/476_144.png",Sun life
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=f1cc3d31477255288c5a6e47be0ba0bb&key=b99afce91d2fddfb3a4c01df22fb5964
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Thanti_One_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="682" group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/476_144.png",Sun life
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=03fff2c1ecea574b98da00b05c2a0be9&key=41670b42142fa8ba6bd3cf9fc2ae8cf5
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=03fff2c1ecea574b98da00b05c2a0be9:41670b42142fa8ba6bd3cf9fc2ae8cf5
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_Life_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="705" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/272.png",Polimer TV
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/272.png",Polimer TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=00b981848b1a5d979668260a22bd4ae1&key=c74650e08f78101679685f459ba6e8d4
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=00b981848b1a5d979668260a22bd4ae1:c74650e08f78101679685f459ba6e8d4
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Polimer_TV_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="857" group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-31187-jldgeg1k-v2/imageContent-31187-jldgeg1k-m2.png",Vendhar TV
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-31187-jldgeg1k-v2/imageContent-31187-jldgeg1k-m2.png",Vendhar TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=9b6c4374605e5b4590522d6443990f67&key=7833ec685f36ca55a76de74f6504ed8e
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=9b6c4374605e5b4590522d6443990f67:7833ec685f36ca55a76de74f6504ed8e
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Vendhar_TV_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="843" group-title="Tamil Extra" tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/06/20240607_1900386590027353433956913.png",Madhimugam TV
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/06/20240607_1900386590027353433956913.png",Madhimugam TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=c66c5004ac705f57a7f68e9b8f6a71ff&key=35ea0c816774958d73752f44f2f72b54
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=c66c5004ac705f57a7f68e9b8f6a71ff:35ea0c816774958d73752f44f2f72b54
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Madhimugam_TV_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1647" group-title="Tamil Extra" tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/05/20240521_1223086548629137627592678.png",MK Six
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tataprime.wordpress.com/wp-content/uploads/2024/05/20240521_1223086548629137627592678.png",MK Six
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b49a765e90eb5b43bdec0471ed4eda78&key=d4a55cf0dc5127b69e2c355ff4e35f15
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=b49a765e90eb5b43bdec0471ed4eda78:d4a55cf0dc5127b69e2c355ff4e35f15
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/MK_Six_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="569" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/99.png",D Tamil
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/99.png",D Tamil
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b6fbfa48ce125c8c8f46004da232e956&key=fb3181695d57614995f6025d41a1dbe2
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=b6fbfa48ce125c8c8f46004da232e956:fb3181695d57614995f6025d41a1dbe2
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_Channel_Tamil_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="2768" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/434.png",Jothi TV
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/434.png",Jothi TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=7b2643b3dad65bf5b6184fe0d3d200dd&key=32d03e7bbb71cc9e1685edfa7b3c4b7e
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=7b2643b3dad65bf5b6184fe0d3d200dd:32d03e7bbb71cc9e1685edfa7b3c4b7e
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jothi_TV_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="3279" group-title="Tamil Extra" tvg-logo="https://img.media.jio.com/tvpimages/80/33/302059_1753185674474_l_high.jpg",OM TV
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://img.media.jio.com/tvpimages/80/33/302059_1753185674474_l_high.jpg",OM TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=e422cbcf1ea4503ea34f88c0a7968c54&key=6c5302033440acff24231ff13ac1fbcb
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=e422cbcf1ea4503ea34f88c0a7968c54:6c5302033440acff24231ff13ac1fbcb
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/OM_TV_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="824" group-title="Tamil Extra" tvg-logo="https://i.ibb.co/Xt40dT5/Puthuyugam.png",Puthu Yugam
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://i.ibb.co/Xt40dT5/Puthuyugam.png",Puthu Yugam
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=6f12c21409935b97b9bdaeeaf6ab7822&key=d8e90e3241b0a9fabf4ac2234305a53c
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=6f12c21409935b97b9bdaeeaf6ab7822:d8e90e3241b0a9fabf4ac2234305a53c
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Puthu_Yugam_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #EXTINF:-1 tvg-id="0-9-224" group-title="Tamil HD" tvg-logo="https://i.ibb.co/kg2b7PMP/cropped-circle-image.png",Zee Thirai HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Thirai-HD/index-connected/index-connected.m3u8?hdntl=exp=1768632182~acl=%2f*~id=258952c8-88d9-4b9a-8dc1-1b2cb817f2c4~data=hdntl~hmac=a66f2b3d07c688aa2b3b14efded43f66dd511e89963c8a641b92295f4055ef74
-#EXTINF:-1 tvg-id="3266" group-title="Tamil HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11197-j9i4fbbs-v2/imageContent-11197-j9i4fbbs-m4.png",Vijay Super HD
+#EXTINF:-1 group-title="Tamil HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11197-j9i4fbbs-v2/imageContent-11197-j9i4fbbs-m4.png",Vijay Super HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4058ba890768578093e4d30bc957b85c&key=42d335cfebf7292487522ac572d706a8
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=4058ba890768578093e4d30bc957b85c:42d335cfebf7292487522ac572d706a8
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Super_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="3269" group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-73570-l91cvyrk-v1/imageContent-73570-l91cvyrk-m2.png",Vijay Takkar
+#EXTINF:-1 group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-73570-l91cvyrk-v1/imageContent-73570-l91cvyrk-m2.png",Vijay Takkar
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ecdf4d18807e55bf814c3f40656a33c3&key=0031af1bf42234195cda0eb88fd6003b
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=ecdf4d18807e55bf814c3f40656a33c3:0031af1bf42234195cda0eb88fd6003b
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Vijay_Takkar_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="417" group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/201.png",J Movies
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://tatalogo.pages.dev/201.png",J Movies
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=8d8f492ff22d594da8fbad2ecb4083a9&key=7dc1d6d4fb9d35ad2e42c9c9a112d8c2
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=8d8f492ff22d594da8fbad2ecb4083a9:7dc1d6d4fb9d35ad2e42c9c9a112d8c2
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/J_Movies_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="683" group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11679-j9khnqag-v1/imageContent-11679-j9khnqag-m1.png",Raj Digital Plus
+#EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11679-j9khnqag-v1/imageContent-11679-j9khnqag-m1.png",Raj Digital Plus
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=a1636627c85a5129974eea2d1a917604&key=2453963a306c012223944e13790908de
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=a1636627c85a5129974eea2d1a917604:2453963a306c012223944e13790908de
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_Digital_Plus_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1104" group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12086-j9od8wxc-v1/imageContent-12086-j9od8wxc-m1.png",Star Movies HD
+#EXTINF:-1 group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12086-j9od8wxc-v1/imageContent-12086-j9od8wxc-m1.png",Star Movies HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=6ac6943751e558b181da32727f03dff7&key=f36e5cd48252bcd0fcda2bfe21f5b365
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=6ac6943751e558b181da32727f03dff7:f36e5cd48252bcd0fcda2bfe21f5b365
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Movies_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1110" group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12193-j9q33dpc-v2/imageContent-12193-j9q33dpc-m3.png",Star Movies Select HD
+#EXTINF:-1 group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12193-j9q33dpc-v2/imageContent-12193-j9q33dpc-m3.png",Star Movies Select HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b55393cd147a54debaf2b0f2d82b5d9f&key=6b168db49241a78c1b423ab9a29409ef
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=b55393cd147a54debaf2b0f2d82b5d9f:6b168db49241a78c1b423ab9a29409ef
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Movies_Select_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="748" group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Raj_Musix.png",Raj Musix
+#EXTINF:-1 group-title="Others" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Raj_Musix.png",Raj Musix
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=7fbca27f1de95241963dbf8ad9c85ade&key=7f71987978c403c7d78fd4ae92990496
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=7fbca27f1de95241963dbf8ad9c85ade:7f71987978c403c7d78fd4ae92990496
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_Musix_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="420" group-title="Others" tvg-logo="https://tatalogo.pages.dev/199.png",Jaya Max
+#EXTINF:-1 group-title="Others" tvg-logo="https://tatalogo.pages.dev/199.png",Jaya Max
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=fac51ad9458958668729ddf5ac67a9ae&key=39fe92ea06365c6f01987739a48e9798
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=fac51ad9458958668729ddf5ac67a9ae:39fe92ea06365c6f01987739a48e9798
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_Max_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="803" group-title="Others" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Tunes_6.png",Tunes 6
+#EXTINF:-1 group-title="Others" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Tunes_6.png",Tunes 6
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b0c237a374cd57bb80afeec16f6ab680&key=08dab9f7242dbd95f1e494a96f6fdad8
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=b0c237a374cd57bb80afeec16f6ab680:08dab9f7242dbd95f1e494a96f6fdad8
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Tunes_6_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #EXTINF:-1 tvg-id="0-9-360" group-title="Backup" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-360/channel_list/360x2031c866f9b15d44e38b077973e3ab37e89",Zee Tamil HD APAC
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Tamil-APAC-HD/master/master.m3u8?hdntl=exp=1768632182~acl=%2f*~id=258952c8-88d9-4b9a-8dc1-1b2cb817f2c4~data=hdntl~hmac=a66f2b3d07c688aa2b3b14efded43f66dd511e89963c8a641b92295f4055ef74
-#EXTINF:-1 tvg-id="1158" group-title="Others" tvg-logo="https://tatalogo.pages.dev/187.png",Colors Infinity HD
+#EXTINF:-1 group-title="Others" tvg-logo="https://tatalogo.pages.dev/187.png",Colors Infinity HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=509216860f8e594aaf7e921296f53851&key=536df1e35e2bb055be0117b51db8139c
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=509216860f8e594aaf7e921296f53851:536df1e35e2bb055be0117b51db8139c
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Infinity_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #EXTINF:-1 tvg-id="0-9-zeecafehd" group-title="Others" tvg-logo="https://dvdh7g0f0hwck.cloudfront.net/assets/images/channel/ZeeCafeHD_Thumbnail_ceda2afa-65e4-4d25-98c0-750f82a0a2fc.png",Zee Café HD
@@ -234,70 +228,70 @@ https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Flix-HD/index-connected
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Prive-HD/index-connected/index-connected.m3u8?hdntl=exp=1768632182~acl=%2f*~id=258952c8-88d9-4b9a-8dc1-1b2cb817f2c4~data=hdntl~hmac=a66f2b3d07c688aa2b3b14efded43f66dd511e89963c8a641b92295f4055ef74
-#EXTINF:-1 tvg-id="1145" group-title="Others" tvg-logo="https://tatalogo.pages.dev/406.png",MTV HD
+#EXTINF:-1 group-title="Others" tvg-logo="https://tatalogo.pages.dev/406.png",MTV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=90d8713ba5e85d779d005b1f14a5bc8d&key=33650314fe1e945017640ba9878c5de9
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=90d8713ba5e85d779d005b1f14a5bc8d:33650314fe1e945017640ba9878c5de9
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/MTV_HD_Plus_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1375" group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11162-j99oso8o-v2/imageContent-11162-j99oso8o-m1.png",Disney International HD
+#EXTINF:-1 group-title="Others" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11162-j99oso8o-v2/imageContent-11162-j99oso8o-m1.png",Disney International HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=d0e021aa91c65e68a7028c2a6a762eca&key=d50822403365e360d12840251cecee84
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=d0e021aa91c65e68a7028c2a6a762eca:d50822403365e360d12840251cecee84
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Disney_International_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1226" group-title="Others" tvg-logo="https://tatalogo.pages.dev/433.png",Nick HD+
+#EXTINF:-1 group-title="Others" tvg-logo="https://tatalogo.pages.dev/433.png",Nick HD+
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=50c0ac86d9445b3a855fcabae7538aaf&key=cf79083218d809d379c2f64acbde561f
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=50c0ac86d9445b3a855fcabae7538aaf:cf79083218d809d379c2f64acbde561f
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Nick_HD_Plus_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="676" group-title="Tamil News" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/478_144.png",Sun News
+#EXTINF:-1 group-title="Tamil News" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/478_144.png",Sun News
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=e8b0b960d29658969d74da596e2787e1&key=9b4051847231c9e1fd717df5aa5e0eea
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=b9d4acedc66c5660a1e06197a55bccd2:dd53bab1a42f41ae8f0a5c8fd286f456
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Sun_News_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="673" group-title="Tamil News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/news7tamil-black.png",News7 Tamil
+#EXTINF:-1 group-title="Tamil News" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/news7tamil-black.png",News7 Tamil
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=ec09137d33685441840a6a203fb997f1&key=1f4fa4c7d54765cc7cc68b6f139aaae8
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=ec09137d33685441840a6a203fb997f1:1f4fa4c7d54765cc7cc68b6f139aaae8
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/News7_Tamil_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="830" group-title="Tamil News" tvg-logo="https://img.media.jio.com/tvpimages/72/24/300151_1733311025163_l_high.jpg",Thanthi TV
+#EXTINF:-1 group-title="Tamil News" tvg-logo="https://img.media.jio.com/tvpimages/72/24/300151_1733311025163_l_high.jpg",Thanthi TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=d1e67bdbd4cf5f7c902b52d30e5c01e8&key=850f909b3cbdba1084f393b7990f81f6
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=d1e67bdbd4cf5f7c902b52d30e5c01e8:850f909b3cbdba1084f393b7990f81f6
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Thanthi_TV_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="767" group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/525.png",Raj News 24x7
+#EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/525.png",Raj News 24x7
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=dbf09ac3d0f45b4ab418d62d206b4865&key=f440838bdffa36d041e405dc2734dab2
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=dbf09ac3d0f45b4ab418d62d206b4865:f440838bdffa36d041e405dc2734dab2
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Raj_News_24x7_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="3045" group-title="Tamil News" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/TAMILJNM_Thumbnail-v6/TAMILJNM_Thumbnail.png",Tamil Janam
+#EXTINF:-1 group-title="Tamil News" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/TAMILJNM_Thumbnail-v6/TAMILJNM_Thumbnail.png",Tamil Janam
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4de4a5c05118507d8e7e81390addc2a7&key=f80ec85f9713e4e28616d77179d414ce
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=4de4a5c05118507d8e7e81390addc2a7:f80ec85f9713e4e28616d77179d414ce
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Janam_Tamil_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="418" group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/198.png",Jaya Plus
+#EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/198.png",Jaya Plus
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=8f05deb695d2502a9cdcddc66efe0c8b&key=ac0f164b3bd469067f91ab3cd20823ef
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=8f05deb695d2502a9cdcddc66efe0c8b:ac0f164b3bd469067f91ab3cd20823ef
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jaya_Plus_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="2434" group-title="Tamil News" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240404_2024254898682553893825274.png",M Nadu
+#EXTINF:-1 group-title="Tamil News" tvg-logo="https://tataprime.files.wordpress.com/2024/04/20240404_2024254898682553893825274.png",M Nadu
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=8277ecaa8b0256daafda95d85dffd5b1&key=c6170249384b6216e90730025bc37842
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=8277ecaa8b0256daafda95d85dffd5b1:c6170249384b6216e90730025bc37842
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/M_Nadu_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1515" group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/702.png",News J
+#EXTINF:-1 group-title="Tamil News" tvg-logo="https://tatalogo.pages.dev/702.png",News J
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=581216f915e35e2e9b55ac3d55b64b5b&key=cd1fa817bf27268fb120defbd91944cc
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=581216f915e35e2e9b55ac3d55b64b5b:cd1fa817bf27268fb120defbd91944cc
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/News_J_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #EXTINF:-1 group-title="Sports HD" tvg-logo="https://raw.githubusercontent.com/abusaeeidx/Tv-Channel-Logo/heads/main/CricHD/runded/16-by-xfireflix.png",Star Sports 1 HD
@@ -312,40 +306,34 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD1_BTS/output/index.mpd?__hd
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD2_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1389" group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-31405-jm2isen4-v1/imageContent-31405-jm2isen4-m1.png",Star Sports 3
+#EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-31405-jm2isen4-v1/imageContent-31405-jm2isen4-m1.png",Star Sports 3
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=e4e8647eaf0659ac85f61765a5abcdc1&key=d749c9b27505beb0e1a8b6c30ca65de6
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=e4e8647eaf0659ac85f61765a5abcdc1:d749c9b27505beb0e1a8b6c30ca65de6
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_3_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="3277" group-title="Sports HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SS1TAMHD_Thumbnail-v1/SS1TAMHD_Thumbnail.png",Star Sports 1 Tamil HD
+#EXTINF:-1 group-title="Sports HD" tvg-logo="https://img.media.jio.com/tvpimages/50/43/302120_1753202207980_l_high.jpg",Star Sports 2 Tamil HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=2272c0bc6b2e5cb090b1f55996e0026c&key=943923934de1d5536ab01c67fca8b337
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_1_Tamil_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="3273" group-title="Sports HD" tvg-logo="https://img.media.jio.com/tvpimages/50/43/302120_1753202207980_l_high.jpg",Star Sports 2 Tamil HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=dc44fe6251825774b90d58dcfa7d94e0&key=63e3ae853f483a86752b5b9e6d61eb20
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=dc44fe6251825774b90d58dcfa7d94e0:63e3ae853f483a86752b5b9e6d61eb20
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports2_Tamil_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="875" group-title="Sports Extra" tvg-logo="https://tatalogo.pages.dev/812.png",Eurosport HD
+#EXTINF:-1 group-title="Sports Extra" tvg-logo="https://tatalogo.pages.dev/812.png",Eurosport HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=14fc31f9d832509c9f7cdd77e622e30b&key=a884515f4e1dd77f07aa100ccec13388
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=14fc31f9d832509c9f7cdd77e622e30b:a884515f4e1dd77f07aa100ccec13388
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Dsports_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="889" group-title="Sports Extra" tvg-logo="https://img.media.jio.com/imagespublic/76/16/301065_1628828382432_l_high.jpg",Jio Sports HD
+#EXTINF:-1 group-title="Sports Extra" tvg-logo="https://img.media.jio.com/imagespublic/76/16/301065_1628828382432_l_high.jpg",Jio Sports HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=a1b6b30dc43157eca6b4b23967278579&key=9410ae136ef55c73b21f9bc30630c2f7
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=a1b6b30dc43157eca6b4b23967278579:9410ae136ef55c73b21f9bc30630c2f7
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jio_Sports_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="290" group-title="Kids" tvg-logo="https://tatalogo.pages.dev/127.png",Sonic Tamil
+#EXTINF:-1 group-title="Kids" tvg-logo="https://tatalogo.pages.dev/127.png",Sonic Tamil
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=a62d4ca4ef095564bede0fe525956634&key=5e34a5126bfe29c18947046513f18cce
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=a62d4ca4ef095564bede0fe525956634:5e34a5126bfe29c18947046513f18cce
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/sonic_Tamil_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #EXTINF:-1 group-title="Kids" tvg-logo="https://tatalogo.pages.dev/239.png",Pogo
@@ -360,39 +348,22 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Pogo_Hindi_BTS/output/index.mpd?__hdnea__
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Cartoon_Network_Hindi_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1081" group-title="Kids" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-34164-jok06xoo-v1/imageContent-34164-jok06xoo-m1.png",CN HD+ Tamil
+#EXTINF:-1 group-title="Kids" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11278-j9j4h4s0-v1/imageContent-11278-j9j4h4s0-m1.png",Chutti TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=83997e19da7f5b15a53c150730a91f31&key=605f420d088427d95b55275eb174b734
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
-https://jiotvpllive.cdn.jio.com/bpk-tv/CN_HD_Tamil_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="557" group-title="Kids" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11278-j9j4h4s0-v1/imageContent-11278-j9j4h4s0-m1.png",Chutti TV
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=b6c198ef16ac5c5f8891dade7f781773&key=2be7b4ae3582fc2531dc1c36dd0fe91a
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=b6c198ef16ac5c5f8891dade7f781773:2be7b4ae3582fc2531dc1c36dd0fe91a
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Chutti_TV_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
+#EXTINF:-1 group-title="Kids" tvg-logo="https://tatalogo.pages.dev/144.png",Disney Junior
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=5181d3e6698055578cedc5bfc86b3e56&key=3dca7917d8cf9bb7095dc72b48bdcd3c
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Disney_Channel_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1374" group-title="Kids" tvg-logo="https://tatalogo.pages.dev/144.png",Disney Junior
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=1b1f9702f7d853c1b198495f64924311&key=40e11e60a12dd6c154dfea0ffbd5bda8
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=1b1f9702f7d853c1b198495f64924311:40e11e60a12dd6c154dfea0ffbd5bda8
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Disney_Junior_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1391" group-title="Kids" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11479-j9jr9a8o-v1/imageContent-11479-j9jr9a8o-m1.png",Hungama
+#EXTINF:-1 group-title="Kids" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-35365-jr3xz4uo-v5/imageContent-35365-jr3xz4uo-m6.png",Super Hungama
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=454f8353caac500d95d641e0c7cfe048&key=0aaca46ea0f5096335598781fbe590e4
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
-https://jiotvpllive.cdn.jio.com/bpk-tv/Hungama_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1392" group-title="Kids" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-35365-jr3xz4uo-v5/imageContent-35365-jr3xz4uo-m6.png",Super Hungama
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=7a450f0820c4589690eb336c29f18da6&key=820e84119563b56d6e6f0bf514cbdc3c
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=7a450f0820c4589690eb336c29f18da6:820e84119563b56d6e6f0bf514cbdc3c
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Super_Hungama_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #EXTINF:-1 group-title="Kids" tvg-logo="http://linear-poster.astro.com.my/prod/logo/logo_10000498_v1.png",Nick Jr
@@ -407,16 +378,10 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Nick_Junior_BTS/output/index.mpd?__hdnea_
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_Kids_2_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="872" group-title="Kids" tvg-logo="https://tatalogo.pages.dev/45.png",Sony Yay Hindi
+#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/616.png",History TV18 HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=d48f57d25a6b5fb3b2d38d1f8e7e25a4&key=93e43fff8c073946af5054366bc0926b
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
-https://jiotvpllive.cdn.jio.com/bpk-tv/SonyYAYHin_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="146" group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/616.png",History TV18 HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=0172b8cd13ed59349a05aadc58ae11e0&key=e4ab7836617767a2a6e7aaae17fad2b6
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=0172b8cd13ed59349a05aadc58ae11e0:e4ab7836617767a2a6e7aaae17fad2b6
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/History_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/341.png",Discovery HD World
@@ -425,16 +390,16 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/History_HD_BTS/output/index.mpd?__hdnea__
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Discovery_HD_World_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1335" group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/605.png",National Geographic HD
+#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/605.png",National Geographic HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=4b006dd7965e5777a7fa33dd636c2e5d&key=179f796bdf11b750bebd469a3aeae1d0
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=4b006dd7965e5777a7fa33dd636c2e5d:179f796bdf11b750bebd469a3aeae1d0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/National_Geographic_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="1332" group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/413.png",Nat Geo Wild HD
+#EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/413.png",Nat Geo Wild HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=45fc661aa1af51c98950c43329391d18&key=c2677c874886e78d24b3fb656c5734e0
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=45fc661aa1af51c98950c43329391d18:c2677c874886e78d24b3fb656c5734e0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Nat_Geo_Wild_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #EXTINF:-1 group-title="Infotainment HD" tvg-logo="https://tatalogo.pages.dev/130.png",Animal Planet HD World
@@ -443,22 +408,10 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Nat_Geo_Wild_HD_BTS/output/index.mpd?__hd
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Animal_Planet_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="3430" group-title="Infotainment SD" tvg-logo="https://tatalogo.pages.dev/219.png",Discovery Tamil
+#EXTINF:-1 group-title="Infotainment SD" tvg-logo="https://tatalogo.pages.dev/444.png",Travelxp Tamil
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=f91eebcabe535ca79d870938b931282a&key=9b1820ed98bde518f9150fa4170e75e8
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
-https://jiotvpllive.cdn.jio.com/bpk-tv/DiscoveryTam_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="821" group-title="Infotainment HD" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SOBB_Thumbnail-v6/SOBB_Thumbnail.png",Sony BBC Earth HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=f45e69507f0f5aa1a6e82374efb0af25&key=f84348219837769feb5a26a7b1cd31dc
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
-#EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
-https://jiotvpllive.cdn.jio.com/bpk-tv/SonyBBCEarthHin_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
-#EXTINF:-1 tvg-id="814" group-title="Infotainment SD" tvg-logo="https://tatalogo.pages.dev/444.png",Travelxp Tamil
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=422041867ef8519f80db68590dcec30c&key=7a8dac15a397d0d6286046eb0392d581
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=422041867ef8519f80db68590dcec30c:7a8dac15a397d0d6286046eb0392d581
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Travel_XP_Tamil_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #EXTINF:-1 tvg-id="0-9-348" group-title="Infotainment HD" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-348/channel_list/360x20333fcf07b744341518375ae7ae35c08c7",Zee Zest HD
@@ -466,8 +419,8 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Travel_XP_Tamil_BTS/output/index.mpd?__hd
 #EXTHTTP:{"Referer":"https://www.zee5.com/"}
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/Zee-Zest-HD/index-connected/index-connected.m3u8?hdntl=exp=1768632182~acl=%2f*~id=258952c8-88d9-4b9a-8dc1-1b2cb817f2c4~data=hdntl~hmac=a66f2b3d07c688aa2b3b14efded43f66dd511e89963c8a641b92295f4055ef74
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=6017d0514d425fa38f6e80ba6dcc852f&key=0018944b00adf2078f62386f30c68b74
-#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/824.1 ExoPlayerLib/824.0
+#KODIPROP:inputstream.adaptive.license_key=6017d0514d425fa38f6e80ba6dcc852f:0018944b00adf2078f62386f30c68b74
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 ygx/69.1 Safari/537.36
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Jio_Specials_HD_BTS/output/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 # >>> JIO_AUTO_END
@@ -585,6 +538,7 @@ https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoveryturbo2/default/manifest.mp
 #KODIPROP:inputstream.adaptive.license_key=b994480f788d41ddbc805862ac469416:78a6a0fc1758483595da7113e58e4467
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Shortstv2/default/manifest.mpd
 ========================================= SPORTS ==========================================================
+#EXTINF:-1 tvg-id="Star Sports 1 Tamil.in" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-249-j5fyl7tk-v1/imageContent-249-j5fyl7tk-m1.png" group-title="Sports Extra", Star Sports 1 Tamil
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0 (Linux; U; Android 11; Pixel 4 Build/RD2A.211001.002)
 https://tv.vaanam24.com/live.m3u8?c=STARSPORTSTAMILHD
 https://dhoomtv.xyz:443/live/8zpo3GsVY7/beneficial2concern/379753.ts
@@ -2910,6 +2864,28 @@ https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/AND-PICTURES-SD/master/mast
 #EXTINF:-1 tvg-id="0-9-channel_2105335046" tvg-name="&flix HD" tvg-language="en" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-channel_2105335046/channel_list/360x203f04326926d5b45d1992f2a05e3f89f55" group-title="Backup" group-logo="https://upload.wikimedia.org/wikipedia/commons/5/5a/Zee5-official-logo.jpeg", &flix HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Flix-HD/index-connected/index-connected.m3u8?hdntl=exp=1768632182~acl=%2f*~id=258952c8-88d9-4b9a-8dc1-1b2cb817f2c4~data=hdntl~hmac=a66f2b3d07c688aa2b3b14efded43f66dd511e89963c8a641b92295f4055ef74
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [English] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [Hindi] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [Kannada] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=kan&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [Tamil] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=tam&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [Telugu] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=tel&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [Batter Cam] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=mc_batter&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [Birdseye] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=mc_bird&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [Hero Cam] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=mc_hero&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [Stump Cam] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=mc_stump&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [English Vertical] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=eng_vlc&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5416/1768510095416-h",JioHotstar: [Hindi Vertical] Royal Challengers Bengaluru vs Gujarat Giants
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540059734&lang=hin_vlc&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/1854/1768509411854-h",JioHotstar: [English] Srinagar Ke Veer vs Tiigers of Kolkata
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540060137&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/6802/1768483516802-h",JioHotstar: [English] SF: Saurashtra vs Punjab
@@ -2918,37 +2894,43 @@ https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540060301&lang=eng&u
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540040039&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/4035/1768508284035-h",JioHotstar: [English] Pakistan vs England
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540060557&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
-#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5640/1768540675640-h",JioHotstar: [Hindi] Punjab De Sher vs Karnataka Bulldozers
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540060732&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/6247/1768509126247-h",JioHotstar: [Hindi] Telugu Warriors vs Bhojpuri Dabanggs
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540060735&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/1001/1768491891001-h",JioHotstar: [English] Australia vs Ireland
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540060920&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
-#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/225/1768492160225-h",JioHotstar: [English] Afghanistan vs South Africa
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540060923&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/1441/1762934631441-h",JioHotstar: [Hindi] Follow The Blues
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540045533&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/225/1768492160225-h",JioHotstar: [English] Afghanistan vs South Africa
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540060923&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/2214/1750777602214-h",JioHotstar: [Hindi] TATA IPL TV
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540044879&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
-#EXTINF:-1 group-title="Live Events" tvg-id="139275" tvg-name="Japan U23 Vs Jordan U23" tvg-logo="https://images.fancode.com/aig/match/v1/139275_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Japan U23 Vs Jordan U23
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/3639/1756796893639-h",JioHotstar: [Hindi] T20s TV
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540044897&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-id="138935" tvg-name="Rajshahi Warriors Vs Sylhet Titans" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138935_5808_DBR_SYL_fc-web_1766733054259.jpg" tvg-language="ENGLISH" ,ENG | Rajshahi Warriors Vs Sylhet Titans
+https://in-mc-fdlive.fancode.com/mumbai/138935_english_hls_7cc186844e13537_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139582" tvg-name="Yalla Shabab Giants Vs Oman Development Team" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Oman-Super-League-T20_FC-Web.jpg" tvg-language="ENGLISH" ,ENG | Yalla Shabab Giants Vs Oman Development Team
+https://in-mc-fdlive.fancode.com/mumbai/139582_english_hls_6ece3b177a59256_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#EXTINF:-1 group-title="Live Events" tvg-id="139275" tvg-name="Japan U23 Vs Jordan U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Japan-U23_vs_JordanU23_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Japan U23 Vs Jordan U23
 https://india-mpv2.fancode.com/out/v1/ap-south-1/139275_english_139275/ad-h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139385" tvg-name="Perth Glory Vs Brisbane Roar" tvg-logo="https://images.fancode.com/aig/match/v1/139385_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Perth Glory Vs Brisbane Roar
-https://in-mc-fdlive.fancode.com/mumbai/139385_english_hls_0ea117155f37264_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="1090499696" tvg-name="UEFA Conference League 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013427/1768475224342247_UECL26_Knockout_phase_play_off_draw_15jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Knockout Phase Play-Off Draw - 16 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022315/DAI11ME-V3/master.m3u8?hdnea=exp=1768588201~acl=/*~id=48085468579565416966489493144918~hmac=edeaecc676a7cc9c78cfaf00ff39b018320e6e5b4487d40457f12c3ea992acb3|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; LS1542QWN; Build/RKQ1.210602.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=a151aa336c821a543b553dd4ca5571d4-1768564200103
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499623" tvg-name="Pro Wrestling League 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013429/176847570074589_PWL_26_Maharashtra-Kesari-vs-Delhi-Dangal-Warrior_15jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Maharashtra Kesari vs Delhi Dangal Warriors - 16 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022320/DAI16ME-V3/master.m3u8?hdnea=exp=1768609801~acl=/*~id=86170390083724946197828420789899~hmac=5863c38a88ed499b58e0aa14a7de4c0c2761e79ab6d35a2261a394a936fbe48f|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; Infinix X626B; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=ce78f588c851b8b0887f5f6eb3a328e3-1768571400103
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499623" tvg-name="Pro Wrestling League 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013429/176847570074589_PWL_26_Maharashtra-Kesari-vs-Delhi-Dangal-Warrior_15jan_landscape_thumb.jpg" tvg-language="Hindi" ,HIN | Maharashtra Kesari vs Delhi Dangal Warriors - 16 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2037139/DAI19ME-V3/master.m3u8?hdnea=exp=1768609801~acl=/*~id=86170390083724946197828420789899~hmac=5863c38a88ed499b58e0aa14a7de4c0c2761e79ab6d35a2261a394a936fbe48f|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; Infinix X626B; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=ce78f588c851b8b0887f5f6eb3a328e3-1768571400103
 media-1/media.m3u8
 #EXTINF:-1 group-title="YouTube Live" tvg-id="Cricket_South_Africa" tvg-logo="https://i.ytimg.com/vi/MG6qgL-Bkaw/hqdefault.jpg", Cricket South Africa
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768585091/ei/IyNqae2eGfHeybgP9ZOPmAc/ip/172.183.91.35/id/MG6qgL-Bkaw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr1---sn-vgqsrnsd.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_o3158ZHjaA-Hi-sRTbj8nhVLH-_BiTcZnzYJdJILZixr3CXJ6A0V00Td1Lu8Yxsl98qA/spc/q5xjPL51xQ1s-W_ZAjxb/vprv/1/ns/_uNJMWrUKKFv4Qf-iskXrn4R/playlist_type/DVR/met/1768563491,/mh/v9/mm/44/mn/sn-vgqsrnsd/ms/lva/mv/u/mvi/1/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/yiTK-lXYqHXH1wv6u/mt/1768562610/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIhAMIlOP8FhiPZIwTqKTcuFLeq3rLYG01RoQBm5oOXdFgxAiBrDTHH3c1oNQuVaBWtKhd3VL9jHVZidg7I7qG4PTwfWQ%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIgMpaP5gKEaM2F54Omn1DZZZVRhIY0Eqgg2RcL0XswDG0CIQCV9e-TLFnefanofq1pXtceykx7CjEFEOY0cgx61iYOfA%3D%3D/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768586061/ei/7SZqaZfqFOqa2_gP6OXHyA4/ip/64.236.176.234/id/MG6qgL-Bkaw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr1---sn-vgqsrnsd.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_p8prgbFbO7XaGj0G41Wk4IrKfB3d89lI8tdKH0OubzDYErQcqRdaI5nMjKo2gNLKQ0LQ/spc/q5xjPJNnSt0fJMCM1b6b/vprv/1/ns/O8pCJCyOAErtnxcrp24AGaQR/playlist_type/DVR/met/1768564461,/mh/v9/mm/44/mn/sn-vgqsrnsd/ms/lva/mv/u/mvi/1/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/YxJEu_PNciSF4hz4O/mt/1768563689/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhAPzVDgtZEF-3_VBsIyaISQLw1SFMivSsbh6xZqu68UEMAiEA1Uimn9ctyR0eBERWqubZ5hElffsfOGp2IUExXrqxvqI%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIhAP_J5Bmd1HCA0LXqaMLfCUWkPCKEpZi7A_zlrHtUm0H8AiAJwIYQIYcKEN_kPVX8wF91i0Tua0ocyITBlvXYoO3DHA%3D%3D/playlist/index.m3u8
 #EXTINF:-1 group-title="YouTube Live" tvg-id="Cricket_South_Africa" tvg-logo="https://i.ytimg.com/vi/gP6BeISt4DY/hqdefault.jpg", Cricket South Africa
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768585102/ei/LiNqaa-EAfarvPEPvYv5oAg/ip/172.183.91.35/id/gP6BeISt4DY.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr2---sn-vgqsrnz7.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_poSUhfyx0qkKkxAYCePFHo9sW2iY50Gsnz4lVVyOz1lLJSdIc5iJaB54UHuHEPJjG7NQ/spc/q5xjPJBfAKA5lJnbaK6r/vprv/1/ns/Num7i_mVXiG01fHAVvuG9nQR/playlist_type/DVR/met/1768563502,/mh/22/mm/44/mn/sn-vgqsrnz7/ms/lva/mv/u/mvi/2/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/T_2p-eeIgX9kX-0aG/mt/1768562610/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhALgv_3F4ReeQIbgQA9TIvIKMv0mtzuqcgUZPRj76LvjTAiEAxs9L5U5fsStaz3trDAHBAMfbrtQowwnAGiyf1brPiLk%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIhAI3ON4du4wSKAkh4Dlj55okbafmhmTojJFMHVM46wBujAiALM38PG-eFgNqpEN3p3cXo8nxik_Fogy01oM3mdS6gvA%3D%3D/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768586072/ei/-CZqaf2EEdHE-coPh6SZ0QE/ip/64.236.176.234/id/gP6BeISt4DY.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr2---sn-vgqsrnz7.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_pA9opM1IGYWWuXsUIDRLRraivRh4zYyk3NMXKqogXS9IWgb_kPqM-UxqaTvILq3QbEEg/spc/q5xjPHGGrCrSDOI1epkw/vprv/1/ns/nOYDgHxsPFlhc2gBpTBKD8oR/playlist_type/DVR/met/1768564472,/mh/22/mm/44/mn/sn-vgqsrnz7/ms/lva/mv/u/mvi/2/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/BGcU-GHSJR-2dqrtw/mt/1768564223/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRAIgXOOvVUi2CkKOqVE5G8F0067r11dh8RvbCfaYiMxJiSwCIBC-62OHPue-6rfNqjllftYcC_hNSTtTckN1ycvJDHzx/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRAIgWXxAdrX0HbEY5Zr9IOzLrinqgsB7fhzj3TEtRD4VDr4CIGzz1i14OK7mBkgQed-6Z-8VFPNXOQIma7MLeBDpOebM/playlist/index.m3u8
 #EXTINF:-1 group-title="YouTube Live" tvg-id="Cricket_South_Africa" tvg-logo="https://i.ytimg.com/vi/4kJgTTsH7-o/hqdefault.jpg", Cricket South Africa
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768585112/ei/OCNqaZzyIczeybgPw--1wAI/ip/172.183.91.35/id/4kJgTTsH7-o.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr4---sn-vgqsrnll.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_pcrLIhT8jv9Y-p8fL1UaU_xJDrq40-M9hfFje142sktjA2TZfdsuG99lL5IYxMUhAWYQ/spc/q5xjPE7-o2GEC5r6wDtZ/vprv/1/ns/DzH_T_BFoLf-ksHpD6YyS5MR/playlist_type/DVR/met/1768563512,/mh/oc/mm/44/mn/sn-vgqsrnll/ms/lva/mv/u/mvi/4/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/K5ZfOkXZgmRZ8Oi6a/mt/1768562610/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhAIB_S8VheRO8fAcLW-gukaSVEHKfzPu97KpszBePG3nXAiEA2jBn9lG4j6OMnB4YrLlL0QNYD9VTHs85udJMSZMaHh0%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRAIgCRTKHcCv-zZBzmCUo_LfKKmGoaNEvZo2WHkoFn1kA4sCICYdezAHtcpjhxjxr15xxiaX4BGKZYuXxVewnpNVA3fg/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768586083/ei/Aydqae6qFpXhir4P5sms6QE/ip/64.236.176.234/id/4kJgTTsH7-o.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr4---sn-vgqsrnll.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_rJI2-HxGyvH6bdrdIrvjpW41azqTo6zN8IrcvAMPhoIogLralCWjhrfo1RX9PO92NyXg/spc/q5xjPFZMY1WYFlLbpjaA/vprv/1/ns/L91NwCbiOrHlkk11iaha5qIR/playlist_type/DVR/met/1768564483,/mh/oc/mm/44/mn/sn-vgqsrnll/ms/lva/mv/u/mvi/4/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/qL7peVN8JGBIha0O_/mt/1768563689/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIgU1EfgNTP33h3k7K1Ge7ruGbsjgkn9tSQZnB-M_zpYCkCIQC5cKHCmMPRAyGSNhuzxKKBrOYPWNtpoNKUrzV5nQwV9w%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRgIhALF-h3AlFe5jWWljcBRnPGeRuku8B0sVldACsAimNICyAiEAre3JVSFRvcBkSrdPKt3h-c8y1ig-gkuy_hjuoXo_ezI%3D/playlist/index.m3u8
 #EXTINF:-1 group-title="YouTube Live" tvg-id="Cricket_South_Africa" tvg-logo="https://i.ytimg.com/vi/Kso_0ZZIWBY/hqdefault.jpg", Cricket South Africa
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768585123/ei/QyNqad60BsOY2_gPhOC4uA4/ip/172.183.91.35/id/Kso_0ZZIWBY.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr3---sn-vgqsrnzz.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_qlw6_OSHOzpPC-ZnxaVAsWqNV5klRK_af1UCs3b2UYbJ7wkxmFoUy3v25RhNF3tRHbOg/spc/q5xjPE2Q2q-7mVYAMoIq/vprv/1/ns/0tpdXnahaPI8ZpUSrm3Sm8IR/playlist_type/DVR/met/1768563523,/mh/t7/mm/44/mn/sn-vgqsrnzz/ms/lva/mv/u/mvi/3/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/5ngveQkJ-v_Zt3fWP/mt/1768562610/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhANoP-zhdecSDuUpkZeJa62kcIDh3RehNGrhh_woWpJoCAiEA9ctsJwzhdCb4VWGdi6TGednJCoVG1Nb79Pe300uN3ws%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIgZ6rKXfflSg3mcqZWIwRpJcf7ozTLYK1XPKRdRgrHHA0CIQDlXvxm6qK7j43bhFLeyxf7DY7qrvSDloeFQ7N_lpQlXQ%3D%3D/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768586094/ei/DidqabLSE4mI-coPmKyh-AE/ip/64.236.176.234/id/Kso_0ZZIWBY.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr3---sn-vgqsrnzz.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_r_FSp_GOHBoyWJDIKNz8b377tQIMV5O5F12qnZWAVMtKhDjYsi5A_0puf48eVTv2zsng/spc/q5xjPFxrXjkMctQWLdVC/vprv/1/ns/7o5SRUU7p-AkKpvYrYjjJ_4R/playlist_type/DVR/met/1768564494,/mh/t7/mm/44/mn/sn-vgqsrnzz/ms/lva/mv/u/mvi/3/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/7jPiu8sHelaZtZVnD/mt/1768563689/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIhAIVBmdtp9wzCmfyUQDudsLDK3ir4rGNTbSIZ9xL0xoE_AiBawU8o2sb65YK4cp1I6QGw7iD0N70CWhshr_79Sv2o5A%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIhAJK-jBfSMgHwURV12g2OInandWhAWPmqGVSN2-Oe7NLZAiAitRuLo41QinCUrUDGzr6nE3kuID_vXKtYCSQyCPH5uA%3D%3D/playlist/index.m3u8
 #EXTINF:-1 group-title="YouTube Live" tvg-id="Cricket_South_Africa" tvg-logo="https://i.ytimg.com/vi/KZyZFsO4w4c/hqdefault.jpg", Cricket South Africa
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768585133/ei/TSNqaYSAL8O0lu8PrLeviQM/ip/172.183.91.35/id/KZyZFsO4w4c.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr1---sn-vgqsrnlz.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_q-jH7hT8jgPJun9wtwkuVTbO9qjd_lGi5GcpcOaA-6Sn5oNz58cvmSVvTUG-iy-aipyg/spc/q5xjPMbiiwFzlinSQFVU/vprv/1/ns/J82EeF1FHq-dnVKWPUX3VOMR/playlist_type/DVR/met/1768563533,/mh/Nm/mm/44/mn/sn-vgqsrnlz/ms/lva/mv/u/mvi/1/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/pFwyu6zVovnK0_aN1/mt/1768562859/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhAL9fWvCV4-QF-vIP9GphUTjQKcbVBTArPDn3ye1Tn6W_AiEA2LDBqPwoR0qUXtbrtdEzPmBp1Lt1ZkCaGRvq-3jfRsE%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRAIgGXU_Fc3GbJRbfj9ESUIqt9R1zD8dYuw_lHNS2BFx0S8CIAraPUTbctYNVxeCh5KrpnWUylJYFSH6nBkTNqAn9LI_/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768586105/ei/GSdqaa-SAe-tlu8PqJG76Qk/ip/64.236.176.234/id/KZyZFsO4w4c.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr1---sn-vgqsrnlz.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_oq0hRMgw-hYjk7qQOGUTcZBFob0SjqwUOqgrfSMpen_ZIOTwsig2uSObYBEoF4-VCMdw/spc/q5xjPK_qRWpjJxtlrkc9/vprv/1/ns/98yevsqh10FIUJnSOO3meZgR/playlist_type/DVR/met/1768564505,/mh/Nm/mm/44/mn/sn-vgqsrnlz/ms/lva/mv/u/mvi/1/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/a_VZutcoXJ72haNz2/mt/1768563689/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRgIhANewe4VBgVBNBzJdrVkDGd7ZJfQ3SEsvbMF-rTkn-13fAiEAzbt4yNPuzYCa_AW4wc98vs4xYm0qVZoZMBSFueEKfBg%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIgBvgUCklPAFVflQkHSUP6se95TANVOuIMpcpIf7QYHqYCIQCCwLPbKKy8r7CWVaSstUiQAMeJNWemQz9XiZfJEXgl1Q%3D%3D/playlist/index.m3u8
 #EXTINF:-1 group-title="YouTube Live" tvg-id="Cricket_South_Africa" tvg-logo="https://i.ytimg.com/vi/Ov0LX2Ei5cU/hqdefault.jpg", Cricket South Africa
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768585144/ei/WCNqacL_GquW2_gPxfnNmQY/ip/172.183.91.35/id/Ov0LX2Ei5cU.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr2---sn-vgqsrnek.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_rscYC2GH4LAYWIW73HgKdSXFmMRtAv-JsUpgq6fKGDmLygoRNzjqnHSZaB_8ZlzSG6jg/spc/q5xjPP4bEhUgP0NNfExK/vprv/1/ns/R8P-u02lQei9M2QIIuiPnCgR/playlist_type/DVR/met/1768563544,/mh/QA/mm/44/mn/sn-vgqsrnek/ms/lva/mv/u/mvi/2/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/rFFeulHI-DRPGQoEs/mt/1768562610/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRAIgM1uWdLlUJvP6-wxwviagCj_1EYcgvTC937c0c9tmgQ4CIDW9dmSD5xnK3d-iK9Q1Lcb2xWDdLie0bpWDKbo7heXo/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIhAMVGujRCl06tET_SXtaYmJMp69vp55wk408Zvm-pqu6eAiAkvRWVzpB17fZ3wPrqDuxKhnKHnKacalrZ7a9PXnVXKQ%3D%3D/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768586116/ei/JCdqaaW7BIXWybgPka2h6As/ip/64.236.176.234/id/Ov0LX2Ei5cU.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr2---sn-vgqsrnek.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/siu/1/bui/AW-iu_p4qYzucQDeaDwfA0u8_s5_pnrT6DpODvhuTFzPdPOMVvOTdFoMF0_PeSq8EXBBxYKJuw/spc/q5xjPIfh9tA54dOkvhJs/vprv/1/ns/KhSMJf6wpT_Fa74v0Fik69ER/playlist_type/DVR/met/1768564516,/mh/QA/mm/44/mn/sn-vgqsrnek/ms/lva/mv/u/mvi/2/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/RBzo-CIcmyRNHH-3c/mt/1768563689/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIgCx_NIynSe_SWkBAMM1cnUJCechrtKn-H-iaWoii2qRgCIQCAeaqjHbNl8MAwEtjyX3yCVmf82TcrQOkvfPrFb4y6sQ%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRAIgNbEGejelIv-FBtvOzsZyV5fV6xJAw88_aSlQOMlXx9kCIDgc14W3c7gINRJCUU86K5KYKcNMRGdqHI3hMGxg432f/playlist/index.m3u8
 #EXTINF:-1 group-title="YouTube Live" tvg-id="cricket.com.au" tvg-logo="https://i.ytimg.com/vi/MwGcDkj3nRw/hqdefault.jpg", cricket.com.au
-https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768585155/ei/YyNqaaHrHfuz-coPsOu_sA4/ip/172.183.91.35/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr4---sn-ojvgq5-cv.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AW-iu_rXiOHBvKN87IFoKX0oNgCj7cG4CjWJ-KTPkLRusRikEqBObC_wcUVVwH79eQKZ4ubo5w/spc/q5xjPNKhRgTOVE8PnN4y/vprv/1/ns/DQ_o1zofoZWHVbDsS-K3RtYR/playlist_type/DVR/met/1768563555,/mh/Uh/mm/44/mn/sn-ojvgq5-cv/ms/lva/mv/u/mvi/4/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/jtea-eXeQ_ZB1vKeS/mt/1768562859/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRAIgPcgHyfxynDCildRLVSygll0OQPqUQzT23J4VdNwaRmgCIGFfZnHOtFvbiae8kO4e0x9me3WrTsq8wrNkMzswCRGn/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRQIhAP9ishtcfFRGCxriX4RCmYDuCuE8YlOP7dIwYek53HM-AiBBkM7zNrh5kHiuMSEUrPPFxvHoq9cQG7Tw9UlZHC9M8A%3D%3D/playlist/index.m3u8
+https://manifest.googlevideo.com/api/manifest/hls_playlist/expire/1768586127/ei/LydqaeOtHMXrir4P2dPxyQs/ip/64.236.176.234/id/MwGcDkj3nRw.1/itag/96/source/yt_live_broadcast/requiressl/yes/ratebypass/yes/live/1/sgoap/gir%3Dyes%3Bitag%3D140/sgovp/gir%3Dyes%3Bitag%3D137/rqh/1/hls_chunk_host/rr4---sn-ojvgq5-cv.googlevideo.com/xpc/EgVo2aDSNQ%3D%3D/playlist_duration/30/manifest_duration/30/siu/1/bui/AW-iu_oOUTSM43EzBwOJw2lT5vl4NU_CSYTowjJNu3DUw9kVA3QpWBaGReuCNCgeHp85i2wjwQ/spc/q5xjPLaDpWBa-x3v34bB/vprv/1/ns/jXQ2nj3wvIxc8Eycn7-5h6QR/playlist_type/DVR/met/1768564527,/mh/Uh/mm/44/mn/sn-ojvgq5-cv/ms/lva/mv/u/mvi/4/pl/16/rms/lva,lva/dover/11/pacing/0/keepalive/yes/fexp/51552689,51565115,51565681,51580968/n/avaS-b6wyM1lvrMuH/mt/1768563689/sparams/expire,ei,ip,id,itag,source,requiressl,ratebypass,live,sgoap,sgovp,rqh,xpc,playlist_duration,manifest_duration,siu,bui,spc,vprv,ns,playlist_type/sig/AJfQdSswRQIhANzGVBUacxW8d1qAfjjDFeRpQom2PAb3gx9un2RuxHJeAiBCfC1bogo0ceVnq9pDbsS-sTsXIrRTRRocdzbt-85Ilg%3D%3D/lsparams/hls_chunk_host,met,mh,mm,mn,ms,mv,mvi,pl,rms/lsig/APaTxxMwRAIgegmA5VtGugR9NB54Bn_ZajcsgAQRDY50BWl3fABQAbICIAsQnCilKB76Dt5qPtou662Ei3PUWNlixU-q7AA2Lyt_/playlist/index.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 4k
 https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 501
