@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-16 12:30:17 IST
+# Updated on: 2026-01-16 13:16:24 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,17 +846,23 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=&xxx=||cookie=__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 16 January 2026 at 12:28:04 pm
+#DATE:- Friday, 16 January 2026 at 1:14:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138751" tvg-name="Central Stags Vs Auckland Aces" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138751_5800_CS_AA_fc-web_1766641251076.jpg" tvg-language="ENGLISH" ,ENG | Central Stags Vs Auckland Aces
 https://in-mc-fdlive.fancode.com/mumbai/138751_english_hls_9494524cbc43118_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 16-01-2026 12:20
+#EXTINF:-1 group-title="Live Events" tvg-id="138934" tvg-name="Noakhali Express Vs Chattogram Royals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138934_5808_CCH_NOE_fc-web_1766733054213.jpg" tvg-language="ENGLISH" ,ENG | Noakhali Express Vs Chattogram Royals
+https://in-mc-fdlive.fancode.com/mumbai/138934_english_hls_62a118a79b83261_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 16-01-2026 13:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499622" tvg-name="Australian Open 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013386/1768398131523642_AO26_Sinner_vs_Auger_Aliassime_op_landscape_thumb.jpg" tvg-language="English" ,ENG | Jannik Sinner vs Felix Auger-Aliassime - 16 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022316/DAI12ME-V3/master.m3u8?hdnea=exp=1768588201~acl=/*~id=48085468579565416966489493144918~hmac=edeaecc676a7cc9c78cfaf00ff39b018320e6e5b4487d40457f12c3ea992acb3|User-Agent=com.sonyliv/6.22.4 (Android 12; en_GB; Pixel 5; Build/SQ3A.220605.009.B1)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=760af42d82abf524bcb2b18ea2d87c8d-1768546200093
+https://sonymtmnew.akamaized.net/hls/live/2022316/DAI12ME-V3/master.m3u8?hdnea=exp=1768588201~acl=/*~id=48085468579565416966489493144918~hmac=edeaecc676a7cc9c78cfaf00ff39b018320e6e5b4487d40457f12c3ea992acb3|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; V2065; Build/QP1A.190711.020)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=722049b8ea8026656c1284989eefe20e-1768548600104
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499621" tvg-name="Super Smash 2025/26 Men's" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000012935/1767443521776690_SuperSmash2526_mens_Central-Stags-vs-Auckland-Aces_1jan_landscape_thumb_.jpg" tvg-language="English" ,ENG | Central Stags vs Auckland Aces - 16 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1768588201~acl=/*~id=48085468579565416966489493144918~hmac=edeaecc676a7cc9c78cfaf00ff39b018320e6e5b4487d40457f12c3ea992acb3|User-Agent=com.sonyliv/6.22.4 (Android 10; en_GB; Mi A3; Build/QKQ1.190910.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=760af42d82abf524bcb2b18ea2d87c8d-1768546200093
+https://sonymtmnew.akamaized.net/hls/live/2005444/DAI07ME-V3/master.m3u8?hdnea=exp=1768588201~acl=/*~id=48085468579565416966489493144918~hmac=edeaecc676a7cc9c78cfaf00ff39b018320e6e5b4487d40457f12c3ea992acb3|User-Agent=com.sonyliv/6.22.4 (Android 5; en_GB; SM-J200G; Build/LMY47X)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=722049b8ea8026656c1284989eefe20e-1768548600104
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-# Last Checked: 15/1/2026, 16:00:06
+#DATE:- Friday, 16 January 2026 at 1:00:11 pm
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873775" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873775/list/1920x1080list6073cadd28b64e85b9ecb14203cc5e571f1f920eba064f3c8c9589d00dff0775.jpg" tvg-language="bengali" ,BEN | Howrah Hooghly Warriors Vs Northbengal United Fc
+https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1768635003~acl=%2f*~data=hdntl~hmac=e7e8334c370bc7edf7f6a363e35c48591c7066d0b437150f6e3e2ec67dd00506|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
+#EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873775" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873775/list/1920x1080list6073cadd28b64e85b9ecb14203cc5e571f1f920eba064f3c8c9589d00dff0775.jpg" tvg-language="english" ,ENG | Howrah Hooghly Warriors Vs Northbengal United Fc
+https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M01/master.m3u8?hdntl=exp=1768635006~acl=%2f*~data=hdntl~hmac=e6a8c66f63872bdecaa776ba1654c8a4bc1ce3c2037aaf297ca4090c5c2b83de|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
 https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768588923~acl=%2f*~id=9b36c384-d999-42cb-b6eb-020ba6bb4266~data=hdntl~hmac=5f7aedbf5d5c2f5ca3cd272579bbf6706ad91f0f7f221038d1fa3de3836bcbf9|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
