@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-17 02:09:24 IST
+# Updated on: 2026-01-17 02:25:08 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=&xxx=||cookie=__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 17 January 2026 at 2:07:05 am
+#DATE:- Saturday, 17 January 2026 at 2:21:05 am
 #EXTINF:-1 group-title="Live Events" tvg-id="131029" tvg-name="Rcd Espanyol Vs Girona Fc" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131029_5427_ESL_GIR_fc-Web_1768307626387.png" tvg-language="ENGLISH" ,ENG | Rcd Espanyol Vs Girona Fc
 https://in-mc-fdlive.fancode.com/mumbai/131029_english_hls_f292527a9822857_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139913" tvg-name="West Bromwich Albion F.c. Vs Middlesbrough F.c." tvg-logo="https://images.fancode.com/aig/match/v1/139913_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | West Bromwich Albion F.c. Vs Middlesbrough F.c.
@@ -857,10 +857,10 @@ https://in-mc-fdlive.fancode.com/mumbai/139787_english_hls_b66d45021423039_1ta-d
 https://in-mc-fdlive.fancode.com/mumbai/139784_english_hls_49c050aac019248_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139778" tvg-name="Featured Group   Day 2" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Sony-Open-In-Hawaii-web_opt2.jpg" tvg-language="ENGLISH" ,ENG | Featured Group   Day 2
 https://in-mc-fdlive.fancode.com/mumbai/139778_english_hls_35c057050432718_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 17-01-2026 02:00
+#DATE:- 17-01-2026 02:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499625" tvg-name="Bundesliga 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013455/1768495550897550_bliga26_MD18_Werder_Bremen_vs_Eintracht_Frankfurt_15jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Werder Bremen vs Eintracht Frankfurt - MD 18 - 17 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768631402~acl=/*~id=92364068750443837560795343024088~hmac=4590d2962b0ef6381df67c0777ee4ca36da1e904dc25f0a5c217159f91a2aa2f|User-Agent=com.sonyliv/6.22.4 (Android 13; en_GB; CPH2195; Build/TP1A.220905.001)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=3abdd4f053c91c6cea85c7308fb31589-1768595400133
+https://sonymtmnew.akamaized.net/hls/live/2094588/DAI04ME-V3/master.m3u8?hdnea=exp=1768631402~acl=/*~id=92364068750443837560795343024088~hmac=4590d2962b0ef6381df67c0777ee4ca36da1e904dc25f0a5c217159f91a2aa2f|User-Agent=com.sonyliv/6.22.4 (Android 8; en_GB; itel A22 Pro; Build/0121)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=f404710ac147e268c50fbe2ef354cd4e-1768596600092
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 16/1/2026, 16:00:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
