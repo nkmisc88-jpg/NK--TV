@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-16 17:05:18 IST
+# Updated on: 2026-01-16 17:22:03 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,17 +846,15 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTHTTP:{"cookie":"__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac="}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd?__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=&xxx=||cookie=__hdnea__=st=1768526088~exp=1768612488~acl=/*~hmac=
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Friday, 16 January 2026 at 5:00:05 pm
-#EXTINF:-1 group-title="Live Events" tvg-id="138934" tvg-name="Noakhali Express Vs Chattogram Royals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138934_5808_CCH_NOE_fc-web_1766733054213.jpg" tvg-language="ENGLISH" ,ENG | Noakhali Express Vs Chattogram Royals
-https://in-mc-fdlive.fancode.com/mumbai/138934_english_hls_62a118a79b83261_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- Friday, 16 January 2026 at 5:21:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="139275" tvg-name="Japan U23 Vs Jordan U23" tvg-logo="https://images.fancode.com/aig/match/v1/139275_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Japan U23 Vs Jordan U23
 https://india-mpv2.fancode.com/out/v1/ap-south-1/139275_english_139275/ad-h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139385" tvg-name="Perth Glory Vs Brisbane Roar" tvg-logo="https://images.fancode.com/aig/match/v1/139385_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Perth Glory Vs Brisbane Roar
 https://in-mc-fdlive.fancode.com/mumbai/139385_english_hls_0ea117155f37264_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 16-01-2026 17:00
+#DATE:- 16-01-2026 17:20
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 #EXTINF:-1 group-title="Live Events" tvg-id="1090499696" tvg-name="UEFA Conference League 2025-26" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013427/1768475224342247_UECL26_Knockout_phase_play_off_draw_15jan_landscape_thumb.jpg" tvg-language="English" ,ENG | Knockout Phase Play-Off Draw - 16 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022315/DAI11ME-V3/master.m3u8?hdnea=exp=1768588201~acl=/*~id=48085468579565416966489493144918~hmac=edeaecc676a7cc9c78cfaf00ff39b018320e6e5b4487d40457f12c3ea992acb3|User-Agent=com.sonyliv/6.22.4 (Android 9; en_GB; 32S; Build/PPR1.180610.011)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=4985e060d72397a4058b0dba26137260-1768563000132
+https://sonymtmnew.akamaized.net/hls/live/2022315/DAI11ME-V3/master.m3u8?hdnea=exp=1768588201~acl=/*~id=48085468579565416966489493144918~hmac=edeaecc676a7cc9c78cfaf00ff39b018320e6e5b4487d40457f12c3ea992acb3|User-Agent=com.sonyliv/6.22.4 (Android 11; en_GB; LS1542QWN; Build/RKQ1.210602.002)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=a151aa336c821a543b553dd4ca5571d4-1768564200103
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
 # Last Checked: 16/1/2026, 16:00:04
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
