@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-17 16:11:25 IST
+# Updated on: 2026-01-17 16:22:56 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,17 +846,13 @@ https://jiotvbpkmob.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd
 #EXTHTTP:{"cookie":"__hdnea__=st=1768551842~exp=1768638242~acl=/*~hmac=add245a58829fa91adbcc0e33fb61ee35ae00905860614a747d0d3dcf9266f6a"}
 https://jiotvbpkmob.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 17 January 2026 at 4:07:05 pm
+#DATE:- Saturday, 17 January 2026 at 4:21:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138928" tvg-name="Rangpur Riders Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138928_5808_RAN_DC_fc-web_1766733054101.jpg" tvg-language="ENGLISH" ,ENG | Rangpur Riders Vs Dhaka Capitals
 https://in-mc-fdlive.fancode.com/mumbai/138928_english_hls_726154e96f59456_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139388" tvg-name="Adelaide United Vs Melbourne Victory" tvg-logo="https://images.fancode.com/aig/match/v1/139388_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Adelaide United Vs Melbourne Victory
-https://in-mc-fdlive.fancode.com/mumbai/139388_english_hls_f2b0edc58053350_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 17-01-2026 16:00
+#DATE:- 17-01-2026 16:20
+#No live matches.
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#EXTINF:-1 group-title="Live Events" tvg-id="1090499788" tvg-name="Australian Open 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013505/176859187516111_AO26_opening_ceremony_live_rev_landscape_thumb.jpg" tvg-language="English" ,ENG | Opening Ceremony - 17 Jan 2026
-https://sonymtmnew.akamaized.net/hls/live/2022316/DAI12ME-V3/master.m3u8?hdnea=exp=1768674601~acl=/*~id=47304047766246980596053152021877~hmac=e6827bf498a48650a2bb84fbe79bb5909ee7b016d9ae85faf47ee77fb3b2bc1f|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; 2409BRN2CY; Build/AP3A.240905.015.A2)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=39d9763f64f48783f91274038e0c7716-1768645800109
-#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 17 January 2026 at 4:00:12 pm
+#DATE:- Saturday, 17 January 2026 at 4:15:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873752" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873752/list/1920x1080list437d444ecc8b48d196c6cd8fbddb934be59d5bc7db4f4f1a9ce57bc8e9292b93.jpg" tvg-language="bengali" ,BEN | Burdwan Blasters Vs Kopa Tigers Birbhum
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M02/master.m3u8?hdntl=exp=1768732205~acl=%2f*~data=hdntl~hmac=91ef312aae01245709c1b921d9ea7e0474f069e3f3205b3d73659a6260bed343|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873752" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873752/list/1920x1080list437d444ecc8b48d196c6cd8fbddb934be59d5bc7db4f4f1a9ce57bc8e9292b93.jpg" tvg-language="english" ,ENG | Burdwan Blasters Vs Kopa Tigers Birbhum
