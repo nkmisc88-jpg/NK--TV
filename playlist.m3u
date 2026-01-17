@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-17 13:18:17 IST
+# Updated on: 2026-01-17 14:20:03 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,21 +846,23 @@ https://jiotvbpkmob.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd
 #EXTHTTP:{"cookie":"__hdnea__=st=1768551842~exp=1768638242~acl=/*~hmac=add245a58829fa91adbcc0e33fb61ee35ae00905860614a747d0d3dcf9266f6a"}
 https://jiotvbpkmob.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 17 January 2026 at 1:14:05 pm
+#DATE:- Saturday, 17 January 2026 at 2:14:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138928" tvg-name="Rangpur Riders Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138928_5808_RAN_DC_fc-web_1766733054101.jpg" tvg-language="ENGLISH" ,ENG | Rangpur Riders Vs Dhaka Capitals
 https://in-mc-fdlive.fancode.com/mumbai/138928_english_hls_726154e96f59456_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139386" tvg-name="Western Sydney Wanderers Vs Newcastle Jets" tvg-logo="https://images.fancode.com/aig/match/v1/139386_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Western Sydney Wanderers Vs Newcastle Jets
-https://in-mc-fdlive.fancode.com/mumbai/139386_english_hls_3aa57718067931_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#DATE:- 17-01-2026 08:40
-#No live matches.
+#EXTINF:-1 group-title="Live Events" tvg-id="139388" tvg-name="Adelaide United Vs Melbourne Victory" tvg-logo="https://images.fancode.com/aig/match/v1/139388_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Adelaide United Vs Melbourne Victory
+https://in-mc-fdlive.fancode.com/mumbai/139388_english_hls_f2b0edc58053350_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
+#DATE:- 17-01-2026 14:00
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 17 January 2026 at 1:15:06 pm
+#EXTINF:-1 group-title="Live Events" tvg-id="1090499788" tvg-name="Australian Open 2026" tvg-logo="https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000013505/176859187516111_AO26_opening_ceremony_live_rev_landscape_thumb.jpg" tvg-language="English" ,ENG | Opening Ceremony - 17 Jan 2026
+https://sonymtmnew.akamaized.net/hls/live/2022316/DAI12ME-V3/master.m3u8?hdnea=exp=1768674601~acl=/*~id=47304047766246980596053152021877~hmac=e6827bf498a48650a2bb84fbe79bb5909ee7b016d9ae85faf47ee77fb3b2bc1f|User-Agent=com.sonyliv/6.22.4 (Android 15; en_GB; V2237; Build/AP3A.240905.015.A2_NONFC)&Referer=https://www.sonyliv.com/&Origin=https://www.sonyliv.com&x-playback-session-id=aa7ce91c5de92958814fc9b6ab3d88a0-1768638600114
+#Written and Directed by ✨ D O C T O R - S T R A N G E ✨
+#DATE:- Saturday, 17 January 2026 at 2:15:05 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873772" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873772/list/1920x1080listea968c86594b445e840ce1814c541b4b93fce0536c31443685009c3383404c51.jpg" tvg-language="bengali" ,BEN | Jhr Royal City Fc Malda | Murshidabad Vs Fc Medinipur
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M01/master.m3u8?hdntl=exp=1768721405~acl=%2f*~data=hdntl~hmac=a2a65f442a1a6df8ccfb71b8fa553b507ba74240880298ecd3f056f6c7566904|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873772" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873772/list/1920x1080listea968c86594b445e840ce1814c541b4b93fce0536c31443685009c3383404c51.jpg" tvg-language="english" ,ENG | Jhr Royal City Fc Malda | Murshidabad Vs Fc Medinipur
 https://falconstream.zee5.com/cmaf/live/2122013/BSL-ENG-M01/master.m3u8?hdntl=exp=1768721416~acl=%2f*~data=hdntl~hmac=c95cb06a69a4556c65b91f9c1e719fe7269266127a5eb75ae018493d51f2d77a|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Tamil Extra" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/297_144.png",Zee Tamil HD
-https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768675443~acl=%2f*~id=773e2453-279e-4c5c-8da3-c43ba26c2528~data=hdntl~hmac=63b7ac8bb1bc435938865eeea65eb76874f3fbeeb4649ff3b377bdc330cefb3a|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+https://z5ak-cmaflive.zee5.com/cmaf/live/2105530/ZeeTamilHDELE/index-connected.m3u8?hdntl=exp=1768718705~acl=%2f*~id=7c8445a6-88b7-4d5d-a317-b89ea89e6445~data=hdntl~hmac=c491d0734b2f99f2d5240d388fea9689d87ff1710ba9743ae99f9e619995c190|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG",Star Sports Select 1 HD
 https://keys.vodep39240327.workers.dev/?id=460.mpd|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Sports Extra" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png",Star Sports Select 2 HD
