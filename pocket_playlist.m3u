@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-17 13:04:05 IST
+# Last Updated: 2026-01-17 13:15:31 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -2930,8 +2930,6 @@ https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540044879&lang=hin&u
 https://in-mc-fdlive.fancode.com/mumbai/138928_english_hls_726154e96f59456_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139386" tvg-name="Western Sydney Wanderers Vs Newcastle Jets" tvg-logo="https://images.fancode.com/aig/match/v1/139386_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Western Sydney Wanderers Vs Newcastle Jets
 https://in-mc-fdlive.fancode.com/mumbai/139386_english_hls_3aa57718067931_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
-#EXTINF:-1 group-title="Live Events" tvg-id="139569" tvg-name="Centre Court   Day 6" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(1)_1767943452407.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 6
-https://in-mc-fdlive.fancode.com/mumbai/139569_english_hls_a5ec19a76162560_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 media-1/media.m3u8
 #EXTINF:-1 group-title="Temporary Channels" tvg-logo="https://i.imgur.com/39s1fL3.png",Fox 4k
 https://joker-verse.vercel.app/ptv/itv/3059303.m3u8|Referer=https://joker-verse.vercel.app/&User-Agent=Mozilla/5.0
