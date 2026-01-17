@@ -1,5 +1,5 @@
 #EXTM3U
-# Updated on: 2026-01-17 17:13:43 IST
+# Updated on: 2026-01-17 17:21:31 IST
 #EXTINF:-1 group-title="Tamil HD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Sun_TV_HD.png",Sun TV HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -846,7 +846,7 @@ https://jiotvbpkmob.cdn.jio.com/bpk-tv/Udaya_HD_MOB/WDVLive/index.mpd
 #EXTHTTP:{"cookie":"__hdnea__=st=1768595103~exp=1768681503~acl=/*~hmac=a7f878c7576989759dd06229e6a857f63b8c118449647401b4604c5336f17809"}
 https://jiotvbpkmob.cdn.jio.com/bpk-tv/Surya_HD_MOB/WDVLive/index.mpd
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 17 January 2026 at 5:07:05 pm
+#DATE:- Saturday, 17 January 2026 at 5:21:04 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="138929" tvg-name="Chattogram Royals Vs Rajshahi Warriors" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138929_5808_CCH_DBR_fc-web_1766733054169.jpg" tvg-language="ENGLISH" ,ENG | Chattogram Royals Vs Rajshahi Warriors
 https://in-mc-fdlive.fancode.com/mumbai/138929_english_hls_5538690d1999247_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139277" tvg-name="Uzbekistan U23 Vs China Pr U23" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Uzbekistan-U23_vs_ChinaPR_fc-web.jpg" tvg-language="ENGLISH" ,ENG | Uzbekistan U23 Vs China Pr U23
@@ -854,7 +854,7 @@ https://in-mc-fdlive.fancode.com/mumbai/139277_english_hls_de1c6a34da85554_1ta-d
 #DATE:- 17-01-2026 16:20
 #No live matches.
 #Written and Directed by ✨ D O C T O R - S T R A N G E ✨
-#DATE:- Saturday, 17 January 2026 at 5:00:05 pm
+#DATE:- Saturday, 17 January 2026 at 5:15:06 pm
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873752" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873752/list/1920x1080list437d444ecc8b48d196c6cd8fbddb934be59d5bc7db4f4f1a9ce57bc8e9292b93.jpg" tvg-language="bengali" ,BEN | Burdwan Blasters Vs Kopa Tigers Birbhum
 https://falconstream.zee5.com/cmaf/live/2122014/BSL-BEN-M02/master.m3u8?hdntl=exp=1768732205~acl=%2f*~data=hdntl~hmac=91ef312aae01245709c1b921d9ea7e0474f069e3f3205b3d73659a6260bed343|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36&Referer=https://www.zee5.com/&Origin=https://www.zee5.com
 #EXTINF:-1 group-title="Live Events" tvg-id="0-1-6z5873752" tvg-name="Zee Entertainment Enterprises Limited" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-1-6z5873752/list/1920x1080list437d444ecc8b48d196c6cd8fbddb934be59d5bc7db4f4f1a9ce57bc8e9292b93.jpg" tvg-language="english" ,ENG | Burdwan Blasters Vs Kopa Tigers Birbhum
