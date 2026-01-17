@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Updated: 2026-01-17 11:43:08 IST
+# Last Updated: 2026-01-17 11:55:05 IST
 http://0.0.0.0
 <!DOCTYPE html>
 <html>
@@ -2910,6 +2910,8 @@ https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/AND-PICTURES-SD/master/mast
 #EXTINF:-1 tvg-id="0-9-channel_2105335046" tvg-name="&flix HD" tvg-language="en" tvg-logo="https://akamaividz2.zee5.com/image/upload/resources/0-9-channel_2105335046/channel_list/360x203f04326926d5b45d1992f2a05e3f89f55" group-title="Backup" group-logo="https://upload.wikimedia.org/wikipedia/commons/5/5a/Zee5-official-logo.jpeg", &flix HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 @joker_verse/537.36
 https://z5live-cf.zee5.com/out/v1/ZEE5_Live_Channels/And-Flix-HD/index-connected/index-connected.m3u8?hdntl=exp=1768675443~acl=%2f*~id=773e2453-279e-4c5c-8da3-c43ba26c2528~data=hdntl~hmac=63b7ac8bb1bc435938865eeea65eb76874f3fbeeb4649ff3b377bdc330cefb3a
+#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/8352/1768560198352-h",JioHotstar: [English] Adelaide Strikers vs Melbourne Renegades
+https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540060272&lang=eng&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768551842~exp=1768638242~acl=/*~hmac=add245a58829fa91adbcc0e33fb61ee35ae00905860614a747d0d3dcf9266f6a"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/5745/1750779565745-h",JioHotstar: [Hindi] Star Sports Cricket Classics
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540040039&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768551842~exp=1768638242~acl=/*~hmac=add245a58829fa91adbcc0e33fb61ee35ae00905860614a747d0d3dcf9266f6a"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/691/1768624800691-h",JioHotstar: [English] Gujarat vs Madhya Pradesh: Day 1
@@ -2918,8 +2920,8 @@ https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540060999&lang=eng&u
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540045533&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768551842~exp=1768638242~acl=/*~hmac=add245a58829fa91adbcc0e33fb61ee35ae00905860614a747d0d3dcf9266f6a"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
 #EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/2214/1750777602214-h",JioHotstar: [Hindi] TATA IPL TV
 https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540044879&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768551842~exp=1768638242~acl=/*~hmac=add245a58829fa91adbcc0e33fb61ee35ae00905860614a747d0d3dcf9266f6a"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
-#EXTINF:-1 group-title="Live Events" tvg-logo="https://img.hotstar.com/image/upload/f_auto,q_90,w_720/sources/r1/cms/prod/3639/1756796893639-h",JioHotstar: [Hindi] T20s TV
-https://jiohotstar.joker-verse.workers.dev/joker/stream?id=1540044897&lang=hin&uid=706298993&pass=ef2678f2|Cookie="__hdnea__=st=1768551842~exp=1768638242~acl=/*~hmac=add245a58829fa91adbcc0e33fb61ee35ae00905860614a747d0d3dcf9266f6a"&User-Agent="Hotstar;in.startv.hotstar/25.01.27.5.3788 (Android/13)"&Referer="https://www.hotstar.com/"
+#EXTINF:-1 group-title="Live Events" tvg-id="138928" tvg-name="Rangpur Riders Vs Dhaka Capitals" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/138928_5808_RAN_DC_fc-web_1766733054101.jpg" tvg-language="ENGLISH" ,ENG | Rangpur Riders Vs Dhaka Capitals
+https://in-mc-fdlive.fancode.com/mumbai/138928_english_hls_726154e96f59456_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139386" tvg-name="Western Sydney Wanderers Vs Newcastle Jets" tvg-logo="https://images.fancode.com/aig/match/v1/139386_CASACARDS_APP.png" tvg-language="ENGLISH" ,ENG | Western Sydney Wanderers Vs Newcastle Jets
 https://in-mc-fdlive.fancode.com/mumbai/139386_english_hls_3aa57718067931_1ta-di_h264/index.m3u8|User-Agent=ReactNativeVideo/8.4.0 (Linux;Android 13) AndroidXMedia3/1.1.1&referer=https://fancode.com/
 #EXTINF:-1 group-title="Live Events" tvg-id="139569" tvg-name="Centre Court   Day 6" tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)-(1)_1767943452407.png" tvg-language="ENGLISH" ,ENG | Centre Court   Day 6
